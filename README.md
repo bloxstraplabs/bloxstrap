@@ -25,5 +25,5 @@ Bloxstrap requires the [x86 .NET 6 Desktop Runtime](https://dotnet.microsoft.com
 As of right now, Bloxstrap is only supported for Windows. Mac support is possible, but I don't currently have a Mac to test this on.
 
 ## Contributions
-* [Roblox Studio Mod Manager](/MaximumADHD/Roblox-Studio-Mod-Manager) by [MaximumADHD](https://www.roblox.com/users/2032622/profile) - some utility code was borrowed to help with Bloxstrap's bootstrapper functionality. They're all under Bloxstrap.Helpers.RSMM, with some having slight modifications. Besides, it's a great project.
+* [Roblox Studio Mod Manager](https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager) by [MaximumADHD](https://www.roblox.com/users/2032622/profile) - some utility code was borrowed to help with Bloxstrap's bootstrapper functionality. They're all under Bloxstrap.Helpers.RSMM, with some having slight modifications. Besides, it's a great project.
 * [skulyire](https://www.roblox.com/users/2485612194/profile) - Making the Bloxstrap logo
