@@ -1,4 +1,5 @@
-# Bloxstrap
+# ![Bloxstrap](https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png) Bloxstrap
+
 An open, customizable, feature-packed alternative bootstrapper for Roblox.
  
 ## Usage
