@@ -1,6 +1,8 @@
-# ![Bloxstrap](https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png) Bloxstrap
-
-An open, customizable, feature-packed alternative bootstrapper for Roblox.
+<p align="center">
+  <img height="150" src="https://cdn.discordapp.com/attachments/865853921372012556/1005230935433814016/fulllogo.png">
+ </p>
+ 
+ <h3 align="center">An open, customizable, feature-packed alternative bootstrapper for Roblox.</h4>
  
 ## Usage
 This is intended to be a seamless replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to.
