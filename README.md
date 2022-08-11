@@ -20,7 +20,7 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 * Support for Discord Rich Presence
  
 ## Installing
-Bloxstrap requires the [x86 .NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.7-windows-x86-installer). If you don't already have it installed, you'll be prompted to install it when running Bloxstrap.
+Bloxstrap requires the [x86 .NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.8-windows-x86-installer). If you don't already have it installed, you'll be prompted to install it when running Bloxstrap.
 
 As of right now, Bloxstrap is only supported for Windows. Mac support is possible, but I don't currently have a Mac to test this on.
 
