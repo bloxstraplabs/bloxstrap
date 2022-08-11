@@ -1,3 +1,5 @@
+﻿using System.Diagnostics;
+
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.RSMM;
 
@@ -5,51 +7,45 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
     // TODO - universal implementation for winforms-based styles? (to reduce duplicate code)
 
-    // example: https://youtu.be/3K9oCEMHj2s?t=35
-
-    // so this specifically emulates the 2011 version of the legacy dialog,
-    // but once winforms code is cleaned up we could also do the 2009 version too
-    // example: https://youtu.be/VpduiruysuM?t=18
-
-    public partial class LegacyDialogStyle : Form
+    public partial class ProgressDialog : Form
     {
-        private Bootstrapper? Bootstrapper;
+        private readonly Bootstrapper? Bootstrapper;
 
-        public LegacyDialogStyle(Bootstrapper? bootstrapper = null)
+        public ProgressDialog(Bootstrapper? bootstrapper = null)
         {
             InitializeComponent();
 
-            if (bootstrapper is not null)
+            Bootstrapper = bootstrapper;
+
+            this.Text = Program.ProjectName;
+            this.Icon = IconManager.GetIconResource();
+            this.IconBox.BackgroundImage = IconManager.GetBitmapResource();
+
+            if (Bootstrapper is null)
             {
-                Bootstrapper = bootstrapper;
+                this.Message.Text = "Click the Cancel button to return to preferences";
+                this.ButtonCancel.Enabled = true;
+                this.ButtonCancel.Visible = true;
+            }
+            else
+            {
+                Bootstrapper.CloseDialogEvent += new EventHandler(CloseDialog);
                 Bootstrapper.PromptShutdownEvent += new EventHandler(PromptShutdown);
                 Bootstrapper.ShowSuccessEvent += new ChangeEventHandler<string>(ShowSuccess);
                 Bootstrapper.MessageChanged += new ChangeEventHandler<string>(MessageChanged);
                 Bootstrapper.ProgressBarValueChanged += new ChangeEventHandler<int>(ProgressBarValueChanged);
                 Bootstrapper.ProgressBarStyleChanged += new ChangeEventHandler<ProgressBarStyle>(ProgressBarStyleChanged);
                 Bootstrapper.CancelEnabledChanged += new ChangeEventHandler<bool>(CancelEnabledChanged);
-            }
 
-            Icon icon = IconManager.GetIconResource();
-
-            this.Text = Program.ProjectName;
-            this.Icon = icon;
-            this.IconBox.Image = icon.ToBitmap();
-
-            if (Bootstrapper is null)
-            {
-                this.Message.Text = "Click the Cancel button to return to preferences";
-                this.CancelButton.Enabled = true;
-                this.CancelButton.Visible = true;
-            }
-            else
-            {
                 Task.Run(() => RunBootstrapper());
             }
         }
 
         public async void RunBootstrapper()
         {
+            if (Bootstrapper is null)
+                return;
+
             try
             {
                 await Bootstrapper.Run();
@@ -82,6 +78,11 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+        }
+
+        private void CloseDialog(object? sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private void PromptShutdown(object? sender, EventArgs e)
@@ -127,7 +128,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
         {
             if (this.ProgressBar.InvokeRequired)
             {
-                ChangeEventHandler<ProgressBarStyle> handler = new(this.ProgressBarStyleChanged);
+                ChangeEventHandler<ProgressBarStyle> handler = new(ProgressBarStyleChanged);
                 this.ProgressBar.Invoke(handler, sender, e);
             }
             else
@@ -138,24 +139,34 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
         private void CancelEnabledChanged(object sender, ChangeEventArgs<bool> e)
         {
-            if (this.CancelButton.InvokeRequired)
+            if (this.ButtonCancel.InvokeRequired)
             {
                 ChangeEventHandler<bool> handler = new(CancelEnabledChanged);
-                this.CancelButton.Invoke(handler, sender, e);
+                this.ButtonCancel.Invoke(handler, sender, e);
             }
             else
             {
-                this.CancelButton.Enabled = e.Value;
-                this.CancelButton.Visible = e.Value;
+                this.ButtonCancel.Enabled = e.Value;
+                this.ButtonCancel.Visible = e.Value;
             }
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             if (Bootstrapper is null)
                 this.Close();
             else
                 Task.Run(() => Bootstrapper.CancelButtonClicked());
+        }
+
+        private void ButtonCancel_MouseEnter(object sender, EventArgs e)
+        {
+            this.ButtonCancel.Image = Properties.Resources.CancelButtonHover;
+        }
+
+        private void ButtonCancel_MouseLeave(object sender, EventArgs e)
+        {
+            this.ButtonCancel.Image = Properties.Resources.CancelButton;
         }
     }
 }

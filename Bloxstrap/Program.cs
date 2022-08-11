@@ -1,5 +1,5 @@
-using Microsoft.Win32;
 using System.Diagnostics;
+using Microsoft.Win32;
 using Bloxstrap.Helpers;
 
 namespace Bloxstrap
@@ -19,10 +19,16 @@ namespace Bloxstrap
         public static string? BaseDirectory;
         public static string LocalAppData { get; private set; }
         public static string FilePath { get; private set; }
+        public static string StartMenuDirectory { get; private set; }
         public static bool IsFirstRun { get; private set; } = false;
 
         public static SettingsFormat Settings;
         public static SettingsManager SettingsManager = new();
+
+        public static void ShowMessageBox(MessageBoxIcon icon, string message)
+        {
+            MessageBox.Show(message, Program.ProjectName, MessageBoxButtons.OK, icon);
+        }
 
         public static void Exit()
         {
@@ -40,16 +46,17 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            // ensure only one is running
-            Process[] processes = Process.GetProcessesByName(ProjectName);
-            if (processes.Length > 1)
+            if (Process.GetProcessesByName(ProjectName).Length > 1)
+            {
+                ShowMessageBox(MessageBoxIcon.Error, $"{ProjectName} is already running. Please close any currently open {ProjectName} window.\nIf you have Discord Rich Presence enabled, then close Roblox if it's running.");
                 return;
+            }
 
-            // Task.Run(() => Updater.CheckForUpdates()).Wait();
-            // return;
+            UpdateChecker.Check().Wait();
 
-            LocalAppData = Environment.GetEnvironmentVariable("localappdata");
+            LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
+            // check if installed
             RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}");
 
             if (registryKey is null)
@@ -64,18 +71,20 @@ namespace Bloxstrap
                 registryKey.Close();
             }
 
-            // selection dialog was closed
+            // preferences dialog was closed, and so base directory was never set
             // (this doesnt account for the registry value not existing but thats basically never gonna happen)
             if (BaseDirectory is null)
                 return;
 
             SettingsManager.SaveLocation = Path.Combine(BaseDirectory, "Settings.json");
             FilePath = Path.Combine(BaseDirectory, $"{ProjectName}.exe");
+            StartMenuDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", ProjectName);
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
+                UpdateChecker.CheckInstalledVersion();
                 Settings = SettingsManager.Settings;
                 SettingsManager.ShouldSave = true;
             }
@@ -107,7 +116,7 @@ namespace Bloxstrap
             }
 
             if (!String.IsNullOrEmpty(commandLine))
-                new Bootstrapper(Settings.BootstrapperStyle, commandLine);
+                new Bootstrapper().Initialize(Settings.BootstrapperStyle, commandLine);
 
             SettingsManager.Save();
         }

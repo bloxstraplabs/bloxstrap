@@ -7,9 +7,11 @@ namespace Bloxstrap
     public class SettingsFormat
     {
         public string VersionGuid { get; set; }
-        public bool UseOldDeathSound { get; set; } = true;
+
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
+        public bool UseDiscordRichPresence { get; set; } = true;
+        public bool UseOldDeathSound { get; set; } = true;
     }
 
     public class SettingsManager

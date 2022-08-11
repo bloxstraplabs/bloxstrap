@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.DialogTab = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ToggleDiscordRichPresence = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.IconPreview = new System.Windows.Forms.PictureBox();
             this.IconSelection = new System.Windows.Forms.ListBox();
@@ -38,23 +41,24 @@
             this.StyleSelection = new System.Windows.Forms.ListBox();
             this.InstallationTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ModifyDeathSoundToggle = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ToggleDeathSound = new System.Windows.Forms.CheckBox();
+            this.GroupBoxInstallLocation = new System.Windows.Forms.GroupBox();
             this.InstallLocationBrowseButton = new System.Windows.Forms.Button();
             this.InstallLocation = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.PreviewButton = new System.Windows.Forms.Button();
             this.InstallLocationBrowseDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.InfoTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.Tabs.SuspendLayout();
             this.DialogTab.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconPreview)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.InstallationTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GroupBoxInstallLocation.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +70,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 23);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Configure Preferences";
+            this.label1.Text = "Configure Bloxstrap";
             // 
             // Tabs
             // 
@@ -75,20 +79,44 @@
             this.Tabs.Location = new System.Drawing.Point(12, 40);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
-            this.Tabs.Size = new System.Drawing.Size(442, 176);
+            this.Tabs.Size = new System.Drawing.Size(442, 226);
             this.Tabs.TabIndex = 2;
             // 
             // DialogTab
             // 
+            this.DialogTab.Controls.Add(this.groupBox5);
             this.DialogTab.Controls.Add(this.groupBox3);
             this.DialogTab.Controls.Add(this.groupBox2);
             this.DialogTab.Location = new System.Drawing.Point(4, 24);
             this.DialogTab.Name = "DialogTab";
             this.DialogTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DialogTab.Size = new System.Drawing.Size(434, 148);
+            this.DialogTab.Size = new System.Drawing.Size(434, 198);
             this.DialogTab.TabIndex = 0;
             this.DialogTab.Text = "Bootstrapper";
             this.DialogTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ToggleDiscordRichPresence);
+            this.groupBox5.Location = new System.Drawing.Point(5, 146);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(422, 46);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Launch";
+            // 
+            // ToggleDiscordRichPresence
+            // 
+            this.ToggleDiscordRichPresence.AutoSize = true;
+            this.ToggleDiscordRichPresence.Checked = true;
+            this.ToggleDiscordRichPresence.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleDiscordRichPresence.Location = new System.Drawing.Point(9, 19);
+            this.ToggleDiscordRichPresence.Name = "ToggleDiscordRichPresence";
+            this.ToggleDiscordRichPresence.Size = new System.Drawing.Size(274, 19);
+            this.ToggleDiscordRichPresence.TabIndex = 0;
+            this.ToggleDiscordRichPresence.Text = "Show game activity with Discord Rich Presence";
+            this.ToggleDiscordRichPresence.UseVisualStyleBackColor = true;
+            this.ToggleDiscordRichPresence.CheckedChanged += new System.EventHandler(this.ToggleDiscordRichPresence_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -144,49 +172,49 @@
             // InstallationTab
             // 
             this.InstallationTab.Controls.Add(this.groupBox4);
-            this.InstallationTab.Controls.Add(this.groupBox1);
+            this.InstallationTab.Controls.Add(this.GroupBoxInstallLocation);
             this.InstallationTab.Location = new System.Drawing.Point(4, 24);
             this.InstallationTab.Name = "InstallationTab";
             this.InstallationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.InstallationTab.Size = new System.Drawing.Size(434, 148);
+            this.InstallationTab.Size = new System.Drawing.Size(434, 198);
             this.InstallationTab.TabIndex = 2;
             this.InstallationTab.Text = "Installation";
             this.InstallationTab.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.ModifyDeathSoundToggle);
-            this.groupBox4.Location = new System.Drawing.Point(5, 59);
+            this.groupBox4.Controls.Add(this.ToggleDeathSound);
+            this.groupBox4.Location = new System.Drawing.Point(5, 60);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(422, 84);
+            this.groupBox4.Size = new System.Drawing.Size(422, 46);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Modifications";
             // 
-            // ModifyDeathSoundToggle
+            // ToggleDeathSound
             // 
-            this.ModifyDeathSoundToggle.AutoSize = true;
-            this.ModifyDeathSoundToggle.Checked = true;
-            this.ModifyDeathSoundToggle.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ModifyDeathSoundToggle.Location = new System.Drawing.Point(9, 21);
-            this.ModifyDeathSoundToggle.Margin = new System.Windows.Forms.Padding(2);
-            this.ModifyDeathSoundToggle.Name = "ModifyDeathSoundToggle";
-            this.ModifyDeathSoundToggle.Size = new System.Drawing.Size(138, 19);
-            this.ModifyDeathSoundToggle.TabIndex = 1;
-            this.ModifyDeathSoundToggle.Text = "Use Old Death Sound";
-            this.ModifyDeathSoundToggle.UseVisualStyleBackColor = true;
-            this.ModifyDeathSoundToggle.CheckedChanged += new System.EventHandler(this.ModifyDeathSoundToggle_CheckedChanged);
+            this.ToggleDeathSound.AutoSize = true;
+            this.ToggleDeathSound.Checked = true;
+            this.ToggleDeathSound.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleDeathSound.Location = new System.Drawing.Point(9, 19);
+            this.ToggleDeathSound.Margin = new System.Windows.Forms.Padding(2);
+            this.ToggleDeathSound.Name = "ToggleDeathSound";
+            this.ToggleDeathSound.Size = new System.Drawing.Size(134, 19);
+            this.ToggleDeathSound.TabIndex = 1;
+            this.ToggleDeathSound.Text = "Use old death sound";
+            this.ToggleDeathSound.UseVisualStyleBackColor = true;
+            this.ToggleDeathSound.CheckedChanged += new System.EventHandler(this.ToggleDeathSound_CheckedChanged);
             // 
-            // groupBox1
+            // GroupBoxInstallLocation
             // 
-            this.groupBox1.Controls.Add(this.InstallLocationBrowseButton);
-            this.groupBox1.Controls.Add(this.InstallLocation);
-            this.groupBox1.Location = new System.Drawing.Point(5, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 53);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Install Location";
+            this.GroupBoxInstallLocation.Controls.Add(this.InstallLocationBrowseButton);
+            this.GroupBoxInstallLocation.Controls.Add(this.InstallLocation);
+            this.GroupBoxInstallLocation.Location = new System.Drawing.Point(5, 3);
+            this.GroupBoxInstallLocation.Name = "GroupBoxInstallLocation";
+            this.GroupBoxInstallLocation.Size = new System.Drawing.Size(422, 54);
+            this.GroupBoxInstallLocation.TabIndex = 0;
+            this.GroupBoxInstallLocation.TabStop = false;
+            this.GroupBoxInstallLocation.Text = "Install Location";
             // 
             // InstallLocationBrowseButton
             // 
@@ -225,23 +253,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.PreviewButton);
             this.panel1.Controls.Add(this.SaveButton);
-            this.panel1.Location = new System.Drawing.Point(-1, 227);
+            this.panel1.Location = new System.Drawing.Point(-1, 277);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 42);
             this.panel1.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 13);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 15);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "made by pizzaboxer - i think this works...";
             // 
             // PreviewButton
             // 
@@ -254,12 +271,18 @@
             this.PreviewButton.UseVisualStyleBackColor = true;
             this.PreviewButton.Click += new System.EventHandler(this.PreviewButton_Click);
             // 
+            // InfoTooltip
+            // 
+            this.InfoTooltip.ShowAlways = true;
+            this.InfoTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.InfoTooltip.ToolTipTitle = "Information";
+            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(464, 268);
+            this.ClientSize = new System.Drawing.Size(464, 318);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.label1);
@@ -271,16 +294,17 @@
             this.Text = "Preferences";
             this.Tabs.ResumeLayout(false);
             this.DialogTab.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IconPreview)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.InstallationTab.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GroupBoxInstallLocation.ResumeLayout(false);
+            this.GroupBoxInstallLocation.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -294,7 +318,7 @@
         private Button SaveButton;
         private Panel panel1;
         private ListBox StyleSelection;
-        private GroupBox groupBox1;
+        private GroupBox GroupBoxInstallLocation;
         private Button InstallLocationBrowseButton;
         private TextBox InstallLocation;
         private FolderBrowserDialog InstallLocationBrowseDialog;
@@ -303,8 +327,10 @@
         private PictureBox IconPreview;
         private ListBox IconSelection;
         private Button PreviewButton;
-        private Label label2;
-        private CheckBox ModifyDeathSoundToggle;
+        private CheckBox ToggleDeathSound;
         private GroupBox groupBox4;
+        private GroupBox groupBox5;
+        private CheckBox ToggleDiscordRichPresence;
+        private ToolTip InfoTooltip;
     }
 }

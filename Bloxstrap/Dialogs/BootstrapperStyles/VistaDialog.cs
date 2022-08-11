@@ -5,10 +5,6 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
     // example: https://youtu.be/h0_AL95Sc3o?t=48
 
-    // i suppose a better name for this here would be "VistaDialog" rather than "TaskDialog"?
-    // having this named as BootstrapperStyles.TaskDialog would conflict with Forms.TaskDialog
-    // so naming it VistaDialog would let us drop the ~Style suffix on every style name
-
     // this currently doesn't work because c# is stupid
     // technically, task dialogs are treated as winforms controls, but they don't classify as winforms controls at all
     // all winforms controls have the ability to be invoked from another thread, but task dialogs don't
@@ -17,12 +13,12 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
     // for now, just stick to legacydialog and progressdialog
 
-    public class TaskDialogStyle
+    public class VistaDialog
     {
-        private Bootstrapper Bootstrapper;
+        private readonly Bootstrapper Bootstrapper;
         private TaskDialogPage Dialog;
 
-        public TaskDialogStyle(Bootstrapper bootstrapper)
+        public VistaDialog(Bootstrapper bootstrapper)
         {
             Bootstrapper = bootstrapper;
             Bootstrapper.ShowSuccessEvent += new ChangeEventHandler<string>(ShowSuccess);

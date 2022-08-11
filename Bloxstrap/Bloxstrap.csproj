@@ -9,12 +9,21 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-	<Version>1.0.0</Version>
-	<FileVersion>1.0.0.0</FileVersion>
+	<Version>1.1.0</Version>
+	<FileVersion>1.1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Bloxstrap.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiscordRPC\DiscordRPC\DiscordRPC.csproj" />
   </ItemGroup>
 
   <ItemGroup>

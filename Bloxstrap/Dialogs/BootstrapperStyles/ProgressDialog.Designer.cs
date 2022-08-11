@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    partial class ProgressDialogStyle
+    partial class ProgressDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,10 @@
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.Message = new System.Windows.Forms.Label();
             this.IconBox = new System.Windows.Forms.PictureBox();
-            this.CancelButton = new System.Windows.Forms.PictureBox();
+            this.ButtonCancel = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CancelButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonCancel)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,26 +69,26 @@
             this.IconBox.TabIndex = 2;
             this.IconBox.TabStop = false;
             // 
-            // CancelButton
+            // ButtonCancel
             // 
-            this.CancelButton.Enabled = false;
-            this.CancelButton.Image = global::Bloxstrap.Properties.Resources.CancelButton;
-            this.CancelButton.Location = new System.Drawing.Point(194, 264);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(130, 44);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.TabStop = false;
-            this.CancelButton.Visible = false;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            this.CancelButton.MouseEnter += new System.EventHandler(this.CancelButton_MouseEnter);
-            this.CancelButton.MouseLeave += new System.EventHandler(this.CancelButton_MouseLeave);
+            this.ButtonCancel.Enabled = false;
+            this.ButtonCancel.Image = global::Bloxstrap.Properties.Resources.CancelButton;
+            this.ButtonCancel.Location = new System.Drawing.Point(194, 264);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(130, 44);
+            this.ButtonCancel.TabIndex = 3;
+            this.ButtonCancel.TabStop = false;
+            this.ButtonCancel.Visible = false;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
+            this.ButtonCancel.MouseEnter += new System.EventHandler(this.ButtonCancel_MouseEnter);
+            this.ButtonCancel.MouseLeave += new System.EventHandler(this.ButtonCancel_MouseLeave);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.Controls.Add(this.Message);
             this.panel1.Controls.Add(this.IconBox);
-            this.panel1.Controls.Add(this.CancelButton);
+            this.panel1.Controls.Add(this.ButtonCancel);
             this.panel1.Controls.Add(this.ProgressBar);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
@@ -109,7 +109,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgressDialogStyle";
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CancelButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ButtonCancel)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -120,7 +120,7 @@
         private ProgressBar ProgressBar;
         private Label Message;
         private PictureBox IconBox;
-        private PictureBox CancelButton;
+        private PictureBox ButtonCancel;
         private Panel panel1;
     }
 }

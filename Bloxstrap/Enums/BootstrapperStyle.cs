@@ -2,7 +2,7 @@
 {
     public enum BootstrapperStyle
     {
-        TaskDialog,
+        VistaDialog,
         LegacyDialog,
         ProgressDialog
     }

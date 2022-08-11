@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    partial class LegacyDialogStyle
+    partial class LegacyDialog
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,7 +31,7 @@
             this.Message = new System.Windows.Forms.Label();
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.IconBox = new System.Windows.Forms.PictureBox();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.ButtonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,25 +62,25 @@
             this.IconBox.TabIndex = 2;
             this.IconBox.TabStop = false;
             // 
-            // CancelButton
+            // ButtonCancel
             // 
-            this.CancelButton.Enabled = false;
-            this.CancelButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CancelButton.Location = new System.Drawing.Point(271, 83);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Visible = false;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.ButtonCancel.Enabled = false;
+            this.ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonCancel.Location = new System.Drawing.Point(271, 83);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(75, 23);
+            this.ButtonCancel.TabIndex = 3;
+            this.ButtonCancel.Text = "Cancel";
+            this.ButtonCancel.UseVisualStyleBackColor = true;
+            this.ButtonCancel.Visible = false;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // LegacyDialogStyle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 131);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.IconBox);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.Message);
@@ -103,6 +103,6 @@
         private Label Message;
         private ProgressBar ProgressBar;
         private PictureBox IconBox;
-        private Button CancelButton;
+        private Button ButtonCancel;
     }
 }
