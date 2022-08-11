@@ -14,7 +14,7 @@ namespace Bloxstrap.Helpers
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
             FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Program.FilePath);
 
-            if (installedVersionInfo != currentVersionInfo)
+            if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
             {
                 DialogResult result = MessageBox.Show(
                     $"The version of {Program.ProjectName} you've launched is newer than the version you currently have installed.\nWould you like to update your installed version of {Program.ProjectName}?",

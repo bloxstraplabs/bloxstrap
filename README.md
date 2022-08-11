@@ -15,10 +15,9 @@ Please keep in mind that **Bloxstrap is in very early development**, and you'll 
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Bootstrapper style can be customized (including being able to emulate older version looks)
-* Install location can be selected (useful if you usually install all your games on a separate drive)
-* Support for the old death sound (no messing around with your install folder, and it persists on updates!)
-
-Some more features that we hope to add include more custom styles, and Discord Rich Presence support.
+* Ability to choose where to install Roblox to
+* Old death sound can be re-enabled permanently
+* Support for Discord Rich Presence
  
 ## Installing
 Bloxstrap requires the [x86 .NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.7-windows-x86-installer). If you don't already have it installed, you'll be prompted to install it when running Bloxstrap.
