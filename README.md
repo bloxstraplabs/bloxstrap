@@ -15,6 +15,8 @@ Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstr
 Bloxstrap requires the [x86 .NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.8-windows-x86-installer). If you don't already have it installed, you'll be prompted to install it when trying to run Bloxstrap.
  
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
+
+Bloxstrap is added to your Start Menu, where you can change your preferences if needed.
  
 ## Features
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
