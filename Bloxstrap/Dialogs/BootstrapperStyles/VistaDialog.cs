@@ -3,34 +3,71 @@ using Bloxstrap.Helpers.RSMM;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    // example: https://youtu.be/h0_AL95Sc3o?t=48
+    // https://youtu.be/h0_AL95Sc3o?t=48
 
-    // this currently doesn't work because c# is stupid
-    // technically, task dialogs are treated as winforms controls, but they don't classify as winforms controls at all
-    // all winforms controls have the ability to be invoked from another thread, but task dialogs don't
-    // so we're just kind of stuck with this not working in multithreaded use
-    // (unless we want the bootstrapper to freeze during package extraction)
+    // a bit hacky, but this is actually a hidden form
+    // since taskdialog is part of winforms, it can't really be properly used without a form
+    // for example, cross-threaded calls to ui controls can't really be done outside of a form
 
-    // for now, just stick to legacydialog and progressdialog
-
-    public class VistaDialog
+    public partial class VistaDialog : BootstrapperStyleForm
     {
-        private readonly Bootstrapper Bootstrapper;
         private TaskDialogPage Dialog;
 
-        public VistaDialog(Bootstrapper bootstrapper)
+        public override string Message
         {
+            get => Dialog.Heading ?? "";
+            set => Dialog.Heading = value;
+        }
+
+        public override ProgressBarStyle ProgressStyle
+        {
+            set
+            {
+                if (Dialog.ProgressBar is null)
+                    return;
+
+                switch (value)
+                {
+                    case ProgressBarStyle.Continuous:
+                    case ProgressBarStyle.Blocks:
+                        Dialog.ProgressBar.State = TaskDialogProgressBarState.Normal;
+                        break;
+
+                    case ProgressBarStyle.Marquee:
+                        Dialog.ProgressBar.State = TaskDialogProgressBarState.Marquee;
+                        break;
+                }
+            }
+        }
+
+        public override int ProgressValue
+        {
+            get => Dialog.ProgressBar is null ? 0 : Dialog.ProgressBar.Value;
+            set
+            {
+                if (Dialog.ProgressBar is null)
+                    return;
+
+                Dialog.ProgressBar.Value = value;
+            }
+        }
+
+        public override bool CancelEnabled
+        {
+            get => Dialog.Buttons[0].Enabled;
+            set => Dialog.Buttons[0].Enabled = value;
+        }
+
+        public VistaDialog(Bootstrapper? bootstrapper = null)
+        {
+            InitializeComponent();
+
             Bootstrapper = bootstrapper;
-            Bootstrapper.ShowSuccessEvent += new ChangeEventHandler<string>(ShowSuccess);
-            Bootstrapper.MessageChanged += new ChangeEventHandler<string>(MessageChanged);
-            Bootstrapper.ProgressBarValueChanged += new ChangeEventHandler<int>(ProgressBarValueChanged);
-            Bootstrapper.ProgressBarStyleChanged += new ChangeEventHandler<ProgressBarStyle>(ProgressBarStyleChanged);
 
             Dialog = new TaskDialogPage()
             {
                 Icon = new TaskDialogIcon(IconManager.GetIconResource()),
                 Caption = Program.ProjectName,
-                Heading = "Please wait...",
 
                 Buttons = { TaskDialogButton.Cancel },
                 ProgressBar = new TaskDialogProgressBar()
@@ -39,92 +76,95 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 }
             };
 
-            Task.Run(() => RunBootstrapper());
-            TaskDialog.ShowDialog(Dialog);
+            Message = "Please wait...";
+            CancelEnabled = false;
+
+            Dialog.Buttons[0].Click += (sender, e) => ButtonCancel_Click(sender, e);
+
+            SetupDialog();
         }
 
-        public async void RunBootstrapper()
+        public override void ShowSuccess(object sender, ChangeEventArgs<string> e)
         {
-            try
+            if (this.InvokeRequired)
             {
-                await Bootstrapper.Run();
+                ChangeEventHandler<string> handler = new(ShowSuccess);
+                this.Invoke(handler, sender, e);
             }
-            catch (Exception ex)
+            else
             {
-                // string message = String.Format("{0}: {1}", ex.GetType(), ex.Message);
-                string message = ex.ToString();
-                ShowError(message);
-
-                Program.Exit();
-            }
-        }
-
-        public void ShowError(string message)
-        {
-            TaskDialogPage errorDialog = new()
-            {
-                Icon = TaskDialogIcon.Error,
-                Caption = Program.ProjectName,
-                Heading = "An error occurred while starting Roblox",
-                Buttons = { TaskDialogButton.Close },
-                Expander = new TaskDialogExpander()
+                TaskDialogPage successDialog = new()
                 {
-                    Text = message,
-                    CollapsedButtonText = "See details",
-                    ExpandedButtonText = "Hide details",
-                    Position = TaskDialogExpanderPosition.AfterText
-                }
-            };
-            
-            Dialog.Navigate(errorDialog);
-            Dialog = errorDialog;
-        }
+                    Icon = TaskDialogIcon.ShieldSuccessGreenBar,
+                    Caption = Program.ProjectName,
+                    Heading = e.Value,
+                    Buttons = { TaskDialogButton.OK }
+                };
 
-        public void ShowSuccess(object sender, ChangeEventArgs<string> e)
-        {
-            TaskDialogPage successDialog = new()
-            {
-                Icon = TaskDialogIcon.ShieldSuccessGreenBar,
-                Caption = Program.ProjectName,
-                Heading = e.Value
-            };
+                successDialog.Buttons[0].Click += (sender, e) => Program.Exit();
 
-            Dialog.Navigate(successDialog);
-            Dialog = successDialog;
-        }
-
-        private void MessageChanged(object sender, ChangeEventArgs<string> e)
-        {
-            if (Dialog is null)
-                return;
-
-            Dialog.Heading = e.Value;
-        }
-
-        private void ProgressBarValueChanged(object sender, ChangeEventArgs<int> e)
-        {
-            if (Dialog is null || Dialog.ProgressBar is null)
-                return;
-
-            Dialog.ProgressBar.Value = e.Value;
-        }
-
-        private void ProgressBarStyleChanged(object sender, ChangeEventArgs<ProgressBarStyle> e)
-        {
-            if (Dialog is null || Dialog.ProgressBar is null)
-                return;
-
-            switch (e.Value)
-            {
-                case ProgressBarStyle.Continuous:
-                case ProgressBarStyle.Blocks:
-                    Dialog.ProgressBar.State = TaskDialogProgressBarState.Normal;
-                    break;
-
-                case ProgressBarStyle.Marquee:
-                    Dialog.ProgressBar.State = TaskDialogProgressBarState.Marquee;
-                    break;
+                Dialog.Navigate(successDialog);
+                Dialog = successDialog;
             }
+        }
+
+        private void InvokeShowError(object sender, ChangeEventArgs<string> e)
+        {
+            ShowError(e.Value);
+        }
+
+        public override void ShowError(string message)
+        {
+            if (this.InvokeRequired)
+            {
+                ChangeEventHandler<string> handler = new(InvokeShowError);
+                this.Invoke(handler, this, new ChangeEventArgs<string>(message));
+            }
+            else
+            {
+                TaskDialogPage errorDialog = new()
+                {
+                    Icon = TaskDialogIcon.Error,
+                    Caption = Program.ProjectName,
+                    Heading = "An error occurred while starting Roblox",
+                    Buttons = { TaskDialogButton.Close },
+                    Expander = new TaskDialogExpander()
+                    {
+                        Text = message,
+                        CollapsedButtonText = "See details",
+                        ExpandedButtonText = "Hide details",
+                        Position = TaskDialogExpanderPosition.AfterText
+                    }
+                };
+
+                errorDialog.Buttons[0].Click += (sender, e) => Program.Exit();
+
+                Dialog.Navigate(errorDialog);
+                Dialog = errorDialog;
+            }
+        }
+
+        public override void CloseDialog(object? sender, EventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                EventHandler handler = new(CloseDialog);
+                this.Invoke(handler, sender, e);
+            }
+            else
+            {
+                if (Dialog.BoundDialog is null)
+                    return;
+                
+                Dialog.BoundDialog.Close();
+            }
+        }
+
+
+        private void TestDialog_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            TaskDialog.ShowDialog(Dialog);
         }
     }
 }

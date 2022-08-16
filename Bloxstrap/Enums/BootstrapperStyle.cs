@@ -3,7 +3,9 @@
     public enum BootstrapperStyle
     {
         VistaDialog,
-        LegacyDialog,
-        ProgressDialog
+        LegacyDialog2009,
+        LegacyDialog2011,
+        ProgressDialog,
+        ProgressDialogDark,
     }
 }

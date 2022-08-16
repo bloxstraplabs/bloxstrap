@@ -26,15 +26,23 @@ namespace Bloxstrap
             switch (bootstrapperStyle)
             {
                 case BootstrapperStyle.VistaDialog:
-                    new VistaDialog(this);
+                    Application.Run(new VistaDialog(this));
                     break;
 
-                case BootstrapperStyle.LegacyDialog:
-                    Application.Run(new LegacyDialog(this));
+                case BootstrapperStyle.LegacyDialog2009:
+                    Application.Run(new LegacyDialog2009(this));
+                    break;
+
+                case BootstrapperStyle.LegacyDialog2011:
+                    Application.Run(new LegacyDialog2011(this));
                     break;
 
                 case BootstrapperStyle.ProgressDialog:
                     Application.Run(new ProgressDialog(this));
+                    break;
+
+                case BootstrapperStyle.ProgressDialogDark:
+                    Application.Run(new ProgressDialogDark(this));
                     break;
             }
         }
@@ -136,6 +144,7 @@ namespace Bloxstrap
                         return;
 
                     CloseDialog();
+
                     await gameClient.WaitForExitAsync();
                 }
             }

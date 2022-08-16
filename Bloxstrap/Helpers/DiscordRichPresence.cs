@@ -30,6 +30,26 @@ namespace Bloxstrap.Helpers
 				placeThumbnail = thumbnailInfo["data"][0]["imageUrl"].Value<string>();
 			}
 
+			DiscordRPC.Button[]? buttons = null;
+
+			if (!Program.Settings.HideRPCButtons)
+            {
+				buttons = new DiscordRPC.Button[]
+				{
+					new DiscordRPC.Button()
+					{
+						Label = "Play",
+						Url = $"https://www.roblox.com/games/start?placeId={placeId}&launchData=%7B%7D"
+					},
+
+					new DiscordRPC.Button()
+					{
+						Label = "View Details",
+						Url = $"https://www.roblox.com/games/{placeId}"
+					}
+				};
+			}
+
 			RichPresence.Initialize();
 
 			RichPresence.SetPresence(new RichPresence()
@@ -46,20 +66,7 @@ namespace Bloxstrap.Helpers
 					SmallImageText = "Rich Presence provided by Bloxstrap"
 				},
 
-				Buttons = new DiscordRPC.Button[]
-				{
-					new DiscordRPC.Button()
-					{
-						Label = "Play",
-						Url = $"https://www.roblox.com/games/start?placeId={placeId}&launchData=%7B%7D"
-					},
-
-					new DiscordRPC.Button() 
-					{ 
-						Label = "View Details", 
-						Url = $"https://www.roblox.com/games/{placeId}"
-					}
-				}
+				Buttons = buttons
 			});
 
 			return true;

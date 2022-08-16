@@ -1,36 +1,29 @@
+﻿using System.Diagnostics;
+
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.RSMM;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    // TODO - universal implementation for winforms-based styles? (to reduce duplicate code)
-
-    // example: https://youtu.be/3K9oCEMHj2s?t=35
-
-    // so this specifically emulates the 2011 version of the legacy dialog,
-    // but once winforms code is cleaned up we could also do the 2009 version too
-    // example: https://youtu.be/VpduiruysuM?t=18
-
-    public partial class LegacyDialog : Form
+    public class BootstrapperStyleForm : Form, IBootstrapperStyle
     {
-        private readonly Bootstrapper? Bootstrapper;
+        public Bootstrapper? Bootstrapper { get; set; }
 
-        public LegacyDialog(Bootstrapper? bootstrapper = null)
+        public virtual string Message { get; set; }
+        public virtual ProgressBarStyle ProgressStyle { get; set; }
+        public virtual int ProgressValue { get; set; }
+        public virtual bool CancelEnabled { get; set; }
+
+
+        public void SetupDialog()
         {
-            InitializeComponent();
-
-            Bootstrapper = bootstrapper;
-            
-            Icon icon = IconManager.GetIconResource();
             this.Text = Program.ProjectName;
-            this.Icon = icon;
-            this.IconBox.Image = icon.ToBitmap();
+            this.Icon = IconManager.GetIconResource();
 
             if (Bootstrapper is null)
             {
-                this.Message.Text = "Click the Cancel button to return to preferences";
-                this.ButtonCancel.Enabled = true;
-                this.ButtonCancel.Visible = true;
+                Message = "Select Cancel to return to preferences";
+                CancelEnabled = true;
             }
             else
             {
@@ -46,6 +39,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
+
         public async void RunBootstrapper()
         {
             if (Bootstrapper is null)
@@ -60,22 +54,10 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 // string message = String.Format("{0}: {1}", ex.GetType(), ex.Message);
                 string message = ex.ToString();
                 ShowError(message);
-
-                Program.Exit();
             }
         }
 
-        private void ShowError(string message)
-        {
-            MessageBox.Show(
-                $"An error occurred while starting Roblox\n\nDetails: {message}", 
-                Program.ProjectName, 
-                MessageBoxButtons.OK, 
-                MessageBoxIcon.Error
-            );
-        }
-
-        private void ShowSuccess(object sender, ChangeEventArgs<string> e)
+        public virtual void ShowSuccess(object sender, ChangeEventArgs<string> e)
         {
             MessageBox.Show(
                 e.Value,
@@ -83,14 +65,36 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+
+            Program.Exit();
         }
 
-        private void CloseDialog(object? sender, EventArgs e)
+        public virtual void ShowError(string message)
         {
-            this.Close();
+            MessageBox.Show(
+                $"An error occurred while starting Roblox\n\nDetails: {message}",
+                Program.ProjectName,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            );
+
+            Program.Exit();
         }
 
-        private void PromptShutdown(object? sender, EventArgs e)
+        public virtual void CloseDialog(object? sender, EventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                EventHandler handler = new(CloseDialog);
+                this.Invoke(handler, sender, e);
+            }
+            else
+            {
+                this.Hide();
+            }
+        }
+
+        public void PromptShutdown(object? sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
                 "Roblox is currently running, but needs to close. Would you like close Roblox now?",
@@ -103,60 +107,61 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 Environment.Exit(0);
         }
 
-        private void MessageChanged(object sender, ChangeEventArgs<string> e)
+
+        public void MessageChanged(object sender, ChangeEventArgs<string> e)
         {
             if (this.InvokeRequired)
             {
                 ChangeEventHandler<string> handler = new(MessageChanged);
-                this.Message.Invoke(handler, sender, e);
+                this.Invoke(handler, sender, e);
             }
             else
             {
-                this.Message.Text = e.Value;
+                Message = e.Value;
             }
         }
 
-        private void ProgressBarValueChanged(object sender, ChangeEventArgs<int> e)
+        public void ProgressBarStyleChanged(object sender, ChangeEventArgs<ProgressBarStyle> e)
         {
-            if (this.ProgressBar.InvokeRequired)
-            {
-                ChangeEventHandler<int> handler = new(ProgressBarValueChanged);
-                this.ProgressBar.Invoke(handler, sender, e);
-            }
-            else
-            {
-                this.ProgressBar.Value = e.Value;
-            }
-        }
-
-        private void ProgressBarStyleChanged(object sender, ChangeEventArgs<ProgressBarStyle> e)
-        {
-            if (this.ProgressBar.InvokeRequired)
+            if (this.InvokeRequired)
             {
                 ChangeEventHandler<ProgressBarStyle> handler = new(this.ProgressBarStyleChanged);
-                this.ProgressBar.Invoke(handler, sender, e);
+                this.Invoke(handler, sender, e);
             }
             else
             {
-                this.ProgressBar.Style = e.Value;
+                ProgressStyle = e.Value;
             }
         }
 
-        private void CancelEnabledChanged(object sender, ChangeEventArgs<bool> e)
+        public void ProgressBarValueChanged(object sender, ChangeEventArgs<int> e)
         {
-            if (this.ButtonCancel.InvokeRequired)
+            if (this.InvokeRequired)
+            {
+                ChangeEventHandler<int> handler = new(ProgressBarValueChanged);
+                this.Invoke(handler, sender, e);
+            }
+            else
+            {
+                ProgressValue = e.Value;
+            }
+        }
+
+        public void CancelEnabledChanged(object sender, ChangeEventArgs<bool> e)
+        {
+            if (this.InvokeRequired)
             {
                 ChangeEventHandler<bool> handler = new(CancelEnabledChanged);
-                this.ButtonCancel.Invoke(handler, sender, e);
+                this.Invoke(handler, sender, e);
             }
             else
             {
-                this.ButtonCancel.Enabled = e.Value;
-                this.ButtonCancel.Visible = e.Value;
+                this.CancelEnabled = e.Value;
             }
         }
 
-        private void ButtonCancel_Click(object sender, EventArgs e)
+
+        public void ButtonCancel_Click(object? sender, EventArgs e)
         {
             if (Bootstrapper is null)
                 this.Close();

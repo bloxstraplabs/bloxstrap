@@ -33,6 +33,7 @@
             this.Tabs = new System.Windows.Forms.TabControl();
             this.DialogTab = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ToggleRPCButtons = new System.Windows.Forms.CheckBox();
             this.ToggleDiscordRichPresence = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.IconPreview = new System.Windows.Forms.PictureBox();
@@ -41,6 +42,7 @@
             this.StyleSelection = new System.Windows.Forms.ListBox();
             this.InstallationTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ToggleMouseCursor = new System.Windows.Forms.CheckBox();
             this.ToggleDeathSound = new System.Windows.Forms.CheckBox();
             this.GroupBoxInstallLocation = new System.Windows.Forms.GroupBox();
             this.InstallLocationBrowseButton = new System.Windows.Forms.Button();
@@ -79,7 +81,7 @@
             this.Tabs.Location = new System.Drawing.Point(12, 40);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
-            this.Tabs.Size = new System.Drawing.Size(442, 226);
+            this.Tabs.Size = new System.Drawing.Size(442, 247);
             this.Tabs.TabIndex = 2;
             // 
             // DialogTab
@@ -90,20 +92,32 @@
             this.DialogTab.Location = new System.Drawing.Point(4, 24);
             this.DialogTab.Name = "DialogTab";
             this.DialogTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DialogTab.Size = new System.Drawing.Size(434, 198);
+            this.DialogTab.Size = new System.Drawing.Size(434, 219);
             this.DialogTab.TabIndex = 0;
             this.DialogTab.Text = "Bootstrapper";
             this.DialogTab.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.ToggleRPCButtons);
             this.groupBox5.Controls.Add(this.ToggleDiscordRichPresence);
             this.groupBox5.Location = new System.Drawing.Point(5, 146);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(422, 46);
+            this.groupBox5.Size = new System.Drawing.Size(422, 67);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Launch";
+            this.groupBox5.Text = "Discord Rich Presence";
+            // 
+            // ToggleRPCButtons
+            // 
+            this.ToggleRPCButtons.AutoSize = true;
+            this.ToggleRPCButtons.Location = new System.Drawing.Point(9, 40);
+            this.ToggleRPCButtons.Name = "ToggleRPCButtons";
+            this.ToggleRPCButtons.Size = new System.Drawing.Size(196, 19);
+            this.ToggleRPCButtons.TabIndex = 1;
+            this.ToggleRPCButtons.Text = "Hide activity interaction buttons";
+            this.ToggleRPCButtons.UseVisualStyleBackColor = true;
+            this.ToggleRPCButtons.CheckedChanged += new System.EventHandler(this.ToggleRPCButtons_CheckedChanged);
             // 
             // ToggleDiscordRichPresence
             // 
@@ -112,9 +126,9 @@
             this.ToggleDiscordRichPresence.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToggleDiscordRichPresence.Location = new System.Drawing.Point(9, 19);
             this.ToggleDiscordRichPresence.Name = "ToggleDiscordRichPresence";
-            this.ToggleDiscordRichPresence.Size = new System.Drawing.Size(274, 19);
+            this.ToggleDiscordRichPresence.Size = new System.Drawing.Size(129, 19);
             this.ToggleDiscordRichPresence.TabIndex = 0;
-            this.ToggleDiscordRichPresence.Text = "Show game activity with Discord Rich Presence";
+            this.ToggleDiscordRichPresence.Text = "Show game activity";
             this.ToggleDiscordRichPresence.UseVisualStyleBackColor = true;
             this.ToggleDiscordRichPresence.CheckedChanged += new System.EventHandler(this.ToggleDiscordRichPresence_CheckedChanged);
             // 
@@ -176,20 +190,33 @@
             this.InstallationTab.Location = new System.Drawing.Point(4, 24);
             this.InstallationTab.Name = "InstallationTab";
             this.InstallationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.InstallationTab.Size = new System.Drawing.Size(434, 198);
+            this.InstallationTab.Size = new System.Drawing.Size(434, 219);
             this.InstallationTab.TabIndex = 2;
             this.InstallationTab.Text = "Installation";
             this.InstallationTab.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.ToggleMouseCursor);
             this.groupBox4.Controls.Add(this.ToggleDeathSound);
             this.groupBox4.Location = new System.Drawing.Point(5, 60);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(422, 46);
+            this.groupBox4.Size = new System.Drawing.Size(422, 65);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Modifications";
+            // 
+            // ToggleMouseCursor
+            // 
+            this.ToggleMouseCursor.AutoSize = true;
+            this.ToggleMouseCursor.Location = new System.Drawing.Point(9, 40);
+            this.ToggleMouseCursor.Margin = new System.Windows.Forms.Padding(2);
+            this.ToggleMouseCursor.Name = "ToggleMouseCursor";
+            this.ToggleMouseCursor.Size = new System.Drawing.Size(140, 19);
+            this.ToggleMouseCursor.TabIndex = 2;
+            this.ToggleMouseCursor.Text = "Use old mouse cursor";
+            this.ToggleMouseCursor.UseVisualStyleBackColor = true;
+            this.ToggleMouseCursor.CheckedChanged += new System.EventHandler(this.ToggleMouseCursor_CheckedChanged);
             // 
             // ToggleDeathSound
             // 
@@ -214,7 +241,7 @@
             this.GroupBoxInstallLocation.Size = new System.Drawing.Size(422, 54);
             this.GroupBoxInstallLocation.TabIndex = 0;
             this.GroupBoxInstallLocation.TabStop = false;
-            this.GroupBoxInstallLocation.Text = "Install Location";
+            this.GroupBoxInstallLocation.Text = "Location";
             // 
             // InstallLocationBrowseButton
             // 
@@ -252,10 +279,9 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.PreviewButton);
             this.panel1.Controls.Add(this.SaveButton);
-            this.panel1.Location = new System.Drawing.Point(-1, 277);
+            this.panel1.Location = new System.Drawing.Point(-1, 298);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 42);
             this.panel1.TabIndex = 6;
@@ -282,7 +308,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(464, 318);
+            this.ClientSize = new System.Drawing.Size(464, 339);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.label1);
@@ -332,5 +358,7 @@
         private GroupBox groupBox5;
         private CheckBox ToggleDiscordRichPresence;
         private ToolTip InfoTooltip;
+        private CheckBox ToggleMouseCursor;
+        private CheckBox ToggleRPCButtons;
     }
 }

@@ -91,8 +91,11 @@ namespace Bloxstrap
                         File.Delete(filename);
                 }
 
-                // and also to delete our old version folder
-                Directory.Delete(Path.Combine(Program.BaseDirectory, "Versions", Program.Settings.VersionGuid), true);
+                if (VersionGuid != Program.Settings.VersionGuid)
+                {
+                    // and also to delete our old version folder
+                    Directory.Delete(Path.Combine(Program.BaseDirectory, "Versions", Program.Settings.VersionGuid), true);
+                }
             }
 
             CancelEnabled = false;
@@ -115,6 +118,7 @@ namespace Bloxstrap
             // but for now, let's just keep it at this
 
             await ModifyDeathSound();
+            await ModifyMouseCursor();
         }
 
         private async void DownloadPackage(Package package)
@@ -201,6 +205,37 @@ namespace Bloxstrap
                         File.Delete(extractPath);
 
                     entry.ExtractToFile(extractPath);
+                }
+            }
+        }
+
+        private void ExtractFilesFromPackage(string packageName, string[] files)
+        {
+            Package? package = VersionPackageManifest.Find(x => x.Name == packageName);
+
+            if (package is null)
+                return;
+
+            DownloadPackage(package);
+
+            string packageLocation = Path.Combine(DownloadsFolder, package.Signature);
+            string packageFolder = Path.Combine(VersionFolder, PackageDirectories[package.Name]);
+
+            using (ZipArchive archive = ZipFile.OpenRead(packageLocation))
+            {
+                foreach (string fileName in files)
+                {
+                    ZipArchiveEntry? entry = archive.Entries.Where(x => x.FullName == fileName).FirstOrDefault();
+
+                    if (entry is null)
+                        return;
+
+                    string fileLocation = Path.Combine(packageFolder, entry.FullName);
+
+                    if (File.Exists(fileLocation))
+                        File.Delete(fileLocation);
+
+                    entry.ExtractToFile(fileLocation);
                 }
             }
         }

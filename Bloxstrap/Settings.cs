@@ -11,13 +11,16 @@ namespace Bloxstrap
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
         public bool UseDiscordRichPresence { get; set; } = true;
+        public bool HideRPCButtons { get; set; } = false;
         public bool UseOldDeathSound { get; set; } = true;
+        public bool UseOldMouseCursor { get; set; } = false;
     }
 
     public class SettingsManager
     {
         public SettingsFormat Settings = new();
         public bool ShouldSave = false;
+        private bool IsSaving = false;
 
         private string _saveLocation;
         public string SaveLocation
@@ -52,6 +55,17 @@ namespace Bloxstrap
 
         public void Save()
         {
+            if (IsSaving)
+            {
+                // sometimes Save() is called at the same time from both Main() and Exit(),
+                // so this is here to avoid the program exiting before saving
+
+                Thread.Sleep(1000);
+                return;
+            }
+
+            IsSaving = true;
+
             Debug.WriteLine("Attempting to save...");
 
             string SettingsJson = JsonSerializer.Serialize(Settings, new JsonSerializerOptions { WriteIndented = true });
@@ -65,6 +79,8 @@ namespace Bloxstrap
 
             // save settings
             File.WriteAllText(SaveLocation, SettingsJson);
+
+            IsSaving = false;
         }
     }
 }

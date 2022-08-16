@@ -81,8 +81,6 @@ namespace Bloxstrap
 
             CheckIfRunning();
 
-            // lots of try/catches here... lol
-
             Message = $"Uninstalling {Program.ProjectName}...";
 
             Program.SettingsManager.ShouldSave = false;
@@ -122,7 +120,6 @@ namespace Bloxstrap
             catch (Exception) { }
 
             ShowSuccess($"{Program.ProjectName} has been uninstalled");
-            Program.Exit();
         }
     }
 }

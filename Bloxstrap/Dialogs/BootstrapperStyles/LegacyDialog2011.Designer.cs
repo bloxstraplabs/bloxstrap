@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    partial class LegacyDialog
+    partial class LegacyDialog2011
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Message = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
             this.ProgressBar = new System.Windows.Forms.ProgressBar();
             this.IconBox = new System.Windows.Forms.PictureBox();
-            this.ButtonCancel = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // Message
+            // labelMessage
             // 
-            this.Message.Location = new System.Drawing.Point(55, 23);
-            this.Message.Name = "Message";
-            this.Message.Size = new System.Drawing.Size(287, 17);
-            this.Message.TabIndex = 0;
-            this.Message.Text = "Please wait...";
+            this.labelMessage.Location = new System.Drawing.Point(55, 23);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(287, 17);
+            this.labelMessage.TabIndex = 0;
+            this.labelMessage.Text = "Please wait...";
             // 
             // ProgressBar
             // 
@@ -62,37 +62,37 @@
             this.IconBox.TabIndex = 2;
             this.IconBox.TabStop = false;
             // 
-            // ButtonCancel
+            // buttonCancel
             // 
-            this.ButtonCancel.Enabled = false;
-            this.ButtonCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ButtonCancel.Location = new System.Drawing.Point(271, 83);
-            this.ButtonCancel.Name = "ButtonCancel";
-            this.ButtonCancel.Size = new System.Drawing.Size(75, 23);
-            this.ButtonCancel.TabIndex = 3;
-            this.ButtonCancel.Text = "Cancel";
-            this.ButtonCancel.UseVisualStyleBackColor = true;
-            this.ButtonCancel.Visible = false;
-            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
+            this.buttonCancel.Enabled = false;
+            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(271, 83);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // LegacyDialogStyle
+            // LegacyDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 131);
-            this.Controls.Add(this.ButtonCancel);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.IconBox);
             this.Controls.Add(this.ProgressBar);
-            this.Controls.Add(this.Message);
+            this.Controls.Add(this.labelMessage);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(378, 170);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(378, 170);
-            this.Name = "LegacyDialogStyle";
+            this.Name = "LegacyDialog2011";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LegacyDialogStyle";
+            this.Text = "LegacyDialog2011";
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -100,9 +100,9 @@
 
         #endregion
 
-        private Label Message;
+        private Label labelMessage;
         private ProgressBar ProgressBar;
         private PictureBox IconBox;
-        private Button ButtonCancel;
+        private Button buttonCancel;
     }
 }

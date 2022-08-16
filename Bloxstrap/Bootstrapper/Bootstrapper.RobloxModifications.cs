@@ -1,6 +1,4 @@
-﻿using System.IO.Compression;
-
-using Bloxstrap.Helpers;
+﻿using Bloxstrap.Helpers;
 
 namespace Bloxstrap
 {
@@ -12,10 +10,10 @@ namespace Bloxstrap
             string fileContentLocation = "content\\sounds\\ouch.ogg";
             string fileLocation = Path.Combine(VersionFolder, fileContentLocation);
 
-            string officialDeathSoundHash = VersionFileManifest[fileContentLocation];
-            string currentDeathSoundHash = Utilities.CalculateMD5(fileLocation);
+            string officialHash = VersionFileManifest[fileContentLocation];
+            string currentHash = Utilities.CalculateMD5(fileLocation);
 
-            if (Program.Settings.UseOldDeathSound && currentDeathSoundHash == officialDeathSoundHash)
+            if (Program.Settings.UseOldDeathSound && currentHash == officialHash)
             {
                 // let's get the old one!
 
@@ -29,33 +27,37 @@ namespace Bloxstrap
                     await response.Content.CopyToAsync(fileStream);
                 }
             }
-            else if (!Program.Settings.UseOldDeathSound && currentDeathSoundHash != officialDeathSoundHash)
+            else if (!Program.Settings.UseOldDeathSound && currentHash != officialHash)
             {
                 // who's lame enough to ever do this?
                 // well, we need to re-extract the one that's in the content-sounds.zip package
 
-                var package = VersionPackageManifest.Find(x => x.Name == "content-sounds.zip");
+                string[] files = { fileContentName };
+                ExtractFilesFromPackage("content-sounds.zip", files);
+            }
+        }
 
-                if (package is null)
-                    return;
+        private async Task ModifyMouseCursor()
+        {
+            string baseFolder = Path.Combine(VersionFolder, "content\\textures\\");
+            
+            string arrowCursor = "Cursors\\KeyboardMouse\\ArrowCursor.png";
+            string arrowFarCursor = "Cursors\\KeyboardMouse\\ArrowFarCursor.png";
 
-                DownloadPackage(package);
+            string officialHash = VersionFileManifest["content\\textures\\Cursors\\KeyboardMouse\\ArrowCursor.png"];
+            string currentHash = Utilities.CalculateMD5(Path.Combine(baseFolder, arrowCursor));
 
-                string packageLocation = Path.Combine(DownloadsFolder, package.Signature);
-                string packageFolder = Path.Combine(VersionFolder, PackageDirectories[package.Name]);
+            if (Program.Settings.UseOldMouseCursor && currentHash == officialHash)
+            {
+                // the old cursors are actually still in the content\textures\ folder, so we can just get them from there
 
-                using (ZipArchive archive = ZipFile.OpenRead(packageLocation))
-                {
-                    ZipArchiveEntry? entry = archive.Entries.Where(x => x.FullName == fileContentName).FirstOrDefault();
-
-                    if (entry is null)
-                        return;
-
-                    if (File.Exists(fileLocation))
-                        File.Delete(fileLocation);
-
-                    entry.ExtractToFile(fileLocation);
-                }
+                File.Copy(Path.Combine(baseFolder, "ArrowCursor.png"), Path.Combine(baseFolder, arrowCursor), true);
+                File.Copy(Path.Combine(baseFolder, "ArrowFarCursor.png"), Path.Combine(baseFolder, arrowFarCursor), true);
+            }
+            else if (!Program.Settings.UseOldMouseCursor && currentHash != officialHash)
+            {
+                string[] files = { arrowCursor, arrowFarCursor };
+                ExtractFilesFromPackage("content-textures2.zip", files);
             }
         }
     }

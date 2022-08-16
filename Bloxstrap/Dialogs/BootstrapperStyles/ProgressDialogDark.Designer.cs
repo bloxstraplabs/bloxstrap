@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    partial class ProgressDialog
+    partial class ProgressDialogDark
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             // labelMessage
             // 
             this.labelMessage.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelMessage.ForeColor = System.Drawing.SystemColors.Window;
             this.labelMessage.Location = new System.Drawing.Point(29, 199);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(460, 18);
@@ -72,7 +73,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Enabled = false;
-            this.buttonCancel.Image = global::Bloxstrap.Properties.Resources.CancelButton;
+            this.buttonCancel.Image = global::Bloxstrap.Properties.Resources.DarkCancelButton;
             this.buttonCancel.Location = new System.Drawing.Point(194, 264);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(130, 44);
@@ -85,7 +86,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(37)))), ((int)(((byte)(39)))));
             this.panel1.Controls.Add(this.labelMessage);
             this.panel1.Controls.Add(this.IconBox);
             this.panel1.Controls.Add(this.buttonCancel);
@@ -95,17 +96,17 @@
             this.panel1.Size = new System.Drawing.Size(518, 318);
             this.panel1.TabIndex = 4;
             // 
-            // ProgressDialog
+            // ProgressDialogDark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(520, 320);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(520, 320);
             this.MinimumSize = new System.Drawing.Size(520, 320);
-            this.Name = "ProgressDialog";
+            this.Name = "ProgressDialogDark";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgressDialog";
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
