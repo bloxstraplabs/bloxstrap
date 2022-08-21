@@ -13,13 +13,13 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
     {
         private TaskDialogPage Dialog;
 
-        public override string Message
+        protected override string _message
         {
             get => Dialog.Heading ?? "";
             set => Dialog.Heading = value;
         }
 
-        public override ProgressBarStyle ProgressStyle
+        protected override ProgressBarStyle _progressStyle
         {
             set
             {
@@ -40,7 +40,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
-        public override int ProgressValue
+        protected override int _progressValue
         {
             get => Dialog.ProgressBar is null ? 0 : Dialog.ProgressBar.Value;
             set
@@ -52,7 +52,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
-        public override bool CancelEnabled
+        protected override bool _cancelEnabled
         {
             get => Dialog.Buttons[0].Enabled;
             set => Dialog.Buttons[0].Enabled = value;
@@ -76,20 +76,19 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 }
             };
 
-            Message = "Please wait...";
-            CancelEnabled = false;
+            _message = "Please wait...";
+            _cancelEnabled = false;
 
             Dialog.Buttons[0].Click += (sender, e) => ButtonCancel_Click(sender, e);
 
             SetupDialog();
         }
 
-        public override void ShowSuccess(object sender, ChangeEventArgs<string> e)
+        public override void ShowSuccess(string message)
         {
             if (this.InvokeRequired)
             {
-                ChangeEventHandler<string> handler = new(ShowSuccess);
-                this.Invoke(handler, sender, e);
+                this.Invoke(ShowSuccess, message);
             }
             else
             {
@@ -97,7 +96,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 {
                     Icon = TaskDialogIcon.ShieldSuccessGreenBar,
                     Caption = Program.ProjectName,
-                    Heading = e.Value,
+                    Heading = message,
                     Buttons = { TaskDialogButton.OK }
                 };
 
@@ -108,17 +107,11 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
-        private void InvokeShowError(object sender, ChangeEventArgs<string> e)
-        {
-            ShowError(e.Value);
-        }
-
         public override void ShowError(string message)
         {
             if (this.InvokeRequired)
             {
-                ChangeEventHandler<string> handler = new(InvokeShowError);
-                this.Invoke(handler, this, new ChangeEventArgs<string>(message));
+                this.Invoke(ShowError, message);
             }
             else
             {
@@ -144,12 +137,11 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
-        public override void CloseDialog(object? sender, EventArgs e)
+        public override void CloseDialog()
         {
             if (this.InvokeRequired)
             {
-                EventHandler handler = new(CloseDialog);
-                this.Invoke(handler, sender, e);
+                this.Invoke(CloseDialog);
             }
             else
             {

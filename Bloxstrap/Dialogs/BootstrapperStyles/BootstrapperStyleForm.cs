@@ -7,11 +7,58 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
     {
         public Bootstrapper? Bootstrapper { get; set; }
 
-        public virtual string Message { get; set; }
-        public virtual ProgressBarStyle ProgressStyle { get; set; }
-        public virtual int ProgressValue { get; set; }
-        public virtual bool CancelEnabled { get; set; }
+        protected virtual string _message { get; set; }
+        protected virtual ProgressBarStyle _progressStyle { get; set; }
+        protected virtual int _progressValue { get; set; }
+        protected virtual bool _cancelEnabled { get; set; }
 
+        public string Message 
+        { 
+            get => _message; 
+            set 
+            { 
+                if (this.InvokeRequired)
+                    this.Invoke(new Action(() => { Message = value; }));
+                else
+                    _message = value;
+            } 
+        }
+
+        public ProgressBarStyle ProgressStyle
+        {
+            get => _progressStyle;
+            set
+            {
+                if (this.InvokeRequired)
+                    this.Invoke(new Action(() => { ProgressStyle = value; }));
+                else
+                    _progressStyle = value;
+            }
+        }
+
+        public int ProgressValue
+        {
+            get => _progressValue;
+            set
+            {
+                if (this.InvokeRequired)
+                    this.Invoke(new Action(() => { ProgressValue = value; }));
+                else
+                    _progressValue = value;
+            }
+        }
+
+        public bool CancelEnabled
+        {
+            get => _cancelEnabled;
+            set
+            {
+                if (this.InvokeRequired)
+                    this.Invoke(new Action(() => { CancelEnabled = value; }));
+                else
+                    _cancelEnabled = value;
+            }
+        }
 
         public void SetupDialog()
         {
@@ -25,14 +72,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
             else
             {
-                Bootstrapper.CloseDialogEvent += new EventHandler(CloseDialog);
-                Bootstrapper.PromptShutdownEvent += new EventHandler(PromptShutdown);
-                Bootstrapper.ShowSuccessEvent += new ChangeEventHandler<string>(ShowSuccess);
-                Bootstrapper.MessageChanged += new ChangeEventHandler<string>(MessageChanged);
-                Bootstrapper.ProgressBarValueChanged += new ChangeEventHandler<int>(ProgressBarValueChanged);
-                Bootstrapper.ProgressBarStyleChanged += new ChangeEventHandler<ProgressBarStyle>(ProgressBarStyleChanged);
-                Bootstrapper.CancelEnabledChanged += new ChangeEventHandler<bool>(CancelEnabledChanged);
-
+                Bootstrapper.Dialog = this;
                 Task.Run(() => RunBootstrapper());
             }
         }
@@ -55,10 +95,10 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             }
         }
 
-        public virtual void ShowSuccess(object sender, ChangeEventArgs<string> e)
+        public virtual void ShowSuccess(string message)
         {
             MessageBox.Show(
-                e.Value,
+                message,
                 Program.ProjectName,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
@@ -79,20 +119,15 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             Program.Exit();
         }
 
-        public virtual void CloseDialog(object? sender, EventArgs e)
+        public virtual void CloseDialog()
         {
             if (this.InvokeRequired)
-            {
-                EventHandler handler = new(CloseDialog);
-                this.Invoke(handler, sender, e);
-            }
+                this.Invoke(CloseDialog);
             else
-            {
                 this.Hide();
-            }
         }
 
-        public void PromptShutdown(object? sender, EventArgs e)
+        public void PromptShutdown()
         {
             DialogResult result = MessageBox.Show(
                 "Roblox is currently running, but needs to close. Would you like close Roblox now?",
@@ -104,60 +139,6 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             if (result != DialogResult.OK)
                 Environment.Exit(0);
         }
-
-
-        public void MessageChanged(object sender, ChangeEventArgs<string> e)
-        {
-            if (this.InvokeRequired)
-            {
-                ChangeEventHandler<string> handler = new(MessageChanged);
-                this.Invoke(handler, sender, e);
-            }
-            else
-            {
-                Message = e.Value;
-            }
-        }
-
-        public void ProgressBarStyleChanged(object sender, ChangeEventArgs<ProgressBarStyle> e)
-        {
-            if (this.InvokeRequired)
-            {
-                ChangeEventHandler<ProgressBarStyle> handler = new(this.ProgressBarStyleChanged);
-                this.Invoke(handler, sender, e);
-            }
-            else
-            {
-                ProgressStyle = e.Value;
-            }
-        }
-
-        public void ProgressBarValueChanged(object sender, ChangeEventArgs<int> e)
-        {
-            if (this.InvokeRequired)
-            {
-                ChangeEventHandler<int> handler = new(ProgressBarValueChanged);
-                this.Invoke(handler, sender, e);
-            }
-            else
-            {
-                ProgressValue = e.Value;
-            }
-        }
-
-        public void CancelEnabledChanged(object sender, ChangeEventArgs<bool> e)
-        {
-            if (this.InvokeRequired)
-            {
-                ChangeEventHandler<bool> handler = new(CancelEnabledChanged);
-                this.Invoke(handler, sender, e);
-            }
-            else
-            {
-                this.CancelEnabled = e.Value;
-            }
-        }
-
 
         public void ButtonCancel_Click(object? sender, EventArgs e)
         {

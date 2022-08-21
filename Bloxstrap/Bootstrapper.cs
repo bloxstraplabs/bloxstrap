@@ -20,7 +20,6 @@ namespace Bloxstrap
 
         private string VersionGuid;
         private PackageManifest VersionPackageManifest;
-        private FileManifest VersionFileManifest;
         private string VersionFolder;
 
         private readonly bool FreshInstall;
@@ -83,80 +82,7 @@ namespace Bloxstrap
         // TODO: reduce reliance on event handlers for signalling property changes to the bootstrapper dialog
         // i mean, chances are we can just use IBootstrapperDialog now?
 
-        // public IBootstrapperDialog BootstrapperDialog;
-
-        public event EventHandler CloseDialogEvent;
-        public event EventHandler PromptShutdownEvent;
-        public event ChangeEventHandler<string> ShowSuccessEvent;
-        public event ChangeEventHandler<string> MessageChanged;
-        public event ChangeEventHandler<int> ProgressBarValueChanged;
-        public event ChangeEventHandler<ProgressBarStyle> ProgressBarStyleChanged;
-        public event ChangeEventHandler<bool> CancelEnabledChanged;
-
-        private string _message;
-        private int _progress = 0;
-        private ProgressBarStyle _progressStyle = ProgressBarStyle.Marquee;
-        private bool _cancelEnabled = false;
-
-        public string Message
-        {
-            get => _message;
-
-            private set
-            {
-                if (_message == value)
-                    return;
-
-                MessageChanged.Invoke(this, new ChangeEventArgs<string>(value));
-
-                _message = value;
-            }
-        }
-
-        public int Progress
-        {
-            get => _progress;
-
-            private set
-            {
-                if (_progress == value)
-                    return;
-
-                ProgressBarValueChanged.Invoke(this, new ChangeEventArgs<int>(value));
-
-                _progress = value;
-            }
-        }
-
-        public ProgressBarStyle ProgressStyle
-        {
-            get => _progressStyle;
-
-            private set
-            {
-                if (_progressStyle == value)
-                    return;
-
-                ProgressBarStyleChanged.Invoke(this, new ChangeEventArgs<ProgressBarStyle>(value));
-
-                _progressStyle = value;
-            }
-        }
-
-        public bool CancelEnabled
-        {
-            get => _cancelEnabled;
-
-            private set
-            {
-                if (_cancelEnabled == value)
-                    return;
-
-                CancelEnabledChanged.Invoke(this, new ChangeEventArgs<bool>(value));
-
-                _cancelEnabled = value;
-            }
-        }
+        public IBootstrapperDialog Dialog;
         #endregion
 
         #region Core
@@ -196,18 +122,6 @@ namespace Bloxstrap
 
         public async Task Run()
         {
-            /* Message = "hi";
-            Progress = 42;
-            ProgressStyle = ProgressBarStyle.Blocks;
-            CancelEnabled = true;
-
-            BootstrapperDialog.Message = "hi";
-            BootstrapperDialog.ProgressValue = 42;
-            BootstrapperDialog.ProgressStyle = ProgressBarStyle.Blocks;
-            BootstrapperDialog.CancelEnabled = true;
-
-            return; */
-
             if (LaunchCommandLine == "-uninstall")
             {
                 Uninstall();
@@ -243,12 +157,11 @@ namespace Bloxstrap
 
         private async Task CheckLatestVersion()
         {
-            Message = "Connecting to Roblox...";
+            Dialog.Message = "Connecting to Roblox...";
 
             VersionGuid = await Client.GetStringAsync($"{Program.BaseUrlSetup}/version");
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
-            VersionFileManifest = await FileManifest.Get(VersionGuid);
         }
 
         private void CheckIfRunning()
@@ -256,7 +169,7 @@ namespace Bloxstrap
             Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
 
             if (processes.Length > 0)
-                PromptShutdown();
+                Dialog.PromptShutdown();
 
             try
             {
@@ -275,7 +188,7 @@ namespace Bloxstrap
         {
             string startEventName = Program.ProjectName.Replace(" ", "") + "StartEvent";
 
-            Message = "Starting Roblox...";
+            Dialog.Message = "Starting Roblox...";
 
             // launch time isn't really required for all launches, but it's usually just safest to do this
             LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeSeconds() + " -startEvent " + startEventName;
@@ -334,7 +247,7 @@ namespace Bloxstrap
                     return;
 
                 // keep bloxstrap open in the background
-                CloseDialog();
+                Dialog.CloseDialog();
                 await gameClient.WaitForExitAsync();
 
                 if (richPresence is not null)
@@ -347,7 +260,7 @@ namespace Bloxstrap
 
         public void CancelButtonClicked()
         {
-            if (!CancelEnabled)
+            if (!Dialog.CancelEnabled)
             {
                 Program.Exit();
                 return;
@@ -365,21 +278,6 @@ namespace Bloxstrap
             catch (Exception) { }
  
             Program.Exit();
-        }
-
-        private void ShowSuccess(string message)
-        {
-            ShowSuccessEvent.Invoke(this, new ChangeEventArgs<string>(message));
-        }
-
-        private void PromptShutdown()
-        {
-            PromptShutdownEvent.Invoke(this, new EventArgs());
-        }
-
-        private void CloseDialog()
-        {
-            CloseDialogEvent.Invoke(this, new EventArgs());
         }
         #endregion
 
@@ -454,7 +352,7 @@ namespace Bloxstrap
         {
             CheckIfRunning();
 
-            Message = $"Uninstalling {Program.ProjectName}...";
+            Dialog.Message = $"Uninstalling {Program.ProjectName}...";
 
             Program.SettingsManager.ShouldSave = false;
 
@@ -492,7 +390,7 @@ namespace Bloxstrap
             }
             catch (Exception) { }
 
-            ShowSuccess($"{Program.ProjectName} has been uninstalled");
+            Dialog.ShowSuccess($"{Program.ProjectName} has been uninstalled");
         }
         #endregion
 
@@ -502,18 +400,18 @@ namespace Bloxstrap
             CheckIfRunning();
 
             if (FreshInstall)
-                Message = "Installing Roblox...";
+                Dialog.Message = "Installing Roblox...";
             else
-                Message = "Upgrading Roblox...";
+                Dialog.Message = "Upgrading Roblox...";
 
             Directory.CreateDirectory(Directories.Base);
 
-            CancelEnabled = true;
+            Dialog.CancelEnabled = true;
 
             // i believe the original bootstrapper bases the progress bar off zip
             // extraction progress, but here i'm doing package download progress
 
-            ProgressStyle = ProgressBarStyle.Continuous;
+            Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
             ProgressIncrement = (int)Math.Floor((decimal)1 / VersionPackageManifest.Count * 100);
 
@@ -529,14 +427,14 @@ namespace Bloxstrap
             {
                 // wait for download to finish (and also round off the progress bar if needed)
 
-                if (Progress == ProgressIncrement * VersionPackageManifest.Count)
-                    Progress = 100;
+                if (Dialog.ProgressValue == ProgressIncrement * VersionPackageManifest.Count)
+                    Dialog.ProgressValue = 100;
 
                 await Task.Delay(1000);
             }
-            while (Progress != 100);
+            while (Dialog.ProgressValue != 100);
 
-            ProgressStyle = ProgressBarStyle.Marquee;
+            Dialog.ProgressStyle = ProgressBarStyle.Marquee;
 
             Debug.WriteLine("Finished downloading");
 
@@ -550,7 +448,7 @@ namespace Bloxstrap
 
             Debug.WriteLine("Finished extracting packages");
 
-            Message = "Configuring Roblox...";
+            Dialog.Message = "Configuring Roblox...";
 
             string appSettingsLocation = Path.Combine(VersionFolder, "AppSettings.xml");
             await File.WriteAllTextAsync(appSettingsLocation, AppSettings);
@@ -571,7 +469,7 @@ namespace Bloxstrap
                 }
             }
 
-            CancelEnabled = false;
+            Dialog.CancelEnabled = false;
 
             Program.Settings.VersionGuid = VersionGuid;
         }
@@ -660,12 +558,11 @@ namespace Bloxstrap
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
 
-            Directory.CreateDirectory(Path.GetDirectoryName(modFolderLocation));
-
             if (condition)
             {
                 if (!File.Exists(modFolderLocation))
                 {
+                    Directory.CreateDirectory(Path.GetDirectoryName(modFolderLocation));
                     File.WriteAllBytes(modFolderLocation, Convert.FromBase64String(base64Contents));
                 }
             }
@@ -694,7 +591,7 @@ namespace Bloxstrap
                 else
                 {
                     Debug.WriteLine($"{package.Name} is already downloaded, skipping...");
-                    Progress += ProgressIncrement;
+                    Dialog.ProgressValue += ProgressIncrement;
                     return;
                 }
             }
@@ -705,7 +602,7 @@ namespace Bloxstrap
 
                 Debug.WriteLine($"Found existing version of {package.Name} ({robloxPackageLocation})! Copying to Downloads folder...");
                 File.Copy(robloxPackageLocation, packageLocation);
-                Progress += ProgressIncrement;
+                Dialog.ProgressValue += ProgressIncrement;
                 return;
             }
 
@@ -724,7 +621,7 @@ namespace Bloxstrap
                 }
 
                 Debug.WriteLine($"Finished downloading {package.Name}!");
-                Progress += ProgressIncrement;
+                Dialog.ProgressValue += ProgressIncrement;
             }
         }
 

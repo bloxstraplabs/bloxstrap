@@ -12,16 +12,9 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
         bool CancelEnabled { get; set; }
 
         void RunBootstrapper();
+        void ShowSuccess(string message);
         void ShowError(string message);
-        void ShowSuccess(object sender, ChangeEventArgs<string> e);
-        void CloseDialog(object? sender, EventArgs e);
-        void PromptShutdown(object? sender, EventArgs e);
-
-        void MessageChanged(object sender, ChangeEventArgs<string> e);
-        void ProgressBarValueChanged(object sender, ChangeEventArgs<int> e);
-        void ProgressBarStyleChanged(object sender, ChangeEventArgs<ProgressBarStyle> e);
-        void CancelEnabledChanged(object sender, ChangeEventArgs<bool> e);
-
-        void ButtonCancel_Click(object sender, EventArgs e);
+        void CloseDialog();
+        void PromptShutdown();
     }
 }

@@ -6,25 +6,25 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
     public partial class ProgressDialogDark : BootstrapperStyleForm
     {
-        public override string Message
+        protected override string _message
         {
             get => labelMessage.Text;
             set => labelMessage.Text = value;
         }
 
-        public override ProgressBarStyle ProgressStyle
+        protected override ProgressBarStyle _progressStyle
         {
             get => ProgressBar.Style;
             set => ProgressBar.Style = value;
         }
 
-        public override int ProgressValue
+        protected override int _progressValue
         {
             get => ProgressBar.Value;
             set => ProgressBar.Value = value;
         }
 
-        public override bool CancelEnabled
+        protected override bool _cancelEnabled
         {
             get => this.buttonCancel.Enabled;
             set => this.buttonCancel.Enabled = this.buttonCancel.Visible = value;
