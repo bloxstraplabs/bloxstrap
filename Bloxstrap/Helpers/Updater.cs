@@ -1,18 +1,20 @@
 ﻿using System.Diagnostics;
+using System.IO;
+
 using Newtonsoft.Json.Linq;
 
 namespace Bloxstrap.Helpers
 {
-    public class UpdateChecker
+    public class Updater
     {
-        public static void CheckInstalledVersion()
+        public static bool CheckInstalledVersion()
         {
-            if (Environment.ProcessPath is null || !File.Exists(Program.FilePath))
-                return;
+            if (Environment.ProcessPath is null || !File.Exists(Directories.App) || Environment.ProcessPath == Directories.App)
+                return false;
 
             // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
-            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Program.FilePath);
+            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.App);
 
             if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
             {
@@ -25,15 +27,24 @@ namespace Bloxstrap.Helpers
 
                 if (result == DialogResult.Yes)
                 {
-                    File.Delete(Program.FilePath);
-                    File.Copy(Environment.ProcessPath, Program.FilePath);
+                    File.Delete(Directories.App);
+                    File.Copy(Environment.ProcessPath, Directories.App);
+                    return true;
                 }
             }
+
+            return false;
         }
 
         public static async Task Check()
         {
             if (Environment.ProcessPath is null)
+                return;
+
+            if (!Program.IsFirstRun && CheckInstalledVersion())
+                return;
+
+            if (!Program.Settings.CheckForUpdates)
                 return;
 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
@@ -67,7 +78,7 @@ namespace Bloxstrap.Helpers
 
                 if (result == DialogResult.Yes)
                 {
-                    Process.Start(new ProcessStartInfo { FileName = $"https://github.com/{Program.ProjectRepository}/releases/latest", UseShellExecute = true });
+                    Utilities.OpenWebsite($"https://github.com/{Program.ProjectRepository}/releases/latest");
                     Program.Exit();
                 }
             }

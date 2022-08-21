@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.DialogTab = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RFUWebsite = new System.Windows.Forms.LinkLabel();
+            this.ToggleRFUAutoclose = new System.Windows.Forms.CheckBox();
+            this.ToggleRFUEnabled = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ToggleRPCButtons = new System.Windows.Forms.CheckBox();
             this.ToggleDiscordRichPresence = new System.Windows.Forms.CheckBox();
@@ -42,6 +46,8 @@
             this.StyleSelection = new System.Windows.Forms.ListBox();
             this.InstallationTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.LabelModFolderInstall = new System.Windows.Forms.Label();
+            this.ButtonOpenModFolder = new System.Windows.Forms.Button();
             this.ToggleMouseCursor = new System.Windows.Forms.CheckBox();
             this.ToggleDeathSound = new System.Windows.Forms.CheckBox();
             this.GroupBoxInstallLocation = new System.Windows.Forms.GroupBox();
@@ -49,11 +55,13 @@
             this.InstallLocation = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ToggleCheckForUpdates = new System.Windows.Forms.CheckBox();
             this.PreviewButton = new System.Windows.Forms.Button();
             this.InstallLocationBrowseDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.InfoTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.Tabs.SuspendLayout();
             this.DialogTab.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconPreview)).BeginInit();
@@ -86,6 +94,7 @@
             // 
             // DialogTab
             // 
+            this.DialogTab.Controls.Add(this.groupBox1);
             this.DialogTab.Controls.Add(this.groupBox5);
             this.DialogTab.Controls.Add(this.groupBox3);
             this.DialogTab.Controls.Add(this.groupBox2);
@@ -97,13 +106,70 @@
             this.DialogTab.Text = "Bootstrapper";
             this.DialogTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.RFUWebsite);
+            this.groupBox1.Controls.Add(this.ToggleRFUAutoclose);
+            this.groupBox1.Controls.Add(this.ToggleRFUEnabled);
+            this.groupBox1.Location = new System.Drawing.Point(192, 146);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(235, 67);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "FPS Unlocker";
+            // 
+            // RFUWebsite
+            // 
+            this.RFUWebsite.BackColor = System.Drawing.Color.White;
+            this.RFUWebsite.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RFUWebsite.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.RFUWebsite.Location = new System.Drawing.Point(174, 0);
+            this.RFUWebsite.Margin = new System.Windows.Forms.Padding(0);
+            this.RFUWebsite.Name = "RFUWebsite";
+            this.RFUWebsite.Size = new System.Drawing.Size(55, 18);
+            this.RFUWebsite.TabIndex = 2;
+            this.RFUWebsite.TabStop = true;
+            this.RFUWebsite.Tag = "";
+            this.RFUWebsite.Text = "(website)";
+            this.RFUWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RFUWebsite_LinkClicked);
+            // 
+            // ToggleRFUAutoclose
+            // 
+            this.ToggleRFUAutoclose.AutoSize = true;
+            this.ToggleRFUAutoclose.Checked = true;
+            this.ToggleRFUAutoclose.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleRFUAutoclose.Location = new System.Drawing.Point(9, 40);
+            this.ToggleRFUAutoclose.Name = "ToggleRFUAutoclose";
+            this.ToggleRFUAutoclose.Size = new System.Drawing.Size(209, 19);
+            this.ToggleRFUAutoclose.TabIndex = 1;
+            this.ToggleRFUAutoclose.Text = "Automatically close on Roblox exit";
+            this.InfoTooltip.SetToolTip(this.ToggleRFUAutoclose, "If enabled, rbxfpsunlocker will automatically close when Roblox is closed.");
+            this.ToggleRFUAutoclose.UseVisualStyleBackColor = true;
+            this.ToggleRFUAutoclose.CheckedChanged += new System.EventHandler(this.ToggleRFUAutoclose_CheckedChanged);
+            // 
+            // ToggleRFUEnabled
+            // 
+            this.ToggleRFUEnabled.AutoSize = true;
+            this.ToggleRFUEnabled.Checked = true;
+            this.ToggleRFUEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleRFUEnabled.Location = new System.Drawing.Point(9, 19);
+            this.ToggleRFUEnabled.Name = "ToggleRFUEnabled";
+            this.ToggleRFUEnabled.Size = new System.Drawing.Size(127, 19);
+            this.ToggleRFUEnabled.TabIndex = 0;
+            this.ToggleRFUEnabled.Text = "Use rbxfpsunlocker";
+            this.InfoTooltip.SetToolTip(this.ToggleRFUEnabled, "If enabled, rbxfpsunlocker is downloaded.\r\nWhen Roblox is started, rbxfpsunlocker" +
+        " will automatically start too, \r\nbeing minimized to your system tray by default." +
+        "");
+            this.ToggleRFUEnabled.UseVisualStyleBackColor = true;
+            this.ToggleRFUEnabled.CheckedChanged += new System.EventHandler(this.ToggleRFUEnabled_CheckedChanged);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.ToggleRPCButtons);
             this.groupBox5.Controls.Add(this.ToggleDiscordRichPresence);
             this.groupBox5.Location = new System.Drawing.Point(5, 146);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(422, 67);
+            this.groupBox5.Size = new System.Drawing.Size(179, 67);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Discord Rich Presence";
@@ -113,9 +179,11 @@
             this.ToggleRPCButtons.AutoSize = true;
             this.ToggleRPCButtons.Location = new System.Drawing.Point(9, 40);
             this.ToggleRPCButtons.Name = "ToggleRPCButtons";
-            this.ToggleRPCButtons.Size = new System.Drawing.Size(196, 19);
+            this.ToggleRPCButtons.Size = new System.Drawing.Size(155, 19);
             this.ToggleRPCButtons.TabIndex = 1;
-            this.ToggleRPCButtons.Text = "Hide activity interaction buttons";
+            this.ToggleRPCButtons.Text = "Hide interaction buttons";
+            this.InfoTooltip.SetToolTip(this.ToggleRPCButtons, "Choose whether the buttons to play/view game details should be hidden from your a" +
+        "ctivity status.");
             this.ToggleRPCButtons.UseVisualStyleBackColor = true;
             this.ToggleRPCButtons.CheckedChanged += new System.EventHandler(this.ToggleRPCButtons_CheckedChanged);
             // 
@@ -129,6 +197,9 @@
             this.ToggleDiscordRichPresence.Size = new System.Drawing.Size(129, 19);
             this.ToggleDiscordRichPresence.TabIndex = 0;
             this.ToggleDiscordRichPresence.Text = "Show game activity";
+            this.InfoTooltip.SetToolTip(this.ToggleDiscordRichPresence, "Choose whether to show what game you\'re playing on your Discord activity status.\r" +
+        "\nThis will only work when you launch a game from the website, and is not support" +
+        "ed in the Beta App.");
             this.ToggleDiscordRichPresence.UseVisualStyleBackColor = true;
             this.ToggleDiscordRichPresence.CheckedChanged += new System.EventHandler(this.ToggleDiscordRichPresence_CheckedChanged);
             // 
@@ -161,6 +232,7 @@
             this.IconSelection.Name = "IconSelection";
             this.IconSelection.Size = new System.Drawing.Size(100, 109);
             this.IconSelection.TabIndex = 4;
+            this.InfoTooltip.SetToolTip(this.IconSelection, "Choose what icon the bootstrapper should use.");
             this.IconSelection.SelectedIndexChanged += new System.EventHandler(this.IconSelection_SelectedIndexChanged);
             // 
             // groupBox2
@@ -181,6 +253,8 @@
             this.StyleSelection.Name = "StyleSelection";
             this.StyleSelection.Size = new System.Drawing.Size(161, 109);
             this.StyleSelection.TabIndex = 3;
+            this.InfoTooltip.SetToolTip(this.StyleSelection, "Choose how the bootstrapper dialog should look.\r\nYou can use the \'Preview\' button" +
+        " to preview the bootstrapper look.");
             this.StyleSelection.SelectedIndexChanged += new System.EventHandler(this.StyleSelection_SelectedIndexChanged);
             // 
             // InstallationTab
@@ -197,14 +271,39 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.LabelModFolderInstall);
+            this.groupBox4.Controls.Add(this.ButtonOpenModFolder);
             this.groupBox4.Controls.Add(this.ToggleMouseCursor);
             this.groupBox4.Controls.Add(this.ToggleDeathSound);
             this.groupBox4.Location = new System.Drawing.Point(5, 60);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(422, 65);
+            this.groupBox4.Size = new System.Drawing.Size(422, 95);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Modifications";
+            // 
+            // LabelModFolderInstall
+            // 
+            this.LabelModFolderInstall.AutoSize = true;
+            this.LabelModFolderInstall.Location = new System.Drawing.Point(6, 67);
+            this.LabelModFolderInstall.Margin = new System.Windows.Forms.Padding(0);
+            this.LabelModFolderInstall.Name = "LabelModFolderInstall";
+            this.LabelModFolderInstall.Size = new System.Drawing.Size(329, 15);
+            this.LabelModFolderInstall.TabIndex = 7;
+            this.LabelModFolderInstall.Text = "Other modifications can be added once Bloxstrap is installed.";
+            this.LabelModFolderInstall.Visible = false;
+            // 
+            // ButtonOpenModFolder
+            // 
+            this.ButtonOpenModFolder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonOpenModFolder.Location = new System.Drawing.Point(8, 62);
+            this.ButtonOpenModFolder.Name = "ButtonOpenModFolder";
+            this.ButtonOpenModFolder.Size = new System.Drawing.Size(122, 25);
+            this.ButtonOpenModFolder.TabIndex = 6;
+            this.ButtonOpenModFolder.Text = "Open Mod Folder";
+            this.InfoTooltip.SetToolTip(this.ButtonOpenModFolder, "Open the folder for applying Roblox client modifications.");
+            this.ButtonOpenModFolder.UseVisualStyleBackColor = true;
+            this.ButtonOpenModFolder.Click += new System.EventHandler(this.ButtonOpenModFolder_Click);
             // 
             // ToggleMouseCursor
             // 
@@ -246,9 +345,9 @@
             // InstallLocationBrowseButton
             // 
             this.InstallLocationBrowseButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InstallLocationBrowseButton.Location = new System.Drawing.Point(328, 20);
+            this.InstallLocationBrowseButton.Location = new System.Drawing.Point(335, 20);
             this.InstallLocationBrowseButton.Name = "InstallLocationBrowseButton";
-            this.InstallLocationBrowseButton.Size = new System.Drawing.Size(86, 25);
+            this.InstallLocationBrowseButton.Size = new System.Drawing.Size(79, 25);
             this.InstallLocationBrowseButton.TabIndex = 5;
             this.InstallLocationBrowseButton.Text = "Browse...";
             this.InstallLocationBrowseButton.UseVisualStyleBackColor = true;
@@ -260,8 +359,10 @@
             this.InstallLocation.Location = new System.Drawing.Point(9, 21);
             this.InstallLocation.MaxLength = 255;
             this.InstallLocation.Name = "InstallLocation";
-            this.InstallLocation.Size = new System.Drawing.Size(312, 23);
+            this.InstallLocation.Size = new System.Drawing.Size(319, 23);
             this.InstallLocation.TabIndex = 4;
+            this.InfoTooltip.SetToolTip(this.InstallLocation, "Choose where Bloxstrap should install to.\r\nThis is useful if you typically instal" +
+        "l all your games to a separate storage drive.");
             // 
             // SaveButton
             // 
@@ -279,12 +380,26 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.ToggleCheckForUpdates);
             this.panel1.Controls.Add(this.PreviewButton);
             this.panel1.Controls.Add(this.SaveButton);
             this.panel1.Location = new System.Drawing.Point(-1, 298);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 42);
             this.panel1.TabIndex = 6;
+            // 
+            // ToggleCheckForUpdates
+            // 
+            this.ToggleCheckForUpdates.AutoSize = true;
+            this.ToggleCheckForUpdates.Checked = true;
+            this.ToggleCheckForUpdates.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleCheckForUpdates.Location = new System.Drawing.Point(14, 12);
+            this.ToggleCheckForUpdates.Name = "ToggleCheckForUpdates";
+            this.ToggleCheckForUpdates.Size = new System.Drawing.Size(179, 19);
+            this.ToggleCheckForUpdates.TabIndex = 7;
+            this.ToggleCheckForUpdates.Text = "Check for updates on startup";
+            this.ToggleCheckForUpdates.UseVisualStyleBackColor = true;
+            this.ToggleCheckForUpdates.CheckedChanged += new System.EventHandler(this.ToggleCheckForUpdates_CheckedChanged);
             // 
             // PreviewButton
             // 
@@ -318,8 +433,11 @@
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preferences";
+            this.Load += new System.EventHandler(this.Preferences_Load);
             this.Tabs.ResumeLayout(false);
             this.DialogTab.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -331,6 +449,7 @@
             this.GroupBoxInstallLocation.ResumeLayout(false);
             this.GroupBoxInstallLocation.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -360,5 +479,12 @@
         private ToolTip InfoTooltip;
         private CheckBox ToggleMouseCursor;
         private CheckBox ToggleRPCButtons;
+        private GroupBox groupBox1;
+        private LinkLabel RFUWebsite;
+        private CheckBox ToggleRFUAutoclose;
+        private CheckBox ToggleRFUEnabled;
+        private CheckBox ToggleCheckForUpdates;
+        private Button ButtonOpenModFolder;
+        private Label LabelModFolderInstall;
     }
 }

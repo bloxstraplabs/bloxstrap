@@ -80,6 +80,7 @@
             this.Name = "LegacyDialog2009";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LegacyDialog2009";
+            this.Load += new System.EventHandler(this.LegacyDialog2009_Load);
             this.ResumeLayout(false);
 
         }

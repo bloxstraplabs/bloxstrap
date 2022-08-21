@@ -1,8 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using System.IO;
+using System.Diagnostics;
 
-using Bloxstrap.Helpers;
-using Bloxstrap.Enums;
+using Microsoft.Win32;
+
 using Bloxstrap.Dialogs.BootstrapperStyles;
+using Bloxstrap.Enums;
+using Bloxstrap.Helpers;
+using Bloxstrap.Helpers.Integrations;
 
 namespace Bloxstrap.Dialogs
 {
@@ -30,10 +34,6 @@ namespace Bloxstrap.Dialogs
 
         private BootstrapperStyle? _selectedStyle;
         private BootstrapperIcon? _selectedIcon;
-        private bool _useDiscordRichPresence = true;
-        private bool _hideRPCButtons = false;
-        private bool _useOldDeathSound = true;
-        private bool _useOldMouseCursor = false;
 
         private BootstrapperStyle SelectedStyle
         {
@@ -68,67 +68,6 @@ namespace Bloxstrap.Dialogs
             }
         }
 
-        private bool UseDiscordRichPresence
-        {
-            get => _useDiscordRichPresence;
-
-            set
-            {
-                if (_useDiscordRichPresence == value)
-                    return;
-
-                _useDiscordRichPresence = value;
-
-                this.ToggleDiscordRichPresence.Checked = value;
-                this.ToggleRPCButtons.Enabled = value;
-            }
-        }
-
-        private bool HideRPCButtons
-        {
-            get => _hideRPCButtons;
-
-            set
-            {
-                if (_hideRPCButtons == value)
-                    return;
-
-                _hideRPCButtons = value;
-
-                this.ToggleRPCButtons.Checked = value;
-            }
-        }
-
-        private bool UseOldDeathSound
-        {
-            get => _useOldDeathSound;
-
-            set
-            {
-                if (_useOldDeathSound == value)
-                    return;
-
-                _useOldDeathSound = value;
-
-                this.ToggleDeathSound.Checked = value;
-            }
-        }
-
-        private bool UseOldMouseCursor
-        {
-            get => _useOldMouseCursor;
-
-            set
-            {
-                if (_useOldMouseCursor == value)
-                    return;
-
-                _useOldMouseCursor = value;
-
-                this.ToggleMouseCursor.Checked = value;
-            }
-        }
-
         public Preferences()
         {
             InitializeComponent();
@@ -142,6 +81,8 @@ namespace Bloxstrap.Dialogs
             {
                 this.SaveButton.Text = "Install";
                 this.InstallLocation.Text = Path.Combine(Program.LocalAppData, Program.ProjectName);
+                this.ButtonOpenModFolder.Visible = false;
+                this.LabelModFolderInstall.Visible = true;
             }
             else
             {
@@ -158,18 +99,22 @@ namespace Bloxstrap.Dialogs
                 this.IconSelection.Items.Add(icon.Key);
             }
 
-            this.InfoTooltip.SetToolTip(this.StyleSelection, "Choose how the bootstrapper dialog should look.\nYou can use the 'Preview' button to preview the bootstrapper look.");
-            this.InfoTooltip.SetToolTip(this.IconSelection, "Choose what icon the bootstrapper should use.");
-            this.InfoTooltip.SetToolTip(this.GroupBoxInstallLocation, "Choose where Bloxstrap should install to.\nThis is useful if you typically install all your games to a separate storage drive.");
-            this.InfoTooltip.SetToolTip(this.ToggleDiscordRichPresence, "Choose whether to show what game you're playing on your Discord activity status.\nThis will only work when you launch a game from the website, and is not supported in the Beta App.");
-            this.InfoTooltip.SetToolTip(this.ToggleRPCButtons, "Choose whether the buttons to play/view game info should be hidden from activity status.");
+            if (!Environment.Is64BitOperatingSystem)
+                this.ToggleRFUEnabled.Enabled = false;
 
             SelectedStyle = Program.Settings.BootstrapperStyle;
             SelectedIcon = Program.Settings.BootstrapperIcon;
-            UseDiscordRichPresence = Program.Settings.UseDiscordRichPresence;
-            HideRPCButtons = Program.Settings.HideRPCButtons;
-            UseOldDeathSound = Program.Settings.UseOldDeathSound;
-            UseOldMouseCursor = Program.Settings.UseOldMouseCursor;
+
+            this.ToggleCheckForUpdates.Checked = Program.Settings.CheckForUpdates;
+            
+            this.ToggleDiscordRichPresence.Checked = Program.Settings.UseDiscordRichPresence;
+            this.ToggleRPCButtons.Checked = Program.Settings.HideRPCButtons;
+
+            this.ToggleRFUEnabled.Checked = Program.Settings.RFUEnabled;
+            this.ToggleRFUAutoclose.Checked = Program.Settings.RFUAutoclose;
+
+            this.ToggleDeathSound.Checked = Program.Settings.UseOldDeathSound;
+            this.ToggleMouseCursor.Checked = Program.Settings.UseOldMouseCursor;
         }
 
         private void InstallLocationBrowseButton_Click(object sender, EventArgs e)
@@ -239,7 +184,7 @@ namespace Bloxstrap.Dialogs
             {
                 Program.SettingsManager.ShouldSave = true;
 
-                if (Program.BaseDirectory != installLocation)
+                if (Program.BaseDirectory is not null && Program.BaseDirectory != installLocation)
                 {
                     Program.ShowMessageBox(MessageBoxIcon.Information, $"{Program.ProjectName} will install to the new location you've set the next time it runs.");
 
@@ -262,18 +207,12 @@ namespace Bloxstrap.Dialogs
 
             Program.Settings.BootstrapperStyle = SelectedStyle;
             Program.Settings.BootstrapperIcon = SelectedIcon;
-            Program.Settings.UseDiscordRichPresence = UseDiscordRichPresence;
-            Program.Settings.HideRPCButtons = HideRPCButtons;
-            Program.Settings.UseOldDeathSound = UseOldDeathSound;
-            Program.Settings.UseOldMouseCursor = UseOldMouseCursor;
 
             this.Close();
         }
 
         private void PreviewButton_Click(object sender, EventArgs e)
         {
-            // small hack to get the icon to show in the preview without saving to settings
-            BootstrapperIcon savedIcon = Program.Settings.BootstrapperIcon;
             Program.Settings.BootstrapperIcon = SelectedIcon;
 
             this.Visible = false;
@@ -301,29 +240,57 @@ namespace Bloxstrap.Dialogs
                     break;
             }
 
-            Program.Settings.BootstrapperIcon = savedIcon;
-
             this.Visible = true;
         }
 
         private void ToggleDiscordRichPresence_CheckedChanged(object sender, EventArgs e)
         {
-            UseDiscordRichPresence = this.ToggleDiscordRichPresence.Checked;
+            Program.Settings.UseDiscordRichPresence = this.ToggleRPCButtons.Enabled = this.ToggleDiscordRichPresence.Checked;
         }
 
         private void ToggleRPCButtons_CheckedChanged(object sender, EventArgs e)
         {
-            HideRPCButtons = this.ToggleRPCButtons.Checked;
+            Program.Settings.HideRPCButtons = this.ToggleRPCButtons.Checked;
+        }
+
+        private void ToggleRFUEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.Settings.RFUEnabled = this.ToggleRFUAutoclose.Enabled = this.ToggleRFUEnabled.Checked;
+        }
+
+        private void ToggleRFUAutoclose_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.Settings.RFUAutoclose = this.ToggleRFUAutoclose.Checked;
         }
 
         private void ToggleDeathSound_CheckedChanged(object sender, EventArgs e)
         {
-            UseOldDeathSound = this.ToggleDeathSound.Checked;
+            Program.Settings.UseOldDeathSound = this.ToggleDeathSound.Checked;
         }
 
         private void ToggleMouseCursor_CheckedChanged(object sender, EventArgs e)
         {
-            UseOldMouseCursor = this.ToggleMouseCursor.Checked;
+            Program.Settings.UseOldMouseCursor = this.ToggleMouseCursor.Checked;
+        }
+
+        private void ToggleCheckForUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.Settings.CheckForUpdates = this.ToggleCheckForUpdates.Checked;
+        }
+
+        private void RFUWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utilities.OpenWebsite($"https://github.com/{RbxFpsUnlocker.ProjectRepository}");
+        }
+
+        private void ButtonOpenModFolder_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Directories.Modifications);
+        }
+
+        private void Preferences_Load(object sender, EventArgs e)
+        {
+            this.Activate();
         }
     }
 }

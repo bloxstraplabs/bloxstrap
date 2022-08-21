@@ -50,5 +50,10 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
         {
             this.buttonCancel.Image = Properties.Resources.CancelButton;
         }
+
+        private void ProgressDialog_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }

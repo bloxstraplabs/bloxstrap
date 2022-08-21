@@ -1,39 +1,35 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using DiscordRPC;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Helpers.Integrations
 {
 	internal class DiscordRichPresence : IDisposable
 	{
 		readonly DiscordRpcClient RichPresence = new("1005469189907173486");
 
 		public async Task<bool> SetPresence(string placeId)
-        {
+		{
 			string placeName;
 			string placeThumbnail;
 			string creatorName;
 
 			// null checking could probably be a lot more concrete here
-			using (HttpClient client = new())
-			{
-				JObject placeInfo = await Utilities.GetJson($"https://economy.roblox.com/v2/assets/{placeId}/details");
+			JObject placeInfo = await Utilities.GetJson($"https://economy.roblox.com/v2/assets/{placeId}/details");
 
-				placeName = placeInfo["Name"].Value<string>();
-				creatorName = placeInfo["Creator"]["Name"].Value<string>();
+			placeName = placeInfo["Name"].Value<string>();
+			creatorName = placeInfo["Creator"]["Name"].Value<string>();
 
-				JObject thumbnailInfo = await Utilities.GetJson($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={placeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+			JObject thumbnailInfo = await Utilities.GetJson($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={placeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
 
-				if (thumbnailInfo["data"] is null)
-					return false;
+			if (thumbnailInfo["data"] is null)
+				return false;
 
-				placeThumbnail = thumbnailInfo["data"][0]["imageUrl"].Value<string>();
-			}
+			placeThumbnail = thumbnailInfo["data"][0]["imageUrl"].Value<string>();
 
 			DiscordRPC.Button[]? buttons = null;
 
 			if (!Program.Settings.HideRPCButtons)
-            {
+			{
 				buttons = new DiscordRPC.Button[]
 				{
 					new DiscordRPC.Button()
@@ -57,16 +53,14 @@ namespace Bloxstrap.Helpers
 				Details = placeName,
 				State = $"by {creatorName}",
 				Timestamps = new Timestamps() { Start = DateTime.UtcNow },
-
+				Buttons = buttons,
 				Assets = new Assets()
 				{
 					LargeImageKey = placeThumbnail,
 					LargeImageText = placeName,
-					SmallImageKey = "bloxstrap",
-					SmallImageText = "Rich Presence provided by Bloxstrap"
-				},
-
-				Buttons = buttons
+					SmallImageKey = "roblox",
+					SmallImageText = "Roblox"
+				}
 			});
 
 			return true;

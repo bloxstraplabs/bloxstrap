@@ -1,4 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Security.Cryptography;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -7,6 +10,11 @@ namespace Bloxstrap.Helpers
 {
     public class Utilities
     {
+        public static void OpenWebsite(string website)
+        {
+            Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
+        }
+
 		public static async Task<JObject> GetJson(string url)
 		{
 			using (HttpClient client = new())
@@ -18,7 +26,7 @@ namespace Bloxstrap.Helpers
 			}
 		}
 
-        public static string CalculateMD5(string filename)
+        public static string MD5File(string filename)
         {
             using (MD5 md5 = MD5.Create())
             {

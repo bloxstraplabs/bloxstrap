@@ -75,7 +75,7 @@
             this.buttonCancel.Visible = false;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // LegacyDialog
+            // LegacyDialog2011
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,6 +93,7 @@
             this.Name = "LegacyDialog2011";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LegacyDialog2011";
+            this.Load += new System.EventHandler(this.LegacyDialog2011_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
             this.ResumeLayout(false);
 

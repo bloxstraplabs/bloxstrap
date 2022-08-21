@@ -1,11 +1,9 @@
-﻿using System.Diagnostics;
-
-using Bloxstrap.Helpers;
+﻿using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.RSMM;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    public class BootstrapperStyleForm : Form, IBootstrapperStyle
+    public class BootstrapperStyleForm : Form, IBootstrapperDialog
     {
         public Bootstrapper? Bootstrapper { get; set; }
 

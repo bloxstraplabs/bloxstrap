@@ -1,5 +1,7 @@
 ﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Bootstrapper/FileManifest.cs
 
+using System.IO;
+using System.Net.Http;
 using System.Runtime.Serialization;
 
 namespace Bloxstrap.Helpers.RSMM

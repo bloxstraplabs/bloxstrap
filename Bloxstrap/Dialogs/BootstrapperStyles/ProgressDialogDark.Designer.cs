@@ -109,6 +109,7 @@
             this.Name = "ProgressDialogDark";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgressDialog";
+            this.Load += new System.EventHandler(this.ProgressDialogDark_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonCancel)).EndInit();
             this.panel1.ResumeLayout(false);

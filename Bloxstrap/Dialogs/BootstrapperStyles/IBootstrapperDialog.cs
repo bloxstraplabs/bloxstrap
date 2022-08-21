@@ -2,7 +2,7 @@
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
-    interface IBootstrapperStyle
+    public interface IBootstrapperDialog
     {
         Bootstrapper? Bootstrapper { get; set; }
 

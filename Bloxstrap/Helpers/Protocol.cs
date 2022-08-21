@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Text;
+using System.Web;
 using Microsoft.Win32;
 
 namespace Bloxstrap.Helpers
@@ -9,11 +10,11 @@ namespace Bloxstrap.Helpers
         private static readonly IReadOnlyDictionary<string, string> UriKeyArgMap = new Dictionary<string, string>()
         {
 			// excluding roblox-player, browsertrackerid and channel
-			{ "launchmode", "--" },
+            { "launchmode", "--" },
             { "gameinfo", "-t " },
             { "placelauncherurl", "-j "},
-			// { "launchtime", "--launchtime=" }, we'll set this when launching the game client
-			{ "robloxLocale", "--rloc " },
+            // { "launchtime", "--launchtime=" }, we'll set this when launching the game client
+            { "robloxLocale", "--rloc " },
             { "gameLocale", "--gloc " },
         };
 
@@ -22,7 +23,7 @@ namespace Bloxstrap.Helpers
             string[] keyvalPair;
             string key;
             string val;
-            string commandLine = "";
+            StringBuilder commandLine = new();
 
             foreach (var parameter in protocol.Split('+'))
             {
@@ -39,10 +40,10 @@ namespace Bloxstrap.Helpers
                 if (key == "placelauncherurl")
                     val = HttpUtility.UrlDecode(val).Replace("browserTrackerId", "lol");
 
-                commandLine += UriKeyArgMap[key] + val + " ";
+                commandLine.Append(UriKeyArgMap[key] + val + " ");
             }
 
-            return commandLine;
+            return commandLine.ToString();
         }
 
         public static void Register(string key, string name, string handler)

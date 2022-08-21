@@ -41,5 +41,10 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
             SetupDialog();
         }
+
+        private void LegacyDialog2011_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
     }
 }

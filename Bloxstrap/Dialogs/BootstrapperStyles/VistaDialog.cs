@@ -163,7 +163,6 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
         private void TestDialog_Load(object sender, EventArgs e)
         {
-            this.Hide();
             TaskDialog.ShowDialog(Dialog);
         }
     }
