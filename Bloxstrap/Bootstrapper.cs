@@ -473,6 +473,8 @@ namespace Bloxstrap
 
         private void ApplyModifications()
         {
+            Dialog.Message = "Applying Roblox modifications...";
+
             string modFolder = Path.Combine(Directories.Modifications);
             string manifestFile = Path.Combine(Directories.Base, "ModManifest.txt");
 
@@ -522,6 +524,13 @@ namespace Bloxstrap
                         continue;
                 }
 
+                string? directory = Path.GetDirectoryName(fileVersionFolder);
+
+                if (directory is null)
+                    continue;
+
+                Directory.CreateDirectory(directory);
+
                 File.Copy(fileModFolder, fileVersionFolder, true);
             }
 
@@ -559,7 +568,13 @@ namespace Bloxstrap
             {
                 if (!File.Exists(modFolderLocation))
                 {
-                    Directory.CreateDirectory(Path.GetDirectoryName(modFolderLocation));
+                    string? directory = Path.GetDirectoryName(modFolderLocation);
+
+                    if (directory is null)
+                        return;
+
+                    Directory.CreateDirectory(directory);
+
                     File.WriteAllBytes(modFolderLocation, Convert.FromBase64String(base64Contents));
                 }
             }
@@ -630,6 +645,7 @@ namespace Bloxstrap
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string packageFolder = Path.Combine(VersionFolder, PackageDirectories[package.Name]);
             string extractPath;
+            string? directory;
 
             Debug.WriteLine($"Extracting {package.Name} to {packageFolder}...");
 
@@ -647,7 +663,12 @@ namespace Bloxstrap
 
                     Debug.WriteLine($"[{package.Name}] Writing {extractPath}...");
 
-                    Directory.CreateDirectory(Path.GetDirectoryName(extractPath));
+                    directory = Path.GetDirectoryName(extractPath);
+
+                    if (directory is null)
+                        continue;
+
+                    Directory.CreateDirectory(directory);
 
                     if (File.Exists(extractPath))
                         File.Delete(extractPath);
