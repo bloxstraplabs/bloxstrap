@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Bloxstrap.Models;
 using DiscordRPC;
 
 namespace Bloxstrap.Helpers.Integrations
@@ -9,22 +9,19 @@ namespace Bloxstrap.Helpers.Integrations
 
 		public async Task<bool> SetPresence(string placeId)
 		{
-			string placeName;
 			string placeThumbnail;
-			string creatorName;
 
-			// null checking could probably be a lot more concrete here
-			JObject placeInfo = await Utilities.GetJson($"https://economy.roblox.com/v2/assets/{placeId}/details");
+			var placeInfo = await Utilities.GetJson<RobloxAsset>($"https://economy.roblox.com/v2/assets/{placeId}/details");
 
-			placeName = placeInfo["Name"].Value<string>();
-			creatorName = placeInfo["Creator"]["Name"].Value<string>();
-
-			JObject thumbnailInfo = await Utilities.GetJson($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={placeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
-
-			if (thumbnailInfo["data"] is null)
+			if (placeInfo is null || placeInfo.Creator is null)
 				return false;
 
-			placeThumbnail = thumbnailInfo["data"][0]["imageUrl"].Value<string>();
+			var thumbnailInfo = await Utilities.GetJson<RobloxThumbnails>($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={placeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+
+			if (thumbnailInfo is null)
+				placeThumbnail = "roblox"; //fallback
+			else
+				placeThumbnail = thumbnailInfo.Data[0].ImageUrl;
 
 			DiscordRPC.Button[]? buttons = null;
 
@@ -50,14 +47,14 @@ namespace Bloxstrap.Helpers.Integrations
 
 			RichPresence.SetPresence(new RichPresence()
 			{
-				Details = placeName,
-				State = $"by {creatorName}",
+				Details = placeInfo.Name,
+				State = $"by {placeInfo.Creator.Name}",
 				Timestamps = new Timestamps() { Start = DateTime.UtcNow },
 				Buttons = buttons,
 				Assets = new Assets()
 				{
 					LargeImageKey = placeThumbnail,
-					LargeImageText = placeName,
+					LargeImageText = placeInfo.Name,
 					SmallImageKey = "roblox",
 					SmallImageText = "Roblox"
 				}

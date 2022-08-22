@@ -5,6 +5,8 @@ using System.Net.Http;
 
 using Newtonsoft.Json.Linq;
 
+using Bloxstrap.Models;
+
 namespace Bloxstrap.Helpers.Integrations
 {
     internal class RbxFpsUnlocker
@@ -35,9 +37,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!Program.Settings.RFUEnabled)
             {
                 if (Directory.Exists(folderLocation))
-                {
                     Directory.Delete(folderLocation, true);
-                }
 
                 return;
             }
@@ -45,20 +45,13 @@ namespace Bloxstrap.Helpers.Integrations
             DateTime lastReleasePublish;
             string downloadUrl;
 
-            try
-            {
-                JObject releaseInfo = await Utilities.GetJson($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
+            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
 
-                // so... rbxfpsunlocker does not actually have any version info for the executable
-                // meaning the best way we can check for a new version is comparing time last download to time last release published
-                lastReleasePublish = DateTime.Parse(releaseInfo["created_at"].Value<string>());
-                downloadUrl = releaseInfo["assets"][0]["browser_download_url"].Value<string>();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Failed to fetch latest version info! ({ex.Message})");
+            if (releaseInfo is null || releaseInfo.CreatedAt is null || releaseInfo.Assets is null)
                 return;
-            }
+
+            lastReleasePublish = DateTime.Parse(releaseInfo.CreatedAt);
+            downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
 
             Directory.CreateDirectory(folderLocation);
 
@@ -79,9 +72,9 @@ namespace Bloxstrap.Helpers.Integrations
             {
                 byte[] bytes = await client.GetByteArrayAsync(downloadUrl);
 
-                using (MemoryStream zipStream = new MemoryStream(bytes))
+                using (MemoryStream zipStream = new(bytes))
                 {
-                    ZipArchive zip = new ZipArchive(zipStream);
+                    ZipArchive zip = new(zipStream);
                     zip.ExtractToDirectory(folderLocation, true);
                 }
             }

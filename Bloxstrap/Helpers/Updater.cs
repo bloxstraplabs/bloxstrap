@@ -1,7 +1,11 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Net.Http;
+using System.Text.Json;
 
 using Newtonsoft.Json.Linq;
+
+using Bloxstrap.Models;
 
 namespace Bloxstrap.Helpers
 {
@@ -52,20 +56,13 @@ namespace Bloxstrap.Helpers
             string latestVersion;
             string releaseNotes;
 
-            // get the latest version according to the latest github release info
-            // it should contain the latest product version, which we can check against
-            try
-            {
-                JObject releaseInfo = await Utilities.GetJson($"https://api.github.com/repos/{Program.ProjectRepository}/releases/latest");
+            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{Program.ProjectRepository}/releases/latest");
 
-                latestVersion = releaseInfo["name"].Value<string>();
-                releaseNotes = releaseInfo["body"].Value<string>();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Failed to fetch latest version info! ({ex.Message})");
+            if (releaseInfo is null || releaseInfo.Name is null || releaseInfo.Body is null)
                 return;
-            }
+
+            latestVersion = releaseInfo.Name;
+            releaseNotes = releaseInfo.Body;
 
             if (currentVersion != latestVersion)
             {

@@ -7,7 +7,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
     {
         public Bootstrapper? Bootstrapper { get; set; }
 
-        protected virtual string _message { get; set; }
+        protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
         protected virtual bool _cancelEnabled { get; set; }
@@ -18,7 +18,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set 
             { 
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { Message = value; }));
+                    this.Invoke(new Action(() => { _message = value; }));
                 else
                     _message = value;
             } 
@@ -30,7 +30,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { ProgressStyle = value; }));
+                    this.Invoke(new Action(() => { _progressStyle = value; }));
                 else
                     _progressStyle = value;
             }
@@ -42,7 +42,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { ProgressValue = value; }));
+                    this.Invoke(new Action(() => { _progressValue = value; }));
                 else
                     _progressValue = value;
             }
@@ -54,7 +54,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { CancelEnabled = value; }));
+                    this.Invoke(new Action(() => { _cancelEnabled = value; }));
                 else
                     _cancelEnabled = value;
             }

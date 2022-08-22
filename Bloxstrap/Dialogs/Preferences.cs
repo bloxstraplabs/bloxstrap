@@ -37,7 +37,7 @@ namespace Bloxstrap.Dialogs
 
         private BootstrapperStyle SelectedStyle
         {
-            get => (BootstrapperStyle)_selectedStyle;
+            get => _selectedStyle ?? BootstrapperStyle.ProgressDialog;
 
             set
             {
@@ -53,7 +53,7 @@ namespace Bloxstrap.Dialogs
 
         private BootstrapperIcon SelectedIcon
         {
-            get => (BootstrapperIcon)_selectedIcon;
+            get => _selectedIcon ?? BootstrapperIcon.IconBloxstrap;
 
             set
             {

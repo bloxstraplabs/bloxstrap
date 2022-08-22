@@ -2,36 +2,18 @@
 using System.IO;
 using System.Text.Json;
 
-using Bloxstrap.Enums;
+using Bloxstrap.Models;
 
 namespace Bloxstrap
 {
-    public class SettingsFormat
-    {
-        public string VersionGuid { get; set; }
-
-        public bool CheckForUpdates { get; set; } = true;
-
-        public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
-        public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
-
-        public bool UseDiscordRichPresence { get; set; } = true;
-        public bool HideRPCButtons { get; set; } = false;
-        public bool RFUEnabled { get; set; } = false;
-        public bool RFUAutoclose { get; set; } = false;
-
-        public bool UseOldDeathSound { get; set; } = true;
-        public bool UseOldMouseCursor { get; set; } = false;
-    }
-
     public class SettingsManager
     {
         public SettingsFormat Settings = new();
         public bool ShouldSave = false;
         private bool IsSaving = false;
 
-        private string _saveLocation;
-        public string SaveLocation
+        private string? _saveLocation;
+        public string? SaveLocation
         {
             get => _saveLocation;
 
@@ -51,7 +33,12 @@ namespace Bloxstrap
 
                 try
                 {
-                    Settings = JsonSerializer.Deserialize<SettingsFormat>(settingsJson);
+                    var settings = JsonSerializer.Deserialize<SettingsFormat>(settingsJson);
+
+                    if (settings is null)
+                        throw new Exception("Deserialization returned null");
+
+                    Settings = settings;
                 }
                 catch (Exception ex)
                 {
@@ -79,7 +66,7 @@ namespace Bloxstrap
             string SettingsJson = JsonSerializer.Serialize(Settings, new JsonSerializerOptions { WriteIndented = true });
             Debug.WriteLine(SettingsJson);
 
-            if (!ShouldSave)
+            if (!ShouldSave || SaveLocation is null)
             {
                 Debug.WriteLine("ShouldSave set to false, not saving...");
                 return;

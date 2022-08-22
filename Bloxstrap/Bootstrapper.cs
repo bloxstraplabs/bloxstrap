@@ -16,19 +16,6 @@ namespace Bloxstrap
     public partial class Bootstrapper
     {
         #region Properties
-        private string? LaunchCommandLine;
-
-        private string VersionGuid;
-        private PackageManifest VersionPackageManifest;
-        private string VersionFolder;
-
-        private readonly bool FreshInstall;
-
-        private int ProgressIncrement;
-        private bool CancelFired = false;
-
-        private static readonly HttpClient Client = new();
-
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
@@ -79,8 +66,18 @@ namespace Bloxstrap
             "By default, two mod presets are provided for restoring the old death\n" +
             "sound and the old mouse cursor.\n";
 
-        // TODO: reduce reliance on event handlers for signalling property changes to the bootstrapper dialog
-        // i mean, chances are we can just use IBootstrapperDialog now?
+        private static readonly HttpClient Client = new();
+
+        private string? LaunchCommandLine;
+
+        private string VersionGuid;
+        private PackageManifest VersionPackageManifest;
+        private string VersionFolder;
+
+        private readonly bool FreshInstall;
+
+        private int ProgressIncrement;
+        private bool CancelFired = false;
 
         public IBootstrapperDialog Dialog;
         #endregion
@@ -498,7 +495,7 @@ namespace Bloxstrap
                 string relativeFile = file.Substring(modFolder.Length + 1);
 
                 // ignore files placed in the root directory
-                if (!relativeFile.Contains(@"\"))
+                if (!relativeFile.Contains('\\'))
                     continue;
 
                 modFolderFiles.Add(relativeFile);
@@ -554,7 +551,7 @@ namespace Bloxstrap
             File.WriteAllLines(manifestFile, modFolderFiles);
         }
 
-        private void CheckModPreset(bool condition, string location, string base64Contents)
+        private static void CheckModPreset(bool condition, string location, string base64Contents)
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
 

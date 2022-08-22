@@ -2,7 +2,9 @@ using System.Diagnostics;
 using System.IO;
 
 using Microsoft.Win32;
+
 using Bloxstrap.Helpers;
+using Bloxstrap.Models;
 
 namespace Bloxstrap
 {
@@ -27,8 +29,9 @@ namespace Bloxstrap
         public static string LocalAppData { get; private set; } = "";
         public static string StartMenu { get; private set; } = "";
 
-        public static SettingsFormat Settings;
         public static SettingsManager SettingsManager = new();
+        public static SettingsFormat Settings = SettingsManager.Settings;
+
 
         public static void ShowMessageBox(MessageBoxIcon icon, string message)
         {

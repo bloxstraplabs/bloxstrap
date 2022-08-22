@@ -2,9 +2,7 @@
 using System.IO;
 using System.Net.Http;
 using System.Security.Cryptography;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
 namespace Bloxstrap.Helpers
 {
@@ -15,16 +13,16 @@ namespace Bloxstrap.Helpers
             Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
         }
 
-		public static async Task<JObject> GetJson(string url)
-		{
-			using (HttpClient client = new())
-			{
-				client.DefaultRequestHeaders.Add("User-Agent", Program.ProjectRepository);
+        public static async Task<T?> GetJson<T>(string url)
+        {
+            using (HttpClient client = new())
+            {
+                client.DefaultRequestHeaders.Add("User-Agent", Program.ProjectRepository);
 
-				string jsonString = await client.GetStringAsync(url);
-				return (JObject)JsonConvert.DeserializeObject(jsonString);
-			}
-		}
+                string json = await client.GetStringAsync(url);
+                return JsonSerializer.Deserialize<T>(json);
+            }
+        }
 
         public static string MD5File(string filename)
         {
@@ -47,7 +45,7 @@ namespace Bloxstrap.Helpers
 
             string substr = subject.Substring(subject.LastIndexOf(key) + key.Length);
 
-            if (substr.IndexOf(delimiter) == -1)
+            if (!substr.Contains(delimiter))
                 return null;
 
             return substr.Split(delimiter)[0];
