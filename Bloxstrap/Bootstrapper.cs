@@ -563,6 +563,7 @@ namespace Bloxstrap
         private static void CheckModPreset(bool condition, string location, string base64Contents)
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
+            byte[] binaryData = Convert.FromBase64String(base64Contents);
 
             if (condition)
             {
@@ -575,10 +576,10 @@ namespace Bloxstrap
 
                     Directory.CreateDirectory(directory);
 
-                    File.WriteAllBytes(modFolderLocation, Convert.FromBase64String(base64Contents));
+                    File.WriteAllBytes(modFolderLocation, binaryData);
                 }
             }
-            else if (File.Exists(modFolderLocation))
+            else if (File.Exists(modFolderLocation) && Utilities.MD5File(modFolderLocation) == Utilities.MD5Data(binaryData))
             {
                 File.Delete(modFolderLocation);
             }

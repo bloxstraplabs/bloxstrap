@@ -36,6 +36,15 @@ namespace Bloxstrap.Helpers
             }
         }
 
+        public static string MD5Data(byte[] data)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] hash = md5.ComputeHash(data);
+                return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            }
+        }
+
         // quick and hacky way of getting a value from any key/value pair formatted list
         // (command line args, uri params, etc)
         public static string? GetKeyValue(string subject, string key, char delimiter)
