@@ -13,7 +13,8 @@ Bloxstrap is only supported for PCs running Windows.
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Support for persistent file modifications (including re-adding the old death sound!)
-* Ability to choose where Roblox is installed to
+* Ability to choose where Roblox is installed to 
+* Ability to choose which Roblox build channel to download from
 * Integration with Discord Rich Presence and [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
 * Custom bootstrapper styles (includes old versions and dark theme)
 

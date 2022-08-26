@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preferences));
             this.label1 = new System.Windows.Forms.Label();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.DialogTab = new System.Windows.Forms.TabPage();
@@ -318,8 +319,7 @@
             this.SelectChannel.Name = "SelectChannel";
             this.SelectChannel.Size = new System.Drawing.Size(120, 23);
             this.SelectChannel.TabIndex = 0;
-            this.InfoTooltip.SetToolTip(this.SelectChannel, "Choose what deploy channel to use.\r\nThe default channel is LIVE.\r\nYou should only" +
-        " change this if you\'re know exactly what you\'re doing.\r\n");
+            this.InfoTooltip.SetToolTip(this.SelectChannel, resources.GetString("SelectChannel.ToolTip"));
             this.SelectChannel.SelectedValueChanged += new System.EventHandler(this.SelectChannel_SelectedValueChanged);
             // 
             // groupBox4

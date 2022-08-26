@@ -41,17 +41,23 @@ namespace Bloxstrap.Helpers
                 if (key == "placelauncherurl")
                     val = HttpUtility.UrlDecode(val).Replace("browserTrackerId", "lol");
 
-                if (key == "channel" && val != Program.Settings.Channel)
+                if (key == "channel")
                 {
-                    DialogResult result = Program.ShowMessageBox(
-                        $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
-                        $"Would you like to switch channels from {Program.Settings.Channel} to {val}?",
-                        MessageBoxIcon.Question,
-                        MessageBoxButtons.YesNo
-                    );
+                    if (val != Program.Settings.Channel)
+                    {
+                        DialogResult result = Program.ShowMessageBox(
+                            $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
+                            $"Would you like to switch channels from {Program.Settings.Channel} to {val}?",
+                            MessageBoxIcon.Question,
+                            MessageBoxButtons.YesNo
+                        );
 
-                    if (result == DialogResult.Yes)
-                        Program.Settings.Channel = val;
+                        if (result == DialogResult.Yes)
+                            Program.Settings.Channel = val;
+                    }
+
+                    if (val == DeployManager.DefaultChannel)
+                        continue;
                 }
 
                 commandLine.Append(UriKeyArgMap[key] + val + " ");

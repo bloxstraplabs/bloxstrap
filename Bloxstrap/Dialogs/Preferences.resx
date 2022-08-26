@@ -60,10 +60,18 @@
   <metadata name="InfoTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>222, 17</value>
   </metadata>
+  <data name="SelectChannel.ToolTip" xml:space="preserve">
+    <value>Choose what build channel to install Roblox from.
+You really shouldn't change this if you don't have to.
+
+Channels to note:
+The default channel is LIVE. 
+ZCanary is equivalent to sitetest1.
+ZIntegration is equivalent to sitetest2.
+
+</value>
+  </data>
   <metadata name="InstallLocationBrowseDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="InfoTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>222, 17</value>
   </metadata>
 </root>
