@@ -45,6 +45,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.StyleSelection = new System.Windows.Forms.ListBox();
             this.InstallationTab = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ToggleShowAllChannels = new System.Windows.Forms.CheckBox();
+            this.LabelChannelInfo = new System.Windows.Forms.Label();
+            this.SelectChannel = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.LabelModFolderInstall = new System.Windows.Forms.Label();
             this.ButtonOpenModFolder = new System.Windows.Forms.Button();
@@ -67,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconPreview)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.InstallationTab.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.GroupBoxInstallLocation.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -259,6 +264,7 @@
             // 
             // InstallationTab
             // 
+            this.InstallationTab.Controls.Add(this.groupBox6);
             this.InstallationTab.Controls.Add(this.groupBox4);
             this.InstallationTab.Controls.Add(this.GroupBoxInstallLocation);
             this.InstallationTab.Location = new System.Drawing.Point(4, 24);
@@ -268,6 +274,53 @@
             this.InstallationTab.TabIndex = 2;
             this.InstallationTab.Text = "Installation";
             this.InstallationTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.ToggleShowAllChannels);
+            this.groupBox6.Controls.Add(this.LabelChannelInfo);
+            this.groupBox6.Controls.Add(this.SelectChannel);
+            this.groupBox6.Location = new System.Drawing.Point(5, 158);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(422, 56);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Build Channel";
+            // 
+            // ToggleShowAllChannels
+            // 
+            this.ToggleShowAllChannels.AutoSize = true;
+            this.ToggleShowAllChannels.BackColor = System.Drawing.Color.White;
+            this.ToggleShowAllChannels.Location = new System.Drawing.Point(289, 0);
+            this.ToggleShowAllChannels.Name = "ToggleShowAllChannels";
+            this.ToggleShowAllChannels.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.ToggleShowAllChannels.Size = new System.Drawing.Size(127, 19);
+            this.ToggleShowAllChannels.TabIndex = 2;
+            this.ToggleShowAllChannels.Text = "Show all channels";
+            this.ToggleShowAllChannels.UseVisualStyleBackColor = false;
+            this.ToggleShowAllChannels.CheckedChanged += new System.EventHandler(this.ToggleShowAllChannels_CheckedChanged);
+            // 
+            // LabelChannelInfo
+            // 
+            this.LabelChannelInfo.Location = new System.Drawing.Point(134, 18);
+            this.LabelChannelInfo.Name = "LabelChannelInfo";
+            this.LabelChannelInfo.Size = new System.Drawing.Size(282, 28);
+            this.LabelChannelInfo.TabIndex = 1;
+            this.LabelChannelInfo.Text = "Getting latest deploy, please wait...";
+            this.LabelChannelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelectChannel
+            // 
+            this.SelectChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectChannel.DropDownWidth = 265;
+            this.SelectChannel.FormattingEnabled = true;
+            this.SelectChannel.Location = new System.Drawing.Point(9, 21);
+            this.SelectChannel.Name = "SelectChannel";
+            this.SelectChannel.Size = new System.Drawing.Size(120, 23);
+            this.SelectChannel.TabIndex = 0;
+            this.InfoTooltip.SetToolTip(this.SelectChannel, "Choose what deploy channel to use.\r\nThe default channel is LIVE.\r\nYou should only" +
+        " change this if you\'re know exactly what you\'re doing.\r\n");
+            this.SelectChannel.SelectedValueChanged += new System.EventHandler(this.SelectChannel_SelectedValueChanged);
             // 
             // groupBox4
             // 
@@ -444,6 +497,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconPreview)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.InstallationTab.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.GroupBoxInstallLocation.ResumeLayout(false);
@@ -486,5 +541,9 @@
         private CheckBox ToggleCheckForUpdates;
         private Button ButtonOpenModFolder;
         private Label LabelModFolderInstall;
+        private GroupBox groupBox6;
+        private ComboBox SelectChannel;
+        private Label LabelChannelInfo;
+        private CheckBox ToggleShowAllChannels;
     }
 }

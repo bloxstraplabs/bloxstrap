@@ -9,16 +9,17 @@ namespace Bloxstrap.Helpers
         // map uri keys to command line args
         private static readonly IReadOnlyDictionary<string, string> UriKeyArgMap = new Dictionary<string, string>()
         {
-			// excluding roblox-player, browsertrackerid and channel
+			// excluding roblox-player and browsertrackerid
             { "launchmode", "--" },
             { "gameinfo", "-t " },
             { "placelauncherurl", "-j "},
             // { "launchtime", "--launchtime=" }, we'll set this when launching the game client
             { "robloxLocale", "--rloc " },
             { "gameLocale", "--gloc " },
+            { "channel", "-channel " }
         };
 
-        public static string Parse(string protocol)
+        public static string ParseUri(string protocol)
         {
             string[] keyvalPair;
             string key;
@@ -34,11 +35,24 @@ namespace Bloxstrap.Helpers
                 key = keyvalPair[0];
                 val = keyvalPair[1];
 
-                if (!UriKeyArgMap.ContainsKey(key))
+                if (!UriKeyArgMap.ContainsKey(key) || String.IsNullOrEmpty(val))
                     continue;
 
                 if (key == "placelauncherurl")
                     val = HttpUtility.UrlDecode(val).Replace("browserTrackerId", "lol");
+
+                if (key == "channel" && val != Program.Settings.Channel)
+                {
+                    DialogResult result = Program.ShowMessageBox(
+                        $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
+                        $"Would you like to switch channels from {Program.Settings.Channel} to {val}?",
+                        MessageBoxIcon.Question,
+                        MessageBoxButtons.YesNo
+                    );
+
+                    if (result == DialogResult.Yes)
+                        Program.Settings.Channel = val;
+                }
 
                 commandLine.Append(UriKeyArgMap[key] + val + " ");
             }

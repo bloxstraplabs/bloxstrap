@@ -7,11 +7,13 @@ using Bloxstrap.Dialogs.BootstrapperStyles;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
+using Bloxstrap.Models;
 
 namespace Bloxstrap.Dialogs
 {
     public partial class Preferences : Form
     {
+        #region Properties
         private static readonly IReadOnlyDictionary<string, BootstrapperStyle> SelectableStyles = new Dictionary<string, BootstrapperStyle>()
         {
             { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
@@ -32,40 +34,33 @@ namespace Bloxstrap.Dialogs
             { "2019", BootstrapperIcon.Icon2019 },
         };
 
-        private BootstrapperStyle? _selectedStyle;
-        private BootstrapperIcon? _selectedIcon;
-
-        private BootstrapperStyle SelectedStyle
+        private string ChannelInfo
         {
-            get => _selectedStyle ?? BootstrapperStyle.ProgressDialog;
-
             set
             {
-                if (_selectedStyle == value)
-                    return;
-
-                _selectedStyle = value;
-
-                int index = SelectableStyles.Values.ToList().IndexOf(value);
-                this.StyleSelection.SetSelected(index, true);
+                if (this.InvokeRequired)
+                {
+                    this.Invoke(new Action(() => { this.LabelChannelInfo.Text = value; }));
+                }
+                else
+                {
+                    this.LabelChannelInfo.Text = value;
+                }
             }
         }
+        #endregion
 
-        private BootstrapperIcon SelectedIcon
+        #region Core
+        private async Task GetChannelInfo(string channel)
         {
-            get => _selectedIcon ?? BootstrapperIcon.IconBloxstrap;
+            ChannelInfo = "Getting latest deploy, please wait...";
 
-            set
-            {
-                if (_selectedIcon == value)
-                    return;
+            VersionDeploy info = await DeployManager.GetLastDeploy(channel);
 
-                _selectedIcon = value;
+            if (info.FileVersion is null || info.Date is null)
+                return;
 
-                int index = SelectableIcons.Values.ToList().IndexOf(value);
-                this.IconSelection.SetSelected(index, true);
-                this.IconPreview.BackgroundImage = IconManager.GetBitmapResource(value);
-            }
+            ChannelInfo = $"Last deploy:\nv{info.FileVersion} @ {info.Date}";
         }
 
         public Preferences()
@@ -89,21 +84,21 @@ namespace Bloxstrap.Dialogs
                 this.InstallLocation.Text = Program.BaseDirectory;
             }
 
-            foreach (var style in SelectableStyles)
-            {
-                this.StyleSelection.Items.Add(style.Key);
-            }
-
-            foreach (var icon in SelectableIcons)
-            {
-                this.IconSelection.Items.Add(icon.Key);
-            }
-
             if (!Environment.Is64BitOperatingSystem)
                 this.ToggleRFUEnabled.Enabled = false;
 
-            SelectedStyle = Program.Settings.BootstrapperStyle;
-            SelectedIcon = Program.Settings.BootstrapperIcon;
+            // set data sources for list controls
+            this.StyleSelection.DataSource = SelectableStyles.Keys.ToList();
+            this.IconSelection.DataSource = SelectableIcons.Keys.ToList();
+
+            if (DeployManager.ChannelsAbstracted.Contains(Program.Settings.Channel))
+                this.SelectChannel.DataSource = DeployManager.ChannelsAbstracted;
+            else
+                this.ToggleShowAllChannels.Checked = true;
+
+            // populate preferences
+            this.StyleSelection.Text = SelectableStyles.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperStyle).Key;
+            this.IconSelection.Text = SelectableIcons.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperIcon).Key;
 
             this.ToggleCheckForUpdates.Checked = Program.Settings.CheckForUpdates;
             
@@ -115,26 +110,19 @@ namespace Bloxstrap.Dialogs
 
             this.ToggleDeathSound.Checked = Program.Settings.UseOldDeathSound;
             this.ToggleMouseCursor.Checked = Program.Settings.UseOldMouseCursor;
+
+            this.SelectChannel.Text = Program.Settings.Channel;
         }
+        #endregion
 
-        private void InstallLocationBrowseButton_Click(object sender, EventArgs e)
+        #region Dialog Events
+        private void ToggleShowAllChannels_CheckedChanged(object sender, EventArgs e)
         {
-            DialogResult result = this.InstallLocationBrowseDialog.ShowDialog();
+            if (this.ToggleShowAllChannels.Checked)
+                this.SelectChannel.DataSource = DeployManager.ChannelsAll;
+            else
+                this.SelectChannel.DataSource = DeployManager.ChannelsAbstracted;
 
-            if (result == DialogResult.OK)
-                this.InstallLocation.Text = this.InstallLocationBrowseDialog.SelectedPath;
-        }
-
-        private void StyleSelection_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selected = this.StyleSelection.Text;
-            SelectedStyle = SelectableStyles[selected];
-        }
-
-        private void IconSelection_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selected = this.IconSelection.Text;
-            SelectedIcon = SelectableIcons[selected];
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -143,7 +131,7 @@ namespace Bloxstrap.Dialogs
 
             if (String.IsNullOrEmpty(installLocation))
             {
-                Program.ShowMessageBox(MessageBoxIcon.Error, "You must set an install location");
+                Program.ShowMessageBox("You must set an install location", MessageBoxIcon.Error);
                 return;
             }
 
@@ -166,12 +154,12 @@ namespace Bloxstrap.Dialogs
             }
             catch (UnauthorizedAccessException)
             {
-                Program.ShowMessageBox(MessageBoxIcon.Error, $"{Program.ProjectName} does not have write access to the install location you selected. Please choose another install location.");
+                Program.ShowMessageBox($"{Program.ProjectName} does not have write access to the install location you selected. Please choose another install location.", MessageBoxIcon.Error);
                 return;
             }
             catch (Exception ex)
             {
-                Program.ShowMessageBox(MessageBoxIcon.Error, ex.Message);
+                Program.ShowMessageBox(ex.Message, MessageBoxIcon.Error);
                 return;
             }
 
@@ -186,7 +174,7 @@ namespace Bloxstrap.Dialogs
 
                 if (Program.BaseDirectory is not null && Program.BaseDirectory != installLocation)
                 {
-                    Program.ShowMessageBox(MessageBoxIcon.Information, $"{Program.ProjectName} will install to the new location you've set the next time it runs.");
+                    Program.ShowMessageBox($"{Program.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxIcon.Information);
 
                     Program.Settings.VersionGuid = "";
 
@@ -205,19 +193,14 @@ namespace Bloxstrap.Dialogs
                 }
             }                
 
-            Program.Settings.BootstrapperStyle = SelectedStyle;
-            Program.Settings.BootstrapperIcon = SelectedIcon;
-
             this.Close();
         }
 
         private void PreviewButton_Click(object sender, EventArgs e)
         {
-            Program.Settings.BootstrapperIcon = SelectedIcon;
-
             this.Visible = false;
 
-            switch (SelectedStyle)
+            switch (Program.Settings.BootstrapperStyle)
             {
                 case BootstrapperStyle.VistaDialog:
                     new VistaDialog().ShowDialog();
@@ -243,6 +226,33 @@ namespace Bloxstrap.Dialogs
             this.Visible = true;
         }
 
+        private void Preferences_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
+        #endregion
+
+        #region Preference Events
+        private void StyleSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible)
+                return;
+
+            Program.Settings.BootstrapperStyle = SelectableStyles[this.StyleSelection.Text];
+        }
+
+        private void IconSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BootstrapperIcon icon = SelectableIcons[this.IconSelection.Text];
+            
+            this.IconPreview.BackgroundImage = IconManager.GetBitmapResource(icon);
+
+            if (!this.Visible)
+                return;
+
+            Program.Settings.BootstrapperIcon = icon;
+        }
+
         private void ToggleDiscordRichPresence_CheckedChanged(object sender, EventArgs e)
         {
             Program.Settings.UseDiscordRichPresence = this.ToggleRPCButtons.Enabled = this.ToggleDiscordRichPresence.Checked;
@@ -251,6 +261,11 @@ namespace Bloxstrap.Dialogs
         private void ToggleRPCButtons_CheckedChanged(object sender, EventArgs e)
         {
             Program.Settings.HideRPCButtons = this.ToggleRPCButtons.Checked;
+        }
+
+        private void RFUWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utilities.OpenWebsite($"https://github.com/{RbxFpsUnlocker.ProjectRepository}");
         }
 
         private void ToggleRFUEnabled_CheckedChanged(object sender, EventArgs e)
@@ -263,6 +278,14 @@ namespace Bloxstrap.Dialogs
             Program.Settings.RFUAutoclose = this.ToggleRFUAutoclose.Checked;
         }
 
+        private void InstallLocationBrowseButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.InstallLocationBrowseDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+                this.InstallLocation.Text = this.InstallLocationBrowseDialog.SelectedPath;
+        }
+
         private void ToggleDeathSound_CheckedChanged(object sender, EventArgs e)
         {
             Program.Settings.UseOldDeathSound = this.ToggleDeathSound.Checked;
@@ -273,24 +296,25 @@ namespace Bloxstrap.Dialogs
             Program.Settings.UseOldMouseCursor = this.ToggleMouseCursor.Checked;
         }
 
-        private void ToggleCheckForUpdates_CheckedChanged(object sender, EventArgs e)
-        {
-            Program.Settings.CheckForUpdates = this.ToggleCheckForUpdates.Checked;
-        }
-
-        private void RFUWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Utilities.OpenWebsite($"https://github.com/{RbxFpsUnlocker.ProjectRepository}");
-        }
-
         private void ButtonOpenModFolder_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Directories.Modifications);
         }
 
-        private void Preferences_Load(object sender, EventArgs e)
+        private void SelectChannel_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.Activate();
+            Task.Run(() => GetChannelInfo(Program.Settings.Channel));
+         
+            if (!this.Visible)
+                return;
+
+            Program.Settings.Channel = this.SelectChannel.Text;
         }
+
+        private void ToggleCheckForUpdates_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.Settings.CheckForUpdates = this.ToggleCheckForUpdates.Checked;
+        }
+        #endregion
     }
 }

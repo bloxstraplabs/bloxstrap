@@ -14,7 +14,6 @@ namespace Bloxstrap
 
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
-        public const string BaseUrlSetup = "https://s3.amazonaws.com/setup.roblox.com";
 
         #region base64 stuff
         // TODO: using IPFS as a reliable method for static asset storage instead of base64?
@@ -32,10 +31,10 @@ namespace Bloxstrap
         public static SettingsManager SettingsManager = new();
         public static SettingsFormat Settings = SettingsManager.Settings;
 
-
-        public static void ShowMessageBox(MessageBoxIcon icon, string message)
+        // shorthand
+        public static DialogResult ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.None, MessageBoxButtons buttons = MessageBoxButtons.OK)
         {
-            MessageBox.Show(message, ProjectName, MessageBoxButtons.OK, icon);
+            return MessageBox.Show(message, ProjectName, buttons, icon);
         }
 
         public static void Exit()
@@ -56,7 +55,7 @@ namespace Bloxstrap
 
             if (Process.GetProcessesByName(ProjectName).Length > 1)
             {
-                ShowMessageBox(MessageBoxIcon.Error, $"{ProjectName} is already running. Please close any currently open {ProjectName} window.\nIf you have Discord Rich Presence enabled, then close Roblox if it's running.");
+                ShowMessageBox($"{ProjectName} is already running. Please close any currently open {ProjectName} window.\nIf you have Discord Rich Presence enabled, then close Roblox if it's running.", MessageBoxIcon.Error);
                 return;
             }
 
@@ -107,7 +106,7 @@ namespace Bloxstrap
                 }
                 else if (args[0].StartsWith("roblox-player:"))
                 {
-                    commandLine = Protocol.Parse(args[0]);
+                    commandLine = Protocol.ParseUri(args[0]);
                 }
                 else if (args[0].StartsWith("roblox:"))
                 {
@@ -123,8 +122,12 @@ namespace Bloxstrap
                 commandLine = "--app";
             }
 
+
             if (!String.IsNullOrEmpty(commandLine))
-                new Bootstrapper().Initialize(Settings.BootstrapperStyle, commandLine);
+            {
+                DeployManager.Channel = Settings.Channel;
+                new Bootstrapper().Initialize(commandLine);
+            }
 
             SettingsManager.Save();
         }

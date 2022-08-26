@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Bloxstrap.Enums;
+﻿using Bloxstrap.Enums;
+using Bloxstrap.Helpers;
 
 namespace Bloxstrap.Models
 {
     public class SettingsFormat
     {
+        public string Channel { get; set; } = DeployManager.DefaultChannel;
         public string VersionGuid { get; set; } = "";
 
         public bool CheckForUpdates { get; set; } = true;

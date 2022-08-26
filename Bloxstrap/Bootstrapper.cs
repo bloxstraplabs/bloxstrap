@@ -89,11 +89,11 @@ namespace Bloxstrap
             Client.Timeout = TimeSpan.FromMinutes(10);
         }
 
-        public void Initialize(BootstrapperStyle bootstrapperStyle, string? launchCommandLine = null)
+        public void Initialize(string? launchCommandLine = null)
         {
             LaunchCommandLine = launchCommandLine;
 
-            switch (bootstrapperStyle)
+            switch (Program.Settings.BootstrapperStyle)
             {
                 case BootstrapperStyle.VistaDialog:
                     Application.Run(new VistaDialog(this));
@@ -128,12 +128,7 @@ namespace Bloxstrap
             await CheckLatestVersion();
 
             if (!Directory.Exists(VersionFolder) || Program.Settings.VersionGuid != VersionGuid)
-            {
-                Debug.WriteLineIf(!Directory.Exists(VersionFolder), $"Installing latest version (!Directory.Exists({VersionFolder}))");
-                Debug.WriteLineIf(Program.Settings.VersionGuid != VersionGuid, $"Installing latest version ({Program.Settings.VersionGuid} != {VersionGuid})");
-
                 await InstallLatestVersion();
-            }
 
             ApplyModifications();
 
@@ -156,7 +151,7 @@ namespace Bloxstrap
         {
             Dialog.Message = "Connecting to Roblox...";
 
-            VersionGuid = await Client.GetStringAsync($"{Program.BaseUrlSetup}/version");
+            VersionGuid = await Client.GetStringAsync($"{DeployManager.BaseUrl}/version");
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
         }
@@ -587,7 +582,7 @@ namespace Bloxstrap
 
         private async void DownloadPackage(Package package)
         {
-            string packageUrl = $"{Program.BaseUrlSetup}/{VersionGuid}-{package.Name}";
+            string packageUrl = $"{DeployManager.BaseUrl}/{VersionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Program.LocalAppData, "Roblox", "Downloads", package.Signature);
 

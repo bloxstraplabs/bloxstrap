@@ -97,25 +97,13 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
         public virtual void ShowSuccess(string message)
         {
-            MessageBox.Show(
-                message,
-                Program.ProjectName,
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-
+            Program.ShowMessageBox(message, MessageBoxIcon.Information);
             Program.Exit();
         }
 
         public virtual void ShowError(string message)
         {
-            MessageBox.Show(
-                $"An error occurred while starting Roblox\n\nDetails: {message}",
-                Program.ProjectName,
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error
-            );
-
+            Program.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxIcon.Error);
             Program.Exit();
         }
 
@@ -129,11 +117,10 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
         public void PromptShutdown()
         {
-            DialogResult result = MessageBox.Show(
+            DialogResult result = Program.ShowMessageBox(
                 "Roblox is currently running, but needs to close. Would you like close Roblox now?",
-                Program.ProjectName,
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Information
+                MessageBoxIcon.Information,
+                MessageBoxButtons.OKCancel
             );
 
             if (result != DialogResult.OK)

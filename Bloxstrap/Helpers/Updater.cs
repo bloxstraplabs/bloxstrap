@@ -22,11 +22,10 @@ namespace Bloxstrap.Helpers
 
             if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
             {
-                DialogResult result = MessageBox.Show(
+                DialogResult result = Program.ShowMessageBox(
                     $"The version of {Program.ProjectName} you've launched is newer than the version you currently have installed.\nWould you like to update your currently installed version?",
-                    Program.ProjectName,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
+                    MessageBoxIcon.Question,
+                    MessageBoxButtons.YesNo
                 );
 
                 if (result == DialogResult.Yes)
@@ -66,11 +65,10 @@ namespace Bloxstrap.Helpers
 
             if (currentVersion != latestVersion)
             {
-                DialogResult result = MessageBox.Show(
+                DialogResult result = Program.ShowMessageBox(
                     $"A new version of {Program.ProjectName} is available\n\n[{latestVersion}]\n{releaseNotes}\n\nWould you like to download it?",
-                    Program.ProjectName,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
+                    MessageBoxIcon.Question,
+                    MessageBoxButtons.YesNo
                 ); 
 
                 if (result == DialogResult.Yes)

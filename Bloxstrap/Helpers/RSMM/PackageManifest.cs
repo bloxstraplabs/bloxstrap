@@ -72,7 +72,7 @@ namespace Bloxstrap.Helpers.RSMM
 
         public static async Task<PackageManifest> Get(string versionGuid)
         {
-            string pkgManifestUrl = $"{Program.BaseUrlSetup}/{versionGuid}-rbxPkgManifest.txt";
+            string pkgManifestUrl = $"{DeployManager.BaseUrl}/{versionGuid}-rbxPkgManifest.txt";
             string pkgManifestData;
 
             using (HttpClient http = new())
