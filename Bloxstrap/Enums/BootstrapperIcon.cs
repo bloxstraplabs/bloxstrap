@@ -8,6 +8,7 @@
         IconEarly2015,
         IconLate2015,
         Icon2017,
-        Icon2019
+        Icon2019,
+        Icon2022
     }
 }

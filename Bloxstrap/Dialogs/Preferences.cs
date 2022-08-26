@@ -32,6 +32,7 @@ namespace Bloxstrap.Dialogs
             { "Late 2015", BootstrapperIcon.IconLate2015 },
             { "2017", BootstrapperIcon.Icon2017 },
             { "2019", BootstrapperIcon.Icon2019 },
+            { "2022", BootstrapperIcon.Icon2022 }
         };
 
         private string ChannelInfo

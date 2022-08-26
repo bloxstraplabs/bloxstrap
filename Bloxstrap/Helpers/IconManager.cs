@@ -19,6 +19,7 @@ namespace Bloxstrap.Helpers
                 case BootstrapperIcon.IconLate2015: return Properties.Resources.IconLate2015_ico;
                 case BootstrapperIcon.Icon2017: return Properties.Resources.Icon2017_ico;
                 case BootstrapperIcon.Icon2019: return Properties.Resources.Icon2019_ico;
+                case BootstrapperIcon.Icon2022: return Properties.Resources.Icon2022_ico;
                 case BootstrapperIcon.IconBloxstrap: default: return Properties.Resources.IconBloxstrap_ico;
             }
         }
@@ -38,6 +39,7 @@ namespace Bloxstrap.Helpers
                 case BootstrapperIcon.IconLate2015: return Properties.Resources.IconLate2015_png;
                 case BootstrapperIcon.Icon2017: return Properties.Resources.Icon2017_png;
                 case BootstrapperIcon.Icon2019: return Properties.Resources.Icon2019_png;
+                case BootstrapperIcon.Icon2022: return Properties.Resources.Icon2022_png;
                 case BootstrapperIcon.IconBloxstrap: default: return Properties.Resources.IconBloxstrap_png;
             }
         }

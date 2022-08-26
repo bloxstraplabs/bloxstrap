@@ -99,22 +99,21 @@ namespace Bloxstrap.Helpers
         public static async Task<VersionDeploy> GetLastDeploy(string channel)
         {
             string baseUrl = BuildBaseUrl(channel);
-            string deployHistory = "";
             string lastDeploy = "";
 
             using (HttpClient client = new())
             {
-                deployHistory = await client.GetStringAsync($"{baseUrl}/DeployHistory.txt");
-            }
+                string deployHistory = await client.GetStringAsync($"{baseUrl}/DeployHistory.txt");
 
-            using (StringReader reader = new(deployHistory))
-            {
-                string? line;
-
-                while ((line = await reader.ReadLineAsync()) is not null)
+                using (StringReader reader = new(deployHistory))
                 {
-                    if (line.Contains("WindowsPlayer"))
-                        lastDeploy = line;
+                    string? line;
+
+                    while ((line = await reader.ReadLineAsync()) is not null)
+                    {
+                        if (line.Contains("WindowsPlayer"))
+                            lastDeploy = line;
+                    }
                 }
             }
 
@@ -148,7 +147,12 @@ namespace Bloxstrap.Helpers
             // convert to traditional version format
             fileVersion = fileVersion.Replace(" ", "").Replace(',', '.');
 
-            return new VersionDeploy { VersionGuid = versionGuid, Date = date, FileVersion = fileVersion };
+            return new VersionDeploy 
+            { 
+                VersionGuid = versionGuid, 
+                Date = date, 
+                FileVersion = fileVersion 
+            };
         }
     }
 }
