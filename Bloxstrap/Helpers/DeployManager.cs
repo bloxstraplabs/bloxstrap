@@ -1,8 +1,4 @@
-﻿using System.Globalization;
-using System.IO;
-using System.Net.Http;
-
-using Bloxstrap.Models;
+﻿using Bloxstrap.Models;
 
 namespace Bloxstrap.Helpers
 {

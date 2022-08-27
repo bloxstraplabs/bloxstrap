@@ -64,6 +64,7 @@
             this.PreviewButton = new System.Windows.Forms.Button();
             this.InstallLocationBrowseDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.InfoTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.Tabs.SuspendLayout();
             this.DialogTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,7 +93,7 @@
             // 
             this.Tabs.Controls.Add(this.DialogTab);
             this.Tabs.Controls.Add(this.InstallationTab);
-            this.Tabs.Location = new System.Drawing.Point(12, 40);
+            this.Tabs.Location = new System.Drawing.Point(12, 62);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
             this.Tabs.Size = new System.Drawing.Size(442, 247);
@@ -142,8 +143,7 @@
             // ToggleRFUAutoclose
             // 
             this.ToggleRFUAutoclose.AutoSize = true;
-            this.ToggleRFUAutoclose.Checked = true;
-            this.ToggleRFUAutoclose.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleRFUAutoclose.Enabled = false;
             this.ToggleRFUAutoclose.Location = new System.Drawing.Point(9, 40);
             this.ToggleRFUAutoclose.Name = "ToggleRFUAutoclose";
             this.ToggleRFUAutoclose.Size = new System.Drawing.Size(209, 19);
@@ -156,8 +156,6 @@
             // ToggleRFUEnabled
             // 
             this.ToggleRFUEnabled.AutoSize = true;
-            this.ToggleRFUEnabled.Checked = true;
-            this.ToggleRFUEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToggleRFUEnabled.Location = new System.Drawing.Point(9, 19);
             this.ToggleRFUEnabled.Name = "ToggleRFUEnabled";
             this.ToggleRFUEnabled.Size = new System.Drawing.Size(127, 19);
@@ -436,7 +434,7 @@
             this.panel1.Controls.Add(this.ToggleCheckForUpdates);
             this.panel1.Controls.Add(this.PreviewButton);
             this.panel1.Controls.Add(this.SaveButton);
-            this.panel1.Location = new System.Drawing.Point(-1, 298);
+            this.panel1.Location = new System.Drawing.Point(-1, 320);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(466, 42);
             this.panel1.TabIndex = 6;
@@ -475,12 +473,22 @@
             this.InfoTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.InfoTooltip.ToolTipTitle = "Information";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(234, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Hover over an option for more information";
+            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(464, 339);
+            this.ClientSize = new System.Drawing.Size(464, 361);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.label1);
@@ -510,6 +518,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -549,5 +558,6 @@
         private ComboBox SelectChannel;
         private Label LabelChannelInfo;
         private CheckBox ToggleShowAllChannels;
+        private Label label2;
     }
 }

@@ -634,7 +634,7 @@ namespace Bloxstrap
                     if (CancelFired)
                         return;
 
-                    if (entry.FullName.EndsWith(@"\"))
+                    if (entry.FullName.EndsWith('\\'))
                         continue;
 
                     extractPath = Path.Combine(packageFolder, entry.FullName);

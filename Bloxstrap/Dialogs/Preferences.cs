@@ -27,8 +27,8 @@ namespace Bloxstrap.Dialogs
             { "Bloxstrap", BootstrapperIcon.IconBloxstrap },
             { "2009", BootstrapperIcon.Icon2009 },
             { "2011", BootstrapperIcon.Icon2011 },
-            { "Early 2015", BootstrapperIcon.IconEarly2015 },
-            { "Late 2015", BootstrapperIcon.IconLate2015 },
+            { "2015", BootstrapperIcon.IconEarly2015 },
+            { "2016", BootstrapperIcon.IconLate2015 },
             { "2017", BootstrapperIcon.Icon2017 },
             { "2019", BootstrapperIcon.Icon2019 },
             { "2022", BootstrapperIcon.Icon2022 }
@@ -40,7 +40,7 @@ namespace Bloxstrap.Dialogs
             {
                 if (this.InvokeRequired)
                 {
-                    this.Invoke(new Action(() => { this.LabelChannelInfo.Text = value; }));
+                    this.Invoke(() => this.LabelChannelInfo.Text = value);
                 }
                 else
                 {
@@ -53,16 +53,16 @@ namespace Bloxstrap.Dialogs
         #region Core
         private async Task GetChannelInfo(string channel)
         {
-            ChannelInfo = "Getting latest deploy, please wait...";
+            ChannelInfo = "Getting latest version, please wait...";
 
             VersionDeploy info = await DeployManager.GetLastDeploy(channel);
 
             if (info.FileVersion is null || info.Timestamp is null)
                 return;
 
-            string strTimestamp = info.Timestamp.Value.ToString("MM/dd/yyyy hh:mm:ss tt", Program.CultureFormat);
+            string strTimestamp = info.Timestamp.Value.ToString("MM/dd/yyyy h:mm:ss tt", Program.CultureFormat);
 
-            ChannelInfo = $"Last deploy:\nv{info.FileVersion} @ {strTimestamp}";
+            ChannelInfo = $"Latest version:\nv{info.FileVersion} @ {strTimestamp}";
         }
 
         public Preferences()
