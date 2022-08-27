@@ -9,7 +9,7 @@ namespace Bloxstrap.Models
     public class VersionDeploy
     {
         public string? VersionGuid { get; set; }
-        public string? Date { get; set; }
+        public DateTime? Timestamp { get; set; }
         public string? FileVersion { get; set; }
     }
 }

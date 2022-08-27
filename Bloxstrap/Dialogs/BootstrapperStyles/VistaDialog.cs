@@ -1,5 +1,4 @@
-﻿using Bloxstrap.Helpers;
-using Bloxstrap.Helpers.RSMM;
+﻿using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
@@ -66,7 +65,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
             Dialog = new TaskDialogPage()
             {
-                Icon = new TaskDialogIcon(IconManager.GetIconResource()),
+                Icon = new TaskDialogIcon(Program.Settings.BootstrapperIcon.GetIcon()),
                 Caption = Program.ProjectName,
 
                 Buttons = { TaskDialogButton.Cancel },

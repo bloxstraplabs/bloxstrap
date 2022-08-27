@@ -1,5 +1,4 @@
-﻿using Bloxstrap.Helpers;
-using Bloxstrap.Helpers.RSMM;
+﻿using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
@@ -18,7 +17,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set 
             { 
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { _message = value; }));
+                    this.Invoke(() => _message = value);
                 else
                     _message = value;
             } 
@@ -30,7 +29,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { _progressStyle = value; }));
+                    this.Invoke(() => _progressStyle = value);
                 else
                     _progressStyle = value;
             }
@@ -42,7 +41,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { _progressValue = value; }));
+                    this.Invoke(() => _progressValue = value);
                 else
                     _progressValue = value;
             }
@@ -54,7 +53,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             set
             {
                 if (this.InvokeRequired)
-                    this.Invoke(new Action(() => { _cancelEnabled = value; }));
+                    this.Invoke(() => _cancelEnabled = value);
                 else
                     _cancelEnabled = value;
             }
@@ -63,7 +62,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
         public void SetupDialog()
         {
             this.Text = Program.ProjectName;
-            this.Icon = IconManager.GetIconResource();
+            this.Icon = Program.Settings.BootstrapperIcon.GetIcon();
 
             if (Bootstrapper is null)
             {

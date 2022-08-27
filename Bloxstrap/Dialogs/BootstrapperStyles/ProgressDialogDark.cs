@@ -1,4 +1,4 @@
-﻿using Bloxstrap.Helpers;
+﻿using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
@@ -36,7 +36,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
             Bootstrapper = bootstrapper;
 
-            this.IconBox.BackgroundImage = IconManager.GetBitmapResource();
+            this.IconBox.BackgroundImage = Program.Settings.BootstrapperIcon.GetBitmap();
 
             SetupDialog();
         }

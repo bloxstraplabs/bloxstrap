@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Net.Http;
 
 using Bloxstrap.Models;
@@ -11,8 +12,7 @@ namespace Bloxstrap.Helpers
         public const string DefaultBaseUrl = "https://setup.rbxcdn.com";
         public static string BaseUrl { get; private set; } = DefaultBaseUrl;
 
-        public static readonly string DefaultChannel = "LIVE";
-
+        public const string DefaultChannel = "LIVE";
         public static string Channel { set => BaseUrl = BuildBaseUrl(value); }
 
         // basically any channel that has had a deploy within the past month with a windowsplayer build
@@ -124,13 +124,16 @@ namespace Bloxstrap.Helpers
             // (last time they did so was may 2021 so we should be fine?)
             // example entry: 'New WindowsPlayer version-29fb7cdd06e84001 at 8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
 
+            // there's a proper way, and then there's the lazy way
+            // this here is the lazy way but it should just work™
+
             lastDeploy = lastDeploy[18..]; // 'version-29fb7cdd06e84001 at 8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
             string versionGuid = lastDeploy[..lastDeploy.IndexOf(" at")]; // 'version-29fb7cdd06e84001'
             
             lastDeploy = lastDeploy[(versionGuid.Length + 4)..]; // '8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-            string date = lastDeploy[..lastDeploy.IndexOf(", file")]; // '8/23/2022 2:07:27 PM'
+            string strTimestamp = lastDeploy[..lastDeploy.IndexOf(", file")]; // '8/23/2022 2:07:27 PM'
             
-            lastDeploy = lastDeploy[(date.Length + 16)..]; // '0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
+            lastDeploy = lastDeploy[(strTimestamp.Length + 16)..]; // '0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
             string fileVersion = "";
 
             if (lastDeploy.Contains("git hash"))
@@ -144,13 +147,17 @@ namespace Bloxstrap.Helpers
                 fileVersion = lastDeploy[..lastDeploy.IndexOf("...")]; // '0, 448, 0, 411122'
             }
 
+            // deployment timestamps are UTC-5
+            strTimestamp += " -05";
+            DateTime dtTimestamp = DateTime.ParseExact(strTimestamp, "M/d/yyyy h:mm:ss tt zz", Program.CultureFormat).ToLocalTime();
+
             // convert to traditional version format
             fileVersion = fileVersion.Replace(" ", "").Replace(',', '.');
 
             return new VersionDeploy 
             { 
                 VersionGuid = versionGuid, 
-                Date = date, 
+                Timestamp = dtTimestamp, 
                 FileVersion = fileVersion 
             };
         }

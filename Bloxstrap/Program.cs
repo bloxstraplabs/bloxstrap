@@ -1,8 +1,10 @@
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 
 using Microsoft.Win32;
 
+using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 
@@ -11,6 +13,7 @@ namespace Bloxstrap
     internal static class Program
     {
         public const StringComparison StringFormat = StringComparison.InvariantCulture;
+        public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
 
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
@@ -126,7 +129,7 @@ namespace Bloxstrap
             if (!String.IsNullOrEmpty(commandLine))
             {
                 DeployManager.Channel = Settings.Channel;
-                new Bootstrapper().Initialize(commandLine);
+                Settings.BootstrapperStyle.Show(new Bootstrapper(commandLine));
             }
 
             SettingsManager.Save();

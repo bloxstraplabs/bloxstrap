@@ -1,4 +1,4 @@
-using Bloxstrap.Helpers;
+using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperStyles
 {
@@ -37,7 +37,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             Bootstrapper = bootstrapper;
             
             // have to convert icon -> bitmap since winforms scaling is poop
-            this.IconBox.Image = IconManager.GetIconResource().ToBitmap();
+            this.IconBox.Image = Program.Settings.BootstrapperIcon.GetIcon().ToBitmap();
 
             SetupDialog();
         }

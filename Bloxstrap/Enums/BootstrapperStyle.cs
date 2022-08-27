@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Enums
+﻿using Bloxstrap.Dialogs.BootstrapperStyles;
+
+namespace Bloxstrap.Enums
 {
     public enum BootstrapperStyle
     {
@@ -7,5 +9,46 @@
         LegacyDialog2011,
         ProgressDialog,
         ProgressDialogDark,
+    }
+
+    public static class BootstrapperStyleEx
+    {
+        public static void Show(this BootstrapperStyle bootstrapperStyle, Bootstrapper? bootstrapper = null)
+        {
+            Form dialog;
+
+            switch (bootstrapperStyle)
+            {
+                case BootstrapperStyle.VistaDialog:
+                    dialog = new VistaDialog(bootstrapper);
+                    break;
+
+                case BootstrapperStyle.LegacyDialog2009:
+                    dialog = new LegacyDialog2009(bootstrapper);
+                    break;
+
+                case BootstrapperStyle.LegacyDialog2011:
+                    dialog = new LegacyDialog2011(bootstrapper);
+                    break;
+
+                case BootstrapperStyle.ProgressDialog:
+                default:
+                    dialog = new ProgressDialog(bootstrapper);
+                    break;
+
+                case BootstrapperStyle.ProgressDialogDark:
+                    dialog = new ProgressDialogDark(bootstrapper);
+                    break;
+            }
+
+            if (bootstrapper is null)
+            {
+                dialog.ShowDialog();
+            }
+            else
+            {
+                Application.Run(dialog);
+            }
+        }
     }
 }

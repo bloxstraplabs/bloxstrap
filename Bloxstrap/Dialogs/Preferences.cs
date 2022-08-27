@@ -3,7 +3,6 @@ using System.Diagnostics;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Dialogs.BootstrapperStyles;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
@@ -58,10 +57,12 @@ namespace Bloxstrap.Dialogs
 
             VersionDeploy info = await DeployManager.GetLastDeploy(channel);
 
-            if (info.FileVersion is null || info.Date is null)
+            if (info.FileVersion is null || info.Timestamp is null)
                 return;
 
-            ChannelInfo = $"Last deploy:\nv{info.FileVersion} @ {info.Date}";
+            string strTimestamp = info.Timestamp.Value.ToString("MM/dd/yyyy hh:mm:ss tt", Program.CultureFormat);
+
+            ChannelInfo = $"Last deploy:\nv{info.FileVersion} @ {strTimestamp}";
         }
 
         public Preferences()
@@ -200,30 +201,7 @@ namespace Bloxstrap.Dialogs
         private void PreviewButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-
-            switch (Program.Settings.BootstrapperStyle)
-            {
-                case BootstrapperStyle.VistaDialog:
-                    new VistaDialog().ShowDialog();
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2009:
-                    new LegacyDialog2009().ShowDialog();
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2011:
-                    new LegacyDialog2011().ShowDialog();
-                    break;
-
-                case BootstrapperStyle.ProgressDialog:
-                    new ProgressDialog().ShowDialog();
-                    break;
-
-                case BootstrapperStyle.ProgressDialogDark:
-                    new ProgressDialogDark().ShowDialog();
-                    break;
-            }
-
+            Program.Settings.BootstrapperStyle.Show();
             this.Visible = true;
         }
 
@@ -246,7 +224,7 @@ namespace Bloxstrap.Dialogs
         {
             BootstrapperIcon icon = SelectableIcons[this.IconSelection.Text];
             
-            this.IconPreview.BackgroundImage = IconManager.GetBitmapResource(icon);
+            this.IconPreview.BackgroundImage = icon.GetBitmap();
 
             if (!this.Visible)
                 return;
@@ -304,12 +282,10 @@ namespace Bloxstrap.Dialogs
 
         private void SelectChannel_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (this.Visible)
+                Program.Settings.Channel = this.SelectChannel.Text;
+                
             Task.Run(() => GetChannelInfo(Program.Settings.Channel));
-         
-            if (!this.Visible)
-                return;
-
-            Program.Settings.Channel = this.SelectChannel.Text;
         }
 
         private void ToggleCheckForUpdates_CheckedChanged(object sender, EventArgs e)

@@ -83,40 +83,14 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper()
+        public Bootstrapper(string? launchCommandLine = null)
         {
+            LaunchCommandLine = launchCommandLine;
             FreshInstall = String.IsNullOrEmpty(Program.Settings.VersionGuid);
             Client.Timeout = TimeSpan.FromMinutes(10);
         }
 
-        public void Initialize(string? launchCommandLine = null)
-        {
-            LaunchCommandLine = launchCommandLine;
-
-            switch (Program.Settings.BootstrapperStyle)
-            {
-                case BootstrapperStyle.VistaDialog:
-                    Application.Run(new VistaDialog(this));
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2009:
-                    Application.Run(new LegacyDialog2009(this));
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2011:
-                    Application.Run(new LegacyDialog2011(this));
-                    break;
-
-                case BootstrapperStyle.ProgressDialog:
-                    Application.Run(new ProgressDialog(this));
-                    break;
-
-                case BootstrapperStyle.ProgressDialogDark:
-                    Application.Run(new ProgressDialogDark(this));
-                    break;
-            }
-        }
-
+        // this is called from BootstrapperStyleForm.SetupDialog()
         public async Task Run()
         {
             if (LaunchCommandLine == "-uninstall")
@@ -183,7 +157,12 @@ namespace Bloxstrap
             Dialog.Message = "Starting Roblox...";
 
             // launch time isn't really required for all launches, but it's usually just safest to do this
-            LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeSeconds() + " -startEvent " + startEventName;
+            LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeSeconds();
+
+            if (Program.Settings.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
+                LaunchCommandLine += " -channel " + Program.Settings.Channel.ToLower();
+
+            LaunchCommandLine  += " -startEvent " + startEventName;
 
             using (SystemEvent startEvent = new(startEventName))
             {
@@ -400,8 +379,10 @@ namespace Bloxstrap
 
             Dialog.CancelEnabled = true;
 
-            // i believe the original bootstrapper bases the progress bar off zip
-            // extraction progress, but here i'm doing package download progress
+            // i believe the bootstrapper bases the progress bar off
+            // bytes downloaded / bytes total according to rbxPkgManifest?
+            // i'm too lazy for that, so here it's just based off how many packages
+            // have finished downloading
 
             Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
@@ -411,7 +392,7 @@ namespace Bloxstrap
 
             foreach (Package package in VersionPackageManifest)
             {
-                // no await, download all the packages at once
+                // download all the packages at once
                 DownloadPackage(package);
             }
 
@@ -430,6 +411,8 @@ namespace Bloxstrap
 
             Debug.WriteLine("Finished downloading");
 
+            Dialog.Message = "Configuring Roblox...";
+
             Directory.CreateDirectory(Directories.Versions);
 
             foreach (Package package in VersionPackageManifest)
@@ -439,8 +422,6 @@ namespace Bloxstrap
             }
 
             Debug.WriteLine("Finished extracting packages");
-
-            Dialog.Message = "Configuring Roblox...";
 
             string appSettingsLocation = Path.Combine(VersionFolder, "AppSettings.xml");
             await File.WriteAllTextAsync(appSettingsLocation, AppSettings);
@@ -529,7 +510,8 @@ namespace Bloxstrap
                 File.Copy(fileModFolder, fileVersionFolder, true);
             }
 
-            // now we check for files that have been deleted from the mod folder
+            // now check for files that have been deleted from the mod folder
+            // according to the manifest
             foreach (string fileLocation in manifestFiles)
             {
                 if (modFolderFiles.Contains(fileLocation))

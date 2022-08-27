@@ -43,7 +43,7 @@ namespace Bloxstrap.Helpers
 
                 if (key == "channel")
                 {
-                    if (val != Program.Settings.Channel)
+                    if (val.ToLower() != Program.Settings.Channel.ToLower())
                     {
                         DialogResult result = Program.ShowMessageBox(
                             $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
@@ -56,8 +56,8 @@ namespace Bloxstrap.Helpers
                             Program.Settings.Channel = val;
                     }
 
-                    if (val == DeployManager.DefaultChannel)
-                        continue;
+                    // we'll set the arg when launching
+                    continue;
                 }
 
                 commandLine.Append(UriKeyArgMap[key] + val + " ");

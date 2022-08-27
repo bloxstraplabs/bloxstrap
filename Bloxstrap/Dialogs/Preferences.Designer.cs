@@ -467,6 +467,10 @@
             // 
             // InfoTooltip
             // 
+            this.InfoTooltip.AutomaticDelay = 0;
+            this.InfoTooltip.AutoPopDelay = 16000;
+            this.InfoTooltip.InitialDelay = 500;
+            this.InfoTooltip.ReshowDelay = 82;
             this.InfoTooltip.ShowAlways = true;
             this.InfoTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.InfoTooltip.ToolTipTitle = "Information";
