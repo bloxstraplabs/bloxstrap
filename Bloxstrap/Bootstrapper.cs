@@ -435,10 +435,12 @@ namespace Bloxstrap
                         File.Delete(filename);
                 }
 
-                if (VersionGuid != Program.Settings.VersionGuid)
+                string oldVersionFolder = Path.Combine(Directories.Versions, Program.Settings.VersionGuid);
+
+                if (VersionGuid != Program.Settings.VersionGuid && Directory.Exists(oldVersionFolder))
                 {
                     // and also to delete our old version folder
-                    Directory.Delete(Path.Combine(Directories.Versions, Program.Settings.VersionGuid), true);
+                    Directory.Delete(oldVersionFolder, true);
                 }
             }
 
