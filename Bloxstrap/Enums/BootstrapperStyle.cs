@@ -1,4 +1,5 @@
-﻿using Bloxstrap.Dialogs.BootstrapperStyles;
+﻿using Microsoft.Win32;
+using Bloxstrap.Dialogs.BootstrapperStyles;
 
 namespace Bloxstrap.Enums
 {
@@ -9,6 +10,7 @@ namespace Bloxstrap.Enums
         LegacyDialog2011,
         ProgressDialog,
         ProgressDialogDark,
+        SystemTheme,
     }
 
     public static class BootstrapperStyleEx
@@ -38,6 +40,20 @@ namespace Bloxstrap.Enums
 
                 case BootstrapperStyle.ProgressDialogDark:
                     dialog = new ProgressDialogDark(bootstrapper);
+                    break;
+
+                case BootstrapperStyle.SystemTheme:
+                    bool darkMode = false;
+                    using (RegistryKey? key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
+                    {
+                        var value = key?.GetValue("AppsUseLightTheme");
+                        if (value != null)
+                        {
+                            darkMode = (int)value <= 0;
+                        }
+                    }
+
+                    dialog = !darkMode ? new ProgressDialog(bootstrapper) : new ProgressDialogDark(bootstrapper);
                     break;
             }
 

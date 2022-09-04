@@ -20,6 +20,7 @@ namespace Bloxstrap.Dialogs
             { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
             { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
             { "Progress (Dark)", BootstrapperStyle.ProgressDialogDark },
+            { "Match system theme", BootstrapperStyle.SystemTheme }
         };
 
         private static readonly IReadOnlyDictionary<string, BootstrapperIcon> SelectableIcons = new Dictionary<string, BootstrapperIcon>()
