@@ -12,6 +12,7 @@ Bloxstrap is only supported for PCs running Windows.
 ## Features
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
+* Doesn't force you to launch in Desktop App mode
 * Support for persistent file modifications (including re-adding the old death sound!)
 * Ability to choose where Roblox is installed to 
 * Ability to choose which Roblox build channel to download from
