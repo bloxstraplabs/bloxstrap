@@ -82,6 +82,9 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
             if (Bootstrapper is null)
                 return;
 
+#if DEBUG
+            await Bootstrapper.Run();
+#else
             try
             {
                 await Bootstrapper.Run();
@@ -92,6 +95,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
                 string message = ex.ToString();
                 ShowError(message);
             }
+#endif
         }
 
         public virtual void ShowSuccess(string message)

@@ -510,6 +510,7 @@ namespace Bloxstrap
                 Directory.CreateDirectory(directory);
 
                 File.Copy(fileModFolder, fileVersionFolder, true);
+                File.SetAttributes(fileVersionFolder, File.GetAttributes(fileModFolder) & ~FileAttributes.ReadOnly);
             }
 
             // now check for files that have been deleted from the mod folder
