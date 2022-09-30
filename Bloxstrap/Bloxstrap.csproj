@@ -9,8 +9,8 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-	<Version>1.4.2</Version>
-	<FileVersion>1.4.2.0</FileVersion>
+	<Version>1.4.3</Version>
+	<FileVersion>1.4.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
