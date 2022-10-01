@@ -70,9 +70,9 @@ namespace Bloxstrap
 
         private string? LaunchCommandLine;
 
-        private string VersionGuid;
-        private PackageManifest VersionPackageManifest;
-        private string VersionFolder;
+        private string VersionGuid = null!;
+        private PackageManifest VersionPackageManifest = null!;
+        private string VersionFolder = null!;
 
         private readonly bool FreshInstall;
 
@@ -101,7 +101,9 @@ namespace Bloxstrap
 
             await CheckLatestVersion();
 
-            if (!Directory.Exists(VersionFolder) || Program.Settings.VersionGuid != VersionGuid)
+            // if bloxstrap is installing for the first time but is running, prompt to close roblox
+            // if roblox needs updating but is running, ignore update for now
+            if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || Program.Settings.VersionGuid != VersionGuid && !CheckIfRunning(false))
                 await InstallLatestVersion();
 
             ApplyModifications();
@@ -130,24 +132,31 @@ namespace Bloxstrap
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
         }
 
-        private void CheckIfRunning()
+        private bool CheckIfRunning(bool shutdown)
         {
             Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
 
-            if (processes.Length > 0)
+            if (processes.Length == 0)
+                return false;
+
+            if (shutdown)
+            {
                 Dialog.PromptShutdown();
 
-            try
-            {
-                // try/catch just in case process was closed before prompt was answered
-
-                foreach (Process process in processes)
+                try
                 {
-                    process.CloseMainWindow();
-                    process.Close();
+                    // try/catch just in case process was closed before prompt was answered
+
+                    foreach (Process process in processes)
+                    {
+                        process.CloseMainWindow();
+                        process.Close();
+                    }
                 }
+                catch (Exception) { }
             }
-            catch (Exception) { }
+
+            return true;
         }
 
         private async Task StartRoblox()
@@ -321,7 +330,7 @@ namespace Bloxstrap
 
         private void Uninstall()
         {
-            CheckIfRunning();
+            CheckIfRunning(true);
 
             Dialog.Message = $"Uninstalling {Program.ProjectName}...";
 
@@ -368,8 +377,6 @@ namespace Bloxstrap
         #region Roblox Install
         private async Task InstallLatestVersion()
         {
-            CheckIfRunning();
-
             if (FreshInstall)
                 Dialog.Message = "Installing Roblox...";
             else

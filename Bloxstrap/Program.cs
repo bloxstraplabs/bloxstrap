@@ -56,12 +56,6 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            if (Process.GetProcessesByName(ProjectName).Length > 1)
-            {
-                ShowMessageBox($"{ProjectName} is already running. Please close any currently open {ProjectName} window.\nIf you have Discord Rich Presence enabled, then close Roblox if it's running.", MessageBoxIcon.Error);
-                return;
-            }
-
             LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             StartMenu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", ProjectName);
 
@@ -105,6 +99,12 @@ namespace Bloxstrap
             {
                 if (args[0] == "-preferences")
                 {
+                    if (Process.GetProcessesByName(ProjectName).Length > 1)
+                    {
+                        ShowMessageBox($"{ProjectName} is already running. Please close any currently open Bloxstrap or Roblox window before opening the configuration menu.", MessageBoxIcon.Error);
+                        return;
+                    }
+
                     Application.Run(new Dialogs.Preferences());
                 }
                 else if (args[0].StartsWith("roblox-player:"))

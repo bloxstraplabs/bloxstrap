@@ -51,7 +51,7 @@ namespace Bloxstrap.Helpers.Integrations
                 return;
 
             lastReleasePublish = DateTime.Parse(releaseInfo.CreatedAt);
-            downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
+            downloadUrl = releaseInfo.Assets![0].BrowserDownloadUrl!;
 
             Directory.CreateDirectory(folderLocation);
 

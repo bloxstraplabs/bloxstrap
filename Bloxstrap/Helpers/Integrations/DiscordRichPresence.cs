@@ -9,7 +9,7 @@ namespace Bloxstrap.Helpers.Integrations
 
 		public async Task<bool> SetPresence(string placeId)
 		{
-			string placeThumbnail;
+			string placeThumbnail = "roblox";
 
 			var placeInfo = await Utilities.GetJson<RobloxAsset>($"https://economy.roblox.com/v2/assets/{placeId}/details");
 
@@ -18,10 +18,8 @@ namespace Bloxstrap.Helpers.Integrations
 
 			var thumbnailInfo = await Utilities.GetJson<RobloxThumbnails>($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={placeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
 
-			if (thumbnailInfo is null)
-				placeThumbnail = "roblox"; //fallback
-			else
-				placeThumbnail = thumbnailInfo.Data[0].ImageUrl;
+			if (thumbnailInfo is not null)
+				placeThumbnail = thumbnailInfo.Data![0].ImageUrl!;
 
 			DiscordRPC.Button[]? buttons = null;
 
