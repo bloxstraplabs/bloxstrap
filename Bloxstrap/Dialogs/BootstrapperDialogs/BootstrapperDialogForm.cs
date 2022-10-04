@@ -1,8 +1,8 @@
 ﻿using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
-    public class BootstrapperStyleForm : Form, IBootstrapperDialog
+    public class BootstrapperDialogForm : Form, IBootstrapperDialog
     {
         public Bootstrapper? Bootstrapper { get; set; }
 
@@ -66,7 +66,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
             if (Bootstrapper is null)
             {
-                Message = "Select Cancel to return to preferences";
+                Message = "Style Preview - Click Cancel to return";
                 CancelEnabled = true;
             }
             else

@@ -1,9 +1,9 @@
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     // windows: https://youtu.be/VpduiruysuM?t=18
     // mac: https://youtu.be/ncHhbcVDRgQ?t=63
 
-    public partial class LegacyDialog2009 : BootstrapperStyleForm
+    public partial class LegacyDialog2009 : BootstrapperDialogForm
     {
         protected override string _message 
         { 

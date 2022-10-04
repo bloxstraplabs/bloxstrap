@@ -1,10 +1,10 @@
 using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     // https://youtu.be/3K9oCEMHj2s?t=35
 
-    public partial class LegacyDialog2011 : BootstrapperStyleForm
+    public partial class LegacyDialog2011 : BootstrapperDialogForm
     {
         protected override string _message 
         { 

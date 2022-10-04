@@ -1,4 +1,4 @@
-﻿namespace Bloxstrap.Dialogs.BootstrapperStyles
+﻿namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     partial class LegacyDialog2009
     {

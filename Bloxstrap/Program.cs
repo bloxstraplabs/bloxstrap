@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
+using Bloxstrap.Dialogs;
 
 namespace Bloxstrap
 {
@@ -25,11 +26,11 @@ namespace Bloxstrap
         public const string Base64OldArrowFarCursor = "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBwoWHwRtdYxgAAAAfElEQVRo3u3WwQmAMBQEUetPtXYQERE10VyEHcSZNPBOPztNZmZmZmZmZmYvK7VUGDCzhBWAEjYASNgBGOEAQIQzACFcAQChBcQJPSBMuANECfeAIOEJECM8A0KEESBCGAMChP4Qte9Ppxj+jODvGB4k8CSDRyk8y83s8y1ZdnQ0Empj3AAAAABJRU5ErkJggg==";
         #endregion
 
-        public static string? BaseDirectory;
+        public static string BaseDirectory = null!;
         public static bool IsFirstRun { get; private set; } = false;
 
-        public static string LocalAppData { get; private set; } = "";
-        public static string StartMenu { get; private set; } = "";
+        public static string LocalAppData { get; private set; } = null!;
+        public static string StartMenu { get; private set; } = null!;
 
         public static SettingsManager SettingsManager = new();
         public static SettingsFormat Settings = SettingsManager.Settings;
@@ -66,7 +67,7 @@ namespace Bloxstrap
             {
                 IsFirstRun = true;
                 Settings = SettingsManager.Settings;
-                Application.Run(new Dialogs.Preferences());
+                new Preferences().ShowDialog();
             }
             else
             {
@@ -91,10 +92,15 @@ namespace Bloxstrap
                 SettingsManager.ShouldSave = true;
             }
 
+#if !DEBUG
             Updater.Check().Wait();
+#endif
 
             string commandLine = "";
 
+#if DEBUG
+            new Preferences().ShowDialog();
+#else
             if (args.Length > 0)
             {
                 if (args[0] == "-preferences")
@@ -105,7 +111,7 @@ namespace Bloxstrap
                         return;
                     }
 
-                    Application.Run(new Dialogs.Preferences());
+                    new PreferencesWPF().ShowDialog();
                 }
                 else if (args[0].StartsWith("roblox-player:"))
                 {
@@ -124,6 +130,7 @@ namespace Bloxstrap
             {
                 commandLine = "--app";
             }
+#endif
 
 
             if (!String.IsNullOrEmpty(commandLine))

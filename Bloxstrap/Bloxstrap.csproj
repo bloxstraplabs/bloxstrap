@@ -4,13 +4,14 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-	<UseWindowsForms>true</UseWindowsForms>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-	<Version>1.4.4</Version>
-	<FileVersion>1.4.4.0</FileVersion>
+    <Version>1.5.0</Version>
+    <FileVersion>1.5.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Dialogs\BootstrapperStyles\LegacyDialog2009.cs" />
-    <Compile Update="Dialogs\BootstrapperStyles\ProgressDialogDark.cs" />
+    <Compile Update="Dialogs\BootstrapperDialogs\LegacyDialog2009.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

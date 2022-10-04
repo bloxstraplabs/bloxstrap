@@ -1,6 +1,4 @@
-﻿using Bloxstrap.Helpers.RSMM;
-
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+﻿namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     public interface IBootstrapperDialog
     {

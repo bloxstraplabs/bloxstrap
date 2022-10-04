@@ -8,8 +8,8 @@ namespace Bloxstrap.Models
 {
     public class VersionDeploy
     {
-        public string? VersionGuid { get; set; }
-        public DateTime? Timestamp { get; set; }
-        public string? FileVersion { get; set; }
+        public string VersionGuid { get; set; } = null!;
+        public string FileVersion { get; set; } = null!;
+        public DateTime Timestamp { get; set; }
     }
 }

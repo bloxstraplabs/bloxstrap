@@ -6,7 +6,7 @@ using System.Net.Http;
 using Microsoft.Win32;
 
 using Bloxstrap.Enums;
-using Bloxstrap.Dialogs.BootstrapperStyles;
+using Bloxstrap.Dialogs.BootstrapperDialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
@@ -79,7 +79,7 @@ namespace Bloxstrap
         private int ProgressIncrement;
         private bool CancelFired = false;
 
-        public IBootstrapperDialog Dialog;
+        public IBootstrapperDialog Dialog = null!;
         #endregion
 
         #region Core

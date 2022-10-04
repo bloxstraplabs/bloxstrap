@@ -12,6 +12,7 @@ namespace Bloxstrap.Models
 
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
+        public Theme Theme { get; set; } = Theme.Default;
 
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = false;

@@ -1,6 +1,6 @@
 ﻿using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     // https://youtu.be/h0_AL95Sc3o?t=48
 
@@ -8,7 +8,7 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
     // since taskdialog is part of winforms, it can't really be properly used without a form
     // for example, cross-threaded calls to ui controls can't really be done outside of a form
 
-    public partial class VistaDialog : BootstrapperStyleForm
+    public partial class VistaDialog : BootstrapperDialogForm
     {
         private TaskDialogPage Dialog;
 

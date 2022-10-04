@@ -1,10 +1,10 @@
 ﻿using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperStyles
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     // basically just the modern dialog
 
-    public partial class ProgressDialog : BootstrapperStyleForm
+    public partial class ProgressDialog : BootstrapperDialogForm
     {
         protected override string _message
         {
@@ -34,6 +34,14 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
         {
             InitializeComponent();
 
+            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            {
+                this.labelMessage.ForeColor = SystemColors.Window;
+                this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
+                this.panel1.BackColor = Color.FromArgb(35, 37, 39);
+                this.BackColor = Color.FromArgb(25, 27, 29);
+            }
+
             Bootstrapper = bootstrapper;
 
             this.IconBox.BackgroundImage = Program.Settings.BootstrapperIcon.GetBitmap();
@@ -43,12 +51,26 @@ namespace Bloxstrap.Dialogs.BootstrapperStyles
 
         private void ButtonCancel_MouseEnter(object sender, EventArgs e)
         {
-            this.buttonCancel.Image = Properties.Resources.CancelButtonHover;
+            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            {
+                this.buttonCancel.Image = Properties.Resources.DarkCancelButtonHover;
+            }
+            else
+            {
+                this.buttonCancel.Image = Properties.Resources.CancelButtonHover;
+            }
         }
 
         private void ButtonCancel_MouseLeave(object sender, EventArgs e)
         {
-            this.buttonCancel.Image = Properties.Resources.CancelButton;
+            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            {
+                this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
+            }
+            else
+            {
+                this.buttonCancel.Image = Properties.Resources.CancelButton;
+            }
         }
 
         private void ProgressDialog_Load(object sender, EventArgs e)
