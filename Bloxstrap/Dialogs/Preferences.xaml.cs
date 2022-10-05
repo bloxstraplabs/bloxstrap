@@ -200,7 +200,7 @@ namespace Bloxstrap.Dialogs
         }
 
         public bool ModFolderButtonEnabled { get; } = !Program.IsFirstRun;
-        public string ModFolderButtonText { get; } = Program.IsFirstRun ? "Install Bloxstrap first to add custom mods" : "Open mod folder";
+        public string ModFolderButtonText { get; } = Program.IsFirstRun ? "Custom mods can be added after installing Bloxstrap" : "Open mod folder";
         #endregion
 
         #region Installation
@@ -266,6 +266,12 @@ namespace Bloxstrap.Dialogs
                 channelInfo = value;
                 OnPropertyChanged();
             } 
+        }
+
+        public bool CheckForUpdates
+        {
+            get => Program.Settings.CheckForUpdates;
+            set => Program.Settings.CheckForUpdates = value;
         }
         #endregion
 

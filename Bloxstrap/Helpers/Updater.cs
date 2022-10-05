@@ -11,10 +11,10 @@ namespace Bloxstrap.Helpers
 {
     public class Updater
     {
-        public static bool CheckInstalledVersion()
+        public static void CheckInstalledVersion()
         {
             if (Environment.ProcessPath is null || !File.Exists(Directories.App) || Environment.ProcessPath == Directories.App)
-                return false;
+                return;
 
             // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
@@ -23,7 +23,7 @@ namespace Bloxstrap.Helpers
             if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
             {
                 DialogResult result = Program.ShowMessageBox(
-                    $"The version of {Program.ProjectName} you've launched is newer than the version you currently have installed.\nWould you like to update your currently installed version?",
+                    $"The version of {Program.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to update your currently installed version?",
                     MessageBoxIcon.Question,
                     MessageBoxButtons.YesNo
                 );
@@ -32,11 +32,18 @@ namespace Bloxstrap.Helpers
                 {
                     File.Delete(Directories.App);
                     File.Copy(Environment.ProcessPath, Directories.App);
-                    return true;
+
+                    Program.ShowMessageBox(
+                        $"{Program.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
+                        MessageBoxIcon.Information,
+                        MessageBoxButtons.OK
+                    );
+
+                    Environment.Exit(0);
                 }
             }
 
-            return false;
+            return;
         }
 
         public static async Task Check()
@@ -44,8 +51,8 @@ namespace Bloxstrap.Helpers
             if (Environment.ProcessPath is null)
                 return;
 
-            if (!Program.IsFirstRun && CheckInstalledVersion())
-                return;
+            if (!Program.IsFirstRun)
+                CheckInstalledVersion();
 
             if (!Program.Settings.CheckForUpdates)
                 return;

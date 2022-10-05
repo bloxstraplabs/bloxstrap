@@ -48,7 +48,7 @@
                         <StackPanel VerticalAlignment="Center">
                             <CheckBox x:Name="CheckBoxModDeathSound" Content=" Use old death sound" Margin="5" IsChecked="{Binding ModOldDeathSound, Mode=TwoWay}" />
                             <CheckBox x:Name="CheckBoxModMouseCursor" Content=" Use old mouse cursor" Margin="5" IsChecked="{Binding ModOldMouseCursor, Mode=TwoWay}" />
-                            <Button x:Name="ButtonOpenModFolder" Content="Open folder" VerticalAlignment="Bottom" Height="23" Margin="5,5,5,5" Click="ButtonOpenModFolder_Click" />
+                            <Button x:Name="ButtonOpenModFolder" Content="{Binding ModFolderButtonText, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" VerticalAlignment="Bottom" Height="23" Margin="5,5,5,5" Click="ButtonOpenModFolder_Click" />
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
@@ -68,7 +68,7 @@
                             <Button Grid.Column="1" x:Name="ButtonInstallLocationBrowse" Content="Browse..." Margin="5,0,0,0" Click="ButtonLocationBrowse_Click" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Channel" VerticalAlignment="Top" Margin="10, 5, 10, 0">
+                    <GroupBox Header="Channel" VerticalAlignment="Top" Margin="10, 5, 10, 5">
                         <StackPanel VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -81,6 +81,7 @@
                             <TextBlock x:Name="TextBlockChannelInfo" Text="{Binding ChannelInfo, Mode=OneWay}" TextWrapping="Wrap" Margin="5" />
                         </StackPanel>
                     </GroupBox>
+                    <CheckBox Content=" Check for Bloxstrap updates on startup" IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" Margin="10,5,10,5" />
                 </StackPanel>
             </TabItem>
             <TabItem Padding="5">

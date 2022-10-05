@@ -111,7 +111,7 @@ namespace Bloxstrap
                         return;
                     }
 
-                    new PreferencesWPF().ShowDialog();
+                    new Preferences().ShowDialog();
                 }
                 else if (args[0].StartsWith("roblox-player:"))
                 {

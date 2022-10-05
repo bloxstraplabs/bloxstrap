@@ -30,7 +30,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (Program.BaseDirectory is null)
                 return;
 
-            string folderLocation = Path.Combine(Program.BaseDirectory, "Integrations", "rbxfpsunlocker");
+            string folderLocation = Path.Combine(Program.BaseDirectory, "Integrations\\rbxfpsunlocker");
             string fileLocation = Path.Combine(folderLocation, "rbxfpsunlocker.exe");
             string settingsLocation = Path.Combine(folderLocation, "settings");
 
@@ -47,11 +47,11 @@ namespace Bloxstrap.Helpers.Integrations
 
             var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
 
-            if (releaseInfo is null || releaseInfo.CreatedAt is null || releaseInfo.Assets is null)
+            if (releaseInfo is null || releaseInfo.Assets is null)
                 return;
 
             lastReleasePublish = DateTime.Parse(releaseInfo.CreatedAt);
-            downloadUrl = releaseInfo.Assets![0].BrowserDownloadUrl!;
+            downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
 
             Directory.CreateDirectory(folderLocation);
 

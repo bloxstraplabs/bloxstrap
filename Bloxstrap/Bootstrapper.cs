@@ -118,7 +118,10 @@ namespace Bloxstrap
 
             await RbxFpsUnlocker.CheckInstall();
 
-            await StartRoblox();
+            if (Program.IsFirstRun)
+                Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
+            else
+                await StartRoblox();
 
             Program.Exit();
         }
@@ -293,6 +296,8 @@ namespace Bloxstrap
             uninstallKey.SetValue("Publisher", Program.ProjectName);
             uninstallKey.SetValue("ModifyPath", $"\"{Directories.App}\" -preferences");
             uninstallKey.SetValue("UninstallString", $"\"{Directories.App}\" -uninstall");
+            uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{Program.ProjectRepository}");
+            uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{Program.ProjectRepository}/releases/latest");
             uninstallKey.Close();
         }
 
