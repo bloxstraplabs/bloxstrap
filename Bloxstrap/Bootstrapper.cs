@@ -118,9 +118,9 @@ namespace Bloxstrap
 
             await RbxFpsUnlocker.CheckInstall();
 
-            if (Program.IsFirstRun)
-                Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
-            else
+            //if (Program.IsFirstRun)
+            //    Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
+            //else
                 await StartRoblox();
 
             Program.Exit();
@@ -169,7 +169,7 @@ namespace Bloxstrap
             Dialog.Message = "Starting Roblox...";
 
             // launch time isn't really required for all launches, but it's usually just safest to do this
-            LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeSeconds();
+            LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
             if (Program.Settings.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
                 LaunchCommandLine += " -channel " + Program.Settings.Channel.ToLower();

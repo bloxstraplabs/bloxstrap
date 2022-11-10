@@ -38,6 +38,9 @@ namespace Bloxstrap.Helpers
                 if (!UriKeyArgMap.ContainsKey(key) || String.IsNullOrEmpty(val))
                     continue;
 
+                if (key == "launchmode" && val == "play")
+                    val = "app";
+
                 if (key == "placelauncherurl")
                     val = HttpUtility.UrlDecode(val).Replace("browserTrackerId", "lol");
 
