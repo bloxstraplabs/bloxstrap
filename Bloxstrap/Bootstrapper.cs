@@ -207,8 +207,11 @@ namespace Bloxstrap
                 await Task.Delay(6000);
 
                 // now we move onto handling rich presence
-                // except beta app launch since we have to rely strictly on website launch
-                if (Program.Settings.UseDiscordRichPresence && !LaunchCommandLine.Contains("--app"))
+                // this is going to be an issue for desktop app launches as this gets the place id from the command line,
+                // but the desktop app launch can switch games without having to close the client
+                // i might be able to experiment with reading from the latest log file in realtime to circumvent this,
+                // but i have no idea how reliable it will be. todo?
+                if (Program.Settings.UseDiscordRichPresence)
                 {
                     // probably not the most ideal way to do this
                     string? placeId = Utilities.GetKeyValue(LaunchCommandLine, "placeId=", '&');
