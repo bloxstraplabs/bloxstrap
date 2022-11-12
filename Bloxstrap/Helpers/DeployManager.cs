@@ -102,19 +102,16 @@ namespace Bloxstrap.Helpers
             string baseUrl = BuildBaseUrl(channel);
             string lastDeploy = "";
 
-            using (HttpClient client = new())
+            string deployHistory = await Bootstrapper.Client.GetStringAsync($"{baseUrl}/DeployHistory.txt");
+
+            using (StringReader reader = new(deployHistory))
             {
-                string deployHistory = await client.GetStringAsync($"{baseUrl}/DeployHistory.txt");
+                string? line;
 
-                using (StringReader reader = new(deployHistory))
+                while ((line = await reader.ReadLineAsync()) is not null)
                 {
-                    string? line;
-
-                    while ((line = await reader.ReadLineAsync()) is not null)
-                    {
-                        if (line.Contains("WindowsPlayer"))
-                            lastDeploy = line;
-                    }
+                    if (line.Contains("WindowsPlayer"))
+                        lastDeploy = line;
                 }
             }
 
