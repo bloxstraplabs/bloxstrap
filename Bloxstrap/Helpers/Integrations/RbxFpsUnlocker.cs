@@ -3,14 +3,13 @@ using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
 
-using Newtonsoft.Json.Linq;
-
 using Bloxstrap.Models;
 
 namespace Bloxstrap.Helpers.Integrations
 {
     internal class RbxFpsUnlocker
     {
+        public const string ApplicationName = "rbxfpsunlocker";
         public const string ProjectRepository = "axstin/rbxfpsunlocker";
 
         // default settings but with QuickStart set to true and CheckForUpdates set to false
@@ -25,6 +24,32 @@ namespace Bloxstrap.Helpers.Integrations
             "SilentErrors=false\n" +
             "QuickStart=true\n";
 
+        public static void CheckIfRunning()
+        {
+            Process[] processes = Process.GetProcessesByName(ApplicationName);
+
+            if (processes.Length == 0)
+                return;
+            
+            try
+            {
+                // try/catch just in case process was closed before prompt was answered
+
+                foreach (Process process in processes)
+                {
+                    if (process.MainModule is null || process.MainModule.FileName is null)
+                        continue;
+
+                    if (!process.MainModule.FileName.Contains(Program.BaseDirectory))
+                        continue;
+
+                    process.Kill();
+                    process.Close();
+                }
+            }
+            catch (Exception) { }
+        }
+
         public static async Task CheckInstall()
         {
             if (Program.BaseDirectory is null)
@@ -37,7 +62,10 @@ namespace Bloxstrap.Helpers.Integrations
             if (!Program.Settings.RFUEnabled)
             {
                 if (Directory.Exists(folderLocation))
+                {
+                    CheckIfRunning();
                     Directory.Delete(folderLocation, true);
+                }
 
                 return;
             }
@@ -63,6 +91,7 @@ namespace Bloxstrap.Helpers.Integrations
                 if (lastDownload > lastReleasePublish)
                     return;
 
+                CheckIfRunning();
                 File.Delete(fileLocation);
             }
 
