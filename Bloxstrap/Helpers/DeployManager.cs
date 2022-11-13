@@ -20,7 +20,8 @@ namespace Bloxstrap.Helpers
             "LIVE",
             "ZAvatarTeam",
             "ZCanary",
-            "ZFeatureHarmony",
+            //"ZFeatureHarmony", last updated 9/20, shouldn't be here anymore
+            "ZFlag",
             "ZIntegration",
             "ZLive",
             "ZNext",
@@ -61,6 +62,7 @@ namespace Bloxstrap.Helpers
             "ZFeatureSubsystemHttpClient",
             "ZFeatureTelemLife",
             "ZFeatureUse-New-RapidJson-In-Flag-Loading",
+            "ZFlag",
             "ZIntegration",
             "ZIntegration1",
             "ZLang",

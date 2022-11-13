@@ -71,13 +71,13 @@ namespace Bloxstrap
             }
             else
             {
-                BaseDirectory = (string?)registryKey.GetValue("InstallLocation");
+                BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
                 registryKey.Close();
             }
 
             // preferences dialog was closed, and so base directory was never set
             // (this doesnt account for the registry value not existing but thats basically never gonna happen)
-            if (BaseDirectory is null)
+            if (String.IsNullOrEmpty(BaseDirectory))
                 return;
 
             Directories.Initialize(BaseDirectory);

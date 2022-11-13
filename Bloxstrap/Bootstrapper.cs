@@ -213,20 +213,24 @@ namespace Bloxstrap
                 // but i have no idea how reliable it will be. todo?
                 if (Program.Settings.UseDiscordRichPresence)
                 {
+                    richPresence = new DiscordRichPresence();
+                    richPresence.MonitorGameActivity();
+
+                    shouldWait = true;
+
                     // probably not the most ideal way to do this
-                    string? placeId = Utilities.GetKeyValue(LaunchCommandLine, "placeId=", '&');
+                    //string? placeId = Utilities.GetKeyValue(LaunchCommandLine, "placeId=", '&');
 
-                    if (placeId is not null)
-                    {
-                        richPresence = new DiscordRichPresence();
-                        bool presenceSet = await richPresence.SetPresence(placeId);
+                    //if (placeId is not null)
+                    //{
+                    //    richPresence = new DiscordRichPresence();
+                    //    bool presenceSet = await richPresence.SetPresence(placeId);
 
-                        if (presenceSet)
-                            shouldWait = true;
-                        else
-                            richPresence.Dispose();
-                    }
-
+                    //    if (presenceSet)
+                    //        shouldWait = true;
+                    //    else
+                    //        richPresence.Dispose();
+                    //}
                 }
 
                 if (!shouldWait)

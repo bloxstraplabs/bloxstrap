@@ -6,6 +6,7 @@ using System.Text.Json;
 using Newtonsoft.Json.Linq;
 
 using Bloxstrap.Models;
+using Bloxstrap.Dialogs;
 
 namespace Bloxstrap.Helpers
 {
@@ -38,6 +39,8 @@ namespace Bloxstrap.Helpers
                         MessageBoxIcon.Information,
                         MessageBoxButtons.OK
                     );
+
+                    new Preferences().ShowDialog();
 
                     Environment.Exit(0);
                 }
