@@ -17,6 +17,7 @@ namespace Bloxstrap.Helpers
         {
             var request = await Bootstrapper.Client.SendAsync(new()
             {
+                RequestUri = new Uri(url),
                 Headers = {
                     { "User-Agent", Program.ProjectRepository }
                 }
