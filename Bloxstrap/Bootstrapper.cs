@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Net;
 using System.Net.Http;
 
 using Microsoft.Win32;
@@ -66,7 +67,7 @@ namespace Bloxstrap
             "By default, two mod presets are provided for restoring the old death\n" +
             "sound and the old mouse cursor.\n";
 
-        private static readonly HttpClient Client = new();
+        public static readonly HttpClient Client = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         private string? LaunchCommandLine;
 

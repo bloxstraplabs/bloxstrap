@@ -15,13 +15,15 @@ namespace Bloxstrap.Helpers
 
         public static async Task<T?> GetJson<T>(string url)
         {
-            using (HttpClient client = new())
+            var request = await Bootstrapper.Client.SendAsync(new()
             {
-                client.DefaultRequestHeaders.Add("User-Agent", Program.ProjectRepository);
-
-                string json = await client.GetStringAsync(url);
-                return JsonSerializer.Deserialize<T>(json);
-            }
+                RequestUri = new Uri(url),
+                Headers = {
+                    { "User-Agent", Program.ProjectRepository }
+                }
+            });
+            var json = await request.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(json);
         }
 
         public static string MD5File(string filename)
