@@ -10,6 +10,7 @@ using Bloxstrap.Dialogs.BootstrapperDialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
+using System.Net;
 
 namespace Bloxstrap
 {
@@ -66,8 +67,6 @@ namespace Bloxstrap
             "By default, two mod presets are provided for restoring the old death\n" +
             "sound and the old mouse cursor.\n";
 
-        private static readonly HttpClient Client = new();
-
         private string? LaunchCommandLine;
 
         private string VersionGuid = null!;
@@ -87,7 +86,6 @@ namespace Bloxstrap
         {
             LaunchCommandLine = launchCommandLine;
             FreshInstall = String.IsNullOrEmpty(Program.Settings.VersionGuid);
-            Client.Timeout = TimeSpan.FromMinutes(10);
         }
 
         // this is called from BootstrapperStyleForm.SetupDialog()
@@ -133,7 +131,7 @@ namespace Bloxstrap
         {
             Dialog.Message = "Connecting to Roblox...";
 
-            VersionGuid = await Client.GetStringAsync($"{DeployManager.BaseUrl}/version");
+            VersionGuid = await Program.HttpClient.GetStringAsync($"{DeployManager.BaseUrl}/version");
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
         }
@@ -611,7 +609,7 @@ namespace Bloxstrap
             {
                 Debug.WriteLine($"Downloading {package.Name}...");
 
-                var response = await Client.GetAsync(packageUrl);
+                var response = await Program.HttpClient.GetAsync(packageUrl);
 
                 if (CancelFired)
                     return;

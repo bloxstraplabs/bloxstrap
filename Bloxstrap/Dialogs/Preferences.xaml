@@ -34,7 +34,7 @@
                         <GroupBox Grid.Column="0" Header="Discord Rich Presence" Margin="10,10,5,5">
                             <StackPanel VerticalAlignment="Center">
                                 <CheckBox x:Name="CheckBoxDRPEnabled" Content=" Show game activity" Margin="5" VerticalAlignment="Top" IsChecked="{Binding DRPEnabled, Mode=TwoWay}" />
-                                <CheckBox x:Name="CheckBoxDRPButtons" Content=" Allow others to join" Margin="5" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=CheckBoxDRPEnabled, Mode=OneWay}" IsChecked="{Binding DRPButtons, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxDRPButtons" Content=" Allow people to join" Margin="5" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=CheckBoxDRPEnabled, Mode=OneWay}" IsChecked="{Binding DRPButtons, Mode=TwoWay}" />
                             </StackPanel>
                         </GroupBox>
                         <GroupBox Grid.Column="1" Header="FPS Unlocking" Margin="5,10,10,5">

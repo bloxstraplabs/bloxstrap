@@ -104,19 +104,16 @@ namespace Bloxstrap.Helpers
             string baseUrl = BuildBaseUrl(channel);
             string lastDeploy = "";
 
-            using (HttpClient client = new())
+            string deployHistory = await Program.HttpClient.GetStringAsync($"{baseUrl}/DeployHistory.txt");
+
+            using (StringReader reader = new(deployHistory))
             {
-                string deployHistory = await client.GetStringAsync($"{baseUrl}/DeployHistory.txt");
+                string? line;
 
-                using (StringReader reader = new(deployHistory))
+                while ((line = await reader.ReadLineAsync()) is not null)
                 {
-                    string? line;
-
-                    while ((line = await reader.ReadLineAsync()) is not null)
-                    {
-                        if (line.Contains("WindowsPlayer"))
-                            lastDeploy = line;
-                    }
+                    if (line.Contains("WindowsPlayer"))
+                        lastDeploy = line;
                 }
             }
 
@@ -132,10 +129,10 @@ namespace Bloxstrap.Helpers
 
             lastDeploy = lastDeploy[18..]; // 'version-29fb7cdd06e84001 at 8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
             string versionGuid = lastDeploy[..lastDeploy.IndexOf(" at")]; // 'version-29fb7cdd06e84001'
-            
+
             lastDeploy = lastDeploy[(versionGuid.Length + 4)..]; // '8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
             string strTimestamp = lastDeploy[..lastDeploy.IndexOf(", file")]; // '8/23/2022 2:07:27 PM'
-            
+
             lastDeploy = lastDeploy[(strTimestamp.Length + 16)..]; // '0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
             string fileVersion = "";
 
@@ -157,11 +154,11 @@ namespace Bloxstrap.Helpers
             // convert to traditional version format
             fileVersion = fileVersion.Replace(" ", "").Replace(',', '.');
 
-            return new VersionDeploy 
-            { 
-                VersionGuid = versionGuid, 
-                Timestamp = dtTimestamp, 
-                FileVersion = fileVersion 
+            return new VersionDeploy
+            {
+                VersionGuid = versionGuid,
+                Timestamp = dtTimestamp,
+                FileVersion = fileVersion
             };
         }
     }

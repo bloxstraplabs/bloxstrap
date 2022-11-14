@@ -91,15 +91,12 @@ namespace Bloxstrap.Helpers.Integrations
 
             Debug.WriteLine("Installing/Updating rbxfpsunlocker...");
 
-            using (HttpClient client = new())
-            {
-                byte[] bytes = await client.GetByteArrayAsync(downloadUrl);
+            byte[] bytes = await Program.HttpClient.GetByteArrayAsync(downloadUrl);
 
-                using (MemoryStream zipStream = new(bytes))
-                {
-                    ZipArchive zip = new(zipStream);
-                    zip.ExtractToDirectory(folderLocation, true);
-                }
+            using (MemoryStream zipStream = new(bytes))
+            {
+                ZipArchive zip = new(zipStream);
+                zip.ExtractToDirectory(folderLocation, true);
             }
 
             if (!File.Exists(settingsLocation))

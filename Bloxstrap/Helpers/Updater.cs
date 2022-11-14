@@ -42,7 +42,7 @@ namespace Bloxstrap.Helpers
 
                     new Preferences().ShowDialog();
 
-                    Environment.Exit(0);
+                    Program.Exit();
                 }
             }
 

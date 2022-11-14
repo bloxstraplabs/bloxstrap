@@ -8,6 +8,8 @@ using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 using Bloxstrap.Dialogs;
+using System.Net.Http;
+using System.Net;
 
 namespace Bloxstrap
 {
@@ -34,6 +36,7 @@ namespace Bloxstrap
 
         public static SettingsManager SettingsManager = new();
         public static SettingsFormat Settings = SettingsManager.Settings;
+        public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
         public static DialogResult ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.None, MessageBoxButtons buttons = MessageBoxButtons.OK)
@@ -56,6 +59,9 @@ namespace Bloxstrap
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            HttpClient.Timeout = TimeSpan.FromMinutes(5);
+            HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
             LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             StartMenu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", ProjectName);
