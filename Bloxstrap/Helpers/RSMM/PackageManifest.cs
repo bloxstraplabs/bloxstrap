@@ -75,8 +75,11 @@ namespace Bloxstrap.Helpers.RSMM
             string pkgManifestUrl = $"{DeployManager.BaseUrl}/{versionGuid}-rbxPkgManifest.txt";
             string pkgManifestData;
 
-            var getData = Bootstrapper.Client.GetStringAsync(pkgManifestUrl);
-            pkgManifestData = await getData.ConfigureAwait(false);
+            using (HttpClient http = new())
+            {
+                var getData = http.GetStringAsync(pkgManifestUrl);
+                pkgManifestData = await getData.ConfigureAwait(false);
+            }
 
             return new PackageManifest(pkgManifestData);
         }
