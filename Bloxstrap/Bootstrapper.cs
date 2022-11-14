@@ -217,20 +217,6 @@ namespace Bloxstrap
                     richPresence.MonitorGameActivity();
 
                     shouldWait = true;
-
-                    // probably not the most ideal way to do this
-                    //string? placeId = Utilities.GetKeyValue(LaunchCommandLine, "placeId=", '&');
-
-                    //if (placeId is not null)
-                    //{
-                    //    richPresence = new DiscordRichPresence();
-                    //    bool presenceSet = await richPresence.SetPresence(placeId);
-
-                    //    if (presenceSet)
-                    //        shouldWait = true;
-                    //    else
-                    //        richPresence.Dispose();
-                    //}
                 }
 
                 if (!shouldWait)
