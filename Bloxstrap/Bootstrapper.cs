@@ -121,7 +121,10 @@ namespace Bloxstrap
             //if (Program.IsFirstRun)
             //    Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
             //else
-                await StartRoblox();
+
+            Program.SettingsManager.Save();
+
+            await StartRoblox();
 
             Program.Exit();
         }

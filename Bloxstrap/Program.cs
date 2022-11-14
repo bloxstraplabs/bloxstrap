@@ -132,7 +132,6 @@ namespace Bloxstrap
             }
 #endif
 
-
             if (!String.IsNullOrEmpty(commandLine))
             {
                 DeployManager.Channel = Settings.Channel;

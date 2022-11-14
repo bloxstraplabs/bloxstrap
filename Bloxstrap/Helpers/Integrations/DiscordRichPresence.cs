@@ -71,7 +71,6 @@ namespace Bloxstrap.Helpers.Integrations
                 ActivityMachineAddress = "";
                 await SetPresence();
             }
-
         }
 
         public async void MonitorGameActivity()

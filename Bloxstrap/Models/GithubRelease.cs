@@ -4,6 +4,9 @@ namespace Bloxstrap.Models
 {
     public class GithubRelease
     {
+        [JsonPropertyName("tag_name")]
+        public string TagName { get; set; } = null!;
+
         [JsonPropertyName("name")]
         public string Name { get; set; } = null!;
         
