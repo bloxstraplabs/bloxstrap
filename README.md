@@ -3,7 +3,7 @@
 
 An open, customizable, feature-packed alternative bootstrapper for Roblox.
 
-This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. This does not touch or modify the game client itself. It merely just serves as a launcher, so there's no risk of being banned for using this.
+This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. Keep in mind - this does not touch or modify the game client itself, it's just a launcher!
 
 If you encounter a bug, or would like to suggest a feature, please submit an issue!
  
