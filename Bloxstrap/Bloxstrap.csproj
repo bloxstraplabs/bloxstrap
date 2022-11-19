@@ -19,11 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DiscordRichPresence" Version="1.1.1.14" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DiscordRPC\DiscordRPC\DiscordRPC.csproj" />
   </ItemGroup>
 
   <ItemGroup>
