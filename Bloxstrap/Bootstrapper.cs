@@ -385,6 +385,8 @@ namespace Bloxstrap
             catch (Exception) { }
 
             Dialog.ShowSuccess($"{Program.ProjectName} has been uninstalled");
+
+            Environment.Exit(ERROR_PRODUCT_UNINSTALLED);
         }
         #endregion
 
