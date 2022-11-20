@@ -98,6 +98,9 @@ namespace Bloxstrap
         // this is called from BootstrapperStyleForm.SetupDialog()
         public async Task Run()
         {
+            if (Program.IsQuiet)
+                Dialog.CloseDialog();
+
             if (Program.IsUninstall)
             {
                 Uninstall();
@@ -122,14 +125,13 @@ namespace Bloxstrap
             CheckInstall();
 
             await RbxFpsUnlocker.CheckInstall();
-
-            //if (Program.IsFirstRun)
-            //    Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
-            //else
-
+            
             Program.SettingsManager.Save();
 
-            if (!Program.IsQuiet)
+            
+            if (Program.IsFirstRun && Program.IsNoLaunch)
+                Dialog.ShowSuccess($"{Program.ProjectName} has successfully installed");
+            else if (!Program.IsNoLaunch)
                 await StartRoblox();
 
             Program.Exit();
@@ -301,6 +303,7 @@ namespace Bloxstrap
             uninstallKey.SetValue("NoRepair", 1);
             uninstallKey.SetValue("Publisher", Program.ProjectName);
             uninstallKey.SetValue("ModifyPath", $"\"{Directories.App}\" -preferences");
+            uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.App}\" -uninstall -quiet");
             uninstallKey.SetValue("UninstallString", $"\"{Directories.App}\" -uninstall");
             uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{Program.ProjectRepository}");
             uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{Program.ProjectRepository}/releases/latest");
