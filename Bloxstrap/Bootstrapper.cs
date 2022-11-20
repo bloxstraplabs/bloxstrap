@@ -17,6 +17,13 @@ namespace Bloxstrap
     public partial class Bootstrapper
     {
         #region Properties
+
+        // https://learn.microsoft.com/en-us/windows/win32/msi/error-codes
+        public const int ERROR_SUCCESS = 0;
+        public const int ERROR_INSTALL_USEREXIT = 1602;
+        public const int ERROR_INSTALL_FAILURE = 1603;
+        public const int ERROR_PRODUCT_UNINSTALLED = 1614;
+
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
@@ -91,7 +98,7 @@ namespace Bloxstrap
         // this is called from BootstrapperStyleForm.SetupDialog()
         public async Task Run()
         {
-            if (LaunchCommandLine == "-uninstall")
+            if (Program.IsUninstall)
             {
                 Uninstall();
                 return;
@@ -122,7 +129,8 @@ namespace Bloxstrap
 
             Program.SettingsManager.Save();
 
-            await StartRoblox();
+            if (!Program.IsQuiet)
+                await StartRoblox();
 
             Program.Exit();
         }
@@ -239,7 +247,7 @@ namespace Bloxstrap
         {
             if (!Dialog.CancelEnabled)
             {
-                Program.Exit();
+                Program.Exit(ERROR_INSTALL_USEREXIT);
                 return;
             }
 
@@ -254,7 +262,7 @@ namespace Bloxstrap
             }
             catch (Exception) { }
  
-            Program.Exit();
+            Program.Exit(ERROR_INSTALL_USEREXIT);
         }
         #endregion
 

@@ -101,7 +101,9 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
                 successDialog.Buttons[0].Click += (sender, e) => Program.Exit();
 
-                Dialog.Navigate(successDialog);
+                if (!Program.IsQuiet)
+                    Dialog.Navigate(successDialog);
+
                 Dialog = successDialog;
             }
         }
@@ -129,9 +131,11 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                     }
                 };
 
-                errorDialog.Buttons[0].Click += (sender, e) => Program.Exit();
+                errorDialog.Buttons[0].Click += (sender, e) => Program.Exit(Bootstrapper.ERROR_INSTALL_FAILURE);
 
-                Dialog.Navigate(errorDialog);
+                if (!Program.IsQuiet)
+                    Dialog.Navigate(errorDialog);
+
                 Dialog = errorDialog;
             }
         }
@@ -152,9 +156,10 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
         }
 
 
-        private void TestDialog_Load(object sender, EventArgs e)
+        private void VistaDialog_Load(object sender, EventArgs e)
         {
-            TaskDialog.ShowDialog(Dialog);
+            if (!Program.IsQuiet)
+                TaskDialog.ShowDialog(Dialog);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Bloxstrap.Helpers
 
         public static async Task Check()
         {
-            if (Environment.ProcessPath is null)
+            if (Environment.ProcessPath is null || Program.IsUninstall || Program.IsQuiet && Program.IsFirstRun)
                 return;
 
             if (!Program.IsFirstRun)
@@ -86,7 +86,7 @@ namespace Bloxstrap.Helpers
                 if (result == DialogResult.Yes)
                 {
                     Utilities.OpenWebsite($"https://github.com/{Program.ProjectRepository}/releases/latest");
-                    Program.Exit();
+                    Program.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
                 }
             }
         }

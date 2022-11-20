@@ -61,6 +61,9 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         public void SetupDialog()
         {
+            if (Program.IsQuiet)
+                this.Hide();
+
             this.Text = Program.ProjectName;
             this.Icon = Program.Settings.BootstrapperIcon.GetIcon();
 
@@ -107,7 +110,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
         public virtual void ShowError(string message)
         {
             Program.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxIcon.Error);
-            Program.Exit();
+            Program.Exit(Bootstrapper.ERROR_INSTALL_FAILURE);
         }
 
         public virtual void CloseDialog()
@@ -127,7 +130,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
             );
 
             if (result != DialogResult.OK)
-                Environment.Exit(0);
+                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
         }
 
         public void ButtonCancel_Click(object? sender, EventArgs e)

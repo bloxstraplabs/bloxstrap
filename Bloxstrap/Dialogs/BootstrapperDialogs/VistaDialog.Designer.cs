@@ -41,7 +41,7 @@
             this.ShowInTaskbar = false;
             this.Text = "VistaDialog";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            this.Load += new System.EventHandler(this.TestDialog_Load);
+            this.Load += new System.EventHandler(this.VistaDialog_Load);
             this.ResumeLayout(false);
 
         }
