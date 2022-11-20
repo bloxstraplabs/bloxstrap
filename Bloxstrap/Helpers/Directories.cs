@@ -2,7 +2,7 @@
 
 namespace Bloxstrap.Helpers
 {
-    internal class Directories
+    class Directories
     {
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";

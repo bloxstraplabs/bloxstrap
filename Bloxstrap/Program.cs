@@ -10,6 +10,7 @@ using Bloxstrap.Models;
 using Bloxstrap.Dialogs;
 using System.Net.Http;
 using System.Net;
+using System.Reflection;
 
 namespace Bloxstrap
 {
@@ -33,6 +34,8 @@ namespace Bloxstrap
 
         public static string LocalAppData { get; private set; } = null!;
         public static string StartMenu { get; private set; } = null!;
+
+        public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
         public static SettingsManager SettingsManager = new();
         public static SettingsFormat Settings = SettingsManager.Settings;

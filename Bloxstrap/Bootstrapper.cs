@@ -284,7 +284,11 @@ namespace Bloxstrap
             RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{Program.ProjectName}");
             uninstallKey.SetValue("DisplayIcon", $"{Directories.App},0");
             uninstallKey.SetValue("DisplayName", Program.ProjectName);
-            uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+            uninstallKey.SetValue("DisplayVersion", Program.Version);
+
+            if (uninstallKey.GetValue("InstallDate") is null)
+                uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+
             uninstallKey.SetValue("InstallLocation", Directories.Base);
             uninstallKey.SetValue("NoRepair", 1);
             uninstallKey.SetValue("Publisher", Program.ProjectName);

@@ -34,6 +34,8 @@ namespace Bloxstrap.Helpers
                     File.Delete(Directories.App);
                     File.Copy(Environment.ProcessPath, Directories.App);
 
+                    Bootstrapper.Register();
+
                     Program.ShowMessageBox(
                         $"{Program.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
                         MessageBoxIcon.Information,
