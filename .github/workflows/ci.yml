@@ -1,0 +1,34 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        platform: [x64, x86]
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.x'
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Publish
+      run: dotnet publish -p:PublishSingleFile=true -r win-${{ matrix.platform }} -c ${{ matrix.configuration }} --self-contained false .\Bloxstrap\Bloxstrap.csproj
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Bloxstrap (${{ matrix.configuration }}, ${{ matrix.platform }})
+        path: |
+          .\Bloxstrap\bin\${{ matrix.configuration }}\net6.0-windows\win-${{ matrix.platform }}\publish\*
