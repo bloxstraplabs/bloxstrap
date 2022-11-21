@@ -1,7 +1,10 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    tags:
+      - 'v*'
+    branches:
+      - main
   pull_request:
     branches: [ main ]
 
@@ -32,3 +35,32 @@ jobs:
         name: Bloxstrap (${{ matrix.configuration }}, ${{ matrix.platform }})
         path: |
           .\Bloxstrap\bin\${{ matrix.configuration }}\net6.0-windows\win-${{ matrix.platform }}\publish\*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Download x64 release artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Bloxstrap (Release, x64)
+          path: x64
+      - name: Download x86 release artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Bloxstrap (Release, x86)
+          path: x86
+      - name: Rename binaries
+        run: |
+          mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x64.exe
+          mv x86/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x86.exe
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            Bloxstrap-${{ github.ref_name }}-x64.exe
+            Bloxstrap-${{ github.ref_name }}-x86.exe
+          name: Bloxstrap ${{ github.ref_name }}
