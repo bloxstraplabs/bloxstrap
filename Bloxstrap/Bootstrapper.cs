@@ -10,6 +10,7 @@ using Bloxstrap.Dialogs.BootstrapperDialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
+using Bloxstrap.Models;
 using System.Net;
 
 namespace Bloxstrap
@@ -131,7 +132,8 @@ namespace Bloxstrap
         {
             Dialog.Message = "Connecting to Roblox...";
 
-            VersionGuid = await Program.HttpClient.GetStringAsync($"{DeployManager.BaseUrl}/version");
+            ClientVersion clientVersion = await DeployManager.GetLastDeploy(Program.Settings.Channel);
+            VersionGuid = clientVersion.VersionGuid;
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
         }
