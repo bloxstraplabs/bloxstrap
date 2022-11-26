@@ -119,8 +119,9 @@ namespace Bloxstrap.Helpers
             {
                 string channelUrl = BuildBaseUrl(channel);
 
-                HttpResponseMessage pkgMessage = await Program.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
-                if (pkgMessage.Content.Headers.TryGetValues("last-modified", out var values))
+                // get an approximate deploy time from rbxpkgmanifest's last modified date
+                HttpResponseMessage pkgResponse = await Program.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
+                if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
                     string lastModified = values.First();
                     clientVersion.Timestamp = DateTime.Parse(lastModified);
