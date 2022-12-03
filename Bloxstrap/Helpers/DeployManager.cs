@@ -1,6 +1,5 @@
-﻿using System.IO;
-using System.Net.Http;
-
+﻿using System.Net.Http;
+using System.Text.Json;
 using Bloxstrap.Models;
 
 namespace Bloxstrap.Helpers
@@ -99,67 +98,37 @@ namespace Bloxstrap.Helpers
                 return $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
         }
 
-        public static async Task<VersionDeploy> GetLastDeploy(string channel)
+        public static async Task<ClientVersion> GetLastDeploy(string channel, bool timestamp = false)
         {
-            string baseUrl = BuildBaseUrl(channel);
-            string lastDeploy = "";
+            HttpResponseMessage deployInfoResponse = await Program.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
 
-            string deployHistory = await Program.HttpClient.GetStringAsync($"{baseUrl}/DeployHistory.txt");
-
-            using (StringReader reader = new(deployHistory))
+            if (!deployInfoResponse.IsSuccessStatusCode)
             {
-                string? line;
+                // 400 = Invalid binaryType.
+                // 404 = Could not find version details for binaryType.
+                // 500 = Error while fetching version information.
+                // either way, we throw
+                throw new Exception($"Could not get latest deploy for channel {channel}");
+            }
 
-                while ((line = await reader.ReadLineAsync()) is not null)
+            string rawJson = await deployInfoResponse.Content.ReadAsStringAsync();
+            ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawJson)!;
+
+            // for preferences
+            if (timestamp)
+            {
+                string channelUrl = BuildBaseUrl(channel);
+
+                // get an approximate deploy time from rbxpkgmanifest's last modified date
+                HttpResponseMessage pkgResponse = await Program.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
+                if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
-                    if (line.Contains("WindowsPlayer"))
-                        lastDeploy = line;
+                    string lastModified = values.First();
+                    clientVersion.Timestamp = DateTime.Parse(lastModified);
                 }
             }
 
-            if (String.IsNullOrEmpty(lastDeploy))
-                throw new Exception($"Could not get latest deploy for channel {channel}");
-
-            // here's to hoping roblox doesn't change their deployment entry format
-            // (last time they did so was may 2021 so we should be fine?)
-            // example entry: 'New WindowsPlayer version-29fb7cdd06e84001 at 8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-
-            // there's a proper way, and then there's the lazy way
-            // this here is the lazy way but it should just work™
-
-            lastDeploy = lastDeploy[18..]; // 'version-29fb7cdd06e84001 at 8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-            string versionGuid = lastDeploy[..lastDeploy.IndexOf(" at")]; // 'version-29fb7cdd06e84001'
-
-            lastDeploy = lastDeploy[(versionGuid.Length + 4)..]; // '8/23/2022 2:07:27 PM, file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-            string strTimestamp = lastDeploy[..lastDeploy.IndexOf(", file")]; // '8/23/2022 2:07:27 PM'
-
-            lastDeploy = lastDeploy[(strTimestamp.Length + 16)..]; // '0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-            string fileVersion = "";
-
-            if (lastDeploy.Contains("git hash"))
-            {
-                // ~may 2021 entry: ends like 'file version: 0, 542, 100, 5420251, git hash: b98d6b2bea36fa2161f48cca979fb620bb0c24fd ...'
-                fileVersion = lastDeploy[..lastDeploy.IndexOf(", git")]; // '0, 542, 100, 5420251'
-            }
-            else
-            {
-                // pre-may 2021 entry: ends like 'file version: 0, 448, 0, 411122...'
-                fileVersion = lastDeploy[..lastDeploy.IndexOf("...")]; // '0, 448, 0, 411122'
-            }
-
-            // deployment timestamps are UTC-5
-            strTimestamp += " -05";
-            DateTime dtTimestamp = DateTime.ParseExact(strTimestamp, "M/d/yyyy h:mm:ss tt zz", Program.CultureFormat).ToLocalTime();
-
-            // convert to traditional version format
-            fileVersion = fileVersion.Replace(" ", "").Replace(',', '.');
-
-            return new VersionDeploy
-            {
-                VersionGuid = versionGuid,
-                Timestamp = dtTimestamp,
-                FileVersion = fileVersion
-            };
+            return clientVersion;
         }
     }
 }
