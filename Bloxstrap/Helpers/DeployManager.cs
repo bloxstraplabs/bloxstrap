@@ -17,13 +17,9 @@ namespace Bloxstrap.Helpers
         public static readonly List<string> ChannelsAbstracted = new List<string>()
         {
             "LIVE",
-            "ZAvatarTeam",
-            "ZCanary",
-            "ZFlag",
-            "ZIntegration",
-            "ZLive",
             "ZNext",
-            "ZSocialTeam"
+            "ZCanary",
+            "ZIntegration"
         };
 
         // why not?
