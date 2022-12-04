@@ -17,76 +17,30 @@ namespace Bloxstrap.Helpers
         public static readonly List<string> ChannelsAbstracted = new List<string>()
         {
             "LIVE",
-            "ZAvatarTeam",
-            "ZCanary",
-            //"ZFeatureHarmony", last updated 9/20, shouldn't be here anymore
-            "ZFlag",
-            "ZIntegration",
-            "ZLive",
             "ZNext",
-            //"ZPublic",
-            "ZSocialTeam"
+            "ZCanary",
+            "ZIntegration"
         };
 
         // why not?
         public static readonly List<string> ChannelsAll = new List<string>()
         {
             "LIVE",
-            "Ganesh",
             "ZAvatarTeam",
-            "ZBugFixBoost-Mutex-Revert",
-            "ZBugFixCLI-54676-Test",
-            "ZBugFixCLI-55214-Master",
+            "ZAvatarRelease",
             "ZCanary",
             "ZCanary1",
             "ZCanary2",
             "ZCanaryApps",
-            "ZClientIntegration",
-            "ZClientWatcher",
-            "ZFeatureBaseline",
-            "ZFeatureBoost_Removal_Test_In_Prod",
-            "ZFeatureFMOD-20115",
-            "ZFeatureFMOD-Recording-Test",
-            "ZFeatureHarmony",
-            "ZFeatureHSR2CDNPlayTest",
-            "ZFeatureHSR2CDNPlayTest2",
-            "ZFeatureInstance-Parent-Weak-Ptr",
-            "ZFeatureInstance-Parent-Weak-Ptr-2",
-            "ZFeatureLTCG1",
-            "ZFeatureLuaIInline1",
-            "ZFeatureQt5.15",
-            "ZFeatureRail",
-            "ZFeatureRetchecksV2",
-            "ZFeatureSubsystemAtomic",
-            "ZFeatureSubsystemHttpClient",
-            "ZFeatureTelemLife",
-            "ZFeatureUse-New-RapidJson-In-Flag-Loading",
             "ZFlag",
             "ZIntegration",
             "ZIntegration1",
-            "ZLang",
             "ZLive",
             "ZLive1",
-            "ZLoom",
             "ZNext",
-            "ZProject512-Boost-Remove-Mutex-1",
-            "ZProject516-Boost-Remove-Mutex-Network",
-            "ZPublic",
-            "ZQtitanStudio",
-            "ZQTitanStudioRelease",
-            "ZReleaseVS2019",
             "ZSocialTeam",
-            "ZStIntegration",
             "ZStudioInt1",
-            "ZStudioInt2",
-            "ZStudioInt3",
-            "ZStudioInt4",
-            "ZStudioInt5",
-            "ZStudioInt6",
-            "ZStudioInt7",
-            "ZStudioInt8",
-            "ZTesting",
-            "ZVS2019"
+            "ZStudioInt2"
         };
         #endregion
 
