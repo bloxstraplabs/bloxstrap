@@ -1,6 +1,6 @@
 # <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" width="48"/> Bloxstrap
 ![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap) 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pizzaboxer/bloxstrap/CI)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main)
 ![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/total)
 ![Star](https://img.shields.io/github/stars/pizzaboxer/bloxstrap?style=social)
 
