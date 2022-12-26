@@ -199,6 +199,12 @@ namespace Bloxstrap.Dialogs
             set => Program.Settings.UseOldMouseCursor = value; 
         }
 
+        public bool ModDisableAppPatch
+        {
+            get => Program.Settings.UseDisableAppPatch;
+            set => Program.Settings.UseDisableAppPatch = value;
+        }
+
         public bool ModFolderButtonEnabled { get; } = !Program.IsFirstRun;
         public string ModFolderButtonText { get; } = Program.IsFirstRun ? "Custom mods can be added after installing Bloxstrap" : "Open mod folder";
         #endregion

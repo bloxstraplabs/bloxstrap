@@ -76,6 +76,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(194, 264);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(130, 44);
+            this.buttonCancel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.TabStop = false;
             this.buttonCancel.Visible = false;

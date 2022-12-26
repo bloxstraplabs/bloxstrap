@@ -46,8 +46,19 @@
                     </Grid>
                     <GroupBox Header="Modifications" VerticalAlignment="Top" Margin="10,5,10,0">
                         <StackPanel VerticalAlignment="Center">
-                            <CheckBox x:Name="CheckBoxModDeathSound" Content=" Use old death sound" Margin="5" IsChecked="{Binding ModOldDeathSound, Mode=TwoWay}" />
-                            <CheckBox x:Name="CheckBoxModMouseCursor" Content=" Use old mouse cursor" Margin="5" IsChecked="{Binding ModOldMouseCursor, Mode=TwoWay}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                                    <CheckBox x:Name="CheckBoxModDeathSound" Content=" Use old death sound" Margin="5" IsChecked="{Binding ModOldDeathSound, Mode=TwoWay}" />
+                                    <CheckBox x:Name="CheckBoxModMouseCursor" Content=" Use old mouse cursor" Margin="5" IsChecked="{Binding ModOldMouseCursor, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                                    <CheckBox x:Name="CheckBoxDisableAppPatch" Content=" Disable desktop app" Margin="5" IsChecked="{Binding ModDisableAppPatch, Mode=TwoWay}" />
+                                </StackPanel>
+                            </Grid>
                             <Button x:Name="ButtonOpenModFolder" Content="{Binding ModFolderButtonText, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" VerticalAlignment="Bottom" Height="23" Margin="5,5,5,5" Click="ButtonOpenModFolder_Click" />
                         </StackPanel>
                     </GroupBox>

@@ -56,15 +56,13 @@ namespace Bloxstrap
             "whenever Roblox updates.\n" +
             "\n" +
             "For example, Modifications\\content\\sounds\\ouch.ogg will\n" +
-            "overwrite Versions\\version-xxxxxxxxxxxxxxxx\\content\\sounds\\ouch.ogg\n" +
+            "automatically overwrite Versions\\version-xx...\\content\\sounds\\ouch.ogg\n" +
             "\n" +
             "If you remove a file mod from here, Bloxstrap will restore the stock version\n" +
             "of the file the next time it's launched.\n" +
             "\n" +
-            "Any files added here to the root modification directory are ignored.\n" +
-            "\n" +
-            "By default, two mod presets are provided for restoring the old death\n" +
-            "sound and the old mouse cursor.\n";
+            "Any files added here to the root modification directory are ignored, so be sure\n" +
+            "that they're inside a folder.";
 
         private static readonly HttpClient Client = new();
 
@@ -203,8 +201,8 @@ namespace Bloxstrap
                         shouldWait = true;
                 }
 
-                // event fired, wait for 6 seconds then close
-                await Task.Delay(6000);
+                // event fired, wait for 3 seconds then close
+                await Task.Delay(3000);
 
                 // now we move onto handling rich presence
                 // this is going to be an issue for desktop app launches as this gets the place id from the command line,
@@ -473,6 +471,7 @@ namespace Bloxstrap
             CheckModPreset(Program.Settings.UseOldDeathSound, @"content\sounds\ouch.ogg", Program.Base64OldDeathSound);
             CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", Program.Base64OldArrowCursor);
             CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", Program.Base64OldArrowFarCursor);
+            CheckModPreset(Program.Settings.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
             {

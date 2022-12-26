@@ -128,7 +128,10 @@ namespace Bloxstrap
             }
             else
             {
-                commandLine = "--app";
+                if (Settings.UseDisableAppPatch)
+                    Utilities.OpenWebsite("https://www.roblox.com/games");
+                else
+                    commandLine = "--app";
             }
 #endif
 
