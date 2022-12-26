@@ -10,12 +10,21 @@ using Bloxstrap.Dialogs.BootstrapperDialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
+using Bloxstrap.Models;
+using System.Net;
 
 namespace Bloxstrap
 {
     public partial class Bootstrapper
     {
         #region Properties
+
+        // https://learn.microsoft.com/en-us/windows/win32/msi/error-codes
+        public const int ERROR_SUCCESS = 0;
+        public const int ERROR_INSTALL_USEREXIT = 1602;
+        public const int ERROR_INSTALL_FAILURE = 1603;
+        public const int ERROR_PRODUCT_UNINSTALLED = 1614;
+
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
@@ -64,8 +73,6 @@ namespace Bloxstrap
             "Any files added here to the root modification directory are ignored, so be sure\n" +
             "that they're inside a folder.";
 
-        private static readonly HttpClient Client = new();
-
         private string? LaunchCommandLine;
 
         private string VersionGuid = null!;
@@ -85,13 +92,15 @@ namespace Bloxstrap
         {
             LaunchCommandLine = launchCommandLine;
             FreshInstall = String.IsNullOrEmpty(Program.Settings.VersionGuid);
-            Client.Timeout = TimeSpan.FromMinutes(10);
         }
 
         // this is called from BootstrapperStyleForm.SetupDialog()
         public async Task Run()
         {
-            if (LaunchCommandLine == "-uninstall")
+            if (Program.IsQuiet)
+                Dialog.CloseDialog();
+
+            if (Program.IsUninstall)
             {
                 Uninstall();
                 return;
@@ -115,10 +124,13 @@ namespace Bloxstrap
             CheckInstall();
 
             await RbxFpsUnlocker.CheckInstall();
+            
+            Program.SettingsManager.Save();
 
-            //if (Program.IsFirstRun)
-            //    Dialog.ShowSuccess($"{Program.ProjectName} has been installed");
-            //else
+            
+            if (Program.IsFirstRun && Program.IsNoLaunch)
+                Dialog.ShowSuccess($"{Program.ProjectName} has successfully installed");
+            else if (!Program.IsNoLaunch)
                 await StartRoblox();
 
             Program.Exit();
@@ -128,7 +140,8 @@ namespace Bloxstrap
         {
             Dialog.Message = "Connecting to Roblox...";
 
-            VersionGuid = await Client.GetStringAsync($"{DeployManager.BaseUrl}/version");
+            ClientVersion clientVersion = await DeployManager.GetLastDeploy(Program.Settings.Channel);
+            VersionGuid = clientVersion.VersionGuid;
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
         }
@@ -236,7 +249,7 @@ namespace Bloxstrap
         {
             if (!Dialog.CancelEnabled)
             {
-                Program.Exit();
+                Program.Exit(ERROR_INSTALL_USEREXIT);
                 return;
             }
 
@@ -251,7 +264,7 @@ namespace Bloxstrap
             }
             catch (Exception) { }
  
-            Program.Exit();
+            Program.Exit(ERROR_INSTALL_USEREXIT);
         }
         #endregion
 
@@ -281,11 +294,16 @@ namespace Bloxstrap
             RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{Program.ProjectName}");
             uninstallKey.SetValue("DisplayIcon", $"{Directories.App},0");
             uninstallKey.SetValue("DisplayName", Program.ProjectName);
-            uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+            uninstallKey.SetValue("DisplayVersion", Program.Version);
+
+            if (uninstallKey.GetValue("InstallDate") is null)
+                uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+
             uninstallKey.SetValue("InstallLocation", Directories.Base);
             uninstallKey.SetValue("NoRepair", 1);
-            uninstallKey.SetValue("Publisher", Program.ProjectName);
+            uninstallKey.SetValue("Publisher", "pizzaboxer");
             uninstallKey.SetValue("ModifyPath", $"\"{Directories.App}\" -preferences");
+            uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.App}\" -uninstall -quiet");
             uninstallKey.SetValue("UninstallString", $"\"{Directories.App}\" -uninstall");
             uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{Program.ProjectRepository}");
             uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{Program.ProjectRepository}/releases/latest");
@@ -367,6 +385,8 @@ namespace Bloxstrap
             catch (Exception) { }
 
             Dialog.ShowSuccess($"{Program.ProjectName} has been uninstalled");
+
+            Environment.Exit(ERROR_PRODUCT_UNINSTALLED);
         }
         #endregion
 
@@ -607,7 +627,7 @@ namespace Bloxstrap
             {
                 Debug.WriteLine($"Downloading {package.Name}...");
 
-                var response = await Client.GetAsync(packageUrl);
+                var response = await Program.HttpClient.GetAsync(packageUrl);
 
                 if (CancelFired)
                     return;

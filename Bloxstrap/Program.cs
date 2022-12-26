@@ -8,6 +8,11 @@ using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 using Bloxstrap.Dialogs;
+using System.Net.Http;
+using System.Net;
+using System.Reflection;
+using Newtonsoft.Json.Linq;
+using System;
 
 namespace Bloxstrap
 {
@@ -28,23 +33,32 @@ namespace Bloxstrap
 
         public static string BaseDirectory = null!;
         public static bool IsFirstRun { get; private set; } = false;
+        public static bool IsQuiet { get; private set; } = false;
+        public static bool IsUninstall { get; private set; } = false;
+        public static bool IsNoLaunch { get; private set; } = false;
 
         public static string LocalAppData { get; private set; } = null!;
         public static string StartMenu { get; private set; } = null!;
 
+        public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
+
         public static SettingsManager SettingsManager = new();
         public static SettingsFormat Settings = SettingsManager.Settings;
+        public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
         public static DialogResult ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.None, MessageBoxButtons buttons = MessageBoxButtons.OK)
         {
+            if (IsQuiet)
+                return DialogResult.None;
+
             return MessageBox.Show(message, ProjectName, buttons, icon);
         }
 
-        public static void Exit()
+        public static void Exit(int code = Bootstrapper.ERROR_SUCCESS)
         {
             SettingsManager.Save();
-            Environment.Exit(0);
+            Environment.Exit(code);
         }
 
         /// <summary>
@@ -57,17 +71,36 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            HttpClient.Timeout = TimeSpan.FromMinutes(5);
+            HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
+
             LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             StartMenu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", ProjectName);
 
-            // check if installed
+            if (args.Length > 0)
+            {
+                if (Array.IndexOf(args, "-quiet") != -1)
+                    IsQuiet = true;
+
+                if (Array.IndexOf(args, "-uninstall") != -1)
+                    IsUninstall = true;
+
+                if (Array.IndexOf(args, "-nolaunch") != -1)
+                    IsNoLaunch = true;
+            }
+
+                // check if installed
             RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}");
 
             if (registryKey is null)
             {
                 IsFirstRun = true;
                 Settings = SettingsManager.Settings;
-                new Preferences().ShowDialog();
+
+                if (IsQuiet)
+                    BaseDirectory = Path.Combine(LocalAppData, ProjectName);
+                else
+                    new Preferences().ShowDialog();
             }
             else
             {
@@ -134,7 +167,6 @@ namespace Bloxstrap
                     commandLine = "--app";
             }
 #endif
-
 
             if (!String.IsNullOrEmpty(commandLine))
             {

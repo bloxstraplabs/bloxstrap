@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -71,7 +70,6 @@ namespace Bloxstrap.Helpers.Integrations
                 ActivityMachineAddress = "";
                 await SetPresence();
             }
-
         }
 
         public async void MonitorGameActivity()
@@ -148,24 +146,22 @@ namespace Bloxstrap.Helpers.Integrations
             if (thumbnailInfo is not null)
                 placeThumbnail = thumbnailInfo.Data![0].ImageUrl!;
 
-            DiscordRPC.Button[]? buttons = null;
+            List<DiscordRPC.Button> buttons = new()
+            {
+                new DiscordRPC.Button()
+                {
+                    Label = "See Details",
+                    Url = $"https://www.roblox.com/games/{ActivityPlaceId}"
+                }
+            };
 
             if (!Program.Settings.HideRPCButtons)
             {
-                buttons = new DiscordRPC.Button[]
+                buttons.Insert(0, new DiscordRPC.Button()
                 {
-                    new DiscordRPC.Button()
-                    {
-                        Label = "Join",
-                        Url = $"https://www.roblox.com/games/start?placeId={ActivityPlaceId}&gameInstanceId={ActivityJobId}&launchData=%7B%7D"
-                    },
-
-                    new DiscordRPC.Button()
-                    {
-                        Label = "See Details",
-                        Url = $"https://www.roblox.com/games/{ActivityPlaceId}"
-                    }
-                };
+                    Label = "Join",
+                    Url = $"https://www.roblox.com/games/start?placeId={ActivityPlaceId}&gameInstanceId={ActivityJobId}&launchData=%7B%7D"
+                });
             }
 
             RichPresence.SetPresence(new RichPresence()
@@ -173,7 +169,7 @@ namespace Bloxstrap.Helpers.Integrations
                 Details = placeInfo.Name,
                 State = $"by {placeInfo.Creator.Name}",
                 Timestamps = new Timestamps() { Start = DateTime.UtcNow },
-                Buttons = buttons,
+                Buttons = buttons.ToArray(),
                 Assets = new Assets()
                 {
                     LargeImageKey = placeThumbnail,

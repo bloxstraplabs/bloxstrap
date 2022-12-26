@@ -70,25 +70,19 @@ namespace Bloxstrap.Helpers.Integrations
                 return;
             }
 
-            DateTime lastReleasePublish;
-            string downloadUrl;
-
             var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
 
             if (releaseInfo is null || releaseInfo.Assets is null)
                 return;
 
-            lastReleasePublish = DateTime.Parse(releaseInfo.CreatedAt);
-            downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
+            string downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
 
             Directory.CreateDirectory(folderLocation);
 
             if (File.Exists(fileLocation))
             {
-                DateTime lastDownload = File.GetCreationTimeUtc(fileLocation);
-
                 // no new release published, return
-                if (lastDownload > lastReleasePublish)
+                if (Program.Settings.RFUVersion == releaseInfo.TagName)
                     return;
 
                 CheckIfRunning();
@@ -97,21 +91,20 @@ namespace Bloxstrap.Helpers.Integrations
 
             Debug.WriteLine("Installing/Updating rbxfpsunlocker...");
 
-            using (HttpClient client = new())
-            {
-                byte[] bytes = await client.GetByteArrayAsync(downloadUrl);
+            byte[] bytes = await Program.HttpClient.GetByteArrayAsync(downloadUrl);
 
-                using (MemoryStream zipStream = new(bytes))
-                {
-                    ZipArchive zip = new(zipStream);
-                    zip.ExtractToDirectory(folderLocation, true);
-                }
+            using (MemoryStream zipStream = new(bytes))
+            {
+                ZipArchive zip = new(zipStream);
+                zip.ExtractToDirectory(folderLocation, true);
             }
 
             if (!File.Exists(settingsLocation))
             {
                 await File.WriteAllTextAsync(settingsLocation, Settings);
             }
+
+            Program.Settings.RFUVersion = releaseInfo.TagName;
         }
     }
 }

@@ -34,6 +34,8 @@ namespace Bloxstrap.Helpers
                     File.Delete(Directories.App);
                     File.Copy(Environment.ProcessPath, Directories.App);
 
+                    Bootstrapper.Register();
+
                     Program.ShowMessageBox(
                         $"{Program.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
                         MessageBoxIcon.Information,
@@ -42,7 +44,7 @@ namespace Bloxstrap.Helpers
 
                     new Preferences().ShowDialog();
 
-                    Environment.Exit(0);
+                    Program.Exit();
                 }
             }
 
@@ -51,7 +53,7 @@ namespace Bloxstrap.Helpers
 
         public static async Task Check()
         {
-            if (Environment.ProcessPath is null)
+            if (Environment.ProcessPath is null || Program.IsUninstall || Program.IsQuiet && Program.IsFirstRun)
                 return;
 
             if (!Program.IsFirstRun)
@@ -84,7 +86,7 @@ namespace Bloxstrap.Helpers
                 if (result == DialogResult.Yes)
                 {
                     Utilities.OpenWebsite($"https://github.com/{Program.ProjectRepository}/releases/latest");
-                    Program.Exit();
+                    Program.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
                 }
             }
         }

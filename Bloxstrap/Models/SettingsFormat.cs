@@ -19,6 +19,8 @@ namespace Bloxstrap.Models
         public bool RFUEnabled { get; set; } = false;
         public bool RFUAutoclose { get; set; } = false;
 
+        public string RFUVersion { get; set; } = "";
+
         public bool UseOldDeathSound { get; set; } = true;
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
