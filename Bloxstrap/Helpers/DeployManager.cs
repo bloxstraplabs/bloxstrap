@@ -31,6 +31,7 @@ namespace Bloxstrap.Helpers
             "ZCanary",
             "ZCanary1",
             "ZCanary2",
+            "ZCanary3",
             "ZCanaryApps",
             "ZFlag",
             "ZIntegration",
