@@ -15,8 +15,15 @@ namespace Bloxstrap.Helpers
 
         public static async Task<T?> GetJson<T>(string url)
         {
-            string json = await Program.HttpClient.GetStringAsync(url);
-            return JsonSerializer.Deserialize<T>(json);
+            try
+            {
+                string json = await Program.HttpClient.GetStringAsync(url);
+                return JsonSerializer.Deserialize<T>(json);
+            }
+            catch (Exception)
+            {
+                return default;
+            }
         }
 
         public static string MD5File(string filename)
