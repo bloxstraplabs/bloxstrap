@@ -1,12 +1,10 @@
-# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" align="left" width="96"/> Bloxstrap
-An open-source, feature-packed alternative bootstrapper for Roblox.
-
-<br>
-
+# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" width="48"/> Bloxstrap
 ![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap) 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main)
 ![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/total)
 ![Star](https://img.shields.io/github/stars/pizzaboxer/bloxstrap?style=social)
+
+An open-source, feature-packed alternative bootstrapper for Roblox.
 
 This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. Keep in mind - this does not touch or modify the game client itself, it's just a launcher!
 
