@@ -1,10 +1,12 @@
-# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" width="48"/> Bloxstrap
+# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" align="left" width="96"/> Bloxstrap
+An open-source, feature-packed alternative bootstrapper for Roblox.
+
+<br>
+
 ![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap) 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main)
 ![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/total)
 ![Star](https://img.shields.io/github/stars/pizzaboxer/bloxstrap?style=social)
-
-An open-source, feature-packed alternative bootstrapper for Roblox.
 
 This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. Keep in mind - this does not touch or modify the game client itself, it's just a launcher!
 
@@ -15,11 +17,13 @@ Bloxstrap is only supported for PCs running Windows.
 ## Features
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
-* A customizable launcher (including dark theme!)
+* Ability to disable the Desktop app
 * Persistent file modifications (re-adds the old death sound!)
-* Support for opting in to pre-release testing channels
-* Painless Discord Rich Presence support
+* Painless support for Discord Rich Presence
 * Support for silent automatic FPS unlocking with [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
+* A customizable launcher (including dark theme!)
+* Support for opting in to pre-release testing channels
+
 
 ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
