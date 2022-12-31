@@ -106,6 +106,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
@@ -116,8 +117,9 @@
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="*Dark theme only applies to the Progress Dialog style" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Dialog" VerticalAlignment="Center" Margin="0,5,0,5" />
                         <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBoxDialog" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
-                        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Legacy Dialog styles don't handle DPI scaling very well" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
+                        <ComboBox Grid.Row="4" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
                     </Grid>
                     <Button x:Name="ButtonPreview" Content="Preview" Margin="0,5,0,0" VerticalAlignment="Bottom" Height="23" Click="ButtonPreview_Click" />
                 </StackPanel>
