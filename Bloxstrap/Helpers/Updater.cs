@@ -23,11 +23,21 @@ namespace Bloxstrap.Helpers
 
             if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
             {
-                DialogResult result = Program.ShowMessageBox(
-                    $"The version of {Program.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to update your currently installed version?",
-                    MessageBoxIcon.Question,
-                    MessageBoxButtons.YesNo
-                );
+                DialogResult result;
+
+                if (Program.IsUpgrade)
+                {
+                    result = DialogResult.Yes;
+                }
+                else
+                {
+                    result = Program.ShowMessageBox(
+                        $"The version of {Program.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
+                        MessageBoxIcon.Question,
+                        MessageBoxButtons.YesNo
+                    );
+                }
+
 
                 if (result == DialogResult.Yes)
                 {
@@ -42,9 +52,11 @@ namespace Bloxstrap.Helpers
                         MessageBoxButtons.OK
                     );
 
-                    new Preferences().ShowDialog();
-
-                    Program.Exit();
+                    if (!Program.IsQuiet)
+                    {
+                        new Preferences().ShowDialog();
+                        Program.Exit();
+                    }
                 }
             }
 

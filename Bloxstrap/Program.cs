@@ -36,6 +36,7 @@ namespace Bloxstrap
         public static bool IsQuiet { get; private set; } = false;
         public static bool IsUninstall { get; private set; } = false;
         public static bool IsNoLaunch { get; private set; } = false;
+        public static bool IsUpgrade { get; private set; } = false;
 
         public static string LocalAppData { get; private set; } = null!;
         public static string StartMenu { get; private set; } = null!;
@@ -87,6 +88,9 @@ namespace Bloxstrap
 
                 if (Array.IndexOf(args, "-nolaunch") != -1)
                     IsNoLaunch = true;
+
+                if (Array.IndexOf(args, "-upgrade") != -1)
+                    IsUpgrade = true;
             }
 
                 // check if installed
