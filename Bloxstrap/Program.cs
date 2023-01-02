@@ -126,7 +126,8 @@ namespace Bloxstrap
             }
 
 #if !DEBUG
-            Updater.Check().Wait();
+            if (!IsUninstall)
+                Updater.Check().Wait();
 #endif
 
             string commandLine = "";
