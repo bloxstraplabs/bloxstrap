@@ -12,6 +12,7 @@ using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
 using Bloxstrap.Models;
 using System.Net;
+using Bloxstrap.Properties;
 
 namespace Bloxstrap
 {
@@ -179,6 +180,12 @@ namespace Bloxstrap
 
             Dialog.Message = "Starting Roblox...";
 
+            if (LaunchCommandLine == "--app" && Program.Settings.UseDisableAppPatch)
+            {
+                Utilities.OpenWebsite("https://www.roblox.com/games");
+                return;
+            }
+
             // launch time isn't really required for all launches, but it's usually just safest to do this
             LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
@@ -218,10 +225,6 @@ namespace Bloxstrap
                 await Task.Delay(3000);
 
                 // now we move onto handling rich presence
-                // this is going to be an issue for desktop app launches as this gets the place id from the command line,
-                // but the desktop app launch can switch games without having to close the client
-                // i might be able to experiment with reading from the latest log file in realtime to circumvent this,
-                // but i have no idea how reliable it will be. todo?
                 if (Program.Settings.UseDiscordRichPresence)
                 {
                     richPresence = new DiscordRichPresence();

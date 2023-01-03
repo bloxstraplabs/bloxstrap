@@ -136,7 +136,7 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if DEBUG
+#if false //DEBUG
             new Preferences().ShowDialog();
 #else
             if (args.Length > 0)
@@ -161,15 +161,12 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    commandLine = String.Join(" ", args);
+                    commandLine = "--app";
                 }
             }
             else
             {
-                if (Settings.UseDisableAppPatch)
-                    Utilities.OpenWebsite("https://www.roblox.com/games");
-                else
-                    commandLine = "--app";
+                commandLine = "--app";
             }
 #endif
 
