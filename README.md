@@ -28,7 +28,7 @@ Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstr
 
 Alternatively, you can install Bloxstrap via Winget:
 ```
-winget install pizzaboxer.Bloxstrap
+winget install bloxstrap
 ```
 
 You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.9-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway.
