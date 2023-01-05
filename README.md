@@ -26,6 +26,11 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
+Alternatively, you can install Bloxstrap via Winget:
+```
+winget install pizzaboxer.Bloxstrap
+```
+
 You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.9-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway.
  
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
