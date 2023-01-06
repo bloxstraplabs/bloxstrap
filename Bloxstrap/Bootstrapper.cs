@@ -113,7 +113,7 @@ namespace Bloxstrap
             if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || Program.Settings.VersionGuid != VersionGuid && !CheckIfRunning(false))
                 await InstallLatestVersion();
 
-            ApplyModifications();
+            await ApplyModifications();
 
             if (Program.IsFirstRun)
                 Program.SettingsManager.ShouldSave = true;
@@ -472,7 +472,7 @@ namespace Bloxstrap
             Program.Settings.VersionGuid = VersionGuid;
         }
 
-        private void ApplyModifications()
+        private async Task ApplyModifications()
         {
             Dialog.Message = "Applying Roblox modifications...";
 
@@ -485,13 +485,13 @@ namespace Bloxstrap
             if (!Directory.Exists(modFolder))
             {
                 Directory.CreateDirectory(modFolder);
-                File.WriteAllText(Path.Combine(modFolder, "README.txt"), ModReadme);
+                await File.WriteAllTextAsync(Path.Combine(modFolder, "README.txt"), ModReadme);
             }
 
-            CheckModPreset(Program.Settings.UseOldDeathSound, @"content\sounds\ouch.ogg", Program.Base64OldDeathSound);
-            CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", Program.Base64OldArrowCursor);
-            CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", Program.Base64OldArrowFarCursor);
-            CheckModPreset(Program.Settings.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
+            await CheckModPreset(Program.Settings.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
+            await CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
+            await CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
+            await CheckModPreset(Program.Settings.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
             {
@@ -510,7 +510,7 @@ namespace Bloxstrap
             // original files from the downloaded packages
 
             if (File.Exists(manifestFile))
-                manifestFiles = File.ReadAllLines(manifestFile).ToList<string>();
+                manifestFiles = (await File.ReadAllLinesAsync(manifestFile)).ToList();
             else
                 manifestFiles = modFolderFiles;
 
@@ -564,10 +564,10 @@ namespace Bloxstrap
             File.WriteAllLines(manifestFile, modFolderFiles);
         }
 
-        private static void CheckModPreset(bool condition, string location, string base64Contents)
+        private static async Task CheckModPreset(bool condition, string location, string name)
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
-            byte[] binaryData = Convert.FromBase64String(base64Contents);
+            byte[] binaryData = string.IsNullOrEmpty(name) ? new byte[0] : await ResourceHelper.Get(name);
 
             if (condition)
             {
@@ -580,7 +580,7 @@ namespace Bloxstrap
 
                     Directory.CreateDirectory(directory);
 
-                    File.WriteAllBytes(modFolderLocation, binaryData);
+                    await File.WriteAllBytesAsync(modFolderLocation, binaryData);
                 }
             }
             else if (File.Exists(modFolderLocation) && Utilities.MD5File(modFolderLocation) == Utilities.MD5Data(binaryData))
