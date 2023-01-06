@@ -13,7 +13,7 @@ namespace Bloxstrap.Helpers.RSMM
         {
             using (var reader = new StringReader(data))
             {
-                string version = reader.ReadLine();
+                string? version = reader.ReadLine();
 
                 if (version != "v0")
                 {
@@ -25,11 +25,11 @@ namespace Bloxstrap.Helpers.RSMM
 
                 bool eof = false;
 
-                var readLine = new Func<string>(() =>
+                var readLine = new Func<string?>(() =>
                 {
-                    string line = reader.ReadLine();
+                    string? line = reader.ReadLine();
 
-                    if (line == null)
+                    if (string.IsNullOrEmpty(line))
                         eof = true;
 
                     return line;
@@ -37,11 +37,11 @@ namespace Bloxstrap.Helpers.RSMM
 
                 while (!eof)
                 {
-                    string fileName = readLine();
-                    string signature = readLine();
+                    string? fileName = readLine();
+                    string? signature = readLine();
 
-                    string rawPackedSize = readLine();
-                    string rawSize = readLine();
+                    string? rawPackedSize = readLine();
+                    string? rawSize = readLine();
 
                     if (eof)
                         break;
@@ -57,8 +57,8 @@ namespace Bloxstrap.Helpers.RSMM
 
                     var package = new Package()
                     {
-                        Name = fileName,
-                        Signature = signature,
+                        Name = fileName!,
+                        Signature = signature!,
                         PackedSize = packedSize,
                         Size = size
                     };
