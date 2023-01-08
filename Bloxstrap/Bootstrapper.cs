@@ -567,7 +567,7 @@ namespace Bloxstrap
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
-            byte[] binaryData = string.IsNullOrEmpty(name) ? new byte[0] : await ResourceHelper.Get(name);
+            byte[] binaryData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await ResourceHelper.Get(name);
 
             if (condition)
             {
