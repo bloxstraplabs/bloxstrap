@@ -7,76 +7,49 @@ namespace Bloxstrap.Helpers.RSMM
 {
     internal class PackageManifest : List<Package>
     {
-        public string RawData { get; private set; }
-
         private PackageManifest(string data)
         {
-            using (var reader = new StringReader(data))
+            using StringReader reader = new StringReader(data);
+            string? version = reader.ReadLine();
+
+            if (version != "v0")
+                throw new NotSupportedException($"Unexpected package manifest version: {version} (expected v0!)");
+
+            while (true)
             {
-                string version = reader.ReadLine();
+                string? fileName = reader.ReadLine();
+                string? signature = reader.ReadLine();
 
-                if (version != "v0")
+                string? rawPackedSize = reader.ReadLine();
+                string? rawSize = reader.ReadLine();
+
+                if (string.IsNullOrEmpty(fileName) ||
+                    string.IsNullOrEmpty(signature) ||
+                    string.IsNullOrEmpty(rawPackedSize) ||
+                    string.IsNullOrEmpty(rawSize))
+                    break;
+
+                // ignore launcher
+                if (fileName == "RobloxPlayerLauncher.exe")
+                    break;
+
+                int packedSize = int.Parse(rawPackedSize);
+                int size = int.Parse(rawSize);
+
+                Add(new Package
                 {
-                    string errorMsg = $"Unexpected package manifest version: {version} (expected v0!)\n" +
-                                       "Please contact MaximumADHD if you see this error.";
-
-                    throw new NotSupportedException(errorMsg);
-                }
-
-                bool eof = false;
-
-                var readLine = new Func<string>(() =>
-                {
-                    string line = reader.ReadLine();
-
-                    if (line == null)
-                        eof = true;
-
-                    return line;
+                    Name = fileName,
+                    Signature = signature,
+                    PackedSize = packedSize,
+                    Size = size
                 });
-
-                while (!eof)
-                {
-                    string fileName = readLine();
-                    string signature = readLine();
-
-                    string rawPackedSize = readLine();
-                    string rawSize = readLine();
-
-                    if (eof)
-                        break;
-
-                    if (!int.TryParse(rawPackedSize, out int packedSize))
-                        break;
-
-                    if (!int.TryParse(rawSize, out int size))
-                        break;
-
-                    if (fileName == "RobloxPlayerLauncher.exe")
-                        break;
-
-                    var package = new Package()
-                    {
-                        Name = fileName,
-                        Signature = signature,
-                        PackedSize = packedSize,
-                        Size = size
-                    };
-
-                    Add(package);
-                }
             }
-
-            RawData = data;
         }
 
         public static async Task<PackageManifest> Get(string versionGuid)
         {
             string pkgManifestUrl = $"{DeployManager.BaseUrl}/{versionGuid}-rbxPkgManifest.txt";
-            string pkgManifestData;
-
-            var getData = Program.HttpClient.GetStringAsync(pkgManifestUrl);
-            pkgManifestData = await getData.ConfigureAwait(false);
+            var pkgManifestData = await Program.HttpClient.GetStringAsync(pkgManifestUrl);
 
             return new PackageManifest(pkgManifestData);
         }
