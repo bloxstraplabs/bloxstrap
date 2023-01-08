@@ -9,6 +9,7 @@ namespace Bloxstrap.Helpers
         public static string Integrations { get; private set; } = "";
         public static string Versions { get; private set; } = "";
         public static string Modifications { get; private set; } = "";
+        public static string Updates { get; private set; } = "";
 
         public static string App { get; private set; } = "";
 
@@ -21,6 +22,7 @@ namespace Bloxstrap.Helpers
             Integrations = Path.Combine(Base, "Integrations");
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
+            Updates = Path.Combine(Base, "Updates");
 
             App = Path.Combine(Base, $"{Program.ProjectName}.exe");
         }

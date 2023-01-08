@@ -109,13 +109,16 @@ namespace Bloxstrap
                 return;
             }
 
+#if !DEBUG
+            if (!Program.IsFirstRun && Program.Settings.CheckForUpdates)
+                await CheckForUpdates();
+#endif
+
             await CheckLatestVersion();
 
             // if bloxstrap is installing for the first time but is running, prompt to close roblox
             // if roblox needs updating but is running, ignore update for now
-#if !DEBUG
             if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || Program.Settings.VersionGuid != VersionGuid && !CheckIfRunning(false))
-#endif
                 await InstallLatestVersion();
 
             await ApplyModifications();
@@ -137,6 +140,50 @@ namespace Bloxstrap
                 Dialog.ShowSuccess($"{Program.ProjectName} has successfully installed");
             else if (!Program.IsNoLaunch)
                 await StartRoblox();
+
+            Program.Exit();
+        }
+
+        private async Task CheckForUpdates()
+        {
+            string currentVersion = $"Bloxstrap v{Program.Version}";
+
+            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{Program.ProjectRepository}/releases/latest");
+
+            if (releaseInfo is null || releaseInfo.Name is null || releaseInfo.Assets is null || currentVersion == releaseInfo.Name)
+                return;
+
+            Dialog.Message = "Getting the latest Bloxstrap...";
+
+            // 64-bit is always the first option
+            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
+            string downloadLocation = Path.Combine(Directories.Updates, asset.Name);
+
+            Directory.CreateDirectory(Directories.Updates);
+
+            Debug.WriteLine($"Downloading {releaseInfo.Name}...");
+
+            if (!File.Exists(downloadLocation))
+            {
+                var response = await Program.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+
+                using (var fileStream = new FileStream(Path.Combine(Directories.Updates, asset.Name), FileMode.CreateNew))
+                {
+                    await response.Content.CopyToAsync(fileStream);
+                }
+            }
+
+            Debug.WriteLine($"Starting {releaseInfo.Name}...");
+
+            ProcessStartInfo startInfo = new()
+            {
+                FileName = downloadLocation,
+            };
+
+            foreach (string arg in Program.LaunchArgs)
+                startInfo.ArgumentList.Add(arg);
+
+            Process.Start(startInfo);
 
             Program.Exit();
         }
@@ -215,9 +262,11 @@ namespace Bloxstrap
 
                 if (Program.Settings.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0)
                 {
-                    ProcessStartInfo startInfo = new();
-                    startInfo.FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe");
-                    startInfo.WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker");
+                    ProcessStartInfo startInfo = new()
+                    {
+                        FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe"),
+                        WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker")
+                    };
 
                     rbxFpsUnlocker = Process.Start(startInfo);
 
@@ -273,9 +322,9 @@ namespace Bloxstrap
  
             Program.Exit(ERROR_INSTALL_USEREXIT);
         }
-        #endregion
+#endregion
 
-        #region App Install
+#region App Install
         public static void Register()
         {
             RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{Program.ProjectName}");
@@ -393,11 +442,11 @@ namespace Bloxstrap
 
             Dialog.ShowSuccess($"{Program.ProjectName} has been uninstalled");
 
-            Environment.Exit(ERROR_PRODUCT_UNINSTALLED);
+            Program.Exit();
         }
-        #endregion
+#endregion
 
-        #region Roblox Install
+#region Roblox Install
         private void UpdateProgressbar()
         {
             int newProgress = (int)Math.Floor(ProgressIncrement * TotalDownloadedBytes);
@@ -541,8 +590,7 @@ namespace Bloxstrap
                 File.SetAttributes(fileVersionFolder, File.GetAttributes(fileModFolder) & ~FileAttributes.ReadOnly);
             }
 
-            // now check for files that have been deleted from the mod folder
-            // according to the manifest
+            // now check for files that have been deleted from the mod folder according to the manifest
             foreach (string fileLocation in manifestFiles)
             {
                 if (modFolderFiles.Contains(fileLocation))

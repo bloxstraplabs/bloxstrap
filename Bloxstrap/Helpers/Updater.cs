@@ -17,90 +17,52 @@ namespace Bloxstrap.Helpers
             if (Environment.ProcessPath is null || !File.Exists(Directories.App) || Environment.ProcessPath == Directories.App)
                 return;
 
+            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Directories.Updates);
+
             // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
             FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.App);
 
-            if (installedVersionInfo.ProductVersion != currentVersionInfo.ProductVersion)
+            if (installedVersionInfo.ProductVersion == currentVersionInfo.ProductVersion)
+                return;
+
+
+            DialogResult result;
+
+            // silently upgrade version if the command line flag is set or if we're launching from an auto update
+            if (Program.IsUpgrade || isAutoUpgrade)
             {
-                DialogResult result;
-
-                if (Program.IsUpgrade)
-                {
-                    result = DialogResult.Yes;
-                }
-                else
-                {
-                    result = Program.ShowMessageBox(
-                        $"The version of {Program.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
-                        MessageBoxIcon.Question,
-                        MessageBoxButtons.YesNo
-                    );
-                }
-
-
-                if (result == DialogResult.Yes)
-                {
-                    File.Delete(Directories.App);
-                    File.Copy(Environment.ProcessPath, Directories.App);
-
-                    Bootstrapper.Register();
-
-                    Program.ShowMessageBox(
-                        $"{Program.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
-                        MessageBoxIcon.Information,
-                        MessageBoxButtons.OK
-                    );
-
-                    if (!Program.IsQuiet)
-                    {
-                        new Preferences().ShowDialog();
-                        Program.Exit();
-                    }
-                }
+                result = DialogResult.Yes;
             }
-
-            return;
-        }
-
-        public static async Task Check()
-        {
-            if (Environment.ProcessPath is null || Program.IsUninstall || Program.IsQuiet && Program.IsFirstRun)
-                return;
-
-            if (!Program.IsFirstRun)
-                CheckInstalledVersion();
-
-            if (!Program.Settings.CheckForUpdates)
-                return;
-
-            FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
-            string currentVersion = $"Bloxstrap v{currentVersionInfo.ProductVersion}";
-            string latestVersion;
-            string releaseNotes;
-
-            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{Program.ProjectRepository}/releases/latest");
-
-            if (releaseInfo is null || releaseInfo.Name is null || releaseInfo.Body is null)
-                return;
-
-            latestVersion = releaseInfo.Name;
-            releaseNotes = releaseInfo.Body;
-
-            if (currentVersion != latestVersion)
+            else
             {
-                DialogResult result = Program.ShowMessageBox(
-                    $"A new version of {Program.ProjectName} is available\n\n[{latestVersion}]\n{releaseNotes}\n\nWould you like to download it?",
+                result = Program.ShowMessageBox(
+                    $"The version of {Program.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
                     MessageBoxIcon.Question,
                     MessageBoxButtons.YesNo
-                ); 
-
-                if (result == DialogResult.Yes)
-                {
-                    Utilities.OpenWebsite($"https://github.com/{Program.ProjectRepository}/releases/latest");
-                    Program.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
-                }
+                );
             }
+
+
+            if (result != DialogResult.Yes)
+                return;
+
+            File.Delete(Directories.App);
+            File.Copy(Environment.ProcessPath, Directories.App);
+                
+            Bootstrapper.Register();
+                
+            if (Program.IsQuiet || isAutoUpgrade)
+                return;
+                
+            Program.ShowMessageBox(
+                $"{Program.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
+                MessageBoxIcon.Information,
+                MessageBoxButtons.OK
+            );
+
+            new Preferences().ShowDialog();
+            Program.Exit();
         }
     }
 }

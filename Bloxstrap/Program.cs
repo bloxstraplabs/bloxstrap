@@ -30,6 +30,7 @@ namespace Bloxstrap
         public static bool IsUninstall { get; private set; } = false;
         public static bool IsNoLaunch { get; private set; } = false;
         public static bool IsUpgrade { get; private set; } = false;
+        public static string[] LaunchArgs { get; private set; } = null!;
 
         public static string LocalAppData { get; private set; } = null!;
         public static string StartMenu { get; private set; } = null!;
@@ -64,6 +65,8 @@ namespace Bloxstrap
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            LaunchArgs = args;
 
             HttpClient.Timeout = TimeSpan.FromMinutes(5);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
@@ -123,8 +126,8 @@ namespace Bloxstrap
             }
 
 #if !DEBUG
-            if (!IsUninstall)
-                Updater.Check().Wait();
+            if (!IsUninstall && !IsFirstRun)
+                Updater.CheckInstalledVersion();
 #endif
 
             string commandLine = "";
