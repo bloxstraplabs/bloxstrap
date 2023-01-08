@@ -418,10 +418,8 @@ namespace Bloxstrap
             Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
             // compute total bytes to download
-            foreach (var package in VersionPackageManifest)
-            {
+            foreach (Package package in VersionPackageManifest)
                 TotalBytes += package.PackedSize;
-            }
 
             ProgressIncrement = (double)1 / TotalBytes * 100;
 
@@ -432,6 +430,9 @@ namespace Bloxstrap
                 // download all the packages at once
                 await DownloadPackage(package);
             }
+
+            // allow progress bar to 100% before continuing (purely ux reasons lol)
+            await Task.Delay(1000);
 
             Dialog.ProgressStyle = ProgressBarStyle.Marquee;
 
