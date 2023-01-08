@@ -82,7 +82,9 @@ namespace Bloxstrap
 
         private readonly bool FreshInstall;
 
-        private int ProgressIncrement;
+        private double ProgressIncrement;
+        private long TotalBytes = 0;
+        private long TotalDownloadedBytes = 0;
         private bool CancelFired = false;
 
         public IBootstrapperDialog Dialog = null!;
@@ -111,7 +113,9 @@ namespace Bloxstrap
 
             // if bloxstrap is installing for the first time but is running, prompt to close roblox
             // if roblox needs updating but is running, ignore update for now
+#if !DEBUG
             if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || Program.Settings.VersionGuid != VersionGuid && !CheckIfRunning(false))
+#endif
                 await InstallLatestVersion();
 
             await ApplyModifications();
@@ -394,6 +398,12 @@ namespace Bloxstrap
         #endregion
 
         #region Roblox Install
+        private void UpdateProgressbar()
+        {
+            int newProgress = (int)Math.Floor(ProgressIncrement * TotalDownloadedBytes);
+            Dialog.ProgressValue = newProgress;
+        }
+
         private async Task InstallLatestVersion()
         {
             if (FreshInstall)
@@ -405,33 +415,24 @@ namespace Bloxstrap
 
             Dialog.CancelEnabled = true;
 
-            // i believe the bootstrapper bases the progress bar off
-            // bytes downloaded / bytes total according to rbxPkgManifest?
-            // i'm too lazy for that, so here it's just based off how many packages
-            // have finished downloading
-
             Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
-            ProgressIncrement = (int)Math.Floor((decimal)1 / VersionPackageManifest.Count * 100);
+            // compute total bytes to download
+            foreach (Package package in VersionPackageManifest)
+                TotalBytes += package.PackedSize;
+
+            ProgressIncrement = (double)1 / TotalBytes * 100;
 
             Directory.CreateDirectory(Directories.Downloads);
 
             foreach (Package package in VersionPackageManifest)
             {
                 // download all the packages at once
-                DownloadPackage(package);
+                await DownloadPackage(package);
             }
 
-            do
-            {
-                // wait for download to finish (and also round off the progress bar if needed)
-
-                if (Dialog.ProgressValue == ProgressIncrement * VersionPackageManifest.Count)
-                    Dialog.ProgressValue = 100;
-
-                await Task.Delay(1000);
-            }
-            while (Dialog.ProgressValue != 100);
+            // allow progress bar to 100% before continuing (purely ux reasons lol)
+            await Task.Delay(1000);
 
             Dialog.ProgressStyle = ProgressBarStyle.Marquee;
 
@@ -592,7 +593,7 @@ namespace Bloxstrap
             }
         }
 
-        private async void DownloadPackage(Package package)
+        private async Task DownloadPackage(Package package)
         {
             string packageUrl = $"{DeployManager.BaseUrl}/{VersionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
@@ -606,12 +607,13 @@ namespace Bloxstrap
                 if (calculatedMD5 != package.Signature)
                 {
                     Debug.WriteLine($"{package.Name} is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");
-                    file.Delete();
+                file.Delete();
                 }
                 else
                 {
                     Debug.WriteLine($"{package.Name} is already downloaded, skipping...");
-                    Dialog.ProgressValue += ProgressIncrement;
+                    TotalDownloadedBytes += package.PackedSize;
+                    UpdateProgressbar();
                     return;
                 }
             }
@@ -622,7 +624,8 @@ namespace Bloxstrap
 
                 Debug.WriteLine($"Found existing version of {package.Name} ({robloxPackageLocation})! Copying to Downloads folder...");
                 File.Copy(robloxPackageLocation, packageLocation);
-                Dialog.ProgressValue += ProgressIncrement;
+                TotalDownloadedBytes += package.PackedSize;
+                UpdateProgressbar();
                 return;
             }
 
@@ -630,18 +633,30 @@ namespace Bloxstrap
             {
                 Debug.WriteLine($"Downloading {package.Name}...");
 
-                var response = await Program.HttpClient.GetAsync(packageUrl);
-
                 if (CancelFired)
                     return;
 
+                var response = await Program.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead);
+
+                var buffer = new byte[8192];
+
+                using (var stream = await response.Content.ReadAsStreamAsync())
                 using (var fileStream = new FileStream(packageLocation, FileMode.CreateNew))
                 {
-                    await response.Content.CopyToAsync(fileStream);
+                    while (true)
+                    {
+                        var bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                        if (bytesRead == 0)
+                            break; // we're done
+
+                        await fileStream.WriteAsync(buffer, 0, bytesRead);
+
+                        TotalDownloadedBytes += bytesRead;
+                        UpdateProgressbar();
+                    }
                 }
 
                 Debug.WriteLine($"Finished downloading {package.Name}!");
-                Dialog.ProgressValue += ProgressIncrement;
             }
         }
 
@@ -693,7 +708,7 @@ namespace Bloxstrap
             if (package is null)
                 return;
 
-            DownloadPackage(package);
+            DownloadPackage(package).GetAwaiter().GetResult();
 
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string packageFolder = Path.Combine(VersionFolder, PackageDirectories[package.Name]);
@@ -713,6 +728,6 @@ namespace Bloxstrap
                 entry.ExtractToFile(fileLocation);
             }
         }
-        #endregion
+#endregion
     }
 }
