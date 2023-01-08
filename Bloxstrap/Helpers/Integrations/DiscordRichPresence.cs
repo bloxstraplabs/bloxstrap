@@ -14,7 +14,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         const string GameJoiningEntry = "[FLog::Output] ! Joining game";
         const string GameJoinedEntry = "[FLog::Network] serverId:";
-        const string GameDisconnectedEntry = "[FLog::Network] Client:Disconnect";
+        const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
 
         const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|([0-9]+)";
@@ -76,12 +76,12 @@ namespace Bloxstrap.Helpers.Integrations
         {
             // okay, here's the process:
             //
-            // - read the latest log file from %localappdata%\roblox\logs approx every 30 sec or so
+            // - tail the latest log file from %localappdata%\roblox\logs
             // - check for specific lines to determine player's game activity as shown below:
             //
             // - get the place id, job id and machine address from '! Joining game '{{JOBID}}' place {{PLACEID}} at {{MACHINEADDRESS}}' entry
             // - confirm place join with 'serverId: {{MACHINEADDRESS}}|{{MACHINEPORT}}' entry
-            // - check for leaves/disconnects with 'Client:Disconnect' entry
+            // - check for leaves/disconnects with 'Time to disconnect replication data: {{TIME}}' entry
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
 
@@ -123,7 +123,6 @@ namespace Bloxstrap.Helpers.Integrations
             }
 
             // no need to close the event, its going to be finished with when the program closes anyway
-            // ...rr im too lazy to fix the event still be updating when its closed... lol
         }
 
         public async Task<bool> SetPresence()
@@ -184,6 +183,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public void Dispose()
         {
+            RichPresence.ClearPresence();
             RichPresence.Dispose();
         }
     }
