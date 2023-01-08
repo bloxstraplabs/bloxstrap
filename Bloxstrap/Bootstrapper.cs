@@ -602,14 +602,11 @@ namespace Bloxstrap
             {
                 FileInfo file = new(packageLocation);
 
-#if !DEBUG
                 string calculatedMD5 = Utilities.MD5File(packageLocation);
                 if (calculatedMD5 != package.Signature)
                 {
                     Debug.WriteLine($"{package.Name} is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");
-#endif
                 file.Delete();
-#if !DEBUG
                 }
                 else
                 {
@@ -618,7 +615,6 @@ namespace Bloxstrap
                     UpdateProgressbar();
                     return;
                 }
-#endif
             }
             else if (File.Exists(robloxPackageLocation))
             {
