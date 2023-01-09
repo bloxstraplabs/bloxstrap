@@ -1,4 +1,5 @@
 ﻿using Bloxstrap.Enums;
+using Bloxstrap.Helpers;
 
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
@@ -56,6 +57,18 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                     this.Invoke(() => _cancelEnabled = value);
                 else
                     _cancelEnabled = value;
+            }
+        }
+
+        public void ScaleWindow()
+        {
+            this.Size = this.MinimumSize = this.MaximumSize = WindowScaling.GetScaledSize(this.Size);
+
+            foreach (Control control in this.Controls)
+            {
+                control.Size = WindowScaling.GetScaledSize(control.Size);
+                control.Location = WindowScaling.GetScaledPoint(control.Location);
+                control.Padding = WindowScaling.GetScaledPadding(control.Padding);
             }
         }
 

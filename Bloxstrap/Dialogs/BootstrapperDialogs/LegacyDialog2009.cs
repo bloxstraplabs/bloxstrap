@@ -35,6 +35,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
             Bootstrapper = bootstrapper;
 
+            ScaleWindow();
             SetupDialog();
         }
 
