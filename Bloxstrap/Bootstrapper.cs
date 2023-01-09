@@ -85,6 +85,7 @@ namespace Bloxstrap
         private double ProgressIncrement;
         private long TotalBytes = 0;
         private long TotalDownloadedBytes = 0;
+        private int PackagesExtracted = 0;
         private bool CancelFired = false;
 
         public IBootstrapperDialog Dialog = null!;
@@ -467,17 +468,22 @@ namespace Bloxstrap
             Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
             // compute total bytes to download
+
             foreach (Package package in VersionPackageManifest)
                 TotalBytes += package.PackedSize;
 
             ProgressIncrement = (double)1 / TotalBytes * 100;
 
             Directory.CreateDirectory(Directories.Downloads);
+            Directory.CreateDirectory(Directories.Versions);
 
             foreach (Package package in VersionPackageManifest)
             {
-                // download all the packages at once
+                // download all the packages synchronously
                 await DownloadPackage(package);
+
+                // extract the package immediately after download amogus balls
+                ExtractPackage(package);
             }
 
             // allow progress bar to 100% before continuing (purely ux reasons lol)
@@ -485,19 +491,13 @@ namespace Bloxstrap
 
             Dialog.ProgressStyle = ProgressBarStyle.Marquee;
 
-            Debug.WriteLine("Finished downloading");
-
             Dialog.Message = "Configuring Roblox...";
 
-            Directory.CreateDirectory(Directories.Versions);
-
-            foreach (Package package in VersionPackageManifest)
+            // wait for all packages to finish extracting
+            while (PackagesExtracted < VersionPackageManifest.Count)
             {
-                // extract all the packages at once (shouldn't be too heavy on cpu?)
-                ExtractPackage(package);
+                await Task.Delay(100);
             }
-
-            Debug.WriteLine("Finished extracting packages");
 
             string appSettingsLocation = Path.Combine(VersionFolder, "AppSettings.xml");
             await File.WriteAllTextAsync(appSettingsLocation, AppSettings);
@@ -708,7 +708,7 @@ namespace Bloxstrap
             }
         }
 
-        private void ExtractPackage(Package package)
+        private async Task ExtractPackage(Package package)
         {
             if (CancelFired)
                 return;
@@ -720,7 +720,7 @@ namespace Bloxstrap
 
             Debug.WriteLine($"Extracting {package.Name} to {packageFolder}...");
 
-            using (ZipArchive archive = ZipFile.OpenRead(packageLocation))
+            using (ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(packageLocation)))
             {
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
@@ -732,7 +732,7 @@ namespace Bloxstrap
 
                     extractPath = Path.Combine(packageFolder, entry.FullName);
 
-                    Debug.WriteLine($"[{package.Name}] Writing {extractPath}...");
+                    //Debug.WriteLine($"[{package.Name}] Writing {extractPath}...");
 
                     directory = Path.GetDirectoryName(extractPath);
 
@@ -744,9 +744,13 @@ namespace Bloxstrap
                     if (File.Exists(extractPath))
                         File.Delete(extractPath);
 
-                    entry.ExtractToFile(extractPath);
+                    await Task.Run(() => entry.ExtractToFile(extractPath));
                 }
             }
+
+            Debug.WriteLine($"Finished extracting {package.Name}");
+
+            PackagesExtracted += 1;
         }
 
         private void ExtractFileFromPackage(string packageName, string fileName)
