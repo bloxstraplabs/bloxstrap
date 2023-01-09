@@ -441,7 +441,7 @@ namespace Bloxstrap
             }
             catch (Exception) { }
 
-            Dialog.ShowSuccess($"{Program.ProjectName} has been uninstalled");
+            Dialog.ShowSuccess($"{Program.ProjectName} has succesfully uninstalled");
 
             Program.Exit();
         }

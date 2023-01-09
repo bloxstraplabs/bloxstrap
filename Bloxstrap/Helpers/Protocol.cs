@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Web;
 using Microsoft.Win32;
 
@@ -97,9 +98,12 @@ namespace Bloxstrap.Helpers
         {
             try
             {
-                Registry.CurrentUser.DeleteSubKey($@"Software\Classes\{key}");
+                Registry.CurrentUser.DeleteSubKeyTree($@"Software\Classes\{key}");
             }
-            catch (Exception) { }
+            catch (Exception e) 
+            {
+                Debug.WriteLine($"Failed to unregister {key}: {e}");
+            }
         }
     }
 }
