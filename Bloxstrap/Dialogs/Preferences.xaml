@@ -125,11 +125,14 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
-        <Border Background="{DynamicResource ControlSelectedBackground}" BorderBrush="{DynamicResource ControlSelectedBorderBrush}" BorderThickness="1" Margin="-1,0,-1,-1" Height="42" VerticalAlignment="Bottom">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="ButtonConfirm" Content="{Binding ConfirmButtonText, Mode=OneTime}" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="ButtonConfirm_Click" />
-                <Button x:Name="ButtonCancel" Content="Cancel" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0" Click="ButtonCancel_Click" />
-            </StackPanel>
+        <Border Background="{DynamicResource ControlSelectedBackground}" BorderBrush="{DynamicResource ControlSelectedBorderBrush}" BorderThickness="1" Margin="-1,0,-1,0" Height="42" VerticalAlignment="Bottom">
+            <Grid>
+                <TextBlock Text="Like Bloxstrap? " VerticalAlignment="Center" Margin="10,0,0,0" ><Hyperlink NavigateUri="https://github.com/pizzaboxer/bloxstrap" RequestNavigate="Hyperlink_RequestNavigate">Leave a star on GitHub!</Hyperlink></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="ButtonConfirm" Content="{Binding ConfirmButtonText, Mode=OneTime}" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="ButtonConfirm_Click" />
+                    <Button x:Name="ButtonCancel" Content="Cancel" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0" Click="ButtonCancel_Click" />
+                </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </Window>

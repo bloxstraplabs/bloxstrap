@@ -482,7 +482,7 @@ namespace Bloxstrap
                 // download all the packages synchronously
                 await DownloadPackage(package);
 
-                // extract the package immediately after download amogus balls
+                // extract the package immediately after download
                 ExtractPackage(package);
             }
 
@@ -708,7 +708,7 @@ namespace Bloxstrap
             }
         }
 
-        private async Task ExtractPackage(Package package)
+        private async void ExtractPackage(Package package)
         {
             if (CancelFired)
                 return;

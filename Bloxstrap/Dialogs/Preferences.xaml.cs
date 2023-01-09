@@ -155,6 +155,12 @@ namespace Bloxstrap.Dialogs
 
             this.Close();
         }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Utilities.OpenWebsite(e.Uri.AbsoluteUri);
+            e.Handled = true;
+        }
     }
 
     public class PreferencesViewModel : INotifyPropertyChanged
