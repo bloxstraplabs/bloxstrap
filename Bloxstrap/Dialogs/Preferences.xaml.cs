@@ -299,14 +299,14 @@ namespace Bloxstrap.Dialogs
             } 
         }
 
-        public bool CheckForUpdates
+        public bool PromptChannelChange
         {
-            get => Program.Settings.CheckForUpdates;
-            set => Program.Settings.CheckForUpdates = value;
+            get => Program.Settings.PromptChannelChange;
+            set => Program.Settings.PromptChannelChange = value;
         }
         #endregion
 
-        #region Style
+        #region Bloxstrap
         public IReadOnlyDictionary<string, Theme> Themes { get; set; } = new Dictionary<string, Theme>()
         {
             { "System Default", Enums.Theme.Default },
@@ -354,6 +354,12 @@ namespace Bloxstrap.Dialogs
         {
             get => Icons.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperIcon).Key;
             set => Program.Settings.BootstrapperIcon = Icons[value];
+        }
+
+        public bool CheckForUpdates
+        {
+            get => Program.Settings.CheckForUpdates;
+            set => Program.Settings.CheckForUpdates = value;
         }
         #endregion
 

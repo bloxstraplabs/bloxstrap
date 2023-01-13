@@ -72,18 +72,18 @@
                     <TextBlock Text="Modifications" FontSize="13" />
                 </TabItem.Header>
                 <StackPanel>
-                    <GroupBox Header="Presets" VerticalAlignment="Top" Margin="10,10,10,5">
+                    <GroupBox Header="Presets" Margin="10,10,10,5">
                         <StackPanel VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                                <StackPanel Grid.Column="0">
                                     <CheckBox x:Name="CheckBoxModDeathSound" Content=" Use old death sound" Margin="5" IsChecked="{Binding ModOldDeathSound, Mode=TwoWay}" />
                                     <CheckBox x:Name="CheckBoxModMouseCursor" Content=" Use old mouse cursor" Margin="5" IsChecked="{Binding ModOldMouseCursor, Mode=TwoWay}" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                                <StackPanel Grid.Column="1">
                                     <CheckBox x:Name="CheckBoxDisableAppPatch" Content=" Disable desktop app" Margin="5" IsChecked="{Binding ModDisableAppPatch, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
@@ -97,7 +97,7 @@
                     <TextBlock Text="Installation" FontSize="13" />
                 </TabItem.Header>
                 <StackPanel>
-                    <GroupBox Header="Location" VerticalAlignment="Top" Margin="10,10,10,5">
+                    <GroupBox Header="Location" Margin="10,10,10,5">
                         <Grid Margin="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -107,7 +107,7 @@
                             <Button Grid.Column="1" x:Name="ButtonInstallLocationBrowse" Content="Browse..." Margin="5,0,0,0" Click="ButtonLocationBrowse_Click" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Channel" VerticalAlignment="Top" Margin="10, 5, 10, 5">
+                    <GroupBox Header="Channel" Margin="10,5,10,5">
                         <StackPanel VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -118,37 +118,41 @@
                                 <CheckBox Grid.Column="1" x:Name="CheckBoxShowAllChannels" Content=" Show all channels" VerticalAlignment="Center" Margin="5" IsChecked="{Binding ShowAllChannels, Mode=TwoWay}" />
                             </Grid>
                             <TextBlock x:Name="TextBlockChannelInfo" Text="{Binding ChannelInfo, Mode=OneWay}" TextWrapping="Wrap" Margin="5" />
+                            <CheckBox x:Name="TextBoxPromptChannelChange" Content=" Prompt on Roblox-forced channel change" ToolTip="Choose whether to be prompted when Roblox mandates a channel change through the website. Otherwise, the channel changes automatically." Margin="5" IsChecked="{Binding PromptChannelChange, Mode=TwoWay}" />
                         </StackPanel>
                     </GroupBox>
-                    <CheckBox Content=" Check for Bloxstrap updates on startup" IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" Margin="10,5,10,5" />
                 </StackPanel>
             </TabItem>
             <TabItem Padding="5">
                 <TabItem.Header>
-                    <TextBlock Text="Style" FontSize="13" />
+                    <TextBlock Text="Bloxstrap" FontSize="13" />
                 </TabItem.Header>
-                <StackPanel Margin="10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Theme*" VerticalAlignment="Center" Margin="0,0,0,5"  />
-                        <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ComboBoxTheme" VerticalAlignment="Center" Margin="0,0,0,0" ItemsSource="{Binding Themes.Keys, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="*Dark theme only applies to the Progress Dialog style" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Dialog" VerticalAlignment="Center" Margin="0,5,0,5" />
-                        <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBoxDialog" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
-                        <ComboBox Grid.Row="4" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
-                    </Grid>
-                    <Button x:Name="ButtonPreview" Content="Preview" Margin="0,5,0,0" VerticalAlignment="Bottom" Height="23" Click="ButtonPreview_Click" />
+                <StackPanel>
+                    <GroupBox Header="Style" Margin="10,10,10,0">
+                        <StackPanel Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Theme*" VerticalAlignment="Center" Margin="0,0,0,5"  />
+                                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ComboBoxTheme" VerticalAlignment="Center" Margin="0,0,0,0" ItemsSource="{Binding Themes.Keys, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="*Dark theme only applies to the Progress dialog" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Dialog" VerticalAlignment="Center" Margin="0,5,0,5" />
+                                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBoxDialog" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
+                                <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
+                            </Grid>
+                            <Button x:Name="ButtonPreview" Content="Preview" Margin="0,5,0,0" VerticalAlignment="Bottom" Height="23" Click="ButtonPreview_Click" />
+                        </StackPanel>
+                    </GroupBox>
+                    <CheckBox Content=" Check for Bloxstrap updates on startup" IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" Margin="10,10,10,0" />
                 </StackPanel>
             </TabItem>
         </TabControl>

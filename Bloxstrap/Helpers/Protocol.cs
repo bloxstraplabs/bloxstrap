@@ -49,7 +49,7 @@ namespace Bloxstrap.Helpers
                 {
                     if (val.ToLower() != Program.Settings.Channel.ToLower())
                     {
-                        DialogResult result = Program.ShowMessageBox(
+                        DialogResult result = !Program.Settings.PromptChannelChange ? DialogResult.Yes : Program.ShowMessageBox(
                             $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
                             $"Would you like to switch channels from {Program.Settings.Channel} to {val}?",
                             MessageBoxIcon.Question,

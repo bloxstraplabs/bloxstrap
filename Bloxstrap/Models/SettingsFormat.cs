@@ -9,6 +9,7 @@ namespace Bloxstrap.Models
         public string VersionGuid { get; set; } = "";
 
         public bool CheckForUpdates { get; set; } = true;
+        public bool PromptChannelChange { get; set; } = false;
 
         public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
