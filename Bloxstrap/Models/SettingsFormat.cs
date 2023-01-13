@@ -21,6 +21,9 @@ namespace Bloxstrap.Models
 
         public string RFUVersion { get; set; } = "";
 
+        public bool UseReshade { get; set; } = false;
+        public bool UseReshadeExtraviPresets { get; set; } = false;
+
         public bool UseOldDeathSound { get; set; } = true;
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;

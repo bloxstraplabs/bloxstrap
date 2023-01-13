@@ -168,6 +168,8 @@ namespace Bloxstrap.Dialogs
         private readonly Preferences _window;
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public string BloxstrapVersion { get; } = $"Version {Program.Version}";
+
         #region Integrations
         public bool DRPEnabled 
         { 
@@ -193,6 +195,23 @@ namespace Bloxstrap.Dialogs
             set => Program.Settings.RFUAutoclose = value; 
         }
 
+        public bool UseReshade
+        {
+            get => Program.Settings.UseReshade;
+            set => Program.Settings.UseReshade = value;
+        }
+
+        public bool UseReshadeExtraviPresets
+        {
+            get => Program.Settings.UseReshadeExtraviPresets;
+            set => Program.Settings.UseReshadeExtraviPresets = value;
+        }
+
+        public bool ReshadeFolderButtonEnabled { get; } = !Program.IsFirstRun;
+        public string ReshadeFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing ReShade" : "This is the folder that contains all your ReShade resources for presets, shaders and textures.";
+        #endregion
+
+        #region Modifications
         public bool ModOldDeathSound 
         { 
             get => Program.Settings.UseOldDeathSound; 
@@ -212,7 +231,7 @@ namespace Bloxstrap.Dialogs
         }
 
         public bool ModFolderButtonEnabled { get; } = !Program.IsFirstRun;
-        public string ModFolderButtonText { get; } = Program.IsFirstRun ? "Custom mods can be added after installing Bloxstrap" : "Open mod folder";
+        public string ModFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing mods" : "This is the folder that contains all your file modifications, including presets and any ReShade files needed.";
         #endregion
 
         #region Installation

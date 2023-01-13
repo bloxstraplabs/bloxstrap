@@ -20,6 +20,7 @@
     </Window.Resources>
     <Grid Width="480" Height="360">
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Configure Bloxstrap" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,14,10,0" TextWrapping="Wrap" Text="{Binding BloxstrapVersion, Mode=OneTime}" VerticalAlignment="Top" FontSize="12"/>
         <TabControl TabStripPlacement="Left" Margin="10,40,10,51" Padding="0">
             <TabItem Padding="5">
                 <TabItem.Header>
@@ -33,18 +34,45 @@
                         </Grid.ColumnDefinitions>
                         <GroupBox Grid.Column="0" Header="Discord Rich Presence" Margin="10,10,5,5">
                             <StackPanel VerticalAlignment="Center">
-                                <CheckBox x:Name="CheckBoxDRPEnabled" Content=" Show game activity" Margin="5" VerticalAlignment="Top" IsChecked="{Binding DRPEnabled, Mode=TwoWay}" />
-                                <CheckBox x:Name="CheckBoxDRPButtons" Content=" Allow activity joining" Margin="5" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=CheckBoxDRPEnabled, Mode=OneWay}" IsChecked="{Binding DRPButtons, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxDRPEnabled" Content=" Show game activity" ToolTip="Choose whether the game you're currently playing should be shown on your Discord game activity." Margin="5" IsChecked="{Binding DRPEnabled, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxDRPButtons" Content=" Allow activity joining" ToolTip="Choose whether people can join the game you're in through your Discord game activity." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxDRPEnabled, Mode=OneWay}" IsChecked="{Binding DRPButtons, Mode=TwoWay}" />
                             </StackPanel>
                         </GroupBox>
                         <GroupBox Grid.Column="1" Header="FPS Unlocking" Margin="5,10,10,5">
                             <StackPanel VerticalAlignment="Center">
-                                <CheckBox x:Name="CheckBoxRFUEnabled" Content=" Use rbxfpsunlocker" Margin="5" VerticalAlignment="Top" IsChecked="{Binding RFUEnabled, Mode=TwoWay}"  />
-                                <CheckBox x:Name="CheckBoxRFUAutoclose" Content=" Exit when Roblox closes" Margin="5" VerticalAlignment="Top" IsEnabled="{Binding IsChecked, ElementName=CheckBoxRFUEnabled, Mode=OneWay}" IsChecked="{Binding RFUAutoclose, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxRFUEnabled" Content=" Use rbxfpsunlocker" ToolTip="Choose whether rbxfpsunlocker should be downloaded and launched whenever Roblox starts." Margin="5" IsChecked="{Binding RFUEnabled, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxRFUAutoclose" Content=" Exit when Roblox closes" ToolTip="Choose whether rbxfpsunlocker should stop running when Roblox closes." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxRFUEnabled, Mode=OneWay}" IsChecked="{Binding RFUAutoclose, Mode=TwoWay}" />
                             </StackPanel>
                         </GroupBox>
                     </Grid>
-                    <GroupBox Header="Modifications" VerticalAlignment="Top" Margin="10,5,10,0">
+                    <GroupBox Header="ReShade" Margin="10,5,10,0">
+                        <StackPanel VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReshade" Content=" Use ReShade" Margin="5" IsChecked="{Binding UseReshade, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReshadeExtraviPresets" Content=" Use Extravi's presets w/ shaders" Margin="5" IsChecked="{Binding UseReshadeExtraviPresets, Mode=TwoWay}" />
+                            </Grid>
+                            <Grid Margin="5,5,5,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="90" />
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" x:Name="ButtonOpenReshadeFolder" ToolTip="{Binding ReshadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReshadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" />
+                                <Button Grid.Column="1" x:Name="ButtonOpenReshadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Padding="5">
+                <TabItem.Header>
+                    <TextBlock Text="Modifications" FontSize="13" />
+                </TabItem.Header>
+                <StackPanel>
+                    <GroupBox Header="Presets" VerticalAlignment="Top" Margin="10,10,10,5">
                         <StackPanel VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -59,9 +87,9 @@
                                     <CheckBox x:Name="CheckBoxDisableAppPatch" Content=" Disable desktop app" Margin="5" IsChecked="{Binding ModDisableAppPatch, Mode=TwoWay}" />
                                 </StackPanel>
                             </Grid>
-                            <Button x:Name="ButtonOpenModFolder" Content="{Binding ModFolderButtonText, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" VerticalAlignment="Bottom" Height="23" Margin="5,5,5,5" Click="ButtonOpenModFolder_Click" />
                         </StackPanel>
                     </GroupBox>
+                    <Button x:Name="ButtonOpenModFolder" Content="Open mod folder" ToolTip="{Binding ModFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" Height="23" Margin="10,5,10,0" Click="ButtonOpenModFolder_Click" />
                 </StackPanel>
             </TabItem>
             <TabItem Padding="5">
@@ -86,7 +114,7 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="130" />
                                 </Grid.ColumnDefinitions>
-                                <ComboBox x:Name="ComboBoxChannel" Margin="5" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding Channel, Mode=TwoWay}" />
+                                <ComboBox x:Name="ComboBoxChannel" ToolTip="Choose which release channel to download Roblox from. If you're not sure what this does, just leave it as LIVE." Margin="5" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding Channel, Mode=TwoWay}" />
                                 <CheckBox Grid.Column="1" x:Name="CheckBoxShowAllChannels" Content=" Show all channels" VerticalAlignment="Center" Margin="5" IsChecked="{Binding ShowAllChannels, Mode=TwoWay}" />
                             </Grid>
                             <TextBlock x:Name="TextBlockChannelInfo" Text="{Binding ChannelInfo, Mode=OneWay}" TextWrapping="Wrap" Margin="5" />
@@ -117,7 +145,6 @@
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="*Dark theme only applies to the Progress Dialog style" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Dialog" VerticalAlignment="Center" Margin="0,5,0,5" />
                         <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBoxDialog" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Legacy Dialog styles don't handle DPI scaling very well" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
                         <TextBlock Grid.Row="4" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
                         <ComboBox Grid.Row="4" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
                     </Grid>
