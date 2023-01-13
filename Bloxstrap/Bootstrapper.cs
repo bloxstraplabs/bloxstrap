@@ -461,6 +461,14 @@ namespace Bloxstrap
             else
                 Dialog.Message = "Upgrading Roblox...";
 
+            // check if we have at least 300 megabytes of free disk space
+            if (Utilities.GetFreeDiskSpace(Directories.Base) < 1024*1024*300)
+            {
+                Program.ShowMessageBox($"{Program.ProjectName} requires at least 300 MB of disk space to install Roblox. Please free up some disk space and try again.", MessageBoxIcon.Error);
+                Program.Exit(ERROR_INSTALL_FAILURE);
+                return;
+            }
+
             Directory.CreateDirectory(Directories.Base);
 
             Dialog.CancelEnabled = true;

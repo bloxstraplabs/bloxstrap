@@ -7,6 +7,17 @@ namespace Bloxstrap.Helpers
 {
     public class Utilities
     {
+        public static long GetFreeDiskSpace(string path)
+        {
+            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            {
+                if (path.StartsWith(drive.Name))
+                    return drive.AvailableFreeSpace;
+            }
+
+            return -1;
+        }
+
         public static void OpenWebsite(string website)
         {
             Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
