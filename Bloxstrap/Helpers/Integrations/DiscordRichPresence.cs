@@ -90,7 +90,22 @@ namespace Bloxstrap.Helpers.Integrations
             if (!Directory.Exists(logDirectory))
                 return;
 
-            FileInfo logFileInfo = new DirectoryInfo(logDirectory).GetFiles().OrderByDescending(f => f.LastWriteTime).First();
+            FileInfo logFileInfo;
+
+            // we need to make sure we're fetching the absolute latest log file
+            // if roblox doesn't start quickly enough, we can wind up fetching the previous log file
+            // good rule of thumb is to find a log file that was created in the last 15 seconds or so
+
+            while (true)
+            {
+                logFileInfo = new DirectoryInfo(logDirectory).GetFiles().OrderByDescending(x => x.CreationTime).First();
+
+                if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
+                    break;
+
+                await Task.Delay(1000);
+            }
+
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
             AutoResetEvent logUpdatedEvent = new(false);
