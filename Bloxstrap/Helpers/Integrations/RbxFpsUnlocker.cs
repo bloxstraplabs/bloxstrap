@@ -95,8 +95,10 @@ namespace Bloxstrap.Helpers.Integrations
 
             using (MemoryStream zipStream = new(bytes))
             {
-                ZipArchive zip = new(zipStream);
-                zip.ExtractToDirectory(folderLocation, true);
+                using (ZipArchive zip = new(zipStream))
+                {
+                    zip.ExtractToDirectory(folderLocation, true);
+                }
             }
 
             if (!File.Exists(settingsLocation))

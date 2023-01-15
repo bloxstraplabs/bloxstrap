@@ -472,7 +472,6 @@ namespace Bloxstrap
             Directory.CreateDirectory(Directories.Base);
 
             Dialog.CancelEnabled = true;
-
             Dialog.ProgressStyle = ProgressBarStyle.Continuous;
 
             // compute total bytes to download
@@ -512,6 +511,8 @@ namespace Bloxstrap
 
             if (!FreshInstall)
             {
+                ReShade.SynchronizeConfigFile();
+
                 // let's take this opportunity to delete any packages we don't need anymore
                 foreach (string filename in Directory.GetFiles(Directories.Downloads))
                 {
@@ -554,13 +555,15 @@ namespace Bloxstrap
             await CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
             await CheckModPreset(Program.Settings.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
 
+            await ReShade.CheckModifications();
+
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
             {
                 // get relative directory path
                 string relativeFile = file.Substring(modFolder.Length + 1);
 
-                // ignore files placed in the root directory
-                if (!relativeFile.Contains('\\'))
+                // ignore files placed in the root directory as long as they're not ini or dll files
+                if (!relativeFile.Contains('\\') && !relativeFile.EndsWith(".ini") && !relativeFile.EndsWith(".dll"))
                     continue;
 
                 modFolderFiles.Add(relativeFile);
@@ -613,6 +616,11 @@ namespace Bloxstrap
                 catch (InvalidOperationException)
                 {
                     // package doesn't exist, likely mistakenly placed file
+                    string versionFileLocation = Path.Combine(VersionFolder, fileLocation);
+
+                    if (File.Exists(versionFileLocation))
+                        File.Delete(versionFileLocation);
+
                     continue;
                 }
 

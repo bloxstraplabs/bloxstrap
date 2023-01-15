@@ -52,16 +52,16 @@
                                     <ColumnDefinition Width="130" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReshade" Content=" Use ReShade" Margin="5" IsChecked="{Binding UseReshade, Mode=TwoWay}" />
-                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReshadeExtraviPresets" Content=" Use Extravi's presets w/ shaders" Margin="5" IsChecked="{Binding UseReshadeExtraviPresets, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReShade" Content=" Use ReShade" Margin="5" IsChecked="{Binding UseReShade, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReShadeExtraviPresets" Content=" Use Extravi's presets w/ shaders" Margin="5" IsChecked="{Binding UseReShadeExtraviPresets, Mode=TwoWay}" />
                             </Grid>
                             <Grid Margin="5,5,5,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="90" />
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" x:Name="ButtonOpenReshadeFolder" ToolTip="{Binding ReshadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReshadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" />
-                                <Button Grid.Column="1" x:Name="ButtonOpenReshadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
+                                <Button Grid.Column="0" x:Name="ButtonOpenReShadeFolder" ToolTip="{Binding ReShadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReShadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" />
+                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
                             </Grid>
                         </StackPanel>
                     </GroupBox>

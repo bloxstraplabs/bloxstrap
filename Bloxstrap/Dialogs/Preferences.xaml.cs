@@ -195,20 +195,20 @@ namespace Bloxstrap.Dialogs
             set => Program.Settings.RFUAutoclose = value; 
         }
 
-        public bool UseReshade
+        public bool UseReShade
         {
-            get => Program.Settings.UseReshade;
-            set => Program.Settings.UseReshade = value;
+            get => Program.Settings.UseReShade;
+            set => Program.Settings.UseReShade = value;
         }
 
-        public bool UseReshadeExtraviPresets
+        public bool UseReShadeExtraviPresets
         {
-            get => Program.Settings.UseReshadeExtraviPresets;
-            set => Program.Settings.UseReshadeExtraviPresets = value;
+            get => Program.Settings.UseReShadeExtraviPresets;
+            set => Program.Settings.UseReShadeExtraviPresets = value;
         }
 
-        public bool ReshadeFolderButtonEnabled { get; } = !Program.IsFirstRun;
-        public string ReshadeFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing ReShade" : "This is the folder that contains all your ReShade resources for presets, shaders and textures.";
+        public bool ReShadeFolderButtonEnabled { get; } = !Program.IsFirstRun;
+        public string ReShadeFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing ReShade" : "This is the folder that contains all your ReShade resources for presets, shaders and textures.";
         #endregion
 
         #region Modifications

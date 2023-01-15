@@ -10,6 +10,7 @@ namespace Bloxstrap.Helpers
         public static string Versions { get; private set; } = "";
         public static string Modifications { get; private set; } = "";
         public static string Updates { get; private set; } = "";
+        public static string ReShade { get; private set; } = "";
 
         public static string App { get; private set; } = "";
 
@@ -23,6 +24,7 @@ namespace Bloxstrap.Helpers
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
             Updates = Path.Combine(Base, "Updates");
+            ReShade = Path.Combine(Base, "ReShade");
 
             App = Path.Combine(Base, $"{Program.ProjectName}.exe");
         }
