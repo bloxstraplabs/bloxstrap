@@ -112,6 +112,8 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                 ShowError(message);
             }
 #endif
+
+            Program.Exit();
         }
 
         public virtual void ShowSuccess(string message)

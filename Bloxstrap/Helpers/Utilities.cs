@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text.Json;
 
@@ -7,6 +8,11 @@ namespace Bloxstrap.Helpers
 {
     public class Utilities
     {
+        public static bool IsDirectoryEmpty(string path)
+        {
+            return !Directory.EnumerateFileSystemEntries(path).Any();
+        }
+
         public static long GetFreeDiskSpace(string path)
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())

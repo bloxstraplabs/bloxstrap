@@ -21,6 +21,7 @@ namespace Bloxstrap.Models
         public bool RFUAutoclose { get; set; } = false;
 
         public string RFUVersion { get; set; } = "";
+        public string ExtraviPresetsVersion { get; set; } = "";
 
         public bool UseReShade { get; set; } = false;
         public bool UseReShadeExtraviPresets { get; set; } = false;

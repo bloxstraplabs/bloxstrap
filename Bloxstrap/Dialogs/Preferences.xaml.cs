@@ -57,6 +57,11 @@ namespace Bloxstrap.Dialogs
             this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Themes/{theme}Theme.xaml", UriKind.Relative) };
         }
 
+        private void ButtonOpenReShadeHelp_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void ButtonOpenModFolder_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Directories.Modifications);

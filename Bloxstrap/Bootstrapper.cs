@@ -136,13 +136,10 @@ namespace Bloxstrap
             
             Program.SettingsManager.Save();
 
-            
             if (Program.IsFirstRun && Program.IsNoLaunch)
                 Dialog.ShowSuccess($"{Program.ProjectName} has successfully installed");
             else if (!Program.IsNoLaunch)
                 await StartRoblox();
-
-            Program.Exit();
         }
 
         private async Task CheckForUpdates()
@@ -184,9 +181,11 @@ namespace Bloxstrap
             foreach (string arg in Program.LaunchArgs)
                 startInfo.ArgumentList.Add(arg);
 
+            Program.SettingsManager.Save();
+
             Process.Start(startInfo);
 
-            Program.Exit();
+            Environment.Exit(0);
         }
 
         private async Task CheckLatestVersion()

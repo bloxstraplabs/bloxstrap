@@ -58,10 +58,12 @@
                             <Grid Margin="5,5,5,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="90" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="80" />
                                 </Grid.ColumnDefinitions>
                                 <Button Grid.Column="0" x:Name="ButtonOpenReShadeFolder" ToolTip="{Binding ReShadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReShadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" />
-                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
+                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeHelp" Content="Help" Height="23" Click="ButtonOpenReShadeHelp_Click" />
+                                <Button Grid.Column="2" x:Name="ButtonOpenReShadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
                             </Grid>
                         </StackPanel>
                     </GroupBox>
