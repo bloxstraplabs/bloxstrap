@@ -61,19 +61,6 @@ namespace Bloxstrap
             "	<BaseUrl>http://www.roblox.com</BaseUrl>\n" +
             "</Settings>\n";
 
-        private static readonly string ModReadme =
-            "This is where you can modify your Roblox files while preserving modifications\n" +
-            "whenever Roblox updates.\n" +
-            "\n" +
-            "For example, Modifications\\content\\sounds\\ouch.ogg will\n" +
-            "automatically overwrite Versions\\version-xx...\\content\\sounds\\ouch.ogg\n" +
-            "\n" +
-            "If you remove a file mod from here, Bloxstrap will restore the stock version\n" +
-            "of the file the next time it's launched.\n" +
-            "\n" +
-            "Any files added here to the root modification directory are ignored, so be sure\n" +
-            "that they're inside a folder.";
-
         private string? LaunchCommandLine;
 
         private string VersionGuid = null!;
@@ -544,10 +531,7 @@ namespace Bloxstrap
             List<string> modFolderFiles = new();
 
             if (!Directory.Exists(modFolder))
-            {
                 Directory.CreateDirectory(modFolder);
-                await File.WriteAllTextAsync(Path.Combine(modFolder, "README.txt"), ModReadme);
-            }
 
             await CheckModPreset(Program.Settings.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
             await CheckModPreset(Program.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
@@ -561,9 +545,12 @@ namespace Bloxstrap
                 // get relative directory path
                 string relativeFile = file.Substring(modFolder.Length + 1);
 
-                // ignore files placed in the root directory as long as they're not ini or dll files
-                if (!relativeFile.Contains('\\') && !relativeFile.EndsWith(".ini") && !relativeFile.EndsWith(".dll"))
+                // v1.7.0 - README has been moved to the preferences menu now
+                if (relativeFile == "README.txt")
+                {
+                    File.Delete(file);
                     continue;
+                }
 
                 modFolderFiles.Add(relativeFile);
             }

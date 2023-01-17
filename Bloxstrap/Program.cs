@@ -1,18 +1,16 @@
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Net.Http;
+using System.Net;
+using System.Reflection;
 
 using Microsoft.Win32;
 
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
-using Bloxstrap.Dialogs;
-using System.Net.Http;
-using System.Net;
-using System.Reflection;
-using Newtonsoft.Json.Linq;
-using System;
+using Bloxstrap.Dialogs.Menu;
+
 
 namespace Bloxstrap
 {
@@ -132,7 +130,7 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if false//DEBUG
+#if DEBUG
             new Preferences().ShowDialog();
 #else
             if (args.Length > 0)

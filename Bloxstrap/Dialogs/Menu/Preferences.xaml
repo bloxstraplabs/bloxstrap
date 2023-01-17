@@ -1,9 +1,9 @@
-﻿<Window x:Class="Bloxstrap.Dialogs.Preferences"
+﻿<Window x:Class="Bloxstrap.Dialogs.Menu.Preferences"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bloxstrap.Dialogs"
+        xmlns:local="clr-namespace:Bloxstrap.Dialogs.Menu"
         mc:Ignorable="d"
         Style="{DynamicResource MainWindowStyle}"
         Title="PreferencesWPF" 
@@ -49,21 +49,19 @@
                         <StackPanel VerticalAlignment="Center">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="155" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReShade" Content=" Use ReShade" Margin="5" IsChecked="{Binding UseReShade, Mode=TwoWay}" />
-                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReShadeExtraviPresets" Content=" Use Extravi's presets w/ shaders" Margin="5" IsChecked="{Binding UseReShadeExtraviPresets, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReShade" Content=" Use ReShade" ToolTip="Choose whether to use ReShade to enhance your graphics with shaders." Margin="5" IsChecked="{Binding UseReShade, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReShadeExtraviPresets" Content=" Use Extravi's shader presets" ToolTip="Choose whether to use Extravi's shader presets with ReShade." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxUseReShade, Mode=OneWay}" IsChecked="{Binding UseReShadeExtraviPresets, Mode=TwoWay}" />
                             </Grid>
                             <Grid Margin="5,5,5,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="80" />
-                                    <ColumnDefinition Width="80" />
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" x:Name="ButtonOpenReShadeFolder" ToolTip="{Binding ReShadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReShadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" />
-                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeHelp" Content="Help" Height="23" Click="ButtonOpenReShadeHelp_Click" />
-                                <Button Grid.Column="2" x:Name="ButtonOpenReShadeCredits" Content="Credits" Height="23" Margin="5,0,0,0" />
+                                <Button Grid.Column="0" x:Name="ButtonOpenReShadeFolder" ToolTip="{Binding ReShadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReShadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" Click="ButtonOpenReShadeFolder_Click" />
+                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeHelp" Content="Help" Height="23" Margin="5,0,0,0" Click="ButtonOpenReShadeHelp_Click" />
                             </Grid>
                         </StackPanel>
                     </GroupBox>
@@ -91,7 +89,14 @@
                             </Grid>
                         </StackPanel>
                     </GroupBox>
-                    <Button x:Name="ButtonOpenModFolder" Content="Open mod folder" ToolTip="{Binding ModFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" Height="23" Margin="10,5,10,0" Click="ButtonOpenModFolder_Click" />
+                    <Grid Margin="10,5,10,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" x:Name="ButtonOpenModFolder" Content="Open Modifications folder" ToolTip="{Binding ModFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" Height="23" Margin="0,0,5,0" Click="ButtonOpenModFolder_Click" />
+                        <Button Grid.Column="1" x:Name="ButtonOpenModHelp" Content="Help" Height="23" Margin="5,0,0,0" Click="ButtonOpenModHelp_Click" />
+                    </Grid>
                 </StackPanel>
             </TabItem>
             <TabItem Padding="5">

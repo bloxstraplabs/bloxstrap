@@ -12,10 +12,7 @@ using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 
-using REghZyFramework.Themes;
-using System.Windows.Forms;
-
-namespace Bloxstrap.Dialogs
+namespace Bloxstrap.Dialogs.Menu
 {
     /// <summary>
     /// Interaction logic for PreferencesWPF.xaml
@@ -54,17 +51,27 @@ namespace Bloxstrap.Dialogs
             if (Program.Settings.Theme.GetFinal() == Theme.Dark)
                 theme = "ColourfulDark";
 
-            this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Themes/{theme}Theme.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
+        }
+
+        private void ButtonOpenReShadeFolder_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Directories.ReShade);
         }
 
         private void ButtonOpenReShadeHelp_Click(object sender, EventArgs e)
         {
-            
+            new ReShadeHelp().Show();
         }
 
         private void ButtonOpenModFolder_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Directories.Modifications);
+        }
+
+        private void ButtonOpenModHelp_Click(object sender, EventArgs e)
+        {
+            new ModHelp().Show();
         }
 
         private void ButtonLocationBrowse_Click(object sender, EventArgs e)
@@ -178,8 +185,13 @@ namespace Bloxstrap.Dialogs
         #region Integrations
         public bool DRPEnabled 
         { 
-            get => Program.Settings.UseDiscordRichPresence; 
-            set => Program.Settings.UseDiscordRichPresence = value; 
+            get => Program.Settings.UseDiscordRichPresence;
+            set
+            {
+                // if user wants discord rpc, auto-enable buttons by default
+                _window.CheckBoxDRPButtons.IsChecked = value;
+                Program.Settings.UseDiscordRichPresence = value;
+            }
         }
 
         public bool DRPButtons 
@@ -190,8 +202,13 @@ namespace Bloxstrap.Dialogs
 
         public bool RFUEnabled 
         { 
-            get => Program.Settings.RFUEnabled; 
-            set => Program.Settings.RFUEnabled = value; 
+            get => Program.Settings.RFUEnabled;
+            set
+            {
+                // if user wants to use rbxfpsunlocker, auto-enable autoclosing by default
+                _window.CheckBoxRFUAutoclose.IsChecked = value;
+                Program.Settings.RFUEnabled = value;
+            }
         }
 
         public bool RFUAutoclose 
@@ -203,7 +220,12 @@ namespace Bloxstrap.Dialogs
         public bool UseReShade
         {
             get => Program.Settings.UseReShade;
-            set => Program.Settings.UseReShade = value;
+            set
+            {
+                // if user wants to use reshade, auto-enable use of extravi's presets by default
+                _window.CheckBoxUseReShadeExtraviPresets.IsChecked = value;
+                Program.Settings.UseReShade = value;
+            }
         }
 
         public bool UseReShadeExtraviPresets

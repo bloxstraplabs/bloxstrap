@@ -53,6 +53,9 @@ namespace Bloxstrap.Helpers.Integrations
             "KeyReload=0,0,0,0\r\n" +
             "KeyScreenshot=44,0,0,0\r\n" +
             "\r\n" +
+            "[SCREENSHOT]\r\n" +
+            "SavePath=..\\..\\ReShade\\Screenshots\r\n" +
+            "\r\n" +
             "[STYLE]\r\n" +
             "Alpha=1.000000\r\n" +
             "Border=0.862745,0.862745,0.862745,0.300000\r\n" +
@@ -370,6 +373,7 @@ namespace Bloxstrap.Helpers.Integrations
             // initialize directories
             Directory.CreateDirectory(Directories.ReShade);
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Fonts"));
+            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Screenshots"));
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Shaders"));
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Textures"));
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Presets"));
