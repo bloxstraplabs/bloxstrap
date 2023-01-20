@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+
 using Bloxstrap.Models;
 
 using IniParser;
 using IniParser.Model;
-using System.Diagnostics;
 
 namespace Bloxstrap.Helpers.Integrations
 {
@@ -26,109 +21,9 @@ namespace Bloxstrap.Helpers.Integrations
         // and here we're effectively choosing for the user... hm...
         // i mean, it should be fine? importing shaders is still gonna be a thing, though maybe not as simple, but most people would be looking to use extravi's presets anyway
 
-        // based on the shaders we have installed, we're gonna have to parse and adjust this... yay.............
-        #region Config
-        private static readonly string StockConfig =
-            "[APP]\r\n" +
-            "ForceFullscreen=0\r\n" +
-            "ForceVsync=0\r\n" +
-            "ForceWindowed=0\r\n" +
-            "\r\n" +
-            "[GENERAL]\r\n" +
-            "EffectSearchPaths=..\\..\\ReShade\\Shaders\r\n" +
-            "PerformanceMode=1\r\n" +
-            "PreprocessorDefinitions=RESHADE_DEPTH_LINEARIZATION_FAR_PLANE=1000.0,RESHADE_DEPTH_INPUT_IS_UPSIDE_DOWN=0,RESHADE_DEPTH_INPUT_IS_REVERSED=1,RESHADE_DEPTH_INPUT_IS_LOGARITHMIC=0\r\n" +
-            "PresetPath=..\\..\\ReShade\\Presets\\ReShadePreset.ini\r\n" +
-            "TextureSearchPaths=..\\..\\ReShade\\Textures\r\n" +
-            "\r\n" +
-            "[INPUT]\r\n" +
-            "ForceShortcutModifiers=1\r\n" +
-            "InputProcessing=2\r\n" +
-            "GamepadNavigation=1\r\n" +
-            "KeyEffects=117,0,1,0\r\n" +
-            "KeyNextPreset=0,0,0,0\r\n" +
-            "KeyOverlay=9,0,1,0\r\n" +
-            "KeyPerformanceMode=0,0,0,0\r\n" +
-            "KeyPreviousPreset=0,0,0,0\r\n" +
-            "KeyReload=0,0,0,0\r\n" +
-            "KeyScreenshot=44,0,0,0\r\n" +
-            "\r\n" +
-            "[SCREENSHOT]\r\n" +
-            "SavePath=..\\..\\ReShade\\Screenshots\r\n" +
-            "\r\n" +
-            "[STYLE]\r\n" +
-            "Alpha=1.000000\r\n" +
-            "Border=0.862745,0.862745,0.862745,0.300000\r\n" +
-            "BorderShadow=0.000000,0.000000,0.000000,0.000000\r\n" +
-            "Button=0.156863,0.313726,0.941177,0.440000\r\n" +
-            "ButtonActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "ButtonHovered=0.156863,0.313726,0.941177,0.860000\r\n" +
-            "CheckMark=0.156863,0.313726,0.941177,0.800000\r\n" +
-            "ChildBg=0.109804,0.109804,0.109804,0.000000\r\n" +
-            "ChildRounding=6.000000\r\n" +
-            "ColFPSText=1.000000,1.000000,0.784314,1.000000\r\n" +
-            "DockingEmptyBg=0.200000,0.200000,0.200000,1.000000\r\n" +
-            "DockingPreview=0.156863,0.313726,0.941177,0.532000\r\n" +
-            "DragDropTarget=1.000000,1.000000,0.000000,0.900000\r\n" +
-            "EditorFont=..\\..\\ReShade\\Fonts\\Hack-Regular.ttf\r\n" +
-            "EditorFontSize=18\r\n" +
-            "EditorStyleIndex=0\r\n" +
-            "Font=..\\..\\ReShade\\Fonts\\NunitoSans-Regular.ttf\r\n" +
-            "FontSize=18\r\n" +
-            "FPSScale=1.000000\r\n" +
-            "FrameBg=0.109804,0.109804,0.109804,1.000000\r\n" +
-            "FrameBgActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "FrameBgHovered=0.156863,0.313726,0.941177,0.680000\r\n" +
-            "FrameRounding=6.000000\r\n" +
-            "GrabRounding=6.000000\r\n" +
-            "Header=0.156863,0.313726,0.941177,0.760000\r\n" +
-            "HeaderActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "HeaderHovered=0.156863,0.313726,0.941177,0.860000\r\n" +
-            "MenuBarBg=0.109804,0.109804,0.109804,0.570000\r\n" +
-            "ModalWindowDimBg=0.800000,0.800000,0.800000,0.350000\r\n" +
-            "NavHighlight=0.260000,0.590000,0.980000,1.000000\r\n" +
-            "NavWindowingDimBg=0.800000,0.800000,0.800000,0.200000\r\n" +
-            "NavWindowingHighlight=1.000000,1.000000,1.000000,0.700000\r\n" +
-            "PlotHistogram=0.862745,0.862745,0.862745,0.630000\r\n" +
-            "PlotHistogramHovered=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "PlotLines=0.862745,0.862745,0.862745,0.630000\r\n" +
-            "PlotLinesHovered=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "PopupBg=0.047059,0.047059,0.047059,0.920000\r\n" +
-            "PopupRounding=6.000000\r\n" +
-            "ResizeGrip=0.156863,0.313726,0.941177,0.200000\r\n" +
-            "ResizeGripActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "ResizeGripHovered=0.156863,0.313726,0.941177,0.780000\r\n" +
-            "ScrollbarBg=0.109804,0.109804,0.109804,1.000000\r\n" +
-            "ScrollbarGrab=0.156863,0.313726,0.941177,0.310000\r\n" +
-            "ScrollbarGrabActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "ScrollbarGrabHovered=0.156863,0.313726,0.941177,0.780000\r\n" +
-            "ScrollbarRounding=6.000000\r\n" +
-            "Separator=0.862745,0.862745,0.862745,0.320000\r\n" +
-            "SeparatorActive=0.862745,0.862745,0.862745,1.000000\r\n" +
-            "SeparatorHovered=0.862745,0.862745,0.862745,0.780000\r\n" +
-            "SliderGrab=0.156863,0.313726,0.941177,0.240000\r\n" +
-            "SliderGrabActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "StyleIndex=3\r\n" +
-            "Tab=0.156863,0.313726,0.941177,0.440000\r\n" +
-            "TabActive=0.156863,0.313726,0.941177,1.000000\r\n" +
-            "TabHovered=0.156863,0.313726,0.941177,0.860000\r\n" +
-            "TableBorderLight=0.230000,0.230000,0.250000,1.000000\r\n" +
-            "TableBorderStrong=0.310000,0.310000,0.350000,1.000000\r\n" +
-            "TableHeaderBg=0.190000,0.190000,0.200000,1.000000\r\n" +
-            "TableRowBg=0.000000,0.000000,0.000000,0.000000\r\n" +
-            "TableRowBgAlt=1.000000,1.000000,1.000000,0.060000\r\n" +
-            "TabRounding=6.000000\r\n" +
-            "TabUnfocused=0.156863,0.313726,0.941177,0.448000\r\n" +
-            "TabUnfocusedActive=0.156863,0.313726,0.941177,0.780000\r\n" +
-            "Text=0.862745,0.862745,0.862745,1.000000\r\n" +
-            "TextDisabled=0.862745,0.862745,0.862745,0.580000\r\n" +
-            "TextSelectedBg=0.156863,0.313726,0.941177,0.430000\r\n" +
-            "TitleBg=0.156863,0.313726,0.941177,0.450000\r\n" +
-            "TitleBgActive=0.156863,0.313726,0.941177,0.580000\r\n" +
-            "TitleBgCollapsed=0.156863,0.313726,0.941177,0.350000\r\n" +
-            "WindowBg=0.047059,0.047059,0.047059,1.000000\r\n" +
-            "WindowRounding=6.000000";
-        #endregion
+        private static string ShadersFolder { get => Path.Combine(Directories.ReShade, "Shaders"); }
+        private static string TexturesFolder { get => Path.Combine(Directories.ReShade, "Textures"); }
+        private static string ConfigLocation { get => Path.Combine(Directories.Modifications, "ReShade.ini"); }
 
         // this is a list of selectable shaders to download:
         // this should be formatted as { FolderName, GithubRepositoryUrl }
@@ -162,6 +57,49 @@ namespace Bloxstrap.Helpers.Integrations
             return $",..\\..\\ReShade\\{type}\\{name}";
         }
 
+        public static async Task DownloadConfig()
+        {
+            Debug.WriteLine("[ReShade] Downloading config file...");
+
+            {
+                byte[] bytes = await Program.HttpClient.GetByteArrayAsync("https://github.com/Extravi/extravi.github.io/raw/main/update/config.zip");
+
+                using MemoryStream zipStream = new(bytes);
+                using ZipArchive archive = new(zipStream);
+
+                // when we extract the file we have to make sure the last modified date is overwritten
+                // or else it will synchronize with the config in the version folder
+                archive.Entries.Where(x => x.FullName == "ReShade.ini").First().ExtractToFile(ConfigLocation, true);
+                File.SetLastWriteTime(ConfigLocation, DateTime.Now);
+
+                // we also gotta download the editor fonts
+                foreach (ZipArchiveEntry entry in archive.Entries.Where(x => x.FullName.EndsWith(".ttf")))
+                    entry.ExtractToFile(Path.Combine(Directories.ReShade, "Fonts", entry.FullName), true);
+            }
+
+            // now we have to adjust the config file to use the paths that we need
+
+            FileIniDataParser parser = new();
+            IniData data = parser.ReadFile(ConfigLocation);
+
+            data["GENERAL"]["EffectSearchPaths"] = "..\\..\\ReShade\\Shaders";
+            data["GENERAL"]["TextureSearchPaths"] = "..\\..\\ReShade\\Textures";
+            data["GENERAL"]["PresetPath"] = data["GENERAL"]["PresetPath"].Replace(".\\reshade-presets\\", "..\\..\\ReShade\\Presets\\");
+            data["SCREENSHOT"]["SavePath"] = "..\\..\\ReShade\\Screenshots";
+            data["STYLE"]["EditorFont"] = data["STYLE"]["EditorFont"].Replace(".\\", "..\\..\\ReShade\\Fonts\\");
+            data["STYLE"]["Font"] = data["STYLE"]["Font"].Replace(".\\", "..\\..\\ReShade\\Fonts\\");
+
+            // add search paths for shaders and textures
+
+            foreach (string name in Directory.GetDirectories(ShadersFolder).Select(x => Path.GetRelativePath(ShadersFolder, x)).ToArray())
+                data["GENERAL"]["EffectSearchPaths"] += GetSearchPath("Shaders", name);
+
+            foreach (string name in Directory.GetDirectories(TexturesFolder).Select(x => Path.GetRelativePath(TexturesFolder, x)).ToArray())
+                data["GENERAL"]["TextureSearchPaths"] += GetSearchPath("Textures", name);
+
+            parser.WriteFile(ConfigLocation, data);
+        }
+
         public static void SynchronizeConfigFile()
         {
             Debug.WriteLine($"[ReShade] Synchronizing configuration file...");
@@ -175,7 +113,7 @@ namespace Bloxstrap.Helpers.Integrations
             // anyway, this is where i'm expecting most of the bugs to arise from
             // config synchronization will be done whenever roblox updates or whenever we launch roblox
 
-            string modFolderConfigPath = Path.Combine(Directories.Modifications, "ReShade.ini");
+            string modFolderConfigPath = ConfigLocation;
             string versionFolderConfigPath = Path.Combine(Directories.Versions, Program.Settings.VersionGuid, "ReShade.ini");
 
             // we shouldn't be here if the mod config doesn't already exist
@@ -271,7 +209,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             // now we have to update ReShade.ini and add the installed shaders to the search paths
             FileIniDataParser parser = new();
-            IniData data = parser.ReadFile(Path.Combine(Directories.Modifications, "ReShade.ini"));
+            IniData data = parser.ReadFile(ConfigLocation);
 
             if (!data["GENERAL"]["EffectSearchPaths"].Contains(name))
                 data["GENERAL"]["EffectSearchPaths"] += GetSearchPath("Shaders", name);
@@ -280,7 +218,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (Directory.Exists(Path.Combine(Directories.ReShade, "Textures", name)) && !data["GENERAL"]["TextureSearchPaths"].Contains(name))
                 data["GENERAL"]["TextureSearchPaths"] += GetSearchPath("Textures", name);
 
-            parser.WriteFile(Path.Combine(Directories.Modifications, "ReShade.ini"), data);
+            parser.WriteFile(ConfigLocation, data);
         }
 
         public static void DeleteShaders(string name)
@@ -296,31 +234,29 @@ namespace Bloxstrap.Helpers.Integrations
             if (Directory.Exists(texturesPath))
                 Directory.Delete(texturesPath, true);
 
-            string configFile = Path.Combine(Directories.Modifications, "ReShade.ini");
-
-            if (!File.Exists(configFile))
+            if (!File.Exists(ConfigLocation))
                 return;
 
             // now we have to update ReShade.ini and remove the installed shaders from the search paths
             FileIniDataParser parser = new();
-            IniData data = parser.ReadFile(configFile);
+            IniData data = parser.ReadFile(ConfigLocation);
 
-            string configShaderSearchPaths = data["GENERAL"]["EffectSearchPaths"];
-            string configTextureSearchPaths = data["GENERAL"]["TextureSearchPaths"];
+            string shaderSearchPaths = data["GENERAL"]["EffectSearchPaths"];
+            string textureSearchPaths = data["GENERAL"]["TextureSearchPaths"];
 
-            if (configShaderSearchPaths.Contains(name))
+            if (shaderSearchPaths.Contains(name))
             {
                 string searchPath = GetSearchPath("Shaders", name);
-                data["GENERAL"]["EffectSearchPaths"] = configShaderSearchPaths.Remove(configShaderSearchPaths.IndexOf(searchPath), searchPath.Length);
+                data["GENERAL"]["EffectSearchPaths"] = shaderSearchPaths.Remove(shaderSearchPaths.IndexOf(searchPath), searchPath.Length);
             }
 
-            if (configTextureSearchPaths.Contains(name))
+            if (textureSearchPaths.Contains(name))
             {
                 string searchPath = GetSearchPath("Textures", name);
-                data["GENERAL"]["TextureSearchPaths"] = configTextureSearchPaths.Remove(configTextureSearchPaths.IndexOf(searchPath), searchPath.Length);
+                data["GENERAL"]["TextureSearchPaths"] = textureSearchPaths.Remove(textureSearchPaths.IndexOf(searchPath), searchPath.Length);
             }
 
-            parser.WriteFile(configFile, data);
+            parser.WriteFile(ConfigLocation, data);
         }
 
         public static async Task InstallExtraviPresets()
@@ -368,7 +304,6 @@ namespace Bloxstrap.Helpers.Integrations
             Debug.WriteLine("[ReShade] Checking ReShade modifications... ");
             
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
-            string configLocation = Path.Combine(Directories.Modifications, "ReShade.ini");
 
             // initialize directories
             Directory.CreateDirectory(Directories.ReShade);
@@ -393,8 +328,8 @@ namespace Bloxstrap.Helpers.Integrations
                 if (File.Exists(injectorLocation))
                     File.Delete(injectorLocation);
 
-                if (File.Exists(configLocation))
-                    File.Delete(configLocation);
+                if (File.Exists(ConfigLocation))
+                    File.Delete(ConfigLocation);
 
                 DeleteShaders("Stock");
 
@@ -404,6 +339,7 @@ namespace Bloxstrap.Helpers.Integrations
             // the version manfiest contains the version of reshade available for download and the last date the presets were updated
             var versionManifest = await Utilities.GetJson<ReShadeVersionManifest>("https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update/version.json");
             bool shouldFetchReShade = false;
+            bool shouldFetchConfig = false;
 
             if (!File.Exists(injectorLocation))
             {
@@ -418,6 +354,15 @@ namespace Bloxstrap.Helpers.Integrations
                     shouldFetchReShade = true;
             }
 
+            if (!File.Exists(ConfigLocation))
+            {
+                shouldFetchConfig = true;
+            }
+            else if (versionManifest is not null)
+            {
+                // todo: add config update checking here
+            }
+
             if (shouldFetchReShade)
             {
                 Debug.WriteLine("[ReShade] Installing ReShade...");
@@ -428,23 +373,10 @@ namespace Bloxstrap.Helpers.Integrations
                     using ZipArchive archive = new(zipStream);
                     archive.ExtractToDirectory(Directories.Modifications, true);
                 }
-
-                // we also gotta download the editor fonts
-                if (Utilities.IsDirectoryEmpty(Path.Combine(Directories.ReShade, "Fonts")))
-                {
-                    byte[] bytes = await Program.HttpClient.GetByteArrayAsync("https://github.com/Extravi/extravi.github.io/raw/main/update/config.zip");
-
-                    using MemoryStream zipStream = new(bytes);
-                    using ZipArchive archive = new(zipStream);
-
-                    foreach (ZipArchiveEntry entry in archive.Entries.Where(x => x.FullName.EndsWith(".ttf")))
-                        entry.ExtractToFile(Path.Combine(Directories.ReShade, "Fonts", entry.FullName));
-                }
             }
 
-            // and write the stock config if we need to
-            if (!File.Exists(configLocation))
-                await File.WriteAllTextAsync(configLocation, StockConfig);
+            if (shouldFetchConfig)
+                await DownloadConfig();
 
             await DownloadShaders("Stock");
 

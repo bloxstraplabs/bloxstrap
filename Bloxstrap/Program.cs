@@ -131,7 +131,7 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if DEBUG
+#if false//DEBUG
             new Preferences().ShowDialog();
 #else
             if (args.Length > 0)
