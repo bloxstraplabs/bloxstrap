@@ -373,15 +373,21 @@ namespace Bloxstrap
             // this SHOULD go under Register(),
             // but then people who have Bloxstrap v1.0.0 installed won't have this without a reinstall
             // maybe in a later version?
-            if (!Directory.Exists(Program.StartMenu))
+            if (!Directory.Exists(Directories.StartMenu))
             {
-                Directory.CreateDirectory(Program.StartMenu);
+                Directory.CreateDirectory(Directories.StartMenu);
 
                 ShellLink.Shortcut.CreateShortcut(Directories.App, "", Directories.App, 0)
-                    .WriteToFile(Path.Combine(Program.StartMenu, "Play Roblox.lnk"));
+                    .WriteToFile(Path.Combine(Directories.StartMenu, "Play Roblox.lnk"));
 
                 ShellLink.Shortcut.CreateShortcut(Directories.App, "-preferences", Directories.App, 0)
-                    .WriteToFile(Path.Combine(Program.StartMenu, $"Configure {Program.ProjectName}.lnk"));
+                    .WriteToFile(Path.Combine(Directories.StartMenu, $"Configure {Program.ProjectName}.lnk"));
+            }
+
+            if (Program.Settings.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
+            {
+                ShellLink.Shortcut.CreateShortcut(Directories.App, "", Directories.App, 0)
+                    .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
             }
         }
 
@@ -416,7 +422,10 @@ namespace Bloxstrap
                 Registry.CurrentUser.DeleteSubKey($@"Software\{Program.ProjectName}");
 
                 // delete start menu folder
-                Directory.Delete(Program.StartMenu, true);
+                Directory.Delete(Directories.StartMenu, true);
+
+                // delete desktop shortcut
+                File.Delete(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
 
                 // delete uninstall key
                 Registry.CurrentUser.DeleteSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{Program.ProjectName}");
@@ -425,7 +434,10 @@ namespace Bloxstrap
                 // (should delete everything except bloxstrap itself)
                 Directory.Delete(Directories.Base, true);
             }
-            catch (Exception) { }
+            catch (Exception e) 
+            {
+                Debug.WriteLine($"Could not fully uninstall! ({e})");
+            }
 
             Dialog.ShowSuccess($"{Program.ProjectName} has succesfully uninstalled");
 
@@ -604,8 +616,7 @@ namespace Bloxstrap
                     // package doesn't exist, likely mistakenly placed file
                     string versionFileLocation = Path.Combine(VersionFolder, fileLocation);
 
-                    if (File.Exists(versionFileLocation))
-                        File.Delete(versionFileLocation);
+                    File.Delete(versionFileLocation);
 
                     continue;
                 }
@@ -647,7 +658,7 @@ namespace Bloxstrap
         {
             string packageUrl = $"{DeployManager.BaseUrl}/{VersionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
-            string robloxPackageLocation = Path.Combine(Program.LocalAppData, "Roblox", "Downloads", package.Signature);
+            string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
 
             if (File.Exists(packageLocation))
             {
@@ -657,7 +668,7 @@ namespace Bloxstrap
                 if (calculatedMD5 != package.Signature)
                 {
                     Debug.WriteLine($"{package.Name} is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");
-                file.Delete();
+                    file.Delete();
                 }
                 else
                 {
@@ -743,10 +754,7 @@ namespace Bloxstrap
 
                     Directory.CreateDirectory(directory);
 
-                    if (File.Exists(extractPath))
-                        File.Delete(extractPath);
-
-                    await Task.Run(() => entry.ExtractToFile(extractPath));
+                    await Task.Run(() => entry.ExtractToFile(extractPath, true));
                 }
             }
 
@@ -775,9 +783,8 @@ namespace Bloxstrap
                     return;
 
                 string fileLocation = Path.Combine(packageFolder, entry.FullName);
-
-                if (File.Exists(fileLocation))
-                    File.Delete(fileLocation);
+                
+                File.Delete(fileLocation);
 
                 entry.ExtractToFile(fileLocation);
             }

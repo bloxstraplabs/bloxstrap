@@ -262,7 +262,7 @@ namespace Bloxstrap.Dialogs.Menu
         #endregion
 
         #region Installation
-        private string installLocation = Program.IsFirstRun ? Path.Combine(Program.LocalAppData, Program.ProjectName) : Program.BaseDirectory;
+        private string installLocation = Program.IsFirstRun ? Path.Combine(Directories.LocalAppData, Program.ProjectName) : Program.BaseDirectory;
         public string InstallLocation 
         { 
             get => installLocation; 
@@ -381,6 +381,12 @@ namespace Bloxstrap.Dialogs.Menu
         {
             get => Icons.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperIcon).Key;
             set => Program.Settings.BootstrapperIcon = Icons[value];
+        }
+
+        public bool CreateDesktopIcon
+        {
+            get => Program.Settings.CreateDesktopIcon;
+            set => Program.Settings.CreateDesktopIcon = value;
         }
 
         public bool CheckForUpdates

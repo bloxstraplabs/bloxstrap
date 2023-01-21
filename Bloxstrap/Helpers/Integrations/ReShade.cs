@@ -331,12 +331,8 @@ namespace Bloxstrap.Helpers.Integrations
                 Debug.WriteLine("[ReShade] Uninstalling ReShade...");
 
                 // delete any stock config files
-
-                if (File.Exists(injectorLocation))
-                    File.Delete(injectorLocation);
-
-                if (File.Exists(ConfigLocation))
-                    File.Delete(ConfigLocation);
+                File.Delete(injectorLocation);
+                File.Delete(ConfigLocation);
 
                 Program.Settings.ReShadeConfigVersion = "";
 

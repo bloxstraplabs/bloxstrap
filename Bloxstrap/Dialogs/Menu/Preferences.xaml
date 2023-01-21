@@ -159,6 +159,7 @@
                             <Button x:Name="ButtonPreview" Content="Preview" Margin="0,5,0,0" VerticalAlignment="Bottom" Height="23" Click="ButtonPreview_Click" />
                         </StackPanel>
                     </GroupBox>
+                    <CheckBox Content=" Create desktop icon" IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" Margin="10,10,10,0" />
                     <CheckBox Content=" Check for Bloxstrap updates on startup" IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" Margin="10,10,10,0" />
                 </StackPanel>
             </TabItem>

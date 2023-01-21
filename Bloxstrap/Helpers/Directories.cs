@@ -4,6 +4,12 @@ namespace Bloxstrap.Helpers
 {
     class Directories
     {
+        // note that these are directories that aren't tethered to the basedirectory
+        // so these can safely be called before initialization
+        public static string LocalAppData { get => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); }
+        public static string Desktop { get => Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); }
+        public static string StartMenu { get => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", Program.ProjectName); }
+
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
         public static string Integrations { get; private set; } = "";

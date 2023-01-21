@@ -85,7 +85,7 @@ namespace Bloxstrap.Helpers.Integrations
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
 
-            string logDirectory = Path.Combine(Program.LocalAppData, "Roblox\\logs");
+            string logDirectory = Path.Combine(Directories.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
                 return;

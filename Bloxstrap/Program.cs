@@ -31,8 +31,6 @@ namespace Bloxstrap
         public static bool IsUpgrade { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
-        public static string LocalAppData { get; private set; } = null!;
-        public static string StartMenu { get; private set; } = null!;
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
@@ -70,9 +68,6 @@ namespace Bloxstrap
             HttpClient.Timeout = TimeSpan.FromMinutes(5);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
-            LocalAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            StartMenu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", ProjectName);
-
             if (args.Length > 0)
             {
                 if (Array.IndexOf(args, "-quiet") != -1)
@@ -97,7 +92,7 @@ namespace Bloxstrap
                 Settings = SettingsManager.Settings;
 
                 if (IsQuiet)
-                    BaseDirectory = Path.Combine(LocalAppData, ProjectName);
+                    BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                 else
                     new Preferences().ShowDialog();
             }
