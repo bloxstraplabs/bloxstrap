@@ -20,7 +20,12 @@ namespace Bloxstrap.Models
         public bool RFUEnabled { get; set; } = false;
         public bool RFUAutoclose { get; set; } = false;
 
+        // could these be moved to a separate file (something like State.json)?
+        // the only problem is i havent yet figured out a way to boil down the settings handler to reduce boilerplate
+        // as the Program class needs a Settings and a SettingsManager property
+        // once i figure that out, then ig i could move these
         public string RFUVersion { get; set; } = "";
+        public string ReShadeConfigVersion { get; set; } = "";
         public string ExtraviPresetsVersion { get; set; } = "";
 
         public bool UseReShade { get; set; } = false;

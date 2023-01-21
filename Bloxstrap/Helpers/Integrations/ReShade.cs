@@ -25,6 +25,9 @@ namespace Bloxstrap.Helpers.Integrations
         private static string TexturesFolder { get => Path.Combine(Directories.ReShade, "Textures"); }
         private static string ConfigLocation { get => Path.Combine(Directories.Modifications, "ReShade.ini"); }
 
+        // the base url that we're fetching all our remote configs and resources and stuff from
+        private const string BaseUrl = "https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update";
+
         // this is a list of selectable shaders to download:
         // this should be formatted as { FolderName, GithubRepositoryUrl }
         private static readonly IReadOnlyDictionary<string, string> Shaders = new Dictionary<string, string>()
@@ -59,17 +62,20 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task DownloadConfig()
         {
-            Debug.WriteLine("[ReShade] Downloading config file...");
+            Debug.WriteLine("[ReShade] Downloading/Upgrading config file...");
 
             {
-                byte[] bytes = await Program.HttpClient.GetByteArrayAsync("https://github.com/Extravi/extravi.github.io/raw/main/update/config.zip");
+                byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/config.zip");
 
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
 
+                
+                archive.Entries.Where(x => x.FullName == "ReShade.ini").First().ExtractToFile(ConfigLocation, true);
+
                 // when we extract the file we have to make sure the last modified date is overwritten
                 // or else it will synchronize with the config in the version folder
-                archive.Entries.Where(x => x.FullName == "ReShade.ini").First().ExtractToFile(ConfigLocation, true);
+                // really the config adjustments below should do this for us, but this is just to be safe
                 File.SetLastWriteTime(ConfigLocation, DateTime.Now);
 
                 // we also gotta download the editor fonts
@@ -78,6 +84,7 @@ namespace Bloxstrap.Helpers.Integrations
             }
 
             // now we have to adjust the config file to use the paths that we need
+            // some of these can be removed later when the config file is better adjusted for bloxstrap by default
 
             FileIniDataParser parser = new();
             IniData data = parser.ReadFile(ConfigLocation);
@@ -107,7 +114,7 @@ namespace Bloxstrap.Helpers.Integrations
             // yeah, this is going to be a bit of a pain
             // keep in mind the config file is going to be in two places: the mod folder and the version folder
             // so we have to make sure the two below scenaros work flawlessly:
-            //  - if the user manually updates their reshade config in the mod folder, it must be copied to the version folder
+            //  - if the user manually updates their reshade config in the mod folder or it gets updated, it must be copied to the version folder
             //  - if the user updates their reshade settings ingame, the updated config must be copied to the mod folder
             // the easiest way to manage this is to just compare the modification dates of the two
             // anyway, this is where i'm expecting most of the bugs to arise from
@@ -266,7 +273,7 @@ namespace Bloxstrap.Helpers.Integrations
             foreach (string name in ExtraviPresetsShaders)
                 await DownloadShaders(name);
 
-            byte[] bytes = await Program.HttpClient.GetByteArrayAsync("https://github.com/Extravi/extravi.github.io/raw/main/update/reshade-presets.zip");
+            byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/reshade-presets.zip");
 
             using MemoryStream zipStream = new(bytes);
             using ZipArchive archive = new(zipStream);
@@ -331,6 +338,8 @@ namespace Bloxstrap.Helpers.Integrations
                 if (File.Exists(ConfigLocation))
                     File.Delete(ConfigLocation);
 
+                Program.Settings.ReShadeConfigVersion = "";
+
                 DeleteShaders("Stock");
 
                 return;
@@ -354,21 +363,17 @@ namespace Bloxstrap.Helpers.Integrations
                     shouldFetchReShade = true;
             }
 
-            if (!File.Exists(ConfigLocation))
-            {
+            // check if we should download a fresh copy of the config
+            // extravi may need to update the config ota, in which case we'll redownload it
+            if (!File.Exists(ConfigLocation) || versionManifest is not null && Program.Settings.ReShadeConfigVersion != versionManifest.ConfigFile)
                 shouldFetchConfig = true;
-            }
-            else if (versionManifest is not null)
-            {
-                // todo: add config update checking here
-            }
 
             if (shouldFetchReShade)
             {
-                Debug.WriteLine("[ReShade] Installing ReShade...");
+                Debug.WriteLine("[ReShade] Installing/Upgrading ReShade...");
 
                 {
-                    byte[] bytes = await Program.HttpClient.GetByteArrayAsync("https://github.com/Extravi/extravi.github.io/raw/main/update/dxgi.zip");
+                    byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
                     using MemoryStream zipStream = new(bytes);
                     using ZipArchive archive = new(zipStream);
                     archive.ExtractToDirectory(Directories.Modifications, true);
@@ -376,7 +381,12 @@ namespace Bloxstrap.Helpers.Integrations
             }
 
             if (shouldFetchConfig)
+            {
                 await DownloadConfig();
+
+                if (versionManifest is not null)
+                    Program.Settings.ReShadeConfigVersion = versionManifest.ConfigFile;
+            }
 
             await DownloadShaders("Stock");
 

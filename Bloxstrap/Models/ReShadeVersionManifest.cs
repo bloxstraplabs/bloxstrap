@@ -4,5 +4,6 @@
     {
         public string ReShade { get; set; } = null!;
         public string Presets { get; set; } = null!;
+        public string ConfigFile { get; set; } = null!;
     }
 }
