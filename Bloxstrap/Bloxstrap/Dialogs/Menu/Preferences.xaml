@@ -1,0 +1,177 @@
+﻿<Window x:Class="Bloxstrap.Dialogs.Menu.Preferences"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bloxstrap.Dialogs.Menu"
+        mc:Ignorable="d"
+        Style="{DynamicResource MainWindowStyle}"
+        Title="PreferencesWPF" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="Themes\ColourfulDarkTheme.xaml" />-->
+                <ResourceDictionary Source="Themes\LightTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Width="480" Height="360">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Configure Bloxstrap" VerticalAlignment="Top" FontSize="18"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,14,10,0" TextWrapping="Wrap" Text="{Binding BloxstrapVersion, Mode=OneTime}" VerticalAlignment="Top" FontSize="12"/>
+        <TabControl TabStripPlacement="Left" Margin="10,40,10,51" Padding="0">
+            <TabItem Padding="5">
+                <TabItem.Header>
+                    <TextBlock Text="Integrations" FontSize="13" />
+                </TabItem.Header>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Grid.Column="0" Header="Discord Rich Presence" Margin="10,10,5,5">
+                            <StackPanel VerticalAlignment="Center">
+                                <CheckBox x:Name="CheckBoxDRPEnabled" Content=" Show game activity" ToolTip="Choose whether the game you're currently playing should be shown on your Discord game activity." Margin="5" IsChecked="{Binding DRPEnabled, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxDRPButtons" Content=" Allow activity joining" ToolTip="Choose whether people can join the game you're in through your Discord game activity." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxDRPEnabled, Mode=OneWay}" IsChecked="{Binding DRPButtons, Mode=TwoWay}" />
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Grid.Column="1" Header="FPS Unlocking" Margin="5,10,10,5">
+                            <StackPanel VerticalAlignment="Center">
+                                <CheckBox x:Name="CheckBoxRFUEnabled" Content=" Use rbxfpsunlocker" ToolTip="Choose whether rbxfpsunlocker should be downloaded and launched whenever Roblox starts." Margin="5" IsChecked="{Binding RFUEnabled, Mode=TwoWay}" />
+                                <CheckBox x:Name="CheckBoxRFUAutoclose" Content=" Exit when Roblox closes" ToolTip="Choose whether rbxfpsunlocker should stop running when Roblox closes." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxRFUEnabled, Mode=OneWay}" IsChecked="{Binding RFUAutoclose, Mode=TwoWay}" />
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                    <GroupBox Header="ReShade" Margin="10,5,10,0">
+                        <StackPanel VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="155" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" x:Name="CheckBoxUseReShade" Content=" Use ReShade" ToolTip="Choose whether to use ReShade to enhance your graphics with shaders." Margin="5" IsChecked="{Binding UseReShade, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="1" x:Name="CheckBoxUseReShadeExtraviPresets" Content=" Use Extravi's shader presets" ToolTip="Choose whether to use Extravi's shader presets with ReShade." Margin="5" IsEnabled="{Binding IsChecked, ElementName=CheckBoxUseReShade, Mode=OneWay}" IsChecked="{Binding UseReShadeExtraviPresets, Mode=TwoWay}" />
+                            </Grid>
+                            <Grid Margin="5,5,5,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="80" />
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" x:Name="ButtonOpenReShadeFolder" ToolTip="{Binding ReShadeFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ReShadeFolderButtonEnabled, Mode=OneTime}" Content="Open ReShade folder" Height="23" Margin="0,0,5,0" Click="ButtonOpenReShadeFolder_Click" />
+                                <Button Grid.Column="1" x:Name="ButtonOpenReShadeHelp" Content="Help" Height="23" Margin="5,0,0,0" Click="ButtonOpenReShadeHelp_Click" />
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Padding="5">
+                <TabItem.Header>
+                    <TextBlock Text="Modifications" FontSize="13" />
+                </TabItem.Header>
+                <StackPanel>
+                    <GroupBox Header="Presets" Margin="10,10,10,5">
+                        <StackPanel VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <CheckBox x:Name="CheckBoxModDeathSound" Content=" Use old death sound" Margin="5" IsChecked="{Binding ModOldDeathSound, Mode=TwoWay}" />
+                                    <CheckBox x:Name="CheckBoxModMouseCursor" Content=" Use old mouse cursor" Margin="5" IsChecked="{Binding ModOldMouseCursor, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <CheckBox x:Name="CheckBoxDisableAppPatch" Content=" Disable desktop app" Margin="5" IsChecked="{Binding ModDisableAppPatch, Mode=TwoWay}" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                    <Grid Margin="10,5,10,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" x:Name="ButtonOpenModFolder" Content="Open Modifications folder" ToolTip="{Binding ModFolderButtonTooltip, Mode=OneTime}" IsEnabled="{Binding ModFolderButtonEnabled, Mode=OneTime}" Height="23" Margin="0,0,5,0" Click="ButtonOpenModFolder_Click" />
+                        <Button Grid.Column="1" x:Name="ButtonOpenModHelp" Content="Help" Height="23" Margin="5,0,0,0" Click="ButtonOpenModHelp_Click" />
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Padding="5">
+                <TabItem.Header>
+                    <TextBlock Text="Installation" FontSize="13" />
+                </TabItem.Header>
+                <StackPanel>
+                    <GroupBox Header="Location" Margin="10,10,10,5">
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="75" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" x:Name="TextBoxInstallLocation" Padding="0,1,0,2" Margin="0,0,5,0" Text="{Binding InstallLocation, Mode=OneWay}" />
+                            <Button Grid.Column="1" x:Name="ButtonInstallLocationBrowse" Content="Browse..." Margin="5,0,0,0" Click="ButtonLocationBrowse_Click" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Channel" Margin="10,5,10,5">
+                        <StackPanel VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="130" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox x:Name="ComboBoxChannel" ToolTip="Choose which release channel to download Roblox from. If you're not sure what this does, just leave it as LIVE." Margin="5" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding Channel, Mode=TwoWay}" />
+                                <CheckBox Grid.Column="1" x:Name="CheckBoxShowAllChannels" Content=" Show all channels" VerticalAlignment="Center" Margin="5" IsChecked="{Binding ShowAllChannels, Mode=TwoWay}" />
+                            </Grid>
+                            <TextBlock x:Name="TextBlockChannelInfo" Text="{Binding ChannelInfo, Mode=OneWay}" TextWrapping="Wrap" Margin="5" />
+                            <CheckBox x:Name="TextBoxPromptChannelChange" Content=" Prompt on Roblox-forced channel change" ToolTip="Choose whether to be prompted when Roblox mandates a channel change through the website. Otherwise, the channel changes automatically." Margin="5" IsChecked="{Binding PromptChannelChange, Mode=TwoWay}" />
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Padding="5">
+                <TabItem.Header>
+                    <TextBlock Text="Bloxstrap" FontSize="13" />
+                </TabItem.Header>
+                <StackPanel>
+                    <GroupBox Header="Style" Margin="10,10,10,0">
+                        <StackPanel Margin="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Theme*" VerticalAlignment="Center" Margin="0,0,0,5"  />
+                                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="ComboBoxTheme" VerticalAlignment="Center" Margin="0,0,0,0" ItemsSource="{Binding Themes.Keys, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="*Dark theme only applies to the Progress dialog" FontSize="10" VerticalAlignment="Center" Margin="0,0,0,5"  />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="Dialog" VerticalAlignment="Center" Margin="0,5,0,5" />
+                                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="ComboBoxDialog" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="Icon" VerticalAlignment="Center" Margin="0,5,0,5"  />
+                                <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ComboBoxIcon" VerticalAlignment="Center" Margin="0,5,0,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
+                            </Grid>
+                            <Button x:Name="ButtonPreview" Content="Preview" Margin="0,5,0,0" VerticalAlignment="Bottom" Height="23" Click="ButtonPreview_Click" />
+                        </StackPanel>
+                    </GroupBox>
+                    <CheckBox Content=" Create desktop icon" IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" Margin="10,10,10,0" />
+                    <CheckBox Content=" Check for Bloxstrap updates on startup" IsChecked="{Binding CheckForUpdates, Mode=TwoWay}" Margin="10,10,10,0" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <Border Background="{DynamicResource ControlSelectedBackground}" BorderBrush="{DynamicResource ControlSelectedBorderBrush}" BorderThickness="1" Margin="-1,0,-1,0" Height="42" VerticalAlignment="Bottom">
+            <Grid>
+                <TextBlock Text="Like Bloxstrap? " VerticalAlignment="Center" Margin="10,0,0,0" ><Hyperlink NavigateUri="https://github.com/pizzaboxer/bloxstrap" RequestNavigate="Hyperlink_RequestNavigate">Leave a star on GitHub!</Hyperlink></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="ButtonConfirm" Content="{Binding ConfirmButtonText, Mode=OneTime}" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0"  Click="ButtonConfirm_Click" />
+                    <Button x:Name="ButtonCancel" Content="Cancel" Width="66" Height="23" HorizontalAlignment="Right" Margin="0,0,10,0" Click="ButtonCancel_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

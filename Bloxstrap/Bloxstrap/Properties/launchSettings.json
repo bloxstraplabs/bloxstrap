@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bloxstrap": {
+      "commandName": "Project",
+      "commandLineArgs": "-foo -bar"
+    }
+  }
+}
