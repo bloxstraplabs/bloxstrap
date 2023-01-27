@@ -1,21 +1,20 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using System;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 using Microsoft.Win32;
 
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
-using System.Linq;
 
 namespace Bloxstrap.Dialogs.Menu
 {
@@ -56,7 +55,7 @@ namespace Bloxstrap.Dialogs.Menu
             if (App.Settings.Theme.GetFinal() == Theme.Dark)
                 theme = "ColourfulDark";
 
-            this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
+            Application.Current.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
         }
 
         private void ButtonOpenReShadeFolder_Click(object sender, EventArgs e)
@@ -81,11 +80,9 @@ namespace Bloxstrap.Dialogs.Menu
 
         private void ButtonLocationBrowse_Click(object sender, EventArgs e)
         {
-            using (var dialog = new FolderBrowserDialog())
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                DialogResult result = dialog.ShowDialog();
-
-                if (result == System.Windows.Forms.DialogResult.OK)
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     ViewModel.InstallLocation = dialog.SelectedPath;
             }
         }

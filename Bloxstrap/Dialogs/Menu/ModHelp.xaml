@@ -10,14 +10,6 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="Themes\ColourfulDarkTheme.xaml" />-->
-                <ResourceDictionary Source="Themes\LightTheme.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid Width="420" Height="260">
         <StackPanel Margin="10">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Modification Help" VerticalAlignment="Top" FontSize="18" />

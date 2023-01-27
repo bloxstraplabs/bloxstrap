@@ -10,14 +10,6 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="Themes\ColourfulDarkTheme.xaml" />-->
-                <ResourceDictionary Source="Themes\LightTheme.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid Width="480" Height="360">
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Configure Bloxstrap" VerticalAlignment="Top" FontSize="18"/>
         <TextBlock HorizontalAlignment="Right" Margin="0,14,10,0" TextWrapping="Wrap" Text="{Binding BloxstrapVersion, Mode=OneTime}" VerticalAlignment="Top" FontSize="12"/>
