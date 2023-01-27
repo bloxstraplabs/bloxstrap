@@ -91,9 +91,6 @@ namespace Bloxstrap
         // this is called from BootstrapperStyleForm.SetupDialog()
         public async Task Run()
         {
-            if (App.IsQuiet)
-                Dialog.CloseDialog();
-
             if (App.IsUninstall)
             {
                 Uninstall();

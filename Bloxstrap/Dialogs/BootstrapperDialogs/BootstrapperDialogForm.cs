@@ -79,9 +79,6 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         public void SetupDialog()
         {
-            if (App.IsQuiet)
-                this.Hide();
-
             this.Text = App.ProjectName;
             this.Icon = App.Settings.BootstrapperIcon.GetIcon();
 
