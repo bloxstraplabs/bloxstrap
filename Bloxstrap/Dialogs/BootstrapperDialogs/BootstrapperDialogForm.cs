@@ -1,4 +1,9 @@
-﻿using Bloxstrap.Enums;
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
+
+using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
@@ -74,11 +79,8 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         public void SetupDialog()
         {
-            if (Program.IsQuiet)
-                this.Hide();
-
-            this.Text = Program.ProjectName;
-            this.Icon = Program.Settings.BootstrapperIcon.GetIcon();
+            this.Text = App.ProjectName;
+            this.Icon = App.Settings.BootstrapperIcon.GetIcon();
 
             if (Bootstrapper is null)
             {
@@ -113,19 +115,19 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
             }
 #endif
 
-            Program.Exit();
+            App.Terminate();
         }
 
         public virtual void ShowSuccess(string message)
         {
-            Program.ShowMessageBox(message, MessageBoxIcon.Information);
-            Program.Exit();
+            App.ShowMessageBox(message, MessageBoxImage.Information);
+            App.Terminate();
         }
 
         public virtual void ShowError(string message)
         {
-            Program.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxIcon.Error);
-            Program.Exit(Bootstrapper.ERROR_INSTALL_FAILURE);
+            App.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxImage.Error);
+            App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
         }
 
         public virtual void CloseDialog()
@@ -138,13 +140,13 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         public void PromptShutdown()
         {
-            DialogResult result = Program.ShowMessageBox(
+            MessageBoxResult result = App.ShowMessageBox(
                 "Roblox is currently running, but needs to close. Would you like close Roblox now?",
-                MessageBoxIcon.Information,
-                MessageBoxButtons.OKCancel
+                MessageBoxImage.Information,
+                MessageBoxButton.OKCancel
             );
 
-            if (result != DialogResult.OK)
+            if (result != MessageBoxResult.OK)
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
         }
 

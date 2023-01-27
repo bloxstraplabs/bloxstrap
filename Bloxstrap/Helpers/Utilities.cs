@@ -1,8 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Bloxstrap.Helpers
 {
@@ -33,7 +35,7 @@ namespace Bloxstrap.Helpers
         {
             try
             {
-                string json = await Program.HttpClient.GetStringAsync(url);
+                string json = await App.HttpClient.GetStringAsync(url);
                 return JsonSerializer.Deserialize<T>(json);
             }
             catch (Exception)

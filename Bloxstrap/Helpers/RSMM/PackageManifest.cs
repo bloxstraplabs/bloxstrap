@@ -1,7 +1,9 @@
 ﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Bootstrapper/PackageManifest.cs
 
+using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Bloxstrap.Helpers.RSMM
 {
@@ -49,7 +51,7 @@ namespace Bloxstrap.Helpers.RSMM
         public static async Task<PackageManifest> Get(string versionGuid)
         {
             string pkgManifestUrl = $"{DeployManager.BaseUrl}/{versionGuid}-rbxPkgManifest.txt";
-            var pkgManifestData = await Program.HttpClient.GetStringAsync(pkgManifestUrl);
+            var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             return new PackageManifest(pkgManifestData);
         }

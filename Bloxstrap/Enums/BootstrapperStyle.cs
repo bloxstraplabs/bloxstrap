@@ -1,4 +1,6 @@
-﻿using Bloxstrap.Dialogs.BootstrapperDialogs;
+﻿using System.Windows.Forms;
+
+using Bloxstrap.Dialogs.BootstrapperDialogs;
 
 namespace Bloxstrap.Enums
 {
@@ -35,15 +37,9 @@ namespace Bloxstrap.Enums
                     dialog = new ProgressDialog(bootstrapper);
                     break;
             }
-
-            if (bootstrapper is null)
-            {
+            
+            if (!App.IsQuiet)
                 dialog.ShowDialog();
-            }
-            else
-            {
-                Application.Run(dialog);
-            }
         }
     }
 }

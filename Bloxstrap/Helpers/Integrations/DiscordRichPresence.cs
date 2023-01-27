@@ -1,6 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Bloxstrap.Models;
 
@@ -169,7 +174,7 @@ namespace Bloxstrap.Helpers.Integrations
                 }
             };
 
-            if (!Program.Settings.HideRPCButtons)
+            if (!App.Settings.HideRPCButtons)
             {
                 buttons.Insert(0, new DiscordRPC.Button()
                 {

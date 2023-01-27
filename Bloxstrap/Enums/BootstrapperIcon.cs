@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Enums
+﻿using System.Drawing;
+
+namespace Bloxstrap.Enums
 {
     public enum BootstrapperIcon
     {

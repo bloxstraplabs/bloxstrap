@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Dialogs.BootstrapperDialogs
+﻿using System.Windows.Forms;
+
+namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     partial class ProgressDialog
     {

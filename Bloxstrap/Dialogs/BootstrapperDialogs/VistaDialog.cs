@@ -1,4 +1,7 @@
-﻿using Bloxstrap.Enums;
+﻿using System;
+using System.Windows.Forms;
+
+using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
@@ -65,8 +68,8 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
             Dialog = new TaskDialogPage()
             {
-                Icon = new TaskDialogIcon(Program.Settings.BootstrapperIcon.GetIcon()),
-                Caption = Program.ProjectName,
+                Icon = new TaskDialogIcon(App.Settings.BootstrapperIcon.GetIcon()),
+                Caption = App.ProjectName,
 
                 Buttons = { TaskDialogButton.Cancel },
                 ProgressBar = new TaskDialogProgressBar()
@@ -94,14 +97,14 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                 TaskDialogPage successDialog = new()
                 {
                     Icon = TaskDialogIcon.ShieldSuccessGreenBar,
-                    Caption = Program.ProjectName,
+                    Caption = App.ProjectName,
                     Heading = message,
                     Buttons = { TaskDialogButton.OK }
                 };
 
-                successDialog.Buttons[0].Click += (sender, e) => Program.Exit();
+                successDialog.Buttons[0].Click += (sender, e) => App.Terminate();
 
-                if (!Program.IsQuiet)
+                if (!App.IsQuiet)
                     Dialog.Navigate(successDialog);
 
                 Dialog = successDialog;
@@ -119,7 +122,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                 TaskDialogPage errorDialog = new()
                 {
                     Icon = TaskDialogIcon.Error,
-                    Caption = Program.ProjectName,
+                    Caption = App.ProjectName,
                     Heading = "An error occurred while starting Roblox",
                     Buttons = { TaskDialogButton.Close },
                     Expander = new TaskDialogExpander()
@@ -131,9 +134,9 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
                     }
                 };
 
-                errorDialog.Buttons[0].Click += (sender, e) => Program.Exit(Bootstrapper.ERROR_INSTALL_FAILURE);
+                errorDialog.Buttons[0].Click += (sender, e) => App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
 
-                if (!Program.IsQuiet)
+                if (!App.IsQuiet)
                     Dialog.Navigate(errorDialog);
 
                 Dialog = errorDialog;
@@ -158,7 +161,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         private void VistaDialog_Load(object sender, EventArgs e)
         {
-            if (!Program.IsQuiet)
+            if (!App.IsQuiet)
                 TaskDialog.ShowDialog(Dialog);
         }
     }

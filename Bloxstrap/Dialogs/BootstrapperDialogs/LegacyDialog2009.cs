@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
     // windows: https://youtu.be/VpduiruysuM?t=18

@@ -1,5 +1,10 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Text.Json;
+using System.Threading.Tasks;
+
 using Bloxstrap.Models;
 
 namespace Bloxstrap.Helpers
@@ -55,7 +60,7 @@ namespace Bloxstrap.Helpers
 
         public static async Task<ClientVersion> GetLastDeploy(string channel, bool timestamp = false)
         {
-            HttpResponseMessage deployInfoResponse = await Program.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
 
             if (!deployInfoResponse.IsSuccessStatusCode)
             {
@@ -75,7 +80,7 @@ namespace Bloxstrap.Helpers
                 string channelUrl = BuildBaseUrl(channel);
 
                 // get an approximate deploy time from rbxpkgmanifest's last modified date
-                HttpResponseMessage pkgResponse = await Program.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
+                HttpResponseMessage pkgResponse = await App.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
                 if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
                     string lastModified = values.First();

@@ -1,6 +1,5 @@
-﻿using System.Windows;
-
-using Bloxstrap.Enums;
+﻿using System;
+using System.Windows;
 
 namespace Bloxstrap.Dialogs.Menu
 {
@@ -12,17 +11,6 @@ namespace Bloxstrap.Dialogs.Menu
         public ReShadeHelp()
         {
             InitializeComponent();
-            SetTheme();
-        }
-
-        public void SetTheme()
-        {
-            string theme = "Light";
-
-            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
-                theme = "ColourfulDark";
-
-            this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)

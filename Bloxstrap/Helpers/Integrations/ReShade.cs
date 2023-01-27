@@ -1,6 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
+using System.Threading.Tasks;
 
 using Bloxstrap.Models;
 
@@ -65,7 +69,7 @@ namespace Bloxstrap.Helpers.Integrations
             Debug.WriteLine("[ReShade] Downloading/Upgrading config file...");
 
             {
-                byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/config.zip");
+                byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/config.zip");
 
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
@@ -121,7 +125,7 @@ namespace Bloxstrap.Helpers.Integrations
             // config synchronization will be done whenever roblox updates or whenever we launch roblox
 
             string modFolderConfigPath = ConfigLocation;
-            string versionFolderConfigPath = Path.Combine(Directories.Versions, Program.Settings.VersionGuid, "ReShade.ini");
+            string versionFolderConfigPath = Path.Combine(Directories.Versions, App.Settings.VersionGuid, "ReShade.ini");
 
             // we shouldn't be here if the mod config doesn't already exist
             if (!File.Exists(modFolderConfigPath))
@@ -172,7 +176,7 @@ namespace Bloxstrap.Helpers.Integrations
             Debug.WriteLine($"[ReShade] Downloading shaders for {name}");
 
             {
-                byte[] bytes = await Program.HttpClient.GetByteArrayAsync(downloadUrl);
+                byte[] bytes = await App.HttpClient.GetByteArrayAsync(downloadUrl);
 
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
@@ -273,7 +277,7 @@ namespace Bloxstrap.Helpers.Integrations
             foreach (string name in ExtraviPresetsShaders)
                 await DownloadShaders(name);
 
-            byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/reshade-presets.zip");
+            byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/reshade-presets.zip");
 
             using MemoryStream zipStream = new(bytes);
             using ZipArchive archive = new(zipStream);
@@ -320,13 +324,13 @@ namespace Bloxstrap.Helpers.Integrations
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Textures"));
             Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Presets"));
 
-            if (!Program.Settings.UseReShadeExtraviPresets)
+            if (!App.Settings.UseReShadeExtraviPresets)
             {
                 UninstallExtraviPresets();
-                Program.Settings.ExtraviPresetsVersion = "";
+                App.Settings.ExtraviPresetsVersion = "";
             }
 
-            if (!Program.Settings.UseReShade)
+            if (!App.Settings.UseReShade)
             {
                 Debug.WriteLine("[ReShade] Uninstalling ReShade...");
 
@@ -334,7 +338,7 @@ namespace Bloxstrap.Helpers.Integrations
                 File.Delete(injectorLocation);
                 File.Delete(ConfigLocation);
 
-                Program.Settings.ReShadeConfigVersion = "";
+                App.Settings.ReShadeConfigVersion = "";
 
                 DeleteShaders("Stock");
 
@@ -361,7 +365,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             // check if we should download a fresh copy of the config
             // extravi may need to update the config ota, in which case we'll redownload it
-            if (!File.Exists(ConfigLocation) || versionManifest is not null && Program.Settings.ReShadeConfigVersion != versionManifest.ConfigFile)
+            if (!File.Exists(ConfigLocation) || versionManifest is not null && App.Settings.ReShadeConfigVersion != versionManifest.ConfigFile)
                 shouldFetchConfig = true;
 
             if (shouldFetchReShade)
@@ -369,7 +373,7 @@ namespace Bloxstrap.Helpers.Integrations
                 Debug.WriteLine("[ReShade] Installing/Upgrading ReShade...");
 
                 {
-                    byte[] bytes = await Program.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
+                    byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
                     using MemoryStream zipStream = new(bytes);
                     using ZipArchive archive = new(zipStream);
                     archive.ExtractToDirectory(Directories.Modifications, true);
@@ -381,15 +385,15 @@ namespace Bloxstrap.Helpers.Integrations
                 await DownloadConfig();
 
                 if (versionManifest is not null)
-                    Program.Settings.ReShadeConfigVersion = versionManifest.ConfigFile;
+                    App.Settings.ReShadeConfigVersion = versionManifest.ConfigFile;
             }
 
             await DownloadShaders("Stock");
 
-            if (Program.Settings.UseReShadeExtraviPresets && Program.Settings.ExtraviPresetsVersion != versionManifest!.Presets)
+            if (App.Settings.UseReShadeExtraviPresets && App.Settings.ExtraviPresetsVersion != versionManifest!.Presets)
             {
                 await InstallExtraviPresets();
-                Program.Settings.ExtraviPresetsVersion = versionManifest.Presets;
+                App.Settings.ExtraviPresetsVersion = versionManifest.Presets;
             }
 
             SynchronizeConfigFile();

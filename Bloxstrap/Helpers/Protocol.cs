@@ -1,6 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Web;
+using System.Windows;
+
 using Microsoft.Win32;
 
 namespace Bloxstrap.Helpers
@@ -36,7 +40,7 @@ namespace Bloxstrap.Helpers
                 key = keyvalPair[0];
                 val = keyvalPair[1];
 
-                if (!UriKeyArgMap.ContainsKey(key) || String.IsNullOrEmpty(val))
+                if (!UriKeyArgMap.ContainsKey(key) || string.IsNullOrEmpty(val))
                     continue;
 
                 if (key == "launchmode" && val == "play")
@@ -47,17 +51,17 @@ namespace Bloxstrap.Helpers
 
                 if (key == "channel")
                 {
-                    if (val.ToLower() != Program.Settings.Channel.ToLower())
+                    if (val.ToLower() != App.Settings.Channel.ToLower())
                     {
-                        DialogResult result = !Program.Settings.PromptChannelChange ? DialogResult.Yes : Program.ShowMessageBox(
-                            $"{Program.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {Program.Settings.Channel}.\n\n" +
-                            $"Would you like to switch channels from {Program.Settings.Channel} to {val}?",
-                            MessageBoxIcon.Question,
-                            MessageBoxButtons.YesNo
+                        MessageBoxResult result = !App.Settings.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
+                            $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Channel}.\n\n" +
+                            $"Would you like to switch channels from {App.Settings.Channel} to {val}?",
+                            MessageBoxImage.Question,
+                            MessageBoxButton.YesNo
                         );
 
-                        if (result == DialogResult.Yes)
-                            Program.Settings.Channel = val;
+                        if (result == MessageBoxResult.Yes)
+                            App.Settings.Channel = val;
                     }
 
                     // we'll set the arg when launching

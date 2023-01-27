@@ -1,7 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Net.Http;
+using System.Threading.Tasks;
 
 using Bloxstrap.Models;
 
@@ -40,7 +41,7 @@ namespace Bloxstrap.Helpers.Integrations
                     if (process.MainModule is null || process.MainModule.FileName is null)
                         continue;
 
-                    if (!process.MainModule.FileName.Contains(Program.BaseDirectory))
+                    if (!process.MainModule.FileName.Contains(App.BaseDirectory))
                         continue;
 
                     process.Kill();
@@ -52,14 +53,14 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task CheckInstall()
         {
-            if (Program.BaseDirectory is null)
+            if (App.BaseDirectory is null)
                 return;
 
-            string folderLocation = Path.Combine(Program.BaseDirectory, "Integrations\\rbxfpsunlocker");
+            string folderLocation = Path.Combine(App.BaseDirectory, "Integrations\\rbxfpsunlocker");
             string fileLocation = Path.Combine(folderLocation, "rbxfpsunlocker.exe");
             string settingsLocation = Path.Combine(folderLocation, "settings");
 
-            if (!Program.Settings.RFUEnabled)
+            if (!App.Settings.RFUEnabled)
             {
                 if (Directory.Exists(folderLocation))
                 {
@@ -82,7 +83,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (File.Exists(fileLocation))
             {
                 // no new release published, return
-                if (Program.Settings.RFUVersion == releaseInfo.TagName)
+                if (App.Settings.RFUVersion == releaseInfo.TagName)
                     return;
 
                 CheckIfRunning();
@@ -92,7 +93,7 @@ namespace Bloxstrap.Helpers.Integrations
             Debug.WriteLine("Installing/Updating rbxfpsunlocker...");
 
             {
-                byte[] bytes = await Program.HttpClient.GetByteArrayAsync(downloadUrl);
+                byte[] bytes = await App.HttpClient.GetByteArrayAsync(downloadUrl);
 
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
@@ -103,7 +104,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!File.Exists(settingsLocation))
                 await File.WriteAllTextAsync(settingsLocation, Settings);
 
-            Program.Settings.RFUVersion = releaseInfo.TagName;
+            App.Settings.RFUVersion = releaseInfo.TagName;
         }
     }
 }

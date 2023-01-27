@@ -1,21 +1,25 @@
+﻿using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
+using System.Windows;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Enums;
-using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 using Bloxstrap.Dialogs.Menu;
-
+using Bloxstrap.Enums;
+using Bloxstrap.Helpers;
 
 namespace Bloxstrap
 {
-    internal static class Program
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
     {
         public const StringComparison StringFormat = StringComparison.InvariantCulture;
         public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
@@ -39,51 +43,49 @@ namespace Bloxstrap
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
-        public static DialogResult ShowMessageBox(string message, MessageBoxIcon icon = MessageBoxIcon.None, MessageBoxButtons buttons = MessageBoxButtons.OK)
+        public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK)
         {
             if (IsQuiet)
-                return DialogResult.None;
+                return MessageBoxResult.None;
 
             return MessageBox.Show(message, ProjectName, buttons, icon);
         }
 
-        public static void Exit(int code = Bootstrapper.ERROR_SUCCESS)
+        public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
             SettingsManager.Save();
             Environment.Exit(code);
         }
 
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main(string[] args)
+        protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            LaunchArgs = args;
+            LaunchArgs = e.Args;
 
             HttpClient.Timeout = TimeSpan.FromMinutes(5);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
-            if (args.Length > 0)
+            if (LaunchArgs.Length > 0)
             {
-                if (Array.IndexOf(args, "-quiet") != -1)
+                if (Array.IndexOf(LaunchArgs, "-quiet") != -1)
                     IsQuiet = true;
 
-                if (Array.IndexOf(args, "-uninstall") != -1)
+                if (Array.IndexOf(LaunchArgs, "-uninstall") != -1)
                     IsUninstall = true;
 
-                if (Array.IndexOf(args, "-nolaunch") != -1)
+                if (Array.IndexOf(LaunchArgs, "-nolaunch") != -1)
                     IsNoLaunch = true;
 
-                if (Array.IndexOf(args, "-upgrade") != -1)
+                if (Array.IndexOf(LaunchArgs, "-upgrade") != -1)
                     IsUpgrade = true;
             }
 
-                // check if installed
+            // check if installed
             RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}");
 
             if (registryKey is null)
@@ -126,28 +128,28 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if false//DEBUG
+#if DEBUG
             new Preferences().ShowDialog();
 #else
-            if (args.Length > 0)
+            if (LaunchArgs.Length > 0)
             {
-                if (args[0] == "-preferences")
+                if (LaunchArgs[0] == "-preferences")
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1)
                     {
-                        ShowMessageBox($"{ProjectName} is already running. Please close any currently open Bloxstrap or Roblox window before opening the configuration menu.", MessageBoxIcon.Error);
+                        ShowMessageBox($"{ProjectName} is already running. Please close any currently open Bloxstrap or Roblox window before opening the configuration menu.", MessageBoxImage.Error);
                         return;
                     }
 
                     new Preferences().ShowDialog();
                 }
-                else if (args[0].StartsWith("roblox-player:"))
+                else if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
-                    commandLine = Protocol.ParseUri(args[0]);
+                    commandLine = Protocol.ParseUri(LaunchArgs[0]);
                 }
-                else if (args[0].StartsWith("roblox:"))
+                else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
-                    commandLine = $"--app --deeplink {args[0]}";
+                    commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
                 else
                 {

@@ -1,4 +1,8 @@
-﻿using Bloxstrap.Enums;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+using Bloxstrap.Enums;
 
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {
@@ -34,7 +38,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
         {
             InitializeComponent();
 
-            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Theme.GetFinal() == Theme.Dark)
             {
                 this.labelMessage.ForeColor = SystemColors.Window;
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
@@ -44,14 +48,14 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
             Bootstrapper = bootstrapper;
 
-            this.IconBox.BackgroundImage = Program.Settings.BootstrapperIcon.GetBitmap();
+            this.IconBox.BackgroundImage = App.Settings.BootstrapperIcon.GetBitmap();
 
             SetupDialog();
         }
 
         private void ButtonCancel_MouseEnter(object sender, EventArgs e)
         {
-            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Theme.GetFinal() == Theme.Dark)
             {
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButtonHover;
             }
@@ -63,7 +67,7 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
         private void ButtonCancel_MouseLeave(object sender, EventArgs e)
         {
-            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Theme.GetFinal() == Theme.Dark)
             {
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
             }

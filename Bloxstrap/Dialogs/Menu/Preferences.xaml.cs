@@ -1,7 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
@@ -29,7 +33,7 @@ namespace Bloxstrap.Dialogs.Menu
             ViewModel = new(this);
             this.DataContext = ViewModel;
 
-            Program.SettingsManager.ShouldSave = false;
+            App.SettingsManager.ShouldSave = false;
 
             this.Icon = Imaging.CreateBitmapSourceFromHIcon(
                 Properties.Resources.IconBloxstrap_ico.Handle,
@@ -37,7 +41,7 @@ namespace Bloxstrap.Dialogs.Menu
                 BitmapSizeOptions.FromEmptyOptions()
             );
 
-            this.Title = Program.ProjectName;
+            this.Title = App.ProjectName;
 
             // just in case i guess?
             if (!Environment.Is64BitOperatingSystem)
@@ -48,10 +52,10 @@ namespace Bloxstrap.Dialogs.Menu
         {
             string theme = "Light";
 
-            if (Program.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Theme.GetFinal() == Theme.Dark)
                 theme = "ColourfulDark";
 
-            this.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
+            Application.Current.Resources.MergedDictionaries[0] = new ResourceDictionary() { Source = new Uri($"Dialogs/Menu/Themes/{theme}Theme.xaml", UriKind.Relative) };
         }
 
         private void ButtonOpenReShadeFolder_Click(object sender, EventArgs e)
@@ -76,11 +80,9 @@ namespace Bloxstrap.Dialogs.Menu
 
         private void ButtonLocationBrowse_Click(object sender, EventArgs e)
         {
-            using (var dialog = new FolderBrowserDialog())
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                DialogResult result = dialog.ShowDialog();
-
-                if (result == System.Windows.Forms.DialogResult.OK)
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     ViewModel.InstallLocation = dialog.SelectedPath;
             }
         }
@@ -88,7 +90,7 @@ namespace Bloxstrap.Dialogs.Menu
         private void ButtonPreview_Click(object sender, EventArgs e)
         {
             //this.Visible = false;
-            Program.Settings.BootstrapperStyle.Show();
+            App.Settings.BootstrapperStyle.Show();
             //this.Visible = true;
         }
 
@@ -103,7 +105,7 @@ namespace Bloxstrap.Dialogs.Menu
 
             if (String.IsNullOrEmpty(installLocation))
             {
-                Program.ShowMessageBox("You must set an install location", MessageBoxIcon.Error);
+                App.ShowMessageBox("You must set an install location", MessageBoxImage.Error);
                 return;
             }
 
@@ -126,42 +128,42 @@ namespace Bloxstrap.Dialogs.Menu
             }
             catch (UnauthorizedAccessException)
             {
-                Program.ShowMessageBox($"{Program.ProjectName} does not have write access to the install location you selected. Please choose another install location.", MessageBoxIcon.Error);
+                App.ShowMessageBox($"{App.ProjectName} does not have write access to the install location you selected. Please choose another install location.", MessageBoxImage.Error);
                 return;
             }
             catch (Exception ex)
             {
-                Program.ShowMessageBox(ex.Message, MessageBoxIcon.Error);
+                App.ShowMessageBox(ex.Message, MessageBoxImage.Error);
                 return;
             }
 
-            if (Program.IsFirstRun)
+            if (App.IsFirstRun)
             {
                 // this will be set in the registry after first install
-                Program.BaseDirectory = installLocation;
+                App.BaseDirectory = installLocation;
             }
             else
             {
-                Program.SettingsManager.ShouldSave = true;
+                App.SettingsManager.ShouldSave = true;
 
-                if (Program.BaseDirectory is not null && Program.BaseDirectory != installLocation)
+                if (App.BaseDirectory is not null && App.BaseDirectory != installLocation)
                 {
-                    Program.ShowMessageBox($"{Program.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxIcon.Information);
+                    App.ShowMessageBox($"{App.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxImage.Information);
 
-                    Program.Settings.VersionGuid = "";
+                    App.Settings.VersionGuid = "";
 
-                    using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{Program.ProjectName}"))
+                    using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
                     {
                         registryKey.SetValue("InstallLocation", installLocation);
-                        registryKey.SetValue("OldInstallLocation", Program.BaseDirectory);
+                        registryKey.SetValue("OldInstallLocation", App.BaseDirectory);
                     }
 
                     // preserve settings
                     // we don't need to copy the bootstrapper over since the install process will do that automatically
 
-                    Program.SettingsManager.Save();
+                    App.SettingsManager.Save();
 
-                    File.Copy(Path.Combine(Program.BaseDirectory, "Settings.json"), Path.Combine(installLocation, "Settings.json"));
+                    File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(installLocation, "Settings.json"));
                 }
             }
 
@@ -180,89 +182,89 @@ namespace Bloxstrap.Dialogs.Menu
         private readonly Preferences _window;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public string BloxstrapVersion { get; } = $"Version {Program.Version}";
+        public string BloxstrapVersion { get; } = $"Version {App.Version}";
 
         #region Integrations
         public bool DRPEnabled 
         { 
-            get => Program.Settings.UseDiscordRichPresence;
+            get => App.Settings.UseDiscordRichPresence;
             set
             {
                 // if user wants discord rpc, auto-enable buttons by default
                 _window.CheckBoxDRPButtons.IsChecked = value;
-                Program.Settings.UseDiscordRichPresence = value;
+                App.Settings.UseDiscordRichPresence = value;
             }
         }
 
         public bool DRPButtons 
         { 
-            get => !Program.Settings.HideRPCButtons; 
-            set => Program.Settings.HideRPCButtons = !value; 
+            get => !App.Settings.HideRPCButtons; 
+            set => App.Settings.HideRPCButtons = !value; 
         }
 
         public bool RFUEnabled 
         { 
-            get => Program.Settings.RFUEnabled;
+            get => App.Settings.RFUEnabled;
             set
             {
                 // if user wants to use rbxfpsunlocker, auto-enable autoclosing by default
                 _window.CheckBoxRFUAutoclose.IsChecked = value;
-                Program.Settings.RFUEnabled = value;
+                App.Settings.RFUEnabled = value;
             }
         }
 
         public bool RFUAutoclose 
         { 
-            get => Program.Settings.RFUAutoclose; 
-            set => Program.Settings.RFUAutoclose = value; 
+            get => App.Settings.RFUAutoclose; 
+            set => App.Settings.RFUAutoclose = value; 
         }
 
         public bool UseReShade
         {
-            get => Program.Settings.UseReShade;
+            get => App.Settings.UseReShade;
             set
             {
                 // if user wants to use reshade, auto-enable use of extravi's presets by default
                 _window.CheckBoxUseReShadeExtraviPresets.IsChecked = value;
-                Program.Settings.UseReShade = value;
+                App.Settings.UseReShade = value;
             }
         }
 
         public bool UseReShadeExtraviPresets
         {
-            get => Program.Settings.UseReShadeExtraviPresets;
-            set => Program.Settings.UseReShadeExtraviPresets = value;
+            get => App.Settings.UseReShadeExtraviPresets;
+            set => App.Settings.UseReShadeExtraviPresets = value;
         }
 
-        public bool ReShadeFolderButtonEnabled { get; } = !Program.IsFirstRun;
-        public string ReShadeFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing ReShade" : "This is the folder that contains all your ReShade resources for presets, shaders and textures.";
+        public bool ReShadeFolderButtonEnabled { get; } = !App.IsFirstRun;
+        public string ReShadeFolderButtonTooltip { get; } = App.IsFirstRun ? "Bloxstrap must first be installed before managing ReShade" : "This is the folder that contains all your ReShade resources for presets, shaders and textures.";
         #endregion
 
         #region Modifications
         public bool ModOldDeathSound 
         { 
-            get => Program.Settings.UseOldDeathSound; 
-            set => Program.Settings.UseOldDeathSound = value; 
+            get => App.Settings.UseOldDeathSound; 
+            set => App.Settings.UseOldDeathSound = value; 
         }
 
         public bool ModOldMouseCursor 
         { 
-            get => Program.Settings.UseOldMouseCursor; 
-            set => Program.Settings.UseOldMouseCursor = value; 
+            get => App.Settings.UseOldMouseCursor; 
+            set => App.Settings.UseOldMouseCursor = value; 
         }
 
         public bool ModDisableAppPatch
         {
-            get => Program.Settings.UseDisableAppPatch;
-            set => Program.Settings.UseDisableAppPatch = value;
+            get => App.Settings.UseDisableAppPatch;
+            set => App.Settings.UseDisableAppPatch = value;
         }
 
-        public bool ModFolderButtonEnabled { get; } = !Program.IsFirstRun;
-        public string ModFolderButtonTooltip { get; } = Program.IsFirstRun ? "Bloxstrap must first be installed before managing mods" : "This is the folder that contains all your file modifications, including presets and any ReShade files needed.";
+        public bool ModFolderButtonEnabled { get; } = !App.IsFirstRun;
+        public string ModFolderButtonTooltip { get; } = App.IsFirstRun ? "Bloxstrap must first be installed before managing mods" : "This is the folder that contains all your file modifications, including presets and any ReShade files needed.";
         #endregion
 
         #region Installation
-        private string installLocation = Program.IsFirstRun ? Path.Combine(Directories.LocalAppData, Program.ProjectName) : Program.BaseDirectory;
+        private string installLocation = App.IsFirstRun ? Path.Combine(Directories.LocalAppData, App.ProjectName) : App.BaseDirectory;
         public string InstallLocation 
         { 
             get => installLocation; 
@@ -273,7 +275,7 @@ namespace Bloxstrap.Dialogs.Menu
             }
         }
 
-        private bool showAllChannels = !DeployManager.ChannelsAbstracted.Contains(Program.Settings.Channel);
+        private bool showAllChannels = !DeployManager.ChannelsAbstracted.Contains(App.Settings.Channel);
         public bool ShowAllChannels 
         { 
             get => showAllChannels; 
@@ -294,7 +296,7 @@ namespace Bloxstrap.Dialogs.Menu
             }
         }
 
-        private IEnumerable<string> channels = DeployManager.ChannelsAbstracted.Contains(Program.Settings.Channel) ? DeployManager.ChannelsAbstracted : DeployManager.ChannelsAll;
+        private IEnumerable<string> channels = DeployManager.ChannelsAbstracted.Contains(App.Settings.Channel) ? DeployManager.ChannelsAbstracted : DeployManager.ChannelsAll;
         public IEnumerable<string> Channels
         {
             get => channels;
@@ -307,11 +309,11 @@ namespace Bloxstrap.Dialogs.Menu
 
         public string Channel 
         {
-            get => Program.Settings.Channel;
+            get => App.Settings.Channel;
             set
             {
                 Task.Run(() => GetChannelInfo(value));
-                Program.Settings.Channel = value;
+                App.Settings.Channel = value;
             }
         }
 
@@ -328,8 +330,8 @@ namespace Bloxstrap.Dialogs.Menu
 
         public bool PromptChannelChange
         {
-            get => Program.Settings.PromptChannelChange;
-            set => Program.Settings.PromptChannelChange = value;
+            get => App.Settings.PromptChannelChange;
+            set => App.Settings.PromptChannelChange = value;
         }
         #endregion
 
@@ -343,10 +345,10 @@ namespace Bloxstrap.Dialogs.Menu
 
         public string Theme
         {
-            get => Themes.FirstOrDefault(x => x.Value == Program.Settings.Theme).Key;
+            get => Themes.FirstOrDefault(x => x.Value == App.Settings.Theme).Key;
             set
             {
-                Program.Settings.Theme = Themes[value];
+                App.Settings.Theme = Themes[value];
                 _window.SetTheme();
             }
         }
@@ -361,8 +363,8 @@ namespace Bloxstrap.Dialogs.Menu
 
         public string Dialog
         {
-            get => Dialogs.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperStyle).Key;
-            set => Program.Settings.BootstrapperStyle = Dialogs[value];
+            get => Dialogs.FirstOrDefault(x => x.Value == App.Settings.BootstrapperStyle).Key;
+            set => App.Settings.BootstrapperStyle = Dialogs[value];
         }
 
         public IReadOnlyDictionary<string, BootstrapperIcon> Icons { get; set; } = new Dictionary<string, BootstrapperIcon>()
@@ -379,29 +381,29 @@ namespace Bloxstrap.Dialogs.Menu
 
         public string Icon
         {
-            get => Icons.FirstOrDefault(x => x.Value == Program.Settings.BootstrapperIcon).Key;
-            set => Program.Settings.BootstrapperIcon = Icons[value];
+            get => Icons.FirstOrDefault(x => x.Value == App.Settings.BootstrapperIcon).Key;
+            set => App.Settings.BootstrapperIcon = Icons[value];
         }
 
         public bool CreateDesktopIcon
         {
-            get => Program.Settings.CreateDesktopIcon;
-            set => Program.Settings.CreateDesktopIcon = value;
+            get => App.Settings.CreateDesktopIcon;
+            set => App.Settings.CreateDesktopIcon = value;
         }
 
         public bool CheckForUpdates
         {
-            get => Program.Settings.CheckForUpdates;
-            set => Program.Settings.CheckForUpdates = value;
+            get => App.Settings.CheckForUpdates;
+            set => App.Settings.CheckForUpdates = value;
         }
         #endregion
 
-        public string ConfirmButtonText { get; } = Program.IsFirstRun ? "Install" : "Save";
+        public string ConfirmButtonText { get; } = App.IsFirstRun ? "Install" : "Save";
 
         public PreferencesViewModel(Preferences window)
         {
             _window = window;
-            Task.Run(() => GetChannelInfo(Program.Settings.Channel));
+            Task.Run(() => GetChannelInfo(App.Settings.Channel));
         }
 
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
@@ -414,7 +416,7 @@ namespace Bloxstrap.Dialogs.Menu
             ChannelInfo = "Getting latest version info, please wait...\n";
 
             ClientVersion info = await DeployManager.GetLastDeploy(channel, true);
-            string? strTimestamp = info.Timestamp?.ToString("MM/dd/yyyy h:mm:ss tt", Program.CultureFormat);
+            string? strTimestamp = info.Timestamp?.ToString("MM/dd/yyyy h:mm:ss tt", App.CultureFormat);
 
             ChannelInfo = $"Version: v{info.Version} ({info.VersionGuid})\nDeployed: {strTimestamp}";
         }
