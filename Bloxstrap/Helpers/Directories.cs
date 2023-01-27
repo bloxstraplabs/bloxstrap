@@ -9,7 +9,7 @@ namespace Bloxstrap.Helpers
         // so these can safely be called before initialization
         public static string LocalAppData { get => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); }
         public static string Desktop { get => Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); }
-        public static string StartMenu { get => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", "Bloxstrap"); }
+        public static string StartMenu { get => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", App.ProjectName); }
 
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
@@ -19,7 +19,7 @@ namespace Bloxstrap.Helpers
         public static string Updates { get; private set; } = "";
         public static string ReShade { get; private set; } = "";
 
-        public static string App { get; private set; } = "";
+        public static string Application { get; private set; } = "";
 
         public static bool Initialized { get => String.IsNullOrEmpty(Base); }
 
@@ -33,7 +33,7 @@ namespace Bloxstrap.Helpers
             Updates = Path.Combine(Base, "Updates");
             ReShade = Path.Combine(Base, "ReShade");
 
-            App = Path.Combine(Base, $"{"Bloxstrap"}.exe");
+            Application = Path.Combine(Base, $"{App.ProjectName}.exe");
         }
     }
 }

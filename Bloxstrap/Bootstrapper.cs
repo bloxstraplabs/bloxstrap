@@ -131,14 +131,14 @@ namespace Bloxstrap
 
         private async Task CheckForUpdates()
         {
-            string currentVersion = $"Bloxstrap v{App.Version}";
+            string currentVersion = $"{App.ProjectName} v{App.Version}";
 
             var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
 
             if (releaseInfo is null || releaseInfo.Name is null || releaseInfo.Assets is null || currentVersion == releaseInfo.Name)
                 return;
 
-            Dialog.Message = "Getting the latest Bloxstrap...";
+            Dialog.Message = $"Getting the latest {App.ProjectName}...";
 
             // 64-bit is always the first option
             GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
@@ -335,7 +335,7 @@ namespace Bloxstrap
 
             // set uninstall key
             RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}");
-            uninstallKey.SetValue("DisplayIcon", $"{Directories.App},0");
+            uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
             uninstallKey.SetValue("DisplayName", App.ProjectName);
             uninstallKey.SetValue("DisplayVersion", App.Version);
 
@@ -345,9 +345,9 @@ namespace Bloxstrap
             uninstallKey.SetValue("InstallLocation", Directories.Base);
             uninstallKey.SetValue("NoRepair", 1);
             uninstallKey.SetValue("Publisher", "pizzaboxer");
-            uninstallKey.SetValue("ModifyPath", $"\"{Directories.App}\" -preferences");
-            uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.App}\" -uninstall -quiet");
-            uninstallKey.SetValue("UninstallString", $"\"{Directories.App}\" -uninstall");
+            uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -preferences");
+            uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
+            uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
             uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
             uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
             uninstallKey.Close();
@@ -359,16 +359,16 @@ namespace Bloxstrap
             // this doesn't go under register, so we check every launch
             // just in case the stock bootstrapper changes it back
 
-            Protocol.Register("roblox", "Roblox", Directories.App);
-            Protocol.Register("roblox-player", "Roblox", Directories.App);
+            Protocol.Register("roblox", "Roblox", Directories.Application);
+            Protocol.Register("roblox-player", "Roblox", Directories.Application);
 
             // in case the user is reinstalling
-            if (File.Exists(Directories.App) && App.IsFirstRun)
-                File.Delete(Directories.App);
+            if (File.Exists(Directories.Application) && App.IsFirstRun)
+                File.Delete(Directories.Application);
 
             // check to make sure bootstrapper is in the install folder
-            if (!File.Exists(Directories.App) && Environment.ProcessPath is not null)
-                File.Copy(Environment.ProcessPath, Directories.App);
+            if (!File.Exists(Directories.Application) && Environment.ProcessPath is not null)
+                File.Copy(Environment.ProcessPath, Directories.Application);
 
             // this SHOULD go under Register(),
             // but then people who have Bloxstrap v1.0.0 installed won't have this without a reinstall
@@ -377,16 +377,16 @@ namespace Bloxstrap
             {
                 Directory.CreateDirectory(Directories.StartMenu);
 
-                ShellLink.Shortcut.CreateShortcut(Directories.App, "", Directories.App, 0)
+                ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.StartMenu, "Play Roblox.lnk"));
 
-                ShellLink.Shortcut.CreateShortcut(Directories.App, "-preferences", Directories.App, 0)
+                ShellLink.Shortcut.CreateShortcut(Directories.Application, "-preferences", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.StartMenu, $"Configure {App.ProjectName}.lnk"));
             }
 
             if (App.Settings.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
             {
-                ShellLink.Shortcut.CreateShortcut(Directories.App, "", Directories.App, 0)
+                ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
             }
         }

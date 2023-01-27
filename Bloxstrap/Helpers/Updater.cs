@@ -11,14 +11,14 @@ namespace Bloxstrap.Helpers
     {
         public static void CheckInstalledVersion()
         {
-            if (Environment.ProcessPath is null || !File.Exists(Directories.App) || Environment.ProcessPath == Directories.App)
+            if (Environment.ProcessPath is null || !File.Exists(Directories.Application) || Environment.ProcessPath == Directories.Application)
                 return;
 
             bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Directories.Updates);
 
             // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
-            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.App);
+            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.Application);
 
             if (installedVersionInfo.ProductVersion == currentVersionInfo.ProductVersion)
                 return;
@@ -44,8 +44,8 @@ namespace Bloxstrap.Helpers
             if (result != MessageBoxResult.Yes)
                 return;
 
-            File.Delete(Directories.App);
-            File.Copy(Environment.ProcessPath, Directories.App);
+            File.Delete(Directories.Application);
+            File.Copy(Environment.ProcessPath, Directories.Application);
                 
             Bootstrapper.Register();
                 
