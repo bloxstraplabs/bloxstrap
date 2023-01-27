@@ -1,21 +1,18 @@
-﻿using Bloxstrap.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
+using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Diagnostics;
+
+using Microsoft.Win32;
+
+using Bloxstrap.Models;
 using Bloxstrap.Dialogs.Menu;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
-using Microsoft.Win32;
-using System.IO;
 
 namespace Bloxstrap
 {

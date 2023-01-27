@@ -1,10 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Web;
-using Microsoft.Win32;
-using System.Collections.Generic;
 using System.Windows;
-using System;
+
+using Microsoft.Win32;
 
 namespace Bloxstrap.Helpers
 {

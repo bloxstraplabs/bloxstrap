@@ -1,9 +1,10 @@
-﻿using Bloxstrap.Enums;
-using Bloxstrap.Helpers;
-using System.Windows.Forms;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System;
+using System.Windows.Forms;
+
+using Bloxstrap.Enums;
+using Bloxstrap.Helpers;
 
 namespace Bloxstrap.Dialogs.BootstrapperDialogs
 {

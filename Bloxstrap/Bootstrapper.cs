@@ -1,24 +1,21 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Enums;
 using Bloxstrap.Dialogs.BootstrapperDialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
 using Bloxstrap.Models;
-using System.Net;
-using Bloxstrap.Properties;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic;
-using System;
-using System.Windows.Forms;
-using System.Windows;
 
 namespace Bloxstrap
 {
@@ -317,7 +314,7 @@ namespace Bloxstrap
         }
 #endregion
 
-#region App Install
+        #region App Install
         public static void Register()
         {
             RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
@@ -451,7 +448,7 @@ namespace Bloxstrap
         }
 #endregion
 
-#region Roblox Install
+        #region Roblox Install
         private void UpdateProgressbar()
         {
             int newProgress = (int)Math.Floor(ProgressIncrement * TotalDownloadedBytes);

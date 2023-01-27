@@ -1,5 +1,6 @@
-﻿using Bloxstrap.Dialogs.BootstrapperDialogs;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+
+using Bloxstrap.Dialogs.BootstrapperDialogs;
 
 namespace Bloxstrap.Enums
 {

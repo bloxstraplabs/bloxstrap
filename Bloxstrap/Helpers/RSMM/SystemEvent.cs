@@ -1,8 +1,8 @@
 ﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Utility/SystemEvent.cs
 
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System;
 
 namespace Bloxstrap.Helpers.RSMM
 {

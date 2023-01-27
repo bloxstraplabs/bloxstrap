@@ -1,10 +1,9 @@
 ﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Bootstrapper/PackageManifest.cs
 
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Bloxstrap.Helpers.RSMM
 {
