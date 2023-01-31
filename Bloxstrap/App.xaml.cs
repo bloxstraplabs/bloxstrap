@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Net;
 using System.Reflection;
 using System.Windows;
-
 using Microsoft.Win32;
 
 using Bloxstrap.Models;
@@ -96,7 +95,8 @@ namespace Bloxstrap
                 if (IsQuiet)
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                 else
-                    new Preferences().ShowDialog();
+                    //new Preferences().ShowDialog();
+                    new Configuration.MainWindow().ShowDialog();
             }
             else
             {
@@ -129,7 +129,8 @@ namespace Bloxstrap
             string commandLine = "";
 
 #if DEBUG
-            new Preferences().ShowDialog();
+            //new Preferences().ShowDialog();
+            new Configuration.MainWindow().ShowDialog();
 #else
             if (LaunchArgs.Length > 0)
             {
@@ -141,7 +142,8 @@ namespace Bloxstrap
                         return;
                     }
 
-                    new Preferences().ShowDialog();
+                    //new Preferences().ShowDialog();
+                    new Configuration.MainWindow().ShowDialog();
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {

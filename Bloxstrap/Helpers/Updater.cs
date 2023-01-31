@@ -58,7 +58,8 @@ namespace Bloxstrap.Helpers
                 MessageBoxButton.OK
             );
 
-            new Preferences().ShowDialog();
+            //new Preferences().ShowDialog();
+            new Configuration.MainWindow().ShowDialog();
             App.Terminate();
         }
     }
