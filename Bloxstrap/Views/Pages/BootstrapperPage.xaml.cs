@@ -1,4 +1,4 @@
-﻿namespace Bloxstrap.Configuration.Pages
+﻿namespace Bloxstrap.Views.Pages
 {
     /// <summary>
     /// Interaction logic for BootstrapperPage.xaml

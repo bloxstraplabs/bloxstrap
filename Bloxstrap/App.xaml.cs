@@ -12,6 +12,7 @@ using Bloxstrap.Models;
 using Bloxstrap.Dialogs.Menu;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
+using Bloxstrap.Views;
 
 namespace Bloxstrap
 {
@@ -64,6 +65,9 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            new MainWindow().ShowDialog();
+            return;
+
             LaunchArgs = e.Args;
 
             HttpClient.Timeout = TimeSpan.FromMinutes(5);
@@ -96,7 +100,7 @@ namespace Bloxstrap
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                 else
                     //new Preferences().ShowDialog();
-                    new Configuration.MainWindow().ShowDialog();
+                    new MainWindow().ShowDialog();
             }
             else
             {
@@ -130,7 +134,7 @@ namespace Bloxstrap
 
 #if DEBUG
             //new Preferences().ShowDialog();
-            new Configuration.MainWindow().ShowDialog();
+            new MainWindow().ShowDialog();
 #else
             if (LaunchArgs.Length > 0)
             {
