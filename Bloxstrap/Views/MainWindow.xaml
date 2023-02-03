@@ -58,13 +58,13 @@
 
             <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
-                    <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Tag="integrations" />
-                    <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Tag="mods" />
-                    <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Tag="bootstrapper" />
-                    <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Tag="installation" />
+                    <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="AddSquareMultiple20" Tag="integrations" />
+                    <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="DocumentToolbox24" Tag="mods" />
+                    <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="Window48" Tag="bootstrapper" />
+                    <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
                     <ui:NavigationSeparator />
-                    <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Tag="reshadehelp" />
-                    <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Tag="about" />
+                    <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Icon="BookQuestionMark24" Tag="reshadehelp" />
+                    <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>
 
