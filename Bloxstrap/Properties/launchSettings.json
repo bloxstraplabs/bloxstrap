@@ -1,6 +1,9 @@
 {
   "profiles": {
     "Bloxstrap": {
+      "commandName": "Project"
+    },
+    "Bloxstrap (Menu)": {
       "commandName": "Project",
       "commandLineArgs": "-preferences"
     }
