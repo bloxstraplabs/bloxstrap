@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperDialogs
+namespace Bloxstrap.Dialogs
 {
     // https://youtu.be/3K9oCEMHj2s?t=35
 

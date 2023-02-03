@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using Bloxstrap.Enums;
 
-namespace Bloxstrap.Dialogs.BootstrapperDialogs
+namespace Bloxstrap.Dialogs
 {
     // basically just the modern dialog
 

@@ -11,7 +11,7 @@ using System.Windows;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Dialogs.BootstrapperDialogs;
+using Bloxstrap.Dialogs;
 using Bloxstrap.Helpers;
 using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
@@ -381,7 +381,20 @@ namespace Bloxstrap
                     .WriteToFile(Path.Combine(Directories.StartMenu, "Play Roblox.lnk"));
 
                 ShellLink.Shortcut.CreateShortcut(Directories.Application, "-preferences", Directories.Application, 0)
-                    .WriteToFile(Path.Combine(Directories.StartMenu, $"Configure {App.ProjectName}.lnk"));
+                    .WriteToFile(Path.Combine(Directories.StartMenu, $"{App.ProjectName} Menu.lnk"));
+            }
+            else
+            {
+                // v2.0.0 - rebadge configuration menu as just "Bloxstrap Menu"
+                string oldMenuShortcut = Path.Combine(Directories.StartMenu, $"Configure {App.ProjectName}.lnk");
+                string newMenuShortcut = Path.Combine(Directories.StartMenu, $"{App.ProjectName} Menu.lnk");
+
+                if (File.Exists(oldMenuShortcut))
+                    File.Delete(oldMenuShortcut);
+
+                if (!File.Exists(newMenuShortcut))
+                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "-preferences", Directories.Application, 0)
+                        .WriteToFile(newMenuShortcut);
             }
 
             if (App.Settings.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
@@ -449,6 +462,12 @@ namespace Bloxstrap
         private void UpdateProgressbar()
         {
             int newProgress = (int)Math.Floor(ProgressIncrement * TotalDownloadedBytes);
+
+            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
+            // too lazy to fix properly so lol
+            if (newProgress > 100)
+                return;
+
             Dialog.ProgressValue = newProgress;
         }
 

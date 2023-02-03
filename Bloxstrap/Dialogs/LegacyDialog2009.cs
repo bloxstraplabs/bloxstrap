@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Bloxstrap.Dialogs.BootstrapperDialogs
+namespace Bloxstrap.Dialogs
 {
     // windows: https://youtu.be/VpduiruysuM?t=18
     // mac: https://youtu.be/ncHhbcVDRgQ?t=63

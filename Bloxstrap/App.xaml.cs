@@ -6,13 +6,12 @@ using System.Net.Http;
 using System.Net;
 using System.Reflection;
 using System.Windows;
-
 using Microsoft.Win32;
 
 using Bloxstrap.Models;
-using Bloxstrap.Dialogs.Menu;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
+using Bloxstrap.Views;
 
 namespace Bloxstrap
 {
@@ -21,13 +20,13 @@ namespace Bloxstrap
     /// </summary>
     public partial class App : Application
     {
-        public const StringComparison StringFormat = StringComparison.InvariantCulture;
         public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
 
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
 
         public static string BaseDirectory = null!;
+        public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = false;
         public static bool IsQuiet { get; private set; } = false;
         public static bool IsUninstall { get; private set; } = false;
@@ -92,11 +91,13 @@ namespace Bloxstrap
             {
                 IsFirstRun = true;
                 Settings = SettingsManager.Settings;
+                BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
 
-                if (IsQuiet)
-                    BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
-                else
-                    new Preferences().ShowDialog();
+                if (!IsQuiet)
+                {
+                    IsSetupComplete = false;
+                    new MainWindow().ShowDialog();
+                }
             }
             else
             {
@@ -105,8 +106,7 @@ namespace Bloxstrap
             }
 
             // preferences dialog was closed, and so base directory was never set
-            // (this doesnt account for the registry value not existing but thats basically never gonna happen)
-            if (String.IsNullOrEmpty(BaseDirectory))
+            if (!IsSetupComplete)
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
 
             Directories.Initialize(BaseDirectory);
@@ -140,7 +140,8 @@ namespace Bloxstrap
                     }
 #endif
 
-                    new Preferences().ShowDialog();
+                    //new Preferences().ShowDialog();
+                    new MainWindow().ShowDialog();
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
