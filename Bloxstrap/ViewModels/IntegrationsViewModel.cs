@@ -1,12 +1,14 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Mvvm.Contracts;
-using Bloxstrap.Views.Pages;
+
 using Bloxstrap.Helpers;
-using System.Diagnostics;
+using Bloxstrap.Views.Pages;
 
 namespace Bloxstrap.ViewModels
 {
@@ -20,7 +22,7 @@ namespace Bloxstrap.ViewModels
         public ICommand OpenReShadeFolderCommand => new RelayCommand(OpenReShadeFolder);
         public ICommand ShowReShadeHelpCommand => new RelayCommand(ShowReShadeHelp);
 
-        public bool CanOpenReShadeFolder => !App.IsFirstRun;
+        public bool CanOpenReShadeFolder => App.Settings.UseReShade;
 
         public IntegrationsViewModel(Page page)
         {
@@ -29,7 +31,7 @@ namespace Bloxstrap.ViewModels
 
         private void OpenReShadeFolder()
         {
-            Process.Start("explorer.exe", Directories.ReShade);
+            Process.Start("explorer.exe", Path.Combine(Directories.Integrations, "ReShade"));
         }
 
         private void ShowReShadeHelp()

@@ -55,7 +55,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <ui:CardAction Grid.Column="0" Margin="0,8,4,0" Icon="Folder24" Command="{Binding OpenReShadeFolderCommand}" IsEnabled="{Binding CanOpenReShadeFolder}">
                 <StackPanel>
@@ -74,10 +74,10 @@
                     <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
                         <TextBlock.Style>
                             <Style>
-                                <Setter Property="TextBlock.Text" Value="Shaders and screenshots are stored here."/>
+                                <Setter Property="TextBlock.Text" Value="ReShade's resources are stored here." />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
-                                        <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                                        <Setter Property="TextBlock.Text" Value="Available once Roblox is started with ReShade." />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -88,7 +88,7 @@
             <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="{Binding ShowReShadeHelpCommand}">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
-                    <TextBlock FontSize="12" Text="See help information on using ReShade." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="12" Text="See info about using ReShade." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

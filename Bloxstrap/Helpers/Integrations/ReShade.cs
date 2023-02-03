@@ -25,9 +25,12 @@ namespace Bloxstrap.Helpers.Integrations
         // and here we're effectively choosing for the user... hm...
         // i mean, it should be fine? importing shaders is still gonna be a thing, though maybe not as simple, but most people would be looking to use extravi's presets anyway
 
-        private static string ShadersFolder { get => Path.Combine(Directories.ReShade, "Shaders"); }
-        private static string TexturesFolder { get => Path.Combine(Directories.ReShade, "Textures"); }
-        private static string ConfigLocation { get => Path.Combine(Directories.Modifications, "ReShade.ini"); }
+        private static string BaseDirectory => Path.Combine(Directories.Integrations, "ReShade");
+        private static string FontsFolder => Path.Combine(BaseDirectory, "Fonts");
+        private static string PresetsFolder => Path.Combine(BaseDirectory, "Presets");
+        private static string ShadersFolder => Path.Combine(BaseDirectory, "Shaders");
+        private static string TexturesFolder => Path.Combine(BaseDirectory, "Textures");
+        private static string ConfigLocation => Path.Combine(Directories.Modifications, "ReShade.ini");
 
         // the base url that we're fetching all our remote configs and resources and stuff from
         private const string BaseUrl = "https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update";
@@ -61,7 +64,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         private static string GetSearchPath(string type, string name)
         {
-            return $",..\\..\\ReShade\\{type}\\{name}";
+            return $",..\\..\\Integrations\\ReShade\\{type}\\{name}";
         }
 
         public static async Task DownloadConfig()
@@ -75,7 +78,7 @@ namespace Bloxstrap.Helpers.Integrations
                 using ZipArchive archive = new(zipStream);
 
                 
-                archive.Entries.Where(x => x.FullName == "ReShade.ini").First().ExtractToFile(ConfigLocation, true);
+                archive.Entries.First(x => x.FullName == "ReShade.ini").ExtractToFile(ConfigLocation, true);
 
                 // when we extract the file we have to make sure the last modified date is overwritten
                 // or else it will synchronize with the config in the version folder
@@ -84,7 +87,7 @@ namespace Bloxstrap.Helpers.Integrations
 
                 // we also gotta download the editor fonts
                 foreach (ZipArchiveEntry entry in archive.Entries.Where(x => x.FullName.EndsWith(".ttf")))
-                    entry.ExtractToFile(Path.Combine(Directories.ReShade, "Fonts", entry.FullName), true);
+                    entry.ExtractToFile(Path.Combine(FontsFolder, entry.FullName), true);
             }
 
             // now we have to adjust the config file to use the paths that we need
@@ -93,12 +96,13 @@ namespace Bloxstrap.Helpers.Integrations
             FileIniDataParser parser = new();
             IniData data = parser.ReadFile(ConfigLocation);
 
-            data["GENERAL"]["EffectSearchPaths"] = "..\\..\\ReShade\\Shaders";
-            data["GENERAL"]["TextureSearchPaths"] = "..\\..\\ReShade\\Textures";
-            data["GENERAL"]["PresetPath"] = data["GENERAL"]["PresetPath"].Replace(".\\reshade-presets\\", "..\\..\\ReShade\\Presets\\");
-            data["SCREENSHOT"]["SavePath"] = "..\\..\\ReShade\\Screenshots";
-            data["STYLE"]["EditorFont"] = data["STYLE"]["EditorFont"].Replace(".\\", "..\\..\\ReShade\\Fonts\\");
-            data["STYLE"]["Font"] = data["STYLE"]["Font"].Replace(".\\", "..\\..\\ReShade\\Fonts\\");
+            data["GENERAL"]["EffectSearchPaths"] = "..\\..\\Integrations\\ReShade\\Shaders";
+            data["GENERAL"]["TextureSearchPaths"] = "..\\..\\Integrations\\ReShade\\Textures";
+            data["GENERAL"]["PresetPath"] = data["GENERAL"]["PresetPath"].Replace(".\\reshade-presets\\", "..\\..\\Integrations\\ReShade\\Presets\\");
+            //data["SCREENSHOT"]["SavePath"] = "..\\..\\ReShade\\Screenshots";
+            data["SCREENSHOT"]["SavePath"] = Path.Combine(Directories.MyPictures, "Roblox-ReShade");
+            data["STYLE"]["EditorFont"] = data["STYLE"]["EditorFont"].Replace(".\\", "..\\..\\Integrations\\ReShade\\Fonts\\");
+            data["STYLE"]["Font"] = data["STYLE"]["Font"].Replace(".\\", "..\\..\\Integrations\\ReShade\\Fonts\\");
 
             // add search paths for shaders and textures
 
@@ -170,7 +174,7 @@ namespace Bloxstrap.Helpers.Integrations
             string downloadUrl = Shaders.First(x => x.Key == name).Value;
 
             // not all shader packs have a textures folder, so here we're determining if they exist purely based on if they have a Shaders folder
-            if (Directory.Exists(Path.Combine(Directories.ReShade, "Shaders", name)))
+            if (Directory.Exists(Path.Combine(ShadersFolder, name)))
                 return;
 
             Debug.WriteLine($"[ReShade] Downloading shaders for {name}");
@@ -204,7 +208,7 @@ namespace Bloxstrap.Helpers.Integrations
 
                     // now we stitch it all together
                     string extractionPath = Path.Combine(
-                        Directories.ReShade,
+                        BaseDirectory,
                         fullPath.StartsWith("Shaders") ? "Shaders" : "Textures",
                         name,
                         relativePath
@@ -226,7 +230,7 @@ namespace Bloxstrap.Helpers.Integrations
                 data["GENERAL"]["EffectSearchPaths"] += GetSearchPath("Shaders", name);
 
             // not every shader pack has a textures folder
-            if (Directory.Exists(Path.Combine(Directories.ReShade, "Textures", name)) && !data["GENERAL"]["TextureSearchPaths"].Contains(name))
+            if (Directory.Exists(Path.Combine(TexturesFolder, name)) && !data["GENERAL"]["TextureSearchPaths"].Contains(name))
                 data["GENERAL"]["TextureSearchPaths"] += GetSearchPath("Textures", name);
 
             parser.WriteFile(ConfigLocation, data);
@@ -236,8 +240,8 @@ namespace Bloxstrap.Helpers.Integrations
         {
             Debug.WriteLine($"[ReShade] Deleting shaders for {name}");
 
-            string shadersPath = Path.Combine(Directories.ReShade, "Shaders", name);
-            string texturesPath = Path.Combine(Directories.ReShade, "Textures", name);
+            string shadersPath = Path.Combine(ShadersFolder, name);
+            string texturesPath = Path.Combine(TexturesFolder, name);
 
             if (Directory.Exists(shadersPath))
                 Directory.Delete(shadersPath, true);
@@ -290,7 +294,7 @@ namespace Bloxstrap.Helpers.Integrations
                 // remove containing folder
                 string filename = entry.FullName.Substring(entry.FullName.IndexOf('/') + 1);
 
-                await Task.Run(() => entry.ExtractToFile(Path.Combine(Directories.ReShade, "Presets", filename), true));
+                await Task.Run(() => entry.ExtractToFile(Path.Combine(PresetsFolder, filename), true));
             }
         }
 
@@ -298,7 +302,7 @@ namespace Bloxstrap.Helpers.Integrations
         {
             Debug.WriteLine("[ReShade] Uninstalling Extravi's presets...");
 
-            FileInfo[] presets = new DirectoryInfo(Path.Combine(Directories.ReShade, "Presets")).GetFiles();
+            FileInfo[] presets = new DirectoryInfo(PresetsFolder).GetFiles();
 
             foreach (FileInfo preset in presets)
             {
@@ -316,14 +320,6 @@ namespace Bloxstrap.Helpers.Integrations
             
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
 
-            // initialize directories
-            Directory.CreateDirectory(Directories.ReShade);
-            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Fonts"));
-            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Screenshots"));
-            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Shaders"));
-            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Textures"));
-            Directory.CreateDirectory(Path.Combine(Directories.ReShade, "Presets"));
-
             if (!App.Settings.UseReShadeExtraviPresets)
             {
                 UninstallExtraviPresets();
@@ -340,10 +336,19 @@ namespace Bloxstrap.Helpers.Integrations
 
                 App.Settings.ReShadeConfigVersion = "";
 
-                DeleteShaders("Stock");
+                //DeleteShaders("Stock");
+                if (Directory.Exists(BaseDirectory))
+                    Directory.Delete(BaseDirectory, true);
 
                 return;
             }
+
+            // initialize directories
+            Directory.CreateDirectory(BaseDirectory);
+            Directory.CreateDirectory(FontsFolder);
+            Directory.CreateDirectory(ShadersFolder);
+            Directory.CreateDirectory(TexturesFolder);
+            Directory.CreateDirectory(PresetsFolder);
 
             // the version manfiest contains the version of reshade available for download and the last date the presets were updated
             var versionManifest = await Utilities.GetJson<ReShadeVersionManifest>("https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update/version.json");
