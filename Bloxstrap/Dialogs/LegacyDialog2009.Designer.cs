@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Bloxstrap.Dialogs.BootstrapperDialogs
+namespace Bloxstrap.Dialogs
 {
     partial class LegacyDialog2009
     {

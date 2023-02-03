@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 
-namespace Bloxstrap.Dialogs.BootstrapperDialogs
+namespace Bloxstrap.Dialogs
 {
     public class BootstrapperDialogForm : Form, IBootstrapperDialog
     {

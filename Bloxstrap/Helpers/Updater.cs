@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 
-using Bloxstrap.Dialogs.Menu;
 using Bloxstrap.Views;
 
 namespace Bloxstrap.Helpers
