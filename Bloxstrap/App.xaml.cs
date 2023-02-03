@@ -107,7 +107,7 @@ namespace Bloxstrap
             // preferences dialog was closed, and so base directory was never set
             // (this doesnt account for the registry value not existing but thats basically never gonna happen)
             if (String.IsNullOrEmpty(BaseDirectory))
-                return;
+                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
 
             Directories.Initialize(BaseDirectory);
 
@@ -128,18 +128,17 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if DEBUG
-            new Preferences().ShowDialog();
-#else
             if (LaunchArgs.Length > 0)
             {
                 if (LaunchArgs[0] == "-preferences")
                 {
+#if !DEBUG
                     if (Process.GetProcessesByName(ProjectName).Length > 1)
                     {
-                        ShowMessageBox($"{ProjectName} is already running. Please close any currently open Bloxstrap or Roblox window before opening the configuration menu.", MessageBoxImage.Error);
-                        return;
+                        ShowMessageBox($"{ProjectName} is currently running. Please close any currently open Bloxstrap or Roblox window before opening the menu.", MessageBoxImage.Error);
+                        Environment.Exit(0);
                     }
+#endif
 
                     new Preferences().ShowDialog();
                 }
@@ -160,7 +159,6 @@ namespace Bloxstrap
             {
                 commandLine = "--app";
             }
-#endif
 
             if (!String.IsNullOrEmpty(commandLine))
             {
@@ -168,7 +166,7 @@ namespace Bloxstrap
                 Settings.BootstrapperStyle.Show(new Bootstrapper(commandLine));
             }
 
-            SettingsManager.Save();
+            Terminate();
         }
     }
 }
