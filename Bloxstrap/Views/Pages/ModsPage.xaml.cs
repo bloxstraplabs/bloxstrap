@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows;
-using Wpf.Ui.Mvvm.Contracts;
+﻿using Bloxstrap.ViewModels;
 
 namespace Bloxstrap.Views.Pages
 {
@@ -11,6 +9,7 @@ namespace Bloxstrap.Views.Pages
     {
         public ModsPage()
         {
+            DataContext = new ModsViewModel();
             InitializeComponent();
         }
     }

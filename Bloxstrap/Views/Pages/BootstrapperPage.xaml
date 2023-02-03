@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:models="clr-namespace:Bloxstrap.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -20,7 +21,7 @@
                     <TextBlock FontSize="12" Text="Bloxstrap will check and automatically update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
@@ -29,7 +30,7 @@
                     <TextBlock FontSize="12" Text="Confirm if Roblox mandates a channel change on launch. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch IsChecked="{Binding ChannelChangePromptingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
 
         <!--should this all be in a collapsed panel like how channel settings are? that might be better, idk-->
@@ -41,7 +42,7 @@
                     <TextBlock FontSize="12" Text="Dark theme does not apply to Legacy or Vista styles." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ComboBox />
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes.Keys, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}" />
         </ui:CardControl>
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
@@ -50,7 +51,7 @@
                     <TextBlock FontSize="12" Text="Choose how the bootstrapper should look." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ComboBox />
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
         </ui:CardControl>
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
@@ -59,8 +60,8 @@
                     <TextBlock FontSize="12" Text="Choose what icon the bootstrapper should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ComboBox />
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:Button Content="Preview" HorizontalAlignment="Stretch" Margin="0,8,0,0" />
+        <ui:Button Content="Preview" HorizontalAlignment="Stretch" Margin="0,8,0,0" Command="{Binding PreviewBootstrapperCommand}" />
     </StackPanel>
 </ui:UiPage>

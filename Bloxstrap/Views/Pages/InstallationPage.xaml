@@ -10,7 +10,7 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="Configure how Bloxstrap and Roblox is installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="Configure how Bloxstrap and Roblox are installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <ui:CardExpander Margin="0,16,0,0">
             <ui:CardExpander.Header>
@@ -24,8 +24,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Margin="0,0,4,0" />
-                <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="Browse" />
+                <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding InstallLocation, Mode=TwoWay}" />
+                <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseInstallLocationCommand}" />
             </Grid>
         </ui:CardExpander>
 
@@ -36,7 +36,7 @@
                     <TextBlock FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
         </ui:CardControl>
 
         <ui:CardExpander Margin="0,8,0,0">
@@ -50,7 +50,7 @@
                         <TextBlock FontSize="13" FontWeight="Medium" Text="Channel" />
                         <TextBlock FontSize="12" Text="Choose which release channel to download Roblox from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
-                    <ComboBox Grid.Column="1" Margin="8,0,8,0" />
+                    <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding Channel, Mode=TwoWay}" />
                 </Grid>
             </ui:CardExpander.Header>
             <StackPanel>
@@ -60,6 +60,16 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Grid Column="0" Margin="0,0,4,0">
+                        <Grid.Style>
+                            <Style>
+                                <Setter Property="Grid.Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                                        <Setter Property="Grid.Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
@@ -71,15 +81,34 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="v0.560.0.5600365" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
 
-                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Hash" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="version-41dcbd77dbcf416f" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
 
                         <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="January 25 2023 at 6:03:48 PM" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
                     </Grid>
-                    <CheckBox Grid.Column="1" Margin="4,0,0,0" Content="Show all available channels" VerticalAlignment="Top" />
+                    <Grid Column="0">
+                        <Grid.Style>
+                            <Style>
+                                <Setter Property="Grid.Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                                        <Setter Property="Grid.Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" />
+                        <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="Fetching latest deploy info, please wait..." />
+                    </Grid>
+
+                    <CheckBox Grid.Column="1" Margin="4,0,0,0" Content="Show all available channels" VerticalAlignment="Top" IsChecked="{Binding ShowAllChannels, Mode=TwoWay}" />
                 </Grid>
             </StackPanel>
         </ui:CardExpander>

@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Views.Pages
+﻿using Bloxstrap.ViewModels;
+
+namespace Bloxstrap.Views.Pages
 {
     /// <summary>
     /// Interaction logic for InstallationPage.xaml
@@ -7,6 +9,7 @@
     {
         public InstallationPage()
         {
+            DataContext = new InstallationViewModel();
             InitializeComponent();
         }
     }

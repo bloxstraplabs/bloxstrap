@@ -84,13 +84,13 @@ namespace Bloxstrap.Dialogs.BootstrapperDialogs
 
             if (Bootstrapper is null)
             {
-                Message = "Style Preview - Click Cancel to return";
+                Message = "Style preview - Click Cancel to close";
                 CancelEnabled = true;
             }
             else
             {
                 Bootstrapper.Dialog = this;
-                Task.Run(() => RunBootstrapper());
+                Task.Run(RunBootstrapper);
             }
         }
 

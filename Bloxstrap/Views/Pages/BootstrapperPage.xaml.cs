@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Views.Pages
+﻿using Bloxstrap.ViewModels;
+
+namespace Bloxstrap.Views.Pages
 {
     /// <summary>
     /// Interaction logic for BootstrapperPage.xaml
@@ -7,6 +9,7 @@
     {
         public BootstrapperPage()
         {
+            DataContext = new BootstrapperViewModel(this);
             InitializeComponent();
         }
     }

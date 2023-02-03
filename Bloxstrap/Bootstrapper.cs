@@ -449,6 +449,12 @@ namespace Bloxstrap
         private void UpdateProgressbar()
         {
             int newProgress = (int)Math.Floor(ProgressIncrement * TotalDownloadedBytes);
+
+            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
+            // too lazy to fix properly so lol
+            if (newProgress > 100)
+                return;
+
             Dialog.ProgressValue = newProgress;
         }
 

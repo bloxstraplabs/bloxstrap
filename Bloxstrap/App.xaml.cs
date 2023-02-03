@@ -21,13 +21,13 @@ namespace Bloxstrap
     /// </summary>
     public partial class App : Application
     {
-        public const StringComparison StringFormat = StringComparison.InvariantCulture;
         public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
 
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
 
         public static string BaseDirectory = null!;
+        public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = false;
         public static bool IsQuiet { get; private set; } = false;
         public static bool IsUninstall { get; private set; } = false;
@@ -65,9 +65,6 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            new MainWindow().ShowDialog();
-            return;
-
             LaunchArgs = e.Args;
 
             HttpClient.Timeout = TimeSpan.FromMinutes(5);
@@ -95,12 +92,13 @@ namespace Bloxstrap
             {
                 IsFirstRun = true;
                 Settings = SettingsManager.Settings;
+                BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
 
-                if (IsQuiet)
-                    BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
-                else
-                    //new Preferences().ShowDialog();
+                if (!IsQuiet)
+                {
+                    IsSetupComplete = false;
                     new MainWindow().ShowDialog();
+                }
             }
             else
             {
@@ -109,8 +107,7 @@ namespace Bloxstrap
             }
 
             // preferences dialog was closed, and so base directory was never set
-            // (this doesnt account for the registry value not existing but thats basically never gonna happen)
-            if (String.IsNullOrEmpty(BaseDirectory))
+            if (!IsSetupComplete)
                 return;
 
             Directories.Initialize(BaseDirectory);
@@ -132,8 +129,7 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-#if DEBUG
-            //new Preferences().ShowDialog();
+#if false//DEBUG
             new MainWindow().ShowDialog();
 #else
             if (LaunchArgs.Length > 0)
@@ -147,7 +143,7 @@ namespace Bloxstrap
                     }
 
                     //new Preferences().ShowDialog();
-                    new Configuration.MainWindow().ShowDialog();
+                    new MainWindow().ShowDialog();
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {

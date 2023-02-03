@@ -11,7 +11,7 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="Keyboard Controls" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="Keyboard Controls" FontSize="16" FontWeight="Medium" />
         <Grid Column="0" Margin="0,8,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -36,9 +36,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="If you're using a laptop keyboard, you may have to hold down the Fn key when pressing F6." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="Any screenshots you take are saved to the Screenshots folder in the ReShade folder." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <TextBlock Text="Adding your own shaders and presets" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="Adding your own shaders and presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="While Bloxstrap provides Extravi's ReShade presets as a great way to enhance Roblox's graphics, it also provides the ability to install custom shaders and presets." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="To install custom presets, just extract the necessary .ini files to the ReShade Presets folder. Though, you may also need to add additional shaders and textures." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="To install shaders (known as effects), extract the necessary files to the ReShade Shaders folder. The same goes for textures, where you extract them to the ReShade Textures folder. You could alternatively extract them to organized subfolders like how Bloxstrap does them, though you'll have to configure ReShade to look in these folders." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="To install shaders (known as effects), extract the necessary files to the ReShade Shaders folder. The same goes for textures, where you extract them to the ReShade Textures folder. You could alternatively extract them to organized subfolders like how Bloxstrap does them, though you'll have to configure ReShade to look in those folders." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
     </StackPanel>
 </ui:UiPage>

@@ -28,18 +28,23 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Bloxstrap" Margin="0,0,4,0" FontSize="24" FontWeight="Medium" />
-                    <TextBlock Grid.Column="1" Text="Version 2.0.0" Margin="4,0,0,2" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Grid.Column="1" Text="{Binding Version, Mode=OneTime}" Margin="4,0,0,2" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </Grid>
                 <TextBlock Text="An open-source, feature-packed alternative bootstrapper for Roblox" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                <TextBlock Text="Developed by pizzaboxer - if this is useful, please consider leaving a star on GitHub!" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <TextBlock Text="Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </Grid>
+        <StackPanel Orientation="Horizontal">
+            <ui:Anchor Margin="0,16,4,0" Content="GitHub Repository" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
+            <ui:Anchor Margin="4,16,4,0" Content="Report an issue" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
+            <ui:Anchor Margin="4,16,0,0" Content="Latest Releases" Icon="ArrowDownload48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/releases" />
+        </StackPanel>
 
-        <!--not enough contributors to be worth doing this yet-->
         <TextBlock Text="Contributions" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
         <TextBlock Text="These are the people who have made notable contributions to Bloxstrap, helping make it what it is." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         <Grid Column="0" Margin="0,16,0,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -49,16 +54,19 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium" Text="Multako"  />
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://www.roblox.com/users/2485612194/profile">Multako</Hyperlink></TextBlock>
             <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Designing the Bloxstrap logo" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium" Text="bluepilledgreat" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/bluepilledgreat">bluepilledgreat</Hyperlink></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Helping with bootstrapper functionality and UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" FontSize="14" FontWeight="Medium" Text="sitiom" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Bottom" Text="Setting up GitHub CI workflows and Winget releases" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Providing a method for disabling the Roblox desktop app" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,16,0" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Bottom" Text="Setting up GitHub CI workflows and Winget releases" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
-        <ui:Anchor Margin="0,16,0,0" Content="See all contributors" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
+        <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
         <TextBlock Text="Licenses" FontWeight="Medium" FontSize="18" Margin="0,16,0,0" />
         <Grid>
@@ -76,52 +84,51 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Bloxstrap" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            <ui:CardAction Grid.Row="1" Grid.Column="0" Tag="messagebox" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="1" Grid.Column="0" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Bloxstrap by pizzaboxer" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="1" Grid.Column="1" Tag="messagebox" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/lepoco/wpfui/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/lepoco/wpfui/blob/main/LICENSE">
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="WPF-UI by Lepoco" />
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="WPF-UI by lepoco" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="1" Grid.Column="2" Tag="messagebox" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/securifybv/ShellLink/blob/master/LICENSE.txt">
+            <ui:CardAction Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/securifybv/ShellLink/blob/master/LICENSE.txt">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="ShellLink by securifybv" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="2" Grid.Column="0" Tag="messagebox" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
+            <ui:CardAction Grid.Row="2" Grid.Column="0" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="ini-parser by rickyah" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <!--should this be here? i only borrowed and modified three files, and each source file should have an appropriate copyright notice in the source-->
-            <!--<ui:CardAction Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Tag="messagebox" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="">
+            <ui:CardAction Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Roblox Studio Mod Manager by MaximumADHD" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
-            </ui:CardAction>-->
+            </ui:CardAction>
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Integrations" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            <ui:CardAction Grid.Row="4" Grid.Column="0" Tag="messagebox" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
+            <ui:CardAction Grid.Row="4" Grid.Column="0" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="DiscordRPC by Lachee" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="1" Tag="messagebox" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
+            <ui:CardAction Grid.Row="4" Grid.Column="1" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="ReShade by crosire" />
                     <TextBlock FontSize="12" Text="BSD 3-Clause License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="2" Tag="messagebox" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/axstin/rbxfpsunlocker/blob/master/LICENSE">
+            <ui:CardAction Grid.Row="4" Grid.Column="2" Margin="0,8,0,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/axstin/rbxfpsunlocker/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="rbxfpsunlocker by axstin" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

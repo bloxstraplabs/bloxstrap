@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
-using Wpf.Ui.Common.Interfaces;
-using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Interfaces;
+using Bloxstrap.ViewModels;
 
 namespace Bloxstrap.Views.Pages
 {
@@ -14,12 +11,12 @@ namespace Bloxstrap.Views.Pages
     {
         public IntegrationsPage()
         {
+            DataContext = new IntegrationsViewModel(this);
             InitializeComponent();
-        }
 
-        private void NavigateReShadeHelp(object sender, EventArgs e)
-        {
-            ((INavigationWindow)Window.GetWindow(this)!).Navigate(typeof(ReShadeHelpPage));
+            // rbxfpsunlocker does not have 64 bit support
+            if (!Environment.Is64BitOperatingSystem)
+                this.RbxFpsUnlockerOptions.Visibility = Visibility.Collapsed;
         }
     }
 }

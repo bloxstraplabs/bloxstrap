@@ -1,14 +1,15 @@
 ﻿<ui:UiPage x:Class="Bloxstrap.Views.Pages.IntegrationsPage"
+           x:Name="IntegrationsPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:models="clr-namespace:Bloxstrap.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="680" d:DesignWidth="800"
       Title="IntegrationsPage"
       Scrollable="True">
-
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Configure quick and easy ways to improve the Roblox gameplay experience." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
@@ -20,16 +21,16 @@
                     <TextBlock FontSize="12" Text="The game you're playing on Roblox will show on your Discord activity." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch x:Name="DiscordActivityEnabledToggle" IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=DiscordActivityEnabledToggle, Mode=OneWay}">
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Allow activity joining" />
                     <TextBlock FontSize="12" Text="When enabled, anyone can join your game through your Discord activity." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
         </ui:CardControl>
 
         <TextBlock Text="ReShade" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
@@ -40,54 +41,78 @@
                     <TextBlock FontSize="12" Text="Reshade is a post-processing injector that enables the use of shaders." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch x:Name="ReShadeEnabledToggle" IsChecked="{Binding ReShadeEnabled, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ReShadeEnabledToggle, Mode=OneWay}">
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Use Extravi's shader presets" />
                     <TextBlock FontSize="12" Text="ReShade presets made specifically for Roblox that enhance your graphics." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ui:ToggleSwitch />
+            <ui:ToggleSwitch IsChecked="{Binding ReShadePresetsEnabled, Mode=TwoWay}" />
         </ui:CardControl>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ui:CardAction Grid.Column="0" Margin="0,8,4,0" Icon="Folder24" Tag="messagebox">
+            <ui:CardAction Grid.Column="0" Margin="0,8,4,0" Icon="Folder24" Command="{Binding OpenReShadeFolderCommand}" IsEnabled="{Binding CanOpenReShadeFolder}">
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Open ReShade Folder" />
-                    <TextBlock FontSize="12" Text="Shaders and screenshots are stored here" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="Open ReShade Folder">
+                        <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+                        <TextBlock.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
+                                        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                        <TextBlock.Style>
+                            <Style>
+                                <Setter Property="TextBlock.Text" Value="Shaders and screenshots are stored here."/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
+                                        <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Tag="messagebox" Click="NavigateReShadeHelp">
+            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="{Binding ShowReShadeHelpCommand}">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
-                    <TextBlock FontSize="12" Text="See help information on using ReShade" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="12" Text="See help information on using ReShade." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>
 
-        <TextBlock Text="FPS Unlocking" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Use axstin's rbxfpsunlocker" />
-                    <TextBlock FontSize="12" Text="rbxfpsunlocker removes Roblox's 60FPS cap and will launch alongside Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
-            <ui:ToggleSwitch />
-        </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Stop when Roblox closes" />
-                    <TextBlock FontSize="12" Text="rbxfpsunlocker will automatically close when Roblox closes." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
-            <ui:ToggleSwitch />
-        </ui:CardControl>
+        <StackPanel x:Name="RbxFpsUnlockerOptions">
+            <TextBlock Text="FPS Unlocking" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+            <ui:CardControl Margin="0,8,0,0">
+                <ui:CardControl.Header>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="13" FontWeight="Medium" Text="Use axstin's rbxfpsunlocker" />
+                        <TextBlock FontSize="12" Text="rbxfpsunlocker removes Roblox's 60FPS cap and will launch alongside Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch x:Name="RbxFpsUnlockerEnabledToggle"  IsChecked="{Binding RbxFpsUnlockerEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=RbxFpsUnlockerEnabledToggle, Mode=OneWay}">
+                <ui:CardControl.Header>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="13" FontWeight="Medium" Text="Stop when Roblox closes" />
+                        <TextBlock FontSize="12" Text="rbxfpsunlocker will automatically close when Roblox closes." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding RbxFpsUnlockerAutocloseEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+        </StackPanel>
     </StackPanel>
 </ui:UiPage>
