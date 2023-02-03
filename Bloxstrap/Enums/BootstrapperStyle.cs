@@ -37,9 +37,21 @@ namespace Bloxstrap.Enums
                     dialog = new ProgressDialog(bootstrapper);
                     break;
             }
-            
-            if (!App.IsQuiet)
+
+            if (bootstrapper is null)
+            {
                 dialog.ShowDialog();
+            }
+            else
+            {
+                if (App.IsQuiet)
+                {
+                    dialog.Opacity = 0;
+                    dialog.ShowInTaskbar = false;
+                }
+
+                Application.Run(dialog);
+            }
         }
     }
 }

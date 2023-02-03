@@ -280,8 +280,7 @@ namespace Bloxstrap
                 Dialog.CloseDialog();
                 await gameClient.WaitForExitAsync();
 
-                if (richPresence is not null)
-                    richPresence.Dispose();
+                richPresence?.Dispose();
 
                 if (App.Settings.RFUAutoclose && rbxFpsUnlocker is not null)
                     rbxFpsUnlocker.Kill();

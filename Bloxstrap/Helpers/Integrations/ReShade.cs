@@ -300,6 +300,9 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static void UninstallExtraviPresets()
         {
+            if (!Directory.Exists(PresetsFolder))
+                return;
+
             Debug.WriteLine("[ReShade] Uninstalling Extravi's presets...");
 
             FileInfo[] presets = new DirectoryInfo(PresetsFolder).GetFiles();

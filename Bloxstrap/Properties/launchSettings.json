@@ -1,7 +1,11 @@
 {
   "profiles": {
-    "Bloxstrap": {
+    "Bloxstrap (Launch)": {
       "commandName": "Project"
+    },
+    "Bloxstrap (Quiet)": {
+      "commandName": "Project",
+      "commandLineArgs": "-quiet"
     },
     "Bloxstrap (Menu)": {
       "commandName": "Project",

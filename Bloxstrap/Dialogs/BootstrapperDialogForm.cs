@@ -12,6 +12,8 @@ namespace Bloxstrap.Dialogs
     {
         public Bootstrapper? Bootstrapper { get; set; }
 
+        protected override bool ShowWithoutActivation => App.IsQuiet;
+
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
