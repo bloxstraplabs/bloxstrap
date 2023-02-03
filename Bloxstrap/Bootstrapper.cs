@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
@@ -232,59 +233,64 @@ namespace Bloxstrap
 
             LaunchCommandLine  += " -startEvent " + startEventName;
 
+            bool shouldWait = false;
+            Process gameClient = Process.Start(Path.Combine(VersionFolder, "RobloxPlayerBeta.exe"), LaunchCommandLine);
+            Process? rbxFpsUnlocker = null;
+            DiscordRichPresence? richPresence = null;
+            Mutex? singletonMutex = null;
+
             using (SystemEvent startEvent = new(startEventName))
             {
-                bool shouldWait = false;
-
-                Process gameClient = Process.Start(Path.Combine(VersionFolder, "RobloxPlayerBeta.exe"), LaunchCommandLine);
-                Process? rbxFpsUnlocker = null;
-                DiscordRichPresence? richPresence = null;
-
                 bool startEventFired = await startEvent.WaitForEvent();
 
                 startEvent.Close();
 
                 if (!startEventFired)
                     return;
-
-                if (App.Settings.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0)
-                {
-                    ProcessStartInfo startInfo = new()
-                    {
-                        FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe"),
-                        WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker")
-                    };
-
-                    rbxFpsUnlocker = Process.Start(startInfo);
-
-                    if (App.Settings.RFUAutoclose)
-                        shouldWait = true;
-                }
-
-                // event fired, wait for 3 seconds then close
-                await Task.Delay(3000);
-
-                // now we move onto handling rich presence
-                if (App.Settings.UseDiscordRichPresence)
-                {
-                    richPresence = new DiscordRichPresence();
-                    richPresence.MonitorGameActivity();
-
-                    shouldWait = true;
-                }
-
-                if (!shouldWait)
-                    return;
-
-                // keep bloxstrap open in the background
-                Dialog.CloseDialog();
-                await gameClient.WaitForExitAsync();
-
-                richPresence?.Dispose();
-
-                if (App.Settings.RFUAutoclose && rbxFpsUnlocker is not null)
-                    rbxFpsUnlocker.Kill();
             }
+            
+            if (App.Settings.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0) 
+            { 
+                ProcessStartInfo startInfo = new() 
+                { 
+                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe"), 
+                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker")
+                }; 
+                
+                rbxFpsUnlocker = Process.Start(startInfo);
+                
+                if (App.Settings.RFUAutoclose) 
+                    shouldWait = true;
+            }
+
+            if (App.Settings.MultiInstanceLaunching)
+            {
+                singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
+                shouldWait = true;
+            }
+
+            // event fired, wait for 3 seconds then close
+            await Task.Delay(3000);
+
+            if (App.Settings.UseDiscordRichPresence)
+            {
+                richPresence = new DiscordRichPresence();
+                richPresence.MonitorGameActivity();
+                shouldWait = true;
+            }
+
+            if (!shouldWait)
+                return;
+
+            // keep bloxstrap open in the background
+            Dialog.CloseDialog();
+            await gameClient.WaitForExitAsync();
+
+            richPresence?.Dispose();
+            singletonMutex?.ReleaseMutex();
+
+            if (App.Settings.RFUAutoclose && rbxFpsUnlocker is not null)
+                rbxFpsUnlocker.Kill();
         }
 
         public void CancelButtonClicked()

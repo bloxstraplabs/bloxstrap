@@ -39,6 +39,12 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.PromptChannelChange = value;
         }
 
+        public bool MultiInstanceLaunchingEnabled
+        {
+            get => App.Settings.MultiInstanceLaunching;
+            set => App.Settings.MultiInstanceLaunching = value;
+        }
+
         public IReadOnlyDictionary<string, Theme> Themes { get; set; } = new Dictionary<string, Theme>()
         {
             { "System Default", Enums.Theme.Default },

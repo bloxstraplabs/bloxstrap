@@ -26,6 +26,15 @@
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="Allow multi-game instance launching" />
+                    <TextBlock FontSize="12" Text="Roblox will allow having more than one game instance open simultaneously." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0">
+            <ui:CardControl.Header>
+                <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Prompt on Roblox-forced channel change" />
                     <TextBlock FontSize="12" Text="Confirm if Roblox mandates a channel change on launch. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
