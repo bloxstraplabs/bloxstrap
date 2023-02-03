@@ -40,10 +40,11 @@
             <ui:Anchor Margin="4,16,0,0" Content="Latest Releases" Icon="ArrowDownload48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/releases" />
         </StackPanel>
 
-        <TextBlock Text="Contributions" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+        <TextBlock Text="Contributors" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
         <TextBlock Text="These are the people who have made notable contributions to Bloxstrap, helping make it what it is." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        <Grid Column="0" Margin="0,16,0,0">
+        <Grid Column="0" Margin="0,8,0,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -54,17 +55,20 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://www.roblox.com/users/2485612194/profile">Multako</Hyperlink></TextBlock>
-            <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Designing the Bloxstrap logo" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://www.roblox.com/users/2485612194/profile">Multako</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="Designing the Bloxstrap logo" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/bluepilledgreat">bluepilledgreat</Hyperlink></TextBlock>
-            <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Helping with bootstrapper functionality and UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/bluepilledgreat">bluepilledgreat</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping with bootstrapper functionality and UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,8" VerticalAlignment="Bottom" Text="Providing a method for disabling the Roblox desktop app" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Providing a method for disabling the Roblox desktop app" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,16,0" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink></TextBlock>
-            <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Bottom" Text="Setting up GitHub CI workflows and Winget releases" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Setting up GitHub CI workflows and Winget releases" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/Mantaraix">taskmanager</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping with designing the new menu look and layout" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
         <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
