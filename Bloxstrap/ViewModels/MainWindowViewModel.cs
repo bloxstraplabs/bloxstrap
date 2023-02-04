@@ -64,13 +64,14 @@ namespace Bloxstrap.ViewModels
 
             if (!App.IsFirstRun)
             {
-                App.Settings.ShouldSave = true;
+                //App.Settings.ShouldSave = true;
+                App.ShouldSaveConfigs = true;
 
                 if (App.BaseDirectory != _originalBaseDirectory)
                 {
                     App.ShowMessageBox($"{App.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxImage.Information);
 
-                    App.Settings.Prop.VersionGuid = "";
+                    App.State.Prop.VersionGuid = "";
 
                     using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
                     {

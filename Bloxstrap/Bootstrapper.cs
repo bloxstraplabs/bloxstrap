@@ -86,7 +86,7 @@ namespace Bloxstrap
         public Bootstrapper(string? launchCommandLine = null)
         {
             LaunchCommandLine = launchCommandLine;
-            FreshInstall = String.IsNullOrEmpty(App.Settings.Prop.VersionGuid);
+            FreshInstall = String.IsNullOrEmpty(App.State.Prop.VersionGuid);
         }
 
         // this is called from BootstrapperStyleForm.SetupDialog()
@@ -107,11 +107,14 @@ namespace Bloxstrap
 
             // if bloxstrap is installing for the first time but is running, prompt to close roblox
             // if roblox needs updating but is running, ignore update for now
-            if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || App.Settings.Prop.VersionGuid != VersionGuid && !CheckIfRunning(false))
+            if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || App.State.Prop.VersionGuid != VersionGuid && !CheckIfRunning(false))
                 await InstallLatestVersion();
-            
+
             if (App.IsFirstRun)
-                App.Settings.ShouldSave = true;
+            {
+                //App.Settings.ShouldSave = App.State.ShouldSave = true;
+                App.ShouldSaveConfigs = true;
+            }
 
             await ApplyModifications();
 
@@ -123,6 +126,7 @@ namespace Bloxstrap
             await RbxFpsUnlocker.CheckInstall();
             
             App.Settings.Save();
+            App.State.Save();
 
             if (App.IsFirstRun && App.IsNoLaunch)
                 Dialog.ShowSuccess($"{App.ProjectName} has successfully installed");
@@ -413,7 +417,8 @@ namespace Bloxstrap
 
             Dialog.Message = $"Uninstalling {App.ProjectName}...";
 
-            App.Settings.ShouldSave = false;
+            //App.Settings.ShouldSave = false;
+            App.ShouldSaveConfigs = false;
 
             // check if stock bootstrapper is still installed
             RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
@@ -540,9 +545,9 @@ namespace Bloxstrap
                         File.Delete(filename);
                 }
 
-                string oldVersionFolder = Path.Combine(Directories.Versions, App.Settings.Prop.VersionGuid);
+                string oldVersionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
-                if (VersionGuid != App.Settings.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
+                if (VersionGuid != App.State.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
                 {
                     // and also to delete our old version folder
                     Directory.Delete(oldVersionFolder, true);
@@ -551,7 +556,7 @@ namespace Bloxstrap
 
             Dialog.CancelEnabled = false;
 
-            App.Settings.Prop.VersionGuid = VersionGuid;
+            App.State.Prop.VersionGuid = VersionGuid;
         }
 
         private async Task ApplyModifications()

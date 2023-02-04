@@ -53,15 +53,14 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task CheckInstall()
         {
-            if (App.BaseDirectory is null)
-                return;
-
             string folderLocation = Path.Combine(App.BaseDirectory, "Integrations\\rbxfpsunlocker");
             string fileLocation = Path.Combine(folderLocation, "rbxfpsunlocker.exe");
             string settingsLocation = Path.Combine(folderLocation, "settings");
 
             if (!App.Settings.Prop.RFUEnabled)
             {
+                App.State.Prop.RbxFpsUnlockerVersion = "";
+
                 if (Directory.Exists(folderLocation))
                 {
                     CheckIfRunning();
@@ -83,7 +82,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (File.Exists(fileLocation))
             {
                 // no new release published, return
-                if (App.Settings.Prop.RFUVersion == releaseInfo.TagName)
+                if (App.State.Prop.RbxFpsUnlockerVersion == releaseInfo.TagName)
                     return;
 
                 CheckIfRunning();
@@ -104,7 +103,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!File.Exists(settingsLocation))
                 await File.WriteAllTextAsync(settingsLocation, Settings);
 
-            App.Settings.Prop.RFUVersion = releaseInfo.TagName;
+            App.State.Prop.RbxFpsUnlockerVersion = releaseInfo.TagName;
         }
     }
 }

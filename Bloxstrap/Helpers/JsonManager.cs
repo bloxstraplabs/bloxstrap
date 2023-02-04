@@ -16,7 +16,7 @@ namespace Bloxstrap.Helpers
     public class JsonManager<T> where T : new()
     {
         public T Prop { get; set; } = new T();
-        public bool ShouldSave { get; set; } = true;
+        //public bool ShouldSave { get; set; } = true;
         public string FileLocation => Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
         //public string? FileLocation { get; set; } = null;
 
@@ -50,7 +50,8 @@ namespace Bloxstrap.Helpers
             //    return;
             //}
 
-            if (!ShouldSave)
+            //if (!ShouldSave)
+            if (!App.ShouldSaveConfigs)
             {
                 Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Aborted save (ShouldSave set to false)");
                 return;

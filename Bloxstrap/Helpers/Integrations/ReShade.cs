@@ -129,7 +129,7 @@ namespace Bloxstrap.Helpers.Integrations
             // config synchronization will be done whenever roblox updates or whenever we launch roblox
 
             string modFolderConfigPath = ConfigLocation;
-            string versionFolderConfigPath = Path.Combine(Directories.Versions, App.Settings.Prop.VersionGuid, "ReShade.ini");
+            string versionFolderConfigPath = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid, "ReShade.ini");
 
             // we shouldn't be here if the mod config doesn't already exist
             if (!File.Exists(modFolderConfigPath))
@@ -326,7 +326,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!App.Settings.Prop.UseReShadeExtraviPresets)
             {
                 UninstallExtraviPresets();
-                App.Settings.Prop.ExtraviPresetsVersion = "";
+                App.State.Prop.ExtraviReShadePresetsVersion = "";
             }
 
             if (!App.Settings.Prop.UseReShade)
@@ -337,7 +337,7 @@ namespace Bloxstrap.Helpers.Integrations
                 File.Delete(injectorLocation);
                 File.Delete(ConfigLocation);
 
-                App.Settings.Prop.ReShadeConfigVersion = "";
+                App.State.Prop.ReShadeConfigVersion = "";
 
                 //DeleteShaders("Stock");
                 if (Directory.Exists(BaseDirectory))
@@ -373,7 +373,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             // check if we should download a fresh copy of the config
             // extravi may need to update the config ota, in which case we'll redownload it
-            if (!File.Exists(ConfigLocation) || versionManifest is not null && App.Settings.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
+            if (!File.Exists(ConfigLocation) || versionManifest is not null && App.State.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
                 shouldFetchConfig = true;
 
             if (shouldFetchReShade)
@@ -393,15 +393,15 @@ namespace Bloxstrap.Helpers.Integrations
                 await DownloadConfig();
 
                 if (versionManifest is not null)
-                    App.Settings.Prop.ReShadeConfigVersion = versionManifest.ConfigFile;
+                    App.State.Prop.ReShadeConfigVersion = versionManifest.ConfigFile;
             }
 
             await DownloadShaders("Stock");
 
-            if (App.Settings.Prop.UseReShadeExtraviPresets && App.Settings.Prop.ExtraviPresetsVersion != versionManifest!.Presets)
+            if (App.Settings.Prop.UseReShadeExtraviPresets && App.State.Prop.ExtraviReShadePresetsVersion != versionManifest!.Presets)
             {
                 await InstallExtraviPresets();
-                App.Settings.Prop.ExtraviPresetsVersion = versionManifest.Presets;
+                App.State.Prop.ExtraviReShadePresetsVersion = versionManifest.Presets;
             }
 
             SynchronizeConfigFile();

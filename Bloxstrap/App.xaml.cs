@@ -26,6 +26,7 @@ namespace Bloxstrap
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
 
         public static string BaseDirectory = null!;
+        public static bool ShouldSaveConfigs { get; set; } = false;
         public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = false;
         public static bool IsQuiet { get; private set; } = false;
@@ -38,6 +39,7 @@ namespace Bloxstrap
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
         public static readonly JsonManager<Settings> Settings = new();
+        public static readonly JsonManager<State> State = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
@@ -52,6 +54,7 @@ namespace Bloxstrap
         public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
             Settings.Save();
+            State.Save();
             Environment.Exit(code);
         }
 
@@ -115,8 +118,9 @@ namespace Bloxstrap
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
+                ShouldSaveConfigs = true;
                 Settings.Load();
-                Settings.ShouldSave = true;
+                State.Load();
             }
 
 #if !DEBUG
