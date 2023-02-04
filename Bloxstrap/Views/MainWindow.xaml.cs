@@ -27,7 +27,7 @@ namespace Bloxstrap.Views
         {
             var theme = ThemeType.Light;
 
-            if (App.Settings.Theme.GetFinal() == Enums.Theme.Dark)
+            if (App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark)
                 theme = ThemeType.Dark;
 
             _themeService.SetTheme(theme);

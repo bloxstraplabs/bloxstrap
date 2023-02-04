@@ -82,7 +82,7 @@ namespace Bloxstrap.Dialogs
         public void SetupDialog()
         {
             this.Text = App.ProjectName;
-            this.Icon = App.Settings.BootstrapperIcon.GetIcon();
+            this.Icon = App.Settings.Prop.BootstrapperIcon.GetIcon();
 
             if (Bootstrapper is null)
             {

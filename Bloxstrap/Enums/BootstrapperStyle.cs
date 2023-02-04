@@ -16,27 +16,14 @@ namespace Bloxstrap.Enums
     {
         public static void Show(this BootstrapperStyle bootstrapperStyle, Bootstrapper? bootstrapper = null)
         {
-            Form dialog;
-
-            switch (bootstrapperStyle)
+            Form dialog = bootstrapperStyle switch
             {
-                case BootstrapperStyle.VistaDialog:
-                    dialog = new VistaDialog(bootstrapper);
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2009:
-                    dialog = new LegacyDialog2009(bootstrapper);
-                    break;
-
-                case BootstrapperStyle.LegacyDialog2011:
-                    dialog = new LegacyDialog2011(bootstrapper);
-                    break;
-
-                case BootstrapperStyle.ProgressDialog:
-                default:
-                    dialog = new ProgressDialog(bootstrapper);
-                    break;
-            }
+                BootstrapperStyle.VistaDialog => new VistaDialog(bootstrapper),
+                BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(bootstrapper),
+                BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(bootstrapper),
+                BootstrapperStyle.ProgressDialog => new ProgressDialog(bootstrapper),
+                _ => new ProgressDialog(bootstrapper)
+            };
 
             if (bootstrapper is null)
             {

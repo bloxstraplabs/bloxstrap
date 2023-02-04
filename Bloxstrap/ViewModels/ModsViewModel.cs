@@ -18,20 +18,20 @@ namespace Bloxstrap.ViewModels
 
         public bool OldDeathSoundEnabled
         {
-            get => App.Settings.UseOldDeathSound;
-            set => App.Settings.UseOldDeathSound = value;
+            get => App.Settings.Prop.UseOldDeathSound;
+            set => App.Settings.Prop.UseOldDeathSound = value;
         }
 
         public bool OldMouseCursorEnabled
         {
-            get => App.Settings.UseOldMouseCursor;
-            set => App.Settings.UseOldMouseCursor = value;
+            get => App.Settings.Prop.UseOldMouseCursor;
+            set => App.Settings.Prop.UseOldMouseCursor = value;
         }
 
         public bool DisableAppPatchEnabled
         {
-            get => App.Settings.UseDisableAppPatch;
-            set => App.Settings.UseDisableAppPatch = value;
+            get => App.Settings.Prop.UseDisableAppPatch;
+            set => App.Settings.Prop.UseDisableAppPatch = value;
         }
     }
 }

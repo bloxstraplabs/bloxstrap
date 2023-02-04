@@ -37,8 +37,7 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
-        public static SettingsManager SettingsManager = new();
-        public static SettingsFormat Settings = SettingsManager.Settings;
+        public static readonly JsonManager<Settings> Settings = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
@@ -52,7 +51,7 @@ namespace Bloxstrap
 
         public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
-            SettingsManager.Save();
+            Settings.Save();
             Environment.Exit(code);
         }
 
@@ -90,7 +89,6 @@ namespace Bloxstrap
             if (registryKey is null)
             {
                 IsFirstRun = true;
-                Settings = SettingsManager.Settings;
                 BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
 
                 if (!IsQuiet)
@@ -111,14 +109,14 @@ namespace Bloxstrap
 
             Directories.Initialize(BaseDirectory);
 
-            SettingsManager.SaveLocation = Path.Combine(Directories.Base, "Settings.json");
+            //Settings.FileLocation = Path.Combine(Directories.Base, "Settings.json");
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
-                Settings = SettingsManager.Settings;
-                SettingsManager.ShouldSave = true;
+                Settings.Load();
+                Settings.ShouldSave = true;
             }
 
 #if !DEBUG
@@ -163,8 +161,8 @@ namespace Bloxstrap
 
             if (!String.IsNullOrEmpty(commandLine))
             {
-                DeployManager.Channel = Settings.Channel;
-                Settings.BootstrapperStyle.Show(new Bootstrapper(commandLine));
+                DeployManager.Channel = Settings.Prop.Channel;
+                Settings.Prop.BootstrapperStyle.Show(new Bootstrapper(commandLine));
             }
 
             Terminate();

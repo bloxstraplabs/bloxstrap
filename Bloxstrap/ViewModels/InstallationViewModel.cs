@@ -19,8 +19,8 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private IEnumerable<string> _channels = DeployManager.ChannelsAbstracted.Contains(App.Settings.Channel) ? DeployManager.ChannelsAbstracted : DeployManager.ChannelsAll;
-        private bool _showAllChannels = !DeployManager.ChannelsAbstracted.Contains(App.Settings.Channel);
+        private IEnumerable<string> _channels = DeployManager.ChannelsAbstracted.Contains(App.Settings.Prop.Channel) ? DeployManager.ChannelsAbstracted : DeployManager.ChannelsAll;
+        private bool _showAllChannels = !DeployManager.ChannelsAbstracted.Contains(App.Settings.Prop.Channel);
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
 
@@ -28,7 +28,7 @@ namespace Bloxstrap.ViewModels
 
         public InstallationViewModel()
         {
-            Task.Run(() => LoadChannelDeployInfo(App.Settings.Channel));
+            Task.Run(() => LoadChannelDeployInfo(App.Settings.Prop.Channel));
         }
 
         private async Task LoadChannelDeployInfo(string channel)
@@ -62,8 +62,8 @@ namespace Bloxstrap.ViewModels
 
         public bool CreateDesktopIcon
         {
-            get => App.Settings.CreateDesktopIcon;
-            set => App.Settings.CreateDesktopIcon = value;
+            get => App.Settings.Prop.CreateDesktopIcon;
+            set => App.Settings.Prop.CreateDesktopIcon = value;
         }
 
         public IEnumerable<string> Channels
@@ -74,12 +74,12 @@ namespace Bloxstrap.ViewModels
 
         public string Channel
         {
-            get => App.Settings.Channel;
+            get => App.Settings.Prop.Channel;
             set
             {
                 //Task.Run(() => GetChannelInfo(value));
                 Task.Run(() => LoadChannelDeployInfo(value));
-                App.Settings.Channel = value;
+                App.Settings.Prop.Channel = value;
             }
         }
 

@@ -51,17 +51,17 @@ namespace Bloxstrap.Helpers
 
                 if (key == "channel")
                 {
-                    if (val.ToLower() != App.Settings.Channel.ToLower())
+                    if (val.ToLower() != App.Settings.Prop.Channel.ToLower())
                     {
-                        MessageBoxResult result = !App.Settings.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
-                            $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Channel}.\n\n" +
-                            $"Would you like to switch channels from {App.Settings.Channel} to {val}?",
+                        MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
+                            $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
+                            $"Would you like to switch channels from {App.Settings.Prop.Channel} to {val}?",
                             MessageBoxImage.Question,
                             MessageBoxButton.YesNo
                         );
 
                         if (result == MessageBoxResult.Yes)
-                            App.Settings.Channel = val;
+                            App.Settings.Prop.Channel = val;
                     }
 
                     // we'll set the arg when launching

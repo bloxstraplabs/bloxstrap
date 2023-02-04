@@ -64,13 +64,13 @@ namespace Bloxstrap.ViewModels
 
             if (!App.IsFirstRun)
             {
-                App.SettingsManager.ShouldSave = true;
+                App.Settings.ShouldSave = true;
 
                 if (App.BaseDirectory != _originalBaseDirectory)
                 {
                     App.ShowMessageBox($"{App.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxImage.Information);
 
-                    App.Settings.VersionGuid = "";
+                    App.Settings.Prop.VersionGuid = "";
 
                     using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
                     {
@@ -82,9 +82,9 @@ namespace Bloxstrap.ViewModels
                     // preserve settings
                     // we don't need to copy the bootstrapper over since the install process will do that automatically
 
-                    App.SettingsManager.Save();
+                    App.Settings.Save();
 
-                    File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(App.BaseDirectory, "Settings.json"));
+                    //File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(App.BaseDirectory, "Settings.json"));
                 }
             }
 

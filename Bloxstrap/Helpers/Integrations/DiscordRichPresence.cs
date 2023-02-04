@@ -174,7 +174,7 @@ namespace Bloxstrap.Helpers.Integrations
                 }
             };
 
-            if (!App.Settings.HideRPCButtons)
+            if (!App.Settings.Prop.HideRPCButtons)
             {
                 buttons.Insert(0, new DiscordRPC.Button()
                 {

@@ -3,7 +3,7 @@ using Bloxstrap.Helpers;
 
 namespace Bloxstrap.Models
 {
-    public class SettingsFormat
+    public class Settings
     {
         // could these be moved to a separate file (something like State.json)?
         // the only problem is i havent yet figured out a way to boil down the settings handler to reduce boilerplate

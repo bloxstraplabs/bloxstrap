@@ -68,7 +68,7 @@ namespace Bloxstrap.Dialogs
 
             Dialog = new TaskDialogPage()
             {
-                Icon = new TaskDialogIcon(App.Settings.BootstrapperIcon.GetIcon()),
+                Icon = new TaskDialogIcon(App.Settings.Prop.BootstrapperIcon.GetIcon()),
                 Caption = App.ProjectName,
 
                 Buttons = { TaskDialogButton.Cancel },

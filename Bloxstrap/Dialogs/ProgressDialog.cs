@@ -38,7 +38,7 @@ namespace Bloxstrap.Dialogs
         {
             InitializeComponent();
 
-            if (App.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Prop.Theme.GetFinal() == Theme.Dark)
             {
                 this.labelMessage.ForeColor = SystemColors.Window;
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
@@ -48,14 +48,14 @@ namespace Bloxstrap.Dialogs
 
             Bootstrapper = bootstrapper;
 
-            this.IconBox.BackgroundImage = App.Settings.BootstrapperIcon.GetBitmap();
+            this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetBitmap();
 
             SetupDialog();
         }
 
         private void ButtonCancel_MouseEnter(object sender, EventArgs e)
         {
-            if (App.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Prop.Theme.GetFinal() == Theme.Dark)
             {
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButtonHover;
             }
@@ -67,7 +67,7 @@ namespace Bloxstrap.Dialogs
 
         private void ButtonCancel_MouseLeave(object sender, EventArgs e)
         {
-            if (App.Settings.Theme.GetFinal() == Theme.Dark)
+            if (App.Settings.Prop.Theme.GetFinal() == Theme.Dark)
             {
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
             }

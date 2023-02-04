@@ -22,7 +22,7 @@ namespace Bloxstrap.ViewModels
         public ICommand OpenReShadeFolderCommand => new RelayCommand(OpenReShadeFolder);
         public ICommand ShowReShadeHelpCommand => new RelayCommand(ShowReShadeHelp);
 
-        public bool CanOpenReShadeFolder => App.Settings.UseReShade;
+        public bool CanOpenReShadeFolder => App.Settings.Prop.UseReShade;
 
         public IntegrationsViewModel(Page page)
         {
@@ -41,10 +41,10 @@ namespace Bloxstrap.ViewModels
 
         public bool DiscordActivityEnabled
         {
-            get => App.Settings.UseDiscordRichPresence;
+            get => App.Settings.Prop.UseDiscordRichPresence;
             set
             {
-                App.Settings.UseDiscordRichPresence = value;
+                App.Settings.Prop.UseDiscordRichPresence = value;
 
                 if (!value)
                 {
@@ -56,16 +56,16 @@ namespace Bloxstrap.ViewModels
 
         public bool DiscordActivityJoinEnabled
         {
-            get => !App.Settings.HideRPCButtons;
-            set => App.Settings.HideRPCButtons = !value;
+            get => !App.Settings.Prop.HideRPCButtons;
+            set => App.Settings.Prop.HideRPCButtons = !value;
         }
 
         public bool ReShadeEnabled
         {
-            get => App.Settings.UseReShade;
+            get => App.Settings.Prop.UseReShade;
             set
             {
-                App.Settings.UseReShade = value;
+                App.Settings.Prop.UseReShade = value;
                 ReShadePresetsEnabled = value;
                 OnPropertyChanged(nameof(ReShadePresetsEnabled));
             }
@@ -73,16 +73,16 @@ namespace Bloxstrap.ViewModels
 
         public bool ReShadePresetsEnabled
         {
-            get => App.Settings.UseReShadeExtraviPresets;
-            set => App.Settings.UseReShadeExtraviPresets = value;
+            get => App.Settings.Prop.UseReShadeExtraviPresets;
+            set => App.Settings.Prop.UseReShadeExtraviPresets = value;
         }
 
         public bool RbxFpsUnlockerEnabled
         {
-            get => App.Settings.RFUEnabled;
+            get => App.Settings.Prop.RFUEnabled;
             set
             {
-                App.Settings.RFUEnabled = value;
+                App.Settings.Prop.RFUEnabled = value;
                 RbxFpsUnlockerAutocloseEnabled = value;
                 OnPropertyChanged(nameof(RbxFpsUnlockerAutocloseEnabled));
             }
@@ -90,8 +90,8 @@ namespace Bloxstrap.ViewModels
 
         public bool RbxFpsUnlockerAutocloseEnabled
         {
-            get => App.Settings.RFUAutoclose;
-            set => App.Settings.RFUAutoclose = value;
+            get => App.Settings.Prop.RFUAutoclose;
+            set => App.Settings.Prop.RFUAutoclose = value;
         }
     }
 }

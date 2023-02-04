@@ -3,9 +3,17 @@
     "Bloxstrap (Launch)": {
       "commandName": "Project"
     },
-    "Bloxstrap (Quiet)": {
+    "Bloxstrap (Quiet Launch)": {
       "commandName": "Project",
       "commandLineArgs": "-quiet"
+    },
+    "Bloxstrap (Uninstall)": {
+      "commandName": "Project",
+      "commandLineArgs": "-uninstall"
+    },
+    "Bloxstrap (Quiet Uninstall)": {
+      "commandName": "Project",
+      "commandLineArgs": "-uninstall -quiet"
     },
     "Bloxstrap (Menu)": {
       "commandName": "Project",

@@ -86,7 +86,7 @@ namespace Bloxstrap
         public Bootstrapper(string? launchCommandLine = null)
         {
             LaunchCommandLine = launchCommandLine;
-            FreshInstall = String.IsNullOrEmpty(App.Settings.VersionGuid);
+            FreshInstall = String.IsNullOrEmpty(App.Settings.Prop.VersionGuid);
         }
 
         // this is called from BootstrapperStyleForm.SetupDialog()
@@ -99,7 +99,7 @@ namespace Bloxstrap
             }
 
 #if !DEBUG
-            if (!App.IsFirstRun && App.Settings.CheckForUpdates)
+            if (!App.IsFirstRun && App.Settings.Prop.CheckForUpdates)
                 await CheckForUpdates();
 #endif
 
@@ -107,13 +107,13 @@ namespace Bloxstrap
 
             // if bloxstrap is installing for the first time but is running, prompt to close roblox
             // if roblox needs updating but is running, ignore update for now
-            if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || App.Settings.VersionGuid != VersionGuid && !CheckIfRunning(false))
+            if (!Directory.Exists(VersionFolder) && CheckIfRunning(true) || App.Settings.Prop.VersionGuid != VersionGuid && !CheckIfRunning(false))
                 await InstallLatestVersion();
+            
+            if (App.IsFirstRun)
+                App.Settings.ShouldSave = true;
 
             await ApplyModifications();
-
-            if (App.IsFirstRun)
-                App.SettingsManager.ShouldSave = true;
 
             if (App.IsFirstRun || FreshInstall)
                 Register();
@@ -122,7 +122,7 @@ namespace Bloxstrap
 
             await RbxFpsUnlocker.CheckInstall();
             
-            App.SettingsManager.Save();
+            App.Settings.Save();
 
             if (App.IsFirstRun && App.IsNoLaunch)
                 Dialog.ShowSuccess($"{App.ProjectName} has successfully installed");
@@ -167,7 +167,7 @@ namespace Bloxstrap
             foreach (string arg in App.LaunchArgs)
                 startInfo.ArgumentList.Add(arg);
 
-            App.SettingsManager.Save();
+            App.Settings.Save();
 
             Process.Start(startInfo);
 
@@ -178,7 +178,7 @@ namespace Bloxstrap
         {
             Dialog.Message = "Connecting to Roblox...";
 
-            ClientVersion clientVersion = await DeployManager.GetLastDeploy(App.Settings.Channel);
+            ClientVersion clientVersion = await DeployManager.GetLastDeploy(App.Settings.Prop.Channel);
             VersionGuid = clientVersion.VersionGuid;
             VersionFolder = Path.Combine(Directories.Versions, VersionGuid);
             VersionPackageManifest = await PackageManifest.Get(VersionGuid);
@@ -217,7 +217,7 @@ namespace Bloxstrap
 
             Dialog.Message = "Starting Roblox...";
 
-            if (LaunchCommandLine == "--app" && App.Settings.UseDisableAppPatch)
+            if (LaunchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
                 Utilities.OpenWebsite("https://www.roblox.com/games");
                 return;
@@ -226,8 +226,8 @@ namespace Bloxstrap
             // launch time isn't really required for all launches, but it's usually just safest to do this
             LaunchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
-            if (App.Settings.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
-                LaunchCommandLine += " -channel " + App.Settings.Channel.ToLower();
+            if (App.Settings.Prop.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
+                LaunchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
 
             LaunchCommandLine  += " -startEvent " + startEventName;
 
@@ -247,7 +247,7 @@ namespace Bloxstrap
                     return;
             }
             
-            if (App.Settings.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0) 
+            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0) 
             { 
                 ProcessStartInfo startInfo = new() 
                 { 
@@ -257,11 +257,11 @@ namespace Bloxstrap
                 
                 rbxFpsUnlocker = Process.Start(startInfo);
                 
-                if (App.Settings.RFUAutoclose) 
+                if (App.Settings.Prop.RFUAutoclose) 
                     shouldWait = true;
             }
 
-            if (App.Settings.MultiInstanceLaunching)
+            if (App.Settings.Prop.MultiInstanceLaunching)
             {
                 // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
                 singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
@@ -271,7 +271,7 @@ namespace Bloxstrap
             // event fired, wait for 3 seconds then close
             await Task.Delay(3000);
 
-            if (App.Settings.UseDiscordRichPresence)
+            if (App.Settings.Prop.UseDiscordRichPresence)
             {
                 richPresence = new DiscordRichPresence();
                 richPresence.MonitorGameActivity();
@@ -287,7 +287,7 @@ namespace Bloxstrap
 
             richPresence?.Dispose();
 
-            if (App.Settings.RFUAutoclose && rbxFpsUnlocker is not null)
+            if (App.Settings.Prop.RFUAutoclose && rbxFpsUnlocker is not null)
                 rbxFpsUnlocker.Kill();
         }
 
@@ -400,7 +400,7 @@ namespace Bloxstrap
                         .WriteToFile(newMenuShortcut);
             }
 
-            if (App.Settings.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
+            if (App.Settings.Prop.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
             {
                 ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
@@ -413,7 +413,7 @@ namespace Bloxstrap
 
             Dialog.Message = $"Uninstalling {App.ProjectName}...";
 
-            App.SettingsManager.ShouldSave = false;
+            App.Settings.ShouldSave = false;
 
             // check if stock bootstrapper is still installed
             RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
@@ -540,9 +540,9 @@ namespace Bloxstrap
                         File.Delete(filename);
                 }
 
-                string oldVersionFolder = Path.Combine(Directories.Versions, App.Settings.VersionGuid);
+                string oldVersionFolder = Path.Combine(Directories.Versions, App.Settings.Prop.VersionGuid);
 
-                if (VersionGuid != App.Settings.VersionGuid && Directory.Exists(oldVersionFolder))
+                if (VersionGuid != App.Settings.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
                 {
                     // and also to delete our old version folder
                     Directory.Delete(oldVersionFolder, true);
@@ -551,7 +551,7 @@ namespace Bloxstrap
 
             Dialog.CancelEnabled = false;
 
-            App.Settings.VersionGuid = VersionGuid;
+            App.Settings.Prop.VersionGuid = VersionGuid;
         }
 
         private async Task ApplyModifications()
@@ -567,10 +567,10 @@ namespace Bloxstrap
             if (!Directory.Exists(modFolder))
                 Directory.CreateDirectory(modFolder);
 
-            await CheckModPreset(App.Settings.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
-            await CheckModPreset(App.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
-            await CheckModPreset(App.Settings.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
-            await CheckModPreset(App.Settings.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
+            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
+            await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
+            await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
+            await CheckModPreset(App.Settings.Prop.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
 
             await ReShade.CheckModifications();
 

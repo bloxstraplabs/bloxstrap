@@ -20,7 +20,7 @@ namespace Bloxstrap.ViewModels
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);
 
-        private void PreviewBootstrapper() => App.Settings.BootstrapperStyle.Show();
+        private void PreviewBootstrapper() => App.Settings.Prop.BootstrapperStyle.Show();
 
         public BootstrapperViewModel(Page page)
         {
@@ -29,20 +29,20 @@ namespace Bloxstrap.ViewModels
 
         public bool UpdateCheckingEnabled
         {
-            get => App.Settings.CheckForUpdates;
-            set => App.Settings.CheckForUpdates = value;
+            get => App.Settings.Prop.CheckForUpdates;
+            set => App.Settings.Prop.CheckForUpdates = value;
         }
 
         public bool ChannelChangePromptingEnabled
         {
-            get => App.Settings.PromptChannelChange;
-            set => App.Settings.PromptChannelChange = value;
+            get => App.Settings.Prop.PromptChannelChange;
+            set => App.Settings.Prop.PromptChannelChange = value;
         }
 
         public bool MultiInstanceLaunchingEnabled
         {
-            get => App.Settings.MultiInstanceLaunching;
-            set => App.Settings.MultiInstanceLaunching = value;
+            get => App.Settings.Prop.MultiInstanceLaunching;
+            set => App.Settings.Prop.MultiInstanceLaunching = value;
         }
 
         public IReadOnlyDictionary<string, Theme> Themes { get; set; } = new Dictionary<string, Theme>()
@@ -54,10 +54,10 @@ namespace Bloxstrap.ViewModels
 
         public string Theme
         {
-            get => Themes.FirstOrDefault(x => x.Value == App.Settings.Theme).Key;
+            get => Themes.FirstOrDefault(x => x.Value == App.Settings.Prop.Theme).Key;
             set
             {
-                App.Settings.Theme = Themes[value];
+                App.Settings.Prop.Theme = Themes[value];
                 ((MainWindow)Window.GetWindow(_page)!).SetTheme();
             }
         }
@@ -72,8 +72,8 @@ namespace Bloxstrap.ViewModels
 
         public string Dialog
         {
-            get => Dialogs.FirstOrDefault(x => x.Value == App.Settings.BootstrapperStyle).Key;
-            set => App.Settings.BootstrapperStyle = Dialogs[value];
+            get => Dialogs.FirstOrDefault(x => x.Value == App.Settings.Prop.BootstrapperStyle).Key;
+            set => App.Settings.Prop.BootstrapperStyle = Dialogs[value];
         }
 
         public IReadOnlyDictionary<string, BootstrapperIcon> Icons { get; set; } = new Dictionary<string, BootstrapperIcon>()
@@ -90,8 +90,8 @@ namespace Bloxstrap.ViewModels
 
         public string Icon
         {
-            get => Icons.FirstOrDefault(x => x.Value == App.Settings.BootstrapperIcon).Key;
-            set => App.Settings.BootstrapperIcon = Icons[value];
+            get => Icons.FirstOrDefault(x => x.Value == App.Settings.Prop.BootstrapperIcon).Key;
+            set => App.Settings.Prop.BootstrapperIcon = Icons[value];
         }
     }
 }
