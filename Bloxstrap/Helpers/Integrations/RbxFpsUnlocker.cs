@@ -60,6 +60,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!App.Settings.Prop.RFUEnabled)
             {
                 App.State.Prop.RbxFpsUnlockerVersion = "";
+                App.State.Save();
 
                 if (Directory.Exists(folderLocation))
                 {
@@ -104,6 +105,7 @@ namespace Bloxstrap.Helpers.Integrations
                 await File.WriteAllTextAsync(settingsLocation, Settings);
 
             App.State.Prop.RbxFpsUnlockerVersion = releaseInfo.TagName;
+            App.State.Save();
         }
     }
 }

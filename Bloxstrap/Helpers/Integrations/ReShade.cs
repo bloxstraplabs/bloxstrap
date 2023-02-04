@@ -327,6 +327,7 @@ namespace Bloxstrap.Helpers.Integrations
             {
                 UninstallExtraviPresets();
                 App.State.Prop.ExtraviReShadePresetsVersion = "";
+                App.State.Save();
             }
 
             if (!App.Settings.Prop.UseReShade)
@@ -338,6 +339,7 @@ namespace Bloxstrap.Helpers.Integrations
                 File.Delete(ConfigLocation);
 
                 App.State.Prop.ReShadeConfigVersion = "";
+                App.State.Save();
 
                 //DeleteShaders("Stock");
                 if (Directory.Exists(BaseDirectory))
@@ -393,7 +395,10 @@ namespace Bloxstrap.Helpers.Integrations
                 await DownloadConfig();
 
                 if (versionManifest is not null)
+                {
                     App.State.Prop.ReShadeConfigVersion = versionManifest.ConfigFile;
+                    App.State.Save();
+                }
             }
 
             await DownloadShaders("Stock");
@@ -402,6 +407,7 @@ namespace Bloxstrap.Helpers.Integrations
             {
                 await InstallExtraviPresets();
                 App.State.Prop.ExtraviReShadePresetsVersion = versionManifest.Presets;
+                App.State.Save();
             }
 
             SynchronizeConfigFile();

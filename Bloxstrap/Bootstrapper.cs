@@ -564,9 +564,10 @@ namespace Bloxstrap
             Dialog.Message = "Applying Roblox modifications...";
 
             string modFolder = Path.Combine(Directories.Modifications);
-            string manifestFile = Path.Combine(Directories.Base, "ModManifest.txt");
 
-            List<string> manifestFiles = new();
+            // manifest has been moved to State.json
+            File.Delete(Path.Combine(Directories.Base, "ModManifest.txt"));
+
             List<string> modFolderFiles = new();
 
             if (!Directory.Exists(modFolder))
@@ -594,12 +595,6 @@ namespace Bloxstrap
                 modFolderFiles.Add(relativeFile);
             }
 
-            // the manifest is primarily here to keep track of what files have been
-            // deleted from the modifications folder, so that we know when to restore the
-            // original files from the downloaded packages
-
-            manifestFiles = File.Exists(manifestFile) ? (await File.ReadAllLinesAsync(manifestFile)).ToList() : modFolderFiles;
-
             // copy and overwrite
             foreach (string file in modFolderFiles)
             {
@@ -623,8 +618,10 @@ namespace Bloxstrap
                 File.SetAttributes(fileVersionFolder, File.GetAttributes(fileModFolder) & ~FileAttributes.ReadOnly);
             }
 
+            // the manifest is primarily here to keep track of what files have been
+            // deleted from the modifications folder, so that we know when to restore the original files from the downloaded packages
             // now check for files that have been deleted from the mod folder according to the manifest
-            foreach (string fileLocation in manifestFiles)
+            foreach (string fileLocation in App.State.Prop.ModManifest)
             {
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
@@ -650,7 +647,8 @@ namespace Bloxstrap
                 ExtractFileFromPackage(packageDirectory.Key, fileName);
             }
 
-            await File.WriteAllLinesAsync(manifestFile, modFolderFiles);
+            App.State.Prop.ModManifest = modFolderFiles;
+            App.State.Save();
         }
 
         private static async Task CheckModPreset(bool condition, string location, string name)
