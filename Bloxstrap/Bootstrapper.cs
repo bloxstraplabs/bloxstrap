@@ -153,10 +153,8 @@ namespace Bloxstrap
             {
                 var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
 
-                using (var fileStream = new FileStream(Path.Combine(Directories.Updates, asset.Name), FileMode.CreateNew))
-                {
-                    await response.Content.CopyToAsync(fileStream);
-                }
+                await using var fileStream = new FileStream(Path.Combine(Directories.Updates, asset.Name), FileMode.CreateNew);
+                await response.Content.CopyToAsync(fileStream);
             }
 
             Debug.WriteLine($"Starting {releaseInfo.Name}...");
@@ -253,8 +251,8 @@ namespace Bloxstrap
             { 
                 ProcessStartInfo startInfo = new() 
                 { 
-                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe"), 
-                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker")
+                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker"),
+                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe")
                 }; 
                 
                 rbxFpsUnlocker = Process.Start(startInfo);
@@ -265,6 +263,7 @@ namespace Bloxstrap
 
             if (App.Settings.MultiInstanceLaunching)
             {
+                // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
                 singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
                 shouldWait = true;
             }
@@ -287,7 +286,6 @@ namespace Bloxstrap
             await gameClient.WaitForExitAsync();
 
             richPresence?.Dispose();
-            singletonMutex?.ReleaseMutex();
 
             if (App.Settings.RFUAutoclose && rbxFpsUnlocker is not null)
                 rbxFpsUnlocker.Kill();
@@ -595,10 +593,7 @@ namespace Bloxstrap
             // deleted from the modifications folder, so that we know when to restore the
             // original files from the downloaded packages
 
-            if (File.Exists(manifestFile))
-                manifestFiles = (await File.ReadAllLinesAsync(manifestFile)).ToList();
-            else
-                manifestFiles = modFolderFiles;
+            manifestFiles = File.Exists(manifestFile) ? (await File.ReadAllLinesAsync(manifestFile)).ToList() : modFolderFiles;
 
             // copy and overwrite
             foreach (string file in modFolderFiles)
@@ -650,7 +645,7 @@ namespace Bloxstrap
                 ExtractFileFromPackage(packageDirectory.Key, fileName);
             }
 
-            File.WriteAllLines(manifestFile, modFolderFiles);
+            await File.WriteAllLinesAsync(manifestFile, modFolderFiles);
         }
 
         private static async Task CheckModPreset(bool condition, string location, string name)
@@ -721,16 +716,17 @@ namespace Bloxstrap
                 if (CancelFired)
                     return;
 
-                var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead);
-
-                var buffer = new byte[8192];
-
-                using (var stream = await response.Content.ReadAsStreamAsync())
-                using (var fileStream = new FileStream(packageLocation, FileMode.CreateNew))
                 {
+                    var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead);
+                    var buffer = new byte[8192];
+
+                    await using var stream = await response.Content.ReadAsStreamAsync();
+                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew); 
+                    
                     while (true)
                     {
                         var bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+
                         if (bytesRead == 0)
                             break; // we're done
 
@@ -799,19 +795,18 @@ namespace Bloxstrap
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string packageFolder = Path.Combine(VersionFolder, PackageDirectories[package.Name]);
 
-            using (ZipArchive archive = ZipFile.OpenRead(packageLocation))
-            {
-                ZipArchiveEntry? entry = archive.Entries.Where(x => x.FullName == fileName).FirstOrDefault();
+            using ZipArchive archive = ZipFile.OpenRead(packageLocation);
 
-                if (entry is null)
-                    return;
+            ZipArchiveEntry? entry = archive.Entries.FirstOrDefault(x => x.FullName == fileName);
 
-                string fileLocation = Path.Combine(packageFolder, entry.FullName);
+            if (entry is null)
+                return;
+
+            string fileLocation = Path.Combine(packageFolder, entry.FullName);
                 
-                File.Delete(fileLocation);
+            File.Delete(fileLocation);
 
-                entry.ExtractToFile(fileLocation);
-            }
+            entry.ExtractToFile(fileLocation);
         }
 #endregion
     }
