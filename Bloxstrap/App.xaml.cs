@@ -118,7 +118,6 @@ namespace Bloxstrap
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
-                ShouldSaveConfigs = true;
                 Settings.Load();
                 State.Load();
             }
@@ -142,7 +141,6 @@ namespace Bloxstrap
                     }
 #endif
 
-                    //new Preferences().ShowDialog();
                     new MainWindow().ShowDialog();
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-player:"))
@@ -165,6 +163,9 @@ namespace Bloxstrap
 
             if (!String.IsNullOrEmpty(commandLine))
             {
+                if (!IsFirstRun)
+                    ShouldSaveConfigs = true;
+
                 DeployManager.Channel = Settings.Prop.Channel;
                 Settings.Prop.BootstrapperStyle.Show(new Bootstrapper(commandLine));
             }

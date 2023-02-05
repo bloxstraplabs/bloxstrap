@@ -15,12 +15,14 @@ namespace Bloxstrap.Views
     public partial class MainWindow : INavigationWindow
     {
         private readonly IThemeService _themeService = new ThemeService();
+        private readonly IDialogService _dialogService = new DialogService();
 
         public MainWindow()
         {
-            DataContext = new MainWindowViewModel(this);
+            DataContext = new MainWindowViewModel(this, _dialogService);
             SetTheme();
             InitializeComponent();
+            _dialogService.SetDialogControl(RootDialog);
         }
 
         public void SetTheme()

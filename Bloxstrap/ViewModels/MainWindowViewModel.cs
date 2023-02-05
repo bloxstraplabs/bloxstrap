@@ -1,17 +1,18 @@
-﻿using System.IO;
-using System;
+﻿using System;
+using System.IO;
 using System.Windows;
-using System.Windows.Automation.Peers;
 using System.Windows.Input;
-using Bloxstrap.Views;
-using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
+using CommunityToolkit.Mvvm.Input;
+using Wpf.Ui.Controls.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.ViewModels
 {
     public class MainWindowViewModel
     {
         private readonly Window _window;
+        private readonly IDialogService _dialogService;
         private readonly string _originalBaseDirectory = App.BaseDirectory; // we need this to check if the basedirectory changes
 
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
@@ -19,9 +20,10 @@ namespace Bloxstrap.ViewModels
 
         public string ConfirmButtonText => App.IsFirstRun ? "Install" : "Save";
 
-        public MainWindowViewModel(Window window)
+        public MainWindowViewModel(Window window, IDialogService dialogService)
         {
             _window = window;
+            _dialogService = dialogService;
         }
 
         private void CloseWindow() => _window.Close();
@@ -83,15 +85,29 @@ namespace Bloxstrap.ViewModels
                     // preserve settings
                     // we don't need to copy the bootstrapper over since the install process will do that automatically
 
-                    App.Settings.Save();
-
-                    //File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(App.BaseDirectory, "Settings.json"));
+                    // App.Settings.Save();
+                    // File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(App.BaseDirectory, "Settings.json"));
                 }
+
+                CloseWindow();
             }
+            else
+            {
+                IDialogControl dialogControl = _dialogService.GetDialogControl();
 
-            App.IsSetupComplete = true;
+                dialogControl.ButtonRightClick += (_, _) =>
+                {
+                    dialogControl.Hide();
+                    App.IsSetupComplete = true;
+                    CloseWindow();
+                };
 
-            CloseWindow();
+                dialogControl.ShowAndWaitAsync(
+                    "Before you install", 
+                    "After installation, you can open the menu again by searching for it in the Start menu.\n" + 
+                    "If you want to revert back to the original Roblox launcher, just uninstall Bloxstrap and it will automatically revert."
+                );
+            }
         }
     }
 }

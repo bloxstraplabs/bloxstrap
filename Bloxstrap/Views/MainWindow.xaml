@@ -97,5 +97,7 @@
                 <ui:Button Content="Cancel" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
+
+        <ui:Dialog x:Name="RootDialog" Title="WPF UI" Grid.Row="1" Grid.RowSpan="2" ButtonLeftVisibility="Collapsed" ButtonRightName="Continue" DialogHeight="225" DialogWidth="430" />
     </Grid>
 </ui:UiWindow>
