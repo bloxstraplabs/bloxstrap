@@ -12,9 +12,11 @@ namespace Bloxstrap.Dialogs
         bool CancelEnabled { get; set; }
 
         void RunBootstrapper();
+        void ShowAsPreview();
+        void ShowAsBootstrapper();
+        void HideBootstrapper();
         void ShowSuccess(string message);
         void ShowError(string message);
-        void CloseDialog();
         void PromptShutdown();
     }
 }

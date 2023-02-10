@@ -33,11 +33,9 @@ namespace Bloxstrap.Dialogs
             set => this.buttonCancel.Enabled = this.buttonCancel.Visible = value; 
         }
 
-        public LegacyDialog2011(Bootstrapper? bootstrapper = null)
+        public LegacyDialog2011(Bootstrapper? bootstrapper = null) : base(bootstrapper)
         {
             InitializeComponent();
-
-            Bootstrapper = bootstrapper;
             
             // have to convert icon -> bitmap since winforms scaling is poop
             this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIcon().ToBitmap();

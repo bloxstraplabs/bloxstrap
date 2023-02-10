@@ -16,7 +16,7 @@ namespace Bloxstrap.Enums
     {
         public static void Show(this BootstrapperStyle bootstrapperStyle, Bootstrapper? bootstrapper = null)
         {
-            Form dialog = bootstrapperStyle switch
+            IBootstrapperDialog dialog = bootstrapperStyle switch
             {
                 BootstrapperStyle.VistaDialog => new VistaDialog(bootstrapper),
                 BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(bootstrapper),
@@ -27,17 +27,14 @@ namespace Bloxstrap.Enums
 
             if (bootstrapper is null)
             {
-                dialog.ShowDialog();
+                dialog.ShowAsPreview();
             }
             else
             {
                 if (App.IsQuiet)
-                {
-                    dialog.Opacity = 0;
-                    dialog.ShowInTaskbar = false;
-                }
+                    dialog.HideBootstrapper();
 
-                Application.Run(dialog);
+                dialog.ShowAsBootstrapper();
             }
         }
     }

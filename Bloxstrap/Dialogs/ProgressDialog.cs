@@ -34,7 +34,7 @@ namespace Bloxstrap.Dialogs
             set => this.buttonCancel.Enabled = this.buttonCancel.Visible = value;
         }
 
-        public ProgressDialog(Bootstrapper? bootstrapper = null)
+        public ProgressDialog(Bootstrapper? bootstrapper = null) : base(bootstrapper)
         {
             InitializeComponent();
 
@@ -45,8 +45,6 @@ namespace Bloxstrap.Dialogs
                 this.panel1.BackColor = Color.FromArgb(35, 37, 39);
                 this.BackColor = Color.FromArgb(25, 27, 29);
             }
-
-            Bootstrapper = bootstrapper;
 
             this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetBitmap();
 

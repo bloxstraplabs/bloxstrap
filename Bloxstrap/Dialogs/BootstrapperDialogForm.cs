@@ -67,6 +67,11 @@ namespace Bloxstrap.Dialogs
             }
         }
 
+        public BootstrapperDialogForm(Bootstrapper? bootstrapper = null)
+        {
+            Bootstrapper = bootstrapper;
+        }
+
         public void ScaleWindow()
         {
             this.Size = this.MinimumSize = this.MaximumSize = WindowScaling.GetScaledSize(this.Size);
@@ -120,6 +125,29 @@ namespace Bloxstrap.Dialogs
             App.Terminate();
         }
 
+        public void ShowAsPreview()
+        {
+            this.ShowDialog();
+        }
+
+        public void ShowAsBootstrapper()
+        {
+            System.Windows.Forms.Application.Run(this);
+        }
+
+        public virtual void HideBootstrapper()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(HideBootstrapper);
+            }
+            else
+            {
+                this.Opacity = 0;
+                this.ShowInTaskbar = false;
+            }
+        }
+
         public virtual void ShowSuccess(string message)
         {
             App.ShowMessageBox(message, MessageBoxImage.Information);
@@ -130,14 +158,6 @@ namespace Bloxstrap.Dialogs
         {
             App.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxImage.Error);
             App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
-        }
-
-        public virtual void CloseDialog()
-        {
-            if (this.InvokeRequired)
-                this.Invoke(CloseDialog);
-            else
-                this.Hide();
         }
 
         public void PromptShutdown()

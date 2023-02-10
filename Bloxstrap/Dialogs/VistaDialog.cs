@@ -60,11 +60,9 @@ namespace Bloxstrap.Dialogs
             set => Dialog.Buttons[0].Enabled = value;
         }
 
-        public VistaDialog(Bootstrapper? bootstrapper = null)
+        public VistaDialog(Bootstrapper? bootstrapper = null) : base(bootstrapper)
         {
             InitializeComponent();
-
-            Bootstrapper = bootstrapper;
 
             Dialog = new TaskDialogPage()
             {
@@ -143,11 +141,11 @@ namespace Bloxstrap.Dialogs
             }
         }
 
-        public override void CloseDialog()
+        public override void HideBootstrapper()
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(CloseDialog);
+                this.Invoke(HideBootstrapper);
             }
             else
             {

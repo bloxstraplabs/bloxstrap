@@ -286,7 +286,7 @@ namespace Bloxstrap
                 return;
 
             // keep bloxstrap open in the background
-            Dialog.CloseDialog();
+            Dialog.HideBootstrapper();
             await gameClient.WaitForExitAsync();
 
             richPresence?.Dispose();

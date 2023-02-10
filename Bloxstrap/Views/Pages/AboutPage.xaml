@@ -108,7 +108,7 @@
             </ui:CardAction>
             <ui:CardAction Grid.Row="2" Grid.Column="0" Margin="0,8,8,0" Command="{Binding OpenWebpageCommand}" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="ini-parser by rickyah" />
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="IniParser by rickyah" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
