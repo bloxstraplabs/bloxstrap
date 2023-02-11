@@ -5,6 +5,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 
@@ -167,7 +168,18 @@ namespace Bloxstrap
                     ShouldSaveConfigs = true;
 
                 DeployManager.Channel = Settings.Prop.Channel;
-                Settings.Prop.BootstrapperStyle.Show(new Bootstrapper(commandLine));
+
+                Bootstrapper bootstrapper = new Bootstrapper(commandLine);
+
+                if (IsQuiet)
+                {
+                    //Task bootstrappertask = new Task(() => bootstrapper.Run());
+                    Task.Run(() => bootstrapper.Run()).Wait();
+                }
+                else
+                {
+                    Settings.Prop.BootstrapperStyle.Show(bootstrapper);
+                }
             }
 
             Terminate();

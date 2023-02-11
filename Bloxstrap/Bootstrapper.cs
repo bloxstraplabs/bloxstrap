@@ -79,7 +79,7 @@ namespace Bloxstrap
         private int PackagesExtracted = 0;
         private bool CancelFired = false;
 
-        public IBootstrapperDialog Dialog = null!;
+        public IBootstrapperDialog? Dialog = null;
         #endregion
 
         #region Core
@@ -87,6 +87,14 @@ namespace Bloxstrap
         {
             LaunchCommandLine = launchCommandLine;
             FreshInstall = String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+        }
+
+        public void SetStatus(string message)
+        {
+            Debug.WriteLine($"[Bootstrapper] {message}");
+
+            if (Dialog is not null)
+                Dialog.Message = message;
         }
 
         // this is called from BootstrapperStyleForm.SetupDialog()
@@ -129,7 +137,7 @@ namespace Bloxstrap
             App.State.Save();
 
             if (App.IsFirstRun && App.IsNoLaunch)
-                Dialog.ShowSuccess($"{App.ProjectName} has successfully installed");
+                Dialog?.ShowSuccess($"{App.ProjectName} has successfully installed");
             else if (!App.IsNoLaunch)
                 await StartRoblox();
         }
@@ -143,7 +151,7 @@ namespace Bloxstrap
             if (releaseInfo is null || releaseInfo.Name is null || releaseInfo.Assets is null || currentVersion == releaseInfo.Name)
                 return;
 
-            Dialog.Message = $"Getting the latest {App.ProjectName}...";
+            SetStatus($"Getting the latest {App.ProjectName}...");
 
             // 64-bit is always the first option
             GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
@@ -180,7 +188,7 @@ namespace Bloxstrap
 
         private async Task CheckLatestVersion()
         {
-            Dialog.Message = "Connecting to Roblox...";
+            SetStatus("Connecting to Roblox...");
 
             ClientVersion clientVersion = await DeployManager.GetLastDeploy(App.Settings.Prop.Channel);
             VersionGuid = clientVersion.VersionGuid;
@@ -197,7 +205,7 @@ namespace Bloxstrap
 
             if (shutdown)
             {
-                Dialog.PromptShutdown();
+                Dialog?.PromptShutdown();
 
                 try
                 {
@@ -219,7 +227,7 @@ namespace Bloxstrap
         {
             string startEventName = App.ProjectName.Replace(" ", "") + "StartEvent";
 
-            Dialog.Message = "Starting Roblox...";
+            SetStatus("Starting Roblox...");
 
             if (LaunchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
@@ -286,7 +294,7 @@ namespace Bloxstrap
                 return;
 
             // keep bloxstrap open in the background
-            Dialog.HideBootstrapper();
+            Dialog?.HideBootstrapper();
             await gameClient.WaitForExitAsync();
 
             richPresence?.Dispose();
@@ -297,7 +305,7 @@ namespace Bloxstrap
 
         public void CancelButtonClicked()
         {
-            if (!Dialog.CancelEnabled)
+            if (Dialog is null || !Dialog.CancelEnabled)
             {
                 App.Terminate(ERROR_INSTALL_USEREXIT);
                 return;
@@ -415,7 +423,7 @@ namespace Bloxstrap
         {
             CheckIfRunning(true);
 
-            Dialog.Message = $"Uninstalling {App.ProjectName}...";
+            SetStatus($"Uninstalling {App.ProjectName}...");
 
             //App.Settings.ShouldSave = false;
             App.ShouldSaveConfigs = false;
@@ -460,7 +468,7 @@ namespace Bloxstrap
                 Debug.WriteLine($"Could not fully uninstall! ({e})");
             }
 
-            Dialog.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
+            Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
 
             App.Terminate();
         }
@@ -476,15 +484,13 @@ namespace Bloxstrap
             if (newProgress > 100)
                 return;
 
-            Dialog.ProgressValue = newProgress;
+            if (Dialog is not null)
+                Dialog.ProgressValue = newProgress;
         }
 
         private async Task InstallLatestVersion()
         {
-            if (FreshInstall)
-                Dialog.Message = "Installing Roblox...";
-            else
-                Dialog.Message = "Upgrading Roblox...";
+            SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
 
             // check if we have at least 300 megabytes of free disk space
             if (Utilities.GetFreeDiskSpace(Directories.Base) < 1024*1024*300)
@@ -496,8 +502,11 @@ namespace Bloxstrap
 
             Directory.CreateDirectory(Directories.Base);
 
-            Dialog.CancelEnabled = true;
-            Dialog.ProgressStyle = ProgressBarStyle.Continuous;
+            if (Dialog is not null)
+            {
+                Dialog.CancelEnabled = true;
+                Dialog.ProgressStyle = ProgressBarStyle.Continuous;
+            }
 
             // compute total bytes to download
 
@@ -521,9 +530,11 @@ namespace Bloxstrap
             // allow progress bar to 100% before continuing (purely ux reasons lol)
             await Task.Delay(1000);
 
-            Dialog.ProgressStyle = ProgressBarStyle.Marquee;
-
-            Dialog.Message = "Configuring Roblox...";
+            if (Dialog is not null)
+            {
+                Dialog.ProgressStyle = ProgressBarStyle.Marquee;
+                SetStatus("Configuring Roblox...");
+            }
 
             // wait for all packages to finish extracting
             while (PackagesExtracted < VersionPackageManifest.Count)
@@ -554,14 +565,15 @@ namespace Bloxstrap
                 }
             }
 
-            Dialog.CancelEnabled = false;
+            if (Dialog is not null)
+                Dialog.CancelEnabled = false;
 
             App.State.Prop.VersionGuid = VersionGuid;
         }
 
         private async Task ApplyModifications()
         {
-            Dialog.Message = "Applying Roblox modifications...";
+            SetStatus("Applying Roblox modifications...");
 
             string modFolder = Path.Combine(Directories.Modifications);
 
