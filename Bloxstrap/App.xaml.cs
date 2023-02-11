@@ -181,7 +181,18 @@ namespace Bloxstrap
                     bootstrapper.Dialog = dialog;
                 }
 
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run());
+                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                {
+                    if (t.Exception is null)
+                        return;
+
+#if DEBUG
+                    throw t.Exception;
+#else
+                    dialog?.ShowError(t.Exception.ToString());
+#endif
+                });
+
                 dialog?.ShowBootstrapper();
                 bootstrapperTask.Wait();
             }
