@@ -86,13 +86,9 @@ namespace Bloxstrap.Dialogs
         public virtual void CloseBootstrapper()
         {
             if (this.InvokeRequired)
-            {
                 this.Invoke(CloseBootstrapper);
-            }
             else
-            {
                 this.Close();
-            }
         }
 
         public virtual void ShowSuccess(string message)

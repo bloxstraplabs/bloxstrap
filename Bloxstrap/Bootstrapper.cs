@@ -469,8 +469,6 @@ namespace Bloxstrap
             }
 
             Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
-
-            App.Terminate();
         }
 #endregion
 

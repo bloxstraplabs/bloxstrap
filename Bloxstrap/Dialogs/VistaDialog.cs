@@ -13,58 +13,54 @@ namespace Bloxstrap.Dialogs
 
     public partial class VistaDialog : BootstrapperDialogForm
     {
-        private TaskDialogPage Dialog;
+        private TaskDialogPage _dialogPage;
 
-        protected override string _message
+        protected sealed override string _message
         {
-            get => Dialog.Heading ?? "";
-            set => Dialog.Heading = value;
+            get => _dialogPage.Heading ?? "";
+            set => _dialogPage.Heading = value;
         }
 
-        protected override ProgressBarStyle _progressStyle
+        protected sealed override ProgressBarStyle _progressStyle
         {
             set
             {
-                if (Dialog.ProgressBar is null)
+                if (_dialogPage.ProgressBar is null)
                     return;
 
-                switch (value)
+                _dialogPage.ProgressBar.State = value switch
                 {
-                    case ProgressBarStyle.Continuous:
-                    case ProgressBarStyle.Blocks:
-                        Dialog.ProgressBar.State = TaskDialogProgressBarState.Normal;
-                        break;
-
-                    case ProgressBarStyle.Marquee:
-                        Dialog.ProgressBar.State = TaskDialogProgressBarState.Marquee;
-                        break;
-                }
+                    ProgressBarStyle.Continuous => TaskDialogProgressBarState.Normal,
+                    ProgressBarStyle.Blocks => TaskDialogProgressBarState.Normal,
+                    ProgressBarStyle.Marquee => TaskDialogProgressBarState.Marquee,
+                    _ => _dialogPage.ProgressBar.State
+                };
             }
         }
 
-        protected override int _progressValue
+        protected sealed override int _progressValue
         {
-            get => Dialog.ProgressBar is null ? 0 : Dialog.ProgressBar.Value;
+            get => _dialogPage.ProgressBar?.Value ?? 0;
             set
             {
-                if (Dialog.ProgressBar is null)
+                if (_dialogPage.ProgressBar is null)
                     return;
 
-                Dialog.ProgressBar.Value = value;
+                _dialogPage.ProgressBar.Value = value;
             }
         }
 
-        protected override bool _cancelEnabled
+        protected sealed override bool _cancelEnabled
         {
-            get => Dialog.Buttons[0].Enabled;
-            set => Dialog.Buttons[0].Enabled = value;
+            get => _dialogPage.Buttons[0].Enabled;
+            set => _dialogPage.Buttons[0].Enabled = value;
         }
 
         public VistaDialog()
         {
             InitializeComponent();
 
-            Dialog = new TaskDialogPage()
+            _dialogPage = new TaskDialogPage()
             {
                 Icon = new TaskDialogIcon(App.Settings.Prop.BootstrapperIcon.GetIcon()),
                 Caption = App.ProjectName,
@@ -79,7 +75,7 @@ namespace Bloxstrap.Dialogs
             _message = "Please wait...";
             _cancelEnabled = false;
 
-            Dialog.Buttons[0].Click += (sender, e) => ButtonCancel_Click(sender, e);
+            _dialogPage.Buttons[0].Click += ButtonCancel_Click;
 
             SetupDialog();
         }
@@ -100,10 +96,10 @@ namespace Bloxstrap.Dialogs
                     Buttons = { TaskDialogButton.OK }
                 };
 
-                successDialog.Buttons[0].Click += (sender, e) => App.Terminate();
+                successDialog.Buttons[0].Click += (_, _) => App.Terminate();
 
-                Dialog.Navigate(successDialog);
-                Dialog = successDialog;
+                _dialogPage.Navigate(successDialog);
+                _dialogPage = successDialog;
             }
         }
 
@@ -132,9 +128,8 @@ namespace Bloxstrap.Dialogs
 
                 errorDialog.Buttons[0].Click += (sender, e) => App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
 
-                Dialog.Navigate(errorDialog);
-
-                Dialog = errorDialog;
+                _dialogPage.Navigate(errorDialog);
+                _dialogPage = errorDialog;
             }
         }
 
@@ -146,15 +141,12 @@ namespace Bloxstrap.Dialogs
             }
             else
             {
-                Dialog.BoundDialog?.Close();
+                _dialogPage.BoundDialog?.Close();
                 base.CloseBootstrapper();
             }
         }
 
 
-        private void VistaDialog_Load(object sender, EventArgs e)
-        {
-            TaskDialog.ShowDialog(Dialog);
-        }
+        private void VistaDialog_Load(object sender, EventArgs e) => TaskDialog.ShowDialog(_dialogPage);
     }
 }
