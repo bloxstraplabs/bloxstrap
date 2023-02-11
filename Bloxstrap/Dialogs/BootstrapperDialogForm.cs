@@ -10,6 +10,8 @@ namespace Bloxstrap.Dialogs
 {
     public class BootstrapperDialogForm : Form, IBootstrapperDialog
     {
+        public Bootstrapper Bootstrapper { get; set; } = null!;
+
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
@@ -117,6 +119,7 @@ namespace Bloxstrap.Dialogs
 
         public void ButtonCancel_Click(object? sender, EventArgs e)
         {
+            Bootstrapper.CancelInstall(); 
             this.Close();
         }
     }

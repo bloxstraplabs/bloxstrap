@@ -179,6 +179,7 @@ namespace Bloxstrap
                 {
                     dialog = Settings.Prop.BootstrapperStyle.GetNew();
                     bootstrapper.Dialog = dialog;
+                    dialog.Bootstrapper = bootstrapper;
                 }
 
                 Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>

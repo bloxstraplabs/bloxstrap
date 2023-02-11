@@ -64,6 +64,8 @@ namespace Bloxstrap
             "	<BaseUrl>http://www.roblox.com</BaseUrl>\n" +
             "</Settings>\n";
 
+        private readonly CancellationTokenSource _cancelTokenSource = new();
+
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
 
         private string? _launchCommandLine;
@@ -72,6 +74,7 @@ namespace Bloxstrap
         private PackageManifest _versionPackageManifest = null!;
         private string _versionFolder = null!;
 
+        private bool _isInstalling = false;
         private double _progressIncrement;
         private long _totalDownloadedBytes = 0;
         private int _packagesExtracted = 0;
@@ -86,7 +89,7 @@ namespace Bloxstrap
             _launchCommandLine = launchCommandLine;
         }
 
-        public void SetStatus(string message)
+        private void SetStatus(string message)
         {
             Debug.WriteLine($"[Bootstrapper] {message}");
 
@@ -296,25 +299,31 @@ namespace Bloxstrap
                 rbxFpsUnlocker.Kill();
         }
 
-        public void CancelButtonClicked()
+        public void CancelInstall()
         {
-            if (Dialog is null || !Dialog.CancelEnabled)
+            if (!_isInstalling)
             {
                 App.Terminate(ERROR_INSTALL_USEREXIT);
                 return;
             }
 
+            _cancelTokenSource.Cancel();
             _cancelFired = true;
 
             try
             {
+                // clean up install
                 if (App.IsFirstRun)
                     Directory.Delete(Directories.Base, true);
                 else if (Directory.Exists(_versionFolder))
                     Directory.Delete(_versionFolder, true);
             }
-            catch (Exception) { }
- 
+            catch (Exception e)
+            {
+                Debug.WriteLine("[Bootstrapper} Could not fully clean up installation!");
+                Debug.WriteLine(e);
+            }
+
             App.Terminate(ERROR_INSTALL_USEREXIT);
         }
 #endregion
@@ -484,6 +493,8 @@ namespace Bloxstrap
 
         private async Task InstallLatestVersion()
         {
+            _isInstalling = true;
+
             SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
 
             // check if we have at least 300 megabytes of free disk space
@@ -510,12 +521,18 @@ namespace Bloxstrap
 
             foreach (Package package in _versionPackageManifest)
             {
+                if (_cancelFired)
+                    return;
+
                 // download all the packages synchronously
                 await DownloadPackage(package);
 
                 // extract the package immediately after download asynchronously
                 ExtractPackage(package);
             }
+
+            if (_cancelFired) 
+                return;
 
             // allow progress bar to 100% before continuing (purely ux reasons lol)
             await Task.Delay(1000);
@@ -534,6 +551,9 @@ namespace Bloxstrap
 
             string appSettingsLocation = Path.Combine(_versionFolder, "AppSettings.xml");
             await File.WriteAllTextAsync(appSettingsLocation, AppSettings);
+
+            if (_cancelFired)
+                return;
 
             if (!FreshInstall)
             {
@@ -559,6 +579,8 @@ namespace Bloxstrap
                 Dialog.CancelEnabled = false;
 
             App.State.Prop.VersionGuid = _versionGuid;
+
+            _isInstalling = false;
         }
 
         private async Task ApplyModifications()
@@ -680,6 +702,9 @@ namespace Bloxstrap
 
         private async Task DownloadPackage(Package package)
         {
+            if (_cancelFired)
+                return;
+
             string packageUrl = $"{DeployManager.BaseUrl}/{_versionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
@@ -716,26 +741,30 @@ namespace Bloxstrap
 
             if (!File.Exists(packageLocation))
             {
-                Debug.WriteLine($"Downloading {package.Name}...");
-
-                if (_cancelFired)
-                    return;
+                Debug.WriteLine($"Downloading {package.Name} ({package.Signature})...");
 
                 {
-                    var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead);
-                    var buffer = new byte[8192];
+                    var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead, _cancelTokenSource.Token);
+                    var buffer = new byte[4096];
 
-                    await using var stream = await response.Content.ReadAsStreamAsync();
-                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew); 
+                    await using var stream = await response.Content.ReadAsStreamAsync(_cancelTokenSource.Token);
+                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.Write, FileShare.Delete); 
                     
                     while (true)
                     {
-                        var bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                        if (_cancelFired)
+                        {
+                            stream.Close();
+                            fileStream.Close();
+                            return;
+                        }
+
+                        var bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, _cancelTokenSource.Token);
 
                         if (bytesRead == 0)
                             break; // we're done
 
-                        await fileStream.WriteAsync(buffer, 0, bytesRead);
+                        await fileStream.WriteAsync(buffer, 0, bytesRead, _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressbar();
