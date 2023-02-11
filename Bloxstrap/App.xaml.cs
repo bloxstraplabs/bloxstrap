@@ -183,6 +183,8 @@ namespace Bloxstrap
 
                 Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
                 {
+                    // TODO: add error logging
+
                     if (t.Exception is null)
                         return;
 
