@@ -5,12 +5,14 @@ using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 
-using Bloxstrap.Models;
+using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
+using Bloxstrap.Models;
 using Bloxstrap.Views;
 
 namespace Bloxstrap
@@ -55,6 +57,7 @@ namespace Bloxstrap
         {
             Settings.Save();
             State.Save();
+            Debug.WriteLine($"[App] Terminating with exit code {code}");
             Environment.Exit(code);
         }
 
@@ -167,7 +170,34 @@ namespace Bloxstrap
                     ShouldSaveConfigs = true;
 
                 DeployManager.Channel = Settings.Prop.Channel;
-                Settings.Prop.BootstrapperStyle.Show(new Bootstrapper(commandLine));
+
+                // start bootstrapper and show the bootstrapper modal if we're not running silently
+                Bootstrapper bootstrapper = new Bootstrapper(commandLine);
+                IBootstrapperDialog? dialog = null;
+
+                if (!IsQuiet)
+                {
+                    dialog = Settings.Prop.BootstrapperStyle.GetNew();
+                    bootstrapper.Dialog = dialog;
+                    dialog.Bootstrapper = bootstrapper;
+                }
+
+                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                {
+                    // TODO: add error logging
+
+                    if (t.Exception is null)
+                        return;
+
+#if DEBUG
+                    throw t.Exception;
+#else
+                    dialog?.ShowError(t.Exception.ToString());
+#endif
+                });
+
+                dialog?.ShowBootstrapper();
+                bootstrapperTask.Wait();
             }
 
             Terminate();

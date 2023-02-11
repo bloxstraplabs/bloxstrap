@@ -4,17 +4,15 @@ namespace Bloxstrap.Dialogs
 {
     public interface IBootstrapperDialog
     {
-        Bootstrapper? Bootstrapper { get; set; }
+        public Bootstrapper Bootstrapper { get; set; }
 
         string Message { get; set; }
         ProgressBarStyle ProgressStyle { get; set; }
         int ProgressValue { get; set; }
         bool CancelEnabled { get; set; }
 
-        void RunBootstrapper();
-        void ShowAsPreview();
-        void ShowAsBootstrapper();
-        void HideBootstrapper();
+        void ShowBootstrapper();
+        void CloseBootstrapper();
         void ShowSuccess(string message);
         void ShowError(string message);
         void PromptShutdown();

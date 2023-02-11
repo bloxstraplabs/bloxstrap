@@ -14,28 +14,16 @@ namespace Bloxstrap.Enums
 
     public static class BootstrapperStyleEx
     {
-        public static void Show(this BootstrapperStyle bootstrapperStyle, Bootstrapper? bootstrapper = null)
+        public static IBootstrapperDialog GetNew(this BootstrapperStyle bootstrapperStyle)
         {
-            IBootstrapperDialog dialog = bootstrapperStyle switch
+            return bootstrapperStyle switch
             {
-                BootstrapperStyle.VistaDialog => new VistaDialog(bootstrapper),
-                BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(bootstrapper),
-                BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(bootstrapper),
-                BootstrapperStyle.ProgressDialog => new ProgressDialog(bootstrapper),
-                _ => new ProgressDialog(bootstrapper)
+                BootstrapperStyle.VistaDialog => new VistaDialog(),
+                BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(),
+                BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
+                BootstrapperStyle.ProgressDialog => new ProgressDialog(),
+                _ => new ProgressDialog()
             };
-
-            if (bootstrapper is null)
-            {
-                dialog.ShowAsPreview();
-            }
-            else
-            {
-                if (App.IsQuiet)
-                    dialog.HideBootstrapper();
-
-                dialog.ShowAsBootstrapper();
-            }
         }
     }
 }

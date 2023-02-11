@@ -10,9 +10,7 @@ namespace Bloxstrap.Dialogs
 {
     public class BootstrapperDialogForm : Form, IBootstrapperDialog
     {
-        public Bootstrapper? Bootstrapper { get; set; }
-
-        protected override bool ShowWithoutActivation => App.IsQuiet;
+        public Bootstrapper Bootstrapper { get; set; } = null!;
 
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
@@ -67,11 +65,6 @@ namespace Bloxstrap.Dialogs
             }
         }
 
-        public BootstrapperDialogForm(Bootstrapper? bootstrapper = null)
-        {
-            Bootstrapper = bootstrapper;
-        }
-
         public void ScaleWindow()
         {
             this.Size = this.MinimumSize = this.MaximumSize = WindowScaling.GetScaledSize(this.Size);
@@ -88,64 +81,16 @@ namespace Bloxstrap.Dialogs
         {
             this.Text = App.ProjectName;
             this.Icon = App.Settings.Prop.BootstrapperIcon.GetIcon();
-
-            if (Bootstrapper is null)
-            {
-                Message = "Style preview - Click Cancel to close";
-                CancelEnabled = true;
-            }
-            else
-            {
-                Bootstrapper.Dialog = this;
-                Task.Run(RunBootstrapper);
-            }
         }
 
+        public void ShowBootstrapper() => this.ShowDialog();
 
-        public async void RunBootstrapper()
-        {
-            if (Bootstrapper is null)
-                return;
-
-#if DEBUG
-            await Bootstrapper.Run();
-#else
-            try
-            {
-                await Bootstrapper.Run();
-            }
-            catch (Exception ex)
-            {
-                // string message = String.Format("{0}: {1}", ex.GetType(), ex.Message);
-                string message = ex.ToString();
-                ShowError(message);
-            }
-#endif
-
-            App.Terminate();
-        }
-
-        public void ShowAsPreview()
-        {
-            this.ShowDialog();
-        }
-
-        public void ShowAsBootstrapper()
-        {
-            System.Windows.Forms.Application.Run(this);
-        }
-
-        public virtual void HideBootstrapper()
+        public virtual void CloseBootstrapper()
         {
             if (this.InvokeRequired)
-            {
-                this.Invoke(HideBootstrapper);
-            }
+                this.Invoke(CloseBootstrapper);
             else
-            {
-                this.Opacity = 0;
-                this.ShowInTaskbar = false;
-            }
+                this.Close();
         }
 
         public virtual void ShowSuccess(string message)
@@ -174,10 +119,8 @@ namespace Bloxstrap.Dialogs
 
         public void ButtonCancel_Click(object? sender, EventArgs e)
         {
-            if (Bootstrapper is null)
-                this.Close();
-            else
-                Task.Run(() => Bootstrapper.CancelButtonClicked());
+            Bootstrapper.CancelInstall(); 
+            this.Close();
         }
     }
 }
