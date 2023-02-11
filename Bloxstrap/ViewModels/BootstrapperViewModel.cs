@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
 using Bloxstrap.Views;
 using CommunityToolkit.Mvvm.Input;
@@ -20,7 +21,14 @@ namespace Bloxstrap.ViewModels
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);
 
-        private void PreviewBootstrapper() => App.Settings.Prop.BootstrapperStyle.Show();
+        private void PreviewBootstrapper()
+        {
+            IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
+            dialog.Message = "Style preview - Click Cancel to close";
+            dialog.CancelEnabled = true;
+            dialog.ShowBootstrapper();
+        }
+
 
         public BootstrapperViewModel(Page page)
         {

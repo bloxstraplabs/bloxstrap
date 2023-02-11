@@ -34,7 +34,7 @@ namespace Bloxstrap.Dialogs
             set => this.buttonCancel.Enabled = this.buttonCancel.Visible = value;
         }
 
-        public ProgressDialog(Bootstrapper? bootstrapper = null) : base(bootstrapper)
+        public ProgressDialog()
         {
             InitializeComponent();
 

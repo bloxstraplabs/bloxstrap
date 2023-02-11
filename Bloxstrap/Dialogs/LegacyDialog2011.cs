@@ -33,7 +33,7 @@ namespace Bloxstrap.Dialogs
             set => this.buttonCancel.Enabled = this.buttonCancel.Visible = value; 
         }
 
-        public LegacyDialog2011(Bootstrapper? bootstrapper = null) : base(bootstrapper)
+        public LegacyDialog2011()
         {
             InitializeComponent();
             

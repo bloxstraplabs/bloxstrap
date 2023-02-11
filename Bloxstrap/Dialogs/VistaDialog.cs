@@ -60,7 +60,7 @@ namespace Bloxstrap.Dialogs
             set => Dialog.Buttons[0].Enabled = value;
         }
 
-        public VistaDialog(Bootstrapper? bootstrapper = null) : base(bootstrapper)
+        public VistaDialog()
         {
             InitializeComponent();
 
@@ -102,9 +102,7 @@ namespace Bloxstrap.Dialogs
 
                 successDialog.Buttons[0].Click += (sender, e) => App.Terminate();
 
-                if (!App.IsQuiet)
-                    Dialog.Navigate(successDialog);
-
+                Dialog.Navigate(successDialog);
                 Dialog = successDialog;
             }
         }
@@ -134,33 +132,29 @@ namespace Bloxstrap.Dialogs
 
                 errorDialog.Buttons[0].Click += (sender, e) => App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
 
-                if (!App.IsQuiet)
-                    Dialog.Navigate(errorDialog);
+                Dialog.Navigate(errorDialog);
 
                 Dialog = errorDialog;
             }
         }
 
-        public override void HideBootstrapper()
+        public override void CloseBootstrapper()
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(HideBootstrapper);
+                this.Invoke(CloseBootstrapper);
             }
             else
             {
-                if (Dialog.BoundDialog is null)
-                    return;
-                
-                Dialog.BoundDialog.Close();
+                Dialog.BoundDialog?.Close();
+                base.CloseBootstrapper();
             }
         }
 
 
         private void VistaDialog_Load(object sender, EventArgs e)
         {
-            if (!App.IsQuiet)
-                TaskDialog.ShowDialog(Dialog);
+            TaskDialog.ShowDialog(Dialog);
         }
     }
 }
