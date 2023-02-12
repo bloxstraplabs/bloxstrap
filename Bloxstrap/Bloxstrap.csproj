@@ -13,7 +13,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Icon2009-png.png" />
+    <None Remove="Resources\Icon2011-png.png" />
+    <None Remove="Resources\Icon2017-png.png" />
+    <None Remove="Resources\Icon2019-png.png" />
+    <None Remove="Resources\Icon2022-png.png" />
     <None Remove="Resources\IconBloxstrap-png.png" />
+    <None Remove="Resources\IconEarly2015-png.png" />
+    <None Remove="Resources\IconLate2015-png.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +42,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Icon2009-png.png" />
+    <Resource Include="Resources\Icon2011-png.png" />
+    <Resource Include="Resources\Icon2017-png.png" />
+    <Resource Include="Resources\Icon2019-png.png" />
+    <Resource Include="Resources\Icon2022-png.png" />
     <Resource Include="Resources\IconBloxstrap-png.png" />
+    <Resource Include="Resources\IconEarly2015-png.png" />
+    <Resource Include="Resources\IconLate2015-png.png" />
   </ItemGroup>
 
 </Project>

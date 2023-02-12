@@ -27,12 +27,7 @@ namespace Bloxstrap.Views
 
         public void SetTheme()
         {
-            var theme = ThemeType.Light;
-
-            if (App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark)
-                theme = ThemeType.Dark;
-
-            _themeService.SetTheme(theme);
+            _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
             _themeService.SetSystemAccent();
         }
 

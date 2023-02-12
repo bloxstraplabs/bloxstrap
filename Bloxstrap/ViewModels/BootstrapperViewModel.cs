@@ -72,10 +72,11 @@ namespace Bloxstrap.ViewModels
 
         public IReadOnlyDictionary<string, BootstrapperStyle> Dialogs { get; set; } = new Dictionary<string, BootstrapperStyle>()
         {
-            { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
-            { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },
-            { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
+            { "Fluent", BootstrapperStyle.FluentDialog },
             { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
+            { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
+            { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },
+            { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
         };
 
         public string Dialog
@@ -87,13 +88,13 @@ namespace Bloxstrap.ViewModels
         public IReadOnlyDictionary<string, BootstrapperIcon> Icons { get; set; } = new Dictionary<string, BootstrapperIcon>()
         {
             { "Bloxstrap", BootstrapperIcon.IconBloxstrap },
-            { "2009", BootstrapperIcon.Icon2009 },
-            { "2011", BootstrapperIcon.Icon2011 },
-            { "2015", BootstrapperIcon.IconEarly2015 },
-            { "2016", BootstrapperIcon.IconLate2015 },
-            { "2017", BootstrapperIcon.Icon2017 },
+            { "2022", BootstrapperIcon.Icon2022 },
             { "2019", BootstrapperIcon.Icon2019 },
-            { "2022", BootstrapperIcon.Icon2022 }
+            { "2017", BootstrapperIcon.Icon2017 },
+            { "2016", BootstrapperIcon.IconLate2015 },
+            { "2015", BootstrapperIcon.IconEarly2015 },
+            { "2011", BootstrapperIcon.Icon2011 },
+            { "2009", BootstrapperIcon.Icon2009 },
         };
 
         public string Icon

@@ -10,6 +10,7 @@ namespace Bloxstrap.Enums
         LegacyDialog2009,
         LegacyDialog2011,
         ProgressDialog,
+        FluentDialog
     }
 
     public static class BootstrapperStyleEx
@@ -22,7 +23,8 @@ namespace Bloxstrap.Enums
                 BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(),
                 BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
                 BootstrapperStyle.ProgressDialog => new ProgressDialog(),
-                _ => new ProgressDialog()
+                BootstrapperStyle.FluentDialog => new FluentDialog(),
+                _ => new FluentDialog()
             };
         }
     }

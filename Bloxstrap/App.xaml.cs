@@ -55,9 +55,9 @@ namespace Bloxstrap
 
         public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
+            Debug.WriteLine($"[App] Terminating with exit code {code}");
             Settings.Save();
             State.Save();
-            Debug.WriteLine($"[App] Terminating with exit code {code}");
             Environment.Exit(code);
         }
 
@@ -109,13 +109,11 @@ namespace Bloxstrap
                 registryKey.Close();
             }
 
-            // preferences dialog was closed, and so base directory was never set
+            // exit if we don't click the install button on installation
             if (!IsSetupComplete)
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
 
             Directories.Initialize(BaseDirectory);
-
-            //Settings.FileLocation = Path.Combine(Directories.Base, "Settings.json");
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
@@ -185,6 +183,7 @@ namespace Bloxstrap
                 Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
                 {
                     // TODO: add error logging
+                    Debug.WriteLine("[App] Bootstrapper task has finished");
 
                     if (t.Exception is null)
                         return;

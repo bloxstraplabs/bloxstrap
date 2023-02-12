@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace Bloxstrap.Enums
 {
@@ -16,6 +17,11 @@ namespace Bloxstrap.Enums
 
     public static class BootstrapperIconEx
     {
+        public static string GetPackUri(this BootstrapperIcon icon)
+        {
+            return $"pack://application:,,,/Resources/{Enum.GetName(icon)}-png.png";
+        }
+
         public static Icon GetIcon(this BootstrapperIcon icon)
         {
             switch (icon)

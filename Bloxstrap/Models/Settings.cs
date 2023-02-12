@@ -6,7 +6,7 @@ namespace Bloxstrap.Models
     public class Settings
     {
         // bloxstrap configuration
-        public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.ProgressDialog;
+        public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.FluentDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
         public Theme Theme { get; set; } = Theme.Default;
         public bool CheckForUpdates { get; set; } = true;

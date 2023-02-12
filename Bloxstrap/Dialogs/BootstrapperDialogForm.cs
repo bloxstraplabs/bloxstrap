@@ -10,8 +10,9 @@ namespace Bloxstrap.Dialogs
 {
     public class BootstrapperDialogForm : Form, IBootstrapperDialog
     {
-        public Bootstrapper Bootstrapper { get; set; } = null!;
+        public Bootstrapper? Bootstrapper { get; set; }
 
+        #region UI Elements
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
@@ -64,6 +65,7 @@ namespace Bloxstrap.Dialogs
                     _cancelEnabled = value;
             }
         }
+        #endregion
 
         public void ScaleWindow()
         {
@@ -83,6 +85,13 @@ namespace Bloxstrap.Dialogs
             this.Icon = App.Settings.Prop.BootstrapperIcon.GetIcon();
         }
 
+        public void ButtonCancel_Click(object? sender, EventArgs e)
+        {
+            Bootstrapper?.CancelInstall();
+            this.Close();
+        }
+
+        #region IBootstrapperDialog Methods
         public void ShowBootstrapper() => this.ShowDialog();
 
         public virtual void CloseBootstrapper()
@@ -116,11 +125,6 @@ namespace Bloxstrap.Dialogs
             if (result != MessageBoxResult.OK)
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
         }
-
-        public void ButtonCancel_Click(object? sender, EventArgs e)
-        {
-            Bootstrapper.CancelInstall(); 
-            this.Close();
-        }
-    }
+        #endregion
+    } 
 }
