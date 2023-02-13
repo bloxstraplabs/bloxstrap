@@ -38,14 +38,5 @@ namespace Bloxstrap.Enums
                 _ => Properties.Resources.IconBloxstrap
             };
         }
-
-        public static Icon GetIconWithSize(this BootstrapperIcon icon, Size size) => new(icon.GetIcon(), size);
-
-        public static ImageSource GetImageSource(this BootstrapperIcon icon)
-        {
-            using MemoryStream stream = new();
-            icon.GetIcon().Save(stream);
-            return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-        }
     }
 }

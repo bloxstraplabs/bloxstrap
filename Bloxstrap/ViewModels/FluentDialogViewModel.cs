@@ -10,6 +10,7 @@ using System.Windows.Media;
 using CommunityToolkit.Mvvm.Input;
 using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
+using Bloxstrap.Helpers.Extensions;
 
 namespace Bloxstrap.ViewModels
 {
@@ -21,7 +22,7 @@ namespace Bloxstrap.ViewModels
 
         public ICommand CancelInstallCommand => new RelayCommand(CancelInstall);
 
-        public ImageSource Icon { get; set; } = App.Settings.Prop.BootstrapperIcon.GetImageSource();
+        public ImageSource Icon { get; set; } = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
         public string Message { get; set; } = "Please wait...";
         public bool ProgressIndeterminate { get; set; } = true;
         public int ProgressValue { get; set; } = 0;

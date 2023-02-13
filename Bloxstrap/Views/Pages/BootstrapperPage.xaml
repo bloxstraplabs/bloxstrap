@@ -6,7 +6,7 @@
       xmlns:models="clr-namespace:Bloxstrap.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="BootstrapperPage"
       Scrollable="True">
 
@@ -69,7 +69,18 @@
                     <TextBlock FontSize="12" Text="Choose what icon the bootstrapper should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
+            <Grid Width="200">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="28" Height="28" Margin="0,0,5,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding IconPreviewSource, Mode=OneWay}" />
+                    </Border.Background>
+                </Border>
+                <ComboBox Grid.Column="1" Margin="5,0,0,0" Padding="10,5,10,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
+            </Grid>
         </ui:CardControl>
         <ui:Button Content="Preview" HorizontalAlignment="Stretch" Margin="0,8,0,0" Command="{Binding PreviewBootstrapperCommand}" />
     </StackPanel>

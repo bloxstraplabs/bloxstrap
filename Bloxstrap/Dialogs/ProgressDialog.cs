@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 using Bloxstrap.Enums;
+using Bloxstrap.Helpers.Extensions;
 
 namespace Bloxstrap.Dialogs
 {
@@ -46,7 +47,7 @@ namespace Bloxstrap.Dialogs
                 this.BackColor = Color.FromArgb(25, 27, 29);
             }
 
-            this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIconWithSize(new Size(128, 128)).ToBitmap();
+            this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIcon().GetSized(128, 128).ToBitmap();
 
             SetupDialog();
         }

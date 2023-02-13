@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
+using Bloxstrap.Helpers.Extensions;
 using Bloxstrap.Views;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Mvvm.Services;
@@ -15,8 +18,11 @@ using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.ViewModels
 {
-    public class BootstrapperViewModel
+    public class BootstrapperViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         private readonly Page _page;
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);
@@ -100,7 +106,13 @@ namespace Bloxstrap.ViewModels
         public string Icon
         {
             get => Icons.FirstOrDefault(x => x.Value == App.Settings.Prop.BootstrapperIcon).Key;
-            set => App.Settings.Prop.BootstrapperIcon = Icons[value];
+            set
+            {
+                App.Settings.Prop.BootstrapperIcon = Icons[value];
+                OnPropertyChanged(nameof(IconPreviewSource));
+            }
         }
+
+        public ImageSource IconPreviewSource => App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
     }
 }
