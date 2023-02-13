@@ -74,10 +74,10 @@
                     <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
                         <TextBlock.Style>
                             <Style>
-                                <Setter Property="TextBlock.Text" Value="ReShade's resources are stored here." />
+                                <Setter Property="TextBlock.Text" Value="Where ReShade's resources are stored." />
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
-                                        <Setter Property="TextBlock.Text" Value="Available once Roblox is started with ReShade." />
+                                        <Setter Property="TextBlock.Text" Value="Please launch Roblox with ReShade first." />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
@@ -88,7 +88,7 @@
             <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="{Binding ShowReShadeHelpCommand}">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
-                    <TextBlock FontSize="12" Text="See info about using ReShade." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="12" Text="See info about using ReShade." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

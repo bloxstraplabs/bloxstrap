@@ -60,12 +60,6 @@ namespace Bloxstrap.ViewModels
             set => App.BaseDirectory = value;
         }
 
-        public bool CreateDesktopIcon
-        {
-            get => App.Settings.Prop.CreateDesktopIcon;
-            set => App.Settings.Prop.CreateDesktopIcon = value;
-        }
-
         public IEnumerable<string> Channels
         {
             get => _channels;

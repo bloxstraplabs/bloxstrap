@@ -62,8 +62,8 @@
                     <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="DocumentToolbox24" Tag="mods" />
                     <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="Window48" Tag="bootstrapper" />
                     <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
-                    <ui:NavigationSeparator />
-                    <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Icon="BookQuestionMark24" Tag="reshadehelp" />
+                    <!--<ui:NavigationSeparator />-->
+                    <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Icon="BookQuestionMark24" Tag="reshadehelp" Visibility="Collapsed" />
                     <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>

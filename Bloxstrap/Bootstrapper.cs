@@ -436,10 +436,16 @@ namespace Bloxstrap
                         .WriteToFile(newMenuShortcut);
             }
 
-            if (App.Settings.Prop.CreateDesktopIcon && !File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
+            if (App.Settings.Prop.CreateDesktopIcon)
             {
-                ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
-                    .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
+                if (!File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
+                {
+                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
+                        .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
+                }
+
+                // one-time toggle, set it back to false
+                App.Settings.Prop.CreateDesktopIcon = false;
             }
         }
 

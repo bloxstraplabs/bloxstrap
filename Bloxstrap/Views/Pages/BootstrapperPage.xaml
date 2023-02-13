@@ -17,6 +17,15 @@
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="Create desktop icon" />
+                    <TextBlock FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0">
+            <ui:CardControl.Header>
+                <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Update Bloxstrap on startup" />
                     <TextBlock FontSize="12" Text="Bloxstrap will check and automatically update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
