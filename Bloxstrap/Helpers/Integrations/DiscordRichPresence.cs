@@ -32,12 +32,28 @@ namespace Bloxstrap.Helpers.Integrations
 
         public DiscordRichPresence()
         {
+            RichPresence.OnReady += (_, e) => 
+                App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Received ready from user {e.User.Username} ({e.User.ID})");
+
+            RichPresence.OnPresenceUpdate += (_, e) => 
+                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Updated presence");
+
+            RichPresence.OnConnectionEstablished += (_, e) =>
+                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Established connection with Discord RPC!");
+
+            //spams log as it tries to connect every ~15 sec when discord is closed so not now
+            //RichPresence.OnConnectionFailed += (_, e) =>
+            //    App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Failed to establish connection with Discord RPC!");
+
+            RichPresence.OnClose += (_, e) =>
+                App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Lost connection to Discord RPC - {e.Reason} ({e.Code})");
+
             RichPresence.Initialize();
         }
 
         private async Task ExamineLogEntry(string entry)
         {
-            Debug.WriteLine(entry);
+            // App.Logger.WriteLine(entry);
 
             if (entry.Contains(GameJoiningEntry) && !ActivityInGame && ActivityPlaceId == 0)
             {
@@ -51,7 +67,7 @@ namespace Bloxstrap.Helpers.Integrations
                 ActivityJobId = match.Groups[1].Value;
                 ActivityMachineAddress = match.Groups[3].Value;
 
-                Debug.WriteLine($"[DiscordRichPresence] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
             }
             else if (entry.Contains(GameJoinedEntry) && !ActivityInGame && ActivityPlaceId != 0)
             {
@@ -60,14 +76,14 @@ namespace Bloxstrap.Helpers.Integrations
                 if (match.Groups.Count != 3 || match.Groups[1].Value != ActivityMachineAddress)
                     return;
 
-                Debug.WriteLine($"[DiscordRichPresence] Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                 ActivityInGame = true;
                 await SetPresence();
             }
             else if (entry.Contains(GameDisconnectedEntry) && ActivityInGame && ActivityPlaceId != 0)
             {
-                Debug.WriteLine($"[DiscordRichPresence] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                 ActivityInGame = false;
                 ActivityPlaceId = 0;
@@ -136,7 +152,7 @@ namespace Bloxstrap.Helpers.Integrations
                     }
                     else
                     {
-                        //Debug.WriteLine(log);
+                        //App.Logger.WriteLine(log);
                         await ExamineLogEntry(log);
                     }
                 }

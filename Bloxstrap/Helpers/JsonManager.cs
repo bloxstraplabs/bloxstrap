@@ -25,42 +25,42 @@ namespace Bloxstrap.Helpers
             //if (String.IsNullOrEmpty(FileLocation))
             //    throw new ArgumentNullException("No FileLocation has been set");
 
-            Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Loading JSON from {FileLocation}...");
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Loading JSON from {FileLocation}...");
 
             try
             {
                 T? settings = JsonSerializer.Deserialize<T>(File.ReadAllText(FileLocation));
                 Prop = settings ?? throw new ArgumentNullException("Deserialization returned null");
-                Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] JSON loaded successfully!");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] JSON loaded successfully!");
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Failed to load JSON! ({ex.Message})");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Failed to load JSON! ({ex.Message})");
             }
         }
 
         public void Save()
         {
-            Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Attempting to save JSON to {FileLocation}...");
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Attempting to save JSON to {FileLocation}...");
 
             //if (!ShouldSave || String.IsNullOrEmpty(FileLocation))
             //{
-            //    Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Aborted save (ShouldSave set to false or FileLocation not set)");
+            //    App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>] Aborted save (ShouldSave set to false or FileLocation not set)");
             //    return;
             //}
 
             //if (!ShouldSave)
             if (!App.ShouldSaveConfigs)
             {
-                Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] Aborted save (ShouldSave set to false)");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Aborted save (ShouldSave set to false)");
                 return;
             }
 
             string json = JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(FileLocation, json);
 
-            Debug.WriteLine($"[JsonManager<{typeof(T).Name}>] JSON saved!");
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] JSON saved!");
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Bloxstrap
         public static string BaseDirectory = null!;
         public static bool ShouldSaveConfigs { get; set; } = false;
         public static bool IsSetupComplete { get; set; } = true;
-        public static bool IsFirstRun { get; private set; } = false;
+        public static bool IsFirstRun { get; private set; } = true;
         public static bool IsQuiet { get; private set; } = false;
         public static bool IsUninstall { get; private set; } = false;
         public static bool IsNoLaunch { get; private set; } = false;
@@ -40,6 +40,8 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
+        // singletons
+        public static Logger Logger { get; private set; } = null!;
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
@@ -55,7 +57,7 @@ namespace Bloxstrap
 
         public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
-            Debug.WriteLine($"[App] Terminating with exit code {code}");
+            Logger.WriteLine($"[App::Terminate] Terminating with exit code {code}");
             Settings.Save();
             State.Save();
             Environment.Exit(code);
@@ -94,7 +96,6 @@ namespace Bloxstrap
 
             if (registryKey is null)
             {
-                IsFirstRun = true;
                 BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
 
                 if (!IsQuiet)
@@ -105,6 +106,7 @@ namespace Bloxstrap
             }
             else
             {
+                IsFirstRun = false;
                 BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
                 registryKey.Close();
             }
@@ -114,6 +116,10 @@ namespace Bloxstrap
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
 
             Directories.Initialize(BaseDirectory);
+
+            string logdir = IsFirstRun || IsUninstall ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+            Logger = new(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
@@ -182,16 +188,19 @@ namespace Bloxstrap
 
                 Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
                 {
-                    // TODO: add error logging
-                    Debug.WriteLine("[App] Bootstrapper task has finished");
+                    Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
 
                     if (t.Exception is null)
                         return;
 
+                    Logger.WriteLine("[App::OnStartup] An exception occurred when running the bootstrapper");
+                    Logger.WriteLine($"[App::OnStartup] {t.Exception}");
+
 #if DEBUG
                     throw t.Exception;
 #else
-                    dialog?.ShowError(t.Exception.ToString());
+                    var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
+                    dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
 #endif
                 });
 

@@ -61,7 +61,10 @@ namespace Bloxstrap.Helpers
                         );
 
                         if (result == MessageBoxResult.Yes)
+                        {
+                            App.Logger.WriteLine($"[Protocol::ParseUri] Changed Roblox build channel from {App.Settings.Prop.Channel} to {val}");
                             App.Settings.Prop.Channel = val;
+                        }
                     }
 
                     // we'll set the arg when launching
@@ -106,7 +109,7 @@ namespace Bloxstrap.Helpers
             }
             catch (Exception e) 
             {
-                Debug.WriteLine($"Failed to unregister {key}: {e}");
+                App.Logger.WriteLine($"[Protocol::Unregister] Failed to unregister {key}: {e}");
             }
         }
     }

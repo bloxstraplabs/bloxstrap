@@ -11,7 +11,7 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="Configure how Bloxstrap should function and look." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="Configure how Bloxstrap should behave and look." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <TextBlock Text="Behaviour" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <ui:CardControl Margin="0,8,0,0">

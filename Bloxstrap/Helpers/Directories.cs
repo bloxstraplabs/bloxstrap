@@ -7,6 +7,7 @@ namespace Bloxstrap.Helpers
     {
         // note that these are directories that aren't tethered to the basedirectory
         // so these can safely be called before initialization
+        public static string UserProfile => Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
         public static string LocalAppData => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static string Desktop => Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         public static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", App.ProjectName);

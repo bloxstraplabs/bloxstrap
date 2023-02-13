@@ -90,7 +90,7 @@ namespace Bloxstrap.Helpers.Integrations
                 File.Delete(fileLocation);
             }
 
-            Debug.WriteLine("Installing/Updating rbxfpsunlocker...");
+            App.Logger.WriteLine("[RbxFpsUnlocker::CheckInstall] Installing/Updating rbxfpsunlocker...");
 
             {
                 byte[] bytes = await App.HttpClient.GetByteArrayAsync(downloadUrl);

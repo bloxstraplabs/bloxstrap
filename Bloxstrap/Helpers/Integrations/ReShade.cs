@@ -69,7 +69,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task DownloadConfig()
         {
-            Debug.WriteLine("[ReShade] Downloading/Upgrading config file...");
+            App.Logger.WriteLine("[ReShade::DownloadConfig] Downloading/Upgrading config file...");
 
             {
                 byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/config.zip");
@@ -117,7 +117,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static void SynchronizeConfigFile()
         {
-            Debug.WriteLine($"[ReShade] Synchronizing configuration file...");
+            App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] Synchronizing configuration file...");
 
             // yeah, this is going to be a bit of a pain
             // keep in mind the config file is going to be in two places: the mod folder and the version folder
@@ -134,21 +134,21 @@ namespace Bloxstrap.Helpers.Integrations
             // we shouldn't be here if the mod config doesn't already exist
             if (!File.Exists(modFolderConfigPath))
             {
-                Debug.WriteLine($"[ReShade] ReShade.ini in modifications folder does not exist, aborting sync");
+                App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] ReShade.ini in modifications folder does not exist, aborting sync");
                 return;
             }
 
             // copy to the version folder if it doesn't already exist there
             if (!File.Exists(versionFolderConfigPath))
             {
-                Debug.WriteLine($"[ReShade] ReShade.ini in version folder does not exist, synchronized with modifications folder");
+                App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] ReShade.ini in version folder does not exist, synchronized with modifications folder");
                 File.Copy(modFolderConfigPath, versionFolderConfigPath);
             }
 
             // if both the mod and version configs match, then we don't need to do anything
             if (Utilities.MD5File(modFolderConfigPath) == Utilities.MD5File(versionFolderConfigPath))
             {
-                Debug.WriteLine($"[ReShade] ReShade.ini in version and modifications folder match");
+                App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] ReShade.ini in version and modifications folder match");
                 return;
             }
 
@@ -158,13 +158,13 @@ namespace Bloxstrap.Helpers.Integrations
             if (modFolderConfigFile.LastWriteTime > versionFolderConfigFile.LastWriteTime)
             {
                 // overwrite version config if mod config was modified most recently
-                Debug.WriteLine($"[ReShade] ReShade.ini in version folder is older, synchronized with modifications folder");
+                App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] ReShade.ini in version folder is older, synchronized with modifications folder");
                 File.Copy(modFolderConfigPath, versionFolderConfigPath, true);
             }
             else if (versionFolderConfigFile.LastWriteTime > modFolderConfigFile.LastWriteTime)
             {
                 // overwrite mod config if version config was modified most recently
-                Debug.WriteLine($"[ReShade] ReShade.ini in modifications folder is older, synchronized with version folder");
+                App.Logger.WriteLine($"[ReShade::SynchronizeConfigFile] ReShade.ini in modifications folder is older, synchronized with version folder");
                 File.Copy(versionFolderConfigPath, modFolderConfigPath, true);
             }
         }
@@ -177,7 +177,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (Directory.Exists(Path.Combine(ShadersFolder, name)))
                 return;
 
-            Debug.WriteLine($"[ReShade] Downloading shaders for {name}");
+            App.Logger.WriteLine($"[ReShade::DownloadShaders] Downloading shaders for {name}");
 
             {
                 byte[] bytes = await App.HttpClient.GetByteArrayAsync(downloadUrl);
@@ -238,7 +238,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static void DeleteShaders(string name)
         {
-            Debug.WriteLine($"[ReShade] Deleting shaders for {name}");
+            App.Logger.WriteLine($"[ReShade::DeleteShaders] Deleting shaders for {name}");
 
             string shadersPath = Path.Combine(ShadersFolder, name);
             string texturesPath = Path.Combine(TexturesFolder, name);
@@ -276,7 +276,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task InstallExtraviPresets()
         {
-            Debug.WriteLine("[ReShade] Installing Extravi's presets...");
+            App.Logger.WriteLine("[ReShade::InstallExtraviPresets] Installing Extravi's presets...");
 
             foreach (string name in ExtraviPresetsShaders)
                 await DownloadShaders(name);
@@ -303,7 +303,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!Directory.Exists(PresetsFolder))
                 return;
 
-            Debug.WriteLine("[ReShade] Uninstalling Extravi's presets...");
+            App.Logger.WriteLine("[ReShade::UninstallExtraviPresets] Uninstalling Extravi's presets...");
 
             FileInfo[] presets = new DirectoryInfo(PresetsFolder).GetFiles();
 
@@ -319,7 +319,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task CheckModifications()
         {
-            Debug.WriteLine("[ReShade] Checking ReShade modifications... ");
+            App.Logger.WriteLine("[ReShade::CheckModifications] Checking ReShade modifications... ");
             
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
 
@@ -332,7 +332,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             if (!App.Settings.Prop.UseReShade)
             {
-                Debug.WriteLine("[ReShade] Uninstalling ReShade...");
+                App.Logger.WriteLine("[ReShade::CheckModifications] Uninstalling ReShade...");
 
                 // delete any stock config files
                 File.Delete(injectorLocation);
@@ -380,7 +380,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             if (shouldFetchReShade)
             {
-                Debug.WriteLine("[ReShade] Installing/Upgrading ReShade...");
+                App.Logger.WriteLine("[ReShade::CheckModifications] Installing/Upgrading ReShade...");
 
                 {
                     byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
