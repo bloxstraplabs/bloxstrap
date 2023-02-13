@@ -91,8 +91,8 @@ namespace Bloxstrap.ViewModels
             { "2022", BootstrapperIcon.Icon2022 },
             { "2019", BootstrapperIcon.Icon2019 },
             { "2017", BootstrapperIcon.Icon2017 },
-            { "2016", BootstrapperIcon.IconLate2015 },
-            { "2015", BootstrapperIcon.IconEarly2015 },
+            { "Late 2015", BootstrapperIcon.IconLate2015 },
+            { "Early 2015", BootstrapperIcon.IconEarly2015 },
             { "2011", BootstrapperIcon.Icon2011 },
             { "2009", BootstrapperIcon.Icon2009 },
         };

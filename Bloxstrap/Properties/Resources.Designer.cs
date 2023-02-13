@@ -99,164 +99,100 @@ namespace Bloxstrap.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Icon2009_ico {
-            get {
-                object obj = ResourceManager.GetObject("Icon2009_ico", resourceCulture);
+        internal static System.Drawing.Icon IconBloxstrap
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconBloxstrap", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icon2009_png {
-            get {
-                object obj = ResourceManager.GetObject("Icon2009_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Icon2011_ico {
-            get {
-                object obj = ResourceManager.GetObject("Icon2011_ico", resourceCulture);
+        internal static System.Drawing.Icon Icon2009
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Icon2009", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icon2011_png {
-            get {
-                object obj = ResourceManager.GetObject("Icon2011_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Icon2017_ico {
-            get {
-                object obj = ResourceManager.GetObject("Icon2017_ico", resourceCulture);
+        internal static System.Drawing.Icon Icon2011
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Icon2011", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icon2017_png {
-            get {
-                object obj = ResourceManager.GetObject("Icon2017_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Icon2019_ico {
-            get {
-                object obj = ResourceManager.GetObject("Icon2019_ico", resourceCulture);
+        internal static System.Drawing.Icon IconEarly2015
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconEarly2015", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icon2019_png {
-            get {
-                object obj = ResourceManager.GetObject("Icon2019_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Icon2022_ico {
-            get {
-                object obj = ResourceManager.GetObject("Icon2022_ico", resourceCulture);
+        internal static System.Drawing.Icon IconLate2015
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconLate2015", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Icon2022_png {
-            get {
-                object obj = ResourceManager.GetObject("Icon2022_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon IconBloxstrap_ico {
-            get {
-                object obj = ResourceManager.GetObject("IconBloxstrap_ico", resourceCulture);
+        internal static System.Drawing.Icon Icon2017
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Icon2017", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconBloxstrap_png {
-            get {
-                object obj = ResourceManager.GetObject("IconBloxstrap_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon IconEarly2015_ico {
-            get {
-                object obj = ResourceManager.GetObject("IconEarly2015_ico", resourceCulture);
+        internal static System.Drawing.Icon Icon2019
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Icon2019", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconEarly2015_png {
-            get {
-                object obj = ResourceManager.GetObject("IconEarly2015_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon IconLate2015_ico {
-            get {
-                object obj = ResourceManager.GetObject("IconLate2015_ico", resourceCulture);
+        internal static System.Drawing.Icon Icon2022
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Icon2022", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap IconLate2015_png {
-            get {
-                object obj = ResourceManager.GetObject("IconLate2015_png", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

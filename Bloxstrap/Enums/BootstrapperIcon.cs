@@ -1,5 +1,7 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
+using System.IO;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Bloxstrap.Enums
 {
@@ -17,71 +19,33 @@ namespace Bloxstrap.Enums
 
     public static class BootstrapperIconEx
     {
-        public static string GetPackUri(this BootstrapperIcon icon)
-        {
-            return $"pack://application:,,,/Resources/{Enum.GetName(icon)}-png.png";
-        }
+        // small note on handling icon sizes
+        // i'm using multisize icon packs here with sizes 16, 24, 32, 48, 64 and 128
+        // use this for generating multisize packs: https://www.aconvert.com/icon/
 
         public static Icon GetIcon(this BootstrapperIcon icon)
         {
-            switch (icon)
+            return icon switch
             {
-                case BootstrapperIcon.Icon2009:
-                    return Properties.Resources.Icon2009_ico;
-
-                case BootstrapperIcon.Icon2011:
-                    return Properties.Resources.Icon2011_ico;
-
-                case BootstrapperIcon.IconEarly2015:
-                    return Properties.Resources.IconEarly2015_ico;
-
-                case BootstrapperIcon.IconLate2015:
-                    return Properties.Resources.IconLate2015_ico;
-
-                case BootstrapperIcon.Icon2017:
-                    return Properties.Resources.Icon2017_ico;
-
-                case BootstrapperIcon.Icon2019:
-                    return Properties.Resources.Icon2019_ico;
-
-                case BootstrapperIcon.Icon2022: 
-                    return Properties.Resources.Icon2022_ico;
-
-                case BootstrapperIcon.IconBloxstrap:
-                default:
-                    return Properties.Resources.IconBloxstrap_ico;
-            }
+                BootstrapperIcon.IconBloxstrap => Properties.Resources.IconBloxstrap,
+                BootstrapperIcon.Icon2009 => Properties.Resources.Icon2009,
+                BootstrapperIcon.Icon2011 => Properties.Resources.Icon2011,
+                BootstrapperIcon.IconEarly2015 => Properties.Resources.IconEarly2015,
+                BootstrapperIcon.IconLate2015 => Properties.Resources.IconLate2015,
+                BootstrapperIcon.Icon2017 => Properties.Resources.Icon2017,
+                BootstrapperIcon.Icon2019 => Properties.Resources.Icon2019,
+                BootstrapperIcon.Icon2022 => Properties.Resources.Icon2022,
+                _ => Properties.Resources.IconBloxstrap
+            };
         }
 
-        public static Bitmap GetBitmap(this BootstrapperIcon icon)
+        public static Icon GetIconWithSize(this BootstrapperIcon icon, Size size) => new(icon.GetIcon(), size);
+
+        public static ImageSource GetImageSource(this BootstrapperIcon icon)
         {
-            switch (icon)
-            {
-                case BootstrapperIcon.Icon2009:
-                    return Properties.Resources.Icon2009_png;
-
-                case BootstrapperIcon.Icon2011:
-                    return Properties.Resources.Icon2011_png;
-
-                case BootstrapperIcon.IconEarly2015:
-                    return Properties.Resources.IconEarly2015_png;
-
-                case BootstrapperIcon.IconLate2015:
-                    return Properties.Resources.IconLate2015_png;
-
-                case BootstrapperIcon.Icon2017:
-                    return Properties.Resources.Icon2017_png;
-
-                case BootstrapperIcon.Icon2019:
-                    return Properties.Resources.Icon2019_png;
-
-                case BootstrapperIcon.Icon2022:
-                    return Properties.Resources.Icon2022_png;
-
-                case BootstrapperIcon.IconBloxstrap:
-                default:
-                    return Properties.Resources.IconBloxstrap_png;
-            }
+            using MemoryStream stream = new();
+            icon.GetIcon().Save(stream);
+            return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
         }
     }
 }

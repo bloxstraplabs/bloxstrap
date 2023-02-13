@@ -36,8 +36,7 @@ namespace Bloxstrap.Dialogs
         public LegacyDialog2011()
         {
             InitializeComponent();
-            
-            // have to convert icon -> bitmap since winforms scaling is poop
+
             this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIcon().ToBitmap();
 
             ScaleWindow();

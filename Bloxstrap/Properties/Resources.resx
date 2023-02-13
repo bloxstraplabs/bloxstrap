@@ -112,12 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=6.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=6.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=6.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="CancelButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CancelButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,52 +130,28 @@
   <data name="DarkCancelButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DarkCancelButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2009_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2009-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2009" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2009.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2009_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2009-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2011.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2011_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2011-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2017.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2011_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2011-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2019" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2019.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2017_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2017-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2022.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2017_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2017-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconBloxstrap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconBloxstrap.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2019_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2019-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconEarly2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconEarly2015.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2019_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2019-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon2022_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2022-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Icon2022_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2022-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconBloxstrap_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconBloxstrap-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconBloxstrap_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconBloxstrap-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconEarly2015_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconEarly2015-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconEarly2015_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconEarly2015-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconLate2015_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconLate2015-ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IconLate2015_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconLate2015-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconLate2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconLate2015.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

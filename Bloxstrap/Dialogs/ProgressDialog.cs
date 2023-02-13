@@ -46,7 +46,7 @@ namespace Bloxstrap.Dialogs
                 this.BackColor = Color.FromArgb(25, 27, 29);
             }
 
-            this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetBitmap();
+            this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIconWithSize(new Size(128, 128)).ToBitmap();
 
             SetupDialog();
         }

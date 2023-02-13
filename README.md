@@ -1,4 +1,4 @@
-# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Bloxstrap/Resources/IconBloxstrap-png.png" width="48"/> Bloxstrap
+# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap
 ![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap) 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main)
 ![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/total)
