@@ -22,7 +22,6 @@ namespace Bloxstrap.ViewModels
         private readonly Page _page;
 
         public ICommand OpenReShadeFolderCommand => new RelayCommand(OpenReShadeFolder);
-        public ICommand ShowReShadeHelpCommand => new RelayCommand(ShowReShadeHelp);
 
         public bool CanOpenReShadeFolder => App.Settings.Prop.UseReShade;
 
@@ -40,11 +39,6 @@ namespace Bloxstrap.ViewModels
         private void OpenReShadeFolder()
         {
             Process.Start("explorer.exe", Path.Combine(Directories.Integrations, "ReShade"));
-        }
-
-        private void ShowReShadeHelp()
-        {
-            ((INavigationWindow)Window.GetWindow(_page)!).Navigate(typeof(ReShadeHelpPage));
         }
 
         public bool DiscordActivityEnabled

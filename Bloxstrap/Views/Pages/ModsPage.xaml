@@ -12,34 +12,46 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Manage and apply file mods to the Roblox game client." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardAction Grid.Column="0" Margin="0,16,0,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding CanOpenModsFolder, Mode=OneTime}">
-            <StackPanel>
-                <TextBlock FontSize="13" FontWeight="Medium" Text="Open Mods Folder">
+        <Grid Margin="0,16,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding CanOpenModsFolder, Mode=OneTime}">
+                <StackPanel>
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="Open Mods Folder">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
-                    <TextBlock.Style>
-                        <Style>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding CanOpenModsFolder, Mode=OneTime}" Value="False">
-                                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-                <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-                    <TextBlock.Style>
-                        <Style>
-                            <Setter Property="TextBlock.Text" Value="This folder contains all the file mods applied to Roblox. See below for more info."/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding CanOpenModsFolder, Mode=OneTime}" Value="False">
-                                    <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed before accessing this folder. See below for what it does." />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-            </StackPanel>
-        </ui:CardAction>
+                        <TextBlock.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenModsFolder, Mode=OneTime}" Value="False">
+                                        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                        <TextBlock.Style>
+                            <Style>
+                                <Setter Property="TextBlock.Text" Value="Where you can apply custom mods to Roblox."/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenModsFolder, Mode=OneTime}" Value="False">
+                                        <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed before accessing this." />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
+                <StackPanel>
+                    <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
+                    <TextBlock FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+        </Grid>
 
         <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <Grid>
@@ -81,11 +93,5 @@
                 <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
             </ui:CardControl>
         </Grid>
-
-        <TextBlock Text="Adding your own mods" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="The Mods folder is where you can apply modifications to Roblox files while ensuring that they're preserved whenever Roblox updates." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="For example, placing a file at Modifications\content\sounds\ouch.ogg will automatically copy to and overwrite the file at Versions\Version-id\content\sounds\ouch.ogg. In this case, it replaces the death sound, which the old death sound preset does." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="When you remove a file, Bloxstrap restores the original version of the file the next time Roblox launches." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <TextBlock HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" Text="The folder is also used for handling mod presets and files for integrations like ReShade, so if you find any files or folders that already exist, you can safely ignore them." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
     </StackPanel>
 </ui:UiPage>

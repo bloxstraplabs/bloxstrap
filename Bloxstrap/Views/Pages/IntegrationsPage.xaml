@@ -85,7 +85,7 @@
                     </TextBlock>
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="{Binding ShowReShadeHelpCommand}">
+            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Using-ReShade">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
                     <TextBlock FontSize="12" Text="See info about using ReShade." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

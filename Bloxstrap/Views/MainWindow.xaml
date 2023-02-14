@@ -9,7 +9,7 @@
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              mc:Ignorable="d"
              Title="Bloxstrap Menu" 
-             MinWidth="880"
+             MinWidth="960"
              Width="960"
              Height="580" 
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
@@ -63,7 +63,6 @@
                     <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="WindowWrench48" Tag="bootstrapper" />
                     <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
                     <!--<ui:NavigationSeparator />-->
-                    <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Icon="BookQuestionMark24" Tag="reshadehelp" Visibility="Collapsed" />
                     <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>

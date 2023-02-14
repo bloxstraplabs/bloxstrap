@@ -343,6 +343,9 @@ namespace Bloxstrap
 
             foreach (Process process in autocloseProcesses)
             {
+                if (process.HasExited)
+                    continue;
+
                 App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Autoclosing process '{process.ProcessName}' (PID {process.Id})");
                 process.Kill();
             }
