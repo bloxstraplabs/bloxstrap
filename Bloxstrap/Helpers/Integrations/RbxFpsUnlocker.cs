@@ -68,7 +68,10 @@ namespace Bloxstrap.Helpers.Integrations
                 if (Directory.Exists(folderLocation))
                 {
                     CheckIfRunning();
-                    Directory.Delete(folderLocation, true);
+                    
+                    DirectoryInfo directory = new(folderLocation);
+                    directory.Attributes &= ~FileAttributes.ReadOnly;
+                    directory.Delete(true);
                 }
 
                 return;
