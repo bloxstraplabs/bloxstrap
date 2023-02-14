@@ -114,5 +114,26 @@
                 <ui:ToggleSwitch IsChecked="{Binding RbxFpsUnlockerAutocloseEnabled, Mode=TwoWay}" />
             </ui:CardControl>
         </StackPanel>
+
+        <TextBlock Text="Custom Integrations" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Margin="0,4,0,0" TextWrapping="Wrap">
+            Using custom integrations, you can have other programs launch with Roblox automatically like how rbxfpsunlocker does.<LineBreak />
+            To manage custom integrations, you'll have to manually edit your Settings.json configuration file in your Bloxstrap folder. If you have any configured, you'll be able to preview them here.
+        </TextBlock>
+        <Grid Margin="0,8,0,0" Visibility="{Binding CustomIntegrationsVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox ItemsSource="{Binding CustomIntegrations}" SelectionChanged="CustomIntegrationSelection" SelectedIndex="0"/>
+            <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                <TextBlock FontSize="13" FontWeight="Medium" Text="Application Location" />
+                <TextBlock Text="{Binding SelectedCustomIntegration.Location}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Launch Arguments" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{Binding SelectedCustomIntegration.LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Auto close when Roblox closes" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{Binding SelectedCustomIntegration.AutoClose}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+        </Grid>
     </StackPanel>
 </ui:UiPage>

@@ -39,11 +39,11 @@ namespace Bloxstrap.Helpers.Integrations
                 App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Updated presence");
 
             RichPresence.OnConnectionEstablished += (_, e) =>
-                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Established connection with Discord RPC!");
+                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Established connection with Discord RPC");
 
             //spams log as it tries to connect every ~15 sec when discord is closed so not now
             //RichPresence.OnConnectionFailed += (_, e) =>
-            //    App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Failed to establish connection with Discord RPC!");
+            //    App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Failed to establish connection with Discord RPC");
 
             RichPresence.OnClose += (_, e) =>
                 App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Lost connection to Discord RPC - {e.Reason} ({e.Code})");
@@ -219,6 +219,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public void Dispose()
         {
+            App.Logger.WriteLine("[DiscordRichPresence::Dispose] Cleaning up Discord RPC and Presence");
             RichPresence.ClearPresence();
             RichPresence.Dispose();
         }

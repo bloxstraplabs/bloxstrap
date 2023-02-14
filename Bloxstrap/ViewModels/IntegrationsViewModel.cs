@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
@@ -8,6 +9,7 @@ using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.Helpers;
+using Bloxstrap.Models;
 using Bloxstrap.Views.Pages;
 
 namespace Bloxstrap.ViewModels
@@ -27,6 +29,12 @@ namespace Bloxstrap.ViewModels
         public IntegrationsViewModel(Page page)
         {
             _page = page;
+
+            if (CustomIntegrations.Count > 0)
+            {
+                CustomIntegrationsVisibility = Visibility.Visible;
+                OnPropertyChanged(nameof(CustomIntegrationsVisibility));
+            }
         }
 
         private void OpenReShadeFolder()
@@ -93,5 +101,15 @@ namespace Bloxstrap.ViewModels
             get => App.Settings.Prop.RFUAutoclose;
             set => App.Settings.Prop.RFUAutoclose = value;
         }
+
+        public Visibility CustomIntegrationsVisibility { get; set; } = Visibility.Collapsed;
+        
+        public List<CustomIntegration> CustomIntegrations
+        {
+            get => App.Settings.Prop.CustomIntegrations; 
+            set => App.Settings.Prop.CustomIntegrations = value;
+        }
+
+        public CustomIntegration SelectedCustomIntegration { get; set; }
     }
 }

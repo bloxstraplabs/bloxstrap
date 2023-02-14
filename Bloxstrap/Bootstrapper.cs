@@ -201,28 +201,41 @@ namespace Bloxstrap
 
         private bool CheckIfRunning(bool shutdown)
         {
+            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Checking if Roblox is running... (shutdown={shutdown})");
+
             Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
 
             if (processes.Length == 0)
-                return false;
-
-            if (shutdown)
             {
-                Dialog?.PromptShutdown();
-
-                try
-                {
-                    // try/catch just in case process was closed before prompt was answered
-
-                    foreach (Process process in processes)
-                    {
-                        process.CloseMainWindow();
-                        process.Close();
-                    }
-                }
-                catch (Exception) { }
+                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Roblox is not running");
+                return false;
             }
 
+            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Roblox is running, found {processes.Length} process(es)");
+
+            if (!shutdown) 
+                return true;
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Attempting to shutdown Roblox...");
+
+            Dialog?.PromptShutdown();
+
+            try
+            {
+                // try/catch just in case process was closed before prompt was answered
+
+                foreach (Process process in processes)
+                {
+                    process.CloseMainWindow();
+                    process.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Failed to close process! {e}");
+            }
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] All Roblox processes closed");
             return true;
         }
 
@@ -246,11 +259,14 @@ namespace Bloxstrap
 
             _launchCommandLine  += " -startEvent " + startEventName;
 
+            // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
             Process gameClient = Process.Start(Path.Combine(_versionFolder, "RobloxPlayerBeta.exe"), _launchCommandLine);
-            Process? rbxFpsUnlocker = null;
+            List<Process> autocloseProcesses = new();
             DiscordRichPresence? richPresence = null;
             Mutex? singletonMutex = null;
+
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
 
             using (SystemEvent startEvent = new(startEventName))
             {
@@ -262,7 +278,7 @@ namespace Bloxstrap
                     return;
             }
             
-            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName("rbxfpsunlocker").Length == 0)
+            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName(RbxFpsUnlocker.ApplicationName).Length == 0)
             {
                 App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using rbxfpsunlocker");
 
@@ -272,10 +288,13 @@ namespace Bloxstrap
                     FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe")
                 }; 
                 
-                rbxFpsUnlocker = Process.Start(startInfo);
-                
-                if (App.Settings.Prop.RFUAutoclose) 
+                Process process = Process.Start(startInfo)!;
+
+                if (App.Settings.Prop.RFUAutoclose)
+                {
                     shouldWait = true;
+                    autocloseProcesses.Add(process);
+                }
             }
 
             if (App.Settings.Prop.UseDiscordRichPresence)
@@ -293,6 +312,19 @@ namespace Bloxstrap
                 shouldWait = true;
             }
 
+            // launch custom integrations now
+            foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
+                Process process = Process.Start(integration.Location, integration.LaunchArgs);
+
+                if (integration.AutoClose)
+                {
+                    shouldWait = true;
+                    autocloseProcesses.Add(process);
+                }
+            }
+
             // event fired, wait for 3 seconds then close
             await Task.Delay(3000);
             Dialog?.CloseBootstrapper();
@@ -305,11 +337,15 @@ namespace Bloxstrap
 
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Waiting for Roblox to close");
             await gameClient.WaitForExitAsync();
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Roblox exited with code {gameClient.ExitCode}");
 
             richPresence?.Dispose();
 
-            if (App.Settings.Prop.RFUAutoclose)
-                rbxFpsUnlocker?.Kill();
+            foreach (Process process in autocloseProcesses)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Autoclosing process '{process.ProcessName}' (PID {process.Id})");
+                process.Kill();
+            }
         }
 
         public void CancelInstall()

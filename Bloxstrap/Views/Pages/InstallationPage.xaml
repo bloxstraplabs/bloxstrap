@@ -12,7 +12,7 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Configure how Bloxstrap and Roblox are installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardExpander Margin="0,16,0,0">
+        <ui:CardExpander Margin="0,16,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Install Location" />
@@ -29,7 +29,7 @@
             </Grid>
         </ui:CardExpander>
 
-        <ui:CardExpander Margin="0,8,0,0">
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>

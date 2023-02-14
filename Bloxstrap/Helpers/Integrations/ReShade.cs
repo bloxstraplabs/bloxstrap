@@ -303,7 +303,7 @@ namespace Bloxstrap.Helpers.Integrations
             if (!Directory.Exists(PresetsFolder))
                 return;
 
-            App.Logger.WriteLine("[ReShade::UninstallExtraviPresets] Uninstalling Extravi's presets...");
+            App.Logger.WriteLine("[ReShade::UninstallExtraviPresets] Uninstalling Extravi's ReShade presets...");
 
             FileInfo[] presets = new DirectoryInfo(PresetsFolder).GetFiles();
 
@@ -319,31 +319,38 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task CheckModifications()
         {
-            App.Logger.WriteLine("[ReShade::CheckModifications] Checking ReShade modifications... ");
+            App.Logger.WriteLine("[ReShade::CheckModifications] Checking ReShade modifications...");
             
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
 
-            if (!App.Settings.Prop.UseReShadeExtraviPresets)
+            if (!App.Settings.Prop.UseReShadeExtraviPresets && !String.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
             {
                 UninstallExtraviPresets();
+
                 App.State.Prop.ExtraviReShadePresetsVersion = "";
                 App.State.Save();
             }
 
             if (!App.Settings.Prop.UseReShade)
             {
+                App.Logger.WriteLine("[ReShade::CheckModifications] ReShade is not enabled");
+                
+                // we should already be uninstalled
+                // we want to ensure this is done one-time only as this could possibly interfere with other rendering hooks using dxgi.dll
+                if (String.IsNullOrEmpty(App.State.Prop.ReShadeConfigVersion))
+                    return;
+
                 App.Logger.WriteLine("[ReShade::CheckModifications] Uninstalling ReShade...");
 
                 // delete any stock config files
                 File.Delete(injectorLocation);
                 File.Delete(ConfigLocation);
 
-                App.State.Prop.ReShadeConfigVersion = "";
-                App.State.Save();
-
-                //DeleteShaders("Stock");
                 if (Directory.Exists(BaseDirectory))
                     Directory.Delete(BaseDirectory, true);
+
+                App.State.Prop.ReShadeConfigVersion = "";
+                App.State.Save();
 
                 return;
             }

@@ -31,14 +31,14 @@ namespace Bloxstrap.Helpers.Integrations
 
             if (processes.Length == 0)
                 return;
+
+            App.Logger.WriteLine("[RbxFpsUnlocker::CheckIfRunning] Closing currently running rbxfpsunlocker processes...");
             
             try
             {
-                // try/catch just in case process was closed before prompt was answered
-
                 foreach (Process process in processes)
                 {
-                    if (process.MainModule is null || process.MainModule.FileName is null)
+                    if (process.MainModule?.FileName is null)
                         continue;
 
                     if (!process.MainModule.FileName.Contains(App.BaseDirectory))
@@ -48,7 +48,10 @@ namespace Bloxstrap.Helpers.Integrations
                     process.Close();
                 }
             }
-            catch (Exception) { }
+            catch (Exception e)
+            {
+                App.Logger.WriteLine($"[RbxFpsUnlocker::CheckIfRunning] Could not close rbxfpsunlocker process! {e}");
+            }
         }
 
         public static async Task CheckInstall()

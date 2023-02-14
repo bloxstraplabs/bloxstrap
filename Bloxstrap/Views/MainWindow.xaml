@@ -10,7 +10,7 @@
              mc:Ignorable="d"
              Title="Bloxstrap Menu" 
              MinWidth="880"
-             Width="920"
+             Width="960"
              Height="580" 
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"
@@ -58,9 +58,9 @@
 
             <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
-                    <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="AddSquareMultiple20" Tag="integrations" />
-                    <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="DocumentToolbox24" Tag="mods" />
-                    <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="Window48" Tag="bootstrapper" />
+                    <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
+                    <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
+                    <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="WindowWrench48" Tag="bootstrapper" />
                     <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
                     <!--<ui:NavigationSeparator />-->
                     <ui:NavigationItem Content="ReShade Help" PageType="{x:Type pages:ReShadeHelpPage}" Icon="BookQuestionMark24" Tag="reshadehelp" Visibility="Collapsed" />
