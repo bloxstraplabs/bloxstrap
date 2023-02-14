@@ -9,8 +9,6 @@ namespace Bloxstrap.ViewModels
     {
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
-        public bool CanOpenModsFolder => !App.IsFirstRun;
-
         private void OpenModsFolder()
         {
             Process.Start("explorer.exe", Directories.Modifications);

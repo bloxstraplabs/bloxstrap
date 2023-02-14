@@ -85,7 +85,7 @@
                     </TextBlock>
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Using-ReShade">
+            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Using-ReShade">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
                     <TextBlock FontSize="12" Text="See info about using ReShade." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
@@ -129,9 +129,9 @@
             <StackPanel Grid.Column="1" Margin="8,0,0,0">
                 <TextBlock FontSize="13" FontWeight="Medium" Text="Application Location" />
                 <TextBlock Text="{Binding SelectedCustomIntegration.Location}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Launch Arguments" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Launch Arguments" />
                 <TextBlock Text="{Binding SelectedCustomIntegration.LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Auto close when Roblox closes" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Margin="0,8,0,0" FontSize="13" FontWeight="Medium" Text="Auto close when Roblox closes" />
                 <TextBlock Text="{Binding SelectedCustomIntegration.AutoClose}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </StackPanel>
         </Grid>

@@ -56,19 +56,19 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://www.roblox.com/users/2485612194/profile">Multako</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/users/2485612194/profile">Multako</Hyperlink></TextBlock>
             <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="Designing the Bloxstrap logo" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/bluepilledgreat">bluepilledgreat</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/bluepilledgreat">bluepilledgreat</Hyperlink></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping with bootstrapper functionality and UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink></TextBlock>
             <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Providing a method for disabling the Roblox desktop app" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink></TextBlock>
             <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Setting up GitHub CI workflows and Winget releases" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-            <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/Mantaraix">taskmanager</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Mantaraix">taskmanager</Hyperlink></TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping with designing the new menu look and layout" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
         <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
@@ -89,31 +89,31 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Bloxstrap" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            <ui:CardAction Grid.Row="1" Grid.Column="0" Margin="0,8,8,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="1" Grid.Column="0" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Bloxstrap by pizzaboxer" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/lepoco/wpfui/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/lepoco/wpfui/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="WPF-UI by lepoco" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/securifybv/ShellLink/blob/master/LICENSE.txt">
+            <ui:CardAction Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/securifybv/ShellLink/blob/master/LICENSE.txt">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="ShellLink by securifybv" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="2" Grid.Column="0" Margin="0,8,8,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
+            <ui:CardAction Grid.Row="2" Grid.Column="0" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="IniParser by rickyah" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Roblox Studio Mod Manager by MaximumADHD" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
@@ -121,19 +121,19 @@
             </ui:CardAction>
 
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Integrations" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            <ui:CardAction Grid.Row="4" Grid.Column="0" Margin="0,8,8,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
+            <ui:CardAction Grid.Row="4" Grid.Column="0" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="DiscordRPC by Lachee" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="1" Margin="0,8,8,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
+            <ui:CardAction Grid.Row="4" Grid.Column="1" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="ReShade by crosire" />
                     <TextBlock FontSize="12" Text="BSD 3-Clause License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="2" Margin="0,8,0,0" Command="models:Commands.OpenWebpageCommand" CommandParameter="https://github.com/axstin/rbxfpsunlocker/blob/master/LICENSE">
+            <ui:CardAction Grid.Row="4" Grid.Column="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/axstin/rbxfpsunlocker/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="rbxfpsunlocker by axstin" />
                     <TextBlock FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

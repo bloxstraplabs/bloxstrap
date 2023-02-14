@@ -104,6 +104,6 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.CustomIntegrations = value;
         }
 
-        public CustomIntegration SelectedCustomIntegration { get; set; }
+        public CustomIntegration SelectedCustomIntegration { get; set; } = new();
     }
 }

@@ -9,9 +9,11 @@ using System.Windows.Input;
 
 namespace Bloxstrap.ViewModels
 {
-    public static class Commands
+    public static class GlobalViewModel
     {
         public static ICommand OpenWebpageCommand => new RelayCommand<string>(OpenWebpage);
+
+        public static bool IsNotFirstRun => !App.IsFirstRun;
 
         private static void OpenWebpage(string? location)
         {

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:models="clr-namespace:Bloxstrap.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -12,7 +13,7 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Configure how Bloxstrap and Roblox are installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardExpander Margin="0,16,0,0" IsExpanded="True">
+        <ui:CardExpander Margin="0,16,0,0">
             <ui:CardExpander.Header>
                 <StackPanel>
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Install Location" />
@@ -28,6 +29,24 @@
                 <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseInstallLocationCommand}" />
             </Grid>
         </ui:CardExpander>
+
+        <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+            <StackPanel>
+                <TextBlock FontSize="13" FontWeight="Medium" Text="Open Folder">
+                    <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+                    <TextBlock.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=OpenFolderCardAction, Path=IsEnabled}" Value="False">
+                                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock FontSize="12" Text="Opens the folder that Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardAction>
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>

@@ -11,6 +11,7 @@ using Wpf.Ui.Mvvm.Interfaces;
 using System.ComponentModel;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
+using System.Diagnostics;
 
 namespace Bloxstrap.ViewModels
 {
@@ -23,6 +24,8 @@ namespace Bloxstrap.ViewModels
         private bool _showAllChannels = !DeployManager.ChannelsAbstracted.Contains(App.Settings.Prop.Channel);
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
+        public ICommand OpenFolderCommand => new RelayCommand(OpenFolder);
+
 
         public DeployInfo? ChannelDeployInfo { get; private set; } = null; //new DeployInfo(){ Version = "hi", VersionGuid = "hi", Timestamp = "January 25 2023 at 6:03:48 PM" };
 
@@ -52,6 +55,11 @@ namespace Bloxstrap.ViewModels
                 InstallLocation = dialog.SelectedPath;
                 OnPropertyChanged(nameof(InstallLocation));
             }
+        }
+
+        private void OpenFolder()
+        {
+            Process.Start("explorer.exe", Directories.Base);
         }
 
         public string InstallLocation
