@@ -13,7 +13,7 @@ namespace Bloxstrap.Views.Pages
     {
         public IntegrationsPage()
         {
-            DataContext = new IntegrationsViewModel(this);
+            DataContext = new IntegrationsViewModel();
             InitializeComponent();
 
             // rbxfpsunlocker does not have 64 bit support

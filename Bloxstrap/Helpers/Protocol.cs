@@ -107,9 +107,9 @@ namespace Bloxstrap.Helpers
             {
                 Registry.CurrentUser.DeleteSubKeyTree($@"Software\Classes\{key}");
             }
-            catch (Exception e) 
+            catch (Exception ex) 
             {
-                App.Logger.WriteLine($"[Protocol::Unregister] Failed to unregister {key}: {e}");
+                App.Logger.WriteLine($"[Protocol::Unregister] Failed to unregister {key}: {ex}");
             }
         }
     }

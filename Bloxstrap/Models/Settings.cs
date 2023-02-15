@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Bloxstrap.Enums;
 using Bloxstrap.Helpers;
 
@@ -25,7 +27,8 @@ namespace Bloxstrap.Models
         public bool RFUAutoclose { get; set; } = false;
         public bool UseReShade { get; set; } = false;
         public bool UseReShadeExtraviPresets { get; set; } = false;
-        public List<CustomIntegration> CustomIntegrations { get; set; } = new();
+        // ideally should be List<CustomIntegration> but wpf moment so blehhhhh :P
+        public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration
         public bool UseOldDeathSound { get; set; } = true;

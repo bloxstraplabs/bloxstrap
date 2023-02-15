@@ -9,14 +9,9 @@ namespace Bloxstrap.Models
 {
     public class CustomIntegration
     {
-        public string Name { get; set; } = null!;
-        public string Location { get; set; } = null!;
-        public string LaunchArgs { get; set; } = null!;
-        public bool AutoClose { get; set; } = false;
-
-        public override string ToString()
-        {
-            return Name;
-        }
+        public string Name { get; set; } = "";
+        public string Location { get; set; } = "";
+        public string LaunchArgs { get; set; } = "";
+        public bool AutoClose { get; set; } = true;
     }
 }

@@ -230,9 +230,9 @@ namespace Bloxstrap
                     process.Close();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Failed to close process! {e}");
+                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Failed to close process! {ex}");
             }
 
             App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] All Roblox processes closed");
@@ -316,12 +316,20 @@ namespace Bloxstrap
             foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
             {
                 App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
-                Process process = Process.Start(integration.Location, integration.LaunchArgs);
 
-                if (integration.AutoClose)
+                try
                 {
-                    shouldWait = true;
-                    autocloseProcesses.Add(process);
+                    Process process = Process.Start(integration.Location, integration.LaunchArgs);
+
+                    if (integration.AutoClose)
+                    {
+                        shouldWait = true;
+                        autocloseProcesses.Add(process);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Failed to launch integration '{integration.Name}'! ({ex.Message})");
                 }
             }
 
@@ -372,10 +380,10 @@ namespace Bloxstrap
                 else if (Directory.Exists(_versionFolder))
                     Directory.Delete(_versionFolder, true);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 App.Logger.WriteLine("[Bootstrapper::CancelInstall] Could not fully clean up installation!");
-                App.Logger.WriteLine($"[Bootstrapper::CancelInstall] {e}");
+                App.Logger.WriteLine($"[Bootstrapper::CancelInstall] {ex}");
             }
 
             App.Terminate(ERROR_INSTALL_USEREXIT);
@@ -532,9 +540,9 @@ namespace Bloxstrap
                 // (should delete everything except bloxstrap itself)
                 Directory.Delete(Directories.Base, true);
             }
-            catch (Exception e) 
+            catch (Exception ex) 
             {
-                App.Logger.WriteLine($"Could not fully uninstall! ({e})");
+                App.Logger.WriteLine($"Could not fully uninstall! ({ex})");
             }
 
             Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");

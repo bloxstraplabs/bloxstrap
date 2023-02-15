@@ -48,9 +48,9 @@ namespace Bloxstrap.Helpers.Integrations
                     process.Close();
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                App.Logger.WriteLine($"[RbxFpsUnlocker::CheckIfRunning] Could not close rbxfpsunlocker process! {e}");
+                App.Logger.WriteLine($"[RbxFpsUnlocker::CheckIfRunning] Could not close rbxfpsunlocker process! {ex}");
             }
         }
 

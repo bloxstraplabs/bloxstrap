@@ -18,7 +18,7 @@
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Create desktop icon" />
-                    <TextBlock FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
@@ -45,7 +45,7 @@
             <ui:CardControl.Header>
                 <StackPanel Grid.Column="0">
                     <TextBlock FontSize="13" FontWeight="Medium" Text="Prompt on Roblox-forced channel change" />
-                    <TextBlock FontSize="12" Text="Confirm if Roblox mandates a channel change on launch. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="12" Text="Confirm change if Roblox mandates it when launching. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ChannelChangePromptingEnabled, Mode=TwoWay}" />

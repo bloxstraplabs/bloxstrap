@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
 using Bloxstrap.Views.Pages;
+using System.Collections.ObjectModel;
 
 namespace Bloxstrap.ViewModels
 {
@@ -19,26 +16,44 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         
-        private readonly Page _page;
-
         public ICommand OpenReShadeFolderCommand => new RelayCommand(OpenReShadeFolder);
+        public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
+        public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
 
         public bool CanOpenReShadeFolder => App.Settings.Prop.UseReShade;
-
-        public IntegrationsViewModel(Page page)
-        {
-            _page = page;
-
-            if (CustomIntegrations.Count > 0)
-            {
-                CustomIntegrationsVisibility = Visibility.Visible;
-                OnPropertyChanged(nameof(CustomIntegrationsVisibility));
-            }
-        }
 
         private void OpenReShadeFolder()
         {
             Process.Start("explorer.exe", Path.Combine(Directories.Integrations, "ReShade"));
+        }
+
+        private void AddIntegration()
+        {
+            CustomIntegrations.Add(new CustomIntegration()
+            {
+                Name = "New Integration"
+            });
+
+            SelectedCustomIntegrationIndex = CustomIntegrations.Count - 1;
+            
+            OnPropertyChanged(nameof(SelectedCustomIntegrationIndex));
+            OnPropertyChanged(nameof(IsCustomIntegrationSelected));
+        }
+
+        private void DeleteIntegration()
+        {
+            if (SelectedCustomIntegration is null)
+                return;
+
+            CustomIntegrations.Remove(SelectedCustomIntegration);
+
+            if (CustomIntegrations.Count > 0)
+            {
+                SelectedCustomIntegrationIndex = CustomIntegrations.Count - 1;
+                OnPropertyChanged(nameof(SelectedCustomIntegrationIndex));
+            }
+
+            OnPropertyChanged(nameof(IsCustomIntegrationSelected));
         }
 
         public bool DiscordActivityEnabled
@@ -96,14 +111,14 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.RFUAutoclose = value;
         }
 
-        public Visibility CustomIntegrationsVisibility { get; set; } = Visibility.Collapsed;
-        
-        public List<CustomIntegration> CustomIntegrations
+        public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations; 
             set => App.Settings.Prop.CustomIntegrations = value;
         }
 
-        public CustomIntegration SelectedCustomIntegration { get; set; } = new();
+        public CustomIntegration? SelectedCustomIntegration { get; set; }
+        public int SelectedCustomIntegrationIndex { get; set; }
+        public bool IsCustomIntegrationSelected => SelectedCustomIntegration is not null;
     }
 }
