@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Printing;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Bloxstrap.Helpers
 {
@@ -14,31 +11,49 @@ namespace Bloxstrap.Helpers
     public class Logger
     {
         private readonly SemaphoreSlim _semaphore = new(1, 1);
-        private readonly FileStream _filestream;
+        private readonly List<string> _backlog = new();
+        private FileStream? _filestream;
 
-        public Logger(string filename)
+        public void Initialize(string filename)
         {
+            if (_filestream is not null)
+                throw new Exception("Logger is already initialized");
+
             string? directory = Path.GetDirectoryName(filename);
-            
+
             if (directory is not null)
                 Directory.CreateDirectory(directory);
 
             _filestream = File.Open(filename, FileMode.Create, FileAccess.Write, FileShare.Read);
-            WriteLine($"[Logger::Logger] {App.ProjectName} v{App.Version} - Initialized at {filename}");
+
+            if (_backlog.Count > 0)
+                WriteToLog(String.Join("\r\n", _backlog));
+
+            WriteLine($"[Logger::Logger] Initialized at {filename}");
         }
 
-        public async void WriteLine(string message)
+        public void WriteLine(string message)
         {
             string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
-            string conout = $"{timestamp} {message}";
-            byte[] fileout = Encoding.Unicode.GetBytes($"{conout.Replace(Directories.UserProfile, "<UserProfileFolder>")}\r\n");
+            string outcon = $"{timestamp} {message}";
+            string outlog = outcon.Replace(Directories.UserProfile, "<UserProfileFolder>");
 
-            Debug.WriteLine(conout);
+            Debug.WriteLine(outcon);
+            WriteToLog(outlog);
+        }
+
+        private async void WriteToLog(string message)
+        {
+            if (_filestream is null)
+            {
+                _backlog.Add(message);
+                return;
+            }
 
             try
             {
                 await _semaphore.WaitAsync();
-                await _filestream.WriteAsync(fileout);
+                await _filestream.WriteAsync(Encoding.Unicode.GetBytes($"{message}\r\n"));
                 await _filestream.FlushAsync();
             }
             finally

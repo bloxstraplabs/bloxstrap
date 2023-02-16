@@ -427,7 +427,7 @@ namespace Bloxstrap
             uninstallKey.SetValue("InstallLocation", Directories.Base);
             uninstallKey.SetValue("NoRepair", 1);
             uninstallKey.SetValue("Publisher", "pizzaboxer");
-            uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -preferences");
+            uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
             uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
             uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
             uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
@@ -466,7 +466,7 @@ namespace Bloxstrap
                 ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.StartMenu, "Play Roblox.lnk"));
 
-                ShellLink.Shortcut.CreateShortcut(Directories.Application, "-preferences", Directories.Application, 0)
+                ShellLink.Shortcut.CreateShortcut(Directories.Application, "-menu", Directories.Application, 0)
                     .WriteToFile(Path.Combine(Directories.StartMenu, $"{App.ProjectName} Menu.lnk"));
             }
             else
@@ -479,7 +479,7 @@ namespace Bloxstrap
                     File.Delete(oldMenuShortcut);
 
                 if (!File.Exists(newMenuShortcut))
-                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "-preferences", Directories.Application, 0)
+                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "-menu", Directories.Application, 0)
                         .WriteToFile(newMenuShortcut);
             }
 

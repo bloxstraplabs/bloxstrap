@@ -35,13 +35,14 @@ namespace Bloxstrap
         public static bool IsUninstall { get; private set; } = false;
         public static bool IsNoLaunch { get; private set; } = false;
         public static bool IsUpgrade { get; private set; } = false;
+        public static bool IsMenuLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
         // singletons
-        public static Logger Logger { get; private set; } = null!;
+        public static readonly Logger Logger = new();
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
@@ -63,9 +64,21 @@ namespace Bloxstrap
             Environment.Exit(code);
         }
 
+        private void InitLog()
+        {
+            // if we're running for the first time or uninstalling, log to temp folder
+            // else, log to bloxstrap folder
+
+            string logdir = IsFirstRun || IsUninstall ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+            Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
@@ -78,53 +91,74 @@ namespace Bloxstrap
 
             if (LaunchArgs.Length > 0)
             {
+                if (Array.IndexOf(LaunchArgs, "-preferences") != -1 || Array.IndexOf(LaunchArgs, "-menu") != -1)
+                {
+                    Logger.WriteLine("[App::OnStartup] Started with IsMenuLaunch flag");
+                    IsMenuLaunch = true;
+                }
+
                 if (Array.IndexOf(LaunchArgs, "-quiet") != -1)
+                {
+                    Logger.WriteLine("[App::OnStartup] Started with IsQuiet flag");
                     IsQuiet = true;
+                }
 
                 if (Array.IndexOf(LaunchArgs, "-uninstall") != -1)
+                {
+                    Logger.WriteLine("[App::OnStartup] Started with IsUninstall flag");
                     IsUninstall = true;
+                }
 
                 if (Array.IndexOf(LaunchArgs, "-nolaunch") != -1)
+                {
+                    Logger.WriteLine("[App::OnStartup] Started with IsNoLaunch flag");
                     IsNoLaunch = true;
+                }
 
                 if (Array.IndexOf(LaunchArgs, "-upgrade") != -1)
+                {
+                    Logger.WriteLine("[App::OnStartup] Bloxstrap started with IsUpgrade flag");
                     IsUpgrade = true;
+                }
             }
 
             // check if installed
-            RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}");
-
-            if (registryKey is null)
+            using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
-                BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
-
-                if (!IsQuiet)
+                if (registryKey is null)
                 {
-                    IsSetupComplete = false;
-                    new MainWindow().ShowDialog();
+                    Logger.WriteLine("[App::OnStartup] Running first-time install");
+
+                    BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
+                    InitLog();
+
+                    if (!IsQuiet)
+                    {
+                        IsSetupComplete = false;
+                        new MainWindow().ShowDialog();
+                    }
                 }
-            }
-            else
-            {
-                IsFirstRun = false;
-                BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
-                registryKey.Close();
+                else
+                {
+                    IsFirstRun = false;
+                    BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
+                }
             }
 
             // exit if we don't click the install button on installation
             if (!IsSetupComplete)
+            {
+                Logger.WriteLine("[App::OnStartup] Installation cancelled!");
                 Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
+            }
 
             Directories.Initialize(BaseDirectory);
-
-            string logdir = IsFirstRun || IsUninstall ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
-            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
-            Logger = new(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
+                InitLog();
                 Settings.Load();
                 State.Load();
             }
@@ -136,10 +170,8 @@ namespace Bloxstrap
 
             string commandLine = "";
 
-            if (LaunchArgs.Length > 0)
+            if (IsMenuLaunch)
             {
-                if (LaunchArgs[0] == "-preferences")
-                {
 #if !DEBUG
                     if (Process.GetProcessesByName(ProjectName).Length > 1)
                     {
@@ -148,9 +180,11 @@ namespace Bloxstrap
                     }
 #endif
 
-                    new MainWindow().ShowDialog();
-                }
-                else if (LaunchArgs[0].StartsWith("roblox-player:"))
+                new MainWindow().ShowDialog();
+            }
+            else if (LaunchArgs.Length > 0)
+            {
+                if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
                     commandLine = Protocol.ParseUri(LaunchArgs[0]);
                 }

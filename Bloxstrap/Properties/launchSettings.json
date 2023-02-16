@@ -17,7 +17,7 @@
     },
     "Bloxstrap (Menu)": {
       "commandName": "Project",
-      "commandLineArgs": "-preferences"
+      "commandLineArgs": "-menu"
     }
   }
 }

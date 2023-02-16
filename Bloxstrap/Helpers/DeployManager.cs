@@ -50,17 +50,15 @@ namespace Bloxstrap.Helpers
         };
         #endregion
 
-        private static string BuildBaseUrl(string channel)
-        {
-            if (channel == DefaultChannel)
-                return DefaultBaseUrl;
-            else
-                return $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
-        }
+        private static string BuildBaseUrl(string channel) => channel == DefaultChannel ? DefaultBaseUrl : $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
 
         public static async Task<ClientVersion> GetLastDeploy(string channel, bool timestamp = false)
         {
+            App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Getting deploy info for channel {channel} (timestamp={timestamp})");
+
             HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+
+            string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
 
             if (!deployInfoResponse.IsSuccessStatusCode)
             {
@@ -68,22 +66,35 @@ namespace Bloxstrap.Helpers
                 // 404 = Could not find version details for binaryType.
                 // 500 = Error while fetching version information.
                 // either way, we throw
-                throw new Exception($"Could not get latest deploy for channel {channel}");
+                
+                App.Logger.WriteLine(
+                    "[DeployManager::GetLastDeploy] Failed to fetch deploy info!\r\n"+ 
+                    $"\tStatus code: {deployInfoResponse.StatusCode}\r\n"+ 
+                    $"\tResponse: {rawResponse}"
+                );
+
+                throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
             }
 
-            string rawJson = await deployInfoResponse.Content.ReadAsStringAsync();
-            ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawJson)!;
+            App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Got JSON: {rawResponse}");
+
+            ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
 
             // for preferences
             if (timestamp)
             {
+                App.Logger.WriteLine("[DeployManager::GetLastDeploy] Getting timestamp...");
+
                 string channelUrl = BuildBaseUrl(channel);
+                string manifestUrl = $"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt";
 
                 // get an approximate deploy time from rbxpkgmanifest's last modified date
-                HttpResponseMessage pkgResponse = await App.HttpClient.GetAsync($"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt");
+                HttpResponseMessage pkgResponse = await App.HttpClient.GetAsync(manifestUrl);
+
                 if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
                     string lastModified = values.First();
+                    App.Logger.WriteLine($"[DeployManager::GetLastDeploy] {manifestUrl} - Last-Modified: {lastModified}");
                     clientVersion.Timestamp = DateTime.Parse(lastModified);
                 }
             }

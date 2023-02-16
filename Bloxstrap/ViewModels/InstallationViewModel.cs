@@ -40,9 +40,14 @@ namespace Bloxstrap.ViewModels
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
             ClientVersion info = await DeployManager.GetLastDeploy(channel, true);
-            string? strTimestamp = info.Timestamp?.ToString("MM/dd/yyyy h:mm:ss tt", App.CultureFormat);
 
-            ChannelDeployInfo = new DeployInfo() { Version = info.Version, VersionGuid = info.VersionGuid, Timestamp = strTimestamp! };
+            ChannelDeployInfo = new DeployInfo
+            {
+                Version = info.Version, 
+                VersionGuid = info.VersionGuid, 
+                Timestamp = info.Timestamp?.ToString("MM/dd/yyyy h:mm:ss tt", App.CultureFormat)!
+            };
+
             OnPropertyChanged(nameof(ChannelDeployInfo));
         }
 

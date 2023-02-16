@@ -19,6 +19,8 @@ namespace Bloxstrap.Views
 
         public MainWindow()
         {
+            App.Logger.WriteLine("[MainWindow::MainWindow] Initializing menu");
+
             DataContext = new MainWindowViewModel(this, _dialogService);
             SetTheme();
             InitializeComponent();

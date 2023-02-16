@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
-
+using Bloxstrap.Enums;
 using Bloxstrap.Views;
 
 namespace Bloxstrap.Helpers
@@ -48,7 +48,11 @@ namespace Bloxstrap.Helpers
             File.Copy(Environment.ProcessPath, Directories.Application);
                 
             Bootstrapper.Register();
-                
+
+            // make people using progress dialog auto switch over to fluent on upgrade
+            if (App.Version == "2.0.0" && App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ProgressDialog)
+                App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
+
             if (App.IsQuiet || isAutoUpgrade)
                 return;
                 
