@@ -34,7 +34,7 @@
                     <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
                         <TextBlock.Style>
                             <Style>
-                                <Setter Property="TextBlock.Text" Value="Where you can apply custom mods to Roblox."/>
+                                <Setter Property="TextBlock.Text" Value="Manage custom Roblox mods here."/>
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
                                         <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />

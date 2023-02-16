@@ -116,7 +116,7 @@
         </StackPanel>
 
         <TextBlock Text="Custom Integrations" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Margin="0,4,0,0" Text="Here, you can have other programs launch with Roblox automatically like how rbxfpsunlocker does." TextWrapping="Wrap" />
+        <TextBlock Margin="0,4,0,0" Text="Here, you can have other programs launch with Roblox automatically like how rbxfpsunlocker does." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             <Grid Margin="0,8,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
