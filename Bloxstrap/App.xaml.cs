@@ -38,11 +38,11 @@ namespace Bloxstrap
         public static bool IsMenuLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
-
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
         // singletons
         public static readonly Logger Logger = new();
+        public static readonly DeployManager DeployManager = new();
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
@@ -207,7 +207,7 @@ namespace Bloxstrap
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
 
-                DeployManager.Channel = Settings.Prop.Channel;
+                DeployManager.SetChannel(Settings.Prop.Channel);
 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Bootstrapper bootstrapper = new Bootstrapper(commandLine);

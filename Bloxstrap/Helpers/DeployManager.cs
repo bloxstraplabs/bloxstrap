@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 using Bloxstrap.Models;
+using DiscordRPC;
 
 namespace Bloxstrap.Helpers
 {
@@ -13,13 +14,13 @@ namespace Bloxstrap.Helpers
     {
         #region Properties
         public const string DefaultBaseUrl = "https://setup.rbxcdn.com";
-        public static string BaseUrl { get; private set; } = DefaultBaseUrl;
-
         public const string DefaultChannel = "LIVE";
-        public static string Channel { set => BaseUrl = BuildBaseUrl(value); }
+        
+        public string BaseUrl { get; private set; } = DefaultBaseUrl;
+        public string Channel { get; private set; } = DefaultChannel;
 
         // basically any channel that has had a deploy within the past month with a windowsplayer build
-        public static readonly List<string> ChannelsAbstracted = new List<string>()
+        public static readonly List<string> ChannelsAbstracted = new()
         {
             "LIVE",
             "ZNext",
@@ -28,7 +29,7 @@ namespace Bloxstrap.Helpers
         };
 
         // why not?
-        public static readonly List<string> ChannelsAll = new List<string>()
+        public static readonly List<string> ChannelsAll = new()
         {
             "LIVE",
             "ZAvatarTeam",
@@ -50,13 +51,22 @@ namespace Bloxstrap.Helpers
         };
         #endregion
 
-        private static string BuildBaseUrl(string channel) => channel == DefaultChannel ? DefaultBaseUrl : $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
-
-        public static async Task<ClientVersion> GetLastDeploy(string channel, bool timestamp = false)
+        public void SetChannel(string channel)
         {
-            App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Getting deploy info for channel {channel} (timestamp={timestamp})");
+            if (Channel == channel) 
+                return;
 
-            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+            App.Logger.WriteLine($"[DeployManager::SetChannel] Set channel to {Channel}");
+
+            Channel = channel;
+            BaseUrl = channel == DefaultChannel ? DefaultBaseUrl : $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
+        }
+
+        public async Task<ClientVersion> GetLastDeploy(bool timestamp = false)
+        {
+            App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Getting deploy info for channel {Channel} (timestamp={timestamp})");
+
+            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{Channel}");
 
             string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
 
@@ -73,7 +83,7 @@ namespace Bloxstrap.Helpers
                     $"\tResponse: {rawResponse}"
                 );
 
-                throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
+                throw new Exception($"Could not get latest deploy for channel {Channel}! (HTTP {deployInfoResponse.StatusCode})");
             }
 
             App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Got JSON: {rawResponse}");
@@ -85,8 +95,7 @@ namespace Bloxstrap.Helpers
             {
                 App.Logger.WriteLine("[DeployManager::GetLastDeploy] Getting timestamp...");
 
-                string channelUrl = BuildBaseUrl(channel);
-                string manifestUrl = $"{channelUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt";
+                string manifestUrl = $"{BaseUrl}/{clientVersion.VersionGuid}-rbxPkgManifest.txt";
 
                 // get an approximate deploy time from rbxpkgmanifest's last modified date
                 HttpResponseMessage pkgResponse = await App.HttpClient.GetAsync(manifestUrl);
@@ -95,7 +104,7 @@ namespace Bloxstrap.Helpers
                 {
                     string lastModified = values.First();
                     App.Logger.WriteLine($"[DeployManager::GetLastDeploy] {manifestUrl} - Last-Modified: {lastModified}");
-                    clientVersion.Timestamp = DateTime.Parse(lastModified);
+                    clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
                 }
             }
 

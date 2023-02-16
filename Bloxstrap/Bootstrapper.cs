@@ -193,7 +193,7 @@ namespace Bloxstrap
         {
             SetStatus("Connecting to Roblox...");
 
-            ClientVersion clientVersion = await DeployManager.GetLastDeploy(App.Settings.Prop.Channel);
+            ClientVersion clientVersion = await App.DeployManager.GetLastDeploy();
             _versionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _versionGuid);
             _versionPackageManifest = await PackageManifest.Get(_versionGuid);
@@ -780,7 +780,7 @@ namespace Bloxstrap
             if (_cancelFired)
                 return;
 
-            string packageUrl = $"{DeployManager.BaseUrl}/{_versionGuid}-{package.Name}";
+            string packageUrl = $"{App.DeployManager.BaseUrl}/{_versionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
 
