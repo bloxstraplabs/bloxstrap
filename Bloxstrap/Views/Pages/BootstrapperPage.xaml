@@ -14,38 +14,38 @@
         <TextBlock Text="Configure how Bloxstrap should behave and look." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <TextBlock Text="Behaviour" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Create desktop icon" />
-                    <TextBlock FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Create desktop icon" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Update Bloxstrap on startup" />
-                    <TextBlock FontSize="12" Text="Bloxstrap will check and automatically update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Update Bloxstrap on startup" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will check and automatically update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Allow multi-game instance launching" />
-                    <TextBlock FontSize="12" Text="Roblox will allow having more than one game instance open simultaneously." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Allow multi-game instance launching" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox will allow having more than one game instance open simultaneously." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Prompt on Roblox-forced channel change" />
-                    <TextBlock FontSize="12" Text="Confirm change if Roblox mandates it when launching. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Prompt on Roblox-forced channel change" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Confirm change if Roblox mandates it when launching. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ChannelChangePromptingEnabled, Mode=TwoWay}" />
@@ -53,29 +53,29 @@
 
         <!--should this all be in a collapsed panel like how channel settings are? that might be better, idk-->
         <TextBlock Text="Appearance" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Theme" />
-                    <TextBlock FontSize="12" Text="Dark theme does not apply to Legacy or Vista styles." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Theme" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Dark theme does not apply to Legacy or Vista styles." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes.Keys, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Style" />
-                    <TextBlock FontSize="12" Text="Choose how the bootstrapper should look." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Style" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose how the bootstrapper should look." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Dialogs.Keys, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
-                <StackPanel Grid.Column="0">
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Icon" />
-                    <TextBlock FontSize="12" Text="Choose what icon the bootstrapper should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Icon" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what icon the bootstrapper should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <Grid Width="200">

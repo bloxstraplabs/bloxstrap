@@ -17,9 +17,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ui:CardAction Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+            <ui:CardAction Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Open Mods Folder">
+                    <TextBlock FontSize="14" Text="Open Mods Folder">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
                         <TextBlock.Style>
                             <Style>
@@ -31,7 +31,7 @@
                             </Style>
                         </TextBlock.Style>
                     </TextBlock>
-                    <TextBlock FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
                         <TextBlock.Style>
                             <Style>
                                 <Setter Property="TextBlock.Text" Value="Where you can apply custom mods to Roblox."/>
@@ -45,10 +45,10 @@
                     </TextBlock>
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
+            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Padding="16,13,16,12" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Help" />
-                    <TextBlock FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Help" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>
@@ -64,30 +64,30 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ui:CardControl Grid.Row="0" Grid.Column="0"  Margin="0,8,4,0">
+            <ui:CardControl Grid.Row="0" Grid.Column="0" Margin="0,8,4,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="13" FontWeight="Medium" Text="Use old death sound" />
-                        <TextBlock FontSize="12" Text="Bring back the classic 'oof' death sound." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use old death sound" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the classic 'oof' death sound." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
             </ui:CardControl>
-            <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="4,8,0,0">
+            <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="4,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="13" FontWeight="Medium" Text="Use old mouse cursor" />
-                        <TextBlock FontSize="12" Text="Use the pre-2022 style mouse cursor." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use old mouse cursor" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Use the pre-2022 style mouse cursor." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding OldMouseCursorEnabled, Mode=TwoWay}" />
             </ui:CardControl>
 
-            <ui:CardControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+            <ui:CardControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="13" FontWeight="Medium" Text="Disable desktop app" />
-                        <TextBlock FontSize="12" Text="Stops the desktop app from showing when launching Roblox or leaving a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Disable desktop app" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing when launching Roblox or leaving a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />

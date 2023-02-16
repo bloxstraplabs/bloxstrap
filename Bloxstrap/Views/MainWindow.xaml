@@ -39,30 +39,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--<Grid Grid.Row="0" Margin="6,0,0,24">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Column="0" Width="40" Height="40">
-                    <Border.Background>
-                        <ImageBrush ImageSource="pack://application:,,,/Resources/IconBloxstrap-png.png" />
-                    </Border.Background>
-                </Border>
-                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock FontSize="18" FontWeight="Medium" Text="Bloxstrap" />
-                    <TextBlock Text="Configuration Menu" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </Grid>-->
-
             <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
                     <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem Content="Bootstrapper" PageType="{x:Type pages:BootstrapperPage}" Icon="WindowWrench48" Tag="bootstrapper" />
                     <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
-                    <!--<ui:NavigationSeparator />-->
                     <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
                 </ui:NavigationFluent.Items>
             </ui:NavigationFluent>
@@ -72,12 +54,12 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ui:Breadcrumb Grid.Row="0" Margin="0,0,0,14" Navigation="{Binding ElementName=RootNavigation}" />
+                <ui:Breadcrumb Grid.Row="0" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
                 <Frame x:Name="RootFrame" Grid.Row="1" />
             </Grid>
         </Grid>
 
-        <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,9,14,9" Background="{ui:ThemeResource ApplicationBackgroundBrush}" BorderThickness="0,1,0,0">
+        <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,10" Background="{ui:ThemeResource ApplicationBackgroundBrush}" BorderThickness="0,1,0,0">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>

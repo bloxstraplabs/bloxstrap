@@ -13,11 +13,11 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Configure how Bloxstrap and Roblox are installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardExpander Margin="0,16,0,0">
+        <ui:CardExpander Margin="0,16,0,0" Padding="16,13,16,12">
             <ui:CardExpander.Header>
                 <StackPanel>
-                    <TextBlock FontSize="13" FontWeight="Medium" Text="Install Location" />
-                    <TextBlock FontSize="12" Text="Choose where Bloxstrap should be installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Install Location" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose where Bloxstrap should be installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardExpander.Header>
             <Grid>
@@ -30,9 +30,9 @@
             </Grid>
         </ui:CardExpander>
 
-        <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+        <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
             <StackPanel>
-                <TextBlock FontSize="13" FontWeight="Medium" Text="Open Folder">
+                <TextBlock FontSize="14" Text="Open Folder">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
                     <TextBlock.Style>
                         <Style>
@@ -44,11 +44,11 @@
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
-                <TextBlock FontSize="12" Text="Opens the folder that Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="Opens the folder that Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </ui:CardAction>
 
-        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+        <ui:CardExpander Margin="0,8,0,0" Padding="16,13,16,12" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -56,8 +56,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="13" FontWeight="Medium" Text="Channel" />
-                        <TextBlock FontSize="12" Text="Choose which release channel to download Roblox from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="Channel" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which release channel to download Roblox from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                     <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding Channel, Mode=TwoWay}" />
                 </Grid>
