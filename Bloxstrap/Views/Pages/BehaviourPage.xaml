@@ -26,7 +26,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Automatically update Bloxstrap" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will check and automatically update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will automatically check and update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
@@ -44,7 +44,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Prompt on Roblox-forced channel change" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Confirm change if Roblox mandates when launching. Otherwise, it'll change automatically." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will ask you if you want to change the release channel to what Roblox mandates." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ChannelChangePromptingEnabled, Mode=TwoWay}" />

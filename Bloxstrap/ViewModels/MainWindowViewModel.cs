@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using Bloxstrap.Helpers;
 using Microsoft.Win32;
 using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Controls.Interfaces;
@@ -39,19 +40,11 @@ namespace Bloxstrap.ViewModels
             try
             {
                 // check if we can write to the directory (a bit hacky but eh)
+                string testFile = Path.Combine(App.BaseDirectory, $"{App.ProjectName}WriteTest.txt");
 
-                string testPath = App.BaseDirectory;
-                string testFile = Path.Combine(testPath, $"{App.ProjectName}WriteTest.txt");
-                bool testPathExists = Directory.Exists(testPath);
-
-                if (!testPathExists)
-                    Directory.CreateDirectory(testPath);
-
+                Directory.CreateDirectory(App.BaseDirectory);
                 File.WriteAllText(testFile, "hi");
                 File.Delete(testFile);
-
-                if (!testPathExists)
-                    Directory.Delete(testPath);
             }
             catch (UnauthorizedAccessException)
             {
@@ -71,22 +64,13 @@ namespace Bloxstrap.ViewModels
 
                 if (App.BaseDirectory != _originalBaseDirectory)
                 {
+                    App.Logger.WriteLine($"[MainWindowViewModel::ConfirmSettings] Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
                     App.ShowMessageBox($"{App.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxImage.Information);
 
-                    App.State.Prop.VersionGuid = "";
-
-                    using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
-                    {
-                        registryKey.SetValue("InstallLocation", App.BaseDirectory);
-                        registryKey.SetValue("OldInstallLocation", _originalBaseDirectory);
-                        registryKey.Close();
-                    }
-
-                    // preserve settings
-                    // we don't need to copy the bootstrapper over since the install process will do that automatically
-
-                    // App.Settings.Save();
-                    // File.Copy(Path.Combine(App.BaseDirectory, "Settings.json"), Path.Combine(App.BaseDirectory, "Settings.json"));
+                    using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
+                    registryKey.SetValue("InstallLocation", App.BaseDirectory);
+                    registryKey.SetValue("OldInstallLocation", _originalBaseDirectory);
+                    Directories.Initialize(App.BaseDirectory);
                 }
 
                 CloseWindow();

@@ -41,7 +41,7 @@ namespace Bloxstrap.Helpers.Integrations
                     if (process.MainModule?.FileName is null)
                         continue;
 
-                    if (!process.MainModule.FileName.Contains(App.BaseDirectory))
+                    if (!process.MainModule.FileName.Contains(Directories.Base))
                         continue;
 
                     process.Kill();
@@ -56,7 +56,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task CheckInstall()
         {
-            string folderLocation = Path.Combine(App.BaseDirectory, "Integrations\\rbxfpsunlocker");
+            string folderLocation = Path.Combine(Directories.Base, "Integrations\\rbxfpsunlocker");
             string fileLocation = Path.Combine(folderLocation, "rbxfpsunlocker.exe");
             string settingsLocation = Path.Combine(folderLocation, "settings");
 

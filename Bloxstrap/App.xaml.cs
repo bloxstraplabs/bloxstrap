@@ -27,6 +27,7 @@ namespace Bloxstrap
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
 
+        // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
         public static bool ShouldSaveConfigs { get; set; } = false;
         public static bool IsSetupComplete { get; set; } = true;

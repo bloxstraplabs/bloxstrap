@@ -67,6 +67,7 @@ namespace Bloxstrap
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+        private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
 
         private string? _launchCommandLine;
 
@@ -113,6 +114,8 @@ namespace Bloxstrap
 #endif
 
             await CheckLatestVersion();
+
+            CheckInstallMigration();
 
             // if bloxstrap is installing for the first time but is running, prompt to close roblox
             // if roblox needs updating but is running, ignore update for now
@@ -197,6 +200,69 @@ namespace Bloxstrap
             _versionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _versionGuid);
             _versionPackageManifest = await PackageManifest.Get(_versionGuid);
+        }
+
+        private void CheckInstallMigration()
+        {
+            // check if we've changed our install location since the last time we started
+            // in which case, we'll have to copy over all our folders so we don't lose any mods and stuff
+
+            using RegistryKey? applicationKey = Registry.CurrentUser.OpenSubKey($@"Software\{App.ProjectName}", true);
+
+            string? oldInstallLocation = (string?)applicationKey?.GetValue("OldInstallLocation");
+
+            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Directories.Base)
+                return;
+
+            SetStatus("Migrating install location...");
+
+            if (Directory.Exists(oldInstallLocation))
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Moving all files in {oldInstallLocation} to {Directories.Base}...");
+
+                foreach (string oldFileLocation in Directory.GetFiles(oldInstallLocation, "*.*", SearchOption.AllDirectories))
+                {
+                    string relativeFile = oldFileLocation.Substring(oldInstallLocation.Length + 1);
+                    string newFileLocation = Path.Combine(Directories.Base, relativeFile);
+                    string? newDirectory = Path.GetDirectoryName(newFileLocation);
+
+                    try
+                    {
+                        if (!String.IsNullOrEmpty(newDirectory))
+                            Directory.CreateDirectory(newDirectory);
+
+                        File.Move(oldFileLocation, newFileLocation, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to move {oldFileLocation} to {newFileLocation}! {ex}");
+                    }
+                }
+
+                try
+                {
+                    Directory.Delete(oldInstallLocation, true);
+                    App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Deleted old install location");
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to delete old install location! {ex}");
+                }
+            }
+
+            applicationKey.DeleteValue("OldInstallLocation");
+
+            // allow shortcuts to be re-registered
+            if (Directory.Exists(Directories.StartMenu))
+                Directory.Delete(Directories.StartMenu, true);
+
+            if (File.Exists(DesktopShortcutLocation))
+            {
+                File.Delete(DesktopShortcutLocation);
+                App.Settings.Prop.CreateDesktopIcon = true;
+            }
+
+            App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
         }
 
         private bool CheckIfRunning(bool shutdown)
@@ -393,48 +459,32 @@ namespace Bloxstrap
         #region App Install
         public static void Register()
         {
-            RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
-
-            // new install location selected, delete old one
-            string? oldInstallLocation = (string?)applicationKey.GetValue("OldInstallLocation");
-            if (!String.IsNullOrEmpty(oldInstallLocation) && oldInstallLocation != Directories.Base)
+            using (RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
             {
-                try
-                {
-                    if (Directory.Exists(oldInstallLocation))
-                        Directory.Delete(oldInstallLocation, true);
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
-
-                applicationKey.DeleteValue("OldInstallLocation");
+                applicationKey.SetValue("InstallLocation", Directories.Base);
             }
 
-            applicationKey.SetValue("InstallLocation", Directories.Base);
-            applicationKey.Close();
-
             // set uninstall key
-            RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}");
-            uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
-            uninstallKey.SetValue("DisplayName", App.ProjectName);
-            uninstallKey.SetValue("DisplayVersion", App.Version);
+            using (RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}"))
+            {
+                uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
+                uninstallKey.SetValue("DisplayName", App.ProjectName);
+                uninstallKey.SetValue("DisplayVersion", App.Version);
 
-            if (uninstallKey.GetValue("InstallDate") is null)
-                uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+                if (uninstallKey.GetValue("InstallDate") is null)
+                    uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
 
-            uninstallKey.SetValue("InstallLocation", Directories.Base);
-            uninstallKey.SetValue("NoRepair", 1);
-            uninstallKey.SetValue("Publisher", "pizzaboxer");
-            uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
-            uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
-            uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
-            uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
-            uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
-            uninstallKey.Close();
+                uninstallKey.SetValue("InstallLocation", Directories.Base);
+                uninstallKey.SetValue("NoRepair", 1);
+                uninstallKey.SetValue("Publisher", "pizzaboxer");
+                uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
+                uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
+                uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
+                uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
+                uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
+            }
 
-            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application version");
+            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application");
         }
 
         public static void CheckInstall()
@@ -485,10 +535,10 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.CreateDesktopIcon)
             {
-                if (!File.Exists(Path.Combine(Directories.Desktop, "Play Roblox.lnk")))
+                if (!File.Exists(DesktopShortcutLocation))
                 {
                     ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
-                        .WriteToFile(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
+                        .WriteToFile(DesktopShortcutLocation);
                 }
 
                 // one-time toggle, set it back to false

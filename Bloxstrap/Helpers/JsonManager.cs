@@ -15,7 +15,7 @@ namespace Bloxstrap.Helpers
 {
     public class JsonManager<T> where T : new()
     {
-        public T Prop { get; set; } = new T();
+        public T Prop { get; set; } = new();
         //public bool ShouldSave { get; set; } = true;
         public string FileLocation => Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
         //public string? FileLocation { get; set; } = null;
