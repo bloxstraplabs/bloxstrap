@@ -50,6 +50,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -70,6 +71,9 @@
 
             <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Mantaraix">taskmanager</Hyperlink></TextBlock>
             <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping with designing the new menu look and layout" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <TextBlock Grid.Row="5" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium"><Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Extravi">Extravi</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Offering to make his presets a part of Bloxstrap, and helping with improving UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
         <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
