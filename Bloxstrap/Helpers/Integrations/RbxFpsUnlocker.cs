@@ -68,10 +68,7 @@ namespace Bloxstrap.Helpers.Integrations
                 if (Directory.Exists(folderLocation))
                 {
                     CheckIfRunning();
-                    
-                    DirectoryInfo directory = new(folderLocation);
-                    directory.Attributes &= ~FileAttributes.ReadOnly;
-                    directory.Delete(true);
+                    Directory.Delete(folderLocation, true);
                 }
 
                 return;
@@ -84,7 +81,10 @@ namespace Bloxstrap.Helpers.Integrations
 
             string downloadUrl = releaseInfo.Assets[0].BrowserDownloadUrl;
 
-            Directory.CreateDirectory(folderLocation);
+            DirectoryInfo directory = new(folderLocation);
+            directory.Create();
+            // i have no idea how the read only flag enables itself but apparently it just does
+            directory.Attributes &= ~FileAttributes.ReadOnly;
 
             if (File.Exists(fileLocation))
             {
