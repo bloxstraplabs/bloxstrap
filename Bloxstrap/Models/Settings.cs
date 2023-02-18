@@ -22,11 +22,11 @@ namespace Bloxstrap.Models
 
         // integration configuration
         public bool UseDiscordRichPresence { get; set; } = true;
-        public bool HideRPCButtons { get; set; } = false;
+        public bool HideRPCButtons { get; set; } = true;
         public bool RFUEnabled { get; set; } = false;
         public bool RFUAutoclose { get; set; } = false;
-        public bool UseReShade { get; set; } = false;
-        public bool UseReShadeExtraviPresets { get; set; } = false;
+        public bool UseReShade { get; set; } = true;
+        public bool UseReShadeExtraviPresets { get; set; } = true;
         // ideally should be List<CustomIntegration> but wpf moment so blehhhhh :P
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
