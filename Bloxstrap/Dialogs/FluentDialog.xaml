@@ -7,9 +7,9 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
         Width="420"
-        Height="178" 
-        MinHeight="178"
-        MaxHeight="178"
+        Height="192" 
+        MinHeight="191"
+        MaxHeight="192"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
@@ -17,7 +17,7 @@
         WindowCornerPreference="Round"
         WindowStartupLocation="CenterScreen">
     <StackPanel>
-        <TextBlock Margin="16,16,8,0" Text="Bloxstrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        <ui:TitleBar Background="{ui:ThemeResource ApplicationBackgroundBrush}" Padding="15,15,0,10" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="False" UseSnapLayout="False" ShowClose="False" ShowMinimize="False" ShowMaximize="False" Title="Bloxstrap" />
         <Grid Margin="16,0,16,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
