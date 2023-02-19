@@ -325,6 +325,9 @@ namespace Bloxstrap.Helpers.Integrations
 
             if (!App.Settings.Prop.UseReShadeExtraviPresets && !String.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
             {
+                if (Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
+                    return;
+
                 UninstallExtraviPresets();
 
                 App.State.Prop.ExtraviReShadePresetsVersion = "";
@@ -333,6 +336,9 @@ namespace Bloxstrap.Helpers.Integrations
 
             if (!App.Settings.Prop.UseReShade)
             {
+                if (Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
+                    return;
+
                 App.Logger.WriteLine("[ReShade::CheckModifications] ReShade is not enabled");
                 
                 // we should already be uninstalled

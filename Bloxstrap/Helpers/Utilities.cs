@@ -26,6 +26,17 @@ namespace Bloxstrap.Helpers
             return -1;
         }
 
+        public static int GetProcessCount(string processName)
+        {
+            App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Checking if '{processName}' is running...");
+
+            Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
+
+            App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Found {processes.Length} process(es) running for '{processName}'");
+
+            return processes.Length;
+        }
+
         public static void OpenWebsite(string website)
         {
             Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });

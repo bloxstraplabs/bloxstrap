@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
@@ -173,12 +173,23 @@ namespace Bloxstrap
 
             if (IsMenuLaunch)
             {
+                Mutex mutex;
+
+                try
+                {
+                    mutex = Mutex.OpenExisting("Bloxstrap_MenuMutex");
+                    Logger.WriteLine("[App::OnStartup] Bloxstrap_MenuMutex mutex exists, aborting menu launch...");
+                    Terminate();
+                }
+                catch
+                {
+                    // no mutex exists, continue to opening preferences menu
+                    mutex = new(true, "Bloxstrap_MenuMutex");
+                }
+
 #if !DEBUG
-                    if (Process.GetProcessesByName(ProjectName).Length > 1)
-                    {
-                        ShowMessageBox($"{ProjectName} is currently running. Please close any currently open Bloxstrap or Roblox window before opening the menu.", MessageBoxImage.Error);
-                        Environment.Exit(0);
-                    }
+                if (Utilities.GetProcessCount(ProjectName) > 1)
+                    ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
 #endif
 
                 new MainWindow().ShowDialog();

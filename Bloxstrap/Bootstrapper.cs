@@ -113,14 +113,44 @@ namespace Bloxstrap
                 await CheckForUpdates();
 #endif
 
+            // ensure only one instance of the bootstrapper is running at the time
+            // so that we don't have stuff like two updates happening simultaneously
+
+            bool mutexExists = false;
+
+            try
+            {
+                Mutex.OpenExisting("Bloxstrap_BootstrapperMutex").Close();
+                App.Logger.WriteLine("[Bootstrapper::Run] Bloxstrap_BootstrapperMutex mutex exists, waiting...");
+                mutexExists = true;
+            }
+            catch
+            {
+                // no mutex exists
+            }
+
+            // wait for mutex to be released if it's not yet
+            await using AsyncMutex mutex = new("Bloxstrap_BootstrapperMutex");
+            await mutex.AcquireAsync(_cancelTokenSource.Token);
+
+            // reload our configs since they've likely changed by now
+            if (mutexExists)
+            {
+                App.Settings.Load();
+                App.State.Load();
+            }
+
             await CheckLatestVersion();
 
             CheckInstallMigration();
 
-            // if bloxstrap is installing for the first time but is running, prompt to close roblox
-            // if roblox needs updating but is running, ignore update for now
-            if (!Directory.Exists(_versionFolder) && CheckIfRunning(true) || App.State.Prop.VersionGuid != _versionGuid && !CheckIfRunning(false))
+            // if roblox needs updating but is running and we have multiple instances open, ignore update for now
+            if (App.IsFirstRun || _versionGuid != App.State.Prop.VersionGuid && Utilities.GetProcessCount("RobloxPlayerBeta") == 0)
                 await InstallLatestVersion();
+
+            // last time the version folder was set, it was set to the latest version guid
+            // but if we skipped updating because roblox is already running, we want it to be set to our current version
+            _versionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
             if (App.IsFirstRun)
                 App.ShouldSaveConfigs = true;
@@ -133,13 +163,17 @@ namespace Bloxstrap
             CheckInstall();
 
             await RbxFpsUnlocker.CheckInstall();
-            
+
+            // at this point we've finished updating our configs
             App.Settings.Save();
             App.State.Save();
+            App.ShouldSaveConfigs = false;
+
+            await mutex.ReleaseAsync();
 
             if (App.IsFirstRun && App.IsNoLaunch)
                 Dialog?.ShowSuccess($"{App.ProjectName} has successfully installed");
-            else if (!App.IsNoLaunch)
+            else if (!App.IsNoLaunch && !_cancelFired)
                 await StartRoblox();
         }
 
@@ -265,32 +299,20 @@ namespace Bloxstrap
             App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
         }
 
-        private bool CheckIfRunning(bool shutdown)
+        private bool ShutdownIfRobloxRunning()
         {
-            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Checking if Roblox is running... (shutdown={shutdown})");
+            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Checking if Roblox is running...");
 
-            Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
-
-            if (processes.Length == 0)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Roblox is not running");
+            if (Utilities.GetProcessCount("RobloxPlayerBeta") == 0)
                 return false;
-            }
 
-            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Roblox is running, found {processes.Length} process(es)");
-
-            if (!shutdown) 
-                return true;
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Attempting to shutdown Roblox...");
+            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Attempting to shutdown Roblox...");
 
             Dialog?.PromptShutdown();
 
             try
             {
-                // try/catch just in case process was closed before prompt was answered
-
-                foreach (Process process in processes)
+                foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
                 {
                     process.CloseMainWindow();
                     process.Close();
@@ -298,10 +320,10 @@ namespace Bloxstrap
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] Failed to close process! {ex}");
+                App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Failed to close process! {ex}");
             }
 
-            App.Logger.WriteLine($"[Bootstrapper::CheckIfRunning] All Roblox processes closed");
+            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] All Roblox processes closed");
             return true;
         }
 
@@ -327,10 +349,27 @@ namespace Bloxstrap
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
+            Mutex singletonMutex;
+
+            if (App.Settings.Prop.MultiInstanceLaunching)
+            {
+                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Creating singleton mutex");
+                // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
+                try
+                {
+                    singletonMutex = Mutex.OpenExisting("ROBLOX_singletonMutex");
+                    App.Logger.WriteLine("[Bootstrapper::StartRoblox] Warning - singleton mutex already exists");
+                }
+                catch
+                {
+                    singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
+                }
+                shouldWait = true;
+            }
+
             Process gameClient = Process.Start(Path.Combine(_versionFolder, "RobloxPlayerBeta.exe"), _launchCommandLine);
             List<Process> autocloseProcesses = new();
             DiscordRichPresence? richPresence = null;
-            Mutex? singletonMutex = null;
 
             App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
 
@@ -367,14 +406,6 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
                 richPresence = new DiscordRichPresence();
-                shouldWait = true;
-            }
-
-            if (App.Settings.Prop.MultiInstanceLaunching)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Creating singleton mutex");
-                // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
-                singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
                 shouldWait = true;
             }
 
@@ -548,7 +579,7 @@ namespace Bloxstrap
 
         private void Uninstall()
         {
-            CheckIfRunning(true);
+            ShutdownIfRobloxRunning();
 
             SetStatus($"Uninstalling {App.ProjectName}...");
 
