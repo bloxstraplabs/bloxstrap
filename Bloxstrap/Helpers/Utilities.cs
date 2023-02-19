@@ -26,13 +26,15 @@ namespace Bloxstrap.Helpers
             return -1;
         }
 
-        public static int GetProcessCount(string processName)
+        public static int GetProcessCount(string processName, bool log = true)
         {
-            App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Checking if '{processName}' is running...");
+            if (log)
+                App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Checking if '{processName}' is running...");
 
             Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
 
-            App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Found {processes.Length} process(es) running for '{processName}'");
+            if (log)
+                App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Found {processes.Length} process(es) running for '{processName}'");
 
             return processes.Length;
         }
