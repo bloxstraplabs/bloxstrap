@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Bloxstrap.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="520" d:DesignWidth="800"
       Title="AppearancePage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
@@ -50,6 +50,46 @@
                 <ComboBox Grid.Column="1" Margin="5,0,0,0" Padding="10,5,10,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
             </Grid>
         </ui:CardControl>
+        <ui:CardExpander Margin="0,8,0,0" Padding="16,13,16,12" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="Bootstrapper customization" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Configure other customizable Bootstrapper options." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Title" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <ui:TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Title, Mode=TwoWay}" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,4,0,0" FontSize="12" Text="The text that shows as the title of the bootstrapper." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,12,0,0"  Text="Custom Icon" VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <Grid Grid.Row="2" Grid.Column="1" Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding CustomIconLocation, Mode=TwoWay}" />
+                    <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseCustomIconLocationCommand}" />
+                </Grid>
+                <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,4,0,0" FontSize="12" Text="Must be a multi-size .ico file with sizes 16px to 128px. Set Icon as 'Custom' to use it." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </Grid>
+        </ui:CardExpander>
         <ui:Button Content="Preview" HorizontalAlignment="Stretch" Margin="0,8,0,0" Command="{Binding PreviewBootstrapperCommand}" />
     </StackPanel>
 </ui:UiPage>

@@ -69,7 +69,7 @@ namespace Bloxstrap.Dialogs
         {
             _viewModel = new FluentDialogViewModel(this);
             DataContext = _viewModel;
-            Title = App.ProjectName;
+            Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
 
             _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);

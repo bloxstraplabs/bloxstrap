@@ -17,7 +17,7 @@
         WindowCornerPreference="Round"
         WindowStartupLocation="CenterScreen">
     <StackPanel>
-        <ui:TitleBar Background="{ui:ThemeResource ApplicationBackgroundBrush}" Padding="15,15,0,10" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="False" UseSnapLayout="False" ShowClose="False" ShowMinimize="False" ShowMaximize="False" Title="Bloxstrap" />
+        <ui:TitleBar Background="{ui:ThemeResource ApplicationBackgroundBrush}" Title="{Binding Title, Mode=OneTime}" Padding="15,15,0,10" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="False" UseSnapLayout="False" ShowClose="False" ShowMinimize="False" ShowMaximize="False" />
         <Grid Margin="16,0,16,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />

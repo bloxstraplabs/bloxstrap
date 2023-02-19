@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.Input;
@@ -22,6 +23,7 @@ namespace Bloxstrap.ViewModels
         private readonly Page _page;
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);
+        public ICommand BrowseCustomIconLocationCommand => new RelayCommand(BrowseCustomIconLocation);
 
         private void PreviewBootstrapper()
         {
@@ -29,6 +31,18 @@ namespace Bloxstrap.ViewModels
             dialog.Message = "Style preview - Click Cancel to close";
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
+        }
+
+        private void BrowseCustomIconLocation()
+        {
+            using var dialog = new OpenFileDialog();
+            dialog.Filter = "Icon files (*.ico)|*.ico|All files (*.*)|*.*";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                CustomIconLocation = dialog.FileName;
+                OnPropertyChanged(nameof(CustomIconLocation));
+            }
         }
 
         public AppearanceViewModel(Page page)
@@ -78,6 +92,7 @@ namespace Bloxstrap.ViewModels
             { "Early 2015", BootstrapperIcon.IconEarly2015 },
             { "2011", BootstrapperIcon.Icon2011 },
             { "2009", BootstrapperIcon.Icon2009 },
+            { "Custom", BootstrapperIcon.IconCustom },
         };
 
         public string Icon
@@ -91,5 +106,21 @@ namespace Bloxstrap.ViewModels
         }
 
         public ImageSource IconPreviewSource => App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
+
+        public string Title
+        {
+            get => App.Settings.Prop.BootstrapperTitle;
+            set => App.Settings.Prop.BootstrapperTitle = value;
+        }
+
+        public string CustomIconLocation
+        {
+            get => App.Settings.Prop.BootstrapperIconCustomLocation;
+            set
+            {
+                App.Settings.Prop.BootstrapperIconCustomLocation = value;
+                OnPropertyChanged(nameof(IconPreviewSource));
+            }
+        }
     }
 }

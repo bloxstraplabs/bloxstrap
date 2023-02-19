@@ -63,7 +63,7 @@ namespace Bloxstrap.Dialogs
             _dialogPage = new TaskDialogPage()
             {
                 Icon = new TaskDialogIcon(App.Settings.Prop.BootstrapperIcon.GetIcon()),
-                Caption = App.ProjectName,
+                Caption = App.Settings.Prop.BootstrapperTitle,
 
                 Buttons = { TaskDialogButton.Cancel },
                 ProgressBar = new TaskDialogProgressBar()
@@ -91,7 +91,7 @@ namespace Bloxstrap.Dialogs
                 TaskDialogPage successDialog = new()
                 {
                     Icon = TaskDialogIcon.ShieldSuccessGreenBar,
-                    Caption = App.ProjectName,
+                    Caption = App.Settings.Prop.BootstrapperTitle,
                     Heading = message,
                     Buttons = { TaskDialogButton.OK }
                 };
@@ -114,7 +114,7 @@ namespace Bloxstrap.Dialogs
                 TaskDialogPage errorDialog = new()
                 {
                     Icon = TaskDialogIcon.Error,
-                    Caption = App.ProjectName,
+                    Caption = App.Settings.Prop.BootstrapperTitle,
                     Heading = "An error occurred while starting Roblox",
                     Buttons = { TaskDialogButton.Close },
                     Expander = new TaskDialogExpander()

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -14,7 +15,8 @@ namespace Bloxstrap.Enums
         IconLate2015,
         Icon2017,
         Icon2019,
-        Icon2022
+        Icon2022,
+        IconCustom
     }
 
     public static class BootstrapperIconEx
@@ -25,6 +27,23 @@ namespace Bloxstrap.Enums
 
         public static Icon GetIcon(this BootstrapperIcon icon)
         {
+            // load the custom icon file
+            if (icon == BootstrapperIcon.IconCustom)
+            {
+                Icon? customIcon = null;
+
+                try
+                {
+                    customIcon = new Icon(App.Settings.Prop.BootstrapperIconCustomLocation);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[BootstrapperIconEx::GetIcon] Failed to load custom icon! {ex}");
+                }
+
+                return customIcon ?? Properties.Resources.IconBloxstrap;
+            }
+
             return icon switch
             {
                 BootstrapperIcon.IconBloxstrap => Properties.Resources.IconBloxstrap,
