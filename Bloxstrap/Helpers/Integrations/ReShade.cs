@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -42,6 +42,7 @@ namespace Bloxstrap.Helpers.Integrations
             { "Stock",     "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip" },
 
             // shaders required for extravi's presets:
+            { "Legacy",    "https://github.com/crosire/reshade-shaders/archive/refs/heads/legacy.zip" },
             { "AlucardDH", "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" },
             { "AstrayFX",  "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" },
             { "Depth3D",   "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" },
@@ -49,10 +50,13 @@ namespace Bloxstrap.Helpers.Integrations
             { "NiceGuy",   "https://github.com/mj-ehsan/NiceGuy-Shaders/archive/refs/heads/main.zip" },
             { "prod80",    "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" },
             { "qUINT",     "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" },
+            { "SweetFX",   "https://github.com/CeeJayDK/SweetFX/archive/refs/heads/master.zip" },
+            { "Brussell",  "https://github.com/brussell1/Shaders/archive/refs/heads/master.zip" },
         };
 
         private static readonly string[] ExtraviPresetsShaders = new string[]
         {
+            "Legacy",
             "AlucardDH",
             "AstrayFX",
             "Depth3D",
@@ -60,6 +64,8 @@ namespace Bloxstrap.Helpers.Integrations
             "NiceGuy",
             "prod80",
             "qUINT",
+            "SweetFX",
+            "Brussell",
         };
 
         private static string GetSearchPath(string type, string name)
