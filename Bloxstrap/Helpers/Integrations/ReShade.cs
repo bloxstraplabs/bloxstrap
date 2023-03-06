@@ -85,7 +85,7 @@ namespace Bloxstrap.Helpers.Integrations
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
 
-                
+
                 archive.Entries.First(x => x.FullName == "ReShade.ini").ExtractToFile(ConfigLocation, true);
 
                 // when we extract the file we have to make sure the last modified date is overwritten
@@ -300,7 +300,7 @@ namespace Bloxstrap.Helpers.Integrations
         {
             App.Logger.WriteLine("[ReShade::InstallExtraviPresets] Installing Extravi's presets...");
 
-             foreach (string name in ExtraviPresetsShaders)
+            foreach (string name in ExtraviPresetsShaders)
                 await DownloadShaders(name);
 
             byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/reshade-presets.zip");
@@ -342,7 +342,7 @@ namespace Bloxstrap.Helpers.Integrations
         public static async Task CheckModifications()
         {
             App.Logger.WriteLine("[ReShade::CheckModifications] Checking ReShade modifications...");
-            
+
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
 
             if (!App.Settings.Prop.UseReShadeExtraviPresets && !String.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
@@ -362,7 +362,7 @@ namespace Bloxstrap.Helpers.Integrations
                     return;
 
                 App.Logger.WriteLine("[ReShade::CheckModifications] ReShade is not enabled");
-                
+
                 // we should already be uninstalled
                 // we want to ensure this is done one-time only as this could possibly interfere with other rendering hooks using dxgi.dll
                 if (String.IsNullOrEmpty(App.State.Prop.ReShadeConfigVersion))
