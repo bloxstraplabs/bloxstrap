@@ -42,6 +42,7 @@ namespace Bloxstrap.Helpers.Integrations
             { "Stock",     "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip" },
 
             // shaders required for extravi's presets:
+            { "Stormshade","https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip" },
             { "Legacy",    "https://github.com/crosire/reshade-shaders/archive/refs/heads/legacy.zip" },
             { "AlucardDH", "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" },
             { "AstrayFX",  "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" },
@@ -56,6 +57,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         private static readonly string[] ExtraviPresetsShaders = new string[]
         {
+            "Stormshade",
             "Legacy",
             "AlucardDH",
             "AstrayFX",
@@ -197,15 +199,29 @@ namespace Bloxstrap.Helpers.Integrations
                         continue;
 
                     // github branch zips have a root folder of the name of the branch, so let's just remove that
-                    string fullPath = entry.FullName.Substring(entry.FullName.IndexOf('/') + 1);
+                    string fullPath;
+                    if (entry.FullName.Contains("Stormshade-master"))
+                    {
+                        fullPath = entry.FullName.Substring(entry.FullName.IndexOf("reshade-shaders/") + "reshade-shaders/".Length);
+                    }
+                    else
+                    {
+                        fullPath = entry.FullName.Substring(entry.FullName.IndexOf('/') + 1);
+                    }
 
                     // skip file if it's not in the Shaders or Textures folder
                     if (!fullPath.StartsWith("Shaders") && !fullPath.StartsWith("Textures"))
                         continue;
 
                     // ingore shaders with compiler errors
-                    if (fullPath.EndsWith("dh_Lain.fx") || fullPath.EndsWith("dh_rtgi.fx"))
+                    if (fullPath.EndsWith("dh_Lain.fx") || fullPath.EndsWith("dh_rtgi.fx") || fullPath.EndsWith("DOF.fx") || fullPath.EndsWith("FXAA.fx") || fullPath.EndsWith("FXAA.fxh"))
                         continue;
+
+                    if (entry.FullName.Contains("Stormshade-master"))
+                    {
+                        if (fullPath.EndsWith("Clarity.fx") || fullPath.EndsWith("AmbientLight.fx"))
+                            continue;
+                    }
 
                     // and now we do it again because of how we're handling folder management
                     // e.g. reshade-shaders-master/Shaders/Vignette.fx should go to ReShade/Shaders/Stock/Vignette.fx
@@ -284,7 +300,7 @@ namespace Bloxstrap.Helpers.Integrations
         {
             App.Logger.WriteLine("[ReShade::InstallExtraviPresets] Installing Extravi's presets...");
 
-            foreach (string name in ExtraviPresetsShaders)
+             foreach (string name in ExtraviPresetsShaders)
                 await DownloadShaders(name);
 
             byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/reshade-presets.zip");
