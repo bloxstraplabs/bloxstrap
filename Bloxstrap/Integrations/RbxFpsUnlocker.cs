@@ -3,10 +3,11 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using Bloxstrap.Helpers;
 
 using Bloxstrap.Models;
 
-namespace Bloxstrap.Helpers.Integrations
+namespace Bloxstrap.Integrations
 {
     internal class RbxFpsUnlocker
     {
@@ -14,7 +15,7 @@ namespace Bloxstrap.Helpers.Integrations
         public const string ProjectRepository = "axstin/rbxfpsunlocker";
 
         // default settings but with QuickStart set to true and CheckForUpdates set to false
-        private static readonly string Settings = 
+        private static readonly string Settings =
             "UnlockClient=true\n" +
             "UnlockStudio=false\n" +
             "FPSCapValues=[30.000000, 60.000000, 75.000000, 120.000000, 144.000000, 165.000000, 240.000000, 360.000000]\n" +
@@ -33,7 +34,7 @@ namespace Bloxstrap.Helpers.Integrations
                 return;
 
             App.Logger.WriteLine("[RbxFpsUnlocker::CheckIfRunning] Closing currently running rbxfpsunlocker processes...");
-            
+
             try
             {
                 foreach (Process process in processes)

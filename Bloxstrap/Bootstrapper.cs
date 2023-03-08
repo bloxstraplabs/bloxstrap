@@ -14,9 +14,9 @@ using Microsoft.Win32;
 
 using Bloxstrap.Dialogs;
 using Bloxstrap.Helpers;
-using Bloxstrap.Helpers.Integrations;
 using Bloxstrap.Helpers.RSMM;
 using Bloxstrap.Models;
+using Bloxstrap.Integrations;
 
 namespace Bloxstrap
 {

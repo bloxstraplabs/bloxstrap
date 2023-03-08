@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Bloxstrap.Helpers;
 
 using Bloxstrap.Models;
 
 using DiscordRPC;
 
-namespace Bloxstrap.Helpers.Integrations
+namespace Bloxstrap.Integrations
 {
     class DiscordRichPresence : IDisposable
     {
@@ -36,10 +37,10 @@ namespace Bloxstrap.Helpers.Integrations
 
         public DiscordRichPresence()
         {
-            _rpcClient.OnReady += (_, e) => 
+            _rpcClient.OnReady += (_, e) =>
                 App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Received ready from user {e.User.Username} ({e.User.ID})");
 
-            _rpcClient.OnPresenceUpdate += (_, e) => 
+            _rpcClient.OnPresenceUpdate += (_, e) =>
                 App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Updated presence");
 
             _rpcClient.OnConnectionEstablished += (_, e) =>
@@ -62,7 +63,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             // debug stats to ensure that the log reader is working correctly
             // if more than 5000 log entries have been read, only log per 100 to save on spam
-            if (_logEntriesRead <= 5000 &&  _logEntriesRead % 50 == 0)
+            if (_logEntriesRead <= 5000 && _logEntriesRead % 50 == 0)
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Read {_logEntriesRead} log entries");
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Read {_logEntriesRead} log entries");
@@ -75,7 +76,7 @@ namespace Bloxstrap.Helpers.Integrations
                     return;
 
                 _activityInGame = false;
-                _activityPlaceId = Int64.Parse(match.Groups[2].Value);
+                _activityPlaceId = long.Parse(match.Groups[2].Value);
                 _activityJobId = match.Groups[1].Value;
                 _activityMachineAddress = match.Groups[3].Value;
 
@@ -160,7 +161,7 @@ namespace Bloxstrap.Helpers.Integrations
             {
                 string? log = await sr.ReadLineAsync();
 
-                if (String.IsNullOrEmpty(log))
+                if (string.IsNullOrEmpty(log))
                     logUpdatedEvent.WaitOne(1000);
                 else
                     await ExamineLogEntry(log);

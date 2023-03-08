@@ -7,13 +7,14 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
+using Bloxstrap.Helpers;
 
 using Bloxstrap.Models;
 
 using IniParser;
 using IniParser.Model;
 
-namespace Bloxstrap.Helpers.Integrations
+namespace Bloxstrap.Integrations
 {
     internal class ReShade
     {
@@ -64,9 +65,9 @@ namespace Bloxstrap.Helpers.Integrations
                 }
             },
 
-            new ReShadeShaderConfig 
-            { 
-                Name = "AlucardDH", 
+            new ReShadeShaderConfig
+            {
+                Name = "AlucardDH",
                 DownloadLocation = "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip",
                 ExcludedFiles = new List<string>()
                 {
@@ -77,10 +78,10 @@ namespace Bloxstrap.Helpers.Integrations
                 }
             },
 
-            new ReShadeShaderConfig 
-            { 
-                Name = "Stormshade", 
-                DownloadLocation = "https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip", 
+            new ReShadeShaderConfig
+            {
+                Name = "Stormshade",
+                DownloadLocation = "https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip",
                 BaseFolder = "reshade-shaders/",
                 ExcludedFiles = new List<string>()
                 {
@@ -114,8 +115,8 @@ namespace Bloxstrap.Helpers.Integrations
             "prod80",
             "qUINT",
             "StockLegacy",
-			"Stormshade",
-			"SweetFX",
+            "Stormshade",
+            "SweetFX",
         };
 
         private static string GetSearchPath(string type, string name)
@@ -378,7 +379,7 @@ namespace Bloxstrap.Helpers.Integrations
 
             string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
 
-            if (!App.Settings.Prop.UseReShadeExtraviPresets && !String.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
+            if (!App.Settings.Prop.UseReShadeExtraviPresets && !string.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
             {
                 if (Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
                     return;
@@ -398,7 +399,7 @@ namespace Bloxstrap.Helpers.Integrations
 
                 // we should already be uninstalled
                 // we want to ensure this is done one-time only as this could possibly interfere with other rendering hooks using dxgi.dll
-                if (String.IsNullOrEmpty(App.State.Prop.ReShadeConfigVersion))
+                if (string.IsNullOrEmpty(App.State.Prop.ReShadeConfigVersion))
                     return;
 
                 App.Logger.WriteLine("[ReShade::CheckModifications] Uninstalling ReShade...");
@@ -433,43 +434,43 @@ namespace Bloxstrap.Helpers.Integrations
                 if (injectorVersionInfo.ProductVersion != versionManifest.ReShade)
                     shouldFetchReShade = true;
 
-				// UPDATE CHECK - if we're upgrading to reshade 5.7.0, or we have extravi's presets
+                // UPDATE CHECK - if we're upgrading to reshade 5.7.0, or we have extravi's presets
                 // enabled with a known shader downloaded (like AlucardDH) but without stormshade downloaded (5.7.0+ specific),
                 // we need to redownload all our shaders fresh
-				if (
-                    injectorVersionInfo.ProductVersion != versionManifest.ReShade && versionManifest.ReShade == "5.7.0" || 
+                if (
+                    injectorVersionInfo.ProductVersion != versionManifest.ReShade && versionManifest.ReShade == "5.7.0" ||
                     App.Settings.Prop.UseReShadeExtraviPresets && Directory.Exists(Path.Combine(ShadersFolder, "AlucardDH")) && !Directory.Exists(Path.Combine(ShadersFolder, "Stormshade"))
                 )
-				{
-					Directory.Delete(ShadersFolder, true);
-					Directory.Delete(TexturesFolder, true);
+                {
+                    Directory.Delete(ShadersFolder, true);
+                    Directory.Delete(TexturesFolder, true);
                     App.State.Prop.ExtraviReShadePresetsVersion = "";
                     App.Logger.WriteLine("[ReShade::CheckModifications] Upgrading to ReShade 5.7.0 - redownloading all shaders!");
-				}
-			}
+                }
+            }
             else
             {
                 App.Logger.WriteLine("[ReShade::CheckModifications] versionManifest is null!");
             }
 
-			// we're about to download - initialize directories
-			Directory.CreateDirectory(BaseDirectory);
-			Directory.CreateDirectory(FontsFolder);
-			Directory.CreateDirectory(ShadersFolder);
-			Directory.CreateDirectory(TexturesFolder);
-			Directory.CreateDirectory(PresetsFolder);
+            // we're about to download - initialize directories
+            Directory.CreateDirectory(BaseDirectory);
+            Directory.CreateDirectory(FontsFolder);
+            Directory.CreateDirectory(ShadersFolder);
+            Directory.CreateDirectory(TexturesFolder);
+            Directory.CreateDirectory(PresetsFolder);
 
-			// check if we should download a fresh copy of the config
-			// extravi may need to update the config ota, in which case we'll redownload it
-			if (!File.Exists(ConfigLocation) || versionManifest is not null && App.State.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
+            // check if we should download a fresh copy of the config
+            // extravi may need to update the config ota, in which case we'll redownload it
+            if (!File.Exists(ConfigLocation) || versionManifest is not null && App.State.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
                 shouldFetchConfig = true;
 
             if (shouldFetchReShade)
             {
                 App.Logger.WriteLine("[ReShade::CheckModifications] Installing/Upgrading ReShade...");
 
-				{
-					byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
+                {
+                    byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
                     using MemoryStream zipStream = new(bytes);
                     using ZipArchive archive = new(zipStream);
                     archive.ExtractToDirectory(Directories.Modifications, true);
