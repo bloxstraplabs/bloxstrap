@@ -52,8 +52,10 @@ namespace Bloxstrap.Helpers
                 string json = await App.HttpClient.GetStringAsync(url);
                 return JsonSerializer.Deserialize<T>(json);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Failed to deserialize JSON!");
+                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] {ex}");
                 return default;
             }
         }

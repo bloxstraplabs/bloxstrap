@@ -322,23 +322,6 @@ namespace Bloxstrap
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
-            Mutex? singletonMutex = null;
-
-            if (App.Settings.Prop.MultiInstanceLaunching)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Creating singleton mutex");
-                // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
-                try
-                {
-                    Mutex.OpenExisting("ROBLOX_singletonMutex");
-                    App.Logger.WriteLine("[Bootstrapper::StartRoblox] Warning - singleton mutex already exists!");
-                }
-                catch
-                {
-                    singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
-                    shouldWait = true;
-                }
-            }
 
             Process gameClient = Process.Start(Path.Combine(_versionFolder, "RobloxPlayerBeta.exe"), _launchCommandLine);
             List<Process> autocloseProcesses = new();
@@ -426,27 +409,6 @@ namespace Bloxstrap
 
                 App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Autoclosing process '{process.ProcessName}' (PID {process.Id})");
                 process.Kill();
-            }
-
-            if (singletonMutex is not null)
-            {
-                // we've got ownership of the roblox singleton mutex!
-                // if we stop running, everything will screw up once any more instances launched
-                // also this code is blehhhh im sure theres a better way of checking if the process count changed like this
-
-                int runningProcesses = -1;
-                while (runningProcesses != 0)
-                {
-                    int runningProcessesNow = Utilities.GetProcessCount("RobloxPlayerBeta", false);
-
-                    if (runningProcessesNow != runningProcesses)
-                    {
-                        App.Logger.WriteLine($"[Bootstrapper::StartRoblox] We have singleton mutex ownership! Running in background until all Roblox processes are closed ({runningProcessesNow} remaining)...");
-                        runningProcesses = runningProcessesNow;
-                    }
-
-                    await Task.Delay(5000);
-                }
             }
         }
 
