@@ -40,20 +40,29 @@ namespace Bloxstrap.Helpers.Integrations
         // this is a list of selectable shaders to download
         private static readonly List<ReShadeShaderConfig> Shaders = new()
         {
-            new ReShadeShaderConfig { Name = "Stock", DownloadLocation = "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip" },
-
             // shaders required for extravi's presets:
             new ReShadeShaderConfig { Name = "AstrayFX", DownloadLocation = "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" },
             new ReShadeShaderConfig { Name = "Brussell", DownloadLocation = "https://github.com/brussell1/Shaders/archive/refs/heads/master.zip" },
-			new ReShadeShaderConfig { Name = "Depth3D", DownloadLocation = "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "Depth3D", DownloadLocation = "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" },
             new ReShadeShaderConfig { Name = "Glamarye", DownloadLocation = "https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/archive/refs/heads/main.zip" },
             new ReShadeShaderConfig { Name = "NiceGuy", DownloadLocation = "https://github.com/mj-ehsan/NiceGuy-Shaders/archive/refs/heads/main.zip" },
             new ReShadeShaderConfig { Name = "prod80", DownloadLocation = "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" },
             new ReShadeShaderConfig { Name = "qUINT", DownloadLocation = "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" },
             new ReShadeShaderConfig { Name = "StockLegacy", DownloadLocation = "https://github.com/crosire/reshade-shaders/archive/refs/heads/legacy.zip" },
-			new ReShadeShaderConfig { Name = "SweetFX", DownloadLocation = "https://github.com/CeeJayDK/SweetFX/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "SweetFX", DownloadLocation = "https://github.com/CeeJayDK/SweetFX/archive/refs/heads/master.zip" },
 
             // these ones needs some additional configuration
+
+            new ReShadeShaderConfig
+            {
+                Name = "Stock",
+                DownloadLocation = "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip",
+                ExcludedFiles = new List<string>()
+                {
+                    // overriden by stormshade
+                    "Shaders/MXAO.fx"
+                }
+            },
 
             new ReShadeShaderConfig 
             { 
@@ -61,12 +70,14 @@ namespace Bloxstrap.Helpers.Integrations
                 DownloadLocation = "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip",
                 ExcludedFiles = new List<string>()
                 {
-                    // compiler error
-                    "Shaders/dh_rtgi.fx"
+                    // compiler errors
+                    // dh_Lain only errors when performance mode is disabled, but it's not used by any presets anyway
+                    "Shaders/dh_rtgi.fx",
+                    "Shaders/dh_Lain.fx"
                 }
             },
 
-			new ReShadeShaderConfig 
+            new ReShadeShaderConfig 
             { 
                 Name = "Stormshade", 
                 DownloadLocation = "https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip", 
@@ -75,21 +86,21 @@ namespace Bloxstrap.Helpers.Integrations
                 {
                     // these file names conflict with effects in the stock reshade config
                     "Shaders/AmbientLight.fx",
-					"Shaders/Clarity.fx",
-					"Shaders/DOF.fx",
-					"Shaders/DPX.fx",
-					"Shaders/FilmGrain.fx",
-					"Shaders/FineSharp.fx",
-					"Shaders/FXAA.fx",
-					"Shaders/FXAA.fxh",
-					"Shaders/LumaSharpen.fx",
-					"Shaders/MXAO.fx",
-					"Shaders/ReShade.fxh",
-					"Shaders/Vibrance.fx",
-					"Shaders/Vignette.fx"
-				}
+                    "Shaders/Clarity.fx",
+                    "Shaders/DOF.fx",
+                    "Shaders/DPX.fx",
+                    "Shaders/FilmGrain.fx",
+                    "Shaders/FineSharp.fx",
+                    "Shaders/FXAA.fx",
+                    "Shaders/FXAA.fxh",
+                    "Shaders/LumaSharpen.fx",
+                    //"Shaders/MXAO.fx",
+                    "Shaders/ReShade.fxh",
+                    "Shaders/Vibrance.fx",
+                    "Shaders/Vignette.fx"
+                }
             },
-		};
+        };
 
         private static readonly string[] ExtraviPresetsShaders = new string[]
         {
@@ -97,7 +108,7 @@ namespace Bloxstrap.Helpers.Integrations
             "Brussell",
             "AstrayFX",
             "Brussell",
-			"Depth3D",
+            "Depth3D",
             "Glamarye",
             "NiceGuy",
             "prod80",
@@ -235,6 +246,7 @@ namespace Bloxstrap.Helpers.Integrations
                     if (entry.FullName.EndsWith('/') || !entry.FullName.Contains(config.BaseFolder))
                         continue;
 
+                    // github branch zips have a root folder of the name of the branch, so let's just remove that
                     string fullPath = entry.FullName.Substring(entry.FullName.IndexOf(config.BaseFolder) + config.BaseFolder.Length);
 
                     // skip file if it's not in the Shaders or Textures folder
@@ -432,6 +444,7 @@ namespace Bloxstrap.Helpers.Integrations
 					Directory.Delete(ShadersFolder, true);
 					Directory.Delete(TexturesFolder, true);
                     App.State.Prop.ExtraviReShadePresetsVersion = "";
+                    App.Logger.WriteLine("[ReShade::CheckModifications] Upgrading to ReShade 5.7.0 - redownloading all shaders!");
 				}
 			}
             else
