@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -35,39 +37,74 @@ namespace Bloxstrap.Helpers.Integrations
         // the base url that we're fetching all our remote configs and resources and stuff from
         private const string BaseUrl = "https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update";
 
-        // this is a list of selectable shaders to download:
-        // this should be formatted as { FolderName, GithubRepositoryUrl }
-        private static readonly IReadOnlyDictionary<string, string> Shaders = new Dictionary<string, string>()
+        // this is a list of selectable shaders to download
+        private static readonly List<ReShadeShaderConfig> Shaders = new()
         {
-            { "Stock",     "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "Stock", DownloadLocation = "https://github.com/crosire/reshade-shaders/archive/refs/heads/master.zip" },
 
             // shaders required for extravi's presets:
-            { "Stormshade","https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip" },
-            { "Legacy",    "https://github.com/crosire/reshade-shaders/archive/refs/heads/legacy.zip" },
-            { "AlucardDH", "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip" },
-            { "AstrayFX",  "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" },
-            { "Depth3D",   "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" },
-            { "Glamarye",  "https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/archive/refs/heads/main.zip" },
-            { "NiceGuy",   "https://github.com/mj-ehsan/NiceGuy-Shaders/archive/refs/heads/main.zip" },
-            { "prod80",    "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" },
-            { "qUINT",     "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" },
-            { "SweetFX",   "https://github.com/CeeJayDK/SweetFX/archive/refs/heads/master.zip" },
-            { "Brussell",  "https://github.com/brussell1/Shaders/archive/refs/heads/master.zip" },
-        };
+            new ReShadeShaderConfig { Name = "AstrayFX", DownloadLocation = "https://github.com/BlueSkyDefender/AstrayFX/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "Brussell", DownloadLocation = "https://github.com/brussell1/Shaders/archive/refs/heads/master.zip" },
+			new ReShadeShaderConfig { Name = "Depth3D", DownloadLocation = "https://github.com/BlueSkyDefender/Depth3D/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "Glamarye", DownloadLocation = "https://github.com/rj200/Glamarye_Fast_Effects_for_ReShade/archive/refs/heads/main.zip" },
+            new ReShadeShaderConfig { Name = "NiceGuy", DownloadLocation = "https://github.com/mj-ehsan/NiceGuy-Shaders/archive/refs/heads/main.zip" },
+            new ReShadeShaderConfig { Name = "prod80", DownloadLocation = "https://github.com/prod80/prod80-ReShade-Repository/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "qUINT", DownloadLocation = "https://github.com/martymcmodding/qUINT/archive/refs/heads/master.zip" },
+            new ReShadeShaderConfig { Name = "StockLegacy", DownloadLocation = "https://github.com/crosire/reshade-shaders/archive/refs/heads/legacy.zip" },
+			new ReShadeShaderConfig { Name = "SweetFX", DownloadLocation = "https://github.com/CeeJayDK/SweetFX/archive/refs/heads/master.zip" },
+
+            // these ones needs some additional configuration
+
+            new ReShadeShaderConfig 
+            { 
+                Name = "AlucardDH", 
+                DownloadLocation = "https://github.com/AlucardDH/dh-reshade-shaders/archive/refs/heads/master.zip",
+                ExcludedFiles = new List<string>()
+                {
+                    // compiler error
+                    "Shaders/dh_rtgi.fx"
+                }
+            },
+
+			new ReShadeShaderConfig 
+            { 
+                Name = "Stormshade", 
+                DownloadLocation = "https://github.com/cyrie/Stormshade/archive/refs/heads/master.zip", 
+                BaseFolder = "reshade-shaders/",
+                ExcludedFiles = new List<string>()
+                {
+                    // these file names conflict with effects in the stock reshade config
+                    "Shaders/AmbientLight.fx",
+					"Shaders/Clarity.fx",
+					"Shaders/DOF.fx",
+					"Shaders/DPX.fx",
+					"Shaders/FilmGrain.fx",
+					"Shaders/FineSharp.fx",
+					"Shaders/FXAA.fx",
+					"Shaders/FXAA.fxh",
+					"Shaders/LumaSharpen.fx",
+					"Shaders/MXAO.fx",
+					"Shaders/ReShade.fxh",
+					"Shaders/Vibrance.fx",
+					"Shaders/Vignette.fx"
+				}
+            },
+		};
 
         private static readonly string[] ExtraviPresetsShaders = new string[]
         {
-            "Stormshade",
-            "Legacy",
             "AlucardDH",
+            "Brussell",
             "AstrayFX",
-            "Depth3D",
+            "Brussell",
+			"Depth3D",
             "Glamarye",
             "NiceGuy",
             "prod80",
             "qUINT",
-            "SweetFX",
-            "Brussell",
+            "StockLegacy",
+			"Stormshade",
+			"SweetFX",
         };
 
         private static string GetSearchPath(string type, string name)
@@ -179,7 +216,7 @@ namespace Bloxstrap.Helpers.Integrations
 
         public static async Task DownloadShaders(string name)
         {
-            string downloadUrl = Shaders.First(x => x.Key == name).Value;
+            ReShadeShaderConfig config = Shaders.First(x => x.Name == name);
 
             // not all shader packs have a textures folder, so here we're determining if they exist purely based on if they have a Shaders folder
             if (Directory.Exists(Path.Combine(ShadersFolder, name)))
@@ -188,40 +225,24 @@ namespace Bloxstrap.Helpers.Integrations
             App.Logger.WriteLine($"[ReShade::DownloadShaders] Downloading shaders for {name}");
 
             {
-                byte[] bytes = await App.HttpClient.GetByteArrayAsync(downloadUrl);
+                byte[] bytes = await App.HttpClient.GetByteArrayAsync(config.DownloadLocation);
 
                 using MemoryStream zipStream = new(bytes);
                 using ZipArchive archive = new(zipStream);
 
                 foreach (ZipArchiveEntry entry in archive.Entries)
                 {
-                    if (entry.FullName.EndsWith('/'))
+                    if (entry.FullName.EndsWith('/') || !entry.FullName.Contains(config.BaseFolder))
                         continue;
 
-                    // github branch zips have a root folder of the name of the branch, so let's just remove that
-                    string fullPath;
-                    if (entry.FullName.Contains("Stormshade-master"))
-                    {
-                        fullPath = entry.FullName.Substring(entry.FullName.IndexOf("reshade-shaders/") + "reshade-shaders/".Length);
-                    }
-                    else
-                    {
-                        fullPath = entry.FullName.Substring(entry.FullName.IndexOf('/') + 1);
-                    }
+                    string fullPath = entry.FullName.Substring(entry.FullName.IndexOf(config.BaseFolder) + config.BaseFolder.Length);
 
                     // skip file if it's not in the Shaders or Textures folder
                     if (!fullPath.StartsWith("Shaders") && !fullPath.StartsWith("Textures"))
                         continue;
 
-                    // ingore shaders with compiler errors
-                    if (fullPath.EndsWith("dh_Lain.fx") || fullPath.EndsWith("dh_rtgi.fx") || fullPath.EndsWith("DOF.fx") || fullPath.EndsWith("FXAA.fx") || fullPath.EndsWith("FXAA.fxh"))
+                    if (config.ExcludedFiles.Contains(fullPath))
                         continue;
-
-                    if (entry.FullName.Contains("Stormshade-master"))
-                    {
-                        if (fullPath.EndsWith("Clarity.fx") || fullPath.EndsWith("AmbientLight.fx"))
-                            continue;
-                    }
 
                     // and now we do it again because of how we're handling folder management
                     // e.g. reshade-shaders-master/Shaders/Vignette.fx should go to ReShade/Shaders/Stock/Vignette.fx
@@ -383,13 +404,6 @@ namespace Bloxstrap.Helpers.Integrations
                 return;
             }
 
-            // initialize directories
-            Directory.CreateDirectory(BaseDirectory);
-            Directory.CreateDirectory(FontsFolder);
-            Directory.CreateDirectory(ShadersFolder);
-            Directory.CreateDirectory(TexturesFolder);
-            Directory.CreateDirectory(PresetsFolder);
-
             // the version manfiest contains the version of reshade available for download and the last date the presets were updated
             var versionManifest = await Utilities.GetJson<ReShadeVersionManifest>("https://raw.githubusercontent.com/Extravi/extravi.github.io/main/update/version.json");
             bool shouldFetchReShade = false;
@@ -406,19 +420,43 @@ namespace Bloxstrap.Helpers.Integrations
 
                 if (injectorVersionInfo.ProductVersion != versionManifest.ReShade)
                     shouldFetchReShade = true;
+
+				// UPDATE CHECK - if we're upgrading to reshade 5.7.0, or we have extravi's presets
+                // enabled with a known shader downloaded (like AlucardDH) but without stormshade downloaded (5.7.0+ specific),
+                // we need to redownload all our shaders fresh
+				if (
+                    injectorVersionInfo.ProductVersion != versionManifest.ReShade && versionManifest.ReShade == "5.7.0" || 
+                    App.Settings.Prop.UseReShadeExtraviPresets && Directory.Exists(Path.Combine(ShadersFolder, "AlucardDH")) && !Directory.Exists(Path.Combine(ShadersFolder, "Stormshade"))
+                )
+				{
+					Directory.Delete(ShadersFolder, true);
+					Directory.Delete(TexturesFolder, true);
+                    App.State.Prop.ExtraviReShadePresetsVersion = "";
+				}
+			}
+            else
+            {
+                App.Logger.WriteLine("[ReShade::CheckModifications] versionManifest is null!");
             }
 
-            // check if we should download a fresh copy of the config
-            // extravi may need to update the config ota, in which case we'll redownload it
-            if (!File.Exists(ConfigLocation) || versionManifest is not null && App.State.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
+			// we're about to download - initialize directories
+			Directory.CreateDirectory(BaseDirectory);
+			Directory.CreateDirectory(FontsFolder);
+			Directory.CreateDirectory(ShadersFolder);
+			Directory.CreateDirectory(TexturesFolder);
+			Directory.CreateDirectory(PresetsFolder);
+
+			// check if we should download a fresh copy of the config
+			// extravi may need to update the config ota, in which case we'll redownload it
+			if (!File.Exists(ConfigLocation) || versionManifest is not null && App.State.Prop.ReShadeConfigVersion != versionManifest.ConfigFile)
                 shouldFetchConfig = true;
 
             if (shouldFetchReShade)
             {
                 App.Logger.WriteLine("[ReShade::CheckModifications] Installing/Upgrading ReShade...");
 
-                {
-                    byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
+				{
+					byte[] bytes = await App.HttpClient.GetByteArrayAsync($"{BaseUrl}/dxgi.zip");
                     using MemoryStream zipStream = new(bytes);
                     using ZipArchive archive = new(zipStream);
                     archive.ExtractToDirectory(Directories.Modifications, true);
