@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -21,11 +20,13 @@ namespace Bloxstrap.Integrations
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
         private const string GameJoiningEntry = "[FLog::Output] ! Joining game";
+        private const string GameJoiningUDMUXEntry = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
-        private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|([0-9]+)";
+        private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
+        private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
 
         private int _logEntriesRead = 0;
 
@@ -68,26 +69,52 @@ namespace Bloxstrap.Integrations
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
-            if (entry.Contains(GameJoiningEntry) && !_activityInGame && _activityPlaceId == 0)
+            if (!_activityInGame && _activityPlaceId == 0)
             {
-                Match match = Regex.Match(entry, GameJoiningEntryPattern);
+                if (entry.Contains(GameJoiningEntry))
+                {
+                    Match match = Regex.Match(entry, GameJoiningEntryPattern);
 
-                if (match.Groups.Count != 4)
-                    return;
+                    if (match.Groups.Count != 4)
+                    {
+                        App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game join entry");
+                        App.Logger.WriteLine(entry);
+                        return;
+                    }
 
-                _activityInGame = false;
-                _activityPlaceId = long.Parse(match.Groups[2].Value);
-                _activityJobId = match.Groups[1].Value;
-                _activityMachineAddress = match.Groups[3].Value;
+                    _activityInGame = false;
+                    _activityPlaceId = long.Parse(match.Groups[2].Value);
+                    _activityJobId = match.Groups[1].Value;
+                    _activityMachineAddress = match.Groups[3].Value;
 
-                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joining Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joining Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+                }
+                else if (entry.Contains(GameJoiningUDMUXEntry))
+                {
+                    Match match = Regex.Match(entry, GameJoiningUDMUXPattern);
+
+                    if (match.Groups.Count != 3 || match.Groups[2].Value != _activityMachineAddress)
+                    {
+                        App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game join UDMUX entry");
+                        App.Logger.WriteLine(entry);
+                        return;
+                    }
+
+                    _activityMachineAddress = match.Groups[1].Value;
+                    
+                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Server is UDMUX protected ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+                }
             }
             else if (entry.Contains(GameJoinedEntry) && !_activityInGame && _activityPlaceId != 0)
             {
                 Match match = Regex.Match(entry, GameJoinedEntryPattern);
 
-                if (match.Groups.Count != 3 || match.Groups[1].Value != _activityMachineAddress)
+                if (match.Groups.Count != 2 || match.Groups[1].Value != _activityMachineAddress)
+                {
+                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game joined entry");
+                    App.Logger.WriteLine(entry);
                     return;
+                }
 
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joined Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
 
@@ -204,8 +231,7 @@ namespace Bloxstrap.Integrations
                 buttons.Insert(0, new Button
                 {
                     Label = "Join",
-                    //Url = $"https://www.roblox.com/games/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}&launchData=%7B%7D"
-					Url = $"roblox://experiences/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}"
+                    Url = $"roblox://experiences/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}"
                 });
             }
 
