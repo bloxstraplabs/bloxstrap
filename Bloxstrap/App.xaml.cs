@@ -187,10 +187,8 @@ namespace Bloxstrap
                     mutex = new(true, "Bloxstrap_MenuMutex");
                 }
 
-#if !DEBUG
                 if (Utilities.GetProcessCount(ProjectName) > 1)
                     ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
-#endif
 
                 new MainWindow().ShowDialog();
             }

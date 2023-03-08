@@ -318,13 +318,15 @@ namespace Bloxstrap.Integrations
             if (shaderSearchPaths.Contains(name))
             {
                 string searchPath = GetSearchPath("Shaders", name);
-                data["GENERAL"]["EffectSearchPaths"] = shaderSearchPaths.Remove(shaderSearchPaths.IndexOf(searchPath), searchPath.Length);
+                if (shaderSearchPaths.Contains(searchPath))
+                    data["GENERAL"]["EffectSearchPaths"] = shaderSearchPaths.Remove(shaderSearchPaths.IndexOf(searchPath), searchPath.Length);
             }
 
             if (textureSearchPaths.Contains(name))
             {
                 string searchPath = GetSearchPath("Textures", name);
-                data["GENERAL"]["TextureSearchPaths"] = textureSearchPaths.Remove(textureSearchPaths.IndexOf(searchPath), searchPath.Length);
+                if (textureSearchPaths.Contains(searchPath))
+                    data["GENERAL"]["TextureSearchPaths"] = textureSearchPaths.Remove(textureSearchPaths.IndexOf(searchPath), searchPath.Length);
             }
 
             parser.WriteFile(ConfigLocation, data);
@@ -381,7 +383,7 @@ namespace Bloxstrap.Integrations
 
             if (!App.Settings.Prop.UseReShadeExtraviPresets && !string.IsNullOrEmpty(App.State.Prop.ExtraviReShadePresetsVersion))
             {
-                if (Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
+                if (Utilities.CheckIfRobloxRunning())
                     return;
 
                 UninstallExtraviPresets();
@@ -392,7 +394,7 @@ namespace Bloxstrap.Integrations
 
             if (!App.Settings.Prop.UseReShade)
             {
-                if (Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
+                if (Utilities.CheckIfRobloxRunning())
                     return;
 
                 App.Logger.WriteLine("[ReShade::CheckModifications] ReShade is not enabled");

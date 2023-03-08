@@ -145,7 +145,7 @@ namespace Bloxstrap
             CheckInstallMigration();
 
             // if roblox needs updating but is running and we have multiple instances open, ignore update for now
-            if (App.IsFirstRun || _versionGuid != App.State.Prop.VersionGuid && Utilities.GetProcessCount("RobloxPlayerBeta") == 0)
+            if (App.IsFirstRun || _versionGuid != App.State.Prop.VersionGuid && !Utilities.CheckIfRobloxRunning())
                 await InstallLatestVersion();
 
             // last time the version folder was set, it was set to the latest version guid
@@ -297,34 +297,6 @@ namespace Bloxstrap
             }
 
             App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
-        }
-
-        private bool ShutdownIfRobloxRunning()
-        {
-            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Checking if Roblox is running...");
-
-            if (Utilities.GetProcessCount("RobloxPlayerBeta") == 0)
-                return false;
-
-            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Attempting to shutdown Roblox...");
-
-            Dialog?.PromptShutdown();
-
-            try
-            {
-                foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
-                {
-                    process.CloseMainWindow();
-                    process.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Failed to close process! {ex}");
-            }
-
-            App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] All Roblox processes closed");
-            return true;
         }
 
         private async Task StartRoblox()
@@ -601,8 +573,29 @@ namespace Bloxstrap
 
         private void Uninstall()
         {
-            ShutdownIfRobloxRunning();
+            // prompt to shutdown roblox if its currently running
+            if (Utilities.CheckIfRobloxRunning())
+            {
+                App.Logger.WriteLine($"[Bootstrapper::Uninstall] Prompting to shut down all open Roblox instances");
+                
+                Dialog?.PromptShutdown();
 
+                try
+                {
+                    foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
+                    {
+                        process.CloseMainWindow();
+                        process.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::ShutdownIfRobloxRunning] Failed to close process! {ex}");
+                }
+
+                App.Logger.WriteLine($"[Bootstrapper::Uninstall] All Roblox processes closed");
+            }
+            
             SetStatus($"Uninstalling {App.ProjectName}...");
 
             //App.Settings.ShouldSave = false;

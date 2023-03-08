@@ -31,7 +31,7 @@ namespace Bloxstrap.Helpers
             if (log)
                 App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Checking if '{processName}' is running...");
 
-            Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
+            Process[] processes = Process.GetProcessesByName(processName);
 
             if (log)
                 App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Found {processes.Length} process(es) running for '{processName}'");
@@ -39,10 +39,11 @@ namespace Bloxstrap.Helpers
             return processes.Length;
         }
 
-        public static void OpenWebsite(string website)
-        {
-            Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
-        }
+        public static bool CheckIfProcessRunning(string processName, bool log = true) => GetProcessCount(processName, log) >= 1;
+
+        public static bool CheckIfRobloxRunning(bool log = true) => CheckIfProcessRunning("RobloxPlayerBeta", log);
+
+        public static void OpenWebsite(string website) => Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
 
         public static async Task<T?> GetJson<T>(string url)
         {

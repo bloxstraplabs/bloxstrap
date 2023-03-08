@@ -64,7 +64,7 @@ namespace Bloxstrap.Integrations
             if (!App.Settings.Prop.RFUEnabled)
             {
                 // don't delete rbxfpsunlocker if rbxfpsunlocker and roblox is currently running
-                if (Utilities.GetProcessCount(ApplicationName) > 0 && Utilities.GetProcessCount("RobloxPlayerBeta") > 0)
+                if (Utilities.CheckIfProcessRunning(ApplicationName) && Utilities.CheckIfRobloxRunning())
                     return;
 
                 App.State.Prop.RbxFpsUnlockerVersion = "";
