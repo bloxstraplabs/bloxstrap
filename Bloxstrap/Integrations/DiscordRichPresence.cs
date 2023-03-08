@@ -204,7 +204,8 @@ namespace Bloxstrap.Integrations
                 buttons.Insert(0, new Button
                 {
                     Label = "Join",
-                    Url = $"https://www.roblox.com/games/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}&launchData=%7B%7D"
+                    //Url = $"https://www.roblox.com/games/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}&launchData=%7B%7D"
+					Url = $"roblox://experiences/start?placeId={_activityPlaceId}&gameInstanceId={_activityJobId}"
                 });
             }
 
