@@ -336,6 +336,7 @@ namespace Bloxstrap
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
                 Utilities.OpenWebsite("https://www.roblox.com/games");
+                Dialog?.CloseBootstrapper();
                 return;
             }
 
