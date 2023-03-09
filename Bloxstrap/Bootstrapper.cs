@@ -704,6 +704,21 @@ namespace Bloxstrap
                     // and also to delete our old version folder
                     Directory.Delete(oldVersionFolder, true);
                 }
+
+                // move old compatibility flags for the old location
+                using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
+                {
+                    string oldGameClientLocation = Path.Combine(oldVersionFolder, "RobloxPlayerBeta.exe");
+                    string newGameClientLocation = Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
+                    string? appFlags = (string?)appFlagsKey.GetValue(oldGameClientLocation);
+
+                    if (appFlags is not null)
+                    {
+                        App.Logger.WriteLine($"[Bootstrapper::InstallLatestVersion] Migrating app compatibility flags from {oldGameClientLocation} to {newGameClientLocation}...");
+                        appFlagsKey.SetValue(newGameClientLocation, appFlags);
+                        appFlagsKey.DeleteValue(oldGameClientLocation);
+                    }
+                }
             }
 
             if (Dialog is not null)
@@ -718,6 +733,30 @@ namespace Bloxstrap
         {
             SetStatus("Applying Roblox modifications...");
 
+            using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
+            {
+                const string flag = " DISABLEDXMAXIMIZEDWINDOWEDMODE";
+                string gameClientLocation = Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
+                string? appFlags = (string?)appFlagsKey.GetValue(gameClientLocation);
+
+                if (App.Settings.Prop.DisableFullscreenOptimizations)
+                {
+                    if (appFlags is null)
+                        appFlagsKey.SetValue(gameClientLocation, $"~{flag}");
+                    else if (!appFlags.Contains(flag))
+                        appFlagsKey.SetValue(gameClientLocation, appFlags + flag);
+                }
+                else if (appFlags is not null && appFlags.Contains(flag))
+                {
+                    // if there's more than one space, there's more flags set we need to preserve
+                    if (appFlags.Split(' ').Length > 2)
+                        appFlagsKey.SetValue(gameClientLocation, appFlags.Remove(appFlags.IndexOf(flag), flag.Length));
+                    else
+                        appFlagsKey.DeleteValue(gameClientLocation);
+                }
+            }
+
+            // handle file mods
             string modFolder = Path.Combine(Directories.Modifications);
 
             // manifest has been moved to State.json

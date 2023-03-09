@@ -1,4 +1,6 @@
-﻿using Bloxstrap.ViewModels;
+﻿using System;
+using System.Windows;
+using Bloxstrap.ViewModels;
 
 namespace Bloxstrap.Views.Pages
 {
@@ -11,6 +13,10 @@ namespace Bloxstrap.Views.Pages
         {
             DataContext = new ModsViewModel();
             InitializeComponent();
+
+            // fullscreen optimizations were only added in windows 10 build 17093
+            if (Environment.OSVersion.Version.Build < 17093)
+                this.MiscellaneousOptions.Visibility = Visibility.Collapsed;
         }
     }
 }

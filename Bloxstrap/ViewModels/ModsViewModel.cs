@@ -31,5 +31,11 @@ namespace Bloxstrap.ViewModels
             get => App.Settings.Prop.UseDisableAppPatch;
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
+
+        public bool DisableFullscreenOptimizationsEnabled
+        {
+            get => App.Settings.Prop.DisableFullscreenOptimizations;
+            set => App.Settings.Prop.DisableFullscreenOptimizations = value;
+        }
     }
 }

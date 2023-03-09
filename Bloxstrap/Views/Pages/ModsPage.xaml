@@ -93,5 +93,20 @@
                 <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
             </ui:CardControl>
         </Grid>
+
+        <StackPanel x:Name="MiscellaneousOptions">
+            <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+            <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Disable full-screen optimizations" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                            A Windows feature that can potentially cause problems - <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">see more info.</Hyperlink>.
+                        </TextBlock>
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizationsEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+        </StackPanel>
     </StackPanel>
 </ui:UiPage>
