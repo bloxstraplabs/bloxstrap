@@ -69,27 +69,27 @@ namespace Bloxstrap.Integrations
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
-            if (!_activityInGame && _activityPlaceId == 0)
+            if (entry.Contains(GameJoiningEntry) && !_activityInGame && _activityPlaceId == 0)
             {
-                if (entry.Contains(GameJoiningEntry))
+                Match match = Regex.Match(entry, GameJoiningEntryPattern);
+
+                if (match.Groups.Count != 4)
                 {
-                    Match match = Regex.Match(entry, GameJoiningEntryPattern);
-
-                    if (match.Groups.Count != 4)
-                    {
-                        App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game join entry");
-                        App.Logger.WriteLine(entry);
-                        return;
-                    }
-
-                    _activityInGame = false;
-                    _activityPlaceId = long.Parse(match.Groups[2].Value);
-                    _activityJobId = match.Groups[1].Value;
-                    _activityMachineAddress = match.Groups[3].Value;
-
-                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joining Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game join entry");
+                    App.Logger.WriteLine(entry);
+                    return;
                 }
-                else if (entry.Contains(GameJoiningUDMUXEntry))
+
+                _activityInGame = false;
+                _activityPlaceId = long.Parse(match.Groups[2].Value);
+                _activityJobId = match.Groups[1].Value;
+                _activityMachineAddress = match.Groups[3].Value;
+
+                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joining Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+            }
+            else if (!_activityInGame && _activityPlaceId != 0)
+            {
+                if (entry.Contains(GameJoiningUDMUXEntry))
                 {
                     Match match = Regex.Match(entry, GameJoiningUDMUXPattern);
 
@@ -101,25 +101,25 @@ namespace Bloxstrap.Integrations
                     }
 
                     _activityMachineAddress = match.Groups[1].Value;
-                    
+
                     App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Server is UDMUX protected ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
                 }
-            }
-            else if (entry.Contains(GameJoinedEntry) && !_activityInGame && _activityPlaceId != 0)
-            {
-                Match match = Regex.Match(entry, GameJoinedEntryPattern);
-
-                if (match.Groups.Count != 2 || match.Groups[1].Value != _activityMachineAddress)
+                else if (entry.Contains(GameJoinedEntry))
                 {
-                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game joined entry");
-                    App.Logger.WriteLine(entry);
-                    return;
+                    Match match = Regex.Match(entry, GameJoinedEntryPattern);
+
+                    if (match.Groups.Count != 2 || match.Groups[1].Value != _activityMachineAddress)
+                    {
+                        App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Failed to assert format for game joined entry");
+                        App.Logger.WriteLine(entry);
+                        return;
+                    }
+
+                    App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joined Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
+
+                    _activityInGame = true;
+                    await SetPresence();
                 }
-
-                App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Joined Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
-
-                _activityInGame = true;
-                await SetPresence();
             }
             else if (entry.Contains(GameDisconnectedEntry) && _activityInGame && _activityPlaceId != 0)
             {
