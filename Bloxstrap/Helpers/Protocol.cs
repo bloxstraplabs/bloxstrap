@@ -14,11 +14,12 @@ namespace Bloxstrap.Helpers
         // map uri keys to command line args
         private static readonly IReadOnlyDictionary<string, string> UriKeyArgMap = new Dictionary<string, string>()
         {
-			// excluding roblox-player and browsertrackerid
+            // excluding roblox-player and launchtime
             { "launchmode", "--" },
             { "gameinfo", "-t " },
             { "placelauncherurl", "-j "},
             // { "launchtime", "--launchtime=" }, we'll set this when launching the game client
+            { "browsertrackerid", "-b " },
             { "robloxLocale", "--rloc " },
             { "gameLocale", "--gloc " },
             { "channel", "-channel " }
@@ -47,7 +48,7 @@ namespace Bloxstrap.Helpers
                     val = "app";
 
                 if (key == "placelauncherurl")
-                    val = HttpUtility.UrlDecode(val).Replace("browserTrackerId", "lol");
+                    val = HttpUtility.UrlDecode(val);
 
                 if (key == "channel")
                 {

@@ -195,9 +195,7 @@ namespace Bloxstrap
 
             // 64-bit is always the first option
             GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
-            string downloadLocation = Path.Combine(Directories.Updates, asset.Name);
-
-            Directory.CreateDirectory(Directories.Updates);
+            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
 
             App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
 
@@ -205,7 +203,7 @@ namespace Bloxstrap
             {
                 var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
 
-                await using var fileStream = new FileStream(Path.Combine(Directories.Updates, asset.Name), FileMode.CreateNew);
+                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
                 await response.Content.CopyToAsync(fileStream);
             }
 

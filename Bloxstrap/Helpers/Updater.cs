@@ -14,7 +14,8 @@ namespace Bloxstrap.Helpers
             if (Environment.ProcessPath is null || !File.Exists(Directories.Application) || Environment.ProcessPath == Directories.Application)
                 return;
 
-            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Directories.Updates);
+            // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
+            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Path.Combine(Directories.Base, "Updates")) || Environment.ProcessPath.StartsWith(Path.Combine(Directories.LocalAppData, "Temp"));
 
             // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
