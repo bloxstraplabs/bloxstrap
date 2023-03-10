@@ -69,7 +69,7 @@ namespace Bloxstrap.Integrations
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
-            if (entry.Contains(GameJoiningEntry) && !_activityInGame && _activityPlaceId == 0)
+            if (!_activityInGame && _activityPlaceId == 0 && entry.Contains(GameJoiningEntry))
             {
                 Match match = Regex.Match(entry, GameJoiningEntryPattern);
 
@@ -121,7 +121,7 @@ namespace Bloxstrap.Integrations
                     await SetPresence();
                 }
             }
-            else if (entry.Contains(GameDisconnectedEntry) && _activityInGame && _activityPlaceId != 0)
+            else if (_activityInGame && _activityPlaceId != 0 && entry.Contains(GameDisconnectedEntry))
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::ExamineLogEntry] Disconnected from Game ({_activityPlaceId}/{_activityJobId}/{_activityMachineAddress})");
 

@@ -94,6 +94,34 @@
             </ui:CardControl>
         </Grid>
 
+        <TextBlock Text="FastFlags" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="Note that these changes automatically save to allow for ClientAppSettings.json to be manually edited." FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ui:CardControl Grid.Row="0" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Requires Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="1" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Rendering mode" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which renderer Roblox should use. ReShade requires Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+            </ui:CardControl>
+        </Grid>
+
         <StackPanel x:Name="MiscellaneousOptions">
             <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
             <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
@@ -101,7 +129,7 @@
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Disable full-screen optimizations" />
                         <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-                            A Windows feature that can potentially cause problems - <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">see more info.</Hyperlink>.
+                            A Windows feature that can potentially cause problems - <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">click here for more info</Hyperlink>.
                         </TextBlock>
                     </StackPanel>
                 </ui:CardControl.Header>

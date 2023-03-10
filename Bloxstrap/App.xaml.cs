@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
@@ -46,6 +47,7 @@ namespace Bloxstrap
         public static readonly DeployManager DeployManager = new();
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
+        public static readonly JsonManager<Dictionary<string, object>> FastFlags = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
@@ -154,6 +156,7 @@ namespace Bloxstrap
             }
 
             Directories.Initialize(BaseDirectory);
+            FastFlags.AltFileLocation = Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json");
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install

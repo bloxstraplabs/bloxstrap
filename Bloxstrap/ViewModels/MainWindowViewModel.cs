@@ -59,7 +59,6 @@ namespace Bloxstrap.ViewModels
 
             if (!App.IsFirstRun)
             {
-                //App.Settings.ShouldSave = true;
                 App.ShouldSaveConfigs = true;
 
                 if (App.BaseDirectory != _originalBaseDirectory)

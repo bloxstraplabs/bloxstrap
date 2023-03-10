@@ -153,7 +153,10 @@ namespace Bloxstrap
             _versionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
             if (App.IsFirstRun)
+            {
                 App.ShouldSaveConfigs = true;
+                App.FastFlags.Save();
+            }
 
             await ApplyModifications();
 
@@ -733,6 +736,8 @@ namespace Bloxstrap
         {
             SetStatus("Applying Roblox modifications...");
 
+            // set executable flags for fullscreen optimizations
+            App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Checking executable flags...");
             using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
             {
                 const string flag = " DISABLEDXMAXIMIZEDWINDOWEDMODE";
@@ -757,6 +762,7 @@ namespace Bloxstrap
             }
 
             // handle file mods
+            App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Checking file mods...");
             string modFolder = Path.Combine(Directories.Modifications);
 
             // manifest has been moved to State.json
@@ -831,7 +837,8 @@ namespace Bloxstrap
                     // package doesn't exist, likely mistakenly placed file
                     string versionFileLocation = Path.Combine(_versionFolder, fileLocation);
 
-                    File.Delete(versionFileLocation);
+                    if (File.Exists(versionFileLocation))
+                        File.Delete(versionFileLocation);
 
                     continue;
                 }
