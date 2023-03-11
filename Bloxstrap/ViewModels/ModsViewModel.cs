@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
 using Bloxstrap.Helpers;
@@ -6,9 +7,12 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.ViewModels
 {
-    public class ModsViewModel
-    {
-        public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
+    public class ModsViewModel : INotifyPropertyChanged
+	{
+		public event PropertyChangedEventHandler? PropertyChanged;
+		public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+		public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
         private void OpenModsFolder()
         {
@@ -33,36 +37,21 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
-        // only one missing here is Metal because lol
-        public IReadOnlyDictionary<string, string> RenderingModes { get; set; } = new Dictionary<string, string>()
-        {
-            { "Automatic", "" },
-            { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
-            { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
-            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
-        };
+        public IReadOnlyDictionary<string, string> RenderingModes => FastFlagManager.RenderingModes;
 
-        // if i ever need to do more fflag handling i'll just add an fflag handler that abstracts away all this boilerplate
-        // but for now this is fine
+        // this flag has to be set to false to work, weirdly enough
         public bool ExclusiveFullscreenEnabled
         {
-            get
-            {
-                return App.FastFlags.Prop.ContainsKey("FFlagHandleAltEnterFullscreenManually") && App.FastFlags.Prop["FFlagHandleAltEnterFullscreenManually"].ToString() == "False";
-            }
-
+            get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
             set
             {
-                if (!App.IsFirstRun)
-                    App.FastFlags.Load();
+                App.FastFlags.Changes["FFlagHandleAltEnterFullscreenManually"] = value ? false : null;
 
                 if (value)
-                    App.FastFlags.Prop["FFlagHandleAltEnterFullscreenManually"] = false;
-                else
-                    App.FastFlags.Prop.Remove("FFlagHandleAltEnterFullscreenManually");
-
-                if (!App.IsFirstRun)
-                    App.FastFlags.Save(true);
+                {
+					App.FastFlags.SetRenderingMode("Direct3D 11");
+					OnPropertyChanged(nameof(SelectedRenderingMode));
+				}
             }
         }
 
@@ -72,29 +61,14 @@ namespace Bloxstrap.ViewModels
             {
                 foreach (var mode in RenderingModes)
                 {
-                    if (App.FastFlags.Prop.ContainsKey(mode.Value))
+                    if (App.FastFlags.GetValue(mode.Value) == "True")
                         return mode.Key;
                 }
 
                 return "Automatic";
             }
 
-            set 
-            {
-                if (!App.IsFirstRun)
-                    App.FastFlags.Load();
-
-                foreach (var mode in RenderingModes)
-                {
-                    App.FastFlags.Prop.Remove(mode.Value);
-                }
-
-                if (value != "Automatic")
-                    App.FastFlags.Prop[RenderingModes[value]] = true;
-
-                if (!App.IsFirstRun)
-                    App.FastFlags.Save(true);
-            }
+            set => App.FastFlags.SetRenderingMode(value);
         }
 
         public bool DisableFullscreenOptimizationsEnabled

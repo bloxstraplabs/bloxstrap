@@ -47,7 +47,7 @@ namespace Bloxstrap
         public static readonly DeployManager DeployManager = new();
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
-        public static readonly JsonManager<Dictionary<string, object>> FastFlags = new();
+        public static readonly FastFlagManager FastFlags = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         // shorthand
@@ -194,7 +194,8 @@ namespace Bloxstrap
                     ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
 
                 new MainWindow().ShowDialog();
-            }
+				App.FastFlags.Save();
+			}
             else if (LaunchArgs.Length > 0)
             {
                 if (LaunchArgs[0].StartsWith("roblox-player:"))

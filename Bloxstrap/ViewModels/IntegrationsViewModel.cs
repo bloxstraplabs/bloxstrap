@@ -6,7 +6,6 @@ using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
-using Bloxstrap.Views.Pages;
 using System.Collections.ObjectModel;
 
 namespace Bloxstrap.ViewModels
@@ -84,7 +83,11 @@ namespace Bloxstrap.ViewModels
             {
                 App.Settings.Prop.UseReShade = value;
                 ReShadePresetsEnabled = value;
-                OnPropertyChanged(nameof(ReShadePresetsEnabled));
+
+                if (value)
+					App.FastFlags.SetRenderingMode("Direct3D 11");
+
+				OnPropertyChanged(nameof(ReShadePresetsEnabled));
             }
         }
 

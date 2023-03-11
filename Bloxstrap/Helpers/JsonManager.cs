@@ -16,7 +16,7 @@ namespace Bloxstrap.Helpers
     public class JsonManager<T> where T : new()
     {
         public T Prop { get; set; } = new();
-        public string FileLocation => AltFileLocation ?? Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
+        public virtual string FileLocation => AltFileLocation ?? Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
         public string? AltFileLocation { get; set; }
 
         public void Load()
@@ -35,11 +35,11 @@ namespace Bloxstrap.Helpers
             }
         }
 
-        public void Save(bool saveOverride = false)
+        public virtual void Save()
         {
             App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Attempting to save JSON to {FileLocation}...");
 
-            if (!App.ShouldSaveConfigs && !saveOverride)
+            if (!App.ShouldSaveConfigs)
             {
                 App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Aborted save (ShouldSave set to false)");
                 return;
