@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
-using System.Management;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
@@ -83,19 +83,25 @@ namespace Bloxstrap
 
             Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
 
+            // todo: remove this once 32-bit support is fully gone
             if (!Environment.Is64BitOperatingSystem)
             {
                 string message = "In the near future, Roblox will no longer support 32-bit Windows devices. To keep playing Roblox, please use a device that is 64-bit compatible.";
 
-                // check if the processor actually supports 64-bit so we can tell
-                // the user that they are able to upgrade to 64-bit windows
-                foreach (ManagementObject result in new ManagementObjectSearcher("SELECT * FROM Win32_Processor").Get())
-                {
-					// https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
-                    // architecture type 9 is x64
-					if (result["Architecture"].ToString() == "9")
-                        message += "\n\nYour computer is running a 32-bit version of Windows but is actually 64-bit compatible. Search online for how to upgrade to a 64-bit version of Windows.";
-                }
+                // check if the processor actually supports 64-bit with wmic
+                // chances are the user just has a 32-bit version of windows installed on 64-bit hardware
+                Process p = new();
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.FileName = "wmic.exe";
+                p.StartInfo.Arguments = "cpu get Architecture";
+                p.Start();
+
+                // https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-processor
+                // architecture type 9 is x64
+                if (p.StandardOutput.ReadToEnd().Contains('9'))
+                    message += "\n\nYour computer is running a 32-bit version of Windows but is actually 64-bit compatible. Search online for how to upgrade to a 64-bit version of Windows.";
 
                 ShowMessageBox(message, MessageBoxImage.Warning);
             }
