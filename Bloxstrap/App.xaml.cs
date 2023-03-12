@@ -284,7 +284,7 @@ namespace Bloxstrap
                         var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
                         dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
 #endif
-                    }, TaskScheduler.FromCurrentSynchronizationContext());
+                    });
 
                     dialog?.ShowBootstrapper();
                     bootstrapperTask.Wait();

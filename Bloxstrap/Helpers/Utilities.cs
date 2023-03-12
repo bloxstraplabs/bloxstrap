@@ -49,7 +49,9 @@ namespace Bloxstrap.Helpers
         {
             try
             {
+                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Getting JSON from {url}!");
                 string json = await App.HttpClient.GetStringAsync(url);
+                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Got JSON: {json}");
                 return JsonSerializer.Deserialize<T>(json);
             }
             catch (Exception ex)

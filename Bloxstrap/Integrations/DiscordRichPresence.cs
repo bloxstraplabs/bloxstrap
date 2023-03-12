@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Bloxstrap.Helpers;
 
-using Bloxstrap.Models;
+using Bloxstrap.Helpers;
+using Bloxstrap.Models.RobloxApi;
 
 using DiscordRPC;
 
@@ -205,17 +205,40 @@ namespace Bloxstrap.Integrations
                 return true;
             }
 
-            string placeThumbnail = "roblox";
+            string icon = "roblox";
 
-            var placeInfo = await Utilities.GetJson<RobloxAsset>($"https://economy.roblox.com/v2/assets/{_activityPlaceId}/details");
+            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Fetching data for Place ID {_activityPlaceId}");
 
-            if (placeInfo is null || placeInfo.Creator is null)
+            var universeIdResponse = await Utilities.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityPlaceId}/universe");
+            if (universeIdResponse is null)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe ID!");
                 return false;
+            }
 
-            var thumbnailInfo = await Utilities.GetJson<RobloxThumbnails>($"https://thumbnails.roblox.com/v1/places/gameicons?placeIds={_activityPlaceId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+            long universeId = universeIdResponse.UniverseId;
+            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe ID as {universeId}");
 
-            if (thumbnailInfo is not null)
-                placeThumbnail = thumbnailInfo.Data![0].ImageUrl!;
+            var gameDetailResponse = await Utilities.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
+            if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe info!");
+                return false;
+            }
+
+            GameDetailResponse universeDetails = gameDetailResponse.Data.ToArray()[0];
+            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe details");
+
+            var universeThumbnailResponse = await Utilities.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+            if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe thumbnail info!");
+            }
+            else
+            {
+                icon = universeThumbnailResponse.Data.ToArray()[0].ImageUrl;
+                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe thumbnail as {icon}");
+            }
 
             List<Button> buttons = new()
             {
@@ -237,14 +260,14 @@ namespace Bloxstrap.Integrations
 
             _rpcClient.SetPresence(new RichPresence
             {
-                Details = placeInfo.Name,
-                State = $"by {placeInfo.Creator.Name}",
+                Details = universeDetails.Name,
+                State = $"by {universeDetails.Creator.Name}",
                 Timestamps = new Timestamps { Start = DateTime.UtcNow },
                 Buttons = buttons.ToArray(),
                 Assets = new Assets
                 {
-                    LargeImageKey = placeThumbnail,
-                    LargeImageText = placeInfo.Name,
+                    LargeImageKey = icon,
+                    LargeImageText = universeDetails.Name,
                     SmallImageKey = "roblox",
                     SmallImageText = "Roblox"
                 }
