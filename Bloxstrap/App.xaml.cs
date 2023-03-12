@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
@@ -138,6 +137,8 @@ namespace Bloxstrap
                     if (!IsQuiet)
                     {
                         IsSetupComplete = false;
+                        // we have reshade enabled by default so we need this
+                        FastFlags.SetRenderingMode("Direct3D 11");
                         new MainWindow().ShowDialog();
                     }
                 }
@@ -194,8 +195,8 @@ namespace Bloxstrap
                     ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
 
                 new MainWindow().ShowDialog();
-				App.FastFlags.Save();
-			}
+                App.FastFlags.Save();
+            }
             else if (LaunchArgs.Length > 0)
             {
                 if (LaunchArgs[0].StartsWith("roblox-player:"))
@@ -224,11 +225,13 @@ namespace Bloxstrap
                 DeployManager.SetChannel(Settings.Prop.Channel);
 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
-                Bootstrapper bootstrapper = new Bootstrapper(commandLine);
+                Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
+                Bootstrapper bootstrapper = new(commandLine);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
                 {
+                    Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper dialog");
                     dialog = Settings.Prop.BootstrapperStyle.GetNew();
                     bootstrapper.Dialog = dialog;
                     dialog.Bootstrapper = bootstrapper;
@@ -251,11 +254,17 @@ namespace Bloxstrap
                     }
                     catch
                     {
-                        // this might be a bit problematic since this mutex will be released when the first launched instance is closed...
+                        // create the singleton mutex before the game client does
                         singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
                     }
                 }
 
+                // there's a bug here that i have yet to fix!
+                // sometimes the task just terminates when the bootstrapper hasn't
+                // actually finished, causing the bootstrapper to hang indefinitely
+                // i have no idea how the fuck this happens, but it happens like VERY
+                // rarely so i'm not too concerned by it
+                // maybe one day ill find out why it happens
                 Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
                 {
                     Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
@@ -279,23 +288,13 @@ namespace Bloxstrap
 
                 if (singletonMutex is not null)
                 {
+                    Logger.WriteLine($"[App::OnStartup] We have singleton mutex ownership! Running in background until all Roblox processes are closed");
+
                     // we've got ownership of the roblox singleton mutex!
                     // if we stop running, everything will screw up once any more roblox instances launched
-                    // also this code is blehhhh im sure theres a better way of checking if the process count changed like this
-
-                    int runningProcesses = -1;
-                    while (runningProcesses != 0)
+                    while (Utilities.GetProcessCount("RobloxPlayerBeta", false) != 0)
                     {
-                        int runningProcessesNow = Utilities.GetProcessCount("RobloxPlayerBeta", false);
-
-                        if (runningProcessesNow != runningProcesses)
-                        {
-                            Logger.WriteLine($"[App::OnStartup] We have singleton mutex ownership! Running in background until all Roblox processes are closed ({runningProcessesNow} remaining)...");
-                            runningProcesses = runningProcessesNow;
-                        }
-
-                        // hmm... good idea to do this on main thread?
-                        Task.Delay(5000);
+                        Thread.Sleep(5000);
                     }
                 }
             }

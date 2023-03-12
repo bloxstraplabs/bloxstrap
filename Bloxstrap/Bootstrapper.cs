@@ -182,6 +182,13 @@ namespace Bloxstrap
 
         private async Task CheckForUpdates()
         {
+            // don't update if there's another instance running (likely running in the background)
+            if (Utilities.GetProcessCount(App.ProjectName) > 1)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
+                return;
+            }
+
             string currentVersion = $"{App.ProjectName} v{App.Version}";
 
             App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
