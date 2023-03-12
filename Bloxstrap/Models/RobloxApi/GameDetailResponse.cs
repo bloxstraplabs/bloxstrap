@@ -47,7 +47,7 @@ namespace Bloxstrap.Models.RobloxApi
         [JsonPropertyName("sourceDescription")]
         public string SourceDescription { get; set; } = null!;
 
-		[JsonPropertyName("creator")]
+        [JsonPropertyName("creator")]
         public GameCreator Creator { get; set; } = null!;
 
         /// <summary>
