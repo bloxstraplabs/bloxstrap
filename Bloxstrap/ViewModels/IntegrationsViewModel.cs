@@ -85,9 +85,9 @@ namespace Bloxstrap.ViewModels
                 ReShadePresetsEnabled = value;
 
                 if (value)
-					App.FastFlags.SetRenderingMode("Direct3D 11");
+                    App.FastFlags.SetRenderingMode("Direct3D 11");
 
-				OnPropertyChanged(nameof(ReShadePresetsEnabled));
+                OnPropertyChanged(nameof(ReShadePresetsEnabled));
             }
         }
 

@@ -106,9 +106,9 @@ namespace Bloxstrap.Helpers
                     MessageBoxButton.OK
                 );
 
-				new MainWindow().ShowDialog();
-				App.Terminate();
-			}
+                new MainWindow().ShowDialog();
+                App.Terminate();
+            }
         }
     }
 }

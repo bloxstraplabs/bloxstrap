@@ -14,73 +14,73 @@ namespace Bloxstrap.Helpers
         // to delete a fastflag, set the value to null
         public Dictionary<string, object?> Changes = new();
 
-		// only one missing here is Metal because lol
-		public static IReadOnlyDictionary<string, string> RenderingModes { get; set; } = new Dictionary<string, string>()
-		{
-			{ "Automatic", "" },
-			{ "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
-			{ "OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
-			{ "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
-		};
+        // only one missing here is Metal because lol
+        public static IReadOnlyDictionary<string, string> RenderingModes { get; set; } = new Dictionary<string, string>()
+        {
+            { "Automatic", "" },
+            { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
+            { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
+            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
+        };
 
-		// this returns null if the fflag doesn't exist
-		// this also returns as a string because deserializing an object doesn't
-		// deserialize back into the original object type, it instead deserializes
-		// as a "JsonElement" which is annoying
-		public string? GetValue(string key)
-		{
-			// check if we have an updated change for it pushed first
-			if (Changes.TryGetValue(key, out object? changedValue))
-				return changedValue?.ToString();
+        // this returns null if the fflag doesn't exist
+        // this also returns as a string because deserializing an object doesn't
+        // deserialize back into the original object type, it instead deserializes
+        // as a "JsonElement" which is annoying
+        public string? GetValue(string key)
+        {
+            // check if we have an updated change for it pushed first
+            if (Changes.TryGetValue(key, out object? changedValue))
+                return changedValue?.ToString();
 
-			if (Prop.TryGetValue(key, out object? value) && value is not null)
-				return value.ToString();
+            if (Prop.TryGetValue(key, out object? value) && value is not null)
+                return value.ToString();
 
-			return null;
-		}
+            return null;
+        }
 
-		public void SetRenderingMode(string value)
-		{
-			foreach (var mode in RenderingModes)
-			{
-				if (value != "Automatic")
-					App.FastFlags.Changes[mode.Value] = null;
-			}
+        public void SetRenderingMode(string value)
+        {
+            foreach (var mode in RenderingModes)
+            {
+                if (value != "Automatic")
+                    App.FastFlags.Changes[mode.Value] = null;
+            }
 
-			if (value != "Automatic")
-				App.FastFlags.Changes[RenderingModes[value]] = true;
-		}
+            if (value != "Automatic")
+                App.FastFlags.Changes[RenderingModes[value]] = true;
+        }
 
-		public override void Save()
-		{
-			App.Logger.WriteLine($"[FastFlagManager::Save] Attempting to save JSON to {FileLocation}...");
+        public override void Save()
+        {
+            App.Logger.WriteLine($"[FastFlagManager::Save] Attempting to save JSON to {FileLocation}...");
 
-			if (Changes.Count == 0)
-			{
-				App.Logger.WriteLine($"[FastFlagManager::Save] No changes to apply, aborting.");
-				return;
-			}
+            if (Changes.Count == 0)
+            {
+                App.Logger.WriteLine($"[FastFlagManager::Save] No changes to apply, aborting.");
+                return;
+            }
 
-			// reload for any changes made while the menu was open
-			Load();
+            // reload for any changes made while the menu was open
+            Load();
 
-			foreach (var change in Changes)
-			{
-				if (change.Value is null)
-				{
-					App.Logger.WriteLine($"[FastFlagManager::Save] Removing '{change.Key}'");
-					Prop.Remove(change.Key);
-					continue;
-				}
+            foreach (var change in Changes)
+            {
+                if (change.Value is null)
+                {
+                    App.Logger.WriteLine($"[FastFlagManager::Save] Removing '{change.Key}'");
+                    Prop.Remove(change.Key);
+                    continue;
+                }
 
-				App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to {change.Value}");
-				Prop[change.Key] = change.Value;
-			}
+                App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to {change.Value}");
+                Prop[change.Key] = change.Value;
+            }
 
-			Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
-			File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
+            Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
+            File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
 
-			App.Logger.WriteLine($"[FastFlagManager::Save] JSON saved!");
-		}
-	}
+            App.Logger.WriteLine($"[FastFlagManager::Save] JSON saved!");
+        }
+    }
 }

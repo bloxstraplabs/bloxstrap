@@ -8,11 +8,11 @@ using CommunityToolkit.Mvvm.Input;
 namespace Bloxstrap.ViewModels
 {
     public class ModsViewModel : INotifyPropertyChanged
-	{
-		public event PropertyChangedEventHandler? PropertyChanged;
-		public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    {
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-		public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
+        public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
         private void OpenModsFolder()
         {
@@ -49,9 +49,9 @@ namespace Bloxstrap.ViewModels
 
                 if (value)
                 {
-					App.FastFlags.SetRenderingMode("Direct3D 11");
-					OnPropertyChanged(nameof(SelectedRenderingMode));
-				}
+                    App.FastFlags.SetRenderingMode("Direct3D 11");
+                    OnPropertyChanged(nameof(SelectedRenderingMode));
+                }
             }
         }
 

@@ -167,139 +167,153 @@ namespace Bloxstrap
                 Settings.Load();
                 State.Load();
             }
-
 #if !DEBUG
-            if (!IsUninstall && !IsFirstRun)
-                Updater.CheckInstalledVersion();
+			try
+			{
+                if (!IsUninstall && !IsFirstRun)
+                    Updater.CheckInstalledVersion();
 #endif
 
-            string commandLine = "";
+                string commandLine = "";
 
-            if (IsMenuLaunch)
-            {
-                Mutex mutex;
-
-                try
+                if (IsMenuLaunch)
                 {
-                    mutex = Mutex.OpenExisting("Bloxstrap_MenuMutex");
-                    Logger.WriteLine("[App::OnStartup] Bloxstrap_MenuMutex mutex exists, aborting menu launch...");
-                    Terminate();
+                    Mutex mutex;
+
+                    try
+                    {
+                        mutex = Mutex.OpenExisting("Bloxstrap_MenuMutex");
+                        Logger.WriteLine("[App::OnStartup] Bloxstrap_MenuMutex mutex exists, aborting menu launch...");
+                        Terminate();
+                    }
+                    catch
+                    {
+                        // no mutex exists, continue to opening preferences menu
+                        mutex = new(true, "Bloxstrap_MenuMutex");
+                    }
+
+                    if (Utilities.GetProcessCount(ProjectName) > 1)
+                        ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
+
+                    new MainWindow().ShowDialog();
+                    FastFlags.Save();
                 }
-                catch
+                else if (LaunchArgs.Length > 0)
                 {
-                    // no mutex exists, continue to opening preferences menu
-                    mutex = new(true, "Bloxstrap_MenuMutex");
-                }
-
-                if (Utilities.GetProcessCount(ProjectName) > 1)
-                    ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
-
-                new MainWindow().ShowDialog();
-                App.FastFlags.Save();
-            }
-            else if (LaunchArgs.Length > 0)
-            {
-                if (LaunchArgs[0].StartsWith("roblox-player:"))
-                {
-                    commandLine = Protocol.ParseUri(LaunchArgs[0]);
-                }
-                else if (LaunchArgs[0].StartsWith("roblox:"))
-                {
-                    commandLine = $"--app --deeplink {LaunchArgs[0]}";
+                    if (LaunchArgs[0].StartsWith("roblox-player:"))
+                    {
+                        commandLine = Protocol.ParseUri(LaunchArgs[0]);
+                    }
+                    else if (LaunchArgs[0].StartsWith("roblox:"))
+                    {
+                        commandLine = $"--app --deeplink {LaunchArgs[0]}";
+                    }
+                    else
+                    {
+                        commandLine = "--app";
+                    }
                 }
                 else
                 {
                     commandLine = "--app";
                 }
-            }
-            else
-            {
-                commandLine = "--app";
-            }
 
-            if (!String.IsNullOrEmpty(commandLine))
-            {
-                if (!IsFirstRun)
-                    ShouldSaveConfigs = true;
-
-                DeployManager.SetChannel(Settings.Prop.Channel);
-
-                // start bootstrapper and show the bootstrapper modal if we're not running silently
-                Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine);
-                IBootstrapperDialog? dialog = null;
-
-                if (!IsQuiet)
+                if (!String.IsNullOrEmpty(commandLine))
                 {
-                    Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper dialog");
-                    dialog = Settings.Prop.BootstrapperStyle.GetNew();
-                    bootstrapper.Dialog = dialog;
-                    dialog.Bootstrapper = bootstrapper;
-                }
+                    if (!IsFirstRun)
+                        ShouldSaveConfigs = true;
 
-                // handle roblox singleton mutex for multi-instance launching
-                // note we're handling it here in the main thread and NOT in the
-                // bootstrapper as handling mutexes in async contexts suuuuuucks
+                    DeployManager.SetChannel(Settings.Prop.Channel);
 
-                Mutex? singletonMutex = null;
+                    // start bootstrapper and show the bootstrapper modal if we're not running silently
+                    Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
+                    Bootstrapper bootstrapper = new(commandLine);
+                    IBootstrapperDialog? dialog = null;
 
-                if (Settings.Prop.MultiInstanceLaunching)
-                {
-                    Logger.WriteLine("[App::OnStartup] Creating singleton mutex");
-
-                    try
+                    if (!IsQuiet)
                     {
-                        Mutex.OpenExisting("ROBLOX_singletonMutex");
-                        Logger.WriteLine("[App::OnStartup] Warning - singleton mutex already exists!");
+                        Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper dialog");
+                        dialog = Settings.Prop.BootstrapperStyle.GetNew();
+                        bootstrapper.Dialog = dialog;
+                        dialog.Bootstrapper = bootstrapper;
                     }
-                    catch
+
+                    // handle roblox singleton mutex for multi-instance launching
+                    // note we're handling it here in the main thread and NOT in the
+                    // bootstrapper as handling mutexes in async contexts suuuuuucks
+
+                    Mutex? singletonMutex = null;
+
+                    if (Settings.Prop.MultiInstanceLaunching)
                     {
-                        // create the singleton mutex before the game client does
-                        singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
+                        Logger.WriteLine("[App::OnStartup] Creating singleton mutex");
+
+                        try
+                        {
+                            Mutex.OpenExisting("ROBLOX_singletonMutex");
+                            Logger.WriteLine("[App::OnStartup] Warning - singleton mutex already exists!");
+                        }
+                        catch
+                        {
+                            // create the singleton mutex before the game client does
+                            singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
+                        }
                     }
-                }
 
-                // there's a bug here that i have yet to fix!
-                // sometimes the task just terminates when the bootstrapper hasn't
-                // actually finished, causing the bootstrapper to hang indefinitely
-                // i have no idea how the fuck this happens, but it happens like VERY
-                // rarely so i'm not too concerned by it
-                // maybe one day ill find out why it happens
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
-                {
-                    Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
+                    // there's a bug here that i have yet to fix!
+                    // sometimes the task just terminates when the bootstrapper hasn't
+                    // actually finished, causing the bootstrapper to hang indefinitely
+                    // i have no idea how the fuck this happens, but it happens like VERY
+                    // rarely so i'm not too concerned by it
+                    // maybe one day ill find out why it happens
+                    Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                    {
+                        Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
 
-                    if (t.Exception is null)
-                        return;
+                        if (t.IsFaulted)
+                            Logger.WriteLine("[App::OnStartup] An exception occurred when running the bootstrapper");
 
-                    Logger.WriteLine("[App::OnStartup] An exception occurred when running the bootstrapper");
-                    Logger.WriteLine($"[App::OnStartup] {t.Exception}");
+						if (t.Exception is null)
+                            return;
+
+                        Logger.WriteLine($"[App::OnStartup] {t.Exception}");
 
 #if DEBUG
-                    throw t.Exception;
+                        throw t.Exception;
 #else
-                    var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
-                    dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
+                        var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
+                        dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
 #endif
-                });
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
 
-                dialog?.ShowBootstrapper();
-                bootstrapperTask.Wait();
+                    dialog?.ShowBootstrapper();
+                    bootstrapperTask.Wait();
 
-                if (singletonMutex is not null)
-                {
-                    Logger.WriteLine($"[App::OnStartup] We have singleton mutex ownership! Running in background until all Roblox processes are closed");
-
-                    // we've got ownership of the roblox singleton mutex!
-                    // if we stop running, everything will screw up once any more roblox instances launched
-                    while (Utilities.GetProcessCount("RobloxPlayerBeta", false) != 0)
+                    if (singletonMutex is not null)
                     {
-                        Thread.Sleep(5000);
+                        Logger.WriteLine($"[App::OnStartup] We have singleton mutex ownership! Running in background until all Roblox processes are closed");
+
+                        // we've got ownership of the roblox singleton mutex!
+                        // if we stop running, everything will screw up once any more roblox instances launched
+                        while (Utilities.GetProcessCount("RobloxPlayerBeta", false) != 0)
+                        {
+                            Thread.Sleep(5000);
+                        }
                     }
                 }
+#if !DEBUG
             }
+            catch (Exception ex)
+            {
+				Logger.WriteLine("[App::OnStartup] An exception occurred when running the main thread");
+				Logger.WriteLine($"[App::OnStartup] {ex}");
 
-            Terminate();
+                if (!IsQuiet)
+					Settings.Prop.BootstrapperStyle.GetNew().ShowError($"{ex.GetType()}: {ex.Message}");
+			}
+#endif
+
+			Terminate();
         }
     }
 }
