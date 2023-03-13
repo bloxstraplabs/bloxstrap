@@ -80,6 +80,8 @@ namespace Bloxstrap.Helpers
             Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
             File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
 
+            Changes.Clear();
+
             App.Logger.WriteLine($"[FastFlagManager::Save] JSON saved!");
         }
     }

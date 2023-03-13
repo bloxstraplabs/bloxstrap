@@ -109,7 +109,7 @@ namespace Bloxstrap.Integrations
             _rpcClient.SetPresence(new RichPresence
             {
                 Details = universeDetails.Name,
-                State = $"by {universeDetails.Creator.Name}",
+                State = $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
                 Timestamps = new Timestamps { Start = DateTime.UtcNow },
                 Buttons = buttons.ToArray(),
                 Assets = new Assets

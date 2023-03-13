@@ -84,7 +84,7 @@ namespace Bloxstrap
             Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
 
             // todo: remove this once 32-bit support is fully gone
-            if (!Environment.Is64BitOperatingSystem)
+            if (!App.IsQuiet && !Environment.Is64BitOperatingSystem)
             {
                 string message = "In the near future, Roblox will no longer support 32-bit Windows devices. To keep playing Roblox, please use a device that is 64-bit compatible.";
 
@@ -158,11 +158,12 @@ namespace Bloxstrap
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                     InitLog();
 
+                    // we have reshade enabled by default so we need this
+                    FastFlags.SetRenderingMode("Direct3D 11");
+
                     if (!IsQuiet)
                     {
                         IsSetupComplete = false;
-                        // we have reshade enabled by default so we need this
-                        FastFlags.SetRenderingMode("Direct3D 11");
                         new MainWindow().ShowDialog();
                     }
                 }

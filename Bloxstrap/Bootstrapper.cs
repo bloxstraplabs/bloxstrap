@@ -158,6 +158,11 @@ namespace Bloxstrap
                 App.FastFlags.Save();
             }
 
+            if (App.Settings.Prop.UseReShade)
+                SetStatus("Configuring/Downloading ReShade...");
+
+            await ReShade.CheckModifications();
+
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)
@@ -369,7 +374,10 @@ namespace Bloxstrap
             }
 
             if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
+            {
                 activityWatcher = new();
+                shouldWait = true;
+            }
 
             if (App.Settings.Prop.UseDiscordRichPresence)
             {
@@ -381,7 +389,6 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
                 serverNotifier = new(activityWatcher!);
-                shouldWait = true;
             }
 
             // launch custom integrations now
@@ -795,8 +802,6 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
             await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
             await CheckModPreset(App.Settings.Prop.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
-
-            await ReShade.CheckModifications();
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
             {

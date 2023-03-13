@@ -32,6 +32,7 @@ namespace Bloxstrap.Helpers
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
         public string ActivityMachineAddress = "";
+        public bool ActivityMachineUDMUX = false;
 
         public bool IsDisposed = false;
 
@@ -141,6 +142,7 @@ namespace Bloxstrap.Helpers
                     }
 
                     ActivityMachineAddress = match.Groups[1].Value;
+                    ActivityMachineUDMUX = true;
 
                     App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Server is UDMUX protected ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                 }
@@ -169,6 +171,7 @@ namespace Bloxstrap.Helpers
                 ActivityPlaceId = 0;
                 ActivityJobId = "";
                 ActivityMachineAddress = "";
+                ActivityMachineUDMUX = false;
 
                 OnGameLeave?.Invoke(this, new EventArgs());
             }

@@ -78,6 +78,14 @@ namespace Bloxstrap.Helpers
                 
             Bootstrapper.Register();
 
+            // update check: if we're upgrading to v2.1.0 and have reshade enabled,
+            // we need to set our renderer to direct3d 11
+            if (App.Settings.Prop.UseReShade && App.FastFlags.GetValue(FastFlagManager.RenderingModes["Direct3D 11"]) is null)
+            {
+                App.FastFlags.SetRenderingMode("Direct3D 11");
+                App.FastFlags.Save();
+            }
+
             if (isAutoUpgrade)
             {
                 NotifyIcon notification = new()

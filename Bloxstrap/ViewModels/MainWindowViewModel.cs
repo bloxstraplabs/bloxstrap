@@ -86,8 +86,8 @@ namespace Bloxstrap.ViewModels
                 };
 
                 dialogControl.ShowAndWaitAsync(
-                    "Before you install", 
-                    "After installation, you can open the menu again by searching for it in the Start menu.\n" + 
+                    "What to know before you install", 
+                    "After installation, you can open this menu again by searching for it in the Start menu.\n" +
                     "If you want to revert back to the original Roblox launcher, just uninstall Bloxstrap and it will automatically revert."
                 );
             }

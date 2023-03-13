@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,21 +36,30 @@ namespace Bloxstrap.Integrations
             locationRegion = locationRegion.ReplaceLineEndings("");
             locationCountry = locationCountry.ReplaceLineEndings("");
 
-            if (locationCity == locationRegion)
+            if (String.IsNullOrEmpty(locationCountry))
+                message = "Location: N/A";
+            else if (locationCity == locationRegion)
                 message = $"Location: {locationRegion}, {locationCountry}\n";
             else
                 message = $"Location: {locationCity}, {locationRegion}, {locationCountry}\n";
 
-            PingReply ping = await new Ping().SendPingAsync(machineAddress);
-
-            // UDMUX protected servers reject ICMP packets and so the ping fails
-            // we could get around this by doing a UDP ping but ehhhhhhhhhhhhh
-            if (ping.Status == IPStatus.Success)
-                message += $"Latency: ~{ping.RoundtripTime}ms";
+            // UDMUX protected servers don't respond to ICMP packets and so the ping fails
+            // we could probably get around this by doing a UDP latency test but ehhhhhhhh
+            if (_activityWatcher.ActivityMachineUDMUX)
+            {
+                message += "Latency: N/A (Server is UDMUX protected)";
+            }
             else
-                message += "Latency: N/A (server may be UDMUX protected)";
+            {
+                PingReply ping = await new Ping().SendPingAsync(machineAddress);
 
-            App.Logger.WriteLine($"[ServerNotifier::Notify] {message}");
+                if (ping.Status == IPStatus.Success)
+                    message += $"Latency: ~{ping.RoundtripTime}ms";
+                else
+                    message += $"Latency: N/A (Code {ping.Status})";
+            }
+
+            App.Logger.WriteLine($"[ServerNotifier::Notify] {message.ReplaceLineEndings("\\n")}");
 
             NotifyIcon notification = new()
             {
