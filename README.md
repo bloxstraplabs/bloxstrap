@@ -42,10 +42,10 @@ Once installed, Bloxstrap is added to your Start Menu, where you can access the 
 
 ## Screenshots
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="830" />
-    <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="330" />
-    <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="589" />
-    <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="571" />
+    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="620" />
+    <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="205" />
+    <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="419" />
+    <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="406" />
 <p>
 
 ## Special thanks
