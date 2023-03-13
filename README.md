@@ -24,6 +24,7 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 * Ability to disable the Desktop app
 * A customizable launcher - includes dark theme!
 * Support for opting in to pre-release testing channels
+* Seeing what region your current server is located in
 
 ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
@@ -40,9 +41,12 @@ It's not unlikely that Windows Smartscreen will show a popup when you run Bloxst
 Once installed, Bloxstrap is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
 
 ## Screenshots
-![image](https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png)
-![image](https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png)
-![image](https://user-images.githubusercontent.com/41478239/219783832-46fb9755-108a-44bf-a9ab-827880579741.png)
+<p float="left">
+    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="830" />
+    <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="330" />
+    <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="589" />
+    <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="571" />
+<p>
 
 ## Special thanks
 * [Multako](https://www.roblox.com/users/2485612194/profile) - Designing the Bloxstrap logo.
