@@ -333,7 +333,9 @@ namespace Bloxstrap
 
             Process gameClient = Process.Start(Path.Combine(_versionFolder, "RobloxPlayerBeta.exe"), _launchCommandLine);
             List<Process> autocloseProcesses = new();
+            GameActivityWatcher? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
+            ServerNotifier? serverNotifier = null;
 
             App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
 
@@ -366,10 +368,19 @@ namespace Bloxstrap
                 }
             }
 
+            if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
+                activityWatcher = new();
+
             if (App.Settings.Prop.UseDiscordRichPresence)
             {
                 App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
-                richPresence = new DiscordRichPresence();
+                richPresence = new(activityWatcher!);
+            }
+
+            if (App.Settings.Prop.ShowServerDetails)
+            {
+                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
+                serverNotifier = new(activityWatcher!);
                 shouldWait = true;
             }
 
@@ -402,7 +413,7 @@ namespace Bloxstrap
             if (!shouldWait)
                 return;
 
-            richPresence?.MonitorGameActivity();
+            activityWatcher?.StartWatcher();
 
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Waiting for Roblox to close");
             await gameClient.WaitForExitAsync();

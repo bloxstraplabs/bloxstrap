@@ -29,7 +29,7 @@ namespace Bloxstrap.Models
         public bool RFUAutoclose { get; set; } = false;
         public bool UseReShade { get; set; } = true;
         public bool UseReShadeExtraviPresets { get; set; } = true;
-        // ideally should be List<CustomIntegration> but wpf moment so blehhhhh :P
+        public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration

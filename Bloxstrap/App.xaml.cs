@@ -337,6 +337,8 @@ namespace Bloxstrap
             }
 #endif
 
+            Logger.WriteLine($"[App::OnStartup] Successfully reached end of main thread. Terminating...");
+
             Terminate();
         }
     }

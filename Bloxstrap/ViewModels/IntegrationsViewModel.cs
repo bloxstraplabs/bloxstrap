@@ -114,7 +114,13 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.RFUAutoclose = value;
         }
 
-        public ObservableCollection<CustomIntegration> CustomIntegrations
+        public bool ShowServerDetailsEnabled
+        {
+            get => App.Settings.Prop.ShowServerDetails;
+			set => App.Settings.Prop.ShowServerDetails = value;
+        }
+
+		public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations; 
             set => App.Settings.Prop.CustomIntegrations = value;

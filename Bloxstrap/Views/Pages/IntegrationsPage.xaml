@@ -114,7 +114,18 @@
                 <ui:ToggleSwitch IsChecked="{Binding RbxFpsUnlockerAutocloseEnabled, Mode=TwoWay}" />
             </ui:CardControl>
         </StackPanel>
-
+        
+        <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12" IsEnabled="{Binding IsChecked, ElementName=RbxFpsUnlockerEnabledToggle, Mode=OneWay}">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Show server details of current game" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Be notified of useful server details (e.g. location and ping) whenever you join a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        
         <TextBlock Text="Custom Integrations" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Margin="0,4,0,0" Text="Here, you can have other programs launch with Roblox automatically like how rbxfpsunlocker does." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             <Grid Margin="0,8,0,0">
