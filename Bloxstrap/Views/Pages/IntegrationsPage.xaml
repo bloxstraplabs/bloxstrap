@@ -120,7 +120,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Show server details of current game" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Be notified of useful server details (e.g. location and ping) whenever you join a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Be notified of useful server details whenever you join a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />

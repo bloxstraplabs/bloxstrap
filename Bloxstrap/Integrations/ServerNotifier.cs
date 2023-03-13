@@ -39,25 +39,12 @@ namespace Bloxstrap.Integrations
             if (String.IsNullOrEmpty(locationCountry))
                 message = "Location: N/A";
             else if (locationCity == locationRegion)
-                message = $"Location: {locationRegion}, {locationCountry}\n";
+                message = $"Location: {locationRegion}, {locationCountry}";
             else
-                message = $"Location: {locationCity}, {locationRegion}, {locationCountry}\n";
+                message = $"Location: {locationCity}, {locationRegion}, {locationCountry}";
 
-            // UDMUX protected servers don't respond to ICMP packets and so the ping fails
-            // we could probably get around this by doing a UDP latency test but ehhhhhhhh
             if (_activityWatcher.ActivityMachineUDMUX)
-            {
-                message += "Latency: N/A (Server is UDMUX protected)";
-            }
-            else
-            {
-                PingReply ping = await new Ping().SendPingAsync(machineAddress);
-
-                if (ping.Status == IPStatus.Success)
-                    message += $"Latency: ~{ping.RoundtripTime}ms";
-                else
-                    message += $"Latency: N/A (Code {ping.Status})";
-            }
+                message += "\nServer is UDMUX protected";
 
             App.Logger.WriteLine($"[ServerNotifier::Notify] {message.ReplaceLineEndings("\\n")}");
 
