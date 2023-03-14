@@ -14,19 +14,7 @@ If you encounter a bug, or would like to suggest a feature, please [submit an is
  
 Bloxstrap is only supported for PCs running Windows.
  
-## Features
-Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
-
-* Support for [ReShade](https://reshade.me) with [Extravi's ReShade Presets](https://bloxshade.com/)
-* Painless support for Discord Rich Presence - no auth cookie needed!
-* Silent automatic FPS unlocking with [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
-* Persistent file modifications - re-adds the old death sound!
-* Ability to disable the Desktop app
-* A customizable launcher - includes dark theme!
-* Support for opting in to pre-release testing channels
-* Seeing what region your current server is located in
-
-## Installing
+ ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
 Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap):
@@ -39,6 +27,25 @@ You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
 
 Once installed, Bloxstrap is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
+
+If you want to build Bloxstrap's source code, see the [guide for building from source](https://github.com/pizzaboxer/bloxstrap/wiki/Building-Bloxstrap-from-source).
+ 
+## Features
+Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
+
+* Persistent file modifications - re-adds the old death sound!
+* Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
+* Painless support for Discord Rich Presence - no auth cookie needed!
+* Automatic silent FPS unlocking with [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
+* Ability to disable the Roblox desktop app
+* A customizable launcher look - includes dark theme!
+* Ability to opt into non-production Roblox release channels
+* Ability to see what region your current server is located in
+* Support for having multiple Roblox game instances open simultaneously
+
+All the available features are browsable through the Bloxstrap menu. There's not too many, but it's recommended to look through all of them.
+
+Bloxstrap also has inherent benefits over some other Roblox mods, as ReShade does not break whenever Roblox updates and thus require a reinstall, and is completely free, forever. It also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
 
 ## Screenshots
 <p float="left">
