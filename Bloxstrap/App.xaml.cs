@@ -158,9 +158,6 @@ namespace Bloxstrap
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                     InitLog();
 
-                    // we have reshade enabled by default so we need this
-                    FastFlags.SetRenderingMode("Direct3D 11");
-
                     if (!IsQuiet)
                     {
                         IsSetupComplete = false;
