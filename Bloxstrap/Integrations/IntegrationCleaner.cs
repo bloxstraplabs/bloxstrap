@@ -64,6 +64,8 @@ namespace Bloxstrap.Integrations
 
         private static void RemoveRbxFpsUnlocker()
         {
+            App.Logger.WriteLine("[IntegrationCleaner::RemoveRbxFpsUnlocker] Removing RbxFpsUnlocker...");
+
             KillRunningRbxFpsUnlocker();
 
             string rfuBaseFolder = Path.Combine(Directories.Integrations, "rbxfpsunlocker");
