@@ -26,7 +26,10 @@ namespace Bloxstrap.Integrations
                 // reshade also forced dx11
                 // so lets change that back!!!
                 if (App.FastFlags.GetValue(FastFlagManager.RenderingModes["Direct3D 11"]) != null)
+                {
                     App.FastFlags.SetRenderingMode("Automatic");
+                    App.FastFlags.Save();
+                }
             }
         }
 
