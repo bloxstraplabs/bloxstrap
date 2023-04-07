@@ -158,10 +158,8 @@ namespace Bloxstrap
                 App.FastFlags.Save();
             }
 
-            if (App.Settings.Prop.UseReShade)
-                SetStatus("Configuring/Downloading ReShade...");
-
-            await ReShade.CheckModifications();
+            // should we set a status for this?
+            IntegrationCleaner.RemoveDeprecated();
 
             await ApplyModifications();
 
@@ -169,8 +167,6 @@ namespace Bloxstrap
                 Register();
 
             CheckInstall();
-
-            await RbxFpsUnlocker.CheckInstall();
 
             // at this point we've finished updating our configs
             App.Settings.Save();
@@ -352,25 +348,6 @@ namespace Bloxstrap
 
                 if (!startEventFired)
                     return;
-            }
-            
-            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName(RbxFpsUnlocker.ApplicationName).Length == 0)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using rbxfpsunlocker");
-
-                ProcessStartInfo startInfo = new() 
-                { 
-                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker"),
-                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe")
-                }; 
-                
-                Process process = Process.Start(startInfo)!;
-
-                if (App.Settings.Prop.RFUAutoclose)
-                {
-                    shouldWait = true;
-                    autocloseProcesses.Add(process);
-                }
             }
 
             if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
@@ -713,8 +690,6 @@ namespace Bloxstrap
 
             if (!FreshInstall)
             {
-                ReShade.SynchronizeConfigFile();
-
                 // let's take this opportunity to delete any packages we don't need anymore
                 foreach (string filename in Directory.GetFiles(Directories.Downloads))
                 {
