@@ -43,7 +43,7 @@ namespace Bloxstrap.Helpers
         {
             foreach (var mode in RenderingModes)
             {
-                if (value != "Automatic")
+                if (mode.Key != "Automatic")
                     App.FastFlags.Changes[mode.Value] = null;
             }
 
