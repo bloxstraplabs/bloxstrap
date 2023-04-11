@@ -15,10 +15,6 @@ namespace Bloxstrap.Views.Pages
         {
             DataContext = new IntegrationsViewModel();
             InitializeComponent();
-
-            // rbxfpsunlocker does not have 64 bit support
-            if (!Environment.Is64BitOperatingSystem)
-                this.RbxFpsUnlockerOptions.Visibility = Visibility.Collapsed;
         }
 
         public void CustomIntegrationSelection(object sender, SelectionChangedEventArgs e)

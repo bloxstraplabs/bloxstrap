@@ -170,7 +170,7 @@ namespace Bloxstrap
 
             CheckInstall();
 
-            await RbxFpsUnlocker.CheckInstall();
+            IntegrationMigrator.Execute();
 
             // at this point we've finished updating our configs
             App.Settings.Save();
@@ -352,25 +352,6 @@ namespace Bloxstrap
 
                 if (!startEventFired)
                     return;
-            }
-            
-            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName(RbxFpsUnlocker.ApplicationName).Length == 0)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using rbxfpsunlocker");
-
-                ProcessStartInfo startInfo = new() 
-                { 
-                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker"),
-                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe")
-                }; 
-                
-                Process process = Process.Start(startInfo)!;
-
-                if (App.Settings.Prop.RFUAutoclose)
-                {
-                    shouldWait = true;
-                    autocloseProcesses.Add(process);
-                }
             }
 
             if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)

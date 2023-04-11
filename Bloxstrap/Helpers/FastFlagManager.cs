@@ -71,7 +71,12 @@ namespace Bloxstrap.Helpers
 
             // set to 99999 by default if it doesnt immediately exist
             if (GetValue("DFIntTaskSchedulerTargetFps") is null)
-                SetValue("DFIntTaskSchedulerTargetFps", 99999);
+            {
+                SetValue("DFIntTaskSchedulerTargetFps", 9999);
+
+                if (!App.IsFirstRun)
+                    Save();
+            }
         }
 
         public override void Save()
