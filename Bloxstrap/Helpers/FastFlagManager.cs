@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -62,6 +63,15 @@ namespace Bloxstrap.Helpers
 
             if (value != "Automatic")
                 SetValue(RenderingModes[value], "True");
+        }
+
+        public override void Load()
+        {
+            base.Load();
+
+            // set to 99999 by default if it doesnt immediately exist
+            if (GetValue("DFIntTaskSchedulerTargetFps") is null)
+                SetValue("DFIntTaskSchedulerTargetFps", 99999);
         }
 
         public override void Save()

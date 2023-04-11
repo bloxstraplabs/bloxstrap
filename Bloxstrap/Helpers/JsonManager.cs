@@ -1,15 +1,6 @@
-﻿using Bloxstrap.Models;
-using Bloxstrap.Properties;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using System.Threading;
 
 namespace Bloxstrap.Helpers
 {
@@ -19,14 +10,19 @@ namespace Bloxstrap.Helpers
         public virtual string FileLocation => AltFileLocation ?? Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
         public string? AltFileLocation { get; set; }
 
-        public void Load()
+        public virtual void Load()
         {
             App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Loading JSON from {FileLocation}...");
 
             try
             {
                 T? settings = JsonSerializer.Deserialize<T>(File.ReadAllText(FileLocation));
-                Prop = settings ?? throw new ArgumentNullException("Deserialization returned null");
+                
+                if (settings is null)
+                    throw new ArgumentNullException("Deserialization returned null");
+
+                Prop = settings;
+
                 App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] JSON loaded successfully!");
             }
             catch (Exception ex)

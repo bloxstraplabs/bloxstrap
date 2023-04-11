@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -39,6 +40,12 @@ namespace Bloxstrap.ViewModels
 
         public IReadOnlyDictionary<string, string> RenderingModes => FastFlagManager.RenderingModes;
 
+        public int FramerateLimit
+        {
+            get => Int32.TryParse(App.FastFlags.GetValue("DFIntTaskSchedulerTargetFps"), out int x) ? x : 60;
+            set => App.FastFlags.Changes["DFIntTaskSchedulerTargetFps"] = value;
+        }
+
         public string SelectedRenderingMode
         { 
             get 
@@ -61,7 +68,7 @@ namespace Bloxstrap.ViewModels
             get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
             set
             {
-                App.FastFlags.Changes["FFlagHandleAltEnterFullscreenManually"] = value ? false : null;
+                App.FastFlags.SetValue("FFlagHandleAltEnterFullscreenManually", value ? false : null);
 
                 if (value)
                 {
