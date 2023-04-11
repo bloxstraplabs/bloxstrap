@@ -23,10 +23,23 @@ namespace Bloxstrap.Helpers
             { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
         };
 
+        // all fflags are stored as strings
+        // to delete a flag, set the value as null
+        public void SetValue(string key, object? value)
+        {
+            if (value == null)
+            {
+                Changes[key] = null;
+                App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");
+            }
+            else
+            {
+                Changes[key] = value.ToString();
+                App.Logger.WriteLine($"[FastFlagManager::SetValue] Value change for '{key}' to '{value}' is pending");
+            }
+        }
+
         // this returns null if the fflag doesn't exist
-        // this also returns as a string because deserializing an object doesn't
-        // deserialize back into the original object type, it instead deserializes
-        // as a "JsonElement" which is annoying
         public string? GetValue(string key)
         {
             // check if we have an updated change for it pushed first
@@ -44,11 +57,11 @@ namespace Bloxstrap.Helpers
             foreach (var mode in RenderingModes)
             {
                 if (mode.Key != "Automatic")
-                    App.FastFlags.Changes[mode.Value] = null;
+                    SetValue(mode.Value, null);
             }
 
             if (value != "Automatic")
-                App.FastFlags.Changes[RenderingModes[value]] = true;
+                SetValue(RenderingModes[value], "True");
         }
 
         public override void Save()
@@ -73,7 +86,7 @@ namespace Bloxstrap.Helpers
                     continue;
                 }
 
-                App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to {change.Value}");
+                App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to '{change.Value}'");
                 Prop[change.Key] = change.Value;
             }
 

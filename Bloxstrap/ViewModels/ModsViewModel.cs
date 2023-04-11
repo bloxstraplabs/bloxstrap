@@ -39,22 +39,6 @@ namespace Bloxstrap.ViewModels
 
         public IReadOnlyDictionary<string, string> RenderingModes => FastFlagManager.RenderingModes;
 
-        // this flag has to be set to false to work, weirdly enough
-        public bool ExclusiveFullscreenEnabled
-        {
-            get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
-            set
-            {
-                App.FastFlags.Changes["FFlagHandleAltEnterFullscreenManually"] = value ? false : null;
-
-                if (value)
-                {
-                    App.FastFlags.SetRenderingMode("Direct3D 11");
-                    OnPropertyChanged(nameof(SelectedRenderingMode));
-                }
-            }
-        }
-
         public string SelectedRenderingMode
         { 
             get 
@@ -69,6 +53,22 @@ namespace Bloxstrap.ViewModels
             }
 
             set => App.FastFlags.SetRenderingMode(value);
+        }
+
+        // this flag has to be set to false to work, weirdly enough
+        public bool ExclusiveFullscreenEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
+            set
+            {
+                App.FastFlags.Changes["FFlagHandleAltEnterFullscreenManually"] = value ? false : null;
+
+                if (value)
+                {
+                    App.FastFlags.SetRenderingMode("Direct3D 11");
+                    OnPropertyChanged(nameof(SelectedRenderingMode));
+                }
+            }
         }
 
         public bool DisableFullscreenOptimizationsEnabled
