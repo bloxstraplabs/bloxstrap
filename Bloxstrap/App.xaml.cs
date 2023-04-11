@@ -235,7 +235,6 @@ namespace Bloxstrap
                     ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
 
                 new MainWindow().ShowDialog();
-                FastFlags.Save();
             }
             else if (LaunchArgs.Length > 0)
             {
