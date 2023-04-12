@@ -69,28 +69,23 @@ namespace Bloxstrap.Helpers
         {
             base.Load();
 
-            // set to 99999 by default if it doesnt immediately exist
+            // set to 9999 by default if it doesnt already exist
             if (GetValue("DFIntTaskSchedulerTargetFps") is null)
-            {
                 SetValue("DFIntTaskSchedulerTargetFps", 9999);
-
-                if (!App.IsFirstRun)
-                    Save();
-            }
         }
 
         public override void Save()
         {
             App.Logger.WriteLine($"[FastFlagManager::Save] Attempting to save JSON to {FileLocation}...");
 
+            // reload for any changes made while the menu was open
+            Load();
+
             if (Changes.Count == 0)
             {
                 App.Logger.WriteLine($"[FastFlagManager::Save] No changes to apply, aborting.");
                 return;
             }
-
-            // reload for any changes made while the menu was open
-            Load();
 
             foreach (var change in Changes)
             {

@@ -68,6 +68,7 @@ namespace Bloxstrap
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
         private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
+        private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
         private string? _launchCommandLine;
 
@@ -144,8 +145,9 @@ namespace Bloxstrap
 
             CheckInstallMigration();
 
-            // if roblox needs updating but is running and we have multiple instances open, ignore update for now
-            if (App.IsFirstRun || _versionGuid != App.State.Prop.VersionGuid && !Utilities.CheckIfRobloxRunning())
+            // only update roblox if we're running for the first time, or if
+            // roblox isn't running and our version guid is out of date, or the player exe doesn't exist
+            if (App.IsFirstRun || !Utilities.CheckIfRobloxRunning() && (_versionGuid != App.State.Prop.VersionGuid || !File.Exists(_playerLocation)))
                 await InstallLatestVersion();
 
             // last time the version folder was set, it was set to the latest version guid
@@ -153,10 +155,10 @@ namespace Bloxstrap
             _versionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
             if (App.IsFirstRun)
-            {
                 App.ShouldSaveConfigs = true;
-                App.FastFlags.Save();
-            }
+
+            IntegrationMigrator.Execute();
+            App.FastFlags.Save();
 
             if (App.Settings.Prop.UseReShade)
                 SetStatus("Configuring/Downloading ReShade...");
@@ -169,8 +171,6 @@ namespace Bloxstrap
                 Register();
 
             CheckInstall();
-
-            IntegrationMigrator.Execute();
 
             // at this point we've finished updating our configs
             App.Settings.Save();
@@ -336,7 +336,7 @@ namespace Bloxstrap
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
 
-            Process gameClient = Process.Start(Path.Combine(_versionFolder, "RobloxPlayerBeta.exe"), _launchCommandLine);
+            Process gameClient = Process.Start(_playerLocation, _launchCommandLine);
             List<Process> autocloseProcesses = new();
             GameActivityWatcher? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
@@ -708,23 +708,20 @@ namespace Bloxstrap
 
                 string oldVersionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
+                // and also to delete our old version folder
                 if (_versionGuid != App.State.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
-                {
-                    // and also to delete our old version folder
                     Directory.Delete(oldVersionFolder, true);
-                }
 
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
                 {
                     string oldGameClientLocation = Path.Combine(oldVersionFolder, "RobloxPlayerBeta.exe");
-                    string newGameClientLocation = Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
                     string? appFlags = (string?)appFlagsKey.GetValue(oldGameClientLocation);
 
                     if (appFlags is not null)
                     {
-                        App.Logger.WriteLine($"[Bootstrapper::InstallLatestVersion] Migrating app compatibility flags from {oldGameClientLocation} to {newGameClientLocation}...");
-                        appFlagsKey.SetValue(newGameClientLocation, appFlags);
+                        App.Logger.WriteLine($"[Bootstrapper::InstallLatestVersion] Migrating app compatibility flags from {oldGameClientLocation} to {_playerLocation}...");
+                        appFlagsKey.SetValue(_playerLocation, appFlags);
                         appFlagsKey.DeleteValue(oldGameClientLocation);
                     }
                 }
@@ -747,23 +744,22 @@ namespace Bloxstrap
             using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
             {
                 const string flag = " DISABLEDXMAXIMIZEDWINDOWEDMODE";
-                string gameClientLocation = Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
-                string? appFlags = (string?)appFlagsKey.GetValue(gameClientLocation);
+                string? appFlags = (string?)appFlagsKey.GetValue(_playerLocation);
 
                 if (App.Settings.Prop.DisableFullscreenOptimizations)
                 {
                     if (appFlags is null)
-                        appFlagsKey.SetValue(gameClientLocation, $"~{flag}");
+                        appFlagsKey.SetValue(_playerLocation, $"~{flag}");
                     else if (!appFlags.Contains(flag))
-                        appFlagsKey.SetValue(gameClientLocation, appFlags + flag);
+                        appFlagsKey.SetValue(_playerLocation, appFlags + flag);
                 }
                 else if (appFlags is not null && appFlags.Contains(flag))
                 {
                     // if there's more than one space, there's more flags set we need to preserve
                     if (appFlags.Split(' ').Length > 2)
-                        appFlagsKey.SetValue(gameClientLocation, appFlags.Remove(appFlags.IndexOf(flag), flag.Length));
+                        appFlagsKey.SetValue(_playerLocation, appFlags.Remove(appFlags.IndexOf(flag), flag.Length));
                     else
-                        appFlagsKey.DeleteValue(gameClientLocation);
+                        appFlagsKey.DeleteValue(_playerLocation);
                 }
             }
 
