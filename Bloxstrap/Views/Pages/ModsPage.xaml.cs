@@ -13,8 +13,7 @@ namespace Bloxstrap.Views.Pages
     {
         public ModsPage()
         {
-            if (!App.IsFirstRun)
-                App.FastFlags.Load();
+            App.FastFlags.Load();
 
             DataContext = new ModsViewModel();
             InitializeComponent();

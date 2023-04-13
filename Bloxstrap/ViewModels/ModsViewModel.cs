@@ -15,10 +15,7 @@ namespace Bloxstrap.ViewModels
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
-        private void OpenModsFolder()
-        {
-            Process.Start("explorer.exe", Directories.Modifications);
-        }
+        private void OpenModsFolder() => Process.Start("explorer.exe", Directories.Modifications);
 
         public bool OldDeathSoundEnabled
         {
@@ -43,7 +40,7 @@ namespace Bloxstrap.ViewModels
         public int FramerateLimit
         {
             get => Int32.TryParse(App.FastFlags.GetValue("DFIntTaskSchedulerTargetFps"), out int x) ? x : 60;
-            set => App.FastFlags.Changes["DFIntTaskSchedulerTargetFps"] = value;
+            set => App.FastFlags.SetValue("DFIntTaskSchedulerTargetFps", value);
         }
 
         public string SelectedRenderingMode
@@ -68,7 +65,7 @@ namespace Bloxstrap.ViewModels
             get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
             set
             {
-                App.FastFlags.SetValue("FFlagHandleAltEnterFullscreenManually", value ? false : null);
+                App.FastFlags.SetValue("FFlagHandleAltEnterFullscreenManually", value ? "False" : null);
 
                 if (value)
                 {
