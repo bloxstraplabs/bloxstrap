@@ -76,7 +76,13 @@ namespace Bloxstrap.ViewModels
 
         public IEnumerable<string> Channels
         {
-            get => _channels;
+            get
+            {
+                if (_channels == DeployManager.ChannelsAll && !_channels.Contains(App.Settings.Prop.Channel))
+                    _channels = _channels.Append(App.Settings.Prop.Channel);
+
+                return _channels;
+            }
             set => _channels = value;
         }
 
@@ -103,8 +109,12 @@ namespace Bloxstrap.ViewModels
                 else
                 {
                     Channels = DeployManager.ChannelsAbstracted;
-                    Channel = DeployManager.DefaultChannel;
-                    OnPropertyChanged(nameof(Channel));
+
+                    if (!Channels.Contains(Channel))
+                    {
+                        Channel = DeployManager.DefaultChannel;
+                        OnPropertyChanged(nameof(Channel));
+                    }
                 }
 
                 OnPropertyChanged(nameof(Channels));
