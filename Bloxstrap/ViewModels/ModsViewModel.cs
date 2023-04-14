@@ -75,6 +75,12 @@ namespace Bloxstrap.ViewModels
             }
         }
 
+        public bool AlternateGraphicsSelectorEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagFixGraphicsQuality") == "True";
+            set => App.FastFlags.SetValue("FFlagFixGraphicsQuality", value ? "True" : null);
+        }
+
         public bool DisableFullscreenOptimizationsEnabled
         {
             get => App.Settings.Prop.DisableFullscreenOptimizations;
