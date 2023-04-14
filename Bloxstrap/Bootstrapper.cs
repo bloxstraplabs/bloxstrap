@@ -38,6 +38,10 @@ namespace Bloxstrap
             { "shaders.zip",                   @"shaders\" },
             { "ssl.zip",                       @"ssl\" },
 
+            // the runtime installer is only extracted if it needs installing
+            { "WebView2.zip",                  @"" },
+            { "WebView2RuntimeInstaller.zip",  @"WebView2RuntimeInstaller\" },
+
             { "content-avatar.zip",            @"content\avatar\" },
             { "content-configs.zip",           @"content\configs\" },
             { "content-fonts.zip",             @"content\fonts\" },
@@ -68,10 +72,11 @@ namespace Bloxstrap
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
         private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
+        private static bool ShouldInstallWebView2 = false;
 
         private string? _launchCommandLine;
 
-        private string _versionGuid = null!;
+        private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
         private string _versionFolder = null!;
 
@@ -88,6 +93,18 @@ namespace Bloxstrap
         public Bootstrapper(string? launchCommandLine = null)
         {
             _launchCommandLine = launchCommandLine;
+
+            // check if the webview2 runtime needs to be installed
+            // webview2 can either be installed be per-user or globally, so we need to check in both hklm and hkcu
+            // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#online-only-deployment
+
+            string hklmLocation = "SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+            string hkcuLocation = "Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+
+            if (!Environment.Is64BitOperatingSystem)
+                hklmLocation = "SOFTWARE\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+
+            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(hklmLocation) is null && Registry.CurrentUser.OpenSubKey(hkcuLocation) is null;
         }
 
         private void SetStatus(string message)
@@ -145,7 +162,7 @@ namespace Bloxstrap
             CheckInstallMigration();
 
             // if roblox needs updating but is running and we have multiple instances open, ignore update for now
-            if (App.IsFirstRun || _versionGuid != App.State.Prop.VersionGuid && !Utilities.CheckIfRobloxRunning())
+            if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.VersionGuid && !Utilities.CheckIfRobloxRunning())
                 await InstallLatestVersion();
 
             // last time the version folder was set, it was set to the latest version guid
@@ -157,6 +174,9 @@ namespace Bloxstrap
                 App.ShouldSaveConfigs = true;
                 App.FastFlags.Save();
             }
+
+            if (ShouldInstallWebView2)
+                await InstallWebView2();
 
             if (App.Settings.Prop.UseReShade)
                 SetStatus("Configuring/Downloading ReShade...");
@@ -244,9 +264,9 @@ namespace Bloxstrap
             SetStatus("Connecting to Roblox...");
 
             ClientVersion clientVersion = await App.DeployManager.GetLastDeploy();
-            _versionGuid = clientVersion.VersionGuid;
-            _versionFolder = Path.Combine(Directories.Versions, _versionGuid);
-            _versionPackageManifest = await PackageManifest.Get(_versionGuid);
+            _latestVersionGuid = clientVersion.VersionGuid;
+            _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
+            _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
         }
 
         private void CheckInstallMigration()
@@ -683,8 +703,13 @@ namespace Bloxstrap
                 // download all the packages synchronously
                 await DownloadPackage(package);
 
+                // we'll extract the runtime installer later if we need to
+                if (package.Name == "WebView2RuntimeInstaller.zip")
+                    continue;
+
                 // extract the package immediately after download asynchronously
-                ExtractPackage(package);
+                // discard is just used to suppress the warning
+                Task _ = ExtractPackage(package);
             }
 
             if (_cancelFired) 
@@ -699,8 +724,8 @@ namespace Bloxstrap
                 SetStatus("Configuring Roblox...");
             }
 
-            // wait for all packages to finish extracting
-            while (_packagesExtracted < _versionPackageManifest.Count)
+            // wait for all packages to finish extracting, with an exception for the webview2 runtime installer
+            while (_packagesExtracted < _versionPackageManifest.Where(x => x.Name != "WebView2RuntimeInstaller.zip").Count())
             {
                 await Task.Delay(100);
             }
@@ -727,7 +752,7 @@ namespace Bloxstrap
 
                 string oldVersionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
-                if (_versionGuid != App.State.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
+                if (_latestVersionGuid != App.State.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
                 {
                     // and also to delete our old version folder
                     Directory.Delete(oldVersionFolder, true);
@@ -752,9 +777,45 @@ namespace Bloxstrap
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
 
-            App.State.Prop.VersionGuid = _versionGuid;
+            App.State.Prop.VersionGuid = _latestVersionGuid;
 
             _isInstalling = false;
+        }
+        
+        private async Task InstallWebView2()
+        {
+            if (!ShouldInstallWebView2)
+                return;
+
+            App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Installing runtime...");
+
+            string baseDirectory = Path.Combine(_versionFolder, "WebView2RuntimeInstaller");
+
+            if (!Directory.Exists(baseDirectory))
+            {
+                Package? package = _versionPackageManifest.Find(x => x.Name == "WebView2RuntimeInstaller.zip");
+
+                if (package is null)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Aborted runtime install because package does not exist, has WebView2 been added in this Roblox version yet?");
+                    return;
+                }
+
+                await ExtractPackage(package);
+            }
+
+            SetStatus("Installing WebView2, please wait...");
+
+            ProcessStartInfo startInfo = new()
+            {
+                WorkingDirectory = baseDirectory,
+                FileName = Path.Combine(baseDirectory, "MicrosoftEdgeWebview2Setup.exe"),
+                Arguments = "/silent /install"
+            };
+
+            await Process.Start(startInfo)!.WaitForExitAsync();
+
+            App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Finished installing runtime");
         }
 
         private async Task ApplyModifications()
@@ -905,7 +966,7 @@ namespace Bloxstrap
             if (_cancelFired)
                 return;
 
-            string packageUrl = $"{App.DeployManager.BaseUrl}/{_versionGuid}-{package.Name}";
+            string packageUrl = $"{App.DeployManager.BaseUrl}/{_latestVersionGuid}-{package.Name}";
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
 
@@ -975,7 +1036,7 @@ namespace Bloxstrap
             }
         }
 
-        private async void ExtractPackage(Package package)
+        private async Task ExtractPackage(Package package)
         {
             if (_cancelFired)
                 return;
