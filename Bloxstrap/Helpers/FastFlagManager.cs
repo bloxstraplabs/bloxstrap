@@ -16,7 +16,7 @@ namespace Bloxstrap.Helpers
         public Dictionary<string, object?> Changes = new();
 
         // only one missing here is Metal because lol
-        public static IReadOnlyDictionary<string, string> RenderingModes { get; set; } = new Dictionary<string, string>()
+        public static IReadOnlyDictionary<string, string> RenderingModes => new Dictionary<string, string>
         {
             { "Automatic", "" },
             { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
@@ -24,11 +24,51 @@ namespace Bloxstrap.Helpers
             { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
         };
 
+        // this is one hell of a variable definition lmao
+        public static IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => new Dictionary<string, Dictionary<string, string?>>
+        {
+            { 
+                "Default", 
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", null },
+                    { "FFlagEnableInGameMenuV3", null }
+                }
+            },
+
+            {
+                "Version 1 (2015)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "True" },
+                    { "FFlagEnableInGameMenuV3", "False" }
+                }
+            },
+
+            {
+                "Version 2 (2020)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "False" },
+                    { "FFlagEnableInGameMenuV3", "False" }
+                }
+            },
+
+            {
+                "Version 3 (2021)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "False" },
+                    { "FFlagEnableInGameMenuV3", "True" }
+                }
+            }
+        };
+
         // all fflags are stored as strings
         // to delete a flag, set the value as null
         public void SetValue(string key, object? value)
         {
-            if (value == null)
+            if (value is null)
             {
                 Changes[key] = null;
                 App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");

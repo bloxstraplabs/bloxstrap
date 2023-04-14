@@ -101,6 +101,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <ui:CardControl Grid.Row="0" Margin="0,8,0,0" Padding="16,13,16,12">
@@ -138,6 +139,15 @@
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="4" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="In-game menu version" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
             </ui:CardControl>
         </Grid>
 
