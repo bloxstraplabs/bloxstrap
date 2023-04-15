@@ -19,35 +19,16 @@ namespace Bloxstrap.Helpers
         public string BaseUrl { get; private set; } = DefaultBaseUrl;
         public string Channel { get; private set; } = DefaultChannel;
 
-        // basically any channel that has had a deploy within the past month with a windowsplayer build
-        public static readonly List<string> ChannelsAbstracted = new()
+        // most commonly used/interesting channels
+        public static readonly List<string> SelectableChannels = new()
         {
             "LIVE",
-            "ZNext",
-            "ZCanary",
-            "ZIntegration"
-        };
-
-        // why not?
-        public static readonly List<string> ChannelsAll = new()
-        {
-            "LIVE",
-            "ZAvatarTeam",
-            "ZAvatarRelease",
-            "ZCanary",
-            "ZCanary1",
-            "ZCanary2",
-            "ZCanary3",
-            "ZCanaryApps",
             "ZFlag",
-            "ZIntegration",
-            "ZIntegration1",
-            "ZLive",
-            "ZLive1",
             "ZNext",
-            "ZSocialTeam",
-            "ZStudioInt1",
-            "ZStudioInt2"
+            "ZCanary",
+            "ZIntegration",
+            "ZAvatarTeam",
+            "ZSocialTeam"
         };
         #endregion
 

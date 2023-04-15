@@ -135,7 +135,7 @@
                 <ui:CardControl.Header>
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 0-10 / fine-grained 0-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
