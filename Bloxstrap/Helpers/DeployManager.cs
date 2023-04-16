@@ -13,11 +13,68 @@ namespace Bloxstrap.Helpers
     public class DeployManager
     {
         #region Properties
-        public const string DefaultBaseUrl = "https://setup.rbxcdn.com";
         public const string DefaultChannel = "LIVE";
-        
-        public string BaseUrl { get; private set; } = DefaultBaseUrl;
-        public string Channel { get; private set; } = DefaultChannel;
+
+        private string _channel = DefaultChannel;
+
+        public string Channel
+        {
+            get => _channel;
+            set
+            {
+                if (_channel != value)
+                    App.Logger.WriteLine($"[DeployManager::SetChannel] Changed channel to {value}");
+
+                _channel = value;
+            }
+        }
+
+        // a list of roblox delpoyment locations that we check for, in case one of them don't work
+        private List<string> BaseUrls = new()
+        {
+            "https://setup.rbxcdn.com",
+            "https://setup-ak.rbxcdn.com",
+            "https://s3.amazonaws.com/setup.roblox.com"
+        };
+
+        private string? _baseUrl = null;
+
+        public string BaseUrl
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_baseUrl))
+                {
+                    // check for a working accessible deployment domain
+                    foreach (string attemptedUrl in BaseUrls)
+                    {
+                        App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Testing connection to '{attemptedUrl}'...");
+
+                        try
+                        {
+                            App.HttpClient.GetAsync($"{attemptedUrl}/version").Wait();
+                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Connection successful!");
+                            _baseUrl = attemptedUrl;
+                            break;
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Connection failed!");
+                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] {ex}");
+                            continue;
+                        }
+                    }
+
+                    if (String.IsNullOrEmpty(_baseUrl))
+                        throw new Exception("Unable to find an accessible Roblox deploy mirror!");
+                }
+
+                if (Channel == DefaultChannel)
+                    return _baseUrl; 
+                else
+                    return $"{_baseUrl}/channel/{Channel.ToLower()}";
+            }
+        }
 
         // most commonly used/interesting channels
         public static readonly List<string> SelectableChannels = new()
@@ -31,17 +88,6 @@ namespace Bloxstrap.Helpers
             "ZSocialTeam"
         };
         #endregion
-
-        public void SetChannel(string channel)
-        {
-            if (Channel == channel) 
-                return;
-
-            App.Logger.WriteLine($"[DeployManager::SetChannel] Set channel to {Channel}");
-
-            Channel = channel;
-            BaseUrl = channel == DefaultChannel ? DefaultBaseUrl : $"{DefaultBaseUrl}/channel/{channel.ToLower()}";
-        }
 
         public async Task<ClientVersion> GetLastDeploy(bool timestamp = false)
         {
