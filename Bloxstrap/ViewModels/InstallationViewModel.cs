@@ -39,7 +39,7 @@ namespace Bloxstrap.ViewModels
             ChannelDeployInfo = null;
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
-            App.DeployManager.SetChannel(channel);
+            App.DeployManager.Channel = channel;
             ClientVersion info = await App.DeployManager.GetLastDeploy(true);
 
             ChannelDeployInfo = new DeployInfo

@@ -248,7 +248,7 @@ namespace Bloxstrap
                     if (!IsFirstRun)
                         ShouldSaveConfigs = true;
 
-                    DeployManager.SetChannel(Settings.Prop.Channel);
+                    DeployManager.Channel = Settings.Prop.Channel;
 
                     // start bootstrapper and show the bootstrapper modal if we're not running silently
                     Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
