@@ -243,13 +243,19 @@ namespace Bloxstrap
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
 
-            Process gameClient = Process.Start(_playerLocation, _launchCommandLine);
+            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
+            int gameClientPid;
+            using (Process gameClient = Process.Start(_playerLocation, _launchCommandLine))
+            {
+				gameClientPid = gameClient.Id;
+            }
+
             List<Process> autocloseProcesses = new();
             GameActivityWatcher? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
             ServerNotifier? serverNotifier = null;
 
-            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClientPid})");
 
             using (SystemEvent startEvent = new("www.roblox.com/robloxStartedEvent"))
             {
@@ -311,8 +317,11 @@ namespace Bloxstrap
             activityWatcher?.StartWatcher();
 
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Waiting for Roblox to close");
-            await gameClient.WaitForExitAsync();
-            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Roblox exited with code {gameClient.ExitCode}");
+
+            while (Process.GetProcesses().Any(x => x.Id == gameClientPid))
+                await Task.Delay(1000);
+
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Roblox has exited");
 
             richPresence?.Dispose();
 
