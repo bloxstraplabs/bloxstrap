@@ -18,7 +18,7 @@ namespace Bloxstrap.Helpers
             { "launchmode", "--" },
             { "gameinfo", "-t " },
             { "placelauncherurl", "-j "},
-            // { "launchtime", "--launchtime=" }, we'll set this when launching the game client
+            { "launchtime", "--launchtime=" },
             { "browsertrackerid", "-b " },
             { "robloxLocale", "--rloc " },
             { "gameLocale", "--gloc " },
@@ -49,6 +49,10 @@ namespace Bloxstrap.Helpers
 
                 if (key == "placelauncherurl")
                     val = HttpUtility.UrlDecode(val);
+
+                // we'll set this before launching because for some reason roblox just refuses to launch if its like a few minutes old so ???
+                if (key == "launchtime")
+                    val = "LAUNCHTIMEPLACEHOLDER";
 
                 if (key == "channel")
                 {

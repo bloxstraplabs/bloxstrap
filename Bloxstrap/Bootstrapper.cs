@@ -62,11 +62,11 @@ namespace Bloxstrap
         };
 
         private const string AppSettings =
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-            "<Settings>\n" +
-            "	<ContentFolder>content</ContentFolder>\n" +
-            "	<BaseUrl>http://www.roblox.com</BaseUrl>\n" +
-            "</Settings>\n";
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
+            "<Settings>\r\n" +
+            "	<ContentFolder>content</ContentFolder>\r\n" +
+            "	<BaseUrl>http://www.roblox.com</BaseUrl>\r\n" +
+            "</Settings>\r\n";
 
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
@@ -76,7 +76,7 @@ namespace Bloxstrap
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
-        private string? _launchCommandLine;
+        private string _launchCommandLine;
 
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
@@ -92,7 +92,7 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper(string? launchCommandLine = null)
+        public Bootstrapper(string launchCommandLine)
         {
             _launchCommandLine = launchCommandLine;
 
@@ -226,8 +226,6 @@ namespace Bloxstrap
 
         private async Task StartRoblox()
         {
-            string startEventName = App.ProjectName.Replace(" ", "") + "StartEvent";
-
             SetStatus("Starting Roblox...");
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
@@ -237,13 +235,10 @@ namespace Bloxstrap
                 return;
             }
 
-            // launch time isn't really required for all launches, but it's usually just safest to do this
-            _launchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
             if (App.Settings.Prop.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
                 _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
-
-            _launchCommandLine  += " -startEvent " + startEventName;
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
@@ -256,7 +251,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
 
-            using (SystemEvent startEvent = new(startEventName))
+            using (SystemEvent startEvent = new("www.roblox.com/robloxStartedEvent"))
             {
                 bool startEventFired = await startEvent.WaitForEvent();
 

@@ -163,9 +163,6 @@ namespace Bloxstrap
                 ShowMessageBox(message, MessageBoxImage.Warning);
             }
 
-            // this needs to be loaded this early for the menu and also to check for default values
-            FastFlags.Load();
-
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
@@ -179,6 +176,7 @@ namespace Bloxstrap
                     if (!IsQuiet)
                     {
                         IsSetupComplete = false;
+                        FastFlags.Load();
                         new MainWindow().ShowDialog();
                     }
                 }
@@ -197,7 +195,7 @@ namespace Bloxstrap
             }
 
             Directories.Initialize(BaseDirectory);
-            FastFlags.AltFileLocation = Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json");
+            FastFlags.Load();
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install

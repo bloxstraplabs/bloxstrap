@@ -7,8 +7,7 @@ namespace Bloxstrap.Helpers
     public class JsonManager<T> where T : new()
     {
         public T Prop { get; set; } = new();
-        public virtual string FileLocation => AltFileLocation ?? Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
-        public string? AltFileLocation { get; set; }
+        public virtual string FileLocation => Path.Combine(Directories.Base, $"{typeof(T).Name}.json");
 
         public virtual void Load()
         {
