@@ -247,7 +247,7 @@ namespace Bloxstrap
             int gameClientPid;
             using (Process gameClient = Process.Start(_playerLocation, _launchCommandLine))
             {
-				gameClientPid = gameClient.Id;
+                gameClientPid = gameClient.Id;
             }
 
             List<Process> autocloseProcesses = new();
@@ -819,6 +819,9 @@ namespace Bloxstrap
 
                 if (App.FastFlags.GetValue(FastFlagManager.RenderingModes["Direct3D 11"]) == "True" && App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") != "False")
                     App.FastFlags.SetRenderingMode("Automatic");
+
+                // this is just in case something ever changes, i doubt it but lol
+                App.State.Prop.HadReShadeInstalled = true;
             }
         }
 

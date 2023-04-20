@@ -80,6 +80,7 @@ namespace Bloxstrap.Helpers
         public static readonly List<string> SelectableChannels = new()
         {
             "LIVE",
+            "ZWinPlayer64",
             "ZFlag",
             "ZNext",
             "ZCanary",

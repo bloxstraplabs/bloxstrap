@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net;
 using System.Reflection;
@@ -332,10 +333,8 @@ namespace Bloxstrap
 
                     // we've got ownership of the roblox singleton mutex!
                     // if we stop running, everything will screw up once any more roblox instances launched
-                    while (Utilities.GetProcessCount("RobloxPlayerBeta", false) != 0)
-                    {
+                    while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
                         Thread.Sleep(5000);
-                    }
                 }
             }
 
