@@ -117,6 +117,19 @@ namespace Bloxstrap
                 Dialog.Message = message;
         }
 
+        private void UpdateProgressbar()
+        {
+            int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
+
+            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
+            // too lazy to fix properly so lol
+            if (newProgress > 100)
+                return;
+
+            if (Dialog is not null)
+                Dialog.ProgressValue = newProgress;
+        }
+
         public async Task Run()
         {
             App.Logger.WriteLine("[Bootstrapper::Run] Running bootstrapper");
@@ -175,12 +188,12 @@ namespace Bloxstrap
             if (App.IsFirstRun)
                 App.ShouldSaveConfigs = true;
 
-            IntegrationMigrator.Execute();
-            App.FastFlags.Save();
+            MigrateIntegrations();
 
             if (ShouldInstallWebView2)
                 await InstallWebView2();
 
+            App.FastFlags.Save();
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)
@@ -201,60 +214,6 @@ namespace Bloxstrap
                 await StartRoblox();
         }
 
-        private async Task CheckForUpdates()
-        {
-            // don't update if there's another instance running (likely running in the background)
-            if (Utilities.GetProcessCount(App.ProjectName) > 1)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
-                return;
-            }
-
-            string currentVersion = $"{App.ProjectName} v{App.Version}";
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
-
-            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
-
-            if (releaseInfo?.Assets is null || currentVersion == releaseInfo.Name)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
-                return;
-            }
-
-            SetStatus($"Getting the latest {App.ProjectName}...");
-
-            // 64-bit is always the first option
-            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
-            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
-
-            if (!File.Exists(downloadLocation))
-            {
-                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
-
-                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
-                await response.Content.CopyToAsync(fileStream);
-            }
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.Name}...");
-
-            ProcessStartInfo startInfo = new()
-            {
-                FileName = downloadLocation,
-            };
-
-            foreach (string arg in App.LaunchArgs)
-                startInfo.ArgumentList.Add(arg);
-
-            App.Settings.Save();
-
-            Process.Start(startInfo);
-
-            Environment.Exit(0);
-        }
-
         private async Task CheckLatestVersion()
         {
             SetStatus("Connecting to Roblox...");
@@ -263,69 +222,6 @@ namespace Bloxstrap
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
-        }
-
-        private void CheckInstallMigration()
-        {
-            // check if we've changed our install location since the last time we started
-            // in which case, we'll have to copy over all our folders so we don't lose any mods and stuff
-
-            using RegistryKey? applicationKey = Registry.CurrentUser.OpenSubKey($@"Software\{App.ProjectName}", true);
-
-            string? oldInstallLocation = (string?)applicationKey?.GetValue("OldInstallLocation");
-
-            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Directories.Base)
-                return;
-
-            SetStatus("Migrating install location...");
-
-            if (Directory.Exists(oldInstallLocation))
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Moving all files in {oldInstallLocation} to {Directories.Base}...");
-
-                foreach (string oldFileLocation in Directory.GetFiles(oldInstallLocation, "*.*", SearchOption.AllDirectories))
-                {
-                    string relativeFile = oldFileLocation.Substring(oldInstallLocation.Length + 1);
-                    string newFileLocation = Path.Combine(Directories.Base, relativeFile);
-                    string? newDirectory = Path.GetDirectoryName(newFileLocation);
-
-                    try
-                    {
-                        if (!String.IsNullOrEmpty(newDirectory))
-                            Directory.CreateDirectory(newDirectory);
-
-                        File.Move(oldFileLocation, newFileLocation, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to move {oldFileLocation} to {newFileLocation}! {ex}");
-                    }
-                }
-
-                try
-                {
-                    Directory.Delete(oldInstallLocation, true);
-                    App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Deleted old install location");
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to delete old install location! {ex}");
-                }
-            }
-
-            applicationKey.DeleteValue("OldInstallLocation");
-
-            // allow shortcuts to be re-registered
-            if (Directory.Exists(Directories.StartMenu))
-                Directory.Delete(Directories.StartMenu, true);
-
-            if (File.Exists(DesktopShortcutLocation))
-            {
-                File.Delete(DesktopShortcutLocation);
-                App.Settings.Prop.CreateDesktopIcon = true;
-            }
-
-            App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
         }
 
         private async Task StartRoblox()
@@ -464,7 +360,7 @@ namespace Bloxstrap
 
             App.Terminate(ERROR_INSTALL_USEREXIT);
         }
-#endregion
+        #endregion
 
         #region App Install
         public static void Register()
@@ -495,6 +391,69 @@ namespace Bloxstrap
             }
 
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application");
+        }
+
+        private void CheckInstallMigration()
+        {
+            // check if we've changed our install location since the last time we started
+            // in which case, we'll have to copy over all our folders so we don't lose any mods and stuff
+
+            using RegistryKey? applicationKey = Registry.CurrentUser.OpenSubKey($@"Software\{App.ProjectName}", true);
+
+            string? oldInstallLocation = (string?)applicationKey?.GetValue("OldInstallLocation");
+
+            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Directories.Base)
+                return;
+
+            SetStatus("Migrating install location...");
+
+            if (Directory.Exists(oldInstallLocation))
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Moving all files in {oldInstallLocation} to {Directories.Base}...");
+
+                foreach (string oldFileLocation in Directory.GetFiles(oldInstallLocation, "*.*", SearchOption.AllDirectories))
+                {
+                    string relativeFile = oldFileLocation.Substring(oldInstallLocation.Length + 1);
+                    string newFileLocation = Path.Combine(Directories.Base, relativeFile);
+                    string? newDirectory = Path.GetDirectoryName(newFileLocation);
+
+                    try
+                    {
+                        if (!String.IsNullOrEmpty(newDirectory))
+                            Directory.CreateDirectory(newDirectory);
+
+                        File.Move(oldFileLocation, newFileLocation, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to move {oldFileLocation} to {newFileLocation}! {ex}");
+                    }
+                }
+
+                try
+                {
+                    Directory.Delete(oldInstallLocation, true);
+                    App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Deleted old install location");
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::CheckInstallMigration] Failed to delete old install location! {ex}");
+                }
+            }
+
+            applicationKey.DeleteValue("OldInstallLocation");
+
+            // allow shortcuts to be re-registered
+            if (Directory.Exists(Directories.StartMenu))
+                Directory.Delete(Directories.StartMenu, true);
+
+            if (File.Exists(DesktopShortcutLocation))
+            {
+                File.Delete(DesktopShortcutLocation);
+                App.Settings.Prop.CreateDesktopIcon = true;
+            }
+
+            App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
         }
 
         public static void CheckInstall()
@@ -554,6 +513,60 @@ namespace Bloxstrap
                 // one-time toggle, set it back to false
                 App.Settings.Prop.CreateDesktopIcon = false;
             }
+        }
+
+        private async Task CheckForUpdates()
+        {
+            // don't update if there's another instance running (likely running in the background)
+            if (Utilities.GetProcessCount(App.ProjectName) > 1)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
+                return;
+            }
+
+            string currentVersion = $"{App.ProjectName} v{App.Version}";
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
+
+            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
+
+            if (releaseInfo?.Assets is null || currentVersion == releaseInfo.Name)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
+                return;
+            }
+
+            SetStatus($"Getting the latest {App.ProjectName}...");
+
+            // 64-bit is always the first option
+            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
+            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
+
+            if (!File.Exists(downloadLocation))
+            {
+                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+
+                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
+                await response.Content.CopyToAsync(fileStream);
+            }
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.Name}...");
+
+            ProcessStartInfo startInfo = new()
+            {
+                FileName = downloadLocation,
+            };
+
+            foreach (string arg in App.LaunchArgs)
+                startInfo.ArgumentList.Add(arg);
+
+            App.Settings.Save();
+
+            Process.Start(startInfo);
+
+            Environment.Exit(0);
         }
 
         private void Uninstall()
@@ -628,22 +641,9 @@ namespace Bloxstrap
 
             Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
         }
-#endregion
+        #endregion
 
         #region Roblox Install
-        private void UpdateProgressbar()
-        {
-            int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
-
-            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
-            // too lazy to fix properly so lol
-            if (newProgress > 100)
-                return;
-
-            if (Dialog is not null)
-                Dialog.ProgressValue = newProgress;
-        }
-
         private async Task InstallLatestVersion()
         {
             _isInstalling = true;
@@ -790,6 +790,32 @@ namespace Bloxstrap
             await Process.Start(startInfo)!.WaitForExitAsync();
 
             App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Finished installing runtime");
+        }
+
+        public static void MigrateIntegrations()
+        {
+            // v2.2.0 - remove rbxfpsunlocker
+            string rbxfpsunlocker = Path.Combine(Directories.Integrations, "rbxfpsunlocker");
+
+            if (Directory.Exists(rbxfpsunlocker))
+                Directory.Delete(rbxfpsunlocker, true);
+
+            // v2.2.0 - remove reshade
+            string reshadeLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
+
+            if (File.Exists(reshadeLocation))
+            {
+                App.ShowMessageBox(
+                    "As of April 18th, Roblox has started out rolling out the Byfron anticheat as well as 64-bit support. Because of this, ReShade will no longer work, and will be deactivated from now on.\n\n" +
+                    $"Your ReShade configs and files will still be kept, which are all located in the {App.ProjectName} folder.",
+                    MessageBoxImage.Warning
+                );
+
+                File.Delete(reshadeLocation);
+
+                if (App.FastFlags.GetValue(FastFlagManager.RenderingModes["Direct3D 11"]) == "True" && App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") != "False")
+                    App.FastFlags.SetRenderingMode("Automatic");
+            }
         }
 
         private async Task ApplyModifications()
@@ -1075,6 +1101,6 @@ namespace Bloxstrap
 
             entry.ExtractToFile(fileLocation);
         }
-#endregion
+        #endregion
     }
 }

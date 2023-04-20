@@ -163,6 +163,9 @@ namespace Bloxstrap
                 ShowMessageBox(message, MessageBoxImage.Warning);
             }
 
+            // this needs to be loaded this early for the menu and also to check for default values
+            FastFlags.Load();
+
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
