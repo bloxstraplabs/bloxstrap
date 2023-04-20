@@ -22,7 +22,7 @@ Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/
 > winget install bloxstrap
 ```
 
-You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.14-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
+You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.16-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
 
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
 
@@ -34,22 +34,21 @@ If you want to build Bloxstrap's source code, see the [guide for building from s
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications - re-adds the old death sound!
-* Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
 * Painless support for Discord Rich Presence - no auth cookie needed!
-* Automatic silent FPS unlocking with [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
-* Ability to disable the Roblox desktop app
+* Built-in FPS unlocking
 * A customizable launcher look - includes dark theme!
-* Ability to opt into non-production Roblox release channels
-* Ability to see what region your current server is located in
-* Support for having multiple Roblox game instances open simultaneously
+* Lets you disable the Roblox desktop app
+* Lets you opt into non-production Roblox release channels
+* Lets you see what region your current server is located in
+* Lets you have multiple Roblox game instances open simultaneously
 
 All the available features are browsable through the Bloxstrap menu. There's not too many, but it's recommended to look through all of them.
 
-Bloxstrap also has inherent benefits over some other Roblox mods, as ReShade does not break whenever Roblox updates and thus require a reinstall, and is completely free, forever. It also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
+Bloxstrap also has inherent benefits over some other Roblox mods, as it only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
 
 ## Screenshots
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="620" />
+    <img src="https://user-images.githubusercontent.com/41478239/233370531-eeea0cb7-4154-4ca6-afda-e07844e57846.png" width="620" />
     <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="205" />
     <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="419" />
     <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="406" />
