@@ -25,8 +25,6 @@ namespace Bloxstrap.Models
         // integration configuration
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;
-        public bool UseReShade { get; set; } = true;
-        public bool UseReShadeExtraviPresets { get; set; } = true;
         public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 

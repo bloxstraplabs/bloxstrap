@@ -113,8 +113,8 @@ namespace Bloxstrap.Helpers
             if (GetValue("DFIntTaskSchedulerTargetFps") is null)
                 SetValue("DFIntTaskSchedulerTargetFps", 9999);
 
-            // reshade / exclusive fullscreen requires direct3d 11 to work
-            if (GetValue(RenderingModes["Direct3D 11"]) != "True" && (App.Settings.Prop.UseReShade || App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False"))
+            // exclusive fullscreen requires direct3d 11 to work
+            if (GetValue(RenderingModes["Direct3D 11"]) != "True" && App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False")
                 SetRenderingMode("Direct3D 11");
         }
 

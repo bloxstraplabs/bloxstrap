@@ -181,11 +181,6 @@ namespace Bloxstrap
             if (ShouldInstallWebView2)
                 await InstallWebView2();
 
-            if (App.Settings.Prop.UseReShade)
-                SetStatus("Configuring/Downloading ReShade...");
-
-            await ReShade.CheckModifications();
-
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)
@@ -720,8 +715,6 @@ namespace Bloxstrap
 
             if (!FreshInstall)
             {
-                ReShade.SynchronizeConfigFile();
-
                 // let's take this opportunity to delete any packages we don't need anymore
                 foreach (string filename in Directory.GetFiles(Directories.Downloads))
                 {
@@ -894,7 +887,7 @@ namespace Bloxstrap
 
                 try
                 {
-                    packageDirectory = PackageDirectories.First(x => x.Key != "RobloxApp.zip" && fileLocation.StartsWith(x.Value));
+                    packageDirectory = PackageDirectories.First(x => x.Key != "RobloxApp.zip" && x.Key != "WebView2.zip" && fileLocation.StartsWith(x.Value));
                 }
                 catch (InvalidOperationException)
                 {
