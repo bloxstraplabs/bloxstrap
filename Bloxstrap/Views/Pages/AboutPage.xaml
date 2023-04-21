@@ -83,6 +83,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -109,16 +111,30 @@
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,8,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
+            <ui:CardAction Grid.Row="2" Grid.Column="0" Margin="0,8,8,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/rickyah/ini-parser/blob/development/LICENSE">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="IniParser by rickyah" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Roblox Studio Mod Manager by MaximumADHD" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="2" Grid.Column="2" Margin="0,8,0,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Integrations" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,0" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <ui:CardAction Grid.Row="4" Grid.Column="0" Margin="0,8,8,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="DiscordRPC by Lachee" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Grid.Row="4" Grid.Column="1" Margin="0,8,8,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="ReShade by crosire" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="BSD 3-Clause License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

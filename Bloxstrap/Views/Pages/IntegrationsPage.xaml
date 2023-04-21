@@ -33,6 +33,66 @@
             <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
         </ui:CardControl>
 
+        <TextBlock Text="ReShade" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Use ReShade" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Reshade is a post-processing injector that enables the use of shaders." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch x:Name="ReShadeEnabledToggle" IsChecked="{Binding ReShadeEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12" IsEnabled="{Binding IsChecked, ElementName=ReShadeEnabledToggle, Mode=OneWay}">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Use Extravi's shader presets" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="ReShade presets made specifically for Roblox that enhance your graphics." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding ReShadePresetsEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ui:CardAction Grid.Column="0" Margin="0,8,4,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenReShadeFolderCommand}" IsEnabled="{Binding CanOpenReShadeFolder}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Open ReShade Folder">
+                        <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+                        <TextBlock.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
+                                        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                        <TextBlock.Style>
+                            <Style>
+                                <Setter Property="TextBlock.Text" Value="Where ReShade's resources are stored." />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CanOpenReShadeFolder}" Value="False">
+                                        <Setter Property="TextBlock.Text" Value="Please launch Roblox with ReShade first." />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Grid.Column="1" Margin="4,8,0,0" Padding="16,13,16,12" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Using-ReShade">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Help" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="See info about using ReShade." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+        </Grid>
+
         <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>

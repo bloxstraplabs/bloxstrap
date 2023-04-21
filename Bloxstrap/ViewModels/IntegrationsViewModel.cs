@@ -15,8 +15,16 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         
+        public ICommand OpenReShadeFolderCommand => new RelayCommand(OpenReShadeFolder);
         public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
         public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
+
+        public bool CanOpenReShadeFolder => App.Settings.Prop.UseReShade;
+
+        private void OpenReShadeFolder()
+        {
+            Process.Start("explorer.exe", Path.Combine(Directories.Integrations, "ReShade"));
+        }
 
         private void AddIntegration()
         {
@@ -66,6 +74,27 @@ namespace Bloxstrap.ViewModels
         {
             get => !App.Settings.Prop.HideRPCButtons;
             set => App.Settings.Prop.HideRPCButtons = !value;
+        }
+
+        public bool ReShadeEnabled
+        {
+            get => App.Settings.Prop.UseReShade;
+            set
+            {
+                App.Settings.Prop.UseReShade = value;
+                ReShadePresetsEnabled = value;
+
+                if (value)
+                    App.FastFlags.SetRenderingMode("Direct3D 11");
+
+                OnPropertyChanged(nameof(ReShadePresetsEnabled));
+            }
+        }
+
+        public bool ReShadePresetsEnabled
+        {
+            get => App.Settings.Prop.UseReShadeExtraviPresets;
+            set => App.Settings.Prop.UseReShadeExtraviPresets = value;
         }
 
         public bool ShowServerDetailsEnabled

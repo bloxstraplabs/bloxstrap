@@ -193,6 +193,11 @@ namespace Bloxstrap
             if (ShouldInstallWebView2)
                 await InstallWebView2();
 
+            if (App.Settings.Prop.UseReShade)
+                SetStatus("Configuring/Downloading ReShade...");
+
+            await ReShade.CheckModifications();
+
             App.FastFlags.Save();
             await ApplyModifications();
 
@@ -719,6 +724,8 @@ namespace Bloxstrap
 
             if (!FreshInstall)
             {
+                ReShade.SynchronizeConfigFile();
+
                 // let's take this opportunity to delete any packages we don't need anymore
                 foreach (string filename in Directory.GetFiles(Directories.Downloads))
                 {
@@ -803,26 +810,6 @@ namespace Bloxstrap
 
             if (Directory.Exists(rbxfpsunlocker))
                 Directory.Delete(rbxfpsunlocker, true);
-
-            // v2.2.0 - remove reshade
-            string reshadeLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
-
-            if (File.Exists(reshadeLocation))
-            {
-                App.ShowMessageBox(
-                    "As of April 18th, Roblox has started out rolling out the Byfron anticheat as well as 64-bit support. Because of this, ReShade will no longer work, and will be deactivated from now on.\n\n" +
-                    $"Your ReShade configs and files will still be kept, which are all located in the {App.ProjectName} folder.",
-                    MessageBoxImage.Warning
-                );
-
-                File.Delete(reshadeLocation);
-
-                if (App.FastFlags.GetValue(FastFlagManager.RenderingModes["Direct3D 11"]) == "True" && App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") != "False")
-                    App.FastFlags.SetRenderingMode("Automatic");
-
-                // this is just in case something ever changes, i doubt it but lol
-                App.State.Prop.HadReShadeInstalled = true;
-            }
         }
 
         private async Task ApplyModifications()
@@ -920,7 +907,7 @@ namespace Bloxstrap
 
                 try
                 {
-                    packageDirectory = PackageDirectories.First(x => x.Key != "RobloxApp.zip" && x.Key != "WebView2.zip" && fileLocation.StartsWith(x.Value));
+                    packageDirectory = PackageDirectories.First(x => x.Value != "" && fileLocation.StartsWith(x.Value));
                 }
                 catch (InvalidOperationException)
                 {
