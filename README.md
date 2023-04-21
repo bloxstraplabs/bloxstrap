@@ -34,6 +34,7 @@ If you want to build Bloxstrap's source code, see the [guide for building from s
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications - re-adds the old death sound!
+* Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
 * Painless support for Discord Rich Presence - no auth cookie needed!
 * Built-in FPS unlocking
 * A customizable launcher look - includes dark theme!
@@ -44,11 +45,11 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 
 All the available features are browsable through the Bloxstrap menu. There's not too many, but it's recommended to look through all of them.
 
-Bloxstrap also has inherent benefits over some other Roblox mods, as it only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
+Bloxstrap also has inherent benefits over some other Roblox mods, as ReShade does not break whenever Roblox updates and thus require a reinstall, and is completely free, forever. It also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
 
 ## Screenshots
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/41478239/233370531-eeea0cb7-4154-4ca6-afda-e07844e57846.png" width="620" />
+    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="620" />
     <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="205" />
     <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="419" />
     <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="406" />
