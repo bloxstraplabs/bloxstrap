@@ -197,7 +197,6 @@ namespace Bloxstrap
             }
 
             Directories.Initialize(BaseDirectory);
-            FastFlags.Load();
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
@@ -206,6 +205,7 @@ namespace Bloxstrap
                 InitLog();
                 Settings.Load();
                 State.Load();
+                FastFlags.Load();
             }
 
 #if !DEBUG
