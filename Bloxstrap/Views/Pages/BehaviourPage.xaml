@@ -43,8 +43,8 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Prompt on Roblox-forced channel change" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will ask you if you want to change the release channel to what Roblox mandates." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Prompt on automatic channel change" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap may automatically change your preferred release channel. Enabling will ask you before changing." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ChannelChangePromptingEnabled, Mode=TwoWay}" />

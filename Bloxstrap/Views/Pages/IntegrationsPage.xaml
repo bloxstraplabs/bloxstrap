@@ -34,6 +34,15 @@
         </ui:CardControl>
 
         <TextBlock Text="ReShade" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <Grid Margin="0,4,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ui:SymbolIcon Grid.Column="0" Margin="0,0,4,0" VerticalAlignment="Center" Symbol="Warning28" FontSize="18" Foreground="{DynamicResource PaletteAmberBrush}" />
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Important Notice" FontSize="14" />
+        </Grid>
+        <TextBlock Margin="0,4,0,0" Text="As of April 18th, Roblox has started rolling out an update with 64-bit support and the Byfron anticheat. ReShade will not work with this update. If you wish to use ReShade, you will be forced to use the 32-bit version of Roblox that's still currently available. If you wish to use ZWinPlayer64 for 64-bit, you must disable ReShade. This is only temporary, as Roblox may soon merge this update into LIVE." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
@@ -106,7 +115,7 @@
         
         <TextBlock Text="Custom Integrations" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Margin="0,4,0,0" Text="Here, you can have other programs launch with Roblox automatically." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-            <Grid Margin="0,8,0,0">
+        <Grid Margin="0,8,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
