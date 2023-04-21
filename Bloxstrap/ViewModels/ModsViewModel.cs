@@ -114,6 +114,12 @@ namespace Bloxstrap.ViewModels
             set => App.FastFlags.SetValue("FFlagFixGraphicsQuality", value ? "True" : null);
         }
 
+        public bool MobileLuaAppInterfaceEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagLuaAppSystemBar") == "False";
+            set => App.FastFlags.SetValue("FFlagLuaAppSystemBar", value ? "False" : null);
+        }
+
         public bool DisableFullscreenOptimizationsEnabled
         {
             get => App.Settings.Prop.DisableFullscreenOptimizations;

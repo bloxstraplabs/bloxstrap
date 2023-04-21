@@ -102,6 +102,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <ui:CardControl Grid.Row="0" Margin="0,8,0,0" Padding="16,13,16,12">
@@ -148,6 +149,15 @@
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="5" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use mobile interface in desktop app" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Why would you want to do this? I don't know. But like, why not?" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding MobileLuaAppInterfaceEnabled, Mode=TwoWay}" />
             </ui:CardControl>
         </Grid>
 
