@@ -97,30 +97,13 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.UseReShadeExtraviPresets = value;
         }
 
-        public bool RbxFpsUnlockerEnabled
-        {
-            get => App.Settings.Prop.RFUEnabled;
-            set
-            {
-                App.Settings.Prop.RFUEnabled = value;
-                RbxFpsUnlockerAutocloseEnabled = value;
-                OnPropertyChanged(nameof(RbxFpsUnlockerAutocloseEnabled));
-            }
-        }
-
-        public bool RbxFpsUnlockerAutocloseEnabled
-        {
-            get => App.Settings.Prop.RFUAutoclose;
-            set => App.Settings.Prop.RFUAutoclose = value;
-        }
-
         public bool ShowServerDetailsEnabled
         {
             get => App.Settings.Prop.ShowServerDetails;
-			set => App.Settings.Prop.ShowServerDetails = value;
+            set => App.Settings.Prop.ShowServerDetails = value;
         }
 
-		public ObservableCollection<CustomIntegration> CustomIntegrations
+        public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations; 
             set => App.Settings.Prop.CustomIntegrations = value;

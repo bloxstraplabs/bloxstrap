@@ -137,12 +137,6 @@
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="BSD 3-Clause License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="2" Margin="0,8,0,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/axstin/rbxfpsunlocker/blob/master/LICENSE">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="rbxfpsunlocker by axstin" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardAction>
         </Grid>
     </StackPanel>
 </ui:UiPage>

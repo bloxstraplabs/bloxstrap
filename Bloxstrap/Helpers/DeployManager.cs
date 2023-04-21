@@ -76,35 +76,17 @@ namespace Bloxstrap.Helpers
             }
         }
 
-        // basically any channel that has had a deploy within the past month with a windowsplayer build
-        public static readonly List<string> ChannelsAbstracted = new()
+        // most commonly used/interesting channels
+        public static readonly List<string> SelectableChannels = new()
         {
             "LIVE",
-            "ZNext",
-            "ZCanary",
-            "ZIntegration"
-        };
-
-        // why not?
-        public static readonly List<string> ChannelsAll = new()
-        {
-            "LIVE",
-            "ZAvatarTeam",
-            "ZAvatarRelease",
-            "ZCanary",
-            "ZCanary1",
-            "ZCanary2",
-            "ZCanary3",
-            "ZCanaryApps",
+            "ZWinPlayer64",
             "ZFlag",
-            "ZIntegration",
-            "ZIntegration1",
-            "ZLive",
-            "ZLive1",
             "ZNext",
-            "ZSocialTeam",
-            "ZStudioInt1",
-            "ZStudioInt2"
+            "ZCanary",
+            "ZIntegration",
+            "ZAvatarTeam",
+            "ZSocialTeam"
         };
         #endregion
 
@@ -112,7 +94,7 @@ namespace Bloxstrap.Helpers
         {
             App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Getting deploy info for channel {Channel} (timestamp={timestamp})");
 
-            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{Channel}");
+            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{Channel}").ConfigureAwait(false);
 
             string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
 

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -15,7 +16,7 @@ namespace Bloxstrap.Helpers
         public Dictionary<string, object?> Changes = new();
 
         // only one missing here is Metal because lol
-        public static IReadOnlyDictionary<string, string> RenderingModes { get; set; } = new Dictionary<string, string>()
+        public static IReadOnlyDictionary<string, string> RenderingModes => new Dictionary<string, string>
         {
             { "Automatic", "" },
             { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
@@ -23,10 +24,63 @@ namespace Bloxstrap.Helpers
             { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
         };
 
+        // this is one hell of a variable definition lmao
+        public static IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => new Dictionary<string, Dictionary<string, string?>>
+        {
+            { 
+                "Default", 
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", null },
+                    { "FFlagEnableInGameMenuV3", null }
+                }
+            },
+
+            {
+                "Version 1 (2015)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "True" },
+                    { "FFlagEnableInGameMenuV3", "False" }
+                }
+            },
+
+            {
+                "Version 2 (2020)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "False" },
+                    { "FFlagEnableInGameMenuV3", "False" }
+                }
+            },
+
+            {
+                "Version 3 (2021)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "False" },
+                    { "FFlagEnableInGameMenuV3", "True" }
+                }
+            }
+        };
+
+        // all fflags are stored as strings
+        // to delete a flag, set the value as null
+        public void SetValue(string key, object? value)
+        {
+            if (value is null)
+            {
+                Changes[key] = null;
+                App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");
+            }
+            else
+            {
+                Changes[key] = value.ToString();
+                App.Logger.WriteLine($"[FastFlagManager::SetValue] Value change for '{key}' to '{value}' is pending");
+            }
+        }
+
         // this returns null if the fflag doesn't exist
-        // this also returns as a string because deserializing an object doesn't
-        // deserialize back into the original object type, it instead deserializes
-        // as a "JsonElement" which is annoying
         public string? GetValue(string key)
         {
             // check if we have an updated change for it pushed first
@@ -44,25 +98,38 @@ namespace Bloxstrap.Helpers
             foreach (var mode in RenderingModes)
             {
                 if (mode.Key != "Automatic")
-                    App.FastFlags.Changes[mode.Value] = null;
+                    SetValue(mode.Value, null);
             }
 
             if (value != "Automatic")
-                App.FastFlags.Changes[RenderingModes[value]] = true;
+                SetValue(RenderingModes[value], "True");
+        }
+
+        public override void Load()
+        {
+            base.Load();
+
+            // set to 9999 by default if it doesnt already exist
+            if (GetValue("DFIntTaskSchedulerTargetFps") is null)
+                SetValue("DFIntTaskSchedulerTargetFps", 9999);
+
+            // reshade / exclusive fullscreen requires direct3d 11 to work
+            if (GetValue(RenderingModes["Direct3D 11"]) != "True" && (App.Settings.Prop.UseReShade || App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False"))
+                SetRenderingMode("Direct3D 11");
         }
 
         public override void Save()
         {
             App.Logger.WriteLine($"[FastFlagManager::Save] Attempting to save JSON to {FileLocation}...");
 
+            // reload for any changes made while the menu was open
+            Load();
+
             if (Changes.Count == 0)
             {
                 App.Logger.WriteLine($"[FastFlagManager::Save] No changes to apply, aborting.");
                 return;
             }
-
-            // reload for any changes made while the menu was open
-            Load();
 
             foreach (var change in Changes)
             {
@@ -73,7 +140,7 @@ namespace Bloxstrap.Helpers
                     continue;
                 }
 
-                App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to {change.Value}");
+                App.Logger.WriteLine($"[FastFlagManager::Save] Setting '{change.Key}' to '{change.Value}'");
                 Prop[change.Key] = change.Value;
             }
 

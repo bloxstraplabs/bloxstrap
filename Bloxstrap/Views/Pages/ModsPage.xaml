@@ -6,7 +6,7 @@
       xmlns:models="clr-namespace:Bloxstrap.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="ModsPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
@@ -99,16 +99,19 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <ui:CardControl Grid.Row="0" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock FontSize="14" Text="Framerate limit" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
-                <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
+                <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
             </ui:CardControl>
             <ui:CardControl Grid.Row="1" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
@@ -118,6 +121,33 @@
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="2" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="3" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+            <ui:CardControl Grid.Row="4" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="In-game menu version" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
             </ui:CardControl>
         </Grid>
 

@@ -22,7 +22,7 @@ Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/
 > winget install bloxstrap
 ```
 
-You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.14-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
+You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.16-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
 
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
 
@@ -36,12 +36,12 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 * Persistent file modifications - re-adds the old death sound!
 * Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
 * Painless support for Discord Rich Presence - no auth cookie needed!
-* Automatic silent FPS unlocking with [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker)
-* Ability to disable the Roblox desktop app
+* Built-in FPS unlocking
 * A customizable launcher look - includes dark theme!
-* Ability to opt into non-production Roblox release channels
-* Ability to see what region your current server is located in
-* Support for having multiple Roblox game instances open simultaneously
+* Lets you disable the Roblox desktop app
+* Lets you opt into non-production Roblox release channels
+* Lets you see what region your current server is located in
+* Lets you have multiple Roblox game instances open simultaneously
 
 All the available features are browsable through the Bloxstrap menu. There's not too many, but it's recommended to look through all of them.
 

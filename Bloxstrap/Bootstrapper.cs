@@ -62,24 +62,25 @@ namespace Bloxstrap
         };
 
         private const string AppSettings =
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-            "<Settings>\n" +
-            "	<ContentFolder>content</ContentFolder>\n" +
-            "	<BaseUrl>http://www.roblox.com</BaseUrl>\n" +
-            "</Settings>\n";
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
+            "<Settings>\r\n" +
+            "	<ContentFolder>content</ContentFolder>\r\n" +
+            "	<BaseUrl>http://www.roblox.com</BaseUrl>\r\n" +
+            "</Settings>\r\n";
 
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
-        private static bool ShouldInstallWebView2 = false;
         private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
+        private static bool ShouldInstallWebView2 = false;
 
-        private string? _launchCommandLine;
+        private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
+
+        private string _launchCommandLine;
 
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
         private string _versionFolder = null!;
-        private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
         private bool _isInstalling = false;
         private double _progressIncrement;
@@ -91,7 +92,7 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper(string? launchCommandLine = null)
+        public Bootstrapper(string launchCommandLine)
         {
             _launchCommandLine = launchCommandLine;
 
@@ -114,6 +115,19 @@ namespace Bloxstrap
 
             if (Dialog is not null)
                 Dialog.Message = message;
+        }
+
+        private void UpdateProgressbar()
+        {
+            int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
+
+            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
+            // too lazy to fix properly so lol
+            if (newProgress > 100)
+                return;
+
+            if (Dialog is not null)
+                Dialog.ProgressValue = newProgress;
         }
 
         public async Task Run()
@@ -172,10 +186,9 @@ namespace Bloxstrap
             _versionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
             if (App.IsFirstRun)
-            {
                 App.ShouldSaveConfigs = true;
-                App.FastFlags.Save();
-            }
+
+            MigrateIntegrations();
 
             if (ShouldInstallWebView2)
                 await InstallWebView2();
@@ -185,14 +198,13 @@ namespace Bloxstrap
 
             await ReShade.CheckModifications();
 
+            App.FastFlags.Save();
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)
                 Register();
 
             CheckInstall();
-
-            await RbxFpsUnlocker.CheckInstall();
 
             // at this point we've finished updating our configs
             App.Settings.Save();
@@ -207,60 +219,6 @@ namespace Bloxstrap
                 await StartRoblox();
         }
 
-        private async Task CheckForUpdates()
-        {
-            // don't update if there's another instance running (likely running in the background)
-            if (Utilities.GetProcessCount(App.ProjectName) > 1)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
-                return;
-            }
-
-            string currentVersion = $"{App.ProjectName} v{App.Version}";
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
-
-            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
-
-            if (releaseInfo?.Assets is null || currentVersion == releaseInfo.Name)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
-                return;
-            }
-
-            SetStatus($"Getting the latest {App.ProjectName}...");
-
-            // 64-bit is always the first option
-            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
-            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
-
-            if (!File.Exists(downloadLocation))
-            {
-                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
-
-                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
-                await response.Content.CopyToAsync(fileStream);
-            }
-
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.Name}...");
-
-            ProcessStartInfo startInfo = new()
-            {
-                FileName = downloadLocation,
-            };
-
-            foreach (string arg in App.LaunchArgs)
-                startInfo.ArgumentList.Add(arg);
-
-            App.Settings.Save();
-
-            Process.Start(startInfo);
-
-            Environment.Exit(0);
-        }
-
         private async Task CheckLatestVersion()
         {
             SetStatus("Connecting to Roblox...");
@@ -269,6 +227,179 @@ namespace Bloxstrap
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
+        }
+
+        private async Task StartRoblox()
+        {
+            SetStatus("Starting Roblox...");
+
+            if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
+            {
+                Utilities.OpenWebsite("https://www.roblox.com/games");
+                Dialog?.CloseBootstrapper();
+                return;
+            }
+
+            _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
+
+            if (App.Settings.Prop.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
+                _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
+
+            // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
+            bool shouldWait = false;
+
+            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
+            int gameClientPid;
+            using (Process gameClient = Process.Start(_playerLocation, _launchCommandLine))
+            {
+                gameClientPid = gameClient.Id;
+            }
+
+            List<Process> autocloseProcesses = new();
+            GameActivityWatcher? activityWatcher = null;
+            DiscordRichPresence? richPresence = null;
+            ServerNotifier? serverNotifier = null;
+
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClientPid})");
+
+            using (SystemEvent startEvent = new("www.roblox.com/robloxStartedEvent"))
+            {
+                bool startEventFired = await startEvent.WaitForEvent();
+
+                startEvent.Close();
+
+                if (!startEventFired)
+                    return;
+            }
+
+            if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
+            {
+                activityWatcher = new();
+                shouldWait = true;
+            }
+
+            if (App.Settings.Prop.UseDiscordRichPresence)
+            {
+                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
+                richPresence = new(activityWatcher!);
+            }
+
+            if (App.Settings.Prop.ShowServerDetails)
+            {
+                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
+                serverNotifier = new(activityWatcher!);
+            }
+
+            // launch custom integrations now
+            foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
+
+                try
+                {
+                    Process process = Process.Start(integration.Location, integration.LaunchArgs);
+
+                    if (integration.AutoClose)
+                    {
+                        shouldWait = true;
+                        autocloseProcesses.Add(process);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Failed to launch integration '{integration.Name}'! ({ex.Message})");
+                }
+            }
+
+            // event fired, wait for 3 seconds then close
+            await Task.Delay(3000);
+            Dialog?.CloseBootstrapper();
+
+            // keep bloxstrap open in the background if needed
+            if (!shouldWait)
+                return;
+
+            activityWatcher?.StartWatcher();
+
+            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Waiting for Roblox to close");
+
+            while (Process.GetProcesses().Any(x => x.Id == gameClientPid))
+                await Task.Delay(1000);
+
+            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Roblox has exited");
+
+            richPresence?.Dispose();
+
+            foreach (Process process in autocloseProcesses)
+            {
+                if (process.HasExited)
+                    continue;
+
+                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Autoclosing process '{process.ProcessName}' (PID {process.Id})");
+                process.Kill();
+            }
+        }
+
+        public void CancelInstall()
+        {
+            if (!_isInstalling)
+            {
+                App.Terminate(ERROR_INSTALL_USEREXIT);
+                return;
+            }
+
+            App.Logger.WriteLine("[Bootstrapper::CancelInstall] Cancelling install...");
+
+            _cancelTokenSource.Cancel();
+            _cancelFired = true;
+
+            try
+            {
+                // clean up install
+                if (App.IsFirstRun)
+                    Directory.Delete(Directories.Base, true);
+                else if (Directory.Exists(_versionFolder))
+                    Directory.Delete(_versionFolder, true);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("[Bootstrapper::CancelInstall] Could not fully clean up installation!");
+                App.Logger.WriteLine($"[Bootstrapper::CancelInstall] {ex}");
+            }
+
+            App.Terminate(ERROR_INSTALL_USEREXIT);
+        }
+        #endregion
+
+        #region App Install
+        public static void Register()
+        {
+            using (RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
+            {
+                applicationKey.SetValue("InstallLocation", Directories.Base);
+            }
+
+            // set uninstall key
+            using (RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}"))
+            {
+                uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
+                uninstallKey.SetValue("DisplayName", App.ProjectName);
+                uninstallKey.SetValue("DisplayVersion", App.Version);
+
+                if (uninstallKey.GetValue("InstallDate") is null)
+                    uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+
+                uninstallKey.SetValue("InstallLocation", Directories.Base);
+                uninstallKey.SetValue("NoRepair", 1);
+                uninstallKey.SetValue("Publisher", "pizzaboxer");
+                uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
+                uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
+                uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
+                uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
+                uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
+            }
+
+            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application");
         }
 
         private void CheckInstallMigration()
@@ -334,194 +465,6 @@ namespace Bloxstrap
             App.Logger.WriteLine("[Bootstrapper::CheckInstallMigration] Finished migrating install location!");
         }
 
-        private async Task StartRoblox()
-        {
-            string startEventName = App.ProjectName.Replace(" ", "") + "StartEvent";
-
-            SetStatus("Starting Roblox...");
-
-            if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
-            {
-                Utilities.OpenWebsite("https://www.roblox.com/games");
-                Dialog?.CloseBootstrapper();
-                return;
-            }
-
-            // launch time isn't really required for all launches, but it's usually just safest to do this
-            _launchCommandLine += " --launchtime=" + DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
-            if (App.Settings.Prop.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
-                _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
-
-            _launchCommandLine  += " -startEvent " + startEventName;
-
-            // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
-            bool shouldWait = false;
-
-            Process gameClient = Process.Start(_playerLocation, _launchCommandLine);
-            List<Process> autocloseProcesses = new();
-            GameActivityWatcher? activityWatcher = null;
-            DiscordRichPresence? richPresence = null;
-            ServerNotifier? serverNotifier = null;
-
-            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClient.Id})");
-
-            using (SystemEvent startEvent = new(startEventName))
-            {
-                bool startEventFired = await startEvent.WaitForEvent();
-
-                startEvent.Close();
-
-                if (!startEventFired)
-                    return;
-            }
-            
-            if (App.Settings.Prop.RFUEnabled && Process.GetProcessesByName(RbxFpsUnlocker.ApplicationName).Length == 0)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using rbxfpsunlocker");
-
-                ProcessStartInfo startInfo = new() 
-                { 
-                    WorkingDirectory = Path.Combine(Directories.Integrations, "rbxfpsunlocker"),
-                    FileName = Path.Combine(Directories.Integrations, @"rbxfpsunlocker\rbxfpsunlocker.exe")
-                }; 
-                
-                Process process = Process.Start(startInfo)!;
-
-                if (App.Settings.Prop.RFUAutoclose)
-                {
-                    shouldWait = true;
-                    autocloseProcesses.Add(process);
-                }
-            }
-
-            if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
-            {
-                activityWatcher = new();
-                shouldWait = true;
-            }
-
-            if (App.Settings.Prop.UseDiscordRichPresence)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
-                richPresence = new(activityWatcher!);
-            }
-
-            if (App.Settings.Prop.ShowServerDetails)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
-                serverNotifier = new(activityWatcher!);
-            }
-
-            // launch custom integrations now
-            foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
-            {
-                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
-
-                try
-                {
-                    Process process = Process.Start(integration.Location, integration.LaunchArgs);
-
-                    if (integration.AutoClose)
-                    {
-                        shouldWait = true;
-                        autocloseProcesses.Add(process);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Failed to launch integration '{integration.Name}'! ({ex.Message})");
-                }
-            }
-
-            // event fired, wait for 3 seconds then close
-            await Task.Delay(3000);
-            Dialog?.CloseBootstrapper();
-
-            // keep bloxstrap open in the background if needed
-            if (!shouldWait)
-                return;
-
-            activityWatcher?.StartWatcher();
-
-            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Waiting for Roblox to close");
-            await gameClient.WaitForExitAsync();
-            App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Roblox exited with code {gameClient.ExitCode}");
-
-            richPresence?.Dispose();
-
-            foreach (Process process in autocloseProcesses)
-            {
-                if (process.HasExited)
-                    continue;
-
-                App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Autoclosing process '{process.ProcessName}' (PID {process.Id})");
-                process.Kill();
-            }
-        }
-
-        public void CancelInstall()
-        {
-            if (!_isInstalling)
-            {
-                App.Terminate(ERROR_INSTALL_USEREXIT);
-                return;
-            }
-
-            App.Logger.WriteLine("[Bootstrapper::CancelInstall] Cancelling install...");
-
-            _cancelTokenSource.Cancel();
-            _cancelFired = true;
-
-            try
-            {
-                // clean up install
-                if (App.IsFirstRun)
-                    Directory.Delete(Directories.Base, true);
-                else if (Directory.Exists(_versionFolder))
-                    Directory.Delete(_versionFolder, true);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine("[Bootstrapper::CancelInstall] Could not fully clean up installation!");
-                App.Logger.WriteLine($"[Bootstrapper::CancelInstall] {ex}");
-            }
-
-            App.Terminate(ERROR_INSTALL_USEREXIT);
-        }
-#endregion
-
-        #region App Install
-        public static void Register()
-        {
-            using (RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
-            {
-                applicationKey.SetValue("InstallLocation", Directories.Base);
-            }
-
-            // set uninstall key
-            using (RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}"))
-            {
-                uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
-                uninstallKey.SetValue("DisplayName", App.ProjectName);
-                uninstallKey.SetValue("DisplayVersion", App.Version);
-
-                if (uninstallKey.GetValue("InstallDate") is null)
-                    uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
-
-                uninstallKey.SetValue("InstallLocation", Directories.Base);
-                uninstallKey.SetValue("NoRepair", 1);
-                uninstallKey.SetValue("Publisher", "pizzaboxer");
-                uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
-                uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
-                uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
-                uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
-                uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
-            }
-
-            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application");
-        }
-
         public static void CheckInstall()
         {
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Checking install");
@@ -579,6 +522,60 @@ namespace Bloxstrap
                 // one-time toggle, set it back to false
                 App.Settings.Prop.CreateDesktopIcon = false;
             }
+        }
+
+        private async Task CheckForUpdates()
+        {
+            // don't update if there's another instance running (likely running in the background)
+            if (Utilities.GetProcessCount(App.ProjectName) > 1)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
+                return;
+            }
+
+            string currentVersion = $"{App.ProjectName} v{App.Version}";
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
+
+            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
+
+            if (releaseInfo?.Assets is null || currentVersion == releaseInfo.Name)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
+                return;
+            }
+
+            SetStatus($"Getting the latest {App.ProjectName}...");
+
+            // 64-bit is always the first option
+            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
+            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
+
+            if (!File.Exists(downloadLocation))
+            {
+                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+
+                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
+                await response.Content.CopyToAsync(fileStream);
+            }
+
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.Name}...");
+
+            ProcessStartInfo startInfo = new()
+            {
+                FileName = downloadLocation,
+            };
+
+            foreach (string arg in App.LaunchArgs)
+                startInfo.ArgumentList.Add(arg);
+
+            App.Settings.Save();
+
+            Process.Start(startInfo);
+
+            Environment.Exit(0);
         }
 
         private void Uninstall()
@@ -653,22 +650,9 @@ namespace Bloxstrap
 
             Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
         }
-#endregion
+        #endregion
 
         #region Roblox Install
-        private void UpdateProgressbar()
-        {
-            int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
-
-            // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
-            // too lazy to fix properly so lol
-            if (newProgress > 100)
-                return;
-
-            if (Dialog is not null)
-                Dialog.ProgressValue = newProgress;
-        }
-
         private async Task InstallLatestVersion()
         {
             _isInstalling = true;
@@ -819,6 +803,15 @@ namespace Bloxstrap
             App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Finished installing runtime");
         }
 
+        public static void MigrateIntegrations()
+        {
+            // v2.2.0 - remove rbxfpsunlocker
+            string rbxfpsunlocker = Path.Combine(Directories.Integrations, "rbxfpsunlocker");
+
+            if (Directory.Exists(rbxfpsunlocker))
+                Directory.Delete(rbxfpsunlocker, true);
+        }
+
         private async Task ApplyModifications()
         {
             SetStatus("Applying Roblox modifications...");
@@ -914,7 +907,7 @@ namespace Bloxstrap
 
                 try
                 {
-                    packageDirectory = PackageDirectories.First(x => x.Key != "RobloxApp.zip" && fileLocation.StartsWith(x.Value));
+                    packageDirectory = PackageDirectories.First(x => x.Value != "" && fileLocation.StartsWith(x.Value));
                 }
                 catch (InvalidOperationException)
                 {
@@ -1102,6 +1095,6 @@ namespace Bloxstrap
 
             entry.ExtractToFile(fileLocation);
         }
-#endregion
+        #endregion
     }
 }

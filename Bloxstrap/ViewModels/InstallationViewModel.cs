@@ -1,17 +1,15 @@
-﻿using Bloxstrap.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using System.Windows.Forms;
-using Wpf.Ui.Mvvm.Interfaces;
-using System.ComponentModel;
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
-using System.Diagnostics;
 
 namespace Bloxstrap.ViewModels
 {
@@ -20,14 +18,13 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private IEnumerable<string> _channels = DeployManager.ChannelsAbstracted.Contains(App.Settings.Prop.Channel) ? DeployManager.ChannelsAbstracted : DeployManager.ChannelsAll;
-        private bool _showAllChannels = !DeployManager.ChannelsAbstracted.Contains(App.Settings.Prop.Channel);
+        private bool _manualChannelEntry = !DeployManager.SelectableChannels.Contains(App.Settings.Prop.Channel);
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
         public ICommand OpenFolderCommand => new RelayCommand(OpenFolder);
 
-
-        public DeployInfo? ChannelDeployInfo { get; private set; } = null; //new DeployInfo(){ Version = "hi", VersionGuid = "hi", Timestamp = "January 25 2023 at 6:03:48 PM" };
+        public DeployInfo? ChannelDeployInfo { get; private set; } = null;
+        public string ChannelInfoLoadingText { get; private set; } = null!;
 
         public InstallationViewModel()
         {
@@ -36,20 +33,32 @@ namespace Bloxstrap.ViewModels
 
         private async Task LoadChannelDeployInfo(string channel)
         {
+            ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
+            OnPropertyChanged(nameof(ChannelInfoLoadingText));
+
             ChannelDeployInfo = null;
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
             App.DeployManager.Channel = channel;
-            ClientVersion info = await App.DeployManager.GetLastDeploy(true);
 
-            ChannelDeployInfo = new DeployInfo
+            try
             {
-                Version = info.Version, 
-                VersionGuid = info.VersionGuid, 
-                Timestamp = info.Timestamp?.ToString("dddd, d MMMM yyyy 'at' h:mm:ss tt", App.CultureFormat)!
-            };
+                ClientVersion info = await App.DeployManager.GetLastDeploy(true);
 
-            OnPropertyChanged(nameof(ChannelDeployInfo));
+                ChannelDeployInfo = new DeployInfo
+                {
+                    Version = info.Version,
+                    VersionGuid = info.VersionGuid,
+                    Timestamp = info.Timestamp?.ToString("dddd, d MMMM yyyy 'at' h:mm:ss tt", App.CultureFormat)!
+                };
+
+                OnPropertyChanged(nameof(ChannelDeployInfo));
+            }
+            catch (Exception)
+            {
+                ChannelInfoLoadingText = "Failed to get deploy info.\nIs the channel name valid?";
+                OnPropertyChanged(nameof(ChannelInfoLoadingText));
+            }
         }
 
         private void BrowseInstallLocation()
@@ -74,43 +83,36 @@ namespace Bloxstrap.ViewModels
             set => App.BaseDirectory = value;
         }
 
-        public IEnumerable<string> Channels
-        {
-            get => _channels;
-            set => _channels = value;
-        }
+        public IEnumerable<string> Channels => DeployManager.SelectableChannels;
 
         public string Channel
         {
             get => App.Settings.Prop.Channel;
             set
             {
-                //Task.Run(() => GetChannelInfo(value));
                 Task.Run(() => LoadChannelDeployInfo(value));
                 App.Settings.Prop.Channel = value;
             }
         }
 
-        public bool ShowAllChannels
+        public bool ManualChannelEntry
         {
-            get => _showAllChannels;
+            get => _manualChannelEntry;
             set
             {
-                if (value)
-                {
-                    Channels = DeployManager.ChannelsAll;
-                }
-                else
-                {
-                    Channels = DeployManager.ChannelsAbstracted;
+                _manualChannelEntry = value;
+
+                if (!value && !Channels.Contains(Channel))
                     Channel = DeployManager.DefaultChannel;
-                    OnPropertyChanged(nameof(Channel));
-                }
 
-                OnPropertyChanged(nameof(Channels));
-
-                _showAllChannels = value;
+                OnPropertyChanged(nameof(Channel));
+                OnPropertyChanged(nameof(ChannelComboBoxVisibility));
+                OnPropertyChanged(nameof(ChannelTextBoxVisibility));
             }
         }
+
+        // cant use data bindings so i have to do whatever tf this is
+        public Visibility ChannelComboBoxVisibility => ManualChannelEntry ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility ChannelTextBoxVisibility => ManualChannelEntry ? Visibility.Visible : Visibility.Collapsed;
     }
 }

@@ -118,7 +118,10 @@ namespace Bloxstrap.ViewModels
             get => App.Settings.Prop.BootstrapperIconCustomLocation;
             set
             {
+                App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconCustom;
                 App.Settings.Prop.BootstrapperIconCustomLocation = value;
+                
+                OnPropertyChanged(nameof(Icon));
                 OnPropertyChanged(nameof(IconPreviewSource));
             }
         }
