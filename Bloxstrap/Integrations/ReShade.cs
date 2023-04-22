@@ -507,11 +507,11 @@ namespace Bloxstrap.Integrations
 
             if (App.Settings.Prop.Channel.ToLower() == DeployManager.DefaultChannel.ToLower())
             {
-				App.Logger.WriteLine($"[App::OnStartup] Channel is already {DeployManager.DefaultChannel}");
+                App.Logger.WriteLine($"[App::OnStartup] Channel is already {DeployManager.DefaultChannel}");
                 return;
-			}
+            }
 
-			ClientVersion versionInfo = await App.DeployManager.GetLastDeploy().ConfigureAwait(false);
+            ClientVersion versionInfo = await App.DeployManager.GetLastDeploy().ConfigureAwait(false);
             string manifest = await App.HttpClient.GetStringAsync($"{App.DeployManager.BaseUrl}/{versionInfo.VersionGuid}-rbxManifest.txt");
 
             if (!manifest.Contains("RobloxPlayerBeta.dll"))
@@ -530,5 +530,5 @@ namespace Bloxstrap.Integrations
             App.DeployManager.Channel = App.Settings.Prop.Channel = DeployManager.DefaultChannel;
         }
 
-	}
+    }
 }
