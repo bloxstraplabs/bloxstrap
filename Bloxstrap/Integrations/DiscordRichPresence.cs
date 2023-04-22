@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 
 using Bloxstrap.Helpers;
@@ -17,6 +14,9 @@ namespace Bloxstrap.Integrations
     {
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
         private readonly GameActivityWatcher _activityWatcher;
+        
+        private long _currentUniverseId;
+        private DateTime? _timeStartedUniverse;
 
         public DiscordRichPresence(GameActivityWatcher activityWatcher)
         {
@@ -67,6 +67,13 @@ namespace Bloxstrap.Integrations
             long universeId = universeIdResponse.UniverseId;
             App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe ID as {universeId}");
 
+            // preserve time spent playing if we're teleporting between places in the same universe
+            if (_timeStartedUniverse is null || !_activityWatcher.ActivityIsTeleport || universeId != _currentUniverseId)
+                _timeStartedUniverse = DateTime.UtcNow;
+
+            _activityWatcher.ActivityIsTeleport = false;
+            _currentUniverseId = universeId;
+
             var gameDetailResponse = await Utilities.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
             if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
             {
@@ -110,7 +117,7 @@ namespace Bloxstrap.Integrations
             {
                 Details = universeDetails.Name,
                 State = $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
-                Timestamps = new Timestamps { Start = DateTime.UtcNow },
+                Timestamps = new Timestamps { Start = _timeStartedUniverse },
                 Buttons = buttons.ToArray(),
                 Assets = new Assets
                 {

@@ -17,6 +17,7 @@ namespace Bloxstrap.Helpers
         private const string GameJoiningUDMUXEntry = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
+        private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
@@ -28,11 +29,14 @@ namespace Bloxstrap.Helpers
         public event EventHandler? OnGameLeave;
 
         // these are values to use assuming the player isn't currently in a game
+        // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
+        // because of the weird chronology of where the teleporting entry is outputted, there's no way to reset it in here
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
+        public bool ActivityIsTeleport = false;
 
         public bool IsDisposed = false;
 
@@ -163,17 +167,25 @@ namespace Bloxstrap.Helpers
                     OnGameJoin?.Invoke(this, new EventArgs());
                 }
             }
-            else if (ActivityInGame && ActivityPlaceId != 0 && entry.Contains(GameDisconnectedEntry))
+            else if (ActivityInGame && ActivityPlaceId != 0)
             {
-                App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                if (entry.Contains(GameDisconnectedEntry))
+                {
+                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
-                ActivityInGame = false;
-                ActivityPlaceId = 0;
-                ActivityJobId = "";
-                ActivityMachineAddress = "";
-                ActivityMachineUDMUX = false;
+                    ActivityInGame = false;
+                    ActivityPlaceId = 0;
+                    ActivityJobId = "";
+                    ActivityMachineAddress = "";
+                    ActivityMachineUDMUX = false;
 
-                OnGameLeave?.Invoke(this, new EventArgs());
+                    OnGameLeave?.Invoke(this, new EventArgs());
+                }
+                else if (entry.Contains(GameTeleportingEntry))
+                {
+                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    ActivityIsTeleport = true;
+                }
             }
         }
 
