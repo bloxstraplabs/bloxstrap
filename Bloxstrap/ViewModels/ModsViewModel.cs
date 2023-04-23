@@ -125,5 +125,11 @@ namespace Bloxstrap.ViewModels
             get => App.Settings.Prop.DisableFullscreenOptimizations;
             set => App.Settings.Prop.DisableFullscreenOptimizations = value;
         }
+        
+        public bool ForceFutureEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagDebugForceFutureIsBrightPhase3") == "True";
+            set => App.FastFlags.SetValue("FFlagDebugForceFutureIsBrightPhase3", value ? "True" : null);
+        }
     }
 }
