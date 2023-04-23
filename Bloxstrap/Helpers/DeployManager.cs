@@ -94,7 +94,7 @@ namespace Bloxstrap.Helpers
         {
             App.Logger.WriteLine($"[DeployManager::GetLastDeploy] Getting deploy info for channel {Channel} (timestamp={timestamp})");
 
-            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettings.roblox.com/v2/client-version/WindowsPlayer/channel/{Channel}").ConfigureAwait(false);
+            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{Channel}").ConfigureAwait(false);
 
             string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
 
