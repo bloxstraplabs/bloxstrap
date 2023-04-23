@@ -5,40 +5,66 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 using Bloxstrap.Properties;
 using Bloxstrap.Views;
+using System.Text.Json;
+using System.Net;
 
 namespace Bloxstrap.Helpers
 {
     public class Updater
     {
-        public static void CheckInstalledVersion()
+        public static void CheckIsSuccessfulyUpdate()
         {
-            if (Environment.ProcessPath is null || !File.Exists(Directories.Application) || Environment.ProcessPath == Directories.Application)
+            string updatePath = Path.Combine(Directories.Base, "Bloxstrap-Update-Version.exe");
+
+            if (!File.Exists(updatePath) || !File.Exists(Directories.Application))
                 return;
 
-            // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
-            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Path.Combine(Directories.Base, "Updates")) || Environment.ProcessPath.StartsWith(Path.Combine(Directories.LocalAppData, "Temp"));
+            var applicationInfo = new FileInfo(Directories.Application);
+            var updateInfo = new FileInfo(updatePath);
 
-            // if downloaded version doesn't match, replace installed version with downloaded version 
-            FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
-            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.Application);
+            if (applicationInfo.Length == updateInfo.Length)
+            {
+                App.ShowMessageBox("Successfully update Bloxstrap", MessageBoxImage.Information);
+            }
+            else
+            {
+                App.ShowMessageBox("Failed to update Bloxstrap", MessageBoxImage.Error);
+            }
 
-            if (installedVersionInfo.ProductVersion == currentVersionInfo.ProductVersion)
+
+            File.Delete(updatePath);
+        }
+
+        public static async void CheckForUpdate()
+        {
+            using var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
+
+            string url = $"https://api.github.com/repos/{App.ProjectRepository}/releases/latest";
+            var response = await httpClient.GetAsync(url);
+            var responseCOntent = await response.Content.ReadAsStringAsync();
+
+            var jsonDoc = JsonDocument.Parse(responseCOntent);
+
+            var tagValue = jsonDoc.RootElement.GetProperty("tag_name").GetString().Replace("v", "");
+
+            if (tagValue == App.Version)
                 return;
 
             MessageBoxResult result;
 
-            // silently upgrade version if the command line flag is set or if we're launching from an auto update
-            if (App.IsUpgrade || isAutoUpgrade)
+            if (App.IsUpgrade)
             {
                 result = MessageBoxResult.Yes;
             }
             else
             {
                 result = App.ShowMessageBox(
-                    $"The version of {App.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
+                    "Would you like to update to the latest version of Bloxstrap?",
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
                 );
@@ -47,68 +73,35 @@ namespace Bloxstrap.Helpers
             if (result != MessageBoxResult.Yes)
                 return;
 
-            // yes, this is EXTREMELY hacky, but the updater process that launched the
-            // new version may still be open and so we have to wait for it to close
-            int attempts = 0;
-            while (attempts < 10)
+            string fileName = "";
+
+            /// Why i didn't do it in short hand if else
+            if (IntPtr.Size == 8)
             {
-                attempts++;
-
-                try
-                {
-                    File.Delete(Directories.Application);
-                    break;
-                }
-                catch (Exception)
-                {
-                    if (attempts == 1)
-                        App.Logger.WriteLine("[Updater::CheckInstalledVersion] Waiting for write permissions to update version");
-
-                    Thread.Sleep(500);
-                }
+                fileName = $"Bloxstrap-v{tagValue}-x64.exe";
+            }
+            else
+            {
+                fileName = $"Bloxstrap-v{tagValue}-x86.exe";
             }
 
-            if (attempts == 10)
-            {
-                App.Logger.WriteLine("[Updater::CheckInstalledVersion] Failed to update! (Could not get write permissions after 5 seconds)");
-                return;
-            }
+            string downloadUrl = $"https://github.com/pizzaboxer/bloxstrap/releases/download/v{tagValue}/{fileName}";
+            string downloadPath = Path.Combine(Directories.Base, "Bloxstrap-Update-Version.exe");
 
-            File.Copy(Environment.ProcessPath, Directories.Application);
-                
-            Bootstrapper.Register();
-
-            if (isAutoUpgrade)
-            {
-                NotifyIcon notification = new()
-                {
-                    Icon = Resources.IconBloxstrap,
-                    Text = "Bloxstrap",
-                    Visible = true,
-                    BalloonTipTitle = $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}",
-                    BalloonTipText = "Click here to see what's new in this version"
-                };
-
-                notification.BalloonTipClicked += (_, _) => Utilities.OpenWebsite($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}");
-                notification.ShowBalloonTip(30);
-
-                Task.Run(() =>
-                {
-                    Task.Delay(30000).Wait();
-                    notification.Dispose();
-                });
-            }
-            else if (!App.IsQuiet)
-            {
-                App.ShowMessageBox(
-                    $"{App.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
-                    MessageBoxImage.Information,
-                    MessageBoxButton.OK
-                );
-
-                new MainWindow().ShowDialog();
-                App.Terminate();
-            }
+            WebClient client = new WebClient();
+            client.DownloadFile(downloadUrl, downloadPath);
+            App.Logger.WriteLine("[Updater::CheckForUpdate] Downloaded new bloxstrap version: " + downloadPath);
+            App.Logger.WriteLine("[Updater::CheckForUpdate] Restarting bloxstrap to update...");
+            
+            /// Use ping command to wait 5 s before replace because it impossible to replace
+            /// file without closing it process.
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = $"/c ping 127.0.0.1 -n 5 > nul && copy /y {downloadPath} {Directories.Application}";
+            ///startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            
+            Process.Start(startInfo);
+            App.Terminate();
         }
     }
 }

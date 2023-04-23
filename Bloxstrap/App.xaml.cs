@@ -210,7 +210,8 @@ namespace Bloxstrap
 
 #if !DEBUG
             if (!IsUninstall && !IsFirstRun)
-                Updater.CheckInstalledVersion();
+                Updater.CheckIsSuccessfulyUpdate();
+                Updater.CheckForUpdate();
 #endif
 
             string commandLine = "";

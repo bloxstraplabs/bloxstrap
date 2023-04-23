@@ -38,7 +38,8 @@
         <StackPanel Orientation="Horizontal">
             <ui:Anchor Margin="0,16,4,0" Content="GitHub repository" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
             <ui:Anchor Margin="4,16,4,0" Content="Report an issue" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
-            <ui:Anchor Margin="4,16,0,0" Content="Help topics" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
+            <ui:Anchor Margin="4,16,4,0" Content="Help topics" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
+            <ui:Button Margin="4,16,0,0" Content="Checking for update" Icon="ArrowCounterclockwise24" Command="{Binding CFUWindowCommand, Mode=OneWay}" />
         </StackPanel>
 
         <TextBlock Text="Contributors" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
