@@ -97,7 +97,7 @@ namespace Bloxstrap.Helpers
             /// file without closing it process.
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = $"/c ping 127.0.0.1 -n 5 > nul && copy /y {downloadPath} {Directories.Application} && cls && echo Please restart Bloxstrap to complete update bootstrap. && {Directories.Application} -menu";
+            startInfo.Arguments = $"/c ping 127.0.0.1 -n 5 > nul && copy /y {downloadPath} {Directories.Application}";
             ///startInfo.WindowStyle = ProcessWindowStyle.Hidden;
             
             Process.Start(startInfo);
