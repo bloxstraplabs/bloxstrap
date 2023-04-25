@@ -240,10 +240,14 @@ namespace Bloxstrap
             {
                 if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
+                    Logger.WriteLine("[App::OnStartup] Handling protocol for roblox-player");
+                    Logger.WriteLine($"[App::OnStartup] Got URI as '{LaunchArgs[0]}'");
                     commandLine = Protocol.ParseUri(LaunchArgs[0]);
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
+                    Logger.WriteLine("[App::OnStartup] Handling protocol for roblox");
+                    Logger.WriteLine($"[App::OnStartup] Got URI as '{LaunchArgs[0]}'");
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
                 else
@@ -258,6 +262,8 @@ namespace Bloxstrap
 
             if (!String.IsNullOrEmpty(commandLine))
             {
+                Logger.WriteLine($"[App::OnStartup] Got launch args as '{LaunchArgs[0]}'");
+
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
 
