@@ -262,9 +262,8 @@ namespace Bloxstrap
                     ShouldSaveConfigs = true;
 
                 DeployManager.Channel = Settings.Prop.Channel;
-
-                if (Settings.Prop.UseReShade)
-                    ReShade.CheckRobloxReleaseChannel().Wait();
+                
+                DeployManager.CheckReleaseChannel().Wait();
 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");

@@ -4,30 +4,20 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 
 using Bloxstrap.Models;
-using DiscordRPC;
 
 namespace Bloxstrap.Helpers
 {
+    // TODO - make this functional and into a helper instead of a singleton, this really doesn't need to be OOP
+
     public class DeployManager
     {
         #region Properties
         public const string DefaultChannel = "LIVE";
 
-        private string _channel = DefaultChannel;
-
-        public string Channel
-        {
-            get => _channel;
-            set
-            {
-                if (_channel != value)
-                    App.Logger.WriteLine($"[DeployManager::SetChannel] Changed channel to {value}");
-
-                _channel = value;
-            }
-        }
+        public string Channel = DefaultChannel;
 
         // a list of roblox delpoyment locations that we check for, in case one of them don't work
         private List<string> BaseUrls = new()
@@ -137,6 +127,68 @@ namespace Bloxstrap.Helpers
             }
 
             return clientVersion;
+        }
+
+        public async Task CheckReleaseChannel()
+        {
+            App.Logger.WriteLine($"[DeployManager::CheckReleaseChannel] Checking current Roblox release channel ({App.Settings.Prop.Channel})...");
+
+            if (App.Settings.Prop.Channel.ToLower() == DefaultChannel.ToLower())
+            {
+                App.Logger.WriteLine($"[DeployManager::CheckReleaseChannel] Channel is already {DefaultChannel}");
+                return;
+            }
+
+            ClientVersion versionInfo = await App.DeployManager.GetLastDeploy().ConfigureAwait(false);
+
+            if (App.Settings.Prop.UseReShade)
+            {
+                string manifest = await App.HttpClient.GetStringAsync($"{App.DeployManager.BaseUrl}/{versionInfo.VersionGuid}-rbxManifest.txt");
+
+                if (manifest.Contains("RobloxPlayerBeta.dll"))
+                {
+                    MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
+                        $"You currently have ReShade enabled, however your current preferred channel ({App.Settings.Prop.Channel}) does not support ReShade. Would you like to switch to {DefaultChannel}? ",
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo
+                    );
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        SwitchToDefault();
+                        return;
+                    }
+                }
+            }
+
+            // this SUCKS
+            ClientVersion defaultChannelInfo = await new DeployManager().GetLastDeploy().ConfigureAwait(false);
+            int defaultChannelVersion = Int32.Parse(defaultChannelInfo.Version.Split('.')[1]);
+            int currentChannelVersion = Int32.Parse(versionInfo.Version.Split('.')[1]);
+
+            if (currentChannelVersion < defaultChannelVersion)
+            {
+                MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
+                    $"Your current preferred channel ({App.Settings.Prop.Channel}) appears to no longer be receiving updates. Would you like to switch to {DefaultChannel}? ",
+                    MessageBoxImage.Question,
+                    MessageBoxButton.YesNo
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    SwitchToDefault();
+                    return;
+                }
+            }
+        }
+
+        public static void SwitchToDefault()
+        {
+            if (App.Settings.Prop.Channel.ToLower() == DefaultChannel.ToLower())
+                return;
+
+            App.DeployManager.Channel = App.Settings.Prop.Channel = DefaultChannel;
+            App.Logger.WriteLine($"[DeployManager::CheckReleaseChannel] Changed Roblox release channel from {App.Settings.Prop.Channel} to {DefaultChannel}");
         }
     }
 }

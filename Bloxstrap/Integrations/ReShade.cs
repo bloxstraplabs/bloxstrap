@@ -5,7 +5,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 
 using Bloxstrap.Helpers;
 using Bloxstrap.Models;
@@ -500,35 +499,5 @@ namespace Bloxstrap.Integrations
 
             SynchronizeConfigFile();
         }
-
-        public static async Task CheckRobloxReleaseChannel()
-        {
-            App.Logger.WriteLine($"[ReShade::CheckRobloxReleaseChannel] Checking current Roblox release channel ({App.Settings.Prop.Channel})...");
-
-            if (App.Settings.Prop.Channel.ToLower() == DeployManager.DefaultChannel.ToLower())
-            {
-                App.Logger.WriteLine($"[App::OnStartup] Channel is already {DeployManager.DefaultChannel}");
-                return;
-            }
-
-            ClientVersion versionInfo = await App.DeployManager.GetLastDeploy().ConfigureAwait(false);
-            string manifest = await App.HttpClient.GetStringAsync($"{App.DeployManager.BaseUrl}/{versionInfo.VersionGuid}-rbxManifest.txt");
-
-            if (!manifest.Contains("RobloxPlayerBeta.dll"))
-                return;
-
-            MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
-                $"You currently have ReShade enabled, however your current preferred channel ({App.Settings.Prop.Channel}) does not support ReShade. Would you like to switch to {DeployManager.DefaultChannel}? ",
-                MessageBoxImage.Question,
-                MessageBoxButton.YesNo
-            );
-
-            if (result != MessageBoxResult.Yes)
-                return;
-
-            App.Logger.WriteLine($"[App::OnStartup] Changed Roblox build channel from {App.Settings.Prop.Channel} to {DeployManager.DefaultChannel}");
-            App.DeployManager.Channel = App.Settings.Prop.Channel = DeployManager.DefaultChannel;
-        }
-
     }
 }
