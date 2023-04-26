@@ -6,11 +6,12 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
-using Bloxstrap.Helpers.Extensions;
+using Bloxstrap.Extensions;
 using Bloxstrap.Views;
 
 namespace Bloxstrap.ViewModels

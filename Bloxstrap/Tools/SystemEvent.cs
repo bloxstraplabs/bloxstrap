@@ -1,10 +1,14 @@
-﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Utility/SystemEvent.cs
+﻿/*
+ * Roblox Studio Mod Manager (ProjectSrc/Utility/SystemEvent.cs)
+ * MIT License
+ * Copyright (c) 2015-present MaximumADHD
+*/
 
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Bloxstrap.Helpers.RSMM
+namespace Bloxstrap.Tools
 {
     public class SystemEvent : EventWaitHandle
     {

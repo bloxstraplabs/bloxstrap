@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
-using Bloxstrap.Helpers;
+
 using CommunityToolkit.Mvvm.Input;
+
+using Bloxstrap.Singletons;
 
 namespace Bloxstrap.ViewModels
 {

@@ -13,10 +13,10 @@ using System.Windows;
 using Microsoft.Win32;
 
 using Bloxstrap.Dialogs;
-using Bloxstrap.Helpers;
-using Bloxstrap.Helpers.RSMM;
-using Bloxstrap.Models;
 using Bloxstrap.Integrations;
+using Bloxstrap.Models;
+using Bloxstrap.Singletons;
+using Bloxstrap.Tools;
 
 namespace Bloxstrap
 {
@@ -473,8 +473,8 @@ namespace Bloxstrap
             // this doesn't go under register, so we check every launch
             // just in case the stock bootstrapper changes it back
 
-            Protocol.Register("roblox", "Roblox", Directories.Application);
-            Protocol.Register("roblox-player", "Roblox", Directories.Application);
+            ProtocolHandler.Register("roblox", "Roblox", Directories.Application);
+            ProtocolHandler.Register("roblox-player", "Roblox", Directories.Application);
 
             // in case the user is reinstalling
             if (File.Exists(Directories.Application) && App.IsFirstRun)
@@ -612,8 +612,8 @@ namespace Bloxstrap
             RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
             if (bootstrapperKey is null)
             {
-                Protocol.Unregister("roblox");
-                Protocol.Unregister("roblox-player");
+                ProtocolHandler.Unregister("roblox");
+                ProtocolHandler.Unregister("roblox-player");
             }
             else
             {
@@ -621,8 +621,8 @@ namespace Bloxstrap
 
                 string bootstrapperLocation = (string?)bootstrapperKey.GetValue("InstallLocation") + "RobloxPlayerLauncher.exe";
 
-                Protocol.Register("roblox", "Roblox", bootstrapperLocation);
-                Protocol.Register("roblox-player", "Roblox", bootstrapperLocation);
+                ProtocolHandler.Register("roblox", "Roblox", bootstrapperLocation);
+                ProtocolHandler.Register("roblox-player", "Roblox", bootstrapperLocation);
             }
 
             try

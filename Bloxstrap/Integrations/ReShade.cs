@@ -6,15 +6,14 @@ using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Bloxstrap.Helpers;
-using Bloxstrap.Models;
-
 using IniParser;
 using IniParser.Model;
 
+using Bloxstrap.Models;
+
 namespace Bloxstrap.Integrations
 {
-    internal class ReShade
+    public class ReShade
     {
         // i havent even started this and i know for a fact this is gonna be a mess of an integration lol
         // there's a lot of nuances involved in how reshade functionality is supposed to work (shader management, config management, etc)

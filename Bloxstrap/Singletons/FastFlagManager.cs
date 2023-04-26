@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Singletons
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
@@ -27,8 +27,8 @@ namespace Bloxstrap.Helpers
         // this is one hell of a variable definition lmao
         public static IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => new Dictionary<string, Dictionary<string, string?>>
         {
-            { 
-                "Default", 
+            {
+                "Default",
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", null },

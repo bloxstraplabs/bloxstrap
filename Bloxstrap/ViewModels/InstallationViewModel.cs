@@ -8,8 +8,8 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using Bloxstrap.Helpers;
 using Bloxstrap.Models;
+using Bloxstrap.Singletons;
 
 namespace Bloxstrap.ViewModels
 {

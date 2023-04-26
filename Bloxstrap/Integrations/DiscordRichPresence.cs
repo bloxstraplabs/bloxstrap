@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Bloxstrap.Helpers;
-using Bloxstrap.Models.RobloxApi;
-
 using DiscordRPC;
+
+using Bloxstrap.Models.RobloxApi;
 
 namespace Bloxstrap.Integrations
 {
-    class DiscordRichPresence : IDisposable
+    public class DiscordRichPresence : IDisposable
     {
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
         private readonly GameActivityWatcher _activityWatcher;

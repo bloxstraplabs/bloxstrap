@@ -6,9 +6,9 @@ using System.Security.Cryptography;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
-    public class Utilities
+    static class Utilities
     {
         public static bool IsDirectoryEmpty(string path)
         {

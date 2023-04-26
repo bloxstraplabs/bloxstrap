@@ -10,11 +10,11 @@ using System.Windows.Media;
 using CommunityToolkit.Mvvm.Input;
 using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
-using Bloxstrap.Helpers.Extensions;
+using Bloxstrap.Extensions;
 
 namespace Bloxstrap.ViewModels
 {
-    class FluentDialogViewModel : INotifyPropertyChanged
+    public class FluentDialogViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

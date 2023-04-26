@@ -1,11 +1,13 @@
-﻿using System.Windows.Controls;
-using System;
+﻿using System;
+using System.Windows.Controls;
+
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
-using Bloxstrap.Enums;
-using Bloxstrap.ViewModels;
 using Wpf.Ui.Mvvm.Services;
-using Wpf.Ui.Appearance;
+
+using Bloxstrap.Extensions;
+using Bloxstrap.ViewModels;
 
 namespace Bloxstrap.Views
 {

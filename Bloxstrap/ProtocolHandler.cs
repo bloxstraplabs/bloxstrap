@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using System.Web;
 using System.Windows;
 
 using Microsoft.Win32;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
-    public class Protocol
+    static class ProtocolHandler
     {
         // map uri keys to command line args
         private static readonly IReadOnlyDictionary<string, string> UriKeyArgMap = new Dictionary<string, string>()
@@ -112,7 +111,7 @@ namespace Bloxstrap.Helpers
             {
                 Registry.CurrentUser.DeleteSubKeyTree($@"Software\Classes\{key}");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 App.Logger.WriteLine($"[Protocol::Unregister] Failed to unregister {key}: {ex}");
             }

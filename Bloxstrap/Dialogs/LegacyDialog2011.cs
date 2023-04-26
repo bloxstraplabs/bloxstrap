@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-using Bloxstrap.Enums;
+using Bloxstrap.Extensions;
 
 namespace Bloxstrap.Dialogs
 {

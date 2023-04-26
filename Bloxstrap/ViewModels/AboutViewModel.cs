@@ -1,8 +1,4 @@
-﻿using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
-using Bloxstrap.Helpers;
-
-namespace Bloxstrap.ViewModels
+﻿namespace Bloxstrap.ViewModels
 {
     public class AboutViewModel
     {

@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Forms;
 
 using Bloxstrap.Enums;
-using Bloxstrap.Helpers.Extensions;
+using Bloxstrap.Extensions;
 using Bloxstrap.ViewModels;
 
 using Wpf.Ui.Appearance;

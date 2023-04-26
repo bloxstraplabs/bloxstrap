@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Bloxstrap.Properties;
 using Bloxstrap.Views;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
     public class Updater
     {
@@ -75,7 +75,7 @@ namespace Bloxstrap.Helpers
             }
 
             File.Copy(Environment.ProcessPath, Directories.Application);
-                
+
             Bootstrapper.Register();
 
             if (isAutoUpgrade)

@@ -8,7 +8,7 @@ using System.Windows;
 
 using Bloxstrap.Models;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Singletons
 {
     // TODO - make this functional and into a helper instead of a singleton, this really doesn't need to be OOP
 
@@ -33,7 +33,7 @@ namespace Bloxstrap.Helpers
         {
             get
             {
-                if (String.IsNullOrEmpty(_baseUrl))
+                if (string.IsNullOrEmpty(_baseUrl))
                 {
                     // check for a working accessible deployment domain
                     foreach (string attemptedUrl in BaseUrls)
@@ -55,12 +55,12 @@ namespace Bloxstrap.Helpers
                         }
                     }
 
-                    if (String.IsNullOrEmpty(_baseUrl))
+                    if (string.IsNullOrEmpty(_baseUrl))
                         throw new Exception("Unable to find an accessible Roblox deploy mirror!");
                 }
 
                 if (Channel == DefaultChannel)
-                    return _baseUrl; 
+                    return _baseUrl;
                 else
                     return $"{_baseUrl}/channel/{Channel.ToLower()}";
             }
@@ -94,10 +94,10 @@ namespace Bloxstrap.Helpers
                 // 404 = Could not find version details for binaryType.
                 // 500 = Error while fetching version information.
                 // either way, we throw
-                
+
                 App.Logger.WriteLine(
-                    "[DeployManager::GetLastDeploy] Failed to fetch deploy info!\r\n"+ 
-                    $"\tStatus code: {deployInfoResponse.StatusCode}\r\n"+ 
+                    "[DeployManager::GetLastDeploy] Failed to fetch deploy info!\r\n" +
+                    $"\tStatus code: {deployInfoResponse.StatusCode}\r\n" +
                     $"\tResponse: {rawResponse}"
                 );
 
@@ -163,8 +163,8 @@ namespace Bloxstrap.Helpers
 
             // this SUCKS
             ClientVersion defaultChannelInfo = await new DeployManager().GetLastDeploy().ConfigureAwait(false);
-            int defaultChannelVersion = Int32.Parse(defaultChannelInfo.Version.Split('.')[1]);
-            int currentChannelVersion = Int32.Parse(versionInfo.Version.Split('.')[1]);
+            int defaultChannelVersion = int.Parse(defaultChannelInfo.Version.Split('.')[1]);
+            int currentChannelVersion = int.Parse(versionInfo.Version.Split('.')[1]);
 
             if (currentChannelVersion < defaultChannelVersion)
             {

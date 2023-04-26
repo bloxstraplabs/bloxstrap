@@ -3,7 +3,6 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Bloxstrap.Helpers;
 using Bloxstrap.Properties;
 
 namespace Bloxstrap.Integrations

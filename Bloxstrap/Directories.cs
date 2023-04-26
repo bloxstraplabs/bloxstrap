@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
-    class Directories
+    static class Directories
     {
         // note that these are directories that aren't tethered to the basedirectory
         // so these can safely be called before initialization
@@ -21,7 +21,7 @@ namespace Bloxstrap.Helpers
 
         public static string Application { get; private set; } = "";
 
-        public static bool Initialized => String.IsNullOrEmpty(Base);
+        public static bool Initialized => string.IsNullOrEmpty(Base);
 
         public static void Initialize(string baseDirectory)
         {

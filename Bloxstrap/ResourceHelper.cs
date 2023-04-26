@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
-    internal class ResourceHelper
+    static class ResourceHelper
     {
         static readonly Assembly assembly = Assembly.GetExecutingAssembly();
         static readonly string[] resourceNames = assembly.GetManifestResourceNames();

@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Tools
 {
     // https://gist.github.com/dfederm/35c729f6218834b764fa04c219181e4e
+
     public sealed class AsyncMutex : IAsyncDisposable
     {
         private readonly string _name;

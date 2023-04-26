@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Singletons
 {
     public class JsonManager<T> where T : new()
     {
@@ -16,7 +16,7 @@ namespace Bloxstrap.Helpers
             try
             {
                 T? settings = JsonSerializer.Deserialize<T>(File.ReadAllText(FileLocation));
-                
+
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 

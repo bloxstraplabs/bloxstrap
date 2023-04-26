@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap.Singletons
 {
     // https://stackoverflow.com/a/53873141/11852173
     public class Logger
@@ -27,7 +27,7 @@ namespace Bloxstrap.Helpers
             _filestream = File.Open(filename, FileMode.Create, FileAccess.Write, FileShare.Read);
 
             if (_backlog.Count > 0)
-                WriteToLog(String.Join("\r\n", _backlog));
+                WriteToLog(string.Join("\r\n", _backlog));
 
             WriteLine($"[Logger::Logger] Initialized at {filename}");
         }

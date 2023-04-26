@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+
 using Bloxstrap.Enums;
-using Bloxstrap.Helpers;
+using Bloxstrap.Singletons;
 
 namespace Bloxstrap.Models
 {

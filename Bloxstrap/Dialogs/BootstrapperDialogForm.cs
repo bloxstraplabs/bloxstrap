@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 
-using Bloxstrap.Enums;
-using Bloxstrap.Helpers;
+using Bloxstrap.Extensions;
 
 namespace Bloxstrap.Dialogs
 {

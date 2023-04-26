@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Forms;
 
-namespace Bloxstrap.Helpers
+namespace Bloxstrap
 {
-    public class WindowScaling
+    public static class WindowScaling
     {
         public static double GetFactor()
         {

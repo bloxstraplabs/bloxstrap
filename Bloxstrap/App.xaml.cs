@@ -14,10 +14,9 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 
 using Bloxstrap.Dialogs;
-using Bloxstrap.Enums;
-using Bloxstrap.Helpers;
-using Bloxstrap.Integrations;
+using Bloxstrap.Extensions;
 using Bloxstrap.Models;
+using Bloxstrap.Singletons;
 using Bloxstrap.Views;
 
 namespace Bloxstrap
@@ -240,7 +239,7 @@ namespace Bloxstrap
             {
                 if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
-                    commandLine = Protocol.ParseUri(LaunchArgs[0]);
+                    commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {

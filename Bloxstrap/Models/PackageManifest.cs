@@ -1,13 +1,17 @@
-﻿// https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/ProjectSrc/Bootstrapper/PackageManifest.cs
+﻿/*
+ * Roblox Studio Mod Manager (ProjectSrc/Utility/PackageManifest.cs)
+ * MIT License
+ * Copyright (c) 2015-present MaximumADHD
+*/
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Bloxstrap.Helpers.RSMM
+namespace Bloxstrap.Models
 {
-    internal class PackageManifest : List<Package>
+    public class PackageManifest : List<Package>
     {
         private PackageManifest(string data)
         {
