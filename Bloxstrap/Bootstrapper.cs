@@ -659,10 +659,14 @@ namespace Bloxstrap
 
             SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
 
-            // check if we have at least 300 megabytes of free disk space
-            if (Utilities.GetFreeDiskSpace(Directories.Base) < 1024*1024*300)
+            // package manifest states packed size and uncompressed size in exact bytes
+            // packed size only matters if we don't already have the package cached on disk
+            string[] cachedPackages = Directory.GetFiles(Directories.Downloads);
+            int totalSizeRequired = _versionPackageManifest.Where(x => !cachedPackages.Contains(x.Signature)).Sum(x => x.PackedSize) + _versionPackageManifest.Sum(x => x.Size);
+            
+            if (Utilities.GetFreeDiskSpace(Directories.Base) < totalSizeRequired)
             {
-                App.ShowMessageBox($"{App.ProjectName} requires at least 300 MB of disk space to install Roblox. Please free up some disk space and try again.", MessageBoxImage.Error);
+                App.ShowMessageBox($"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", MessageBoxImage.Error);
                 App.Terminate(ERROR_INSTALL_FAILURE);
                 return;
             }
@@ -727,7 +731,7 @@ namespace Bloxstrap
                 ReShade.SynchronizeConfigFile();
 
                 // let's take this opportunity to delete any packages we don't need anymore
-                foreach (string filename in Directory.GetFiles(Directories.Downloads))
+                foreach (string filename in cachedPackages)
                 {
                     if (!_versionPackageManifest.Exists(package => filename.Contains(package.Signature)))
                     {
