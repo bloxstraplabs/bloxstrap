@@ -154,11 +154,11 @@
             <ui:CardControl Grid.Row="5" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock FontSize="14" Text="Force enable Future Is Bright lighting in all games" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox's experimental lighting engine, normally only enabled by the game developer." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock FontSize="14" Text="Lighting technology" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should always be used in every game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
-                <ui:ToggleSwitch IsChecked="{Binding ForceFutureEnabled, Mode=TwoWay}" />
+                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
             </ui:CardControl>
             <ui:CardControl Grid.Row="6" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>

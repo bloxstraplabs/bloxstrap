@@ -127,11 +127,34 @@ namespace Bloxstrap.ViewModels
             get => App.Settings.Prop.DisableFullscreenOptimizations;
             set => App.Settings.Prop.DisableFullscreenOptimizations = value;
         }
-        
-        public bool ForceFutureEnabled
+
+        public IReadOnlyDictionary<string, string> LightingTechnologies => FastFlagManager.LightingTechnologies;
+
+        // this is basically the same as the code for rendering selection, maybe this could be abstracted in some way?
+        public string SelectedLightingTechnology
         {
-            get => App.FastFlags.GetValue("FFlagDebugForceFutureIsBrightPhase3") == "True";
-            set => App.FastFlags.SetValue("FFlagDebugForceFutureIsBrightPhase3", value ? "True" : null);
+            get
+            {
+                foreach (var mode in LightingTechnologies)
+                {
+                    if (App.FastFlags.GetValue(mode.Value) == "True")
+                        return mode.Key;
+                }
+
+                return "Automatic";
+            }
+
+            set
+            {
+                foreach (var mode in LightingTechnologies)
+                {
+                    if (mode.Key != "Automatic")
+                        App.FastFlags.SetValue(mode.Value, null);
+                }
+
+                if (value != "Automatic")
+                    App.FastFlags.SetValue(LightingTechnologies[value], "True");
+            }
         }
     }
 }

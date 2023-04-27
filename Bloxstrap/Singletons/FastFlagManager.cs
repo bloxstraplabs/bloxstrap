@@ -20,8 +20,15 @@ namespace Bloxstrap.Singletons
         {
             { "Automatic", "" },
             { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
-            { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
-            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" }
+            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" },
+            { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" }
+        };
+
+        public static IReadOnlyDictionary<string, string> LightingTechnologies => new Dictionary<string, string>
+        {
+            { "Automatic", "" },
+            { "Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
+            { "Future Is Bright", "FFlagDebugForceFutureIsBrightPhase3" }
         };
 
         // this is one hell of a variable definition lmao
