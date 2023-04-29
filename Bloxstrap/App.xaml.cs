@@ -74,9 +74,24 @@ namespace Bloxstrap
             // if we're running for the first time or uninstalling, log to temp folder
             // else, log to bloxstrap folder
 
-            string logdir = IsFirstRun || IsUninstall ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            bool isUsingTempDir = IsFirstRun || IsUninstall;
+            string logdir = isUsingTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
             string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+
             Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
+
+            // clean up any logs older than a week
+            if (!isUsingTempDir)
+            {
+                foreach (FileInfo log in new DirectoryInfo(logdir).GetFiles()) 
+                {
+                    if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
+                        continue;
+
+                    Logger.WriteLine($"[App::InitLog] Cleaning up old log file '{log.Name}'");
+                    log.Delete();
+                }
+            }
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
