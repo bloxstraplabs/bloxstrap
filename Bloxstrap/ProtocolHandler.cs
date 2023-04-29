@@ -6,6 +6,8 @@ using System.Windows;
 
 using Microsoft.Win32;
 
+using Bloxstrap.Enums;
+
 namespace Bloxstrap
 {
     static class ProtocolHandler
@@ -55,9 +57,9 @@ namespace Bloxstrap
 
                 if (key == "channel")
                 {
-                    if (val.ToLower() != App.Settings.Prop.Channel.ToLower())
+                    if (val.ToLower() != App.Settings.Prop.Channel.ToLower() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
                     {
-                        MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(
+                        MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic ? MessageBoxResult.Yes : App.ShowMessageBox(
                             $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
                             $"Would you like to switch channels from {App.Settings.Prop.Channel} to {val}?",
                             MessageBoxImage.Question,

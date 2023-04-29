@@ -13,6 +13,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using Bloxstrap.Dialogs;
+using Bloxstrap.Enums;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
@@ -225,7 +226,7 @@ namespace Bloxstrap
             ClientVersion clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
 
             // briefly check if current channel is suitable to use
-            if (App.Settings.Prop.Channel.ToLower() != Deployment.DefaultChannel.ToLower())
+            if (App.Settings.Prop.Channel.ToLower() != Deployment.DefaultChannel.ToLower() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
             {
                 string? switchDefaultPrompt = null;
                 ClientVersion? defaultChannelInfo = null;
@@ -253,7 +254,7 @@ namespace Bloxstrap
 
                 if (!String.IsNullOrEmpty(switchDefaultPrompt))
                 {
-                    MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo);
+                    MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic ? MessageBoxResult.Yes : App.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo);
 
                     if (result == MessageBoxResult.Yes)
                     {

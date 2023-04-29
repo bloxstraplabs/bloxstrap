@@ -18,7 +18,7 @@ namespace Bloxstrap.Models
 
         // channel configuration
         public string Channel { get; set; } = Deployment.DefaultChannel;
-        public bool PromptChannelChange { get; set; } = false;
+        public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
 
         // integration configuration
         public bool UseDiscordRichPresence { get; set; } = true;
