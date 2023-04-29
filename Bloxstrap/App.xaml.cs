@@ -47,7 +47,6 @@ namespace Bloxstrap
 
         // singletons
         public static readonly Logger Logger = new();
-        public static readonly DeployManager DeployManager = new();
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly FastFlagManager FastFlags = new();
@@ -259,11 +258,7 @@ namespace Bloxstrap
             {
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
-
-                DeployManager.Channel = Settings.Prop.Channel;
                 
-                DeployManager.CheckReleaseChannel().Wait();
-
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
                 Bootstrapper bootstrapper = new(commandLine);

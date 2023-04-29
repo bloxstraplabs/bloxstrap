@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+
 using CommunityToolkit.Mvvm.Input;
+
 using Bloxstrap.Models;
-using Bloxstrap.Singletons;
 
 namespace Bloxstrap.ViewModels
 {
@@ -18,7 +19,7 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private bool _manualChannelEntry = !DeployManager.SelectableChannels.Contains(App.Settings.Prop.Channel);
+        private bool _manualChannelEntry = !Deployment.SelectableChannels.Contains(App.Settings.Prop.Channel);
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
         public ICommand OpenFolderCommand => new RelayCommand(OpenFolder);
@@ -39,11 +40,9 @@ namespace Bloxstrap.ViewModels
             ChannelDeployInfo = null;
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
-            App.DeployManager.Channel = channel;
-
             try
             {
-                ClientVersion info = await App.DeployManager.GetLastDeploy(true);
+                ClientVersion info = await Deployment.GetInfo(channel, true);
 
                 ChannelDeployInfo = new DeployInfo
                 {
@@ -83,7 +82,7 @@ namespace Bloxstrap.ViewModels
             set => App.BaseDirectory = value;
         }
 
-        public IEnumerable<string> Channels => DeployManager.SelectableChannels;
+        public IEnumerable<string> Channels => Deployment.SelectableChannels;
 
         public string Channel
         {
@@ -102,8 +101,12 @@ namespace Bloxstrap.ViewModels
             {
                 _manualChannelEntry = value;
 
-                if (!value && !Channels.Contains(Channel))
-                    Channel = DeployManager.DefaultChannel;
+                if (!value)
+                {
+                    // roblox typically sets channels in all lowercase, so here we find if a case insensitive match exists
+                    string? matchingChannel = Channels.Where(x => x.ToLower() == Channel.ToLower()).FirstOrDefault();
+                    Channel = String.IsNullOrEmpty(matchingChannel) ? Deployment.DefaultChannel : matchingChannel;
+                }
 
                 OnPropertyChanged(nameof(Channel));
                 OnPropertyChanged(nameof(ChannelComboBoxVisibility));

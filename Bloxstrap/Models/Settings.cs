@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
 using Bloxstrap.Enums;
-using Bloxstrap.Singletons;
 
 namespace Bloxstrap.Models
 {
@@ -18,7 +17,7 @@ namespace Bloxstrap.Models
         public bool MultiInstanceLaunching { get; set; } = false;
 
         // channel configuration
-        public string Channel { get; set; } = DeployManager.DefaultChannel;
+        public string Channel { get; set; } = Deployment.DefaultChannel;
         public bool PromptChannelChange { get; set; } = false;
 
         // integration configuration

@@ -15,7 +15,6 @@ using Microsoft.Win32;
 using Bloxstrap.Dialogs;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
-using Bloxstrap.Singletons;
 using Bloxstrap.Tools;
 
 namespace Bloxstrap
@@ -223,7 +222,52 @@ namespace Bloxstrap
         {
             SetStatus("Connecting to Roblox...");
 
-            ClientVersion clientVersion = await App.DeployManager.GetLastDeploy();
+            ClientVersion clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
+
+            // briefly check if current channel is suitable to use
+            if (App.Settings.Prop.Channel.ToLower() != Deployment.DefaultChannel.ToLower())
+            {
+                string? switchDefaultPrompt = null;
+                ClientVersion? defaultChannelInfo = null;
+
+                App.Logger.WriteLine($"[Bootstrapper::CheckLatestVersion] Checking if current channel is suitable to use...");
+
+                if (App.Settings.Prop.UseReShade)
+                {
+                    string manifest = await App.HttpClient.GetStringAsync(Deployment.GetLocation($"/{clientVersion.VersionGuid}-rbxManifest.txt"));
+
+                    if (manifest.Contains("RobloxPlayerBeta.dll"))
+                        switchDefaultPrompt = $"You currently have ReShade enabled, however your current preferred channel ({App.Settings.Prop.Channel}) does not support ReShade. Would you like to switch to {Deployment.DefaultChannel}?";
+                }
+
+                if (String.IsNullOrEmpty(switchDefaultPrompt))
+                {
+                    // this SUCKS
+                    defaultChannelInfo = await Deployment.GetInfo(Deployment.DefaultChannel);
+                    int defaultChannelVersion = Int32.Parse(defaultChannelInfo.Version.Split('.')[1]);
+                    int currentChannelVersion = Int32.Parse(clientVersion.Version.Split('.')[1]);
+
+                    if (currentChannelVersion < defaultChannelVersion)
+                        switchDefaultPrompt = $"Your current preferred channel ({App.Settings.Prop.Channel}) appears to no longer be receiving updates. Would you like to switch to {Deployment.DefaultChannel}?";
+                }
+
+                if (!String.IsNullOrEmpty(switchDefaultPrompt))
+                {
+                    MessageBoxResult result = !App.Settings.Prop.PromptChannelChange ? MessageBoxResult.Yes : App.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                        App.Logger.WriteLine($"[DeployManager::SwitchToDefault] Changed Roblox release channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
+
+                        if (defaultChannelInfo is null)
+                            defaultChannelInfo = await Deployment.GetInfo(Deployment.DefaultChannel);
+
+                        clientVersion = defaultChannelInfo;
+                    }
+                }
+            }
+
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
@@ -242,7 +286,7 @@ namespace Bloxstrap
 
             _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
-            if (App.Settings.Prop.Channel.ToLower() != DeployManager.DefaultChannel.ToLower())
+            if (App.Settings.Prop.Channel.ToLower() != Deployment.DefaultChannel.ToLower())
                 _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
@@ -936,7 +980,7 @@ namespace Bloxstrap
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
             string modFolderLocation = Path.Combine(Directories.Modifications, location);
-            byte[] binaryData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await ResourceHelper.Get(name);
+            byte[] binaryData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
 
             if (condition)
             {
@@ -963,7 +1007,7 @@ namespace Bloxstrap
             if (_cancelFired)
                 return;
 
-            string packageUrl = $"{App.DeployManager.BaseUrl}/{_latestVersionGuid}-{package.Name}";
+            string packageUrl = Deployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
             string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
 

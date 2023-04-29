@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Bloxstrap
 {
-    static class ResourceHelper
+    static class Resource
     {
         static readonly Assembly assembly = Assembly.GetExecutingAssembly();
         static readonly string[] resourceNames = assembly.GetManifestResourceNames();
