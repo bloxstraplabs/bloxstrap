@@ -52,6 +52,8 @@ namespace Bloxstrap
         public static readonly FastFlagManager FastFlags = new();
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
+        public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
+
         // shorthand
         public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK)
         {
@@ -154,6 +156,18 @@ namespace Bloxstrap
                     IsUpgrade = true;
                 }
             }
+
+            // so this needs to be here because winforms moment
+            // onclick events will not fire unless this is defined here in the main thread so uhhhhh
+            // we'll show the icon if we're launching roblox since we're likely gonna be showing a
+            // bunch of notifications, and always showing it just makes the most sense i guess since it
+            // indicates that bloxstrap is running, even in the background
+            Notification = new()
+            {
+                Icon = Bloxstrap.Properties.Resources.IconBloxstrap,
+                Text = ProjectName,
+                Visible = !IsMenuLaunch
+            };
 
             // todo: remove this once 32-bit support is fully gone
             if (!App.IsQuiet && !Environment.Is64BitOperatingSystem)

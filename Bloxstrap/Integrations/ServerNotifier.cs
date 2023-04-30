@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Net.NetworkInformation;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using Bloxstrap.Properties;
+using System.Windows;
 
 namespace Bloxstrap.Integrations
 {
@@ -42,23 +39,19 @@ namespace Bloxstrap.Integrations
             else
                 message = $"Location: {locationCity}, {locationRegion}, {locationCountry}";
 
-            if (_activityWatcher.ActivityMachineUDMUX)
-                message += "\nServer is UDMUX protected";
+            message += "\nClick to copy Job ID";
 
             App.Logger.WriteLine($"[ServerNotifier::Notify] {message.ReplaceLineEndings("\\n")}");
 
-            NotifyIcon notification = new()
-            {
-                Icon = Resources.IconBloxstrap,
-                Text = "Bloxstrap",
-                Visible = true,
-                BalloonTipTitle = "Connected to server",
-                BalloonTipText = message
-            };
+            EventHandler JobIDCopier = new((_, _) => Clipboard.SetText(_activityWatcher.ActivityJobId));
 
-            notification.ShowBalloonTip(10);
+            App.Notification.BalloonTipTitle = "Connected to server";
+			App.Notification.BalloonTipText = message;
+            App.Notification.BalloonTipClicked += JobIDCopier;
+            App.Notification.ShowBalloonTip(10);
+
             await Task.Delay(10000);
-            notification.Dispose();
-        }
+            App.Notification.BalloonTipClicked -= JobIDCopier;
+		}
     }
 }

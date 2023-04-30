@@ -80,22 +80,17 @@ namespace Bloxstrap
 
             if (isAutoUpgrade)
             {
-                NotifyIcon notification = new()
-                {
-                    Icon = Resources.IconBloxstrap,
-                    Text = "Bloxstrap",
-                    Visible = true,
-                    BalloonTipTitle = $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}",
-                    BalloonTipText = "Click here to see what's new in this version"
-                };
+                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.OpenWebsite($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
 
-                notification.BalloonTipClicked += (_, _) => Utilities.OpenWebsite($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}");
-                notification.ShowBalloonTip(30);
+                App.Notification.BalloonTipTitle = "Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}";
+                App.Notification.BalloonTipText = "Click here to see what's new in this version";
+                App.Notification.BalloonTipClicked += ReleaseNotesLauncher;
+                App.Notification.ShowBalloonTip(30);
 
-                Task.Run(() =>
+                Task.Run(async () =>
                 {
-                    Task.Delay(30000).Wait();
-                    notification.Dispose();
+                    await Task.Delay(30000);
+                    App.Notification.BalloonTipClicked -= ReleaseNotesLauncher;
                 });
             }
             else if (!App.IsQuiet)
