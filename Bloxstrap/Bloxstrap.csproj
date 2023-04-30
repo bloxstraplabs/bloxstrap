@@ -27,10 +27,7 @@
     <PackageReference Include="DiscordRichPresence" Version="1.1.3.18" />
     <PackageReference Include="ini-parser-netstandard" Version="2.5.2" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\wpfui\src\Wpf.Ui\Wpf.Ui.csproj" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
 </Project>
