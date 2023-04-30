@@ -1,0 +1,3 @@
+[submodule "wpfui"]
+	path = wpfui
+	url = git@github.com:pizzaboxer/wpfui.git
