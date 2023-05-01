@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -16,8 +17,10 @@ namespace Bloxstrap.ViewModels
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
+        public ICommand OpenClientSettingsCommand => new RelayCommand(OpenClientSettings);
 
         private void OpenModsFolder() => Process.Start("explorer.exe", Directories.Modifications);
+        private void OpenClientSettings() => Utilities.OpenWebsite(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));
 
         public bool OldDeathSoundEnabled
         {

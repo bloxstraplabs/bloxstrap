@@ -13,11 +13,15 @@
         <TextBlock Text="Manage and apply file mods to the Roblox game client." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <Grid Margin="0,16,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <ui:CardAction Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+            <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Open Mods Folder">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
@@ -45,10 +49,38 @@
                     </TextBlock>
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Padding="16,13,16,12" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
+            <ui:CardAction Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Help" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" Padding="16,13,16,12" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Edit FastFlags">
+                        <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+                        <TextBlock.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                                        <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                        <TextBlock.Style>
+                            <Style>
+                                <Setter Property="TextBlock.Text" Value="Open and edit ClientAppSettings.json."/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                                        <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
                 </StackPanel>
             </ui:CardAction>
         </Grid>
@@ -94,82 +126,70 @@
             </ui:CardControl>
         </Grid>
 
-        <TextBlock Text="FastFlags" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <ui:CardControl Grid.Row="0" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Framerate limit" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="1" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Rendering mode" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which renderer Roblox should use. ReShade requires Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="2" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="3" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="4" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="In-game menu version" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="5" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Lighting technology" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should always be used in every game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
-            </ui:CardControl>
-            <ui:CardControl Grid.Row="6" Margin="0,8,0,0" Padding="16,13,16,12">
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Use mobile interface in desktop app" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Why would you want to do this? I don't know. But like, why not?" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardControl.Header>
-                <ui:ToggleSwitch IsChecked="{Binding MobileLuaAppInterfaceEnabled, Mode=TwoWay}" />
-            </ui:CardControl>
-        </Grid>
+        <TextBlock Text="FastFlag Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Framerate limit" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Rendering mode" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which renderer Roblox should use. ReShade requires Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="In-game menu version" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Lighting technology" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should always be used in every game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Use mobile interface in desktop app" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Why would you want to do this? I don't know. But like, why not?" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding MobileLuaAppInterfaceEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
 
         <StackPanel x:Name="MiscellaneousOptions">
             <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
