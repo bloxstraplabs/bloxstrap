@@ -20,7 +20,5 @@ namespace Bloxstrap.Views.Pages
             if (Environment.OSVersion.Version.Build < 17093)
                 this.MiscellaneousOptions.Visibility = Visibility.Collapsed;
         }
-
-        private void ValidateInt32(object sender, TextCompositionEventArgs e) => e.Handled = !Int32.TryParse(e.Text, out int _);
     }
 }

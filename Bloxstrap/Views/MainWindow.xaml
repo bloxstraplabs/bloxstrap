@@ -43,6 +43,7 @@
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
                     <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
+                    <ui:NavigationItem Content="FastFlags" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
                     <ui:NavigationItem Content="Appearance" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
                     <ui:NavigationItem Content="Behaviour" PageType="{x:Type pages:BehaviourPage}" Icon="Settings24" Tag="behaviour" />
                     <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
