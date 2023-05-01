@@ -704,6 +704,10 @@ namespace Bloxstrap
 
             SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
 
+            Directory.CreateDirectory(Directories.Base);
+            Directory.CreateDirectory(Directories.Downloads);
+            Directory.CreateDirectory(Directories.Versions);
+
             // package manifest states packed size and uncompressed size in exact bytes
             // packed size only matters if we don't already have the package cached on disk
             string[] cachedPackages = Directory.GetFiles(Directories.Downloads);
@@ -716,8 +720,6 @@ namespace Bloxstrap
                 return;
             }
 
-            Directory.CreateDirectory(Directories.Base);
-
             if (Dialog is not null)
             {
                 Dialog.CancelEnabled = true;
@@ -726,9 +728,6 @@ namespace Bloxstrap
 
             // compute total bytes to download
             _progressIncrement = (double)100 / _versionPackageManifest.Sum(package => package.PackedSize);
-
-            Directory.CreateDirectory(Directories.Downloads);
-            Directory.CreateDirectory(Directories.Versions);
 
             foreach (Package package in _versionPackageManifest)
             {
