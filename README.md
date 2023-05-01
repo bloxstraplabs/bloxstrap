@@ -59,4 +59,5 @@ Bloxstrap also has inherent benefits over some other Roblox mods, as ReShade doe
 * [Multako](https://www.roblox.com/users/2485612194/profile) - Designing the Bloxstrap logo.
 * [@1011025m](https://github.com/1011025m) - Providing a method for disabling the Roblox desktop app.
 * taskmanager ([@Mantaraix](https://github.com/Mantaraix)) - Helping with designing the new menu look and layout.
-* [@Extravi](https://github.com/Extravi) - Offering to make his presets a part of Bloxstrap, and helping with improving UX.
+* [@Extravi](https://github.com/Extravi) - Allowing their presets to be bundled with Bloxstrap, and helping with improving UX.
+* [@axstin](https://github.com/axstin) - Making [rbxfpsunlocker](https://github.com/axstin/rbxfpsunlocker), which was used for Bloxstrap's FPS unlocking up until v2.2.0.
