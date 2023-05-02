@@ -109,7 +109,7 @@ namespace Bloxstrap
             Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
@@ -156,6 +156,9 @@ namespace Bloxstrap
                     IsUpgrade = true;
                 }
             }
+
+            // this looks like the most fitting place for it 
+            await Deployment.Initialize();
 
             // so this needs to be here because winforms moment
             // onclick events will not fire unless this is defined here in the main thread so uhhhhh

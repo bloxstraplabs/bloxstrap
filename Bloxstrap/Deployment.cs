@@ -59,18 +59,13 @@ namespace Bloxstrap
         }
 
         // most commonly used/interesting channels
-        public static readonly List<string> SelectableChannels = new()
-        {
-            "LIVE",
-            "ZWinPlayer64",
-            "ZFlag",
-            "ZNext",
-            "ZCanary",
-            "ZIntegration",
-            "ZAvatarTeam",
-            "ZSocialTeam"
-        };
+        public static List<string> SelectableChannels = null;
         #endregion
+
+        public static async Task Initialize()
+        {
+            SelectableChannels = await DeployHelper.GetChannels();
+        }
 
         public static string GetLocation(string resource, string? channel = null)
         {
