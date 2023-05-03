@@ -117,7 +117,7 @@ namespace Bloxstrap.Integrations
 
             // so turns out discord rejects the presence set request if the place name is less than 2 characters long lol
             if (universeDetails.Name.Length < 2)
-                universeDetails.Name = $"💀 {universeDetails.Name}";
+                universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
 
             _rpcClient.SetPresence(new RichPresence
             {
