@@ -54,7 +54,7 @@ namespace Bloxstrap.Models
 
         public static async Task<PackageManifest> Get(string versionGuid)
         {
-            string pkgManifestUrl = Deployment.GetLocation($"/{versionGuid}-rbxPkgManifest.txt");
+            string pkgManifestUrl = RobloxDeployment.GetLocation($"/{versionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             return new PackageManifest(pkgManifestData);

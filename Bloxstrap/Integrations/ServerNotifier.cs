@@ -6,9 +6,9 @@ namespace Bloxstrap.Integrations
 {
     public class ServerNotifier
     {
-        private readonly GameActivityWatcher _activityWatcher;
+        private readonly RobloxActivity _activityWatcher;
 
-        public ServerNotifier(GameActivityWatcher activityWatcher)
+        public ServerNotifier(RobloxActivity activityWatcher)
         {
             _activityWatcher = activityWatcher;
             _activityWatcher.OnGameJoin += (_, _) => Task.Run(() => Notify());

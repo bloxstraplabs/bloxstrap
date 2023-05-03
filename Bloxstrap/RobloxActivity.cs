@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bloxstrap
 {
-    public class GameActivityWatcher : IDisposable
+    public class RobloxActivity : IDisposable
     {
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
@@ -62,7 +62,7 @@ namespace Bloxstrap
             // if roblox doesn't start quickly enough, we can wind up fetching the previous log file
             // good rule of thumb is to find a log file that was created in the last 15 seconds or so
 
-            App.Logger.WriteLine("[GameActivityWatcher::StartWatcher] Opening Roblox log file...");
+            App.Logger.WriteLine("[RobloxActivity::StartWatcher] Opening Roblox log file...");
 
             while (true)
             {
@@ -71,12 +71,12 @@ namespace Bloxstrap
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
 
-                App.Logger.WriteLine($"[GameActivityWatcher::StartWatcher] Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
+                App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
                 await Task.Delay(1000);
             }
 
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine($"[GameActivityWatcher::StartWatcher] Opened {logFileInfo.Name}");
+            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {logFileInfo.Name}");
 
             AutoResetEvent logUpdatedEvent = new(false);
             FileSystemWatcher logWatcher = new()
@@ -108,9 +108,9 @@ namespace Bloxstrap
             // debug stats to ensure that the log reader is working correctly
             // if more than 1000 log entries have been read, only log per 100 to save on spam
             if (_logEntriesRead <= 1000 && _logEntriesRead % 50 == 0)
-                App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Read {_logEntriesRead} log entries");
+                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
             else if (_logEntriesRead % 100 == 0)
-                App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Read {_logEntriesRead} log entries");
+                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
             if (!ActivityInGame && ActivityPlaceId == 0 && entry.Contains(GameJoiningEntry))
             {
@@ -118,7 +118,7 @@ namespace Bloxstrap
 
                 if (match.Groups.Count != 4)
                 {
-                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Failed to assert format for game join entry");
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
                     App.Logger.WriteLine(entry);
                     return;
                 }
@@ -128,7 +128,7 @@ namespace Bloxstrap
                 ActivityJobId = match.Groups[1].Value;
                 ActivityMachineAddress = match.Groups[3].Value;
 
-                App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
             {
@@ -138,7 +138,7 @@ namespace Bloxstrap
 
                     if (match.Groups.Count != 3 || match.Groups[2].Value != ActivityMachineAddress)
                     {
-                        App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Failed to assert format for game join UDMUX entry");
+                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join UDMUX entry");
                         App.Logger.WriteLine(entry);
                         return;
                     }
@@ -146,7 +146,7 @@ namespace Bloxstrap
                     ActivityMachineAddress = match.Groups[1].Value;
                     ActivityMachineUDMUX = true;
 
-                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Server is UDMUX protected ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Server is UDMUX protected ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                 }
                 else if (entry.Contains(GameJoinedEntry))
                 {
@@ -154,12 +154,12 @@ namespace Bloxstrap
 
                     if (match.Groups.Count != 2 || match.Groups[1].Value != ActivityMachineAddress)
                     {
-                        App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Failed to assert format for game joined entry");
+                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game joined entry");
                         App.Logger.WriteLine(entry);
                         return;
                     }
 
-                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                     ActivityInGame = true;
                     OnGameJoin?.Invoke(this, new EventArgs());
@@ -169,7 +169,7 @@ namespace Bloxstrap
             {
                 if (entry.Contains(GameDisconnectedEntry))
                 {
-                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                     ActivityInGame = false;
                     ActivityPlaceId = 0;
@@ -181,7 +181,7 @@ namespace Bloxstrap
                 }
                 else if (entry.Contains(GameTeleportingEntry))
                 {
-                    App.Logger.WriteLine($"[GameActivityWatcher::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                     ActivityIsTeleport = true;
                 }
             }

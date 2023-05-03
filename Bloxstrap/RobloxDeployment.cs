@@ -9,7 +9,7 @@ using Bloxstrap.Models;
 
 namespace Bloxstrap
 {
-    public static class Deployment
+    public static class RobloxDeployment
     {
         #region Properties
         public const string DefaultChannel = "LIVE";
@@ -89,7 +89,7 @@ namespace Bloxstrap
 
         public static async Task<ClientVersion> GetInfo(string channel, bool timestamp = false)
         {
-            App.Logger.WriteLine($"[DeployManager::GetInfo] Getting deploy info for channel {channel} (timestamp={timestamp})");
+            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Getting deploy info for channel {channel} (timestamp={timestamp})");
 
             HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
 
@@ -103,7 +103,7 @@ namespace Bloxstrap
                 // either way, we throw
 
                 App.Logger.WriteLine(
-					"[DeployManager::GetInfo] Failed to fetch deploy info!\r\n" +
+                    "[RobloxDeployment::GetInfo] Failed to fetch deploy info!\r\n" +
                     $"\tStatus code: {deployInfoResponse.StatusCode}\r\n" +
                     $"\tResponse: {rawResponse}"
                 );
@@ -111,14 +111,14 @@ namespace Bloxstrap
                 throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
             }
 
-            App.Logger.WriteLine($"[DeployManager::GetInfo] Got JSON: {rawResponse}");
+            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Got JSON: {rawResponse}");
 
             ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
 
             // for preferences
             if (timestamp)
             {
-                App.Logger.WriteLine("[DeployManager::GetInfo] Getting timestamp...");
+                App.Logger.WriteLine("[RobloxDeployment::GetInfo] Getting timestamp...");
 
                 string manifestUrl = GetLocation($"/{clientVersion.VersionGuid}-rbxPkgManifest.txt", channel);
 
@@ -128,7 +128,7 @@ namespace Bloxstrap
                 if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
                     string lastModified = values.First();
-                    App.Logger.WriteLine($"[DeployManager::GetInfo] {manifestUrl} - Last-Modified: {lastModified}");
+                    App.Logger.WriteLine($"[RobloxDeployment::GetInfo] {manifestUrl} - Last-Modified: {lastModified}");
                     clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
                 }
             }

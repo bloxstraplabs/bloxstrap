@@ -12,12 +12,12 @@ namespace Bloxstrap.Integrations
     public class DiscordRichPresence : IDisposable
     {
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
-        private readonly GameActivityWatcher _activityWatcher;
+        private readonly RobloxActivity _activityWatcher;
         
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
 
-        public DiscordRichPresence(GameActivityWatcher activityWatcher)
+        public DiscordRichPresence(RobloxActivity activityWatcher)
         {
             _activityWatcher = activityWatcher;
 

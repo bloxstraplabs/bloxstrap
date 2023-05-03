@@ -17,7 +17,7 @@ namespace Bloxstrap.Models
         public bool MultiInstanceLaunching { get; set; } = false;
 
         // channel configuration
-        public string Channel { get; set; } = Deployment.DefaultChannel;
+        public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
         public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
 
         // integration configuration

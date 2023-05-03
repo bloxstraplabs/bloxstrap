@@ -19,7 +19,7 @@ namespace Bloxstrap.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private bool _manualChannelEntry = !Deployment.SelectableChannels.Contains(App.Settings.Prop.Channel);
+        private bool _manualChannelEntry = !RobloxDeployment.SelectableChannels.Contains(App.Settings.Prop.Channel);
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
         public ICommand OpenFolderCommand => new RelayCommand(OpenFolder);
@@ -42,7 +42,7 @@ namespace Bloxstrap.ViewModels
 
             try
             {
-                ClientVersion info = await Deployment.GetInfo(channel, true);
+                ClientVersion info = await RobloxDeployment.GetInfo(channel, true);
 
                 ChannelDeployInfo = new DeployInfo
                 {
@@ -82,7 +82,7 @@ namespace Bloxstrap.ViewModels
             set => App.BaseDirectory = value;
         }
 
-        public IEnumerable<string> Channels => Deployment.SelectableChannels;
+        public IEnumerable<string> Channels => RobloxDeployment.SelectableChannels;
 
         public string Channel
         {
@@ -105,7 +105,7 @@ namespace Bloxstrap.ViewModels
                 {
                     // roblox typically sets channels in all lowercase, so here we find if a case insensitive match exists
                     string? matchingChannel = Channels.Where(x => x.ToLower() == Channel.ToLower()).FirstOrDefault();
-                    Channel = String.IsNullOrEmpty(matchingChannel) ? Deployment.DefaultChannel : matchingChannel;
+                    Channel = String.IsNullOrEmpty(matchingChannel) ? RobloxDeployment.DefaultChannel : matchingChannel;
                 }
 
                 OnPropertyChanged(nameof(Channel));
