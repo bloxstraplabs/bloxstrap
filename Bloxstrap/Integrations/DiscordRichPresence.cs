@@ -30,6 +30,9 @@ namespace Bloxstrap.Integrations
             _rpcClient.OnPresenceUpdate += (_, e) =>
                 App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Updated presence");
 
+            _rpcClient.OnError += (_, e) =>
+                App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] An RPC error occurred - {e.Message}");
+
             _rpcClient.OnConnectionEstablished += (_, e) =>
                 App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Established connection with Discord RPC");
 
@@ -111,6 +114,10 @@ namespace Bloxstrap.Integrations
                     Url = $"roblox://experiences/start?placeId={_activityWatcher.ActivityPlaceId}&gameInstanceId={_activityWatcher.ActivityJobId}"
                 });
             }
+
+            // so turns out discord rejects the presence set request if the place name is less than 2 characters long lol
+            if (universeDetails.Name.Length < 2)
+                universeDetails.Name = $"💀 {universeDetails.Name}";
 
             _rpcClient.SetPresence(new RichPresence
             {
