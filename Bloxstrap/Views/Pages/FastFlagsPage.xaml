@@ -47,7 +47,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Framerate limit" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60 FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
@@ -64,7 +64,7 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Use exclusive fullscreen" />
+                    <TextBlock FontSize="14" Text="Enable exclusive fullscreen" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D 11." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
@@ -91,8 +91,8 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Lighting technology" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should always be used in every game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Preferred lighting technology" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />

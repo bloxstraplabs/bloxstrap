@@ -92,7 +92,7 @@
                 <ui:CardControl.Header>
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Disable desktop app" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing when launching Roblox or leaving a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing. Keep in mind that this breaks deeplinking." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </ui:CardControl.Header>
                 <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
@@ -104,9 +104,9 @@
             <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock FontSize="14" Text="Disable full-screen optimizations" />
+                        <TextBlock FontSize="14" Text="Disable fullscreen optimizations" />
                         <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-                            A Windows feature that can potentially cause problems - <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">click here for more info</Hyperlink>.
+                            A Windows feature that intends to improve fullscreen performance. <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">See here for more information</Hyperlink>.
                         </TextBlock>
                     </StackPanel>
                 </ui:CardControl.Header>

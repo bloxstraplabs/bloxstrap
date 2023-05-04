@@ -37,8 +37,8 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Show server details of current game" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Be notified of useful server details whenever you join a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Be notified of server details on game join" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Lets you see location and Job ID of current server. These will not show when in fullscreen." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
