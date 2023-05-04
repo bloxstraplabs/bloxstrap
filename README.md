@@ -34,7 +34,6 @@ If you would like to build Bloxstrap's source code, see the [guide for building 
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications - re-adds the old death sound!
-* Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
 * Painless support for Discord Rich Presence - no auth cookie needed!
 * A customizable launcher look - includes dark theme!
 * Lets you disable the Roblox desktop app
