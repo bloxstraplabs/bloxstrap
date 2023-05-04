@@ -99,15 +99,10 @@ namespace Bloxstrap
 
             // check if the webview2 runtime needs to be installed
             // webview2 can either be installed be per-user or globally, so we need to check in both hklm and hkcu
-            // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#online-only-deployment
+            // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#detect-if-a-suitable-webview2-runtime-is-already-installed
 
-            string hklmLocation = "SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-            string hkcuLocation = "Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-
-            if (!Environment.Is64BitOperatingSystem)
-                hklmLocation = "SOFTWARE\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-
-            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(hklmLocation) is null && Registry.CurrentUser.OpenSubKey(hkcuLocation) is null;
+            string registryLocation = "SOFTWARE\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(registryLocation) is null && Registry.CurrentUser.OpenSubKey(registryLocation) is null;
         }
 
         private void SetStatus(string message)
@@ -581,7 +576,7 @@ namespace Bloxstrap
             SetStatus($"Getting the latest {App.ProjectName}...");
 
             // 64-bit is always the first option
-            GithubReleaseAsset asset = releaseInfo.Assets[Environment.Is64BitOperatingSystem ? 0 : 1];
+            GithubReleaseAsset asset = releaseInfo.Assets[0];
             string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
 
             App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");

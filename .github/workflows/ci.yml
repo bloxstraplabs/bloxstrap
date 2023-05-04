@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
-        platform: [x64, x86]
+        platform: [x64]
     runs-on: windows-latest
 
     steps:
@@ -47,20 +47,13 @@ jobs:
         with:
           name: Bloxstrap (Release, x64)
           path: x64
-      - name: Download x86 release artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: Bloxstrap (Release, x86)
-          path: x86
       - name: Rename binaries
         run: |
           mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x64.exe
-          mv x86/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x86.exe
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
           files: |
             Bloxstrap-${{ github.ref_name }}-x64.exe
-            Bloxstrap-${{ github.ref_name }}-x86.exe
           name: Bloxstrap ${{ github.ref_name }}
