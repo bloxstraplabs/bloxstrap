@@ -17,7 +17,7 @@ Bloxstrap is only supported for PCs running Windows.
  ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
-Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap):
+Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap) by running this in the Command Prompt:
 ```
 > winget install bloxstrap
 ```
@@ -28,7 +28,7 @@ It's not unlikely that Windows Smartscreen will show a popup when you run Bloxst
 
 Once installed, Bloxstrap is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
 
-If you want to build Bloxstrap's source code, see the [guide for building from source](https://github.com/pizzaboxer/bloxstrap/wiki/Building-Bloxstrap-from-source).
+If you would like to build Bloxstrap's source code, see the [guide for building from source](https://github.com/pizzaboxer/bloxstrap/wiki/Building-Bloxstrap-from-source).
  
 ## Features
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
@@ -36,7 +36,6 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 * Persistent file modifications - re-adds the old death sound!
 * Support for shaders with [ReShade](https://reshade.me) and [Extravi's ReShade Presets](https://bloxshade.com/)
 * Painless support for Discord Rich Presence - no auth cookie needed!
-* Built-in FPS unlocking
 * A customizable launcher look - includes dark theme!
 * Lets you disable the Roblox desktop app
 * Lets you opt into non-production Roblox release channels
@@ -45,13 +44,14 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 
 All the available features are browsable through the Bloxstrap menu. There's not too many, but it's recommended to look through all of them.
 
-Bloxstrap also has inherent benefits over some other Roblox mods, as ReShade does not break whenever Roblox updates and thus require a reinstall, and is completely free, forever. It also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
+Bloxstrap also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
 
 ## Screenshots
+
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/41478239/219782012-11581578-c80b-419b-b027-733561e3e493.png" width="620" />
+    <img src="https://user-images.githubusercontent.com/41478239/236173030-cab73a81-21c4-416e-bcba-a1854f3ecce6.png" width="620" />
     <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="205" />
-    <img src="https://user-images.githubusercontent.com/41478239/224803230-c51551d3-f08d-4abc-80d4-92e4f3114848.png" width="419" />
+    <img src="https://user-images.githubusercontent.com/41478239/236173107-8da468ff-905e-45d0-af0c-5e433d29b9bc.png" width="419" />
     <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="406" />
 <p>
 
