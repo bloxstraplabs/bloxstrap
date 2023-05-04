@@ -101,8 +101,10 @@ namespace Bloxstrap
             // webview2 can either be installed be per-user or globally, so we need to check in both hklm and hkcu
             // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#detect-if-a-suitable-webview2-runtime-is-already-installed
 
-            string registryLocation = "SOFTWARE\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(registryLocation) is null && Registry.CurrentUser.OpenSubKey(registryLocation) is null;
+            string hklmLocation = "SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+            string hkcuLocation = "Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
+
+            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(hklmLocation) is null && Registry.CurrentUser.OpenSubKey(hkcuLocation) is null;
         }
 
         private void SetStatus(string message)
