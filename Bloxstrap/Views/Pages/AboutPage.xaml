@@ -143,12 +143,6 @@
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="4" Grid.Column="1" Margin="0,8,8,0" Padding="16,13,16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/crosire/reshade/blob/main/LICENSE.md">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="ReShade by crosire" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="BSD 3-Clause License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardAction>
         </Grid>
     </StackPanel>
 </ui:UiPage>
