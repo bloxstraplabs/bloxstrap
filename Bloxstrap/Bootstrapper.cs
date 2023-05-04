@@ -17,6 +17,7 @@ using Bloxstrap.Enums;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
+using System.Globalization;
 
 namespace Bloxstrap
 {
@@ -156,7 +157,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine("[Bootstrapper::Run] Bloxstrap_BootstrapperMutex mutex exists, waiting...");
                 mutexExists = true;
             }
-            catch
+            catch (Exception)
             {
                 // no mutex exists
             }
@@ -193,11 +194,6 @@ namespace Bloxstrap
             if (ShouldInstallWebView2)
                 await InstallWebView2();
 
-            if (App.Settings.Prop.UseReShade)
-                SetStatus("Configuring/Downloading ReShade...");
-
-            await ReShade.CheckModifications();
-
             App.FastFlags.Save();
             await ApplyModifications();
 
@@ -232,14 +228,6 @@ namespace Bloxstrap
                 ClientVersion? defaultChannelInfo = null;
 
                 App.Logger.WriteLine($"[Bootstrapper::CheckLatestVersion] Checking if current channel is suitable to use...");
-
-                if (App.Settings.Prop.UseReShade)
-                {
-                    string manifest = await App.HttpClient.GetStringAsync(RobloxDeployment.GetLocation($"/{clientVersion.VersionGuid}-rbxManifest.txt"));
-
-                    if (manifest.Contains("RobloxPlayerBeta.dll"))
-                        switchDefaultPrompt = $"You currently have ReShade enabled, however your current preferred channel ({App.Settings.Prop.Channel}) does not support ReShade. Would you like to switch to {RobloxDeployment.DefaultChannel}?";
-                }
 
                 if (String.IsNullOrEmpty(switchDefaultPrompt))
                 {
@@ -772,8 +760,6 @@ namespace Bloxstrap
 
             if (!FreshInstall)
             {
-                ReShade.SynchronizeConfigFile();
-
                 // let's take this opportunity to delete any packages we don't need anymore
                 foreach (string filename in cachedPackages)
                 {
@@ -858,6 +844,24 @@ namespace Bloxstrap
 
             if (Directory.Exists(rbxfpsunlocker))
                 Directory.Delete(rbxfpsunlocker, true);
+
+            // v2.3.0 - remove reshade
+            string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
+            string configLocation = Path.Combine(Directories.Modifications, "ReShade.ini");
+
+            if (File.Exists(injectorLocation))
+            {
+                App.ShowMessageBox(
+                    "Roblox has now completeted rollout of the new client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been removed from Bloxstrap.\n\n"+
+                    "Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.", 
+                    MessageBoxImage.Warning
+                );
+
+                File.Delete(injectorLocation);
+            }
+
+            if (File.Exists(configLocation))
+                File.Delete(configLocation);
         }
 
         private async Task ApplyModifications()
