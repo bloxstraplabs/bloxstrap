@@ -849,7 +849,7 @@ namespace Bloxstrap
             if (File.Exists(injectorLocation))
             {
                 App.ShowMessageBox(
-                    "Roblox has now completeted rollout of the new client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been removed from Bloxstrap.\n\n"+
+                    "Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.\n\n"+
                     "Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.", 
                     MessageBoxImage.Warning
                 );
