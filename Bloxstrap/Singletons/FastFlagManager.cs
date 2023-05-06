@@ -20,6 +20,7 @@ namespace Bloxstrap.Singletons
         {
             { "Automatic", "" },
             { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
+            { "Direct3D 10", "FFlagDebugGraphicsPreferD3D11FL10" },
             { "Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" }
         };
@@ -120,9 +121,14 @@ namespace Bloxstrap.Singletons
             if (GetValue("DFIntTaskSchedulerTargetFps") is null)
                 SetValue("DFIntTaskSchedulerTargetFps", 9999);
 
-            // reshade / exclusive fullscreen requires direct3d 11 to work
-            if (GetValue(RenderingModes["Direct3D 11"]) != "True" && App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False")
-                SetRenderingMode("Direct3D 11");
+            // exclusive fullscreen requires direct3d 10/11 to work
+            if (App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False")
+            {
+                if (!(App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11") == "True" || App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11FL10") == "True"))
+                {
+                    SetRenderingMode("Direct3D 11");
+                }
+            }
         }
 
         public override void Save()

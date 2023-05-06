@@ -53,7 +53,11 @@ namespace Bloxstrap.ViewModels
 
                 if (value)
                 {
-                    App.FastFlags.SetRenderingMode("Direct3D 11");
+                    if (!(App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11") == "True" || App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11FL10") == "True"))
+                    {
+                        App.FastFlags.SetRenderingMode("Direct3D 11");
+                    }
+
                     OnPropertyChanged(nameof(SelectedRenderingMode));
                 }
             }
