@@ -104,7 +104,7 @@ namespace Bloxstrap
             Logger.WriteLine($"[App::OnStartup] {e.Exception}");
 
             if (!IsQuiet)
-                Settings.Prop.BootstrapperStyle.GetNew().ShowError($"{e.Exception.GetType()}: {e.Exception.Message}");
+                Settings.Prop.BootstrapperStyle.GetNew().ShowError(e.Exception.ToString());
 
             Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
         }
@@ -322,7 +322,7 @@ namespace Bloxstrap
                     throw t.Exception;
 #else
                     var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
-                    dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
+                    dialog?.ShowError(t.Exception.ToString());
                     Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
 #endif
                 });
