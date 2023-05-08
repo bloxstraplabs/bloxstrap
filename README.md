@@ -10,7 +10,7 @@ An open-source, feature-packed alternative bootstrapper for Roblox.
 
 This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. This does not touch or modify the game client itself, it's just a launcher!
 
-If you encounter a bug, or would like to suggest a feature, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues). If you're looking for help on how to use Bloxstrap, please see the [help topics](https://github.com/pizzaboxer/bloxstrap/wiki), or open an issue.
+If you're looking for help on how to use Bloxstrap, or are encountering a problem, please see the [Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you encounter a bug with no solution in the Wiki, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues).
  
 Bloxstrap is only supported for PCs running Windows.
  
