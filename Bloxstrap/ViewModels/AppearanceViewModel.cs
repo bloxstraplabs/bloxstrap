@@ -29,7 +29,7 @@ namespace Bloxstrap.ViewModels
         private void PreviewBootstrapper()
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
-            dialog.Message = "Style preview - Click Cancel to close";
+            dialog.Message = (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.HyperionDialog) ? "Style preview - Click the X button on top right to close" : "Style preview - Click Cancel to close";
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
         }
@@ -71,6 +71,7 @@ namespace Bloxstrap.ViewModels
         public IReadOnlyDictionary<string, BootstrapperStyle> Dialogs { get; set; } = new Dictionary<string, BootstrapperStyle>()
         {
             { "Fluent", BootstrapperStyle.FluentDialog },
+            { "Hyperion", BootstrapperStyle.HyperionDialog },
             { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
             { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
             { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },

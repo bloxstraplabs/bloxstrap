@@ -6,6 +6,7 @@
         LegacyDialog2009,
         LegacyDialog2011,
         ProgressDialog,
-        FluentDialog
+        FluentDialog,
+        HyperionDialog
     }
 }
