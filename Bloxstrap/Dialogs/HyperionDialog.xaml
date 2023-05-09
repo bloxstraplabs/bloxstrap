@@ -20,7 +20,7 @@
                 <Image Source="/Resources/CancelButtonSmall.png"/>
             </Button>
             <Border Margin="12,12,36,12" VerticalAlignment="Top" Height="20">
-                <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="#FFECECEC" FontSize="12" FontWeight="Bold" Text="{Binding Version}" />
+                <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="#FFD8D8D8" FontSize="12" FontWeight="Bold" Text="{Binding Version}" />
             </Border>
             <Image Width="300" Height="60" Source="/Resources/WordmarkRoblox.png"/>
             <Grid Margin="0,0,0,30" VerticalAlignment="Bottom">
@@ -28,8 +28,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock TextAlignment="Center" Grid.Row="0" FontSize="16" Text="{Binding Message}" Foreground="#FFECECEC" FontFamily="Source Sans Pro" Margin="0,0,0,28" />
-                <ProgressBar Grid.Row="1" Width="480" Height="10" Foreground="#FFECECEC" Background="#FF565656" IsIndeterminate="{Binding ProgressIndeterminate}" Value="{Binding ProgressValue}"></ProgressBar>
+                <TextBlock Margin="0,0,0,24" TextAlignment="Center" Grid.Row="0" FontSize="16" Text="{Binding Message}" Foreground="#FFD8D8D8" FontFamily="Source Sans Pro" FontWeight="SemiBold" />
+                <ProgressBar Grid.Row="1" Width="480" Height="12" Foreground="#FFECECEC" Background="#FF565656" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Value="{Binding ProgressValue}"></ProgressBar>
             </Grid>
         </Grid>
     </Border>
