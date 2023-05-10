@@ -14,8 +14,6 @@
 
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
-	<Resource Include="Resources\CancelButtonSmall.png" />
-	<Resource Include="Resources\WordmarkRoblox.png" />
   </ItemGroup>
 
   <ItemGroup>

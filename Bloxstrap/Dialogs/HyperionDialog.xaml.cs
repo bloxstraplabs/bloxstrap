@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 using Bloxstrap.Enums;
 using Bloxstrap.Extensions;
@@ -62,7 +63,17 @@ namespace Bloxstrap.Dialogs
         public HyperionDialog()
         {
             _viewModel = new HyperionDialogViewModel(this);
+            if (App.Settings.Prop.Theme.GetFinal() == Theme.Light)
+            {
+                // Matching the roblox website light theme as close as possible.
+                _viewModel.DialogBorder = new Thickness(1);
+                _viewModel.Background = new SolidColorBrush(Color.FromRgb(242, 244, 245));
+                _viewModel.Foreground = new SolidColorBrush(Color.FromRgb(57, 59, 61));
+                _viewModel.IconColor = new SolidColorBrush(Color.FromRgb(57, 59, 61));
+                _viewModel.ProgressBarBackground = new SolidColorBrush(Color.FromRgb(189, 190, 190));
+            }
             DataContext = _viewModel;
+
             InitializeComponent();
         }
 
