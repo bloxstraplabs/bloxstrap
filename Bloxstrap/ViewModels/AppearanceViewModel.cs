@@ -71,11 +71,11 @@ namespace Bloxstrap.ViewModels
         public IReadOnlyDictionary<string, BootstrapperStyle> Dialogs { get; set; } = new Dictionary<string, BootstrapperStyle>()
         {
             { "Fluent", BootstrapperStyle.FluentDialog },
-            { "Hyperion", BootstrapperStyle.HyperionDialog },
             { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
             { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
             { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },
             { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
+            { "Hyperion (2022 - Fake)", BootstrapperStyle.HyperionDialog },
         };
 
         public string Dialog
