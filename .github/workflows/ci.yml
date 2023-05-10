@@ -6,7 +6,8 @@ on:
     branches:
       - '**'
   pull_request:
-    branches: [ main ]
+    branches:
+      - '**'
 
 jobs:
   build:
