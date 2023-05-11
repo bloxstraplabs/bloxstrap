@@ -14,7 +14,7 @@ namespace Bloxstrap.Extensions
                 BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
                 BootstrapperStyle.ProgressDialog => new ProgressDialog(),
                 BootstrapperStyle.FluentDialog => new FluentDialog(),
-                BootstrapperStyle.HyperionDialog => new HyperionDialog(),
+                BootstrapperStyle.ByfronDialog => new ByfronDialog(),
                 _ => new FluentDialog()
             };
         }

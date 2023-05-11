@@ -5,7 +5,7 @@ using Bloxstrap.Dialogs;
 
 namespace Bloxstrap.ViewModels
 {
-    public class HyperionDialogViewModel : FluentDialogViewModel, INotifyPropertyChanged
+    public class ByfronDialogViewModel : FluentDialogViewModel, INotifyPropertyChanged
     {
         public string Version => $"Bloxstrap v{App.Version}";
         // Using dark theme for default values.
@@ -14,7 +14,7 @@ namespace Bloxstrap.ViewModels
         public Brush Foreground { get; set; } = new SolidColorBrush(Color.FromRgb(216, 216, 216));
         public Brush IconColor { get; set; } = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         public Brush ProgressBarBackground { get; set; } = new SolidColorBrush(Color.FromRgb(86, 86, 86));
-        public HyperionDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
+        public ByfronDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
         {
         }
     }

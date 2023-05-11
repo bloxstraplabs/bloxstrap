@@ -10,11 +10,11 @@ using Bloxstrap.ViewModels;
 namespace Bloxstrap.Dialogs
 {
     /// <summary>
-    /// Interaction logic for HyperionDialog.xaml
+    /// Interaction logic for ByfronDialog.xaml
     /// </summary>
-    public partial class HyperionDialog : IBootstrapperDialog
+    public partial class ByfronDialog : IBootstrapperDialog
     {
-        private readonly HyperionDialogViewModel _viewModel;
+        private readonly ByfronDialogViewModel _viewModel;
 
         public Bootstrapper? Bootstrapper { get; set; }
 
@@ -60,9 +60,9 @@ namespace Bloxstrap.Dialogs
         }
         #endregion
 
-        public HyperionDialog()
+        public ByfronDialog()
         {
-            _viewModel = new HyperionDialogViewModel(this);
+            _viewModel = new ByfronDialogViewModel(this);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

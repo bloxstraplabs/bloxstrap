@@ -29,7 +29,12 @@ namespace Bloxstrap.ViewModels
         private void PreviewBootstrapper()
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
-            dialog.Message = (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.HyperionDialog) ? "Style preview - Click the X button on top right to close" : "Style preview - Click Cancel to close";
+
+            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
+                dialog.Message = "Style preview - Click the X button at the top right to close";
+            else
+                dialog.Message = "Style preview - Click Cancel to close";
+
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
         }
@@ -75,7 +80,7 @@ namespace Bloxstrap.ViewModels
             { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
             { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },
             { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
-            { "Hyperion (2022 - Fake)", BootstrapperStyle.HyperionDialog },
+            { "Fake Byfron (2023)", BootstrapperStyle.ByfronDialog },
         };
 
         public string Dialog
