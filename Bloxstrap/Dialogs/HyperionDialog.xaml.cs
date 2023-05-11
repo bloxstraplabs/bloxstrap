@@ -63,6 +63,10 @@ namespace Bloxstrap.Dialogs
         public HyperionDialog()
         {
             _viewModel = new HyperionDialogViewModel(this);
+            DataContext = _viewModel;
+            Title = App.Settings.Prop.BootstrapperTitle;
+            Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
+
             if (App.Settings.Prop.Theme.GetFinal() == Theme.Light)
             {
                 // Matching the roblox website light theme as close as possible.
@@ -72,7 +76,6 @@ namespace Bloxstrap.Dialogs
                 _viewModel.IconColor = new SolidColorBrush(Color.FromRgb(57, 59, 61));
                 _viewModel.ProgressBarBackground = new SolidColorBrush(Color.FromRgb(189, 190, 190));
             }
-            DataContext = _viewModel;
 
             InitializeComponent();
         }
