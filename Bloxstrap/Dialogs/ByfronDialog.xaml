@@ -15,7 +15,7 @@
     <Border CornerRadius="10" BorderBrush="#33393B3D" BorderThickness="{Binding DialogBorder}">
         <Border CornerRadius="10" Background="{Binding Background}">
             <Grid>
-                <Button Margin="12,12,12,12" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
+                <Button Margin="12" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
                     <Path Fill="{Binding IconColor}" Stretch="Fill">
                         <Path.Data>
                             <PathGeometry Figures="m 6.7507011 2.1168752 c -1.0144874 0 -2.0291944 0.3884677 -2.8065471 1.1658203 -1.5547052 1.5547053 -1.5547052 4.0583888 10e-8 5.6130941 L 28.499761 33.45088 3.9441541 58.006487 c -1.5547058 1.554706 -1.5547051 4.057873 0 5.612578 1.554705 1.554705 4.0583891 1.554705 5.6130942 0 l 24.5550907 -24.55509 24.555607 24.55509 c 1.554705 1.554705 4.057871 1.554705 5.612577 0 1.554705 -1.554706 1.554705 -4.057872 0 -5.612577 L 39.725433 33.450881 64.280523 8.89579 c 1.554706 -1.5547058 1.554705 -4.0583892 0 -5.6130942 -1.554705 -1.5547051 -4.057872 -1.5547058 -5.612578 -7e-7 L 34.112338 27.838303 9.5572482 3.2826955 C 8.7798955 2.5053428 7.7651883 2.1168752 6.7507011 2.1168752 Z" FillRule="NonZero"/>
@@ -23,7 +23,7 @@
                     </Path>
                 </Button>
                 <Grid Margin="12,12,36,12" VerticalAlignment="Top" Height="20">
-                    <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="{Binding Foreground}" FontSize="12" FontWeight="Bold" Text="{Binding Version}" />
+                    <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="{Binding Foreground}" FontSize="12" Text="{Binding Version}" />
                 </Grid>
                 <Path Fill="{Binding IconColor}" Width="300" Height="56" Stretch="Fill">
                     <Path.Data>
@@ -35,7 +35,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,0,0,24" TextAlignment="Center" Grid.Row="0" FontSize="16" Text="{Binding Message}" Foreground="{Binding Foreground}" FontFamily="Source Sans Pro" FontWeight="SemiBold" />
+                    <TextBlock Margin="0,0,0,21" TextAlignment="Center" Grid.Row="0" FontSize="18" Text="{Binding Message}" Foreground="{Binding Foreground}" FontFamily="Source Sans Pro" />
                     <ProgressBar Grid.Row="1" Width="480" Height="12" Foreground="{Binding Foreground}" Background="{Binding ProgressBarBackground}" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Value="{Binding ProgressValue}"></ProgressBar>
                 </Grid>
             </Grid>
