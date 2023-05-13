@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
-
+using System.Windows.Media.Imaging;
 using Bloxstrap.Enums;
 using Bloxstrap.Extensions;
 using Bloxstrap.ViewModels;
@@ -58,6 +58,16 @@ namespace Bloxstrap.Dialogs
                 _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonVisibility));
             }
         }
+
+        public bool VersionVisibility
+        {
+            get => _viewModel.VersionNumberVisibility == Visibility.Collapsed;
+            set
+            {
+                _viewModel.VersionNumberVisibility = (value ? Visibility.Visible : Visibility.Collapsed);
+                _viewModel.OnPropertyChanged(nameof(_viewModel.VersionNumberVisibility));
+            }
+        }
         #endregion
 
         public ByfronDialog()
@@ -75,6 +85,7 @@ namespace Bloxstrap.Dialogs
                 _viewModel.Foreground = new SolidColorBrush(Color.FromRgb(57, 59, 61));
                 _viewModel.IconColor = new SolidColorBrush(Color.FromRgb(57, 59, 61));
                 _viewModel.ProgressBarBackground = new SolidColorBrush(Color.FromRgb(189, 190, 190));
+                _viewModel.ByfronLogo = new BitmapImage(new Uri("pack://application:,,,/Bloxstrap;component/Resources/ByfronLogoDark.png"));
             }
 
             InitializeComponent();

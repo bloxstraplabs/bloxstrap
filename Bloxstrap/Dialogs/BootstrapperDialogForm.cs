@@ -63,6 +63,9 @@ namespace Bloxstrap.Dialogs
                     _cancelEnabled = value;
             }
         }
+
+        // Byfron specific - not required here, bypassing
+        public bool VersionVisibility { get; set; }
         #endregion
 
         public void ScaleWindow()

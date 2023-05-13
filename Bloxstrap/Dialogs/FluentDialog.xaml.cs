@@ -63,6 +63,9 @@ namespace Bloxstrap.Dialogs
                 _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonVisibility));
             }
         }
+
+        // Byfron specific - not required here, bypassing
+        public bool VersionVisibility { get; set; }
         #endregion
 
         public FluentDialog()

@@ -36,6 +36,8 @@ namespace Bloxstrap.ViewModels
                 dialog.Message = "Style preview - Click Cancel to close";
 
             dialog.CancelEnabled = true;
+            // Byfron dialog specific
+            dialog.VersionVisibility = false;
             dialog.ShowBootstrapper();
         }
 

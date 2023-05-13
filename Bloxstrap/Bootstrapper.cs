@@ -709,6 +709,8 @@ namespace Bloxstrap
             {
                 Dialog.CancelEnabled = true;
                 Dialog.ProgressStyle = ProgressBarStyle.Continuous;
+                // Byfron dialog specific
+                Dialog.VersionVisibility = false;
             }
 
             // compute total bytes to download

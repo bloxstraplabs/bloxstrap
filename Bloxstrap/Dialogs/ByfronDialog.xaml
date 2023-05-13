@@ -15,6 +15,7 @@
     <Border CornerRadius="10" BorderBrush="#33393B3D" BorderThickness="{Binding DialogBorder}">
         <Border CornerRadius="10" Background="{Binding Background}">
             <Grid>
+                <Image Margin="15" HorizontalAlignment="Left" VerticalAlignment="Top" Height="110" Source="{Binding ByfronLogo}"></Image>
                 <Button Margin="12" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
                     <Path Fill="{Binding IconColor}" Stretch="Fill">
                         <Path.Data>
@@ -23,7 +24,7 @@
                     </Path>
                 </Button>
                 <Grid Margin="12,12,36,12" VerticalAlignment="Top" Height="20">
-                    <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="{Binding Foreground}" FontFamily="{StaticResource Rubik}" FontSize="12" Text="{Binding Version}" />
+                    <TextBlock VerticalAlignment="Center" TextAlignment="Right" Foreground="{Binding Foreground}" FontFamily="{StaticResource Rubik}" FontSize="12" Text="{Binding Version}" Visibility="{Binding VersionNumberVisibility, Mode=OneWay}"/>
                 </Grid>
                 <Path Fill="{Binding IconColor}" Width="300" Height="56" Stretch="Fill">
                     <Path.Data>

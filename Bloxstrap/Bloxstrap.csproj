@@ -14,7 +14,9 @@
 
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
-    <Resource Include="Fonts\Rubik-VariableFont_wght.ttf"/>
+    <Resource Include="Fonts\Rubik-VariableFont_wght.ttf" />
+    <Resource Include="Resources\ByfronLogo.png" />
+    <Resource Include="Resources\ByfronLogoDark.png" />
   </ItemGroup>
 
   <ItemGroup>
