@@ -793,7 +793,11 @@ namespace Bloxstrap
             }
 
             if (Dialog is not null)
+            {
                 Dialog.CancelEnabled = false;
+                // Byfron dialog specific
+                Dialog.VersionVisibility = true;
+            }
 
             App.State.Prop.VersionGuid = _latestVersionGuid;
 
