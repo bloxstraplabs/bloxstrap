@@ -21,7 +21,7 @@ namespace Bloxstrap.ViewModels
         public ImageSource ByfronLogo { get; set; } = new BitmapImage(new Uri("pack://application:,,,/Bloxstrap;component/Resources/ByfronLogo.png"));
 
         // When cancel button is visible, version number is hidden.
-        public Visibility VersionNumberVisibility { get; set; } = Visibility.Collapsed;
+        public Visibility VersionNumberVisibility { get; set; } = Visibility.Visible;
 
         public ByfronDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
         {

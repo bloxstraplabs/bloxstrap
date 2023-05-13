@@ -61,7 +61,7 @@ namespace Bloxstrap.Dialogs
 
         public bool VersionVisibility
         {
-            get => _viewModel.VersionNumberVisibility == Visibility.Collapsed;
+            get => _viewModel.VersionNumberVisibility == Visibility.Visible;
             set
             {
                 _viewModel.VersionNumberVisibility = (value ? Visibility.Visible : Visibility.Collapsed);

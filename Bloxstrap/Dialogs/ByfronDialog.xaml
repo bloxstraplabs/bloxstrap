@@ -23,7 +23,7 @@
                         </Path.Data>
                     </Path>
                 </Button>
-                <Grid Margin="12,12,36,12" VerticalAlignment="Top" Height="20">
+                <Grid Margin="12" VerticalAlignment="Top" Height="20">
                     <TextBlock VerticalAlignment="Center" TextAlignment="Right" Foreground="{Binding Foreground}" FontFamily="{StaticResource Rubik}" FontSize="12" Text="{Binding Version}" Visibility="{Binding VersionNumberVisibility, Mode=OneWay}"/>
                 </Grid>
                 <Path Fill="{Binding IconColor}" Width="300" Height="56" Stretch="Fill">
