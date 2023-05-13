@@ -10,7 +10,6 @@ namespace Bloxstrap.Dialogs
         ProgressBarStyle ProgressStyle { get; set; }
         int ProgressValue { get; set; }
         bool CancelEnabled { get; set; }
-        bool VersionVisibility { get; set; }
 
         void ShowBootstrapper();
         void CloseBootstrapper();

@@ -55,16 +55,8 @@ namespace Bloxstrap.Dialogs
             set
             {
                 _viewModel.CancelButtonVisibility = (value ? Visibility.Visible : Visibility.Collapsed);
+                _viewModel.VersionNumberVisibility = (value ? Visibility.Collapsed : Visibility.Visible);
                 _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonVisibility));
-            }
-        }
-
-        public bool VersionVisibility
-        {
-            get => _viewModel.VersionNumberVisibility == Visibility.Visible;
-            set
-            {
-                _viewModel.VersionNumberVisibility = (value ? Visibility.Visible : Visibility.Collapsed);
                 _viewModel.OnPropertyChanged(nameof(_viewModel.VersionNumberVisibility));
             }
         }
