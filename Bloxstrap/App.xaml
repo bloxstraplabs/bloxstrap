@@ -11,6 +11,8 @@
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
             </ResourceDictionary.MergedDictionaries>
+
+            <FontFamily x:Key="Rubik">pack://application:,,,/Fonts/#Rubik Light</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

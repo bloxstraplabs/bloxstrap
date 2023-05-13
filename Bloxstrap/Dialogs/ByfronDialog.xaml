@@ -23,7 +23,7 @@
                     </Path>
                 </Button>
                 <Grid Margin="12,12,36,12" VerticalAlignment="Top" Height="20">
-                    <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="{Binding Foreground}" FontSize="12" Text="{Binding Version}" />
+                    <TextBlock VerticalAlignment="Center" TextAlignment="Left" Foreground="{Binding Foreground}" FontFamily="{StaticResource Rubik}" FontSize="12" Text="{Binding Version}" />
                 </Grid>
                 <Path Fill="{Binding IconColor}" Width="300" Height="56" Stretch="Fill">
                     <Path.Data>
@@ -35,7 +35,11 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,0,0,21" TextAlignment="Center" Grid.Row="0" FontSize="18" Text="{Binding Message}" Foreground="{Binding Foreground}" FontFamily="Source Sans Pro" />
+                    <TextBlock Margin="0,0,0,21" TextAlignment="Center" Grid.Row="0" Text="{Binding Message}" Foreground="{Binding Foreground}" FontFamily="{StaticResource Rubik}" FontSize="18" FontWeight="Light">
+                        <TextBlock.LayoutTransform>
+                            <ScaleTransform ScaleY="0.9"/>
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
                     <ProgressBar Grid.Row="1" Width="480" Height="12" Foreground="{Binding Foreground}" Background="{Binding ProgressBarBackground}" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Value="{Binding ProgressValue}"></ProgressBar>
                 </Grid>
             </Grid>
