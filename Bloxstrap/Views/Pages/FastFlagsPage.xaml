@@ -21,7 +21,7 @@
                     <TextBlock.Style>
                         <Style>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
                                     <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
                                 </DataTrigger>
                             </Style.Triggers>
@@ -33,7 +33,7 @@
                         <Style>
                             <Setter Property="TextBlock.Text" Value="Where all FastFlags are saved to. Use this to manage your own flags."/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
                                     <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
                                 </DataTrigger>
                             </Style.Triggers>
