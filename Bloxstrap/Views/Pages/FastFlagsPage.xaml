@@ -56,7 +56,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Rendering mode" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what graphics renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
@@ -82,7 +82,16 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="In-game menu version" />
+                    <TextBlock FontSize="14" Text="Use old material textures" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding Pre2022TexturesEnabled, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="In-game escape menu version" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
@@ -92,7 +101,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Preferred lighting technology" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Select which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />

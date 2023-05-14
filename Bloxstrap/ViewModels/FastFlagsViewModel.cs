@@ -102,6 +102,12 @@ namespace Bloxstrap.ViewModels
             set => App.FastFlags.SetValue("FFlagFixGraphicsQuality", value ? "True" : null);
         }
 
+        public bool Pre2022TexturesEnabled
+        {
+            get => App.FastFlags.GetValue("FStringPartTexturePackTable2022") == FastFlagManager.OldTexturesFlagValue;
+            set => App.FastFlags.SetValue("FStringPartTexturePackTable2022", value ? FastFlagManager.OldTexturesFlagValue : null);
+        }
+
         public bool MobileLuaAppInterfaceEnabled
         {
             get => App.FastFlags.GetValue("FFlagLuaAppSystemBar") == "False";
