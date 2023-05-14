@@ -34,9 +34,9 @@ If you would like to build Bloxstrap's source code, see the [guide for building 
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications - re-adds the old death sound!
-* Painless support for Discord Rich Presence - no auth cookie needed!
-* A customizable launcher look - includes dark theme!
-* Lets you disable the Roblox desktop app
+* Support for FastFlag editing, with FPS unlimiting and more!
+* Painless and seamless support for Discord Rich Presence - no auth cookie needed!
+* A customizable launcher look
 * Lets you opt into non-production Roblox release channels
 * Lets you see what region your current server is located in
 * Lets you have multiple Roblox game instances open simultaneously
