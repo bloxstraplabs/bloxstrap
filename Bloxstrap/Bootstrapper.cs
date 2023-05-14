@@ -17,7 +17,6 @@ using Bloxstrap.Enums;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
-using System.Globalization;
 
 namespace Bloxstrap
 {
@@ -110,6 +109,10 @@ namespace Bloxstrap
         private void SetStatus(string message)
         {
             App.Logger.WriteLine($"[Bootstrapper::SetStatus] {message}");
+
+            // yea idk
+            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
+                message = message.Replace("...", "");
 
             if (Dialog is not null)
                 Dialog.Message = message;
@@ -790,10 +793,10 @@ namespace Bloxstrap
                 }
             }
 
+            App.State.Prop.VersionGuid = _latestVersionGuid;
+
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
-
-            App.State.Prop.VersionGuid = _latestVersionGuid;
 
             _isInstalling = false;
         }

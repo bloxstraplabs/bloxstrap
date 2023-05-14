@@ -70,7 +70,7 @@
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
                 <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/1011025m">1011025m</Hyperlink>
             </TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Providing a method for disabling the Roblox desktop app" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping disable the Roblox desktop app, and adding the fake Byfron bootstrapper style" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
             <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
                 <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/sitiom">sitiom</Hyperlink>
