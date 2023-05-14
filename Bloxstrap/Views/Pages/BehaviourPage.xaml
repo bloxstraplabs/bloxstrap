@@ -40,14 +40,5 @@
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="Choose what to do on suggested channel change" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox or Bloxstrap may try to change your preferred release channel." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes.Keys, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}" />
-        </ui:CardControl>
     </StackPanel>
 </ui:UiPage>

@@ -10,6 +10,7 @@ using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
 
+using Bloxstrap.Enums;
 using Bloxstrap.Models;
 
 namespace Bloxstrap.ViewModels
@@ -117,5 +118,19 @@ namespace Bloxstrap.ViewModels
         // cant use data bindings so i have to do whatever tf this is
         public Visibility ChannelComboBoxVisibility => ManualChannelEntry ? Visibility.Collapsed : Visibility.Visible;
         public Visibility ChannelTextBoxVisibility => ManualChannelEntry ? Visibility.Visible : Visibility.Collapsed;
+
+        // todo - move to enum attributes?
+        public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
+        {
+            { "Change automatically", ChannelChangeMode.Automatic },
+            { "Always prompt", ChannelChangeMode.Prompt },
+            { "Never change", ChannelChangeMode.Ignore },
+        };
+
+        public string SelectedChannelChangeMode
+        {
+            get => ChannelChangeModes.FirstOrDefault(x => x.Value == App.Settings.Prop.ChannelChangeMode).Key;
+            set => App.Settings.Prop.ChannelChangeMode = ChannelChangeModes[value];
+        }
     }
 }
