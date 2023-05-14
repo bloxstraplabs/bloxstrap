@@ -114,6 +114,11 @@ namespace Bloxstrap.Singletons
 
             if (value != "Automatic")
                 SetValue(RenderingModes[value], "True");
+
+            if (value == "Vulkan")
+                SetValue("FFlagRenderVulkanFixMinimizeWindow", "True");
+            else if (GetValue("FFlagRenderVulkanFixMinimizeWindow") is not null)
+                SetValue("FFlagRenderVulkanFixMinimizeWindow", null);
         }
 
         public override void Load()
@@ -123,6 +128,9 @@ namespace Bloxstrap.Singletons
             // set to 9999 by default if it doesnt already exist
             if (GetValue("DFIntTaskSchedulerTargetFps") is null)
                 SetValue("DFIntTaskSchedulerTargetFps", 9999);
+
+            if (GetValue("FFlagDebugGraphicsPreferVulkan") == "True" && GetValue("FFlagRenderVulkanFixMinimizeWindow") is null)
+                SetValue("FFlagRenderVulkanFixMinimizeWindow", "True");
 
             // exclusive fullscreen requires direct3d 10/11 to work
             if (App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False")
