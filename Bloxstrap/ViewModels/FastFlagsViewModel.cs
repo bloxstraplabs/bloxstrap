@@ -63,6 +63,18 @@ namespace Bloxstrap.ViewModels
             }
         }
 
+        public bool AlternateGraphicsSelectorEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagFixGraphicsQuality") == "True";
+            set => App.FastFlags.SetValue("FFlagFixGraphicsQuality", value ? "True" : null);
+        }
+
+        public bool Pre2022TexturesEnabled
+        {
+            get => App.FastFlags.GetValue("FStringPartTexturePackTable2022") == FastFlagManager.OldTexturesFlagValue;
+            set => App.FastFlags.SetValue("FStringPartTexturePackTable2022", value ? FastFlagManager.OldTexturesFlagValue : null);
+        }
+
         public IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
 
         public string SelectedIGMenuVersion
@@ -96,24 +108,6 @@ namespace Bloxstrap.ViewModels
             }
         }
 
-        public bool AlternateGraphicsSelectorEnabled
-        {
-            get => App.FastFlags.GetValue("FFlagFixGraphicsQuality") == "True";
-            set => App.FastFlags.SetValue("FFlagFixGraphicsQuality", value ? "True" : null);
-        }
-
-        public bool Pre2022TexturesEnabled
-        {
-            get => App.FastFlags.GetValue("FStringPartTexturePackTable2022") == FastFlagManager.OldTexturesFlagValue;
-            set => App.FastFlags.SetValue("FStringPartTexturePackTable2022", value ? FastFlagManager.OldTexturesFlagValue : null);
-        }
-
-        public bool MobileLuaAppInterfaceEnabled
-        {
-            get => App.FastFlags.GetValue("FFlagLuaAppSystemBar") == "False";
-            set => App.FastFlags.SetValue("FFlagLuaAppSystemBar", value ? "False" : null);
-        }
-
         public IReadOnlyDictionary<string, string> LightingTechnologies => FastFlagManager.LightingTechnologies;
 
         // this is basically the same as the code for rendering selection, maybe this could be abstracted in some way?
@@ -141,6 +135,18 @@ namespace Bloxstrap.ViewModels
                 if (value != "Automatic")
                     App.FastFlags.SetValue(LightingTechnologies[value], "True");
             }
+        }
+
+        public bool GuiHidingEnabled
+        {
+            get => App.FastFlags.GetValue("DFIntCanHideGuiGroupId") == "32380007";
+            set => App.FastFlags.SetValue("DFIntCanHideGuiGroupId", value ? "32380007" : null);
+        }
+
+        public bool MobileLuaAppInterfaceEnabled
+        {
+            get => App.FastFlags.GetValue("FFlagLuaAppSystemBar") == "False";
+            set => App.FastFlags.SetValue("FFlagLuaAppSystemBar", value ? "False" : null);
         }
     }
 }

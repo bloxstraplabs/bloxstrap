@@ -13,7 +13,8 @@
 
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="Control how specific Roblox engine parameters and features are configured." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+        
+        <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,16,0,0" Padding="16,13,16,12" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
             <StackPanel>
                 <TextBlock FontSize="14" Text="Edit ClientAppSettings.json">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
@@ -91,8 +92,8 @@
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="In-game escape menu version" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the in-game menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="Preferred escape menu version" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
@@ -105,6 +106,17 @@
                 </StackPanel>
             </ui:CardControl.Header>
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Enable ability to hide GUIs" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                        TODO - add text for wiki page for controls when done. You must be in the <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/groups/32380007/Bloxstrap">Bloxstrap group</Hyperlink> for it to work.
+                    </TextBlock>
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
         <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
             <ui:CardControl.Header>
