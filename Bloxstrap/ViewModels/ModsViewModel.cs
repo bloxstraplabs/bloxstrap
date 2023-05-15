@@ -18,6 +18,12 @@ namespace Bloxstrap.ViewModels
             set => App.Settings.Prop.UseOldDeathSound = value;
         }
 
+        public bool OldCharacterSoundsEnabled
+        {
+            get => App.Settings.Prop.UseOldCharacterSounds;
+            set => App.Settings.Prop.UseOldCharacterSounds = value;
+        }
+
         public bool OldMouseCursorEnabled
         {
             get => App.Settings.Prop.UseOldMouseCursor;

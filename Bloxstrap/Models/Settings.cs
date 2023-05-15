@@ -28,6 +28,7 @@ namespace Bloxstrap.Models
 
         // mod preset configuration
         public bool UseOldDeathSound { get; set; } = true;
+        public bool UseOldCharacterSounds { get; set; } = false;
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
         public bool DisableFullscreenOptimizations { get; set; } = false;

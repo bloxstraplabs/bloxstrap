@@ -63,6 +63,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -88,7 +89,17 @@
                 <ui:ToggleSwitch IsChecked="{Binding OldMouseCursorEnabled, Mode=TwoWay}" />
             </ui:CardControl>
 
-            <ui:CardControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+            <ui:CardControl Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Emulate old character sounds" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="An attempt to roughly bring back the character sounds used prior to 2014." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
+            </ui:CardControl>
+
+            <ui:CardControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
                 <ui:CardControl.Header>
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Disable desktop app" />

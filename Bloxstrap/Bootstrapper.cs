@@ -907,6 +907,11 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
             await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
             await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_footsteps_plastic.mp3", "OldWalk.mp3");
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump.mp3", "OldJump.mp3");
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_falling.mp3", "Empty.mp3");
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump_land.mp3", "Empty.mp3");
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\swim.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
