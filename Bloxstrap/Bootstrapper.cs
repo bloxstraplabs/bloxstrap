@@ -17,6 +17,7 @@ using Bloxstrap.Enums;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
+using System.Globalization;
 
 namespace Bloxstrap
 {
@@ -109,10 +110,6 @@ namespace Bloxstrap
         private void SetStatus(string message)
         {
             App.Logger.WriteLine($"[Bootstrapper::SetStatus] {message}");
-
-            // yea idk
-            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
-                message = message.Replace("...", "");
 
             if (Dialog is not null)
                 Dialog.Message = message;
@@ -217,7 +214,14 @@ namespace Bloxstrap
 
         private async Task CheckLatestVersion()
         {
-            SetStatus("Connecting to Roblox...");
+            if (App.Settings.Prop.RemoveRobloxText == true)
+            {
+                SetStatus("Connecting to " + App.Settings.Prop.BootstrapperTitle + "...");
+            }
+            else
+            {
+                SetStatus("Connecting to Roblox...");
+            }
 
             ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
@@ -264,7 +268,17 @@ namespace Bloxstrap
 
         private async Task StartRoblox()
         {
-            SetStatus("Starting Roblox...");
+            // hi! epic cube
+            if (App.Settings.Prop.RemoveRobloxText == true)
+            {
+                SetStatus("Starting " + App.Settings.Prop.BootstrapperTitle + "...");
+            }
+            else
+            {
+                SetStatus("Starting Roblox...");
+            }
+             
+                
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
@@ -690,7 +704,14 @@ namespace Bloxstrap
         {
             _isInstalling = true;
 
-            SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
+            if (App.Settings.Prop.RemoveRobloxText == true)
+            {
+                SetStatus(FreshInstall ? "Installing " + App.Settings.Prop.BootstrapperTitle + "..." : "Upgrading" + App.Settings.Prop.BootstrapperTitle + "...");
+            }
+            else 
+            {
+                SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
+            }
 
             Directory.CreateDirectory(Directories.Base);
             Directory.CreateDirectory(Directories.Downloads);
@@ -743,7 +764,14 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
-                SetStatus("Configuring Roblox...");
+                if (App.Settings.Prop.RemoveRobloxText == true)
+                {
+                    SetStatus("Configuring " + App.Settings.Prop.BootstrapperTitle + "...");
+                }
+                else
+                {
+                    SetStatus("Configuring Roblox...");
+                }
             }
 
             // wait for all packages to finish extracting, with an exception for the webview2 runtime installer
@@ -793,10 +821,10 @@ namespace Bloxstrap
                 }
             }
 
-            App.State.Prop.VersionGuid = _latestVersionGuid;
-
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
+
+            App.State.Prop.VersionGuid = _latestVersionGuid;
 
             _isInstalling = false;
         }
@@ -852,7 +880,7 @@ namespace Bloxstrap
             if (File.Exists(injectorLocation))
             {
                 App.ShowMessageBox(
-                    "Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.\n\n"+
+                    "Roblox has now completeted rollout of the new client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been removed from Bloxstrap.\n\n"+
                     "Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.", 
                     MessageBoxImage.Warning
                 );
@@ -866,7 +894,14 @@ namespace Bloxstrap
 
         private async Task ApplyModifications()
         {
-            SetStatus("Applying Roblox modifications...");
+            if (App.Settings.Prop.RemoveRobloxText == true)
+            {
+                SetStatus("Applying " + App.Settings.Prop.BootstrapperTitle + " modifications...");
+            }
+            else
+            {
+                SetStatus("Applying Roblox modifications...");
+            }
 
             // set executable flags for fullscreen optimizations
             App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Checking executable flags...");
