@@ -31,5 +31,6 @@ namespace Bloxstrap.Models
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
         public bool DisableFullscreenOptimizations { get; set; } = false;
+        public bool RemoveRobloxText { get; set; } = false;
     }
 }
