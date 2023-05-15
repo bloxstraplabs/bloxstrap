@@ -15,6 +15,7 @@ namespace Bloxstrap.Models
         public bool CheckForUpdates { get; set; } = true;
         public bool CreateDesktopIcon { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
+        public bool RemoveRobloxText { get; set; } = false;
 
         // channel configuration
         public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
@@ -31,6 +32,6 @@ namespace Bloxstrap.Models
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
         public bool DisableFullscreenOptimizations { get; set; } = false;
-        public bool RemoveRobloxText { get; set; } = false;
+        
     }
 }
