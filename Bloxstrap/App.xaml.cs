@@ -68,6 +68,7 @@ namespace Bloxstrap
             Logger.WriteLine($"[App::Terminate] Terminating with exit code {code}");
             Settings.Save();
             State.Save();
+            Notification.Dispose();
             Environment.Exit(code);
         }
 
