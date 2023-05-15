@@ -1,0 +1,48 @@
+using System;
+using System.Windows.Forms;
+
+namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
+{
+    // windows: https://youtu.be/VpduiruysuM?t=18
+    // mac: https://youtu.be/ncHhbcVDRgQ?t=63
+
+    public partial class LegacyDialog2009 : DialogBase
+    {
+        protected override string _message 
+        { 
+            get => labelMessage.Text; 
+            set => labelMessage.Text = value; 
+        }
+
+        protected override ProgressBarStyle _progressStyle
+        {
+            get => ProgressBar.Style;
+            set => ProgressBar.Style = value;
+        }
+
+        protected override int _progressValue
+        {
+            get => ProgressBar.Value;
+            set => ProgressBar.Value = value;
+        }
+
+        protected override bool _cancelEnabled 
+        { 
+            get => this.buttonCancel.Enabled; 
+            set => this.buttonCancel.Enabled = value; 
+        }
+
+        public LegacyDialog2009()
+        {
+            InitializeComponent();
+
+            ScaleWindow();
+            SetupDialog();
+        }
+
+        private void LegacyDialog2009_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
+    }
+}

@@ -12,11 +12,11 @@ using System.Windows;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Dialogs;
 using Bloxstrap.Enums;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
+using Bloxstrap.UI.BootstrapperDialogs;
 
 namespace Bloxstrap
 {

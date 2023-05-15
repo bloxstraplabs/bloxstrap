@@ -13,11 +13,11 @@ using System.Windows.Threading;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Dialogs;
 using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 using Bloxstrap.Singletons;
-using Bloxstrap.Views;
+using Bloxstrap.UI.BootstrapperDialogs;
+using Bloxstrap.UI.Menu.Views;
 
 namespace Bloxstrap
 {

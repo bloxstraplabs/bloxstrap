@@ -2,12 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using System.Windows.Forms;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Bloxstrap.Properties;
-using Bloxstrap.Views;
+using Bloxstrap.UI.Menu.Views;
 
 namespace Bloxstrap
 {

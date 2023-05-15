@@ -1,0 +1,39 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.BootstrapperDialogs.WPF.Views.FluentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        mc:Ignorable="d"
+        Width="420"
+        Height="192" 
+        MinHeight="191"
+        MaxHeight="192"
+        ResizeMode="NoResize"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
+        WindowCornerPreference="Round"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <ui:TitleBar Background="{ui:ThemeResource ApplicationBackgroundBrush}" Title="{Binding Title, Mode=OneTime}" Padding="15,15,0,10" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="False" UseSnapLayout="False" ShowClose="False" ShowMinimize="False" ShowMaximize="False" />
+        <Grid Margin="16,0,16,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Margin="0,12,0,0" Width="48" Height="48" VerticalAlignment="Top">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding Icon, Mode=OneWay}" />
+                </Border.Background>
+            </Border>
+            <StackPanel Grid.Column="1">
+                <TextBlock Margin="16,8,0,0" FontSize="20" Text="{Binding Message, Mode=OneWay}" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <ProgressBar Margin="16,16,0,16" IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}" Value="{Binding ProgressValue, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="8,16,16,16" Content="{Binding CancelButtonText, Mode=OneWay}" Width="120" HorizontalAlignment="Right" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}" />
+        </StackPanel>
+    </StackPanel>
+</ui:UiWindow>

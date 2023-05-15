@@ -1,5 +1,7 @@
-﻿using Bloxstrap.Dialogs;
-using Bloxstrap.Enums;
+﻿using Bloxstrap.Enums;
+using Bloxstrap.UI.BootstrapperDialogs;
+using Bloxstrap.UI.BootstrapperDialogs.WinForms;
+using Bloxstrap.UI.BootstrapperDialogs.WPF.Views;
 
 namespace Bloxstrap.Extensions
 {
