@@ -55,7 +55,7 @@
             <ui:CardControl.Header>
                 <StackPanel>
                     <TextBlock FontSize="14" Text="Remove Roblox text" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}"><Run Text="Toggle this option on if you want the bootstrapper title to appear as the Starting Roblox text."/></TextBlock>
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}"><Run Text="Toggle this option on if you want the bootstrapper title to appear as the Starting Roblox and the other text."/></TextBlock>
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding RemoveRobloxText, Mode=TwoWay}" />
