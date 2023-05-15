@@ -114,6 +114,12 @@ namespace Bloxstrap.ViewModels
 
         public ImageSource IconPreviewSource => App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
 
+        public bool RemoveRobloxText
+        {
+            get => App.Settings.Prop.RemoveRobloxText;
+            set => App.Settings.Prop.RemoveRobloxText = value;
+        }
+        
         public string Title
         {
             get => App.Settings.Prop.BootstrapperTitle;
