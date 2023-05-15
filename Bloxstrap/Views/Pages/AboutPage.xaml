@@ -45,6 +45,10 @@
         <TextBlock Text="These are the people who have made notable contributions to Bloxstrap, helping make it what it is." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         <Grid Column="0" Margin="0,8,0,0">
             <Grid.RowDefinitions>
+                <!-- bruh -->
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -86,6 +90,21 @@
                 <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Extravi">Extravi</Hyperlink>
             </TextBlock>
             <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Allowing their presets to be bundled with Bloxstrap, and helping with improving UX" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
+              <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/he3als">he3als</Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Row="6" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping add graphics options (rendering modes, exclusive fullscreen, etc)" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          
+            <TextBlock Grid.Row="7" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
+                <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/EasternBloxxer">EasternBloxxer</Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Row="7" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping add the FastFlag preset for preferred lighting mode" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+            <TextBlock Grid.Row="8" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
+                <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/carter0nline">carter0nline</Hyperlink>
+            </TextBlock>
+            <TextBlock Grid.Row="8" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Helping add the FastFlag preset for enabling GUI hiding" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
         <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
