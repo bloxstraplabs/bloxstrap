@@ -1,12 +1,6 @@
 name: CI
-on:
-  push:
-    paths-ignore:
-      - 'Resources/**'
-  pull_request:
-    paths-ignore:
-      - 'Resources/**'
-      
+on: [push, pull_request]
+
 jobs:
   build:
     strategy:
