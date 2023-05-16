@@ -72,6 +72,12 @@ namespace Bloxstrap.UI.Menu.ViewModels
             set => App.Settings.Prop.ShowServerDetails = value;
         }
 
+        public bool MultiInstanceLaunchingEnabled
+        {
+            get => App.Settings.Prop.MultiInstanceLaunching;
+            set => App.Settings.Prop.MultiInstanceLaunching = value;
+        }
+
         public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations;
