@@ -8,9 +8,9 @@
 
 An open-source, feature-packed alternative bootstrapper for Roblox.
 
-This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. This does not touch or modify the game client itself, it's just a launcher!
+This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's practically no risk of being banned for using this.
 
-If you encounter a bug, or would like to suggest a feature, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues). If you're looking for help on how to use Bloxstrap, please see the [help topics](https://github.com/pizzaboxer/bloxstrap/wiki), or open an issue.
+Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues) or report it in our [Discord server](https://discord.gg/nKjV3mGq6R).
  
 Bloxstrap is only supported for PCs running Windows.
  
@@ -34,9 +34,9 @@ If you would like to build Bloxstrap's source code, see the [guide for building 
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications - re-adds the old death sound!
-* Painless support for Discord Rich Presence - no auth cookie needed!
-* A customizable launcher look - includes dark theme!
-* Lets you disable the Roblox desktop app
+* Support for FastFlag editing, with FPS unlimiting and more!
+* Painless and seamless support for Discord Rich Presence - no auth cookie needed!
+* A customizable launcher look
 * Lets you opt into non-production Roblox release channels
 * Lets you see what region your current server is located in
 * Lets you have multiple Roblox game instances open simultaneously
