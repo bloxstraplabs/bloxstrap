@@ -13,6 +13,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using Bloxstrap.Enums;
+using Bloxstrap.Extensions;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
@@ -914,6 +915,30 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_swim.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\impact_water.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
+
+            // emoji presets are downloaded remotely from github due to how large they are
+            string emojiFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\TwemojiMozilla.ttf");
+
+            if (App.Settings.Prop.PreferredEmojiType == EmojiType.Default && App.State.Prop.CurrentEmojiType != EmojiType.Default)
+            {
+                if (File.Exists(emojiFontLocation))
+                    File.Delete(emojiFontLocation);
+
+                App.State.Prop.CurrentEmojiType = EmojiType.Default;
+            }
+            else if (App.Settings.Prop.PreferredEmojiType != EmojiType.Default && App.State.Prop.CurrentEmojiType != App.Settings.Prop.PreferredEmojiType)
+            {
+                if (File.Exists(emojiFontLocation))
+                    File.Delete(emojiFontLocation);
+
+                string remoteEmojiLocation = App.Settings.Prop.PreferredEmojiType.GetRemoteLocation();
+
+                var response = await App.HttpClient.GetAsync(remoteEmojiLocation);
+                await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
+                await response.Content.CopyToAsync(fileStream);
+
+                App.State.Prop.CurrentEmojiType = App.Settings.Prop.PreferredEmojiType;
+            }
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
             {

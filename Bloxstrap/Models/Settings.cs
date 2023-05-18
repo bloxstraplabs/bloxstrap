@@ -31,6 +31,7 @@ namespace Bloxstrap.Models
         public bool UseOldCharacterSounds { get; set; } = false;
         public bool UseOldMouseCursor { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
+        public EmojiType PreferredEmojiType { get; set; } = EmojiType.Default;
         public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

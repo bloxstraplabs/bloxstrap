@@ -1,6 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
+
+using Bloxstrap.Enums;
+using Bloxstrap.Extensions;
 
 using CommunityToolkit.Mvvm.Input;
 
@@ -34,6 +38,14 @@ namespace Bloxstrap.UI.Menu.ViewModels
         {
             get => App.Settings.Prop.UseDisableAppPatch;
             set => App.Settings.Prop.UseDisableAppPatch = value;
+        }
+
+        public IReadOnlyDictionary<string, EmojiType> EmojiTypes => EmojiTypeEx.Selections;
+
+        public string SelectedEmojiType
+        {
+            get => EmojiTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.PreferredEmojiType).Key;
+            set => App.Settings.Prop.PreferredEmojiType = EmojiTypes[value];
         }
 
         public bool DisableFullscreenOptimizationsEnabled

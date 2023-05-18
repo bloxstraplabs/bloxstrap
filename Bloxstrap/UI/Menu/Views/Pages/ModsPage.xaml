@@ -63,6 +63,7 @@
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" />
@@ -106,6 +107,16 @@
           </StackPanel>
         </ui:CardControl.Header>
         <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
+      </ui:CardControl>
+
+      <ui:CardControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="Preferred emoji type" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which type of emoji should Roblox use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes.Keys, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}" />
       </ui:CardControl>
     </Grid>
 
