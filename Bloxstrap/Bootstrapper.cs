@@ -188,7 +188,10 @@ namespace Bloxstrap
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)
+            {
                 Register();
+                RegisterProgramSize();
+            }
 
             CheckInstall();
 
@@ -423,6 +426,20 @@ namespace Bloxstrap
             }
 
             App.Logger.WriteLine("[Bootstrapper::StartRoblox] Registered application");
+        }
+
+        public void RegisterProgramSize()
+        {
+            App.Logger.WriteLine("[Bootstrapper::RegisterProgramSize] Registering approximate program size...");
+
+            using RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{App.ProjectName}");
+
+            // sum compressed and uncompressed package sizes and convert to kilobytes
+            int totalSize = (_versionPackageManifest.Sum(x => x.Size) + _versionPackageManifest.Sum(x => x.PackedSize)) / 1000;
+
+            uninstallKey.SetValue("EstimatedSize", totalSize);
+
+            App.Logger.WriteLine($"[Bootstrapper::RegisterProgramSize] Registered as {totalSize} KB");
         }
 
         private void CheckInstallMigration()
@@ -784,6 +801,10 @@ namespace Bloxstrap
             }
 
             App.State.Prop.VersionGuid = _latestVersionGuid;
+
+            // don't register program size until the program is registered
+            if (!App.IsFirstRun && !FreshInstall)
+                RegisterProgramSize();
 
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
