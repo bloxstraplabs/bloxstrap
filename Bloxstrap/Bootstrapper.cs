@@ -688,7 +688,27 @@ namespace Bloxstrap
                 App.Logger.WriteLine($"Could not fully uninstall! ({ex})");
             }
 
-            Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled");
+            Action? callback = null;
+
+            if (Directory.Exists(Directories.Base))
+            {
+                callback = () =>
+                {
+                    // this is definitely one of the workaround hacks of all time
+                    // could antiviruses falsely detect this as malicious behaviour though?
+                    // "hmm whats this program doing running a cmd command chain quietly in the background that auto deletes an entire folder"
+
+                    Process.Start(new ProcessStartInfo()
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = $"/c timeout 5 && del /Q \"{Directories.Base}\\*\" && rmdir \"{Directories.Base}\"",
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    });
+                };
+            }
+
+            Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled", callback);
         }
         #endregion
 

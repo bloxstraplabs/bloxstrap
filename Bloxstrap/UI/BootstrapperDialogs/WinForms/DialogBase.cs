@@ -99,9 +99,13 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
                 Close();
         }
 
-        public virtual void ShowSuccess(string message)
+        public virtual void ShowSuccess(string message, Action? callback)
         {
             App.ShowMessageBox(message, MessageBoxImage.Information);
+
+            if (callback is not null)
+                callback();
+
             App.Terminate();
         }
 

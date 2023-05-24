@@ -85,9 +85,13 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
 
         // TODO: make prompts use dialog view natively rather than using message dialog boxes
 
-        public void ShowSuccess(string message)
+        public void ShowSuccess(string message, Action? callback)
         {
             App.ShowMessageBox(message, MessageBoxImage.Information);
+
+            if (callback is not null)
+                callback();
+
             App.Terminate();
         }
 

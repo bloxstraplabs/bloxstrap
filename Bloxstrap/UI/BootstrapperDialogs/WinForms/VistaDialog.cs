@@ -80,11 +80,11 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
             SetupDialog();
         }
 
-        public override void ShowSuccess(string message)
+        public override void ShowSuccess(string message, Action? callback)
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(ShowSuccess, message);
+                this.Invoke(ShowSuccess, message, callback);
             }
             else
             {
@@ -96,7 +96,13 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
                     Buttons = { TaskDialogButton.OK }
                 };
 
-                successDialog.Buttons[0].Click += (_, _) => App.Terminate();
+                successDialog.Buttons[0].Click += (_, _) =>
+                {
+                    if (callback is not null)
+                        callback();
+
+                    App.Terminate();
+                };
 
                 _dialogPage.Navigate(successDialog);
                 _dialogPage = successDialog;

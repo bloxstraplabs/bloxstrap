@@ -91,9 +91,13 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
 
         public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
 
-        public void ShowSuccess(string message)
+        public void ShowSuccess(string message, Action? callback)
         {
             App.ShowMessageBox(message, MessageBoxImage.Information);
+
+            if (callback is not null)
+                callback();
+
             App.Terminate();
         }
 

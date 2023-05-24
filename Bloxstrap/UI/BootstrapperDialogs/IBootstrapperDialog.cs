@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Bloxstrap.UI.BootstrapperDialogs
 {
@@ -13,7 +14,7 @@ namespace Bloxstrap.UI.BootstrapperDialogs
 
         void ShowBootstrapper();
         void CloseBootstrapper();
-        void ShowSuccess(string message);
+        void ShowSuccess(string message, Action? callback = null);
         void ShowError(string message);
         void PromptShutdown();
     }
