@@ -80,8 +80,9 @@ namespace Bloxstrap
             bool isUsingTempDir = IsFirstRun || IsUninstall;
             string logdir = isUsingTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
             string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+            int processId = Process.GetCurrentProcess().Id;
 
-            Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
+            Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}_{processId}.log"));
 
             // clean up any logs older than a week
             if (!isUsingTempDir)
