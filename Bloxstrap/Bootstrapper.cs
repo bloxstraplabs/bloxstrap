@@ -73,7 +73,6 @@ namespace Bloxstrap
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
         private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
-        private static bool ShouldInstallWebView2 = false;
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
@@ -96,15 +95,6 @@ namespace Bloxstrap
         public Bootstrapper(string launchCommandLine)
         {
             _launchCommandLine = launchCommandLine;
-
-            // check if the webview2 runtime needs to be installed
-            // webview2 can either be installed be per-user or globally, so we need to check in both hklm and hkcu
-            // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#detect-if-a-suitable-webview2-runtime-is-already-installed
-
-            string hklmLocation = "SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-            string hkcuLocation = "Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}";
-
-            ShouldInstallWebView2 = Registry.LocalMachine.OpenSubKey(hklmLocation) is null && Registry.CurrentUser.OpenSubKey(hkcuLocation) is null;
         }
 
         private void SetStatus(string message)
@@ -192,8 +182,7 @@ namespace Bloxstrap
 
             MigrateIntegrations();
 
-            if (ShouldInstallWebView2)
-                await InstallWebView2();
+            await InstallWebView2();
 
             App.FastFlags.Save();
             await ApplyModifications();
@@ -804,7 +793,14 @@ namespace Bloxstrap
         
         private async Task InstallWebView2()
         {
-            if (!ShouldInstallWebView2)
+            // check if the webview2 runtime needs to be installed
+            // webview2 can either be installed be per-user or globally, so we need to check in both hklm and hkcu
+            // https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution#detect-if-a-suitable-webview2-runtime-is-already-installed
+
+            using RegistryKey? hklmKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
+            using RegistryKey? hkcuKey = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
+
+            if (hklmKey is not null || hkcuKey is not null)
                 return;
 
             App.Logger.WriteLine($"[Bootstrapper::InstallWebView2] Installing runtime...");
