@@ -174,7 +174,12 @@ namespace Bloxstrap
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
-                if (registryKey is null)
+                string? installLocation = null;
+                
+                if (registryKey is not null)
+                    installLocation = (string?)registryKey.GetValue("InstallLocation");
+
+                if (registryKey is null || installLocation is null)
                 {
                     Logger.WriteLine("[App::OnStartup] Running first-time install");
 
@@ -191,7 +196,7 @@ namespace Bloxstrap
                 else
                 {
                     IsFirstRun = false;
-                    BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
+                    BaseDirectory = installLocation;
                 }
             }
 
