@@ -32,7 +32,8 @@ namespace Bloxstrap.Singletons
         {
             { "Automatic", "" },
             { "Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
-            { "Future Is Bright", "FFlagDebugForceFutureIsBrightPhase3" }
+            { "ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
+            { "Future", "FFlagDebugForceFutureIsBrightPhase3" }
         };
 
         // this is one hell of a variable definition lmao
