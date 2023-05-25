@@ -54,38 +54,11 @@
     <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Rendering mode" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what graphics renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="Preferred lighting technology" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="Enable exclusive fullscreen" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. Only works with Direct3D." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="Use old material textures" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding Pre2022TexturesEnabled, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
       <ui:CardControl.Header>
@@ -95,15 +68,6 @@
         </StackPanel>
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="Preferred lighting technology" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
       <ui:CardControl.Header>
@@ -119,11 +83,38 @@
     <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Use mobile interface in desktop app" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Why would you want to do this? I don't know. But like, why not?" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="Use old material textures" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding MobileLuaAppInterfaceEnabled, Mode=TwoWay}" />
+      <ui:ToggleSwitch IsChecked="{Binding Pre2022TexturesEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Rendering mode" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what graphics renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Enable exclusive fullscreen" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables using Alt + Enter to enter exclusive fullscreen. This will force enable Direct3D." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding ExclusiveFullscreenEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
     </ui:CardControl>
   </StackPanel>
 </ui:UiPage>

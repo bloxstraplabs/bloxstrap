@@ -142,11 +142,5 @@ namespace Bloxstrap.UI.Menu.ViewModels
             get => App.FastFlags.GetValue("DFIntCanHideGuiGroupId") == "32380007";
             set => App.FastFlags.SetValue("DFIntCanHideGuiGroupId", value ? "32380007" : null);
         }
-
-        public bool MobileLuaAppInterfaceEnabled
-        {
-            get => App.FastFlags.GetValue("FFlagLuaAppSystemBar") == "False";
-            set => App.FastFlags.SetValue("FFlagLuaAppSystemBar", value ? "False" : null);
-        }
     }
 }
