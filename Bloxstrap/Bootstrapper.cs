@@ -215,7 +215,7 @@ namespace Bloxstrap
             ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
             // briefly check if current channel is suitable to use
-            if (App.Settings.Prop.Channel.ToLower() != RobloxDeployment.DefaultChannel.ToLower() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
+            if (App.Settings.Prop.Channel.ToLowerInvariant() != RobloxDeployment.DefaultChannel.ToLowerInvariant() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
             {
                 string? switchDefaultPrompt = null;
                 ClientVersion? defaultChannelInfo = null;
@@ -268,8 +268,8 @@ namespace Bloxstrap
 
             _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
-            if (App.Settings.Prop.Channel.ToLower() != RobloxDeployment.DefaultChannel.ToLower())
-                _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLower();
+            if (App.Settings.Prop.Channel.ToLowerInvariant() != RobloxDeployment.DefaultChannel.ToLowerInvariant())
+                _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLowerInvariant();
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
