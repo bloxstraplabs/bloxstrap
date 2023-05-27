@@ -57,7 +57,7 @@ namespace Bloxstrap
 
                 if (key == "channel")
                 {
-                    if (val.ToLower() != App.Settings.Prop.Channel.ToLower() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
+                    if (val.ToLowerInvariant() != App.Settings.Prop.Channel.ToLowerInvariant() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
                     {
                         MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic ? MessageBoxResult.Yes : App.ShowMessageBox(
                             $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +

@@ -78,8 +78,8 @@ namespace Bloxstrap
 
             string location = BaseUrl;
 
-            if (channel.ToLower() != DefaultChannel.ToLower())
-                location += $"/channel/{channel.ToLower()}";
+            if (channel.ToLowerInvariant() != DefaultChannel.ToLowerInvariant())
+                location += $"/channel/{channel.ToLowerInvariant()}";
 
             location += resource;
 

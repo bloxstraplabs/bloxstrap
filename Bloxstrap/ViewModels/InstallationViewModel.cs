@@ -104,7 +104,7 @@ namespace Bloxstrap.ViewModels
                 if (!value)
                 {
                     // roblox typically sets channels in all lowercase, so here we find if a case insensitive match exists
-                    string? matchingChannel = Channels.Where(x => x.ToLower() == Channel.ToLower()).FirstOrDefault();
+                    string? matchingChannel = Channels.Where(x => x.ToLowerInvariant() == Channel.ToLowerInvariant()).FirstOrDefault();
                     Channel = String.IsNullOrEmpty(matchingChannel) ? RobloxDeployment.DefaultChannel : matchingChannel;
                 }
 
