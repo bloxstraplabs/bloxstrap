@@ -1,7 +1,7 @@
 # <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
-[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/total)](https://github.com/pizzaboxer/bloxstrap/releases)
+[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total)](https://github.com/pizzaboxer/bloxstrap/releases)
 [![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=4d3dff)](https://github.com/pizzaboxer/bloxstrap/releases/latest)
 [![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
 [![Stars](https://img.shields.io/github/stars/pizzaboxer/bloxstrap?style=social)](https://github.com/pizzaboxer/bloxstrap/stargazers)
