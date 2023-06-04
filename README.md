@@ -55,6 +55,7 @@ Bloxstrap also only runs whenever necessary, so it doesn't stay running in the b
 <p>
 
 ## Special thanks
+* [@MaximumADHD](https://github.com/MaximumADHD) - Initially inspiring the idea for Bloxstrap with [Roblox Studio Mod Manager](https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager).
 * [Multako](https://www.roblox.com/users/2485612194/profile) - Designing the Bloxstrap logo.
 * [@1011025m](https://github.com/1011025m) - Providing a method for disabling the Roblox desktop app.
 * taskmanager ([@Mantaraix](https://github.com/Mantaraix)) - Helping with designing the new menu look and layout.
