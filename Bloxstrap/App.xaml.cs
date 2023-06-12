@@ -228,24 +228,21 @@ namespace Bloxstrap
 
             if (IsMenuLaunch)
             {
-                Mutex mutex;
+                Process? menuProcess = Process.GetProcesses().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
 
-                try
+                if (menuProcess is not null)
                 {
-                    mutex = Mutex.OpenExisting("Bloxstrap_MenuMutex");
-                    Logger.WriteLine("[App::OnStartup] Bloxstrap_MenuMutex mutex exists, aborting menu launch...");
-                    Terminate();
+                    IntPtr handle = menuProcess.MainWindowHandle;
+                    Logger.WriteLine($"[App::OnStartup] Found an already existing menu window with handle {handle}");
+                    NativeMethods.SetForegroundWindow(handle);
                 }
-                catch
+                else
                 {
-                    // no mutex exists, continue to opening preferences menu
-                    mutex = new(true, "Bloxstrap_MenuMutex");
+                    if (Process.GetProcessesByName(ProjectName).Length > 1)
+                        ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
+
+                    new MainWindow().ShowDialog();
                 }
-
-                if (Utilities.GetProcessCount(ProjectName) > 1)
-                    ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
-
-                new MainWindow().ShowDialog();
             }
             else if (LaunchArgs.Length > 0)
             {
