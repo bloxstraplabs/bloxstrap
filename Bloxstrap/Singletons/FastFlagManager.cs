@@ -36,7 +36,8 @@ namespace Bloxstrap.Singletons
             { "Future", "FFlagDebugForceFutureIsBrightPhase3" }
         };
 
-        // this is one hell of a variable definition lmao
+        // this is one hell of a dictionary definition lmao
+        // since these all set the same flags, wouldn't making this use bitwise operators be better?
         public static IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => new Dictionary<string, Dictionary<string, string?>>
         {
             {
@@ -44,7 +45,10 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", null },
-                    { "FFlagEnableInGameMenuV3", null }
+                    { "FFlagEnableInGameMenuV3", null },
+                    { "FFlagEnableInGameMenuControls", null },
+                    { "FFlagEnableV3MenuABTest3", null },
+                    { "FFlagEnableMenuControlsABTest", null }
                 }
             },
 
@@ -53,7 +57,10 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuV3", "False" }
+                    { "FFlagEnableInGameMenuV3", "False" },
+                    { "FFlagEnableInGameMenuControls", "False" },
+                    { "FFlagEnableV3MenuABTest3", "False" },
+                    { "FFlagEnableMenuControlsABTest", "False" }
                 }
             },
 
@@ -62,7 +69,10 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "False" },
-                    { "FFlagEnableInGameMenuV3", "False" }
+                    { "FFlagEnableInGameMenuV3", "False" },
+                    { "FFlagEnableInGameMenuControls", "False" },
+                    { "FFlagEnableV3MenuABTest3", "False" },
+                    { "FFlagEnableMenuControlsABTest", "False" }
                 }
             },
 
@@ -71,7 +81,22 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "False" },
-                    { "FFlagEnableInGameMenuV3", "True" }
+                    { "FFlagEnableInGameMenuV3", "True" },
+                    { "FFlagEnableInGameMenuControls", "False" },
+                    { "FFlagEnableV3MenuABTest3", "False" },
+                    { "FFlagEnableMenuControlsABTest", "False" }
+                }
+            },
+
+            {
+                "Version 4 (2023)",
+                new Dictionary<string, string?>
+                {
+                    { "FFlagDisableNewIGMinDUA", "True" },
+                    { "FFlagEnableInGameMenuV3", "False" },
+                    { "FFlagEnableInGameMenuControls", "True" },
+                    { "FFlagEnableV3MenuABTest3", "True" },
+                    { "FFlagEnableMenuControlsABTest", "True" }
                 }
             }
         };
