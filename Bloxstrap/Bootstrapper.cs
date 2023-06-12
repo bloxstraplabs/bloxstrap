@@ -168,14 +168,9 @@ namespace Bloxstrap
 
             CheckInstallMigration();
 
-            // only update roblox if we're running for the first time, or if
-            // roblox isn't running and our version guid is out of date, or the player exe doesn't exist
-            if (App.IsFirstRun || !Utilities.CheckIfRobloxRunning() && (_latestVersionGuid != App.State.Prop.VersionGuid || !File.Exists(_playerLocation)))
+            // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
+            if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.VersionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
-
-            // last time the version folder was set, it was set to the latest version guid
-            // but if we skipped updating because roblox is already running, we want it to be set to our current version
-            _versionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
 
             if (App.IsFirstRun)
                 App.ShouldSaveConfigs = true;
@@ -792,18 +787,12 @@ namespace Bloxstrap
                 {
                     if (!_versionPackageManifest.Exists(package => filename.Contains(package.Signature)))
                     {
-                        App.Logger.WriteLine($"Deleting unused package {filename}");
+                        App.Logger.WriteLine($"[Bootstrapper::InstallLatestVersion] Deleting unused package {filename}");
                         File.Delete(filename);
                     }
                 }
 
                 string oldVersionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
-
-                if (_latestVersionGuid != App.State.Prop.VersionGuid && Directory.Exists(oldVersionFolder))
-                {
-                    // and also to delete our old version folder
-                    Directory.Delete(oldVersionFolder, true);
-                }
 
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
@@ -818,11 +807,26 @@ namespace Bloxstrap
                         appFlagsKey.DeleteValue(oldGameClientLocation);
                     }
                 }
+
+                // delete any old version folders
+                // we only do this if roblox isnt running just in case an update happened
+                // while they were launching a second instance or something idk
+                if (!Process.GetProcessesByName(App.RobloxAppName).Any())
+                {
+                    foreach (DirectoryInfo dir in new DirectoryInfo(Directories.Versions).GetDirectories())
+                    {
+                        if (dir.Name == _latestVersionGuid || !dir.Name.StartsWith("version-"))
+                            continue;
+
+                        App.Logger.WriteLine($"[Bootstrapper::InstallLatestVersion] Removing old version folder for {dir.Name}");
+                        dir.Delete(true);
+                    }
+                }
             }
 
             App.State.Prop.VersionGuid = _latestVersionGuid;
 
-            // don't register program size until the program is registered
+            // don't register program size until the program is registered, which will be done after this
             if (!App.IsFirstRun && !FreshInstall)
                 RegisterProgramSize();
 

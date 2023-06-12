@@ -8,6 +8,11 @@ using System.Threading;
 namespace Bloxstrap.Singletons
 {
     // https://stackoverflow.com/a/53873141/11852173
+    // TODO - this kind of sucks
+    // the main problem is just that this doesn't finish writing log entries before exiting the program
+    // this can be solved by making writetolog completely synchronous, but while it doesn't affect performance, its's not ideal
+    // also, writing and flushing for every single line that's written may not be great
+
     public class Logger
     {
         private readonly SemaphoreSlim _semaphore = new(1, 1);

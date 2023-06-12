@@ -30,6 +30,7 @@ namespace Bloxstrap
 
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
+        public const string RobloxAppName = "RobloxPlayerBeta";
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
