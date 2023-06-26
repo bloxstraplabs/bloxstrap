@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -65,11 +66,15 @@ namespace Bloxstrap.UI.Menu.ViewModels
         {
             using var dialog = new FolderBrowserDialog();
 
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            if (!dialog.SelectedPath.EndsWith(App.ProjectName))
+                InstallLocation = Path.Combine(dialog.SelectedPath, App.ProjectName);
+            else
                 InstallLocation = dialog.SelectedPath;
-                OnPropertyChanged(nameof(InstallLocation));
-            }
+
+            OnPropertyChanged(nameof(InstallLocation));
         }
 
         private void OpenFolder()
