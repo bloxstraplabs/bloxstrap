@@ -45,7 +45,6 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", null },
-                    { "FFlagEnableInGameMenuV3", null },
                     { "FFlagEnableInGameMenuControls", null },
                     { "FFlagEnableV3MenuABTest3", null },
                     { "FFlagEnableMenuControlsABTest", null }
@@ -57,7 +56,6 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuV3", "False" },
                     { "FFlagEnableInGameMenuControls", "False" },
                     { "FFlagEnableV3MenuABTest3", "False" },
                     { "FFlagEnableMenuControlsABTest", "False" }
@@ -69,19 +67,6 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "False" },
-                    { "FFlagEnableInGameMenuV3", "False" },
-                    { "FFlagEnableInGameMenuControls", "False" },
-                    { "FFlagEnableV3MenuABTest3", "False" },
-                    { "FFlagEnableMenuControlsABTest", "False" }
-                }
-            },
-
-            {
-                "Version 3 (2021)",
-                new Dictionary<string, string?>
-                {
-                    { "FFlagDisableNewIGMinDUA", "False" },
-                    { "FFlagEnableInGameMenuV3", "True" },
                     { "FFlagEnableInGameMenuControls", "False" },
                     { "FFlagEnableV3MenuABTest3", "False" },
                     { "FFlagEnableMenuControlsABTest", "False" }
@@ -93,7 +78,6 @@ namespace Bloxstrap.Singletons
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuV3", "False" },
                     { "FFlagEnableInGameMenuControls", "True" },
                     { "FFlagEnableV3MenuABTest3", "True" },
                     { "FFlagEnableMenuControlsABTest", "True" }
