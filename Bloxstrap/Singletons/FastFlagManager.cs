@@ -22,9 +22,9 @@ namespace Bloxstrap.Singletons
         public static IReadOnlyDictionary<string, string> RenderingModes => new Dictionary<string, string>
         {
             { "Automatic", "" },
+            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "Direct3D 11", "FFlagDebugGraphicsPreferD3D11" },
             { "Direct3D 10", "FFlagDebugGraphicsPreferD3D11FL10" },
-            { "Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "OpenGL", "FFlagDebugGraphicsPreferOpenGL" }
         };
 
@@ -101,6 +101,22 @@ namespace Bloxstrap.Singletons
             }
         }
 
+        // this will set the flag to the corresponding value if the condition is true
+        // if the condition is not true, the flag will be erased
+        public void SetValueIf(bool condition, string key, object? value)
+        {
+            if (condition)
+                SetValue(key, value);
+            else if (GetValue(key) is not null)
+                SetValue(key, null);
+        }
+
+        public void SetValueOnce(string key, object? value)
+        {
+            if (GetValue(key) is null)
+                SetValue(key, value);
+        }
+
         // this returns null if the fflag doesn't exist
         public string? GetValue(string key)
         {
@@ -114,42 +130,13 @@ namespace Bloxstrap.Singletons
             return null;
         }
 
-        public void SetRenderingMode(string value)
-        {
-            foreach (var mode in RenderingModes)
-            {
-                if (mode.Key != "Automatic")
-                    SetValue(mode.Value, null);
-            }
-
-            if (value != "Automatic")
-                SetValue(RenderingModes[value], "True");
-
-            if (value == "Vulkan")
-                SetValue("FFlagRenderVulkanFixMinimizeWindow", "True");
-            else if (GetValue("FFlagRenderVulkanFixMinimizeWindow") is not null)
-                SetValue("FFlagRenderVulkanFixMinimizeWindow", null);
-        }
-
         public override void Load()
         {
             base.Load();
 
             // set to 9999 by default if it doesnt already exist
-            if (GetValue("DFIntTaskSchedulerTargetFps") is null)
-                SetValue("DFIntTaskSchedulerTargetFps", 9999);
-
-            if (GetValue("FFlagDebugGraphicsPreferVulkan") == "True" && GetValue("FFlagRenderVulkanFixMinimizeWindow") is null)
-                SetValue("FFlagRenderVulkanFixMinimizeWindow", "True");
-
-            // exclusive fullscreen requires direct3d 10/11 to work
-            if (App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False")
-            {
-                if (!(App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11") == "True" || App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11FL10") == "True"))
-                {
-                    SetRenderingMode("Direct3D 11");
-                }
-            }
+            SetValueOnce("DFIntTaskSchedulerTargetFps", 9999);
+            SetValueOnce("FFlagHandleAltEnterFullscreenManually", "False");
         }
 
         public override void Save()

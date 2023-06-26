@@ -40,26 +40,19 @@ namespace Bloxstrap.UI.Menu.ViewModels
                 return "Automatic";
             }
 
-            set => App.FastFlags.SetRenderingMode(value);
-        }
-
-        // this flag has to be set to false to work, weirdly enough
-        public bool ExclusiveFullscreenEnabled
-        {
-            get => App.FastFlags.GetValue("FFlagHandleAltEnterFullscreenManually") == "False";
             set
             {
-                App.FastFlags.SetValue("FFlagHandleAltEnterFullscreenManually", value ? "False" : null);
-
-                if (value)
+                foreach (var mode in RenderingModes)
                 {
-                    if (!(App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11") == "True" || App.FastFlags.GetValue("FFlagDebugGraphicsPreferD3D11FL10") == "True"))
-                    {
-                        App.FastFlags.SetRenderingMode("Direct3D 11");
-                    }
-
-                    OnPropertyChanged(nameof(SelectedRenderingMode));
+                    if (mode.Key != "Automatic")
+                        App.FastFlags.SetValue(mode.Value, null);
                 }
+
+                if (value == "Automatic")
+                    return;
+
+                App.FastFlags.SetValue(RenderingModes[value], "True");
+                App.FastFlags.SetValueIf(value == "Vulkan", "FFlagRenderVulkanFixMinimizeWindow", "True");
             }
         }
 
