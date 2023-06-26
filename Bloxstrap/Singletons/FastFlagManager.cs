@@ -30,10 +30,10 @@ namespace Bloxstrap.Singletons
 
         public static IReadOnlyDictionary<string, string> LightingTechnologies => new Dictionary<string, string>
         {
-            { "Automatic", "" },
-            { "Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
-            { "ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
-            { "Future", "FFlagDebugForceFutureIsBrightPhase3" }
+            { "Chosen by game", "" },
+            { "Voxel (Phase 1)", "DFFlagDebugRenderForceTechnologyVoxel" },
+            { "ShadowMap (Phase 2)", "FFlagDebugForceFutureIsBrightPhase2" },
+            { "Future (Phase 3)", "FFlagDebugForceFutureIsBrightPhase3" }
         };
 
         // this is one hell of a dictionary definition lmao
