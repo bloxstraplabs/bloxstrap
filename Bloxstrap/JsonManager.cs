@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace Bloxstrap.Singletons
+namespace Bloxstrap
 {
     public class JsonManager<T> where T : new()
     {

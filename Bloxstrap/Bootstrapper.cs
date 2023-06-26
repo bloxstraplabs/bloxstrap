@@ -256,7 +256,7 @@ namespace Bloxstrap
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
-                Utilities.OpenWebsite("https://www.roblox.com/games");
+                Utilities.ShellExecute("https://www.roblox.com/games");
                 Dialog?.CloseBootstrapper();
                 return;
             }
@@ -562,7 +562,7 @@ namespace Bloxstrap
         private async Task CheckForUpdates()
         {
             // don't update if there's another instance running (likely running in the background)
-            if (Utilities.GetProcessCount(App.ProjectName) > 1)
+            if (Process.GetProcessesByName(App.ProjectName).Count() > 1)
             {
                 App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] More than one Bloxstrap instance running, aborting update check");
                 return;
@@ -616,7 +616,7 @@ namespace Bloxstrap
         private void Uninstall()
         {
             // prompt to shutdown roblox if its currently running
-            if (Utilities.CheckIfRobloxRunning())
+            if (Process.GetProcessesByName(App.RobloxAppName).Any())
             {
                 App.Logger.WriteLine($"[Bootstrapper::Uninstall] Prompting to shut down all open Roblox instances");
                 
@@ -1004,7 +1004,7 @@ namespace Bloxstrap
 
                 if (File.Exists(fileVersionFolder))
                 {
-                    if (Utilities.MD5File(fileModFolder) == Utilities.MD5File(fileVersionFolder))
+                    if (Utility.MD5Hash.FromFile(fileModFolder) == Utility.MD5Hash.FromFile(fileVersionFolder))
                         continue;
                 }
 
@@ -1072,7 +1072,7 @@ namespace Bloxstrap
                     await File.WriteAllBytesAsync(modFolderLocation, binaryData);
                 }
             }
-            else if (File.Exists(modFolderLocation) && Utilities.MD5File(modFolderLocation) == Utilities.MD5Data(binaryData))
+            else if (File.Exists(modFolderLocation) && Utility.MD5Hash.FromFile(modFolderLocation) == Utility.MD5Hash.FromBytes(binaryData))
             {
                 File.Delete(modFolderLocation);
             }
@@ -1091,7 +1091,8 @@ namespace Bloxstrap
             {
                 FileInfo file = new(packageLocation);
 
-                string calculatedMD5 = Utilities.MD5File(packageLocation);
+                string calculatedMD5 = Utility.MD5Hash.FromFile(packageLocation);
+
                 if (calculatedMD5 != package.Signature)
                 {
                     App.Logger.WriteLine($"[Bootstrapper::DownloadPackage] {package.Name} is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");

@@ -1,10 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Bloxstrap.Singletons
+namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {

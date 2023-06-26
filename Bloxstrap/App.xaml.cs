@@ -15,9 +15,9 @@ using Microsoft.Win32;
 
 using Bloxstrap.Extensions;
 using Bloxstrap.Models;
-using Bloxstrap.Singletons;
 using Bloxstrap.UI.BootstrapperDialogs;
 using Bloxstrap.UI.Menu.Views;
+using Bloxstrap.Utility;
 
 namespace Bloxstrap
 {

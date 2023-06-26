@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
-
-using Bloxstrap.Singletons;
-using System.ComponentModel;
 
 namespace Bloxstrap.UI.Menu.ViewModels
 {
@@ -17,7 +14,7 @@ namespace Bloxstrap.UI.Menu.ViewModels
 
         public ICommand OpenClientSettingsCommand => new RelayCommand(OpenClientSettings);
 
-        private void OpenClientSettings() => Utilities.OpenWebsite(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));
+        private void OpenClientSettings() => Utilities.ShellExecute(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));
 
         public int FramerateLimit
         {

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Forms;
+
 using Bloxstrap.Extensions;
+using Bloxstrap.Utility;
 
 namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
 {

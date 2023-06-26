@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.Menu.ViewModels
             if (location is null)
                 return;
 
-            Utilities.OpenWebsite(location);
+            Utilities.ShellExecute(location);
         }
     }
 }

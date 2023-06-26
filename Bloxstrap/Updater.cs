@@ -78,7 +78,7 @@ namespace Bloxstrap
 
             if (isAutoUpgrade)
             {
-                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.OpenWebsite($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
+                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
 
                 App.Notification.BalloonTipTitle = $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}";
                 App.Notification.BalloonTipText = "Click here to see what's new in this version";
