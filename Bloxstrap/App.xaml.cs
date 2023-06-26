@@ -253,6 +253,9 @@ namespace Bloxstrap
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
+                    if (Settings.Prop.UseDisableAppPatch)
+                        ShowMessageBox("Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", MessageBoxImage.Information);
+
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
                 else

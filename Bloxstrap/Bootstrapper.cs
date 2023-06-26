@@ -955,7 +955,7 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump_land.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_swim.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\impact_water.mp3", "Empty.mp3");
-            await CheckModPreset(App.Settings.Prop.UseDisableAppPatch, @"ExtraContent\places\Mobile.rbxl", "");
+            await CheckModPreset(App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink"), @"ExtraContent\places\Mobile.rbxl", "");
 
             // emoji presets are downloaded remotely from github due to how large they are
             string emojiFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\TwemojiMozilla.ttf");
