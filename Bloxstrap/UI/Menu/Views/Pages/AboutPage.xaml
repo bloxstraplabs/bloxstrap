@@ -41,6 +41,41 @@
       <ui:Anchor Margin="4,16,0,0" Content="Discord help server" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
     </StackPanel>
 
+    <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
+      <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+      <TextBlock Text="Using an unreleased version, I see?" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+      <Grid Column="0" Margin="0,8,0,0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Timestamp" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildTimestamp, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Machine" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.Machine, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Hash" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}">
+          <Hyperlink Foreground="{DynamicResource TextFillColorTertiaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding BuildCommitHashUrl, Mode=OneTime}">
+            <TextBlock Text="{Binding BuildMetadata.CommitHash, Mode=OneTime}" />
+          </Hyperlink>
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Ref" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.CommitRef, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+        
+      </Grid>
+    </StackPanel>
+
     <TextBlock Text="Contributors" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
     <TextBlock Text="These are the people who have made notable contributions to Bloxstrap, helping make it what it is." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
     <Grid Column="0" Margin="0,8,0,0">

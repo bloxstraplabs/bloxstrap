@@ -39,9 +39,9 @@ namespace Bloxstrap
 
         public void WriteLine(string message)
         {
-            string timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            string timestamp = DateTime.UtcNow.ToString("s") + "Z";
             string outcon = $"{timestamp} {message}";
-            string outlog = outcon.Replace(Directories.UserProfile, "<UserProfileFolder>");
+            string outlog = outcon.Replace(Directories.UserProfile, "%UserProfile%");
 
             Debug.WriteLine(outcon);
             WriteToLog(outlog);

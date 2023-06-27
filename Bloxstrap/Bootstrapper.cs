@@ -576,17 +576,26 @@ namespace Bloxstrap
                 return;
             }
 
-            string currentVersion = $"{App.ProjectName} v{App.Version}";
-
             App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
 
             var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
 
-            if (releaseInfo?.Assets is null || currentVersion == releaseInfo.Name)
+            if (releaseInfo is null || releaseInfo.Assets is null)
             {
                 App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
                 return;
             }
+
+            int numCurrentVersion = Utilities.VersionToNumber(App.Version);
+            int numLatestVersion = Utilities.VersionToNumber(releaseInfo.TagName);
+
+            // check if we aren't using a deployed build, so we can update to one if a new version comes out
+            if (numCurrentVersion == numLatestVersion && App.BuildMetadata.CommitRef.StartsWith("tag") || numCurrentVersion > numLatestVersion)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
+                return;
+            }
+
 
             SetStatus($"Getting the latest {App.ProjectName}...");
 
@@ -594,7 +603,7 @@ namespace Bloxstrap
             GithubReleaseAsset asset = releaseInfo.Assets[0];
             string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
 
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.Name}...");
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Downloading {releaseInfo.TagName}...");
 
             if (!File.Exists(downloadLocation))
             {
@@ -604,7 +613,7 @@ namespace Bloxstrap
                 await response.Content.CopyToAsync(fileStream);
             }
 
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.Name}...");
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Starting {releaseInfo.TagName}...");
 
             ProcessStartInfo startInfo = new()
             {

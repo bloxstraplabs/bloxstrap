@@ -39,5 +39,12 @@ namespace Bloxstrap
                 return default;
             }
         }
+
+        public static int VersionToNumber(string version)
+        {
+            // yes this is kinda stupid lol
+            version = version.Replace("v", "").Replace(".", "");
+            return Int32.Parse(version);
+        }
     }
 }

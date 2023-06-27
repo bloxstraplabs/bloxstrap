@@ -12,6 +12,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Enums;
+using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 
 namespace Bloxstrap.UI.Menu.ViewModels
@@ -50,7 +51,7 @@ namespace Bloxstrap.UI.Menu.ViewModels
                 {
                     Version = info.Version,
                     VersionGuid = info.VersionGuid,
-                    Timestamp = info.Timestamp?.ToString("dddd, d MMMM yyyy 'at' h:mm:ss tt", App.CultureFormat)!
+                    Timestamp = info.Timestamp?.ToFriendlyString()!
                 };
 
                 OnPropertyChanged(nameof(ChannelDeployInfo));

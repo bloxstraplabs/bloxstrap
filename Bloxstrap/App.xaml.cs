@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 using Bloxstrap.Extensions;
 using Bloxstrap.Models;
+using Bloxstrap.Models.Attributes;
 using Bloxstrap.UI.BootstrapperDialogs;
 using Bloxstrap.UI.Menu.Views;
 using Bloxstrap.Utility;
@@ -44,6 +45,7 @@ namespace Bloxstrap
         public static bool IsMenuLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
+        public static BuildMetadataAttribute BuildMetadata => Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
         // singletons
@@ -117,6 +119,11 @@ namespace Bloxstrap
             base.OnStartup(e);
 
             Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
+
+            if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
+                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
+            else
+                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

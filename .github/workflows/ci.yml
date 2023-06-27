@@ -6,28 +6,33 @@ jobs:
     strategy:
       matrix:
         configuration: [Debug, Release]
-        platform: [x64]
+
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
       with:
         submodules: true
+
     - uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.x'
+
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
       run: dotnet build --no-restore
+
     - name: Publish
-      run: dotnet publish -p:PublishSingleFile=true -r win-${{ matrix.platform }} -c ${{ matrix.configuration }} --self-contained false .\Bloxstrap\Bloxstrap.csproj
+      run: dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c ${{ matrix.configuration }} --self-contained false .\Bloxstrap\Bloxstrap.csproj
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: Bloxstrap (${{ matrix.configuration }}, ${{ matrix.platform }})
+        name: Bloxstrap (${{ matrix.configuration }}, x64)
         path: |
-          .\Bloxstrap\bin\${{ matrix.configuration }}\net6.0-windows\win-${{ matrix.platform }}\publish\*
+          .\Bloxstrap\bin\${{ matrix.configuration }}\net6.0-windows\win-x64\publish\*
 
   release:
     needs: build
@@ -40,9 +45,11 @@ jobs:
         with:
           name: Bloxstrap (Release, x64)
           path: x64
+
       - name: Rename binaries
         run: |
           mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x64.exe
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
