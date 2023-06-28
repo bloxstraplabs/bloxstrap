@@ -21,7 +21,7 @@
         <ColumnDefinition Width="*" />
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
-      <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+      <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
         <StackPanel>
           <TextBlock FontSize="14" Text="Open Mods Folder">
             <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
@@ -35,12 +35,14 @@
               </Style>
             </TextBlock.Style>
           </TextBlock>
+          
           <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
             <TextBlock.Style>
               <Style>
                 <Setter Property="TextBlock.Text" Value="Manage custom Roblox mods here."/>
                 <Style.Triggers>
                   <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
                     <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
                   </DataTrigger>
                 </Style.Triggers>
@@ -49,7 +51,7 @@
           </TextBlock>
         </StackPanel>
       </ui:CardAction>
-      <ui:CardAction Padding="16,13,16,12" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
+      <ui:CardAction Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
         <StackPanel>
           <TextBlock FontSize="14" Text="Help" />
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
@@ -70,7 +72,7 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
 
-      <ui:CardControl Grid.Row="0" Grid.Column="0" Margin="0,8,4,0" Padding="16,13,16,12">
+      <ui:CardControl Grid.Row="0" Grid.Column="0" Margin="0,8,4,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Use old death sound" />
@@ -79,7 +81,7 @@
         </ui:CardControl.Header>
         <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
       </ui:CardControl>
-      <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="4,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="4,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Use old mouse cursor" />
@@ -89,7 +91,7 @@
         <ui:ToggleSwitch IsChecked="{Binding OldMouseCursorEnabled, Mode=TwoWay}" />
       </ui:CardControl>
 
-      <ui:CardControl Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Emulate old character sounds" />
@@ -99,7 +101,7 @@
         <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
       </ui:CardControl>
 
-      <ui:CardControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Disable desktop app" />
@@ -109,7 +111,7 @@
         <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
       </ui:CardControl>
 
-      <ui:CardControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Preferred emoji type" />
@@ -122,7 +124,7 @@
 
     <StackPanel x:Name="MiscellaneousOptions">
       <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-      <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+      <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
             <TextBlock FontSize="14" Text="Disable fullscreen optimizations" />

@@ -12,7 +12,7 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="Configure how Bloxstrap and Roblox are installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardExpander Margin="0,16,0,0" Padding="16,13,16,12">
+    <ui:CardExpander Margin="0,16,0,0">
       <ui:CardExpander.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Install Location" />
@@ -29,7 +29,7 @@
       </Grid>
     </ui:CardExpander>
 
-    <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Padding="16,13,16,12" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+    <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
       <StackPanel>
         <TextBlock FontSize="14" Text="Open Folder">
           <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
@@ -47,7 +47,7 @@
       </StackPanel>
     </ui:CardAction>
 
-    <ui:CardExpander Margin="0,8,0,0" Padding="16,13,16,12" IsExpanded="True">
+    <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
       <ui:CardExpander.Header>
         <Grid>
           <Grid.ColumnDefinitions>
@@ -121,7 +121,7 @@
         </Grid>
       </StackPanel>
     </ui:CardExpander>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Automatic channel change action" />

@@ -13,7 +13,7 @@
     <TextBlock Text="Configure quick and easy ways to improve the Roblox gameplay experience." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
     <TextBlock Text="Discord Rich Presence" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Show game activity" />
@@ -22,7 +22,7 @@
       </ui:CardControl.Header>
       <ui:ToggleSwitch x:Name="DiscordActivityEnabledToggle" IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
     </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12" IsEnabled="{Binding IsChecked, ElementName=DiscordActivityEnabledToggle, Mode=OneWay}">
+    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=DiscordActivityEnabledToggle, Mode=OneWay}">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Allow activity joining" />
@@ -33,7 +33,7 @@
     </ui:CardControl>
 
     <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Be notified of server details on game join" />
@@ -42,7 +42,7 @@
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
     </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Allow multi-game instance launching" />

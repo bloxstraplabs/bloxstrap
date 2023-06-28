@@ -11,7 +11,7 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="Configure what Bloxstrap should do when starting up." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardControl Margin="0,16,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,16,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Create desktop icon" />
@@ -20,7 +20,7 @@
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
     </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" Padding="16,13,16,12">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Automatically update Bloxstrap" />
