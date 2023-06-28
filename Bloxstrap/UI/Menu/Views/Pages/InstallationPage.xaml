@@ -59,7 +59,7 @@
             <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which release channel to download Roblox from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
           </StackPanel>
           <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding Channels, Mode=OneWay}" SelectedItem="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelComboBoxVisibility, Mode=OneWay}" />
-          <ui:TextBox Grid.Column="1"  Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelTextBoxVisibility, Mode=OneWay}" />
+          <ui:TextBox Grid.Column="1"  Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelTextBoxVisibility, Mode=OneWay}" KeyUp="TextBox_KeyEnterUpdate" />
         </Grid>
       </ui:CardExpander.Header>
       <StackPanel>

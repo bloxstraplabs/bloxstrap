@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -65,9 +64,9 @@ namespace Bloxstrap.UI.Menu.ViewModels
 
         private void BrowseInstallLocation()
         {
-            using var dialog = new FolderBrowserDialog();
+            using var dialog = new System.Windows.Forms.FolderBrowserDialog();
 
-            if (dialog.ShowDialog() != DialogResult.OK)
+            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
             if (!dialog.SelectedPath.EndsWith(App.ProjectName))
@@ -96,6 +95,7 @@ namespace Bloxstrap.UI.Menu.ViewModels
             get => App.Settings.Prop.Channel;
             set
             {
+                value = value.Trim();
                 Task.Run(() => LoadChannelDeployInfo(value));
                 App.Settings.Prop.Channel = value;
             }
