@@ -59,7 +59,10 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
             set
             {
                 _viewModel.CancelButtonVisibility = (value ? Visibility.Visible : Visibility.Collapsed);
+                _viewModel.CancelButtonEnabled = value;
+
                 _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonVisibility));
+                _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonEnabled));
             }
         }
         #endregion
