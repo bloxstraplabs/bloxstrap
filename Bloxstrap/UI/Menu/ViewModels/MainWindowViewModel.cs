@@ -10,6 +10,8 @@ using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
+using Bloxstrap.UI.MessageBox;
+
 namespace Bloxstrap.UI.Menu.ViewModels
 {
     public class MainWindowViewModel
@@ -35,7 +37,7 @@ namespace Bloxstrap.UI.Menu.ViewModels
         {
             if (string.IsNullOrEmpty(App.BaseDirectory))
             {
-                App.ShowMessageBox("You must set an install location", MessageBoxImage.Error);
+                FluentMessageBox.Show("You must set an install location", MessageBoxImage.Error);
                 return;
             }
 
@@ -50,12 +52,15 @@ namespace Bloxstrap.UI.Menu.ViewModels
             }
             catch (UnauthorizedAccessException)
             {
-                App.ShowMessageBox($"{App.ProjectName} does not have write access to the install location you selected. Please choose another install location.", MessageBoxImage.Error);
+                FluentMessageBox.Show(
+                    $"{App.ProjectName} does not have write access to the install location you selected. Please choose another install location.", 
+                    MessageBoxImage.Error
+                );
                 return;
             }
             catch (Exception ex)
             {
-                App.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                FluentMessageBox.Show(ex.Message, MessageBoxImage.Error);
                 return;
             }
 
@@ -67,7 +72,11 @@ namespace Bloxstrap.UI.Menu.ViewModels
                 if (App.BaseDirectory != _originalBaseDirectory)
                 {
                     App.Logger.WriteLine($"[MainWindowViewModel::ConfirmSettings] Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
-                    App.ShowMessageBox($"{App.ProjectName} will install to the new location you've set the next time it runs.", MessageBoxImage.Information);
+
+                    FluentMessageBox.Show(
+                        $"{App.ProjectName} will install to the new location you've set the next time it runs.", 
+                        MessageBoxImage.Information
+                    );
 
                     using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
                     registryKey.SetValue("InstallLocation", App.BaseDirectory);

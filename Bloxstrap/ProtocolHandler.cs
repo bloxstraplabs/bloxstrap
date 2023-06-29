@@ -7,6 +7,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using Bloxstrap.Enums;
+using Bloxstrap.UI;
 
 namespace Bloxstrap
 {
@@ -59,12 +60,14 @@ namespace Bloxstrap
                 {
                     if (val.ToLowerInvariant() != App.Settings.Prop.Channel.ToLowerInvariant() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
                     {
-                        MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic ? MessageBoxResult.Yes : App.ShowMessageBox(
-                            $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
-                            $"Would you like to switch channels from {App.Settings.Prop.Channel} to {val}?",
-                            MessageBoxImage.Question,
-                            MessageBoxButton.YesNo
-                        );
+                        MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic 
+                            ? MessageBoxResult.Yes 
+                            : Controls.ShowMessageBox(
+                                $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
+                                $"Would you like to switch channels from {App.Settings.Prop.Channel} to {val}?",
+                                MessageBoxImage.Question,
+                                MessageBoxButton.YesNo
+                              );
 
                         if (result == MessageBoxResult.Yes)
                         {

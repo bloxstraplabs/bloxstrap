@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" Margin="0,12,0,0" Width="48" Height="48" VerticalAlignment="Top">
                 <Border.Background>
-                    <ImageBrush ImageSource="{Binding Icon, Mode=OneWay}" />
+                    <ImageBrush ImageSource="{Binding Icon, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
                 </Border.Background>
             </Border>
             <StackPanel Grid.Column="1">

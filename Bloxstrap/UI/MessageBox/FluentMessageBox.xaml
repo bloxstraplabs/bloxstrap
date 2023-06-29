@@ -1,0 +1,47 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.MessageBox.FluentMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Bloxstrap.UI.MessageBox"
+        mc:Ignorable="d"
+        Title="Bloxstrap"
+        MinWidth="180"
+        MaxWidth="480"
+        Width="180"
+        MinHeight="160"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
+        WindowCornerPreference="Round"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Background="{ui:ThemeResource ApplicationBackgroundBrush}" x:Name="RootTitleBar" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+
+        <Grid Grid.Row="1" Margin="15,15,15,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image x:Name="IconImage" Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" />
+            <TextBlock x:Name="MessageTextBlock" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+        </Grid>
+
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+                <Button x:Name="ButtonOne" MinWidth="100" Content="Button 1" />
+                <Button x:Name="ButtonTwo" MinWidth="100" Margin="12,0,0,0" Content="Button 2" />
+                <Button x:Name="ButtonThree" MinWidth="100" Margin="12,0,0,0" Content="Button 3" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</ui:UiWindow>

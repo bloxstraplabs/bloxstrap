@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Forms;
 
 using Bloxstrap.Extensions;
@@ -101,33 +100,9 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
                 Close();
         }
 
-        public virtual void ShowSuccess(string message, Action? callback)
-        {
-            App.ShowMessageBox(message, MessageBoxImage.Information);
+        public virtual void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
 
-            if (callback is not null)
-                callback();
-
-            App.Terminate();
-        }
-
-        public virtual void ShowError(string message)
-        {
-            App.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxImage.Error);
-            App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
-        }
-
-        public void PromptShutdown()
-        {
-            MessageBoxResult result = App.ShowMessageBox(
-                "Roblox is currently running, but needs to close. Would you like close Roblox now?",
-                MessageBoxImage.Information,
-                MessageBoxButton.OKCancel
-            );
-
-            if (result != MessageBoxResult.OK)
-                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
-        }
+        public virtual void ShowError(string message) => BaseFunctions.ShowError(message);
         #endregion
     }
 }

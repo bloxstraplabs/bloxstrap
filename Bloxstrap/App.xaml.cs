@@ -17,8 +17,9 @@ using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 using Bloxstrap.Models.Attributes;
 using Bloxstrap.UI.BootstrapperDialogs;
-using Bloxstrap.UI.Menu.Views;
+using Bloxstrap.UI.MessageBox;
 using Bloxstrap.Utility;
+using Bloxstrap.UI;
 
 namespace Bloxstrap
 {
@@ -56,15 +57,6 @@ namespace Bloxstrap
         public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
-
-        // shorthand
-        public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK)
-        {
-            if (IsQuiet)
-                return MessageBoxResult.None;
-
-            return MessageBox.Show(message, ProjectName, buttons, icon);
-        }
 
         public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
         {
@@ -198,7 +190,7 @@ namespace Bloxstrap
                     {
                         IsSetupComplete = false;
                         FastFlags.Load();
-                        new MainWindow().ShowDialog();
+                        Controls.ShowMenu();
                     }
                 }
                 else
@@ -246,10 +238,13 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1)
-                        ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
+                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
+                        FluentMessageBox.Show(
+                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
+                            MessageBoxImage.Information
+                        );
 
-                    new MainWindow().ShowDialog();
+                    Controls.ShowMenu();
                 }
             }
             else if (LaunchArgs.Length > 0)
@@ -261,7 +256,10 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
                     if (Settings.Prop.UseDisableAppPatch)
-                        ShowMessageBox("Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", MessageBoxImage.Information);
+                        Controls.ShowMessageBox(
+                            "Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", 
+                            MessageBoxImage.Information
+                        );
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }

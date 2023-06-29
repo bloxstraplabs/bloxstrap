@@ -84,34 +84,9 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
         public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
 
         // TODO: make prompts use dialog view natively rather than using message dialog boxes
+        public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
 
-        public void ShowSuccess(string message, Action? callback)
-        {
-            App.ShowMessageBox(message, MessageBoxImage.Information);
-
-            if (callback is not null)
-                callback();
-
-            App.Terminate();
-        }
-
-        public void ShowError(string message)
-        {
-            App.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxImage.Error);
-            App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
-        }
-
-        public void PromptShutdown()
-        {
-            MessageBoxResult result = App.ShowMessageBox(
-                "Roblox is currently running, but needs to close. Would you like close Roblox now?",
-                MessageBoxImage.Information,
-                MessageBoxButton.OKCancel
-            );
-
-            if (result != MessageBoxResult.OK)
-                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
-        }
+        public void ShowError(string message) => BaseFunctions.ShowError(message);
         #endregion
     }
 }

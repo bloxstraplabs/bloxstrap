@@ -5,7 +5,7 @@ using System.Windows;
 using System.Threading;
 using System.Threading.Tasks;
 
-using Bloxstrap.UI.Menu.Views;
+using Bloxstrap.UI;
 
 namespace Bloxstrap
 {
@@ -33,7 +33,7 @@ namespace Bloxstrap
             }
             else
             {
-                result = App.ShowMessageBox(
+                result = Controls.ShowMessageBox(
                     $"The version of {App.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
@@ -91,13 +91,13 @@ namespace Bloxstrap
             }
             else if (!App.IsQuiet)
             {
-                App.ShowMessageBox(
+                Controls.ShowMessageBox(
                     $"{App.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
                     MessageBoxImage.Information,
                     MessageBoxButton.OK
                 );
 
-                new MainWindow().ShowDialog();
+                Controls.ShowMenu();
                 App.Terminate();
             }
         }

@@ -17,6 +17,7 @@ using Bloxstrap.Extensions;
 using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
+using Bloxstrap.UI;
 using Bloxstrap.UI.BootstrapperDialogs;
 
 namespace Bloxstrap
@@ -126,6 +127,8 @@ namespace Bloxstrap
         {
             App.Logger.WriteLine("[Bootstrapper::Run] Running bootstrapper");
 
+            Controls.ShowMessageBox("hi :D", MessageBoxImage.Error, MessageBoxButton.YesNoCancel);
+
             if (App.IsUninstall)
             {
                 Uninstall();
@@ -230,7 +233,9 @@ namespace Bloxstrap
 
                 if (!String.IsNullOrEmpty(switchDefaultPrompt))
                 {
-                    MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic ? MessageBoxResult.Yes : App.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo);
+                    MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Prompt
+                        ? Controls.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo)
+                        : MessageBoxResult.Yes;
 
                     if (result == MessageBoxResult.Yes)
                     {
@@ -263,7 +268,10 @@ namespace Bloxstrap
 
             if (!File.Exists("C:\\Windows\\System32\\mfplat.dll"))
             {
-                App.ShowMessageBox("Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", MessageBoxImage.Error);
+                Controls.ShowMessageBox(
+                    "Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", 
+                    MessageBoxImage.Error
+                );
                 Utilities.ShellExecute("https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a");
                 Dialog?.CloseBootstrapper();
                 return;
@@ -637,7 +645,14 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine($"[Bootstrapper::Uninstall] Prompting to shut down all open Roblox instances");
                 
-                Dialog?.PromptShutdown();
+                MessageBoxResult result = Controls.ShowMessageBox(
+                    "Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?",
+                    MessageBoxImage.Information,
+                    MessageBoxButton.OKCancel
+                );
+
+                if (result != MessageBoxResult.OK)
+                    Environment.Exit(ERROR_INSTALL_USEREXIT);
 
                 try
                 {
@@ -742,7 +757,11 @@ namespace Bloxstrap
             
             if (Utilities.GetFreeDiskSpace(Directories.Base) < totalSizeRequired)
             {
-                App.ShowMessageBox($"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", MessageBoxImage.Error);
+                Controls.ShowMessageBox(
+                    $"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", 
+                    MessageBoxImage.Error
+                );
+
                 App.Terminate(ERROR_INSTALL_FAILURE);
                 return;
             }
@@ -910,7 +929,7 @@ namespace Bloxstrap
 
             if (File.Exists(injectorLocation))
             {
-                App.ShowMessageBox(
+                Controls.ShowMessageBox(
                     "Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.\n\n"+
                     "Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.", 
                     MessageBoxImage.Warning
