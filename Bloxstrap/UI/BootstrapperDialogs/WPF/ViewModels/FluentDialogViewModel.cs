@@ -13,6 +13,7 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         private readonly IBootstrapperDialog _dialog;
 
         public ICommand CancelInstallCommand => new RelayCommand(CancelInstall);
@@ -23,6 +24,7 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.ViewModels
         public bool ProgressIndeterminate { get; set; } = true;
         public int ProgressValue { get; set; } = 0;
 
+        public bool CancelButtonEnabled { get; set; } = false;
         public Visibility CancelButtonVisibility { get; set; } = Visibility.Collapsed;
         public string CancelButtonText { get; set; } = "Cancel";
 

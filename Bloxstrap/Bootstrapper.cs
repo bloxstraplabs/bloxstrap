@@ -127,8 +127,6 @@ namespace Bloxstrap
         {
             App.Logger.WriteLine("[Bootstrapper::Run] Running bootstrapper");
 
-            Controls.ShowMessageBox("hi :D", MessageBoxImage.Error, MessageBoxButton.YesNoCancel);
-
             if (App.IsUninstall)
             {
                 Uninstall();

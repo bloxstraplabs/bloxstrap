@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:Bloxstrap.UI.MessageBox"
         mc:Ignorable="d"
         Title="Bloxstrap"
+        d:DesignWidth="480"
         MinWidth="180"
         MaxWidth="480"
         Width="180"
@@ -15,8 +16,6 @@
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
-        WindowBackdropType="Mica"
-        WindowCornerPreference="Round"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -25,9 +24,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Background="{ui:ThemeResource ApplicationBackgroundBrush}" x:Name="RootTitleBar" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
-        <Grid Grid.Row="1" Margin="15,15,15,15">
+        <Grid Grid.Row="1" Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
