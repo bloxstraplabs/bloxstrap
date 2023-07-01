@@ -14,11 +14,5 @@ namespace Bloxstrap.UI.BootstrapperDialogs
 
             App.Terminate();
         }
-
-        public static void ShowError(string message)
-        {
-            Controls.ShowMessageBox($"An error occurred while starting Roblox\n\nDetails: {message}", MessageBoxImage.Error);
-            App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
-        }
     }
 }

@@ -92,8 +92,6 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
         public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
 
         public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
-
-        public void ShowError(string message) => BaseFunctions.ShowError(message);
         #endregion
     }
 }

@@ -86,10 +86,7 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WPF.Views
 
         public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
 
-        // TODO: make prompts use dialog view natively rather than using message dialog boxes
         public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
-
-        public void ShowError(string message) => BaseFunctions.ShowError(message);
         #endregion
     }
 }

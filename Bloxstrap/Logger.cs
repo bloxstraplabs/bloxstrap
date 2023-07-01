@@ -16,8 +16,11 @@ namespace Bloxstrap
     public class Logger
     {
         private readonly SemaphoreSlim _semaphore = new(1, 1);
-        private readonly List<string> _backlog = new();
         private FileStream? _filestream;
+
+        public readonly List<string> Backlog = new();
+        public bool Initialized = false;
+        public string? Filename;
 
         public void Initialize(string filename)
         {
@@ -31,10 +34,13 @@ namespace Bloxstrap
 
             _filestream = File.Open(filename, FileMode.Create, FileAccess.Write, FileShare.Read);
 
-            if (_backlog.Count > 0)
-                WriteToLog(string.Join("\r\n", _backlog));
+            if (Backlog.Count > 0)
+                WriteToLog(string.Join("\r\n", Backlog));
 
             WriteLine($"[Logger::Logger] Initialized at {filename}");
+
+            Initialized = true;
+            Filename = filename;
         }
 
         public void WriteLine(string message)
@@ -49,16 +55,16 @@ namespace Bloxstrap
 
         private async void WriteToLog(string message)
         {
-            if (_filestream is null)
+            if (!Initialized)
             {
-                _backlog.Add(message);
+                Backlog.Add(message);
                 return;
             }
 
             try
             {
                 await _semaphore.WaitAsync();
-                await _filestream.WriteAsync(Encoding.Unicode.GetBytes($"{message}\r\n"));
+                await _filestream!.WriteAsync(Encoding.Unicode.GetBytes($"{message}\r\n"));
                 await _filestream.FlushAsync();
             }
             finally

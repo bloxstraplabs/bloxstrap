@@ -109,36 +109,6 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
             }
         }
 
-        public override void ShowError(string message)
-        {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(ShowError, message);
-            }
-            else
-            {
-                TaskDialogPage errorDialog = new()
-                {
-                    Icon = TaskDialogIcon.Error,
-                    Caption = App.Settings.Prop.BootstrapperTitle,
-                    Heading = "An error occurred while starting Roblox",
-                    Buttons = { TaskDialogButton.Close },
-                    Expander = new TaskDialogExpander()
-                    {
-                        Text = message,
-                        CollapsedButtonText = "See details",
-                        ExpandedButtonText = "Hide details",
-                        Position = TaskDialogExpanderPosition.AfterText
-                    }
-                };
-
-                errorDialog.Buttons[0].Click += (sender, e) => App.Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
-
-                _dialogPage.Navigate(errorDialog);
-                _dialogPage = errorDialog;
-            }
-        }
-
         public override void CloseBootstrapper()
         {
             if (this.InvokeRequired)

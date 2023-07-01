@@ -15,6 +15,5 @@ namespace Bloxstrap.UI.BootstrapperDialogs
         void ShowBootstrapper();
         void CloseBootstrapper();
         void ShowSuccess(string message, Action? callback = null);
-        void ShowError(string message);
     }
 }

@@ -101,8 +101,6 @@ namespace Bloxstrap.UI.BootstrapperDialogs.WinForms
         }
 
         public virtual void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
-
-        public virtual void ShowError(string message) => BaseFunctions.ShowError(message);
         #endregion
     }
 }

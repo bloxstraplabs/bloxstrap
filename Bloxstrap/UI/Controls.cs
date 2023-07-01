@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Drawing;
+using System.Windows;
 
 using Bloxstrap.Enums;
 using Bloxstrap.UI.Menu.Views;
@@ -21,6 +23,14 @@ namespace Bloxstrap.UI
                 default:
                     return NativeMessageBox.Show(message, icon, buttons, defaultResult);
             }
+        }
+
+        public static void ShowExceptionDialog(Exception exception)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                new ExceptionDialog(exception).ShowDialog();
+            });
         }
     }
 }

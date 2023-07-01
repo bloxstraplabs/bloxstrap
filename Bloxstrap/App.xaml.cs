@@ -16,10 +16,10 @@ using Microsoft.Win32;
 using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 using Bloxstrap.Models.Attributes;
+using Bloxstrap.UI;
 using Bloxstrap.UI.BootstrapperDialogs;
 using Bloxstrap.UI.MessageBox;
 using Bloxstrap.Utility;
-using Bloxstrap.UI;
 
 namespace Bloxstrap
 {
@@ -100,8 +100,17 @@ namespace Bloxstrap
             Logger.WriteLine("[App::OnStartup] An exception occurred when running the main thread");
             Logger.WriteLine($"[App::OnStartup] {e.Exception}");
 
+            FinalizeExceptionHandling(e.Exception);
+        }
+
+        void FinalizeExceptionHandling(Exception exception)
+        {
+#if DEBUG
+            throw exception;
+#endif
+
             if (!IsQuiet)
-                Settings.Prop.BootstrapperStyle.GetNew().ShowError($"{e.Exception.GetType()}: {e.Exception.Message}");
+                Controls.ShowExceptionDialog(exception);
 
             Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
         }
@@ -313,13 +322,9 @@ namespace Bloxstrap
                     }
                 }
 
-                // there's a bug here that i have yet to fix!
-                // sometimes the task just terminates when the bootstrapper hasn't
-                // actually finished, causing the bootstrapper to hang indefinitely
-                // i have no idea how the fuck this happens, but it happens like VERY
-                // rarely so i'm not too concerned by it
-                // maybe one day ill find out why it happens
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                Task bootstrapperTask = Task.Run(() => bootstrapper.Run());
+
+                bootstrapperTask.ContinueWith(t =>
                 {
                     Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
 
@@ -331,16 +336,18 @@ namespace Bloxstrap
 
                     Logger.WriteLine($"[App::OnStartup] {t.Exception}");
 
-#if DEBUG
-                    throw t.Exception;
-#else
-                    var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
-                    dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
-                    Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
+                    Exception exception = t.Exception;
+
+#if !DEBUG
+                    if (t.Exception.GetType().ToString() == "System.AggregateException")
+                    exception = t.Exception.InnerException!;
 #endif
+
+                    FinalizeExceptionHandling(exception);
                 });
 
                 dialog?.ShowBootstrapper();
+
                 bootstrapperTask.Wait();
 
                 if (singletonMutex is not null)
