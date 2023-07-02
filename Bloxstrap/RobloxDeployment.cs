@@ -110,8 +110,6 @@ namespace Bloxstrap
                 throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
             }
 
-            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Got JSON: {rawResponse}");
-
             ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
 
             // for preferences

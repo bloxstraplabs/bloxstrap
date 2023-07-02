@@ -49,14 +49,12 @@ namespace Bloxstrap
         {
             try
             {
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Getting JSON from {url}!");
                 string json = await App.HttpClient.GetStringAsync(url);
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Got JSON: {json}");
                 return JsonSerializer.Deserialize<T>(json);
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Failed to deserialize JSON!");
+                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Failed to deserialize JSON for {url}!");
                 App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] {ex}");
                 return default;
             }
