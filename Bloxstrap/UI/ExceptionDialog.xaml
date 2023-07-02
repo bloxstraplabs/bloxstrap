@@ -38,9 +38,9 @@
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button x:Name="LocateLogFileButton" Content="Locate log file" />
                 <ComboBox x:Name="ReportOptions" SelectedIndex="0" Padding="12,6,12,6" Margin="12,0,0,0">
-                    <ComboBoxItem Content="Report exception" Visibility="Collapsed" />
-                    <ComboBoxItem Content="Report via GitHub" />
-                    <ComboBoxItem Content="Report via Discord" />
+                    <ComboBoxItem Content="Submit report..." Visibility="Collapsed" />
+                    <ComboBoxItem Content="Submit report via GitHub" />
+                    <ComboBoxItem Content="Submit report via Discord" />
                 </ComboBox>
                 <Button x:Name="CloseButton" MinWidth="100" Content="Close" Margin="12,0,0,0" />
             </StackPanel>

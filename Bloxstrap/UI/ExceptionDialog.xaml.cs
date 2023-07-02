@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
 using System.Media;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interop;
-using System.Windows.Media.Imaging;
 
 using Bloxstrap.Utility;
 
@@ -60,6 +55,12 @@ namespace Bloxstrap.UI
             };
 
             SystemSounds.Hand.Play();
+
+            Loaded += delegate
+            {
+                IntPtr hWnd = new WindowInteropHelper(this).Handle;
+                NativeMethods.FlashWindow(hWnd, true);
+            };
         }
     }
 }

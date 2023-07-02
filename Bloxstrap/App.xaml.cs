@@ -46,15 +46,15 @@ namespace Bloxstrap
         public static bool IsMenuLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
-        public static BuildMetadataAttribute BuildMetadata => Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
+        public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
-        // singletons
         public static readonly Logger Logger = new();
+        public static readonly HttpClient HttpClient = new(new HttpClientLoggingHandler(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }));
+        
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly FastFlagManager FastFlags = new();
-        public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
 
