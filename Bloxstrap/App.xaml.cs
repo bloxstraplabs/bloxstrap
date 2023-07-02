@@ -17,8 +17,6 @@ using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 using Bloxstrap.Models.Attributes;
 using Bloxstrap.UI;
-using Bloxstrap.UI.BootstrapperDialogs;
-using Bloxstrap.UI.MessageBox;
 using Bloxstrap.Utility;
 
 namespace Bloxstrap
@@ -105,6 +103,7 @@ namespace Bloxstrap
 
         void FinalizeExceptionHandling(Exception exception)
         {
+#pragma warning disable 162
 #if DEBUG
             throw exception;
 #endif
@@ -113,6 +112,7 @@ namespace Bloxstrap
                 Controls.ShowExceptionDialog(exception);
 
             Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
+#pragma warning restore 162
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -248,7 +248,7 @@ namespace Bloxstrap
                 else
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
-                        FluentMessageBox.Show(
+                        Controls.ShowMessageBox(
                             $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
                             MessageBoxImage.Information
                         );

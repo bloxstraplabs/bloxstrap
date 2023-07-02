@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows;
 
 using Bloxstrap.Enums;
-using Bloxstrap.UI.Menu.Views;
+using Bloxstrap.Extensions;
+using Bloxstrap.UI.Elements.Bootstrapper;
+using Bloxstrap.UI.Menu;
 using Bloxstrap.UI.MessageBox;
 
 namespace Bloxstrap.UI
@@ -14,14 +15,22 @@ namespace Bloxstrap.UI
 
         public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK, MessageBoxResult defaultResult = MessageBoxResult.None)
         {
+            if (App.IsQuiet)
+                return defaultResult;
+
             switch (App.Settings.Prop.BootstrapperStyle)
             {
                 case BootstrapperStyle.FluentDialog:
                 case BootstrapperStyle.ByfronDialog:
-                    return FluentMessageBox.Show(message, icon, buttons, defaultResult);
+                    return Application.Current.Dispatcher.Invoke(new Func<MessageBoxResult>(() =>
+                    {
+                        var messagebox = new FluentMessageBox(message, icon, buttons);
+                        messagebox.ShowDialog();
+                        return messagebox.Result;
+                    }));
 
                 default:
-                    return NativeMessageBox.Show(message, icon, buttons, defaultResult);
+                    return System.Windows.MessageBox.Show(message, App.ProjectName, buttons, icon);
             }
         }
 
@@ -31,6 +40,20 @@ namespace Bloxstrap.UI
             {
                 new ExceptionDialog(exception).ShowDialog();
             });
+        }
+
+        public static IBootstrapperDialog GetBootstrapperDialog(BootstrapperStyle style)
+        {
+            return style switch
+            {
+                BootstrapperStyle.VistaDialog => new VistaDialog(),
+                BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(),
+                BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
+                BootstrapperStyle.ProgressDialog => new ProgressDialog(),
+                BootstrapperStyle.FluentDialog => new FluentDialog(),
+                BootstrapperStyle.ByfronDialog => new ByfronDialog(),
+                _ => new FluentDialog()
+            };
         }
     }
 }

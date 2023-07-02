@@ -18,7 +18,6 @@ using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 using Bloxstrap.Tools;
 using Bloxstrap.UI;
-using Bloxstrap.UI.BootstrapperDialogs;
 
 namespace Bloxstrap
 {
