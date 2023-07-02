@@ -209,6 +209,13 @@ namespace Bloxstrap
             if (!IsFirstRun)
             {
                 Logger.Initialize(IsUninstall);
+
+                if (!Logger.Initialized)
+                {
+                    Logger.WriteLine("[App::OnStartup] Possible duplicate launch detected, terminating.");
+                    Terminate();
+                }
+
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();

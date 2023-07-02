@@ -32,9 +32,18 @@ namespace Bloxstrap
             WriteLine($"[Logger::Initialize] Initializing at {location}");
 
             if (Initialized)
-                throw new Exception("Logger is already initialized");
+            {
+                WriteLine("[Logger::Initialize] Failed to initialize because logger is already initialized");
+                return;
+            }
 
             Directory.CreateDirectory(directory);
+
+            if (File.Exists(location))
+            {
+                WriteLine("[Logger::Initialize] Failed to initialize because log file already exists");
+                return;
+            }
 
             _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
 
