@@ -13,6 +13,7 @@ using System.Windows.Threading;
 
 using Microsoft.Win32;
 
+using Bloxstrap.Enums;
 using Bloxstrap.Extensions;
 using Bloxstrap.Models;
 using Bloxstrap.Models.Attributes;
@@ -34,6 +35,7 @@ namespace Bloxstrap
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
+
         public static bool ShouldSaveConfigs { get; set; } = false;
         public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = true;
@@ -56,39 +58,23 @@ namespace Bloxstrap
 
         public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
 
-        public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
+        public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
-            Logger.WriteLine($"[App::Terminate] Terminating with exit code {code}");
+            if (IsFirstRun)
+            {
+                if (exitCode == ErrorCode.ERROR_CANCELLED)
+                    exitCode = ErrorCode.ERROR_INSTALL_USEREXIT;
+            }
+
+            int exitCodeNum = (int)exitCode;
+
+            Logger.WriteLine($"[App::Terminate] Terminating with exit code {exitCodeNum} ({exitCode})");
+
             Settings.Save();
             State.Save();
             Notification.Dispose();
-            Environment.Exit(code);
-        }
 
-        private void InitLog()
-        {
-            // if we're running for the first time or uninstalling, log to temp folder
-            // else, log to bloxstrap folder
-
-            bool isUsingTempDir = IsFirstRun || IsUninstall;
-            string logdir = isUsingTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
-            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
-            int processId = Process.GetCurrentProcess().Id;
-
-            Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}_{processId}.log"));
-
-            // clean up any logs older than a week
-            if (!isUsingTempDir)
-            {
-                foreach (FileInfo log in new DirectoryInfo(logdir).GetFiles()) 
-                {
-                    if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
-                        continue;
-
-                    Logger.WriteLine($"[App::InitLog] Cleaning up old log file '{log.Name}'");
-                    log.Delete();
-                }
-            }
+            Environment.Exit(exitCodeNum);
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -111,7 +97,7 @@ namespace Bloxstrap
             if (!IsQuiet)
                 Controls.ShowExceptionDialog(exception);
 
-            Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
+            Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
 #pragma warning restore 162
         }
 
@@ -193,7 +179,7 @@ namespace Bloxstrap
                     Logger.WriteLine("[App::OnStartup] Running first-time install");
 
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
-                    InitLog();
+                    Logger.Initialize(true);
 
                     if (!IsQuiet)
                     {
@@ -213,7 +199,7 @@ namespace Bloxstrap
             if (!IsSetupComplete)
             {
                 Logger.WriteLine("[App::OnStartup] Installation cancelled!");
-                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
+                Terminate(ErrorCode.ERROR_CANCELLED);
             }
 
             Directories.Initialize(BaseDirectory);
@@ -222,7 +208,7 @@ namespace Bloxstrap
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
-                InitLog();
+                Logger.Initialize(IsUninstall);
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();

@@ -20,27 +20,44 @@ namespace Bloxstrap
 
         public readonly List<string> Backlog = new();
         public bool Initialized = false;
-        public string? Filename;
+        public string? FileLocation;
 
-        public void Initialize(string filename)
+        public void Initialize(bool useTempDir = false)
         {
-            if (_filestream is not null)
+            string directory = useTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+            string filename = $"{App.ProjectName}_{timestamp}.log";
+            string location = Path.Combine(directory, filename);
+
+            WriteLine($"[Logger::Initialize] Initializing at {location}");
+
+            if (Initialized)
                 throw new Exception("Logger is already initialized");
 
-            string? directory = Path.GetDirectoryName(filename);
+            Directory.CreateDirectory(directory);
 
-            if (directory is not null)
-                Directory.CreateDirectory(directory);
-
-            _filestream = File.Open(filename, FileMode.Create, FileAccess.Write, FileShare.Read);
+            _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
 
             if (Backlog.Count > 0)
                 WriteToLog(string.Join("\r\n", Backlog));
 
-            WriteLine($"[Logger::Logger] Initialized at {filename}");
+            WriteLine($"[Logger::Initialize] Finished initializing!");
 
             Initialized = true;
-            Filename = filename;
+            FileLocation = location;
+
+            // clean up any logs older than a week
+            if (!useTempDir)
+            {
+                foreach (FileInfo log in new DirectoryInfo(directory).GetFiles())
+                {
+                    if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
+                        continue;
+
+                    App.Logger.WriteLine($"[Logger::Initialize] Cleaning up old log file '{log.Name}'");
+                    log.Delete();
+                }
+            }
         }
 
         public void WriteLine(string message)

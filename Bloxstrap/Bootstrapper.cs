@@ -24,12 +24,6 @@ namespace Bloxstrap
     public class Bootstrapper
     {
         #region Properties
-
-        // https://learn.microsoft.com/en-us/windows/win32/msi/error-codes
-        public const int ERROR_SUCCESS = 0;
-        public const int ERROR_INSTALL_USEREXIT = 1602;
-        public const int ERROR_INSTALL_FAILURE = 1603;
-
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
@@ -109,7 +103,7 @@ namespace Bloxstrap
                 Dialog.Message = message;
         }
 
-        private void UpdateProgressbar()
+        private void UpdateProgressBar()
         {
             int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
 
@@ -378,7 +372,7 @@ namespace Bloxstrap
         {
             if (!_isInstalling)
             {
-                App.Terminate(ERROR_INSTALL_USEREXIT);
+                App.Terminate(ErrorCode.ERROR_CANCELLED);
                 return;
             }
 
@@ -401,7 +395,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine($"[Bootstrapper::CancelInstall] {ex}");
             }
 
-            App.Terminate(ERROR_INSTALL_USEREXIT);
+            App.Terminate(ErrorCode.ERROR_CANCELLED);
         }
         #endregion
 
@@ -581,9 +575,9 @@ namespace Bloxstrap
                 return;
             }
 
-            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for {App.ProjectName} updates...");
+            App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for updates...");
 
-            var releaseInfo = await Utilities.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
+            var releaseInfo = await Utility.Http.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
 
             if (releaseInfo is null || releaseInfo.Assets is null)
             {
@@ -629,10 +623,11 @@ namespace Bloxstrap
                 startInfo.ArgumentList.Add(arg);
 
             App.Settings.Save();
+            App.ShouldSaveConfigs = false;
 
             Process.Start(startInfo);
 
-            Environment.Exit(0);
+            App.Terminate();
         }
 
         private void Uninstall()
@@ -649,7 +644,7 @@ namespace Bloxstrap
                 );
 
                 if (result != MessageBoxResult.OK)
-                    Environment.Exit(ERROR_INSTALL_USEREXIT);
+                    App.Terminate(ErrorCode.ERROR_CANCELLED);
 
                 try
                 {
@@ -669,7 +664,6 @@ namespace Bloxstrap
             
             SetStatus($"Uninstalling {App.ProjectName}...");
 
-            //App.Settings.ShouldSave = false;
             App.ShouldSaveConfigs = false;
 
             // check if stock bootstrapper is still installed
@@ -759,7 +753,7 @@ namespace Bloxstrap
                     MessageBoxImage.Error
                 );
 
-                App.Terminate(ERROR_INSTALL_FAILURE);
+                App.Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
                 return;
             }
 
@@ -1135,7 +1129,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine($"[Bootstrapper::DownloadPackage] {package.Name} is already downloaded, skipping...");
                     _totalDownloadedBytes += package.PackedSize;
-                    UpdateProgressbar();
+                    UpdateProgressBar();
                     return;
                 }
             }
@@ -1147,7 +1141,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine($"[Bootstrapper::DownloadPackage] Found existing version of {package.Name} ({robloxPackageLocation})! Copying to Downloads folder...");
                 File.Copy(robloxPackageLocation, packageLocation);
                 _totalDownloadedBytes += package.PackedSize;
-                UpdateProgressbar();
+                UpdateProgressBar();
                 return;
             }
 
@@ -1179,7 +1173,7 @@ namespace Bloxstrap
                         await fileStream.WriteAsync(buffer, 0, bytesRead, _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
-                        UpdateProgressbar();
+                        UpdateProgressBar();
                     }
                 }
 

@@ -11,7 +11,7 @@ namespace Bloxstrap
 
         public virtual void Load()
         {
-            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Loading JSON from {FileLocation}...");
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Loading from {FileLocation}...");
 
             try
             {
@@ -22,28 +22,28 @@ namespace Bloxstrap
 
                 Prop = settings;
 
-                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] JSON loaded successfully!");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Loaded successfully!");
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Failed to load JSON! ({ex.Message})");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Load] Failed to load! ({ex.Message})");
             }
         }
 
         public virtual void Save()
         {
-            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Attempting to save JSON to {FileLocation}...");
-
             if (!App.ShouldSaveConfigs)
             {
-                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Aborted save (ShouldSave set to false)");
+                App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Save request ignored");
                 return;
             }
+
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Saving to {FileLocation}...");
 
             Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
             File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
 
-            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] JSON saved!");
+            App.Logger.WriteLine($"[JsonManager<{typeof(T).Name}>::Save] Save complete!");
         }
     }
 }

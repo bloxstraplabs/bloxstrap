@@ -29,7 +29,7 @@ namespace Bloxstrap.UI
             LocateLogFileButton.Click += delegate
             {
                 if (App.Logger.Initialized)
-                    Process.Start("explorer.exe", $"/select,\"{App.Logger.Filename}\"");
+                    Process.Start("explorer.exe", $"/select,\"{App.Logger.FileLocation}\"");
                 else
                     Clipboard.SetText(String.Join("\r\n", App.Logger.Backlog));
             };

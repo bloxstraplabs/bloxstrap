@@ -98,6 +98,7 @@ namespace Bloxstrap
                 );
 
                 Controls.ShowMenu();
+
                 App.Terminate();
             }
         }

@@ -139,8 +139,6 @@ namespace Bloxstrap
 
         public override void Save()
         {
-            App.Logger.WriteLine($"[FastFlagManager::Save] Attempting to save JSON to {FileLocation}...");
-
             // reload for any changes made while the menu was open
             Load();
 
@@ -163,12 +161,9 @@ namespace Bloxstrap
                 Prop[change.Key] = change.Value;
             }
 
-            Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
-            File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
+            base.Save();
 
             Changes.Clear();
-
-            App.Logger.WriteLine($"[FastFlagManager::Save] JSON saved!");
         }
     }
 }

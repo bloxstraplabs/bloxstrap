@@ -63,7 +63,7 @@ namespace Bloxstrap
                         MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic 
                             ? MessageBoxResult.Yes 
                             : Controls.ShowMessageBox(
-                                $"{App.ProjectName} was launched with the Roblox build channel set to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
+                                $"Roblox is attempting to set your channel to {val}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
                                 $"Would you like to switch channels from {App.Settings.Prop.Channel} to {val}?",
                                 MessageBoxImage.Question,
                                 MessageBoxButton.YesNo
