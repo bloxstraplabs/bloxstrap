@@ -10,7 +10,7 @@ using CommunityToolkit.Mvvm.Input;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
-using Bloxstrap.UI.MessageBox;
+using System.Linq;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
@@ -41,27 +41,53 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 return;
             }
 
-            try
-            {
-                // check if we can write to the directory (a bit hacky but eh)
-                string testFile = Path.Combine(App.BaseDirectory, $"{App.ProjectName}WriteTest.txt");
+            bool shouldCheckInstallLocation = App.IsFirstRun || App.BaseDirectory != _originalBaseDirectory;
 
-                Directory.CreateDirectory(App.BaseDirectory);
-                File.WriteAllText(testFile, "hi");
-                File.Delete(testFile);
-            }
-            catch (UnauthorizedAccessException)
+            if (shouldCheckInstallLocation)
             {
-                Controls.ShowMessageBox(
-                    $"{App.ProjectName} does not have write access to the install location you selected. Please choose another install location.",
-                    MessageBoxImage.Error
-                );
-                return;
-            }
-            catch (Exception ex)
-            {
-                Controls.ShowMessageBox(ex.Message, MessageBoxImage.Error);
-                return;
+                try
+                {
+                    // check if we can write to the directory (a bit hacky but eh)
+                    string testFile = Path.Combine(App.BaseDirectory, $"{App.ProjectName}WriteTest.txt");
+
+                    Directory.CreateDirectory(App.BaseDirectory);
+                    File.WriteAllText(testFile, "hi");
+                    File.Delete(testFile);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Controls.ShowMessageBox(
+                        $"{App.ProjectName} does not have write access to the install location you've selected. Please choose another location.",
+                        MessageBoxImage.Error
+                    );
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Controls.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (!App.BaseDirectory.EndsWith(App.ProjectName) && Directory.Exists(App.BaseDirectory) && Directory.EnumerateFileSystemEntries(App.BaseDirectory).Any())
+                {
+                    string suggestedChange = Path.Combine(App.BaseDirectory, App.ProjectName);
+
+                    MessageBoxResult result = Controls.ShowMessageBox(
+                        $"The folder you've chosen to install {App.ProjectName} to already exists and is NOT empty. It is strongly recommended for {App.ProjectName} to be installed to its own independent folder.\n\n" +
+                        "Changing to the following location is suggested:\n" +
+                        $"{suggestedChange}\n\n" +
+                        "Would you like to change your install location to this?\n" +
+                        "Selecting 'No' will ignore this warning and continue installation.",
+                        MessageBoxImage.Warning,
+                        MessageBoxButton.YesNoCancel,
+                        MessageBoxResult.Yes
+                    );
+
+                    if (result == MessageBoxResult.Yes)
+                        App.BaseDirectory = suggestedChange;
+                    else if (result == MessageBoxResult.Cancel)
+                        return;
+                }
             }
 
             if (!App.IsFirstRun)
@@ -69,7 +95,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 App.ShouldSaveConfigs = true;
                 App.FastFlags.Save();
 
-                if (App.BaseDirectory != _originalBaseDirectory)
+                if (shouldCheckInstallLocation)
                 {
                     App.Logger.WriteLine($"[MainWindowViewModel::ConfirmSettings] Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
 

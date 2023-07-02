@@ -683,43 +683,68 @@ namespace Bloxstrap
                 ProtocolHandler.Register("roblox-player", "Roblox", bootstrapperLocation);
             }
 
-            try
+            // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder
+            // in which case, chances are they chose to install to somewhere they didn't really mean to (prior to the added warning in 2.4.0)
+            // if so, we're walking on eggshells and have to ensure we only clean up what we need to clean up
+            bool cautiousUninstall = !Directories.Base.EndsWith(App.ProjectName);
+
+            var cleanupSequence = new List<Action>
             {
-                // delete application key
-                Registry.CurrentUser.DeleteSubKey($@"Software\{App.ProjectName}");
+                () => Registry.CurrentUser.DeleteSubKey($@"Software\{App.ProjectName}"),
+                () => Directory.Delete(Directories.StartMenu, true),
+                () => File.Delete(Path.Combine(Directories.Desktop, "Play Roblox.lnk")),
+                () => Registry.CurrentUser.DeleteSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}")
+            };
 
-                // delete start menu folder
-                Directory.Delete(Directories.StartMenu, true);
-
-                // delete desktop shortcut
-                File.Delete(Path.Combine(Directories.Desktop, "Play Roblox.lnk"));
-
-                // delete uninstall key
-                Registry.CurrentUser.DeleteSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}");
-
-                // delete installation folder
-                // (should delete everything except bloxstrap itself)
-                Directory.Delete(Directories.Base, true);
+            if (cautiousUninstall)
+            {
+                cleanupSequence.Add(() => Directory.Delete(Directories.Downloads, true));
+                cleanupSequence.Add(() => Directory.Delete(Directories.Modifications, true));
+                cleanupSequence.Add(() => Directory.Delete(Directories.Versions, true));
+                cleanupSequence.Add(() => Directory.Delete(Directories.Logs, true));
+                
+                cleanupSequence.Add(() => File.Delete(App.Settings.FileLocation));
+                cleanupSequence.Add(() => File.Delete(App.State.FileLocation));
             }
-            catch (Exception ex) 
+            else
             {
-                App.Logger.WriteLine($"Could not fully uninstall! ({ex})");
+                cleanupSequence.Add(() => Directory.Delete(Directories.Base, true));
+            }
+
+            foreach (var process in cleanupSequence)
+            {
+                try
+                {
+                    process();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::Uninstall] Encountered exception when running cleanup sequence (#{cleanupSequence.IndexOf(process)})");
+                    App.Logger.WriteLine($"[Bootstrapper::Uninstall] {ex}");
+                }
             }
 
             Action? callback = null;
 
             if (Directory.Exists(Directories.Base))
             {
-                callback = () =>
+                callback = delegate
                 {
                     // this is definitely one of the workaround hacks of all time
                     // could antiviruses falsely detect this as malicious behaviour though?
                     // "hmm whats this program doing running a cmd command chain quietly in the background that auto deletes an entire folder"
 
+                    string deleteCommand;
+
+                    if (cautiousUninstall)
+                        deleteCommand = $"del /Q \"{Directories.Application}\"";
+                    else
+                        deleteCommand = $"del /Q \"{Directories.Base}\\*\" && rmdir \"{Directories.Base}\"";
+
                     Process.Start(new ProcessStartInfo()
                     {
                         FileName = "cmd.exe",
-                        Arguments = $"/c timeout 5 && del /Q \"{Directories.Base}\\*\" && rmdir \"{Directories.Base}\"",
+                        Arguments = $"/c timeout 5 && {deleteCommand}",
                         UseShellExecute = true,
                         WindowStyle = ProcessWindowStyle.Hidden
                     });

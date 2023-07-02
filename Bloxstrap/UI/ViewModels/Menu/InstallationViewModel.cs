@@ -69,10 +69,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
-            if (!dialog.SelectedPath.EndsWith(App.ProjectName))
-                InstallLocation = Path.Combine(dialog.SelectedPath, App.ProjectName);
-            else
-                InstallLocation = dialog.SelectedPath;
+            InstallLocation = dialog.SelectedPath;
 
             OnPropertyChanged(nameof(InstallLocation));
         }

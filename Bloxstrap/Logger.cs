@@ -56,9 +56,9 @@ namespace Bloxstrap
             FileLocation = location;
 
             // clean up any logs older than a week
-            if (!useTempDir)
+            if (Directories.Initialized && Directory.Exists(Directories.Logs))
             {
-                foreach (FileInfo log in new DirectoryInfo(directory).GetFiles())
+                foreach (FileInfo log in new DirectoryInfo(Directories.Logs).GetFiles())
                 {
                     if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
                         continue;
