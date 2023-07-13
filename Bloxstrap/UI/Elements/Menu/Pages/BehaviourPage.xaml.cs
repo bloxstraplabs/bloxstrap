@@ -20,14 +20,14 @@ namespace Bloxstrap.UI.Menu.Pages
 
         // https://stackoverflow.com/a/13289118/11852173
         // yes this doesnt fully conform to xaml but whatever
-        private void TextBox_KeyEnterUpdate(object sender, KeyEventArgs e)
+        private void ComboBox_KeyEnterUpdate(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                TextBox tBox = (TextBox)sender;
-                DependencyProperty prop = TextBox.TextProperty;
+                ComboBox box = (ComboBox)sender;
+                DependencyProperty prop = ComboBox.TextProperty;
 
-                BindingExpression binding = BindingOperations.GetBindingExpression(tBox, prop);
+                BindingExpression binding = BindingOperations.GetBindingExpression(box, prop);
 
                 if (binding is not null)
                     binding.UpdateSource();

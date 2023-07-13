@@ -42,66 +42,58 @@
             <TextBlock FontSize="14" Text="Deployment channel" />
             <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which release channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
           </StackPanel>
-          <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding Channels, Mode=OneWay}" SelectedItem="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelComboBoxVisibility, Mode=OneWay}" />
-          <ui:TextBox Grid.Column="1"  Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelTextBoxVisibility, Mode=OneWay}" KeyUp="TextBox_KeyEnterUpdate" />
+          <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" IsEditable="True" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding SelectedChannel, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" KeyUp="ComboBox_KeyEnterUpdate" />
         </Grid>
       </ui:CardExpander.Header>
       <StackPanel>
-        <Grid>
+        <Grid Margin="0,0,4,0">
+          <Grid.Style>
+            <Style>
+              <Setter Property="Grid.Visibility" Value="Visible"/>
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                  <Setter Property="Grid.Visibility" Value="Collapsed" />
+                </DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </Grid.Style>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
-          <Grid Column="0" Margin="0,0,4,0">
-            <Grid.Style>
-              <Style>
-                <Setter Property="Grid.Visibility" Value="Visible"/>
-                <Style.Triggers>
-                  <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
-                    <Setter Property="Grid.Visibility" Value="Collapsed" />
-                  </DataTrigger>
-                </Style.Triggers>
-              </Style>
-            </Grid.Style>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="*" />
-              <RowDefinition Height="*" />
-              <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
-            <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
+          <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
+          <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
-            <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
+          <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
+          <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
-          </Grid>
-          <Grid Column="0">
-            <Grid.Style>
-              <Style>
-                <Setter Property="Grid.Visibility" Value="Collapsed"/>
-                <Style.Triggers>
-                  <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
-                    <Setter Property="Grid.Visibility" Value="Visible" />
-                  </DataTrigger>
-                </Style.Triggers>
-              </Style>
-            </Grid.Style>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" />
-            <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" />
-          </Grid>
-
-          <CheckBox Grid.Column="1" Margin="4,0,0,0" Content="Manually enter channel name" VerticalAlignment="Top" IsChecked="{Binding ManualChannelEntry, Mode=TwoWay}" />
+          <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
+          <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
+        </Grid>
+        <Grid Column="0">
+          <Grid.Style>
+            <Style>
+              <Setter Property="Grid.Visibility" Value="Collapsed"/>
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                  <Setter Property="Grid.Visibility" Value="Visible" />
+                </DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </Grid.Style>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" Visibility="{Binding LoadingSpinnerVisibility, Mode=OneWay}" />
+          <Image Grid.Column="0" Margin="6" Width="60" Height="60" Visibility="{Binding LoadingErrorVisibility, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
+          <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" />
         </Grid>
       </StackPanel>
     </ui:CardExpander>

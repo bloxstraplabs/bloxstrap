@@ -26,10 +26,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         private async Task LoadChannelDeployInfo(string channel)
         {
+            LoadingSpinnerVisibility = Visibility.Visible;
+            LoadingErrorVisibility = Visibility.Collapsed;
             ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
-            OnPropertyChanged(nameof(ChannelInfoLoadingText));
-
             ChannelDeployInfo = null;
+
+            OnPropertyChanged(nameof(LoadingSpinnerVisibility));
+            OnPropertyChanged(nameof(LoadingErrorVisibility));
+            OnPropertyChanged(nameof(ChannelInfoLoadingText));
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
             try
@@ -47,10 +51,18 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
             catch (Exception)
             {
-                ChannelInfoLoadingText = "Failed to get deploy info.\nIs the channel name valid?";
+                LoadingSpinnerVisibility = Visibility.Collapsed;
+                LoadingErrorVisibility = Visibility.Visible;
+                ChannelInfoLoadingText = "Could not get deployment information. Is the channel name valid?";
+
+                OnPropertyChanged(nameof(LoadingSpinnerVisibility));
+                OnPropertyChanged(nameof(LoadingErrorVisibility));
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
         }
+
+        public Visibility LoadingSpinnerVisibility { get; private set; } = Visibility.Visible;
+        public Visibility LoadingErrorVisibility { get; private set; } = Visibility.Collapsed;
 
         public DeployInfo? ChannelDeployInfo { get; private set; } = null;
         public string ChannelInfoLoadingText { get; private set; } = null!;
@@ -69,12 +81,16 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public IEnumerable<string> Channels => RobloxDeployment.SelectableChannels;
 
-        public string Channel
+        public string SelectedChannel
         {
             get => App.Settings.Prop.Channel;
             set
             {
                 value = value.Trim();
+
+                if (String.IsNullOrEmpty(value))
+                    value = RobloxDeployment.DefaultChannel;
+                
                 Task.Run(() => LoadChannelDeployInfo(value));
                 App.Settings.Prop.Channel = value;
             }
@@ -90,19 +106,13 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (!value)
                 {
                     // roblox typically sets channels in all lowercase, so here we find if a case insensitive match exists
-                    string? matchingChannel = Channels.Where(x => x.ToLowerInvariant() == Channel.ToLowerInvariant()).FirstOrDefault();
-                    Channel = string.IsNullOrEmpty(matchingChannel) ? RobloxDeployment.DefaultChannel : matchingChannel;
+                    string? matchingChannel = Channels.Where(x => x.ToLowerInvariant() == SelectedChannel.ToLowerInvariant()).FirstOrDefault();
+                    SelectedChannel = string.IsNullOrEmpty(matchingChannel) ? RobloxDeployment.DefaultChannel : matchingChannel;
                 }
 
-                OnPropertyChanged(nameof(Channel));
-                OnPropertyChanged(nameof(ChannelComboBoxVisibility));
-                OnPropertyChanged(nameof(ChannelTextBoxVisibility));
+                OnPropertyChanged(nameof(SelectedChannel));
             }
         }
-
-        // cant use data bindings so i have to do whatever tf this is
-        public Visibility ChannelComboBoxVisibility => ManualChannelEntry ? Visibility.Collapsed : Visibility.Visible;
-        public Visibility ChannelTextBoxVisibility => ManualChannelEntry ? Visibility.Visible : Visibility.Collapsed;
 
         // todo - move to enum attributes?
         public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
