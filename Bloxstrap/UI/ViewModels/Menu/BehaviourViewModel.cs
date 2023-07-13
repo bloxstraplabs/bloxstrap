@@ -40,6 +40,11 @@ namespace Bloxstrap.UI.ViewModels.Menu
             {
                 ClientVersion info = await RobloxDeployment.GetInfo(channel, true);
 
+                if (info.Timestamp?.AddMonths(1) < DateTime.Now)
+                    ChannelWarningVisibility = Visibility.Visible;
+                else
+                    ChannelWarningVisibility = Visibility.Collapsed;
+
                 ChannelDeployInfo = new DeployInfo
                 {
                     Version = info.Version,
@@ -47,13 +52,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     Timestamp = info.Timestamp?.ToFriendlyString()!
                 };
 
+                OnPropertyChanged(nameof(ChannelWarningVisibility));
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
             catch (Exception)
             {
                 LoadingSpinnerVisibility = Visibility.Collapsed;
                 LoadingErrorVisibility = Visibility.Visible;
-                ChannelInfoLoadingText = "Could not get deployment information. Is the channel name valid?";
+                ChannelInfoLoadingText = "Could not get deployment information! Is the channel name valid?";
 
                 OnPropertyChanged(nameof(LoadingSpinnerVisibility));
                 OnPropertyChanged(nameof(LoadingErrorVisibility));
@@ -63,6 +69,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public Visibility LoadingSpinnerVisibility { get; private set; } = Visibility.Visible;
         public Visibility LoadingErrorVisibility { get; private set; } = Visibility.Collapsed;
+        public Visibility ChannelWarningVisibility { get; private set; } = Visibility.Collapsed;
 
         public DeployInfo? ChannelDeployInfo { get; private set; } = null;
         public string ChannelInfoLoadingText { get; private set; } = null!;

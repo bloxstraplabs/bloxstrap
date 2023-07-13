@@ -61,6 +61,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
           </Grid.RowDefinitions>
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -75,6 +76,11 @@
 
           <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
           <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
+
+          <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal" Visibility="{Binding ChannelWarningVisibility, Mode=OneWay}">
+            <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
+            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel may be out of date, as it was last deployed to over a month ago." />
+          </StackPanel>
         </Grid>
         <Grid Column="0">
           <Grid.Style>
@@ -93,6 +99,7 @@
           </Grid.ColumnDefinitions>
           <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" Visibility="{Binding LoadingSpinnerVisibility, Mode=OneWay}" />
           <Image Grid.Column="0" Margin="6" Width="60" Height="60" Visibility="{Binding LoadingErrorVisibility, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
+          
           <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" />
         </Grid>
       </StackPanel>
