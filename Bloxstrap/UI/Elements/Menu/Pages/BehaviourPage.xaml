@@ -9,9 +9,9 @@
       Title="BehaviourPage"
       Scrollable="True">
   <StackPanel Margin="0,0,14,14">
-    <TextBlock Text="Configure what Bloxstrap should do when starting up." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <TextBlock Margin="0,0,0,8" Text="Configure what Bloxstrap should do when launching." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardControl Margin="0,16,0,0">
+    <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Create desktop icon" />
@@ -20,6 +20,7 @@
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
     </ui:CardControl>
+    
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
@@ -28,6 +29,91 @@
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+
+    <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+      <ui:CardExpander.Header>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <StackPanel Grid.Column="0">
+            <TextBlock FontSize="14" Text="Deployment channel" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which release channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+          </StackPanel>
+          <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding Channels, Mode=OneWay}" SelectedItem="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelComboBoxVisibility, Mode=OneWay}" />
+          <ui:TextBox Grid.Column="1"  Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding Channel, Mode=TwoWay}" Visibility="{Binding ChannelTextBoxVisibility, Mode=OneWay}" KeyUp="TextBox_KeyEnterUpdate" />
+        </Grid>
+      </ui:CardExpander.Header>
+      <StackPanel>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <Grid Column="0" Margin="0,0,4,0">
+            <Grid.Style>
+              <Style>
+                <Setter Property="Grid.Visibility" Value="Visible"/>
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                    <Setter Property="Grid.Visibility" Value="Collapsed" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </Grid.Style>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*" />
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
+            <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
+          </Grid>
+          <Grid Column="0">
+            <Grid.Style>
+              <Style>
+                <Setter Property="Grid.Visibility" Value="Collapsed"/>
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                    <Setter Property="Grid.Visibility" Value="Visible" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" />
+            <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" />
+          </Grid>
+
+          <CheckBox Grid.Column="1" Margin="4,0,0,0" Content="Manually enter channel name" VerticalAlignment="Top" IsChecked="{Binding ManualChannelEntry, Mode=TwoWay}" />
+        </Grid>
+      </StackPanel>
+    </ui:CardExpander>
+
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Automatic channel change action" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox or Bloxstrap may try to change your preferred channel." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes.Keys, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}" />
     </ui:CardControl>
   </StackPanel>
 </ui:UiPage>
