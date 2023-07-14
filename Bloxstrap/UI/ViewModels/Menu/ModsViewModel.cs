@@ -28,10 +28,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.UseOldCharacterSounds = value;
         }
 
-        public bool OldMouseCursorEnabled
+        public IReadOnlyDictionary<string, Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
+
+        public string SelectedCursorType
         {
-            get => App.Settings.Prop.UseOldMouseCursor;
-            set => App.Settings.Prop.UseOldMouseCursor = value;
+            get => CursorTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.CursorType).Key;
+            set => App.Settings.Prop.CursorType = CursorTypes[value];
         }
 
         public bool DisableAppPatchEnabled

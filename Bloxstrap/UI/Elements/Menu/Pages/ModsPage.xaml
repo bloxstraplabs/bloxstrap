@@ -60,67 +60,56 @@
     </Grid>
 
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <Grid>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
 
-      <ui:CardControl Grid.Row="0" Grid.Column="0" Margin="0,8,4,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Use old death sound" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the classic 'oof' death sound." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-          </StackPanel>
-        </ui:CardControl.Header>
-        <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
-      </ui:CardControl>
-      <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="4,8,0,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Use old mouse cursor" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Use the pre-2022 style mouse cursor." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-          </StackPanel>
-        </ui:CardControl.Header>
-        <ui:ToggleSwitch IsChecked="{Binding OldMouseCursorEnabled, Mode=TwoWay}" />
-      </ui:CardControl>
+    <ui:CardControl Grid.Row="0" Grid.Column="0" Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Use old death sound" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the classic 'oof' death sound." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
 
-      <ui:CardControl Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Emulate old character sounds" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="An attempt to roughly bring back the character sounds used prior to 2014." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-          </StackPanel>
-        </ui:CardControl.Header>
-        <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
-      </ui:CardControl>
+    <ui:CardControl Grid.Row="0" Grid.Column="1" Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Preferred mouse cursor" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose between using two classic Roblox cursor styles." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypes.Keys, Mode=OneTime}" Text="{Binding SelectedCursorType, Mode=TwoWay}" />
+    </ui:CardControl>
 
-      <ui:CardControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Disable desktop app" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing, especially when you leave a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-          </StackPanel>
-        </ui:CardControl.Header>
-        <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
-      </ui:CardControl>
+    <ui:CardControl Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Emulate old character sounds" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="An attempt to roughly bring back the character sounds used prior to 2014." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
 
-      <ui:CardControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Preferred emoji type" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which type of emoji should Roblox use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-          </StackPanel>
-        </ui:CardControl.Header>
-        <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes.Keys, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}" />
-      </ui:CardControl>
-    </Grid>
+    <ui:CardControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Disable desktop app" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing, especially when you leave a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+
+    <ui:CardControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Preferred emoji type" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which type of emoji should Roblox use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes.Keys, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}" />
+    </ui:CardControl>
 
     <StackPanel x:Name="MiscellaneousOptions">
       <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />

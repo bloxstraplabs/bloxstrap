@@ -998,15 +998,20 @@ namespace Bloxstrap
             if (!Directory.Exists(modFolder))
                 Directory.CreateDirectory(modFolder);
 
-            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
-            await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "OldCursor.png");
-            await CheckModPreset(App.Settings.Prop.UseOldMouseCursor, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "OldFarCursor.png");
+            // cursors
+            await CheckModPreset(App.Settings.Prop.CursorType != CursorType.Default, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", $"Cursor.{App.Settings.Prop.CursorType}.ArrowCursor.png");
+            await CheckModPreset(App.Settings.Prop.CursorType != CursorType.Default, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", $"Cursor.{App.Settings.Prop.CursorType}.ArrowFarCursor.png");
+            
+            // character sounds
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_footsteps_plastic.mp3", "OldWalk.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump.mp3", "OldJump.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_falling.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump_land.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_swim.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\impact_water.mp3", "Empty.mp3");
+            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
+
+            // misc
             await CheckModPreset(App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink"), @"ExtraContent\places\Mobile.rbxl", "");
 
             // emoji presets are downloaded remotely from github due to how large they are
@@ -1104,26 +1109,22 @@ namespace Bloxstrap
 
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
-            string modFolderLocation = Path.Combine(Directories.Modifications, location);
-            byte[] binaryData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
+            string fullLocation = Path.Combine(Directories.Modifications, location);
+            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
 
-            if (condition)
-            {
-                if (!File.Exists(modFolderLocation))
-                {
-                    string? directory = Path.GetDirectoryName(modFolderLocation);
+            string fileHash = File.Exists(fullLocation) ? Utility.MD5Hash.FromFile(fullLocation) : "";
+            string embeddedHash = Utility.MD5Hash.FromBytes(embeddedData);
 
-                    if (directory is null)
-                        return;
+            if (condition && fileHash != embeddedHash)
+            {                
+                Directory.CreateDirectory(Path.GetDirectoryName(fullLocation)!);
+                File.Delete(fullLocation);
 
-                    Directory.CreateDirectory(directory);
-
-                    await File.WriteAllBytesAsync(modFolderLocation, binaryData);
-                }
+                await File.WriteAllBytesAsync(fullLocation, embeddedData);
             }
-            else if (File.Exists(modFolderLocation) && Utility.MD5Hash.FromFile(modFolderLocation) == Utility.MD5Hash.FromBytes(binaryData))
+            else if (!condition && fileHash != "")
             {
-                File.Delete(modFolderLocation);
+                File.Delete(fullLocation);
             }
         }
 
