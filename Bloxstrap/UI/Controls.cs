@@ -47,7 +47,7 @@ namespace Bloxstrap.UI
             return style switch
             {
                 BootstrapperStyle.VistaDialog => new VistaDialog(),
-                BootstrapperStyle.LegacyDialog2009 => new LegacyDialog2009(),
+                BootstrapperStyle.LegacyDialog2008 => new LegacyDialog2008(),
                 BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
                 BootstrapperStyle.ProgressDialog => new ProgressDialog(),
                 BootstrapperStyle.FluentDialog => new FluentDialog(),

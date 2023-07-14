@@ -8,7 +8,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     // windows: https://youtu.be/VpduiruysuM?t=18
     // mac: https://youtu.be/ncHhbcVDRgQ?t=63
 
-    public partial class LegacyDialog2009 : WinFormsDialogBase
+    public partial class LegacyDialog2008 : WinFormsDialogBase
     {
         protected override string _message 
         { 
@@ -34,7 +34,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             set => this.buttonCancel.Enabled = value; 
         }
 
-        public LegacyDialog2009()
+        public LegacyDialog2008()
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             SetupDialog();
         }
 
-        private void LegacyDialog2009_Load(object sender, EventArgs e)
+        private void LegacyDialog2008_Load(object sender, EventArgs e)
         {
             this.Activate();
         }

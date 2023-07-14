@@ -33,7 +33,7 @@ namespace Bloxstrap.Extensions
             return icon switch
             {
                 BootstrapperIcon.IconBloxstrap => Properties.Resources.IconBloxstrap,
-                BootstrapperIcon.Icon2009 => Properties.Resources.Icon2009,
+                BootstrapperIcon.Icon2008 => Properties.Resources.Icon2008,
                 BootstrapperIcon.Icon2011 => Properties.Resources.Icon2011,
                 BootstrapperIcon.IconEarly2015 => Properties.Resources.IconEarly2015,
                 BootstrapperIcon.IconLate2015 => Properties.Resources.IconLate2015,

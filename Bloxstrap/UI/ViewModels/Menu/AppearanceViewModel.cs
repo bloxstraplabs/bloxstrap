@@ -77,8 +77,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
             { "Fluent", BootstrapperStyle.FluentDialog },
             { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
             { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
-            { "Legacy (2009 - 2011)", BootstrapperStyle.LegacyDialog2009 },
-            { "Vista (2009 - 2011)", BootstrapperStyle.VistaDialog },
+            { "Legacy (2008 - 2011)", BootstrapperStyle.LegacyDialog2008 },
+            { "Vista (2008 - 2011)", BootstrapperStyle.VistaDialog },
             { "Fake Byfron (2023)", BootstrapperStyle.ByfronDialog },
         };
 
@@ -97,7 +97,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             { "Late 2015", BootstrapperIcon.IconLate2015 },
             { "Early 2015", BootstrapperIcon.IconEarly2015 },
             { "2011", BootstrapperIcon.Icon2011 },
-            { "2009", BootstrapperIcon.Icon2009 },
+            { "2008", BootstrapperIcon.Icon2008 },
             { "Custom", BootstrapperIcon.IconCustom },
         };
 

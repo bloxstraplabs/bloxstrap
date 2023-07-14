@@ -2,7 +2,7 @@
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
-    partial class LegacyDialog2009
+    partial class LegacyDialog2008
     {
         /// <summary>
         ///  Required designer variable.
@@ -65,7 +65,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // LegacyDialog2009
+            // LegacyDialog2008
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,10 +79,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             this.MaximumSize = new System.Drawing.Size(327, 161);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(327, 161);
-            this.Name = "LegacyDialog2009";
+            this.Name = "LegacyDialog2008";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LegacyDialog2009";
-            this.Load += new System.EventHandler(this.LegacyDialog2009_Load);
+            this.Text = "LegacyDialog2008";
+            this.Load += new System.EventHandler(this.LegacyDialog2008_Load);
             this.ResumeLayout(false);
 
         }
