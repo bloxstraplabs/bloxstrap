@@ -44,8 +44,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public string SelectedEmojiType
         {
-            get => EmojiTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.PreferredEmojiType).Key;
-            set => App.Settings.Prop.PreferredEmojiType = EmojiTypes[value];
+            get => EmojiTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.EmojiType).Key;
+            set => App.Settings.Prop.EmojiType = EmojiTypes[value];
         }
 
         public bool DisableFullscreenOptimizationsEnabled

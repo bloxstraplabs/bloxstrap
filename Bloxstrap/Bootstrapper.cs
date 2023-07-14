@@ -1010,27 +1010,24 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink"), @"ExtraContent\places\Mobile.rbxl", "");
 
             // emoji presets are downloaded remotely from github due to how large they are
-            string emojiFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\TwemojiMozilla.ttf");
+            string contentFonts = Path.Combine(Directories.Modifications, "content\\fonts");
+            string emojiFontLocation = Path.Combine(contentFonts, "TwemojiMozilla.ttf");
+            string emojiFontHash = File.Exists(emojiFontLocation) ? Utility.MD5Hash.FromFile(emojiFontLocation) : "";
 
-            if (App.Settings.Prop.PreferredEmojiType == EmojiType.Default && App.State.Prop.CurrentEmojiType != EmojiType.Default)
+            if (App.Settings.Prop.EmojiType == EmojiType.Default && EmojiTypeEx.Hashes.Values.Contains(emojiFontHash))
             {
-                if (File.Exists(emojiFontLocation))
-                    File.Delete(emojiFontLocation);
-
-                App.State.Prop.CurrentEmojiType = EmojiType.Default;
+                File.Delete(emojiFontLocation);
             }
-            else if (App.Settings.Prop.PreferredEmojiType != EmojiType.Default && App.State.Prop.CurrentEmojiType != App.Settings.Prop.PreferredEmojiType)
+            else if (App.Settings.Prop.EmojiType != EmojiType.Default && emojiFontHash != App.Settings.Prop.EmojiType.GetHash())
             {
-                if (File.Exists(emojiFontLocation))
+                if (emojiFontHash != "")
                     File.Delete(emojiFontLocation);
 
-                string remoteEmojiLocation = App.Settings.Prop.PreferredEmojiType.GetRemoteLocation();
+                Directory.CreateDirectory(contentFonts);
 
-                var response = await App.HttpClient.GetAsync(remoteEmojiLocation);
+                var response = await App.HttpClient.GetAsync(App.Settings.Prop.EmojiType.GetUrl());
                 await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
                 await response.Content.CopyToAsync(fileStream);
-
-                App.State.Prop.CurrentEmojiType = App.Settings.Prop.PreferredEmojiType;
             }
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
