@@ -73,11 +73,12 @@
     </StackPanel>
     
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Text="FastFlags for Direct3D exclusive fullscreen (Alt+Enter) and DPI scaling fixes are already enabled by default." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Framerate limit" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="By default, it's 60 FPS. Use a really high number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Capped to 60 FPS by default. Use a large number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
@@ -95,7 +96,7 @@
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Preferred escape menu version" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use. Current default is v1." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />

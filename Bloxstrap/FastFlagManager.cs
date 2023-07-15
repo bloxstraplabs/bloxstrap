@@ -131,6 +131,8 @@
             // set to 9999 by default if it doesnt already exist
             SetValueOnce("DFIntTaskSchedulerTargetFps", 9999);
             SetValueOnce("FFlagHandleAltEnterFullscreenManually", "False");
+            SetValueOnce("DFFlagDisableDPIScale", "True");
+            SetValueOnce("DFFlagVariableDPIScale2", "False");
         }
 
         public override void Save()
