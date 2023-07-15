@@ -41,6 +41,37 @@
       </StackPanel>
     </ui:CardAction>
 
+    <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+      <TextBlock Text="Debug" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="HTTP request logging" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables logging of HTTP requests (DFLogHttpTraceLight=12)." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
+      </ui:CardControl>
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="HTTP proxy address" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Set blank if not using a proxy. Don't forget to add cacert.pem as a mod." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HttpRequestProxy, Mode=TwoWay}" />
+      </ui:CardControl>
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="Flag state overlay" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Show values of specified flags during runtime. Each flag is comma separated." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
+      </ui:CardControl>
+    </StackPanel>
+    
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>

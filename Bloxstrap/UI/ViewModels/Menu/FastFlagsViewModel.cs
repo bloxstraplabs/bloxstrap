@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -15,6 +18,42 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public ICommand OpenClientSettingsCommand => new RelayCommand(OpenClientSettings);
 
         private void OpenClientSettings() => Utilities.ShellExecute(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));
+
+        public Visibility ShowDebugFlags => App.Settings.Prop.OhHeyYouFoundMe ? Visibility.Visible : Visibility.Collapsed;
+
+        public bool HttpRequestLogging
+        {
+            get => App.FastFlags.GetValue("DFLogHttpTraceLight") is not null;
+            set => App.FastFlags.SetValue("DFLogHttpTraceLight", value ? 12 : null);
+        }
+
+        public string HttpRequestProxy
+        {
+            get => App.FastFlags.GetValue("DFStringDebugPlayerHttpProxyUrl") ?? "";
+
+            set
+            {
+                bool? boolValue = null;
+                string? stringValue = null;
+
+                if (!String.IsNullOrEmpty(value))
+                {
+                    boolValue = true;
+                    stringValue = value;
+                }
+
+                App.FastFlags.SetValue("DFFlagDebugEnableHttpProxy", boolValue);
+                App.FastFlags.SetValue("DFStringDebugPlayerHttpProxyUrl", stringValue);
+                App.FastFlags.SetValue("DFStringHttpCurlProxyHostAndPort", stringValue);
+                App.FastFlags.SetValue("DFStringHttpCurlProxyHostAndPortForExternalUrl", stringValue);
+            }
+        }
+
+        public string StateOverlayFlags
+        {
+            get => App.FastFlags.GetValue("FStringDebugShowFlagState") ?? "";
+            set => App.FastFlags.SetValue("FStringDebugShowFlagState", String.IsNullOrEmpty(value) ? null : value);
+        }
 
         public int FramerateLimit
         {
@@ -111,18 +150,18 @@ namespace Bloxstrap.UI.ViewModels.Menu
                         return mode.Key;
                 }
 
-                return "Automatic";
+                return LightingTechnologies.First().Key;
             }
 
             set
             {
                 foreach (var mode in LightingTechnologies)
                 {
-                    if (mode.Key != "Automatic")
+                    if (mode.Key != LightingTechnologies.First().Key)
                         App.FastFlags.SetValue(mode.Value, null);
                 }
 
-                if (value != "Automatic")
+                if (value != LightingTechnologies.First().Key)
                     App.FastFlags.SetValue(LightingTechnologies[value], "True");
             }
         }

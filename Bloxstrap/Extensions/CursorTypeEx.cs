@@ -9,8 +9,8 @@ namespace Bloxstrap.Extensions
         public static IReadOnlyDictionary<string, CursorType> Selections => new Dictionary<string, CursorType>
         {
             { "Default", CursorType.Default },
-            { "Before 2022", CursorType.From2013 },
-            { "Before 2013", CursorType.From2006 },
+            { "2013 - 2022", CursorType.From2013 },
+            { "2006 - 2013", CursorType.From2006 },
         };
     }
 }

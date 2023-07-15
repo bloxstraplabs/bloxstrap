@@ -1110,21 +1110,25 @@ namespace Bloxstrap
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
             string fullLocation = Path.Combine(Directories.Modifications, location);
-            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
-
             string fileHash = File.Exists(fullLocation) ? Utility.MD5Hash.FromFile(fullLocation) : "";
+
+            if (!condition)
+            {
+                if (fileHash != "")
+                    File.Delete(fullLocation);
+
+                return;
+            }
+
+            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
             string embeddedHash = Utility.MD5Hash.FromBytes(embeddedData);
 
-            if (condition && fileHash != embeddedHash)
+            if (fileHash != embeddedHash)
             {                
                 Directory.CreateDirectory(Path.GetDirectoryName(fullLocation)!);
                 File.Delete(fullLocation);
 
                 await File.WriteAllBytesAsync(fullLocation, embeddedData);
-            }
-            else if (!condition && fileHash != "")
-            {
-                File.Delete(fullLocation);
             }
         }
 
