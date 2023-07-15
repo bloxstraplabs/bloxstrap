@@ -123,7 +123,7 @@
           </StackPanel>
         </ui:CardControl.Header>
         <StackPanel>
-          <ui:Button Icon="DocumentAdd16" Content="Choose font..." Appearance="Primary" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
+          <ui:Button Icon="DocumentAdd16" Content="Choose font..." Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
           <ui:Button Icon="Delete16" Content="Remove applied font" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
         </StackPanel>
       </ui:CardControl>
