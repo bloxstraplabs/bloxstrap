@@ -1069,7 +1069,7 @@ namespace Bloxstrap
 
                 App.Logger.WriteLine("[Bootstrapper::ApplyModifications] End font check");
             }
-            else
+            else if (Directory.Exists(modFontFamiliesFolder))
             {
                 Directory.Delete(modFontFamiliesFolder, true);
             }
