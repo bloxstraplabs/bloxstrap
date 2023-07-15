@@ -1,12 +1,10 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 
-using Bloxstrap.Extensions;
 using Bloxstrap.UI.ViewModels.Menu;
 
 namespace Bloxstrap.UI.Menu

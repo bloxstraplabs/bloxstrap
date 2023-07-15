@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.Tools
+﻿namespace Bloxstrap.Utility
 {
     // https://gist.github.com/dfederm/35c729f6218834b764fa04c219181e4e
 

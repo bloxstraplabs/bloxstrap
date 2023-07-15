@@ -1,12 +1,9 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 
-using Bloxstrap.Extensions;
 using Bloxstrap.UI.ViewModels.Bootstrapper;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 

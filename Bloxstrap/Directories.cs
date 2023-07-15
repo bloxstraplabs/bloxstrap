@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     static class Directories
     {

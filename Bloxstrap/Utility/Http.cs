@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.Utility
+﻿namespace Bloxstrap.Utility
 {
     internal static class Http
     {

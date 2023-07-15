@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 
-using Bloxstrap.Enums;
-
 namespace Bloxstrap.Models
 {
     public class Settings

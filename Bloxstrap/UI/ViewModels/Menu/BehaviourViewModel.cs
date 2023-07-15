@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-
-
-using Bloxstrap.Enums;
-using Bloxstrap.Extensions;
-using Bloxstrap.Models;
+﻿using System.Windows;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {

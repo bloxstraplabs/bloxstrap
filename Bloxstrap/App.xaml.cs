@@ -1,24 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 
 using Microsoft.Win32;
-
-using Bloxstrap.Enums;
-using Bloxstrap.Extensions;
-using Bloxstrap.Models;
-using Bloxstrap.Models.Attributes;
-using Bloxstrap.UI;
-using Bloxstrap.Utility;
 
 namespace Bloxstrap
 {
@@ -27,8 +11,6 @@ namespace Bloxstrap
     /// </summary>
     public partial class App : Application
     {
-        public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
-
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
         public const string RobloxAppName = "RobloxPlayerBeta";

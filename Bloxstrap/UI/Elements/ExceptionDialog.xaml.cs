@@ -1,10 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Media;
+﻿using System.Media;
 using System.Windows;
 using System.Windows.Interop;
-
-using Bloxstrap.Utility;
 
 namespace Bloxstrap.UI
 {

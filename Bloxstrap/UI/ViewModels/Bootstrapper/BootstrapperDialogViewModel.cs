@@ -1,11 +1,8 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
 using CommunityToolkit.Mvvm.Input;
-
-using Bloxstrap.Extensions;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {

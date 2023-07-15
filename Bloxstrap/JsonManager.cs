@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Text.Json;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class JsonManager<T> where T : new()
     {

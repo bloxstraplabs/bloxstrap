@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 using Bloxstrap.UI.ViewModels.Menu;
 

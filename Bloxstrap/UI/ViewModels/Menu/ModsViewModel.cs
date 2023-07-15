@@ -1,13 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-
-using Bloxstrap.Enums;
-using Bloxstrap.Extensions;
 
 using Microsoft.Win32;
 

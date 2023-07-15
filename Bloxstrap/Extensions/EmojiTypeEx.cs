@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Bloxstrap.Enums;
-
-namespace Bloxstrap.Extensions
+﻿namespace Bloxstrap.Extensions
 {
     static class EmojiTypeEx
     {

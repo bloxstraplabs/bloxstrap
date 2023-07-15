@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Threading;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     // https://stackoverflow.com/a/53873141/11852173
     // TODO - this kind of sucks

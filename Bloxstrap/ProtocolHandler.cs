@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
+﻿using System.Web;
 using System.Windows;
 
 using Microsoft.Win32;
-
-using Bloxstrap.Enums;
-using Bloxstrap.UI;
 
 namespace Bloxstrap
 {

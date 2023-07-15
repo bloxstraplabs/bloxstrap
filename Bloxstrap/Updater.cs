@@ -1,11 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Windows;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Bloxstrap.UI;
+﻿using System.Windows;
 
 namespace Bloxstrap
 {

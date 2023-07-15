@@ -1,12 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.Media;
+﻿using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
+
 using Bloxstrap.UI.Utility;
-using Bloxstrap.Utility;
 
 namespace Bloxstrap.UI.MessageBox
 {

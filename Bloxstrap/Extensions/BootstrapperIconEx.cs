@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-
-using Bloxstrap.Enums;
+﻿using System.Drawing;
 
 namespace Bloxstrap.Extensions
 {

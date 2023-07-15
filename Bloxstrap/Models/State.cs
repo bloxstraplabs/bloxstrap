@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Bloxstrap.Enums;
-
-namespace Bloxstrap.Models
+﻿namespace Bloxstrap.Models
 {
     public class State
     {

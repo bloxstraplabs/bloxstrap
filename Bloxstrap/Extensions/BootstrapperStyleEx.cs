@@ -1,7 +1,4 @@
-﻿using Bloxstrap.Enums;
-using Bloxstrap.UI;
-
-namespace Bloxstrap.Extensions
+﻿namespace Bloxstrap.Extensions
 {
     static class BootstrapperStyleEx
     {

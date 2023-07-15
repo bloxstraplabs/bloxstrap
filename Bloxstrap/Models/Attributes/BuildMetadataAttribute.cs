@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bloxstrap.Models.Attributes
+﻿namespace Bloxstrap.Models.Attributes
 {
     [AttributeUsage(AttributeTargets.Assembly)]
     public class BuildMetadataAttribute : Attribute

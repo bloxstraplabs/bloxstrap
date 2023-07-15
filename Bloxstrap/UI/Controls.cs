@@ -1,8 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
-using Bloxstrap.Enums;
-using Bloxstrap.Extensions;
 using Bloxstrap.UI.Elements.Bootstrapper;
 using Bloxstrap.UI.Menu;
 using Bloxstrap.UI.MessageBox;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
-
-namespace Bloxstrap.Models
+﻿namespace Bloxstrap.Models
 {
     public class ClientVersion
     {

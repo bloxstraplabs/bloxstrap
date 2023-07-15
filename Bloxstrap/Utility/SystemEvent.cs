@@ -4,11 +4,7 @@
  * Copyright (c) 2015-present MaximumADHD
 */
 
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.Tools
+namespace Bloxstrap.Utility
 {
     public class SystemEvent : EventWaitHandle
     {

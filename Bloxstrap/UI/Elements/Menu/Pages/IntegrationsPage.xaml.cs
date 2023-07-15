@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 
-using Bloxstrap.Models;
 using Bloxstrap.UI.ViewModels.Menu;
 
 namespace Bloxstrap.UI.Menu.Pages

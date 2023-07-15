@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows;
-
-using Bloxstrap.Extensions;
-using Bloxstrap.Models.Attributes;
+﻿using System.Windows;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {

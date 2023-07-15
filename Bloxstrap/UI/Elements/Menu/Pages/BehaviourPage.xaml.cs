@@ -1,9 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
-
-using Bloxstrap.UI.ViewModels.Menu;
+﻿using Bloxstrap.UI.ViewModels.Menu;
 
 namespace Bloxstrap.UI.Menu.Pages
 {

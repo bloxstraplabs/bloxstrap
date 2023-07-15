@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {

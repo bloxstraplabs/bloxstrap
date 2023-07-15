@@ -1,10 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
-
-using Bloxstrap.Models;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
