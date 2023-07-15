@@ -11,7 +11,10 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        private string _originalInstallLocation = App.BaseDirectory;
+
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
+        public ICommand ResetInstallLocationCommand => new RelayCommand(ResetInstallLocation);
         public ICommand OpenFolderCommand => new RelayCommand(OpenFolder);
 
         private void BrowseInstallLocation()
@@ -22,7 +25,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 return;
 
             InstallLocation = dialog.SelectedPath;
+            OnPropertyChanged(nameof(InstallLocation));
+        }
 
+        private void ResetInstallLocation()
+        {
+            InstallLocation = _originalInstallLocation;
             OnPropertyChanged(nameof(InstallLocation));
         }
 

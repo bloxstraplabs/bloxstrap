@@ -23,9 +23,11 @@
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" />
           <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding InstallLocation, Mode=TwoWay}" />
-        <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseInstallLocationCommand}" />
+        <ui:Button Grid.Column="1" Margin="4,0,4,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseInstallLocationCommand}" />
+        <ui:Button Grid.Column="2" Margin="4,0,0,0" Height="35" Icon="ArrowUndo24" Content="Reset" Command="{Binding ResetInstallLocationCommand}" />
       </Grid>
     </ui:CardExpander>
 
