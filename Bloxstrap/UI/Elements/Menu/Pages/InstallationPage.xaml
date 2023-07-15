@@ -12,7 +12,7 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="Configure how Bloxstrap/Roblox is installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardExpander Margin="0,16,0,0">
+    <ui:CardExpander Margin="0,16,0,0" IsExpanded="True">
       <ui:CardExpander.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Install Location" />
@@ -31,22 +31,36 @@
       </Grid>
     </ui:CardExpander>
 
-    <ui:CardAction x:Name="OpenFolderCardAction" Margin="0,8,0,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
-      <StackPanel>
-        <TextBlock FontSize="14" Text="Open Folder">
-          <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
-          <TextBlock.Style>
-            <Style>
-              <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=OpenFolderCardAction, Path=IsEnabled}" Value="False">
-                  <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
-                </DataTrigger>
-              </Style.Triggers>
-            </Style>
-          </TextBlock.Style>
-        </TextBlock>
-        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Opens the folder that Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-      </StackPanel>
-    </ui:CardAction>
+    <Grid Margin="0,8,0,0">
+      <Grid.Style>
+        <Style TargetType="Grid">
+          <Setter Property="Visibility" Value="Collapsed" />
+          <Style.Triggers>
+            <DataTrigger Binding="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}}" Value="True">
+              <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+          </Style.Triggers>
+        </Style>
+      </Grid.Style>
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <ui:CardAction Grid.Column="0" x:Name="OpenFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" >
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Open Installation Folder" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Where Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardAction>
+
+      <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="UninstallApp24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Uninstalling-Bloxstrap">
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Looking to uninstall?" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Here's a guide on how to uninstall Bloxstrap." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardAction>
+    </Grid>
   </StackPanel>
 </ui:UiPage>
