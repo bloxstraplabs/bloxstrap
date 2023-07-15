@@ -1,0 +1,29 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Menu.Pages.PreInstallPage"
+      x:Name="PreInstallPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      mc:Ignorable="d"
+      d:DesignHeight="1080" d:DesignWidth="800"
+      Title="PreInstallPage"
+      Scrollable="True">
+  <StackPanel Margin="0,0,14,14">
+    <Grid Margin="0,8,0,0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="420" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <Border Grid.Column="0" Margin="0,0,16,0" BorderThickness="1" BorderBrush="{DynamicResource TextFillColorPrimaryBrush}">
+        <Image Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/Menu/StartMenuLocation.png" />  
+      </Border>
+      <StackPanel Grid.Column="1">
+        <TextBlock FontSize="14" TextWrapping="Wrap" Text="The Bloxstrap Menu is what you use to configure all of Bloxstrap's options, and access resources such as file modding. You've just used it to configure your installation, but it's also used for configuration in general." />
+        <TextBlock Margin="0,16,0,0" FontSize="14" TextWrapping="Wrap" Text="After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to open this again to adjust your settings, you can find it there." />
+        <TextBlock Margin="0,16,0,0" FontSize="14" TextWrapping="Wrap" Text="If you ever need help or guidance with anything, be sure to check the Wiki. If you still need something, open an issue on GitHub, or join our Discord server. All links are on the GitHub page." />
+      </StackPanel>
+    </Grid>
+  </StackPanel>
+</ui:UiPage>

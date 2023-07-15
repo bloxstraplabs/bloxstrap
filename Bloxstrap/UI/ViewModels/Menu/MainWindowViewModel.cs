@@ -1,5 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,15 +10,17 @@ using Microsoft.Win32;
 
 using CommunityToolkit.Mvvm.Input;
 
-using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
-using System.Linq;
+using Bloxstrap.UI.Menu.Pages;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         private readonly Window _window;
         private readonly IDialogService _dialogService;
         private readonly string _originalBaseDirectory = App.BaseDirectory; // we need this to check if the basedirectory changes
@@ -23,7 +28,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
         public ICommand ConfirmSettingsCommand => new RelayCommand(ConfirmSettings);
 
+        public Visibility NavigationVisibility { get; set; } = Visibility.Visible;
         public string ConfirmButtonText => App.IsFirstRun ? "Install" : "Save";
+        public bool ConfirmButtonEnabled { get; set; } = true;
 
         public MainWindowViewModel(Window window, IDialogService dialogService)
         {
@@ -90,7 +97,32 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 }
             }
 
-            if (!App.IsFirstRun)
+            if (App.IsFirstRun)
+            {
+                if (NavigationVisibility == Visibility.Visible)
+                {
+                    ((INavigationWindow)_window).Navigate(typeof(PreInstallPage));
+
+                    NavigationVisibility = Visibility.Collapsed;
+                    ConfirmButtonEnabled = false;
+
+                    OnPropertyChanged(nameof(NavigationVisibility));
+                    OnPropertyChanged(nameof(ConfirmButtonEnabled));
+
+                    Task.Run(async delegate
+                    {
+                        await Task.Delay(3000);
+                        ConfirmButtonEnabled = true;
+                        OnPropertyChanged(nameof(ConfirmButtonEnabled));
+                    });
+                }
+                else
+                {
+                    App.IsSetupComplete = true;
+                    CloseWindow();
+                }
+            }
+            else
             {
                 App.ShouldSaveConfigs = true;
                 App.FastFlags.Save();
@@ -111,23 +143,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 }
 
                 CloseWindow();
-            }
-            else
-            {
-                IDialogControl dialogControl = _dialogService.GetDialogControl();
-
-                dialogControl.ButtonRightClick += (_, _) =>
-                {
-                    dialogControl.Hide();
-                    App.IsSetupComplete = true;
-                    CloseWindow();
-                };
-
-                dialogControl.ShowAndWaitAsync(
-                    "What to know before you install",
-                    "After installation, you can open this menu again by searching for it in the Start menu.\n" +
-                    "If you want to revert back to the original Roblox launcher, just uninstall Bloxstrap and it will automatically revert."
-                );
             }
         }
     }
