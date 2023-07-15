@@ -999,6 +999,8 @@ namespace Bloxstrap
             if (!Directory.Exists(modFolder))
                 Directory.CreateDirectory(modFolder);
 
+            bool appDisabled = App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink");
+
             // cursors
             await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "Cursor.From2006.ArrowCursor.png");
             await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png");
@@ -1014,8 +1016,9 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\impact_water.mp3", "Empty.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
 
-            // misc
-            await CheckModPreset(App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink"), @"ExtraContent\places\Mobile.rbxl", "");
+            // Mobile.rbxl
+            await CheckModPreset(appDisabled, @"ExtraContent\places\Mobile.rbxl", "");
+            await CheckModPreset(App.Settings.Prop.UseOldAvatarBackground && !appDisabled, @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
 
             // emoji presets are downloaded remotely from github due to how large they are
             string contentFonts = Path.Combine(Directories.Modifications, "content\\fonts");

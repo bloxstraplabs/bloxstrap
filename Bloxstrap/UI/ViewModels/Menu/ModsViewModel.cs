@@ -71,6 +71,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.CursorType = CursorTypes[value];
         }
 
+        public bool OldAvatarBackground
+        {
+            get => App.Settings.Prop.UseOldAvatarBackground;
+            set => App.Settings.Prop.UseOldAvatarBackground = value;
+        }
+
         public bool DisableAppPatchEnabled
         {
             get => App.Settings.Prop.UseDisableAppPatch;
