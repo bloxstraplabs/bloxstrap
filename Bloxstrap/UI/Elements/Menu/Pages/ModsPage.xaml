@@ -116,13 +116,27 @@
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
+            <TextBlock FontSize="14" Text="Apply custom font" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+              Forces every in-game font to be a font that you choose.
+            </TextBlock>
+          </StackPanel>
+        </ui:CardControl.Header>
+        <StackPanel>
+          <ui:Button Icon="DocumentAdd16" Content="Choose font..." Appearance="Primary" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
+          <ui:Button Icon="Delete16" Content="Remove applied font" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
+        </StackPanel>
+      </ui:CardControl>
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
             <TextBlock FontSize="14" Text="Disable fullscreen optimizations" />
             <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
               A Windows feature that intends to improve fullscreen performance. <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">See here for more information</Hyperlink>.
             </TextBlock>
           </StackPanel>
         </ui:CardControl.Header>
-        <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizationsEnabled, Mode=TwoWay}" />
+        <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizations, Mode=TwoWay}" />
       </ui:CardControl>
     </StackPanel>
   </StackPanel>

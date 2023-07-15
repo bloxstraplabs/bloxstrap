@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Forms;
+using Microsoft.Win32;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -40,14 +40,16 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         private void BrowseCustomIconLocation()
         {
-            using var dialog = new OpenFileDialog();
-            dialog.Filter = "Icon files (*.ico)|*.ico|All files (*.*)|*.*";
-
-            if (dialog.ShowDialog() == DialogResult.OK)
+            var dialog = new OpenFileDialog
             {
-                CustomIconLocation = dialog.FileName;
-                OnPropertyChanged(nameof(CustomIconLocation));
-            }
+                Filter = "Icon files|*.ico|All files|*.*"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            CustomIconLocation = dialog.FileName;
+            OnPropertyChanged(nameof(CustomIconLocation));
         }
 
         public AppearanceViewModel(Page page)

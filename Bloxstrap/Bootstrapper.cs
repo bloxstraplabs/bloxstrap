@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -115,7 +116,7 @@ namespace Bloxstrap
             if (Dialog is not null)
                 Dialog.ProgressValue = newProgress;
         }
-
+        
         public async Task Run()
         {
             App.Logger.WriteLine("[Bootstrapper::Run] Running bootstrapper");
@@ -1033,6 +1034,44 @@ namespace Bloxstrap
                 var response = await App.HttpClient.GetAsync(App.Settings.Prop.EmojiType.GetUrl());
                 await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
                 await response.Content.CopyToAsync(fileStream);
+            }
+
+            // check custom font mod
+            // instead of replacing the fonts themselves, we'll just alter the font family manifests
+
+            string modFontFamiliesFolder = Path.Combine(Directories.Modifications, "content\\fonts\\families");
+            string customFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\CustomFont.ttf");
+
+            if (File.Exists(customFontLocation))
+            {
+                App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Begin font check");
+
+                Directory.CreateDirectory(modFontFamiliesFolder);
+
+                foreach (string jsonFilePath in Directory.GetFiles(Path.Combine(_versionFolder, "content\\fonts\\families")))
+                {
+                    string jsonFilename = Path.GetFileName(jsonFilePath);
+                    string modFilepath = Path.Combine(modFontFamiliesFolder, jsonFilename);
+
+                    if (File.Exists(modFilepath))
+                        continue;
+
+                    FontFamily? fontFamilyData = JsonSerializer.Deserialize<FontFamily>(File.ReadAllText(jsonFilePath));
+
+                    if (fontFamilyData is null)
+                        continue;
+
+                    foreach (FontFace fontFace in fontFamilyData.Faces)
+                        fontFace.AssetId = "rbxasset://fonts/CustomFont.ttf";
+
+                    File.WriteAllText(modFilepath, JsonSerializer.Serialize(fontFamilyData, new JsonSerializerOptions { WriteIndented = true }));
+                }
+
+                App.Logger.WriteLine("[Bootstrapper::ApplyModifications] End font check");
+            }
+            else
+            {
+                Directory.Delete(modFontFamiliesFolder, true);
             }
 
             foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
