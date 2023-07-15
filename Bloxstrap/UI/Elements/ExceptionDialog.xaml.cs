@@ -18,10 +18,15 @@ namespace Bloxstrap.UI
     {
         public ExceptionDialog(Exception exception)
         {
+            Exception? innerException = exception.InnerException;
+
             InitializeComponent();
 
             Title = RootTitleBar.Title = $"{App.ProjectName} Exception";
             ErrorRichTextBox.Selection.Text = $"{exception.GetType()}: {exception.Message}";
+
+            if (innerException is not null)
+                ErrorRichTextBox.Selection.Text += $"\n\n===== Inner Exception =====\n{innerException.GetType()}: {innerException.Message}";
 
             if (!App.Logger.Initialized)
                 LocateLogFileButton.Content = "Copy log contents";
