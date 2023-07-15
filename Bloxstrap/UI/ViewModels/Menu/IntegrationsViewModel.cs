@@ -8,11 +8,8 @@ using Bloxstrap.Models;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class IntegrationsViewModel : INotifyPropertyChanged
+    public class IntegrationsViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
         public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
 

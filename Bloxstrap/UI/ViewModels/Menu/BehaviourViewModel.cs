@@ -12,11 +12,8 @@ using Bloxstrap.Models;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class BehaviourViewModel : INotifyPropertyChanged
+    public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private bool _manualChannelEntry = !RobloxDeployment.SelectableChannels.Contains(App.Settings.Prop.Channel);
 
         public BehaviourViewModel()

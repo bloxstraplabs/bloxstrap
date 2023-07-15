@@ -15,11 +15,8 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class ModsViewModel : INotifyPropertyChanged
+    public class ModsViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private void OpenModsFolder() => Process.Start("explorer.exe", Directories.Modifications);
 
         private string _customFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\CustomFont.ttf");

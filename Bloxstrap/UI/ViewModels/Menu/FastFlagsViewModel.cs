@@ -10,11 +10,8 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class FastFlagsViewModel : INotifyPropertyChanged
+    public class FastFlagsViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         public ICommand OpenClientSettingsCommand => new RelayCommand(OpenClientSettings);
 
         private void OpenClientSettings() => Utilities.ShellExecute(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));

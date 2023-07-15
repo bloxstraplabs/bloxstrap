@@ -16,11 +16,8 @@ using Bloxstrap.UI.Menu.Pages;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private readonly Window _window;
         private readonly IDialogService _dialogService;
         private readonly string _originalBaseDirectory = App.BaseDirectory; // we need this to check if the basedirectory changes

@@ -15,11 +15,8 @@ using Bloxstrap.UI.Menu;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class AppearanceViewModel : INotifyPropertyChanged
+    public class AppearanceViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private readonly Page _page;
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);

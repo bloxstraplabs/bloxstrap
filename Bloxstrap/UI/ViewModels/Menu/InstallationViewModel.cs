@@ -6,11 +6,8 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
-    public class InstallationViewModel : INotifyPropertyChanged
+    public class InstallationViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private string _originalInstallLocation = App.BaseDirectory;
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);

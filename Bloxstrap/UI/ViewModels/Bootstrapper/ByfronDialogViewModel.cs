@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
-    public class ByfronDialogViewModel : BootstrapperDialogViewModel, INotifyPropertyChanged
+    public class ByfronDialogViewModel : BootstrapperDialogViewModel
     {
         // Using dark theme for default values.
         public ImageSource ByfronLogoLocation { get; set; } = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoDark.jpg"));

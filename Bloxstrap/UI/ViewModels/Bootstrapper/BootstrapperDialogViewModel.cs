@@ -9,11 +9,8 @@ using Bloxstrap.Extensions;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
-    public class BootstrapperDialogViewModel : INotifyPropertyChanged
+    public class BootstrapperDialogViewModel : NotifyPropertyChangedViewModel
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         private readonly IBootstrapperDialog _dialog;
 
         public ICommand CancelInstallCommand => new RelayCommand(CancelInstall);
