@@ -1000,9 +1000,11 @@ namespace Bloxstrap
                 Directory.CreateDirectory(modFolder);
 
             // cursors
-            await CheckModPreset(App.Settings.Prop.CursorType != CursorType.Default, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", $"Cursor.{App.Settings.Prop.CursorType}.ArrowCursor.png");
-            await CheckModPreset(App.Settings.Prop.CursorType != CursorType.Default, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", $"Cursor.{App.Settings.Prop.CursorType}.ArrowFarCursor.png");
-            
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "Cursor.From2006.ArrowCursor.png");
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png");
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "Cursor.From2013.ArrowCursor.png");
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2013.ArrowFarCursor.png");
+
             // character sounds
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_footsteps_plastic.mp3", "OldWalk.mp3");
             await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump.mp3", "OldJump.mp3");
@@ -1151,16 +1153,16 @@ namespace Bloxstrap
             string fullLocation = Path.Combine(Directories.Modifications, location);
             string fileHash = File.Exists(fullLocation) ? Utility.MD5Hash.FromFile(fullLocation) : "";
 
+            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
+            string embeddedHash = Utility.MD5Hash.FromBytes(embeddedData);
+
             if (!condition)
             {
-                if (fileHash != "")
+                if (fileHash != "" && fileHash == embeddedHash)
                     File.Delete(fullLocation);
 
                 return;
             }
-
-            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
-            string embeddedHash = Utility.MD5Hash.FromBytes(embeddedData);
 
             if (fileHash != embeddedHash)
             {                
