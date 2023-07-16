@@ -38,7 +38,7 @@
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
-            <Button Margin="0" Content="Cancel" Width="120" HorizontalAlignment="Right" IsEnabled="{Binding CancelButtonEnabled, Mode=OneWay}" Command="{Binding CancelInstallCommand}" />
+            <Button Margin="0" Content="Cancel" Width="120" HorizontalAlignment="Right" IsEnabled="{Binding CancelEnabled, Mode=OneWay}" Command="{Binding CancelInstallCommand}" />
         </Border>
     </Grid>
 </ui:UiWindow>
