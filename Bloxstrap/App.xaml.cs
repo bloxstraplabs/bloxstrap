@@ -71,16 +71,14 @@ namespace Bloxstrap
 
         void FinalizeExceptionHandling(Exception exception)
         {
-#pragma warning disable 162
 #if DEBUG
             throw exception;
-#endif
-
+#else
             if (!IsQuiet)
                 Controls.ShowExceptionDialog(exception);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
-#pragma warning restore 162
+#endif
         }
 
         protected override void OnStartup(StartupEventArgs e)
