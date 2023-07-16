@@ -37,7 +37,7 @@ namespace Bloxstrap.Integrations
             else
                 message = $"Location: {locationCity}, {locationRegion}, {locationCountry}";
 
-            message += "\nClick to copy Job ID";
+            message += "\nClick to copy Instance ID";
 
             App.Logger.WriteLine($"[ServerNotifier::Notify] {message.ReplaceLineEndings("\\n")}");
 

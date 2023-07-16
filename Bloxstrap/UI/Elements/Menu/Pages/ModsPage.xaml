@@ -85,7 +85,7 @@
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Use old avatar editor background" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the old avatar editor background used in the Roblox app prior to 2017." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the old avatar editor background used in the Roblox app prior to 2020." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding OldAvatarBackground, Mode=TwoWay}" />

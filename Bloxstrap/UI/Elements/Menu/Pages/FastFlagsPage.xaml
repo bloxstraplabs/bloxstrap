@@ -73,11 +73,28 @@
     </StackPanel>
     
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <TextBlock Text="FastFlags for Direct3D exclusive fullscreen (Alt+Enter) and DPI scaling fixes are already enabled by default." Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+      FastFlags for Direct3D
+      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen">exclusive fullscreen</Hyperlink>
+      (Alt+Enter) and
+      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">DPI scaling fixes</Hyperlink>
+      are already enabled by default.
+    </TextBlock>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Framerate limit" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Framerate limit" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">              
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Capped to 60 FPS by default. Use a large number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
@@ -95,7 +112,18 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Preferred escape menu version" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Preferred escape menu version" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
@@ -104,9 +132,20 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Enable ability to hide GUIs" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Enable ability to hide GUIs" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
           <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-            TODO - add text for wiki page for controls when done. You must be in the <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/groups/32380007/Bloxstrap">Bloxstrap group</Hyperlink> for it to work.
+            Toggled with <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">keyboard shortcuts</Hyperlink>. Only works if you're in the <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/groups/32380007/Bloxstrap">Bloxstrap group</Hyperlink>.
           </TextBlock>
         </StackPanel>
       </ui:CardControl.Header>
@@ -115,7 +154,18 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Use old material textures" />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Use old material textures" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>

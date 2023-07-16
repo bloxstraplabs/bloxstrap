@@ -33,6 +33,8 @@ namespace Bloxstrap.UI.Menu
             _themeService.SetSystemAccent();
         }
 
+        public void OpenWiki(object? sender, EventArgs e) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki");
+
         #region INavigationWindow methods
 
         public Frame GetFrame() => RootFrame;
