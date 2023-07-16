@@ -55,7 +55,7 @@ namespace Bloxstrap
                 if (key == "channel" && !String.IsNullOrEmpty(val))
                 {
                     channelArgPresent = true;
-                    ChangeChannel(val);
+                    EnrollChannel(val);
 
                     // we'll set the arg when launching
                     continue;
@@ -65,7 +65,7 @@ namespace Bloxstrap
             }
 
             if (!channelArgPresent)
-                ChangeChannel(RobloxDeployment.DefaultChannel);
+                EnrollChannel(RobloxDeployment.DefaultChannel);
 
             return commandLine.ToString();
         }
@@ -80,9 +80,12 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
             {
+                if (channel == App.State.Prop.LastEnrolledChannel)
+                    return;
+
                 MessageBoxResult result = Controls.ShowMessageBox(
                     $"Roblox is attempting to set your channel to {channel}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
-                    $"Would you like to switch channels from {App.Settings.Prop.Channel} to {channel}?",
+                    $"Would you like to switch your preferred channel to {channel}?",
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
                 );
@@ -93,6 +96,13 @@ namespace Bloxstrap
 
             App.Logger.WriteLine($"[Protocol::ParseUri] Changed Roblox build channel from {App.Settings.Prop.Channel} to {channel}");
             App.Settings.Prop.Channel = channel;
+        }
+
+        public static void EnrollChannel(string channel)
+        {
+            ChangeChannel(channel);
+            App.State.Prop.LastEnrolledChannel = channel;
+            App.State.Save();
         }
 
         public static void Register(string key, string name, string handler)
