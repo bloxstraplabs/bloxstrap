@@ -19,9 +19,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
       
-        <ui:TitleBar Grid.Row="0"  x:Name="RootTitleBar" Padding="16,16,0,0" Title="{Binding Title, Mode=OneTime}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" ShowClose="False" />
+        <ui:TitleBar Grid.Row="0" x:Name="RootTitleBar" Padding="8" Title="{Binding Title, Mode=OneTime}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" ShowClose="False" />
       
-        <Grid Grid.Row="1" Margin="16">
+        <Grid Grid.Row="1" Margin="16,8,16,16">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
