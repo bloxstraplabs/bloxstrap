@@ -563,7 +563,16 @@ namespace Bloxstrap
 
             App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Checking for updates...");
 
-            var releaseInfo = await Utility.Http.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
+            GithubRelease? releaseInfo;
+            try
+            {
+                releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{App.ProjectRepository}/releases/latest");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] Failed to fetch releases: {ex}");
+                return;
+            }
 
             if (releaseInfo is null || releaseInfo.Assets is null)
             {
