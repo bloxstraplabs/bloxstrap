@@ -1218,29 +1218,33 @@ namespace Bloxstrap
 
             App.Logger.WriteLine($"[Bootstrapper::ExtractPackage] Extracting {package.Name} to {packageFolder}...");
 
-            using (ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(packageLocation)))
+            using ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(packageLocation));
+
+            foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                foreach (ZipArchiveEntry entry in archive.Entries)
-                {
-                    if (_cancelFired)
-                        return;
+                if (_cancelFired)
+                    return;
 
-                    if (entry.FullName.EndsWith('\\'))
-                        continue;
+                if (entry.FullName.EndsWith('\\'))
+                    continue;
 
-                    extractPath = Path.Combine(packageFolder, entry.FullName);
+                extractPath = Path.Combine(packageFolder, entry.FullName);
 
-                    //App.Logger.WriteLine($"[{package.Name}] Writing {extractPath}...");
+                //App.Logger.WriteLine($"[{package.Name}] Writing {extractPath}...");
 
-                    string? directory = Path.GetDirectoryName(extractPath);
+                string? directory = Path.GetDirectoryName(extractPath);
 
-                    if (directory is null)
-                        continue;
+                if (directory is null)
+                    continue;
 
-                    Directory.CreateDirectory(directory);
+                Directory.CreateDirectory(directory);
 
-                    await Task.Run(() => entry.ExtractToFile(extractPath, true));
-                }
+                using var fileStream = new FileStream(extractPath, FileMode.CreateNew, FileAccess.Write, FileShare.None, bufferSize: 0x1000, useAsync: true);
+                using var dataStream = entry.Open();
+
+                await dataStream.CopyToAsync(fileStream);
+
+                File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
             }
 
             App.Logger.WriteLine($"[Bootstrapper::ExtractPackage] Finished extracting {package.Name}");
