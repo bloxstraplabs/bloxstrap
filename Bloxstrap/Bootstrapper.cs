@@ -189,44 +189,6 @@ namespace Bloxstrap
 
             ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
-            // briefly check if current channel is suitable to use
-            if (App.Settings.Prop.Channel.ToLowerInvariant() != RobloxDeployment.DefaultChannel.ToLowerInvariant() && App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Ignore)
-            {
-                string? switchDefaultPrompt = null;
-                ClientVersion? defaultChannelInfo = null;
-
-                App.Logger.WriteLine($"[Bootstrapper::CheckLatestVersion] Checking if current channel is suitable to use...");
-
-                if (String.IsNullOrEmpty(switchDefaultPrompt))
-                {
-                    // this SUCKS
-                    defaultChannelInfo = await RobloxDeployment.GetInfo(RobloxDeployment.DefaultChannel);
-                    int defaultChannelVersion = Int32.Parse(defaultChannelInfo.Version.Split('.')[1]);
-                    int currentChannelVersion = Int32.Parse(clientVersion.Version.Split('.')[1]);
-
-                    if (currentChannelVersion < defaultChannelVersion)
-                        switchDefaultPrompt = $"Your current preferred channel ({App.Settings.Prop.Channel}) appears to no longer be receiving updates. Would you like to switch to {RobloxDeployment.DefaultChannel}?";
-                }
-
-                if (!String.IsNullOrEmpty(switchDefaultPrompt))
-                {
-                    MessageBoxResult result = App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Prompt
-                        ? Controls.ShowMessageBox(switchDefaultPrompt, MessageBoxImage.Question, MessageBoxButton.YesNo)
-                        : MessageBoxResult.Yes;
-
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
-                        App.Logger.WriteLine($"[DeployManager::SwitchToDefault] Changed Roblox release channel from {App.Settings.Prop.Channel} to {RobloxDeployment.DefaultChannel}");
-
-                        if (defaultChannelInfo is null)
-                            defaultChannelInfo = await RobloxDeployment.GetInfo(RobloxDeployment.DefaultChannel);
-
-                        clientVersion = defaultChannelInfo;
-                    }
-                }
-            }
-
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
