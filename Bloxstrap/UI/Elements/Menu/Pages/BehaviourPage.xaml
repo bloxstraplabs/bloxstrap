@@ -79,7 +79,7 @@
 
           <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal" Visibility="{Binding ChannelWarningVisibility, Mode=OneWay}">
             <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
-            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel may be out of date, as it was last deployed to over a month ago." />
+            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel is out of date, and is likely no longer being updated. Please use another channel." />
           </StackPanel>
         </Grid>
         <Grid Column="0">

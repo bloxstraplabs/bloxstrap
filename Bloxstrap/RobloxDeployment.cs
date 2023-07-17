@@ -5,6 +5,8 @@
         #region Properties
         public const string DefaultChannel = "LIVE";
 
+        private static Dictionary<string, ClientVersion> ClientVersionCache = new();
+
         // a list of roblox delpoyment locations that we check for, in case one of them don't work
         private static List<string> BaseUrls = new()
         {
@@ -77,36 +79,47 @@
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(string channel, bool timestamp = false)
+        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false)
         {
-            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Getting deploy info for channel {channel} (timestamp={timestamp})");
+            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Getting deploy info for channel {channel} (extraInformation={extraInformation})");
 
-            HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+            ClientVersion clientVersion;
 
-            string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
-
-            if (!deployInfoResponse.IsSuccessStatusCode)
+            if (ClientVersionCache.ContainsKey(channel))
             {
-                // 400 = Invalid binaryType.
-                // 404 = Could not find version details for binaryType.
-                // 500 = Error while fetching version information.
-                // either way, we throw
-
-                App.Logger.WriteLine(
-                    "[RobloxDeployment::GetInfo] Failed to fetch deploy info!\r\n" +
-                    $"\tStatus code: {deployInfoResponse.StatusCode}\r\n" +
-                    $"\tResponse: {rawResponse}"
-                );
-
-                throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
+                App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Deploy information is cached");
+                clientVersion = ClientVersionCache[channel];
             }
+            else
+            {
+                HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
 
-            ClientVersion clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
+                string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
+
+                if (!deployInfoResponse.IsSuccessStatusCode)
+                {
+                    // 400 = Invalid binaryType.
+                    // 404 = Could not find version details for binaryType.
+                    // 500 = Error while fetching version information.
+                    // either way, we throw
+
+                    App.Logger.WriteLine(
+                        "[RobloxDeployment::GetInfo] Failed to fetch deploy info!\r\n" +
+                        $"\tStatus code: {deployInfoResponse.StatusCode}\r\n" +
+                        $"\tResponse: {rawResponse}"
+                    );
+
+                    throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
+                }
+
+                clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
+            }
+            
 
             // for preferences
-            if (timestamp)
+            if (extraInformation && clientVersion.Timestamp is null)
             {
-                App.Logger.WriteLine("[RobloxDeployment::GetInfo] Getting timestamp...");
+                App.Logger.WriteLine("[RobloxDeployment::GetInfo] Getting extra information...");
 
                 string manifestUrl = GetLocation($"/{clientVersion.VersionGuid}-rbxPkgManifest.txt", channel);
 
@@ -119,7 +132,18 @@
                     App.Logger.WriteLine($"[RobloxDeployment::GetInfo] {manifestUrl} - Last-Modified: {lastModified}");
                     clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
                 }
+
+                // check if channel is behind LIVE
+                if (channel != DefaultChannel)
+                {
+                    var defaultClientVersion = await GetInfo(DefaultChannel);
+
+                    if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == -1)
+                        clientVersion.IsBehindDefaultChannel = true;
+                }
             }
+
+            ClientVersionCache[channel] = clientVersion;
 
             return clientVersion;
         }

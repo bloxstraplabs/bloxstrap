@@ -12,5 +12,7 @@
         public string BootstrapperVersion { get; set; } = null!;
 
         public DateTime? Timestamp { get; set; }
+
+        public bool IsBehindDefaultChannel { get; set; }
     }
 }

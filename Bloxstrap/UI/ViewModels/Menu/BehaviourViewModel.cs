@@ -27,10 +27,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             {
                 ClientVersion info = await RobloxDeployment.GetInfo(channel, true);
 
-                if (info.Timestamp?.AddMonths(1) < DateTime.Now)
-                    ChannelWarningVisibility = Visibility.Visible;
-                else
-                    ChannelWarningVisibility = Visibility.Collapsed;
+                ChannelWarningVisibility = info.IsBehindDefaultChannel ? Visibility.Visible : Visibility.Collapsed;
 
                 ChannelDeployInfo = new DeployInfo
                 {
