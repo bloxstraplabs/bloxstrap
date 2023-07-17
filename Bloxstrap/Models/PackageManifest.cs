@@ -4,11 +4,6 @@
  * Copyright (c) 2015-present MaximumADHD
 */
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-
 namespace Bloxstrap.Models
 {
     public class PackageManifest : List<Package>

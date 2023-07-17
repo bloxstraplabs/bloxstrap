@@ -1,20 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     static class Utilities
     {
-        public static bool IsDirectoryEmpty(string path)
-        {
-            return !Directory.EnumerateFileSystemEntries(path).Any();
-        }
-
         public static long GetFreeDiskSpace(string path)
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())
@@ -26,76 +13,25 @@ namespace Bloxstrap
             return -1;
         }
 
-        public static int GetProcessCount(string processName, bool log = true)
+        public static void ShellExecute(string website) => Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="versionStr1"></param>
+        /// <param name="versionStr2"></param>
+        /// <returns>
+        /// Result of System.Version.CompareTo <br />
+        /// -1: version1 &lt; version2 <br />
+        ///  0: version1 == version2 <br />
+        ///  1: version1 &gt; version2
+        /// </returns>
+        public static int CompareVersions(string versionStr1, string versionStr2)
         {
-            if (log)
-                App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Checking if '{processName}' is running...");
+            var version1 = new Version(versionStr1.Replace("v", ""));
+            var version2 = new Version(versionStr2.Replace("v", ""));
 
-            Process[] processes = Process.GetProcessesByName(processName);
-
-            if (log)
-                App.Logger.WriteLine($"[Utilities::CheckIfProcessRunning] Found {processes.Length} process(es) running for '{processName}'");
-
-            return processes.Length;
-        }
-
-        public static bool CheckIfProcessRunning(string processName, bool log = true) => GetProcessCount(processName, log) >= 1;
-
-        public static bool CheckIfRobloxRunning(bool log = true) => CheckIfProcessRunning("RobloxPlayerBeta", log);
-
-        public static void OpenWebsite(string website) => Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
-
-        public static async Task<T?> GetJson<T>(string url)
-        {
-            try
-            {
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Getting JSON from {url}!");
-                string json = await App.HttpClient.GetStringAsync(url);
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Got JSON: {json}");
-                return JsonSerializer.Deserialize<T>(json);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] Failed to deserialize JSON!");
-                App.Logger.WriteLine($"[Utilities::GetJson<{typeof(T).Name}>] {ex}");
-                return default;
-            }
-        }
-
-        public static string MD5File(string filename)
-        {
-            using (MD5 md5 = MD5.Create())
-            {
-                using (FileStream stream = File.OpenRead(filename))
-                {
-                    byte[] hash = md5.ComputeHash(stream);
-                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-                }
-            }
-        }
-
-        public static string MD5Data(byte[] data)
-        {
-            using (MD5 md5 = MD5.Create())
-            {
-                byte[] hash = md5.ComputeHash(data);
-                return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
-            }
-        }
-
-        // quick and hacky way of getting a value from any key/value pair formatted list
-        // (command line args, uri params, etc)
-        public static string? GetKeyValue(string subject, string key, char delimiter)
-        {
-            if (subject.LastIndexOf(key) == -1)
-                return null;
-
-            string substr = subject.Substring(subject.LastIndexOf(key) + key.Length);
-
-            if (!substr.Contains(delimiter))
-                return null;
-
-            return substr.Split(delimiter)[0];
+            return version1.CompareTo(version2);
         }
     }
 }

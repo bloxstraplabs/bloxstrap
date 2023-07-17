@@ -1,0 +1,193 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Menu.Pages.FastFlagsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      mc:Ignorable="d"
+      d:DesignHeight="1000" d:DesignWidth="800"
+      Title="FastFlagsPage"
+      Scrollable="True">
+  <StackPanel Margin="0,0,14,14">
+    <TextBlock Text="Control how specific Roblox engine parameters and features are configured." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+    <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,16,0,0" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+      <StackPanel>
+        <TextBlock FontSize="14" Text="Edit ClientAppSettings.json">
+          <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+          <TextBlock.Style>
+            <Style>
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                  <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                </DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </TextBlock.Style>
+        </TextBlock>
+        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+          <TextBlock.Style>
+            <Style>
+              <Setter Property="TextBlock.Text" Value="Where all FastFlags are saved to. Use this to manage your own flags."/>
+              <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                  <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                </DataTrigger>
+              </Style.Triggers>
+            </Style>
+          </TextBlock.Style>
+        </TextBlock>
+      </StackPanel>
+    </ui:CardAction>
+
+    <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+      <TextBlock Text="Debug" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="HTTP request logging" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables logging of HTTP requests (DFLogHttpTraceLight=12)." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
+      </ui:CardControl>
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="HTTP proxy address" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Set blank if not using a proxy. Don't forget to add cacert.pem as a mod." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HttpRequestProxy, Mode=TwoWay}" />
+      </ui:CardControl>
+      <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+          <StackPanel>
+            <TextBlock FontSize="14" Text="Flag state overlay" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Show values of specified flags during runtime. Each flag is comma separated." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          </StackPanel>
+        </ui:CardControl.Header>
+        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
+      </ui:CardControl>
+    </StackPanel>
+    
+    <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+      FastFlags for Direct3D
+      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen">exclusive fullscreen</Hyperlink>
+      (Alt+Enter) and
+      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">DPI scaling fixes</Hyperlink>
+      are already enabled by default.
+    </TextBlock>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Framerate limit" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">              
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Capped to 60 FPS by default. Use a large number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Preferred lighting technology" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Preferred escape menu version" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Enable ability to hide GUIs" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+            Toggled with <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">keyboard shortcuts</Hyperlink>. Only works if you're in the <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/groups/32380007/Bloxstrap">Bloxstrap group</Hyperlink>.
+          </TextBlock>
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Use old material textures" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding Pre2022TexturesEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Rendering mode" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what graphics renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+  </StackPanel>
+</ui:UiPage>

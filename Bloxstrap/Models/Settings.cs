@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 
-using Bloxstrap.Enums;
-
 namespace Bloxstrap.Models
 {
     public class Settings
@@ -15,6 +13,7 @@ namespace Bloxstrap.Models
         public bool CheckForUpdates { get; set; } = true;
         public bool CreateDesktopIcon { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
+        public bool OhHeyYouFoundMe { get; set; } = false;
 
         // channel configuration
         public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
@@ -28,8 +27,11 @@ namespace Bloxstrap.Models
 
         // mod preset configuration
         public bool UseOldDeathSound { get; set; } = true;
-        public bool UseOldMouseCursor { get; set; } = false;
+        public bool UseOldCharacterSounds { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
+        public bool UseOldAvatarBackground { get; set; } = false;
+        public CursorType CursorType { get; set; } = CursorType.Default;
+        public EmojiType EmojiType { get; set; } = EmojiType.Default;
         public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

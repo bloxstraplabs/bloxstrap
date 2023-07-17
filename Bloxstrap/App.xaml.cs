@@ -1,23 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 
 using Microsoft.Win32;
-
-using Bloxstrap.Dialogs;
-using Bloxstrap.Extensions;
-using Bloxstrap.Models;
-using Bloxstrap.Singletons;
-using Bloxstrap.Views;
 
 namespace Bloxstrap
 {
@@ -26,13 +11,13 @@ namespace Bloxstrap
     /// </summary>
     public partial class App : Application
     {
-        public static readonly CultureInfo CultureFormat = CultureInfo.InvariantCulture;
-
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
+        public const string RobloxAppName = "RobloxPlayerBeta";
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
+
         public static bool ShouldSaveConfigs { get; set; } = false;
         public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = true;
@@ -43,57 +28,35 @@ namespace Bloxstrap
         public static bool IsMenuLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
+        public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
-        // singletons
         public static readonly Logger Logger = new();
+        public static readonly HttpClient HttpClient = new(new HttpClientLoggingHandler(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }));
+        
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly FastFlagManager FastFlags = new();
-        public static readonly HttpClient HttpClient = new(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All });
 
         public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
 
-        // shorthand
-        public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK)
+        public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
-            if (IsQuiet)
-                return MessageBoxResult.None;
+            if (IsFirstRun)
+            {
+                if (exitCode == ErrorCode.ERROR_CANCELLED)
+                    exitCode = ErrorCode.ERROR_INSTALL_USEREXIT;
+            }
 
-            return MessageBox.Show(message, ProjectName, buttons, icon);
-        }
+            int exitCodeNum = (int)exitCode;
 
-        public static void Terminate(int code = Bootstrapper.ERROR_SUCCESS)
-        {
-            Logger.WriteLine($"[App::Terminate] Terminating with exit code {code}");
+            Logger.WriteLine($"[App::Terminate] Terminating with exit code {exitCodeNum} ({exitCode})");
+
             Settings.Save();
             State.Save();
-            Environment.Exit(code);
-        }
+            Notification.Dispose();
 
-        private void InitLog()
-        {
-            // if we're running for the first time or uninstalling, log to temp folder
-            // else, log to bloxstrap folder
-
-            bool isUsingTempDir = IsFirstRun || IsUninstall;
-            string logdir = isUsingTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
-            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
-
-            Logger.Initialize(Path.Combine(logdir, $"{ProjectName}_{timestamp}.log"));
-
-            // clean up any logs older than a week
-            if (!isUsingTempDir)
-            {
-                foreach (FileInfo log in new DirectoryInfo(logdir).GetFiles()) 
-                {
-                    if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
-                        continue;
-
-                    Logger.WriteLine($"[App::InitLog] Cleaning up old log file '{log.Name}'");
-                    log.Delete();
-                }
-            }
+            Environment.Exit(exitCodeNum);
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -103,10 +66,19 @@ namespace Bloxstrap
             Logger.WriteLine("[App::OnStartup] An exception occurred when running the main thread");
             Logger.WriteLine($"[App::OnStartup] {e.Exception}");
 
-            if (!IsQuiet)
-                Settings.Prop.BootstrapperStyle.GetNew().ShowError($"{e.Exception.GetType()}: {e.Exception.Message}");
+            FinalizeExceptionHandling(e.Exception);
+        }
 
-            Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
+        void FinalizeExceptionHandling(Exception exception)
+        {
+#if DEBUG
+            throw exception;
+#else
+            if (!IsQuiet)
+                Controls.ShowExceptionDialog(exception);
+
+            Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
+#endif
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -114,6 +86,11 @@ namespace Bloxstrap
             base.OnStartup(e);
 
             Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
+
+            if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
+                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
+            else
+                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
@@ -172,24 +149,29 @@ namespace Bloxstrap
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
-                if (registryKey is null)
+                string? installLocation = null;
+                
+                if (registryKey is not null)
+                    installLocation = (string?)registryKey.GetValue("InstallLocation");
+
+                if (registryKey is null || installLocation is null)
                 {
                     Logger.WriteLine("[App::OnStartup] Running first-time install");
 
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
-                    InitLog();
+                    Logger.Initialize(true);
 
                     if (!IsQuiet)
                     {
                         IsSetupComplete = false;
                         FastFlags.Load();
-                        new MainWindow().ShowDialog();
+                        Controls.ShowMenu();
                     }
                 }
                 else
                 {
                     IsFirstRun = false;
-                    BaseDirectory = (string)registryKey.GetValue("InstallLocation")!;
+                    BaseDirectory = installLocation;
                 }
             }
 
@@ -197,7 +179,7 @@ namespace Bloxstrap
             if (!IsSetupComplete)
             {
                 Logger.WriteLine("[App::OnStartup] Installation cancelled!");
-                Environment.Exit(Bootstrapper.ERROR_INSTALL_USEREXIT);
+                Terminate(ErrorCode.ERROR_CANCELLED);
             }
 
             Directories.Initialize(BaseDirectory);
@@ -206,7 +188,14 @@ namespace Bloxstrap
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
-                InitLog();
+                Logger.Initialize(IsUninstall);
+
+                if (!Logger.Initialized)
+                {
+                    Logger.WriteLine("[App::OnStartup] Possible duplicate launch detected, terminating.");
+                    Terminate();
+                }
+
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();
@@ -221,24 +210,24 @@ namespace Bloxstrap
 
             if (IsMenuLaunch)
             {
-                Mutex mutex;
+                Process? menuProcess = Process.GetProcesses().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
 
-                try
+                if (menuProcess is not null)
                 {
-                    mutex = Mutex.OpenExisting("Bloxstrap_MenuMutex");
-                    Logger.WriteLine("[App::OnStartup] Bloxstrap_MenuMutex mutex exists, aborting menu launch...");
-                    Terminate();
+                    IntPtr handle = menuProcess.MainWindowHandle;
+                    Logger.WriteLine($"[App::OnStartup] Found an already existing menu window with handle {handle}");
+                    NativeMethods.SetForegroundWindow(handle);
                 }
-                catch
+                else
                 {
-                    // no mutex exists, continue to opening preferences menu
-                    mutex = new(true, "Bloxstrap_MenuMutex");
+                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
+                        Controls.ShowMessageBox(
+                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
+                            MessageBoxImage.Information
+                        );
+
+                    Controls.ShowMenu();
                 }
-
-                if (Utilities.GetProcessCount(ProjectName) > 1)
-                    ShowMessageBox($"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", MessageBoxImage.Information);
-
-                new MainWindow().ShowDialog();
             }
             else if (LaunchArgs.Length > 0)
             {
@@ -248,6 +237,12 @@ namespace Bloxstrap
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
+                    if (Settings.Prop.UseDisableAppPatch)
+                        Controls.ShowMessageBox(
+                            "Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", 
+                            MessageBoxImage.Information
+                        );
+
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
                 else
@@ -300,13 +295,9 @@ namespace Bloxstrap
                     }
                 }
 
-                // there's a bug here that i have yet to fix!
-                // sometimes the task just terminates when the bootstrapper hasn't
-                // actually finished, causing the bootstrapper to hang indefinitely
-                // i have no idea how the fuck this happens, but it happens like VERY
-                // rarely so i'm not too concerned by it
-                // maybe one day ill find out why it happens
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                Task bootstrapperTask = Task.Run(() => bootstrapper.Run());
+
+                bootstrapperTask.ContinueWith(t =>
                 {
                     Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
 
@@ -318,16 +309,18 @@ namespace Bloxstrap
 
                     Logger.WriteLine($"[App::OnStartup] {t.Exception}");
 
-#if DEBUG
-                    throw t.Exception;
-#else
-                    var exception = t.Exception.InnerExceptions.Count >= 1 ? t.Exception.InnerExceptions[0] : t.Exception;
-                    dialog?.ShowError($"{exception.GetType()}: {exception.Message}");
-                    Terminate(Bootstrapper.ERROR_INSTALL_FAILURE);
+                    Exception exception = t.Exception;
+
+#if !DEBUG
+                    if (t.Exception.GetType().ToString() == "System.AggregateException")
+                    exception = t.Exception.InnerException!;
 #endif
+
+                    FinalizeExceptionHandling(exception);
                 });
 
                 dialog?.ShowBootstrapper();
+
                 bootstrapperTask.Wait();
 
                 if (singletonMutex is not null)

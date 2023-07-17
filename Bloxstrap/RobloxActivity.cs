@@ -1,11 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class RobloxActivity : IDisposable
     {
@@ -16,6 +9,7 @@ namespace Bloxstrap
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
+        private const string GameMessageEntry = "[FLog::Output] [SendBloxstrapMessage]";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
@@ -25,6 +19,7 @@ namespace Bloxstrap
 
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
+        public event EventHandler<GameMessage>? OnGameMessage;
 
         // these are values to use assuming the player isn't currently in a game
         // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
@@ -183,6 +178,37 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                     ActivityIsTeleport = true;
+                }
+                else if (entry.Contains(GameMessageEntry))
+                {
+                    string messagePlain = entry.Substring(entry.IndexOf(GameMessageEntry) + GameMessageEntry.Length + 1);
+                    GameMessage? message;
+
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Received message: '{messagePlain}'");
+
+                    try
+                    {
+                        message = JsonSerializer.Deserialize<GameMessage>(messagePlain);
+                    }
+                    catch (Exception)
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization threw an exception)");
+                        return;
+                    }
+
+                    if (message is null)
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization returned null)");
+                        return;
+                    }
+
+                    if (String.IsNullOrEmpty(message.Command))
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (Command is empty)");
+                        return;
+                    }
+
+                    OnGameMessage?.Invoke(this, message);
                 }
             }
         }

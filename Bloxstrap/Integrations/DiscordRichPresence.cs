@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using DiscordRPC;
-
-using Bloxstrap.Models.RobloxApi;
+﻿using DiscordRPC;
 
 namespace Bloxstrap.Integrations
 {
@@ -14,6 +7,8 @@ namespace Bloxstrap.Integrations
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
         private readonly RobloxActivity _activityWatcher;
         
+        private RichPresence? _currentPresence;
+        private string? _initialStatus;
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
 
@@ -21,8 +16,9 @@ namespace Bloxstrap.Integrations
         {
             _activityWatcher = activityWatcher;
 
-            _activityWatcher.OnGameJoin += (_, _) => Task.Run(() => SetPresence());
-            _activityWatcher.OnGameLeave += (_, _) => Task.Run(() => SetPresence());
+            _activityWatcher.OnGameJoin += (_, _) => Task.Run(() => SetCurrentGame());
+            _activityWatcher.OnGameLeave += (_, _) => Task.Run(() => SetCurrentGame());
+            _activityWatcher.OnGameMessage += (_, message) => OnGameMessage(message);
 
             _rpcClient.OnReady += (_, e) =>
                 App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Received ready from user {e.User.Username} ({e.User.ID})");
@@ -46,28 +42,77 @@ namespace Bloxstrap.Integrations
             _rpcClient.Initialize();
         }
 
-        public async Task<bool> SetPresence()
+        public void OnGameMessage(GameMessage message)
+        {
+            if (message.Command == "SetPresenceStatus")
+                SetStatus(message.Data);
+        }
+
+        public void SetStatus(string status)
+        {
+            App.Logger.WriteLine($"[DiscordRichPresence::SetStatus] Setting status to '{status}'");
+
+            if (_currentPresence is null)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetStatus] Presence is not set, aborting");
+                return;
+            }
+
+            if (status.Length > 128)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetStatus] Status cannot be longer than 128 characters, aborting");
+                return;
+            }
+
+            if (_initialStatus is null)
+                _initialStatus = _currentPresence.State;
+
+            string finalStatus;
+
+            if (string.IsNullOrEmpty(status))
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetStatus] Status is empty, reverting to initial status");
+                finalStatus = _initialStatus;
+            }
+            else
+            {
+                finalStatus = status;
+            }
+
+            if (_currentPresence.State == finalStatus)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetStatus] Status is unchanged, aborting");
+                return;
+            }
+
+            _currentPresence.State = finalStatus;
+            UpdatePresence();
+        }
+
+        public async Task<bool> SetCurrentGame()
         {
             if (!_activityWatcher.ActivityInGame)
             {
-                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Clearing presence");
-                _rpcClient.ClearPresence();
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Not in game, clearing presence");
+                _currentPresence = null;
+                _initialStatus = null;
+                UpdatePresence();
                 return true;
             }
 
             string icon = "roblox";
 
-            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Setting presence for Place ID {_activityWatcher.ActivityPlaceId}");
+            App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Setting presence for Place ID {_activityWatcher.ActivityPlaceId}");
 
-            var universeIdResponse = await Utilities.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityWatcher.ActivityPlaceId}/universe");
+            var universeIdResponse = await Utility.Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityWatcher.ActivityPlaceId}/universe");
             if (universeIdResponse is null)
             {
-                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe ID!");
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe ID!");
                 return false;
             }
 
             long universeId = universeIdResponse.UniverseId;
-            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe ID as {universeId}");
+            App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Got Universe ID as {universeId}");
 
             // preserve time spent playing if we're teleporting between places in the same universe
             if (_timeStartedUniverse is null || !_activityWatcher.ActivityIsTeleport || universeId != _currentUniverseId)
@@ -76,25 +121,25 @@ namespace Bloxstrap.Integrations
             _activityWatcher.ActivityIsTeleport = false;
             _currentUniverseId = universeId;
 
-            var gameDetailResponse = await Utilities.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
+            var gameDetailResponse = await Utility.Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
             if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
             {
-                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe info!");
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe info!");
                 return false;
             }
 
             GameDetailResponse universeDetails = gameDetailResponse.Data.ToArray()[0];
-            App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe details");
+            App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Got Universe details");
 
-            var universeThumbnailResponse = await Utilities.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+            var universeThumbnailResponse = await Utility.Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
             if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
             {
-                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Could not get Universe thumbnail info!");
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe thumbnail info!");
             }
             else
             {
                 icon = universeThumbnailResponse.Data.ToArray()[0].ImageUrl;
-                App.Logger.WriteLine($"[DiscordRichPresence::SetPresence] Got Universe thumbnail as {icon}");
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Got Universe thumbnail as {icon}");
             }
 
             List<Button> buttons = new()
@@ -119,7 +164,7 @@ namespace Bloxstrap.Integrations
             if (universeDetails.Name.Length < 2)
                 universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
 
-            _rpcClient.SetPresence(new RichPresence
+            _currentPresence = new RichPresence
             {
                 Details = universeDetails.Name,
                 State = $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
@@ -132,9 +177,25 @@ namespace Bloxstrap.Integrations
                     SmallImageKey = "roblox",
                     SmallImageText = "Roblox"
                 }
-            });
+            };
+
+            UpdatePresence();
 
             return true;
+        }
+
+        public void UpdatePresence()
+        {
+            App.Logger.WriteLine($"[DiscordRichPresence::UpdatePresence] Updating presence");
+
+            if (_currentPresence is null)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::UpdatePresence] Presence is empty, clearing");
+                _rpcClient.ClearPresence();
+                return;
+            }
+
+            _rpcClient.SetPresence(_currentPresence);
         }
 
         public void Dispose()

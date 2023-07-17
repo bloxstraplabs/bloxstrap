@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
-
-namespace Bloxstrap.Models
+﻿namespace Bloxstrap.Models
 {
     public class ClientVersion
     {
@@ -15,5 +12,7 @@ namespace Bloxstrap.Models
         public string BootstrapperVersion { get; set; } = null!;
 
         public DateTime? Timestamp { get; set; }
+
+        public bool IsBehindDefaultChannel { get; set; }
     }
 }

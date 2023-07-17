@@ -1,13 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Windows;
-using System.Windows.Forms;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Bloxstrap.Properties;
-using Bloxstrap.Views;
+﻿using System.Windows;
 
 namespace Bloxstrap
 {
@@ -21,11 +12,9 @@ namespace Bloxstrap
             // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
             bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Path.Combine(Directories.Base, "Updates")) || Environment.ProcessPath.StartsWith(Path.Combine(Directories.LocalAppData, "Temp"));
 
-            // if downloaded version doesn't match, replace installed version with downloaded version 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
-            FileVersionInfo installedVersionInfo = FileVersionInfo.GetVersionInfo(Directories.Application);
 
-            if (installedVersionInfo.ProductVersion == currentVersionInfo.ProductVersion)
+            if (Utility.MD5Hash.FromFile(Environment.ProcessPath) == Utility.MD5Hash.FromFile(Directories.Application))
                 return;
 
             MessageBoxResult result;
@@ -37,7 +26,7 @@ namespace Bloxstrap
             }
             else
             {
-                result = App.ShowMessageBox(
+                result = Controls.ShowMessageBox(
                     $"The version of {App.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
@@ -80,7 +69,7 @@ namespace Bloxstrap
 
             if (isAutoUpgrade)
             {
-                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.OpenWebsite($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
+                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
 
                 App.Notification.BalloonTipTitle = $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}";
                 App.Notification.BalloonTipText = "Click here to see what's new in this version";
@@ -95,13 +84,14 @@ namespace Bloxstrap
             }
             else if (!App.IsQuiet)
             {
-                App.ShowMessageBox(
+                Controls.ShowMessageBox(
                     $"{App.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
                     MessageBoxImage.Information,
                     MessageBoxButton.OK
                 );
 
-                new MainWindow().ShowDialog();
+                Controls.ShowMenu();
+
                 App.Terminate();
             }
         }

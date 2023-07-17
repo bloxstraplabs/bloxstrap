@@ -130,8 +130,8 @@
   <data name="DarkCancelButtonHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DarkCancelButtonHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon2009" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon2009.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon2008" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2008.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon2011" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon2011.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

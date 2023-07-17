@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using Bloxstrap.Enums;
 
 namespace Bloxstrap.Extensions
 {

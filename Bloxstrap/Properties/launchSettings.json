@@ -18,6 +18,10 @@
     "Bloxstrap (Menu)": {
       "commandName": "Project",
       "commandLineArgs": "-menu"
+    },
+    "Bloxstrap (Deeplink)": {
+      "commandName": "Project",
+      "commandLineArgs": "roblox://experiences/start?placeId=95206881"
     }
   }
 }
