@@ -14,7 +14,7 @@ namespace Bloxstrap
 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
 
-            if (Utility.MD5Hash.FromFile(Environment.ProcessPath) == Utility.MD5Hash.FromFile(Directories.Application))
+            if (MD5Hash.FromFile(Environment.ProcessPath) == MD5Hash.FromFile(Directories.Application))
                 return;
 
             MessageBoxResult result;
@@ -69,18 +69,13 @@ namespace Bloxstrap
 
             if (isAutoUpgrade)
             {
-                EventHandler ReleaseNotesLauncher = new((_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}"));
+                App.NotifyIcon?.ShowAlert(
+                    $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}", 
+                    "See what's new in this version", 
+                    30, 
+                    (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
+                );
 
-                App.Notification.BalloonTipTitle = $"Bloxstrap has been upgraded to v{currentVersionInfo.ProductVersion}";
-                App.Notification.BalloonTipText = "Click here to see what's new in this version";
-                App.Notification.BalloonTipClicked += ReleaseNotesLauncher;
-                App.Notification.ShowBalloonTip(30);
-
-                Task.Run(async () =>
-                {
-                    await Task.Delay(30000);
-                    App.Notification.BalloonTipClicked -= ReleaseNotesLauncher;
-                });
             }
             else if (!App.IsQuiet)
             {

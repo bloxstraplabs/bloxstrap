@@ -252,18 +252,18 @@ namespace Bloxstrap
             {
                 activityWatcher = new();
                 shouldWait = true;
-            }
 
-            if (App.Settings.Prop.UseDiscordRichPresence)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
-                richPresence = new(activityWatcher!);
-            }
+                if (App.Settings.Prop.UseDiscordRichPresence)
+                {
+                    App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
+                    richPresence = new(activityWatcher);
+                }
 
-            if (App.Settings.Prop.ShowServerDetails)
-            {
-                App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
-                serverNotifier = new(activityWatcher!);
+                if (App.Settings.Prop.ShowServerDetails)
+                {
+                    App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
+                    serverNotifier = new(activityWatcher);
+                }
             }
 
             // launch custom integrations now

@@ -31,14 +31,15 @@ namespace Bloxstrap
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
+        public static NotifyIconWrapper? NotifyIcon { get; private set; }
+
         public static readonly Logger Logger = new();
-        public static readonly HttpClient HttpClient = new(new HttpClientLoggingHandler(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }));
-        
+
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
         public static readonly FastFlagManager FastFlags = new();
 
-        public static System.Windows.Forms.NotifyIcon Notification { get; private set; } = null!;
+        public static readonly HttpClient HttpClient = new(new HttpClientLoggingHandler(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }));
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
@@ -54,7 +55,7 @@ namespace Bloxstrap
 
             Settings.Save();
             State.Save();
-            Notification.Dispose();
+            NotifyIcon?.Dispose();
 
             Environment.Exit(exitCodeNum);
         }
@@ -134,18 +135,6 @@ namespace Bloxstrap
                 }
             }
 
-            // so this needs to be here because winforms moment
-            // onclick events will not fire unless this is defined here in the main thread so uhhhhh
-            // we'll show the icon if we're launching roblox since we're likely gonna be showing a
-            // bunch of notifications, and always showing it just makes the most sense i guess since it
-            // indicates that bloxstrap is running, even in the background
-            Notification = new()
-            {
-                Icon = Bloxstrap.Properties.Resources.IconBloxstrap,
-                Text = ProjectName,
-                Visible = !IsMenuLaunch
-            };
-
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
@@ -200,6 +189,9 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
             }
+
+            if (!IsMenuLaunch)
+                NotifyIcon = new();
 
 #if !DEBUG
             if (!IsUninstall && !IsFirstRun)

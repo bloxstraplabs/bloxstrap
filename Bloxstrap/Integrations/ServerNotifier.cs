@@ -39,17 +39,7 @@ namespace Bloxstrap.Integrations
 
             message += "\nClick to copy Instance ID";
 
-            App.Logger.WriteLine($"[ServerNotifier::Notify] {message.ReplaceLineEndings("\\n")}");
-
-            EventHandler JobIDCopier = new((_, _) => Clipboard.SetText(_activityWatcher.ActivityJobId));
-
-            App.Notification.BalloonTipTitle = "Connected to server";
-			App.Notification.BalloonTipText = message;
-            App.Notification.BalloonTipClicked += JobIDCopier;
-            App.Notification.ShowBalloonTip(10);
-
-            await Task.Delay(10000);
-            App.Notification.BalloonTipClicked -= JobIDCopier;
-		}
+            App.NotifyIcon?.ShowAlert("Connnected to server", message, 10, (_, _) => Clipboard.SetText(_activityWatcher.ActivityJobId));
+        }
     }
 }
