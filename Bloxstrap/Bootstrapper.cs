@@ -545,7 +545,7 @@ namespace Bloxstrap
             int versionComparison = Utilities.CompareVersions(App.Version, releaseInfo.TagName);
 
             // check if we aren't using a deployed build, so we can update to one if a new version comes out
-            if (versionComparison == 0 && App.BuildMetadata.CommitRef.StartsWith("tag") || versionComparison == -1)
+            if (versionComparison == 0 && App.BuildMetadata.CommitRef.StartsWith("tag") || versionComparison == 1)
             {
                 App.Logger.WriteLine($"[Bootstrapper::CheckForUpdates] No updates found");
                 return;
