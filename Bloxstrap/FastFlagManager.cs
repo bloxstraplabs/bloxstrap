@@ -42,7 +42,7 @@
                     { "FFlagEnableInGameMenuControls", null },
                     { "FFlagEnableV3MenuABTest3", null },
                     { "FFlagEnableMenuControlsABTest", null },
-                    { "FFlagEnableInGameMenuModernization": null }
+                    { "FFlagEnableInGameMenuModernization", null }
                 }
             },
 
@@ -54,7 +54,7 @@
                     { "FFlagEnableInGameMenuControls", "False" },
                     { "FFlagEnableV3MenuABTest3", "False" },
                     { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization": "False" }
+                    { "FFlagEnableInGameMenuModernization", "False" }
                 }
             },
 
@@ -66,7 +66,7 @@
                     { "FFlagEnableInGameMenuControls", "False" },
                     { "FFlagEnableV3MenuABTest3", "False" },
                     { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization": "False" }
+                    { "FFlagEnableInGameMenuModernization", "False" }
                 }
             },
 
@@ -78,7 +78,7 @@
                     { "FFlagEnableInGameMenuControls", "True" },
                     { "FFlagEnableV3MenuABTest3", "True" },
                     { "FFlagEnableMenuControlsABTest", "True" },
-                    { "FFlagEnableInGameMenuModernization": "False" }
+                    { "FFlagEnableInGameMenuModernization", "False" }
                 }
             },
 
@@ -90,7 +90,7 @@
                     { "FFlagEnableInGameMenuControls", "False" },
                     { "FFlagEnableV3MenuABTest3", "False" },
                     { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization": "True" }
+                    { "FFlagEnableInGameMenuModernization", "True" }
                 }
             }
         };
