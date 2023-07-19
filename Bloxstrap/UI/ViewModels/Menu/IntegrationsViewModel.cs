@@ -39,6 +39,32 @@ namespace Bloxstrap.UI.ViewModels.Menu
             OnPropertyChanged(nameof(IsCustomIntegrationSelected));
         }
 
+        public bool ActivityTrackingEnabled
+        {
+            get => App.Settings.Prop.EnableActivityTracking;
+            set
+            {
+                App.Settings.Prop.EnableActivityTracking = value;
+
+                if (!value)
+                {
+                    ShowServerDetailsEnabled = value;
+                    DiscordActivityEnabled = value;
+                    DiscordActivityJoinEnabled = value;
+
+                    OnPropertyChanged(nameof(ShowServerDetailsEnabled));
+                    OnPropertyChanged(nameof(DiscordActivityEnabled));
+                    OnPropertyChanged(nameof(DiscordActivityJoinEnabled));
+                }
+            }
+        }
+
+        public bool ShowServerDetailsEnabled
+        {
+            get => App.Settings.Prop.ShowServerDetails;
+            set => App.Settings.Prop.ShowServerDetails = value;
+        }
+
         public bool DiscordActivityEnabled
         {
             get => App.Settings.Prop.UseDiscordRichPresence;
@@ -58,12 +84,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => !App.Settings.Prop.HideRPCButtons;
             set => App.Settings.Prop.HideRPCButtons = !value;
-        }
-
-        public bool ShowServerDetailsEnabled
-        {
-            get => App.Settings.Prop.ShowServerDetails;
-            set => App.Settings.Prop.ShowServerDetails = value;
         }
 
         public bool MultiInstanceLaunchingEnabled

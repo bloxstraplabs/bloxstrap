@@ -12,12 +12,33 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="Configure quick and easy ways to improve the Roblox gameplay experience." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <TextBlock Text="Discord Rich Presence" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Text="Roblox activity tracking" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
+          <TextBlock FontSize="14" Text="Enable activity tracking" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch x:Name="ActivityTrackingEnabledToggle" IsChecked="{Binding ActivityTrackingEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ActivityTrackingEnabledToggle, Mode=OneWay}">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Know where your server's located" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="When you join a game, you'll be notified of the server's location. Won't show in fullscreen." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+
+    <TextBlock Text="Discord Rich Presence" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Margin="0,4,0,0" Text="This feature requires activity tracking to be enabled." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ActivityTrackingEnabledToggle, Mode=OneWay}">
+      <ui:CardControl.Header>
+        <StackPanel>
           <TextBlock FontSize="14" Text="Show game activity" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="The game you're playing on Roblox will show on your Discord activity." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="When playing a Roblox game, the game you're playing will show on your Discord profile activity." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch x:Name="DiscordActivityEnabledToggle" IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
@@ -26,7 +47,7 @@
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Allow activity joining" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="When enabled, anyone can join your game through your Discord activity." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Allows for anybody to join the game you're currently in through your Discord profile." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
@@ -36,17 +57,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Be notified of server details on game join" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Lets you see location and Job ID of current server. These will not show when in fullscreen." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="Allow multi-game instance launching" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox will allow having more than one game instance open simultaneously." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="Allow multi-instance launching" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Allows for having more than one Roblox game client instance open simultaneously." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />

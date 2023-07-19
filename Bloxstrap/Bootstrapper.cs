@@ -247,7 +247,7 @@ namespace Bloxstrap
                     return;
             }
 
-            if (App.Settings.Prop.UseDiscordRichPresence || App.Settings.Prop.ShowServerDetails)
+            if (App.Settings.Prop.EnableActivityTracking)
             {
                 activityWatcher = new();
                 shouldWait = true;

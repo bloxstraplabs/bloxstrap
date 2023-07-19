@@ -46,35 +46,12 @@ namespace Bloxstrap.UI
 
         public async void OnGameJoin()
         {
-            if (!App.Settings.Prop.ShowServerDetails)
-                return;
-
-            App.Logger.WriteLine($"[NotifyIconWrapper::OnActivityGameJoin] Getting game/server information");
-
-            string machineAddress = _activityWatcher!.ActivityMachineAddress;
-            string machineLocation = "";
-
-            // basically nobody has a free public access geolocation api that's accurate,
-            // the ones that do require an api key which isn't suitable for a client-side application like this
-            // so, hopefully this is reliable enough?
-            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/city");
-            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/region");
-            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/country");
-
-            locationCity = locationCity.ReplaceLineEndings("");
-            locationRegion = locationRegion.ReplaceLineEndings("");
-            locationCountry = locationCountry.ReplaceLineEndings("");
-
-            if (String.IsNullOrEmpty(locationCountry))
-                machineLocation = "N/A";
-            else if (locationCity == locationRegion)
-                machineLocation = $"{locationRegion}, {locationCountry}";
-            else
-                machineLocation = $"{locationCity}, {locationRegion}, {locationCountry}";
-
+            string serverLocation = await _activityWatcher!.GetServerLocation();
+            
             _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
 
-            ShowAlert("Connnected to server", $"Location: {machineLocation}\nClick to copy Instance ID", 10, (_, _) => System.Windows.Clipboard.SetText(_activityWatcher.ActivityJobId));
+            if (App.Settings.Prop.ShowServerDetails)
+                ShowAlert("Connnected to server", $"Location: {serverLocation}", 10, (_, _) => Clipboard.SetText(_activityWatcher.ActivityJobId));
         }
 
         public void OnGameLeave(object? sender, EventArgs e)

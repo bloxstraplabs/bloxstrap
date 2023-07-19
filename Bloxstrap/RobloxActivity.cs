@@ -21,6 +21,8 @@
         public event EventHandler? OnGameLeave;
         public event EventHandler<GameMessage>? OnGameMessage;
 
+        private Dictionary<string, string> GeolcationCache = new();
+
         // these are values to use assuming the player isn't currently in a game
         // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
         // because of the weird chronology of where the teleporting entry is outputted, there's no way to reset it in here
@@ -213,9 +215,37 @@
             }
         }
 
+        public async Task<string> GetServerLocation()
+        {
+            if (GeolcationCache.ContainsKey(ActivityMachineAddress))
+                return GeolcationCache[ActivityMachineAddress];
+
+            string location = "";
+
+            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
+            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
+            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+
+            locationCity = locationCity.ReplaceLineEndings("");
+            locationRegion = locationRegion.ReplaceLineEndings("");
+            locationCountry = locationCountry.ReplaceLineEndings("");
+
+            if (String.IsNullOrEmpty(locationCountry))
+                location = "N/A";
+            else if (locationCity == locationRegion)
+                location = $"{locationRegion}, {locationCountry}";
+            else
+                location = $"{locationCity}, {locationRegion}, {locationCountry}";
+
+            GeolcationCache[ActivityMachineAddress] = location;
+
+            return location;
+        }
+
         public void Dispose()
         {
             IsDisposed = true;
+            GC.SuppressFinalize(this);
         }
     }
 }

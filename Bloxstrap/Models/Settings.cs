@@ -20,6 +20,7 @@ namespace Bloxstrap.Models
         public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
 
         // integration configuration
+        public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;
         public bool ShowServerDetails { get; set; } = false;
