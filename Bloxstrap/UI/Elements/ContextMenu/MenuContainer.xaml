@@ -21,7 +21,7 @@
             <MenuItem x:Name="VersionMenuItem" IsEnabled="False" />
             <Separator />
             <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
-            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" Click="ServerDetailsMenuItem_Click" />
+            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" />
             <MenuItem x:Name="TestMenuItem" Header="Test" IsCheckable="True" Click="TestMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>

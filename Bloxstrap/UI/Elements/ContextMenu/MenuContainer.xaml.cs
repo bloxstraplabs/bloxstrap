@@ -48,11 +48,6 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             Controls.ShowMessageBox($"hi how u doing i am {RichPresenceMenuItem.IsChecked}", MessageBoxImage.Warning);
         }
 
-        private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Controls.ShowMessageBox($"hi how u doing i am {RichPresenceMenuItem.IsChecked}", MessageBoxImage.Warning);
-        }
-
         private void TestMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Controls.ShowMessageBox($"hi how u doing i am {TestMenuItem.IsChecked}", MessageBoxImage.Warning);

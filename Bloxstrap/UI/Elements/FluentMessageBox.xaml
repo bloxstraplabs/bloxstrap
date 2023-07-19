@@ -36,7 +36,7 @@
         </Grid>
 
         <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
-            <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button x:Name="ButtonOne" MinWidth="100" Content="Button 1" />
                 <Button x:Name="ButtonTwo" MinWidth="100" Margin="12,0,0,0" Content="Button 2" />
                 <Button x:Name="ButtonThree" MinWidth="100" Margin="12,0,0,0" Content="Button 3" />

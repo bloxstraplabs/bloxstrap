@@ -7,11 +7,15 @@ namespace Bloxstrap.UI
 {
     public class NotifyIconWrapper : IDisposable
     {
+        // lol who needs properly structured mvvm and xaml when you have the absolute catastrophe that this is
+
         bool _disposed = false;
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
         private readonly MenuContainer _menuContainer = new();
         private RobloxActivity? _activityWatcher;
+
+        private ServerInformation? _serverInformationWindow;
 
         public DiscordRichPresence? RichPresenceIntegration;
         
@@ -31,6 +35,9 @@ namespace Bloxstrap.UI
             _notifyIcon.MouseClick += MouseClickEventHandler;
 
             _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
+
+            _menuContainer.ServerDetailsMenuItem.Click += (_, _) => ShowServerInformationWindow();
+
             _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
         }
 
@@ -46,17 +53,22 @@ namespace Bloxstrap.UI
 
         public async void OnGameJoin()
         {
-            string serverLocation = await _activityWatcher!.GetServerLocation();
-            
             _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
 
             if (App.Settings.Prop.ShowServerDetails)
-                ShowAlert("Connnected to server", $"Location: {serverLocation}", 10, (_, _) => Clipboard.SetText(_activityWatcher.ActivityJobId));
+            {
+                string serverLocation = await _activityWatcher!.GetServerLocation();
+                ShowAlert("Connnected to server", $"Location: {serverLocation}\nClick for more information", 10, (_, _) => ShowServerInformationWindow());
+            }
         }
 
         public void OnGameLeave(object? sender, EventArgs e)
         {
             _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Collapsed);
+
+            if (_serverInformationWindow is not null && _serverInformationWindow.IsVisible)
+                _serverInformationWindow.Dispatcher.Invoke(_serverInformationWindow.Close);
+
         }
 
         public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e) 
@@ -66,6 +78,20 @@ namespace Bloxstrap.UI
 
             _menuContainer.Activate();
             _menuContainer.ContextMenu.IsOpen = true;
+        }
+
+        public void ShowServerInformationWindow()
+        {
+            if (_serverInformationWindow is null)
+            {
+                _serverInformationWindow = new ServerInformation(_activityWatcher!);
+                _serverInformationWindow.Closed += (_, _) => _serverInformationWindow = null;
+            }
+
+            if (!_serverInformationWindow.IsVisible)
+                _serverInformationWindow.Show();
+
+            _serverInformationWindow.Activate();
         }
 
         public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler)
