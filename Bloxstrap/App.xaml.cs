@@ -293,6 +293,9 @@ namespace Bloxstrap
                 {
                     Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
 
+                    // notifyicon is blocking main thread, must be disposed here
+                    NotifyIcon?.Dispose();
+
                     if (t.IsFaulted)
                         Logger.WriteLine("[App::OnStartup] An exception occurred when running the bootstrapper");
 

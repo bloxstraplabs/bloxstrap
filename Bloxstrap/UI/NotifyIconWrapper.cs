@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 
+using Bloxstrap.UI.Elements;
+
 namespace Bloxstrap.UI
 {
     public class NotifyIconWrapper : IDisposable
@@ -7,9 +9,12 @@ namespace Bloxstrap.UI
         bool _disposed = false;
 
         private readonly NotifyIcon _notifyIcon;
+        private readonly NotifyIconMenu _contextMenuWrapper = new();
+        
         EventHandler? _alertClickHandler;
 
-        public NotifyIconWrapper() 
+
+        public NotifyIconWrapper()
         {
             App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Initializing notification area icon");
 
@@ -19,6 +24,21 @@ namespace Bloxstrap.UI
                 Text = App.ProjectName,
                 Visible = true
             };
+
+            _notifyIcon.MouseClick += MouseClickEventHandler;
+
+            _contextMenuWrapper.Dispatcher.BeginInvoke(_contextMenuWrapper.ShowDialog);
+
+            _contextMenuWrapper.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu wrapper closing");
+        }
+
+        public void MouseClickEventHandler(object? sender, MouseEventArgs e) 
+        {
+            if (e.Button != MouseButtons.Right)
+                return;
+
+            _contextMenuWrapper.Activate();
+            _contextMenuWrapper.ContextMenu.IsOpen = true;
         }
 
         public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler)
@@ -62,8 +82,11 @@ namespace Bloxstrap.UI
             if (_disposed)
                 return;
 
+            App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
+
+            _contextMenuWrapper.Dispatcher.Invoke(_contextMenuWrapper.Close);
             _notifyIcon.Dispose();
-         
+
             _disposed = true;
 
             GC.SuppressFinalize(this);

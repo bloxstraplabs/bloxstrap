@@ -1,0 +1,35 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.NotifyIconMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Bloxstrap.UI.Elements" 
+        mc:Ignorable="d"
+        Title="NotifyIconMenu"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        MinWidth="0"
+        MinHeight="0"
+        Width="0"
+        Height="0"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        Loaded="Window_Loaded">
+    <ui:UiWindow.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="_Bold"
+                IsCheckable="True"/>
+            <MenuItem Header="_Italic"
+                IsCheckable="True" />
+            <Separator />
+            <MenuItem Header="I_ncrease Font Size" />
+            <MenuItem Header="_Decrease Font Size" />
+            <MenuItem x:Name="TestMenuItem" Header="test" IsCheckable="True" Click="TestMenuItem_Click" />
+        </ContextMenu>
+    </ui:UiWindow.ContextMenu>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!--<ProgressBar IsIndeterminate="True" />-->
+        <TextBlock Margin="16" Text="if this stops spinning ur SCREWED!!!!!!!!!" />
+        <ui:ProgressRing Margin="16" IsIndeterminate="True" />
+    </StackPanel>
+</ui:UiWindow>
