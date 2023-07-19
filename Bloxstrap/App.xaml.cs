@@ -314,6 +314,8 @@ namespace Bloxstrap
                     FinalizeExceptionHandling(exception);
                 });
 
+                NotifyIcon?.InitializeContextMenu();
+
                 dialog?.ShowBootstrapper();
 
                 bootstrapperTask.Wait();

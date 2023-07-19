@@ -12,7 +12,7 @@ namespace Bloxstrap.UI
         bool _disposed = false;
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
-        private readonly MenuContainer _menuContainer = new();
+        private MenuContainer? _menuContainer;
         private RobloxActivity? _activityWatcher;
 
         private ServerInformation? _serverInformationWindow;
@@ -33,11 +33,16 @@ namespace Bloxstrap.UI
             };
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
+        }
 
+        public void InitializeContextMenu()
+        {
+            if (_menuContainer is not null)
+                return;
+
+            _menuContainer = new();
             _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
-
             _menuContainer.ServerDetailsMenuItem.Click += (_, _) => ShowServerInformationWindow();
-
             _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
         }
 
@@ -53,7 +58,8 @@ namespace Bloxstrap.UI
 
         public async void OnGameJoin()
         {
-            _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
+            if (_menuContainer is not null)
+                _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
 
             if (App.Settings.Prop.ShowServerDetails)
             {
@@ -64,7 +70,8 @@ namespace Bloxstrap.UI
 
         public void OnGameLeave(object? sender, EventArgs e)
         {
-            _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Collapsed);
+            if (_menuContainer is not null)
+                _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Collapsed);
 
             if (_serverInformationWindow is not null && _serverInformationWindow.IsVisible)
                 _serverInformationWindow.Dispatcher.Invoke(_serverInformationWindow.Close);
@@ -73,7 +80,7 @@ namespace Bloxstrap.UI
 
         public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e) 
         {
-            if (e.Button != System.Windows.Forms.MouseButtons.Right)
+            if (e.Button != System.Windows.Forms.MouseButtons.Right || _menuContainer is null)
                 return;
 
             _menuContainer.Activate();
@@ -137,7 +144,9 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
 
-            _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
+            if (_menuContainer is not null)
+                _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
+
             _notifyIcon.Dispose();
 
             _disposed = true;
