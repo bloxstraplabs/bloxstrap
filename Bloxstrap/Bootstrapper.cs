@@ -234,7 +234,6 @@ namespace Bloxstrap
             List<Process> autocloseProcesses = new();
             RobloxActivity? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
-            ServerNotifier? serverNotifier = null;
 
             App.Logger.WriteLine($"[Bootstrapper::StartRoblox] Started Roblox (PID {gameClientPid})");
 
@@ -253,16 +252,15 @@ namespace Bloxstrap
                 activityWatcher = new();
                 shouldWait = true;
 
+                App.NotifyIcon?.SetActivityWatcher(activityWatcher);
+
                 if (App.Settings.Prop.UseDiscordRichPresence)
                 {
                     App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
                     richPresence = new(activityWatcher);
-                }
 
-                if (App.Settings.Prop.ShowServerDetails)
-                {
-                    App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using server details notifier");
-                    serverNotifier = new(activityWatcher);
+                    if (App.NotifyIcon is not null)
+                        App.NotifyIcon.RichPresenceIntegration = richPresence;
                 }
             }
 

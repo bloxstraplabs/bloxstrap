@@ -1,6 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System.Windows;
 
-using Bloxstrap.UI.Elements;
+using Bloxstrap.Integrations;
+using Bloxstrap.UI.Elements.ContextMenu;
 
 namespace Bloxstrap.UI
 {
@@ -8,11 +9,13 @@ namespace Bloxstrap.UI
     {
         bool _disposed = false;
 
-        private readonly NotifyIcon _notifyIcon;
-        private readonly NotifyIconMenu _contextMenuWrapper = new();
+        private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
+        private readonly MenuContainer _menuContainer = new();
+        private RobloxActivity? _activityWatcher;
+
+        public DiscordRichPresence? RichPresenceIntegration;
         
         EventHandler? _alertClickHandler;
-
 
         public NotifyIconWrapper()
         {
@@ -27,18 +30,65 @@ namespace Bloxstrap.UI
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
 
-            _contextMenuWrapper.Dispatcher.BeginInvoke(_contextMenuWrapper.ShowDialog);
-
-            _contextMenuWrapper.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu wrapper closing");
+            _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
+            _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
         }
 
-        public void MouseClickEventHandler(object? sender, MouseEventArgs e) 
+        public void SetActivityWatcher(RobloxActivity activityWatcher)
         {
-            if (e.Button != MouseButtons.Right)
+            if (_activityWatcher is not null)
                 return;
 
-            _contextMenuWrapper.Activate();
-            _contextMenuWrapper.ContextMenu.IsOpen = true;
+            _activityWatcher = activityWatcher;
+            _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
+            _activityWatcher.OnGameLeave += OnGameLeave;
+        }
+
+        public async void OnGameJoin()
+        {
+            if (!App.Settings.Prop.ShowServerDetails)
+                return;
+
+            App.Logger.WriteLine($"[NotifyIconWrapper::OnActivityGameJoin] Getting game/server information");
+
+            string machineAddress = _activityWatcher!.ActivityMachineAddress;
+            string machineLocation = "";
+
+            // basically nobody has a free public access geolocation api that's accurate,
+            // the ones that do require an api key which isn't suitable for a client-side application like this
+            // so, hopefully this is reliable enough?
+            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/city");
+            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/region");
+            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{machineAddress}/country");
+
+            locationCity = locationCity.ReplaceLineEndings("");
+            locationRegion = locationRegion.ReplaceLineEndings("");
+            locationCountry = locationCountry.ReplaceLineEndings("");
+
+            if (String.IsNullOrEmpty(locationCountry))
+                machineLocation = "N/A";
+            else if (locationCity == locationRegion)
+                machineLocation = $"{locationRegion}, {locationCountry}";
+            else
+                machineLocation = $"{locationCity}, {locationRegion}, {locationCountry}";
+
+            _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
+
+            ShowAlert("Connnected to server", $"Location: {machineLocation}\nClick to copy Instance ID", 10, (_, _) => System.Windows.Clipboard.SetText(_activityWatcher.ActivityJobId));
+        }
+
+        public void OnGameLeave(object? sender, EventArgs e)
+        {
+            _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Collapsed);
+        }
+
+        public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e) 
+        {
+            if (e.Button != System.Windows.Forms.MouseButtons.Right)
+                return;
+
+            _menuContainer.Activate();
+            _menuContainer.ContextMenu.IsOpen = true;
         }
 
         public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler)
@@ -84,7 +134,7 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
 
-            _contextMenuWrapper.Dispatcher.Invoke(_contextMenuWrapper.Close);
+            _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
             _notifyIcon.Dispose();
 
             _disposed = true;

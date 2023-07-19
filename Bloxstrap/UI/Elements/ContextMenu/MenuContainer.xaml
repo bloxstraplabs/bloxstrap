@@ -1,0 +1,28 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.ContextMenu.MenuContainer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Bloxstrap.UI.Elements"
+        mc:Ignorable="d"
+        Title="ContextMenuContainer"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        MinWidth="0"
+        MinHeight="0"
+        Width="0"
+        Height="0"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded">
+    <ui:UiWindow.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="VersionMenuItem" IsEnabled="False" />
+            <Separator />
+            <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
+            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" Click="ServerDetailsMenuItem_Click" />
+            <MenuItem x:Name="TestMenuItem" Header="Test" IsCheckable="True" Click="TestMenuItem_Click" />
+        </ContextMenu>
+    </ui:UiWindow.ContextMenu>
+</ui:UiWindow>
