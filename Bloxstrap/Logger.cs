@@ -40,12 +40,13 @@
 
             _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
 
+            Initialized = true;
+
             if (Backlog.Count > 0)
                 WriteToLog(string.Join("\r\n", Backlog));
 
             WriteLine($"[Logger::Initialize] Finished initializing!");
 
-            Initialized = true;
             FileLocation = location;
 
             // clean up any logs older than a week
