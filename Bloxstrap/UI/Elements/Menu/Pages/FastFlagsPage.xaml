@@ -10,36 +10,50 @@
       Title="FastFlagsPage"
       Scrollable="True">
   <StackPanel Margin="0,0,14,14">
-    <TextBlock Text="Control how specific Roblox engine parameters and features are configured." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <TextBlock Margin="0,0,0,16" Text="Control how specific Roblox engine parameters and features are configured." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,16,0,0" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
-      <StackPanel>
-        <TextBlock FontSize="14" Text="Edit ClientAppSettings.json">
-          <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
-          <TextBlock.Style>
-            <Style>
-              <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
-                  <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
-                </DataTrigger>
-              </Style.Triggers>
-            </Style>
-          </TextBlock.Style>
-        </TextBlock>
-        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-          <TextBlock.Style>
-            <Style>
-              <Setter Property="TextBlock.Text" Value="Where all FastFlags are saved to. Use this to manage your own flags."/>
-              <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
-                  <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
-                </DataTrigger>
-              </Style.Triggers>
-            </Style>
-          </TextBlock.Style>
-        </TextBlock>
-      </StackPanel>
-    </ui:CardAction>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      
+      <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Column="0" Margin="0,0,4,0" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Edit ClientAppSettings.json">
+            <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
+            <TextBlock.Style>
+              <Style>
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </TextBlock.Style>
+          </TextBlock>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+            <TextBlock.Style>
+              <Style>
+                <Setter Property="TextBlock.Text" Value="Where all FastFlags are saved. Manage your own flags here."/>
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
+                    <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </TextBlock.Style>
+          </TextBlock>
+        </StackPanel>
+      </ui:CardAction>
+
+      <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Help" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Learn more about FastFlags." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardAction>
+    </Grid>
 
     <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
       <TextBlock Text="Debug" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
