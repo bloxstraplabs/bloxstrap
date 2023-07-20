@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap
+﻿using Bloxstrap.Exceptions;
+
+namespace Bloxstrap
 {
     public static class RobloxDeployment
     {
@@ -109,7 +111,7 @@
                         $"\tResponse: {rawResponse}"
                     );
 
-                    throw new Exception($"Could not get latest deploy for channel {channel}! (HTTP {deployInfoResponse.StatusCode})");
+                    throw new HttpResponseUnsuccessfulException(deployInfoResponse);
                 }
 
                 clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;

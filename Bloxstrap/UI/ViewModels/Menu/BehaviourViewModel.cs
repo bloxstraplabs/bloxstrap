@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 
+using Bloxstrap.Exceptions;
+
 namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
@@ -39,11 +41,30 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 OnPropertyChanged(nameof(ChannelWarningVisibility));
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
-            catch (Exception)
+            catch (HttpResponseUnsuccessfulException ex)
             {
                 LoadingSpinnerVisibility = Visibility.Collapsed;
                 LoadingErrorVisibility = Visibility.Visible;
-                ChannelInfoLoadingText = "Could not get deployment information! Is the channel name valid?";
+
+                ChannelInfoLoadingText = ex.ResponseMessage.StatusCode switch
+                {
+                    HttpStatusCode.NotFound => "The specified channel name does not exist.",
+                    _ => $"Failed to fetch information! (HTTP {ex.ResponseMessage.StatusCode})",
+                };
+
+                OnPropertyChanged(nameof(LoadingSpinnerVisibility));
+                OnPropertyChanged(nameof(LoadingErrorVisibility));
+                OnPropertyChanged(nameof(ChannelInfoLoadingText));
+            }
+            catch (Exception ex)
+            {
+                LoadingSpinnerVisibility = Visibility.Collapsed;
+                LoadingErrorVisibility = Visibility.Visible;
+
+                App.Logger.WriteLine("[BehaviourViewModel::LoadChannelDeployInfo] An exception occurred while fetching channel information");
+                App.Logger.WriteLine($"[BehaviourViewModel::LoadChannelDeployInfo] {ex}");
+
+                ChannelInfoLoadingText = $"Failed to fetch information! ({ex.Message})";
 
                 OnPropertyChanged(nameof(LoadingSpinnerVisibility));
                 OnPropertyChanged(nameof(LoadingErrorVisibility));

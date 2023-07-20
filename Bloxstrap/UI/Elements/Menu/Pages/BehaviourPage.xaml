@@ -100,7 +100,7 @@
           <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True" Visibility="{Binding LoadingSpinnerVisibility, Mode=OneWay}" />
           <Image Grid.Column="0" Margin="6" Width="60" Height="60" Visibility="{Binding LoadingErrorVisibility, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
           
-          <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" />
+          <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" TextWrapping="Wrap" />
         </Grid>
       </StackPanel>
     </ui:CardExpander>
