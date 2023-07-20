@@ -11,7 +11,7 @@
         Title="Server information"
         MinWidth="0"
         MinHeight="0"
-        Width="400"
+        Width="420"
         SizeToContent="Height"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
@@ -31,20 +31,24 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Type" />
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="Type" />
             <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ServerType, Mode=OneWay}" />
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Instance ID" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="Instance ID" />
             <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding InstanceId, Mode=OneWay}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Location" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="Location" />
             <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ServerLocation, Mode=OneWay}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="UDMUX proxied" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding UdmuxProxied, Mode=OneWay}" />
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">

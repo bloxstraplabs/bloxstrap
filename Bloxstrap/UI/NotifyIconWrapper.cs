@@ -60,6 +60,8 @@ namespace Bloxstrap.UI
             if (_menuContainer is not null)
                 return;
 
+            App.Logger.WriteLine("[NotifyIconWrapper::InitializeContextMenu] Initializing context menu");
+
             _menuContainer = new(_activityWatcher, _richPresenceHandler);
             _menuContainer.ShowDialog();
         }

@@ -25,8 +25,8 @@
     <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ActivityTrackingEnabledToggle, Mode=OneWay}">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Know where your server's located" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="When you join a game, you'll be notified of the server's location. Won't show in fullscreen." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="See server location when joining a game" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="When you join a game, you'll be notified of where your server's located. Won't show in fullscreen." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />

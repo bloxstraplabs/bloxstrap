@@ -13,6 +13,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         public string InstanceId => _activityWatcher.ActivityJobId;
         public string ServerType => $"{_activityWatcher.ActivityServerType} server";
         public string ServerLocation { get; private set; } = "Loading, please wait...";
+        public string UdmuxProxied => _activityWatcher.ActivityMachineUDMUX ? "Yes" : "No";
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
         public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
