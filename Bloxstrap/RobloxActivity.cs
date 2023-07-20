@@ -17,11 +17,14 @@
 
         private int _logEntriesRead = 0;
 
+        public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
         public event EventHandler<GameMessage>? OnGameMessage;
 
         private Dictionary<string, string> GeolcationCache = new();
+
+        public string LogFilename = null!;
 
         // these are values to use assuming the player isn't currently in a game
         // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
@@ -72,8 +75,9 @@
                 await Task.Delay(1000);
             }
 
+            LogFilename = logFileInfo.Name;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {logFileInfo.Name}");
+            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {LogFilename}");
 
             AutoResetEvent logUpdatedEvent = new(false);
             FileSystemWatcher logWatcher = new()
@@ -99,7 +103,8 @@
 
         private void ExamineLogEntry(string entry)
         {
-            // App.Logger.WriteLine(entry);
+            OnLogEntry?.Invoke(this, entry);
+
             _logEntriesRead += 1;
 
             // debug stats to ensure that the log reader is working correctly

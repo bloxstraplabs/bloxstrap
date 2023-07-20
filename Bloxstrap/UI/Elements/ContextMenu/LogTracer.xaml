@@ -1,0 +1,38 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.ContextMenu.LogTracer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bloxstrap.UI.Elements.ContextMenu"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.ContextMenu"
+        d:DataContext="{d:DesignInstance Type=models:LogTracerViewModel}"
+        mc:Ignorable="d"
+        Title="Log tracer" 
+        Width="800"
+        Height="480"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Log tracer" ShowMinimize="True" ShowMaximize="True" CanMaximize="True" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+
+        <TextBlock Grid.Row="1" Padding="12" Text="{Binding LogLocation, Mode=OneWay, StringFormat='Tracing \{0\}'}" />
+
+        <ScrollViewer x:Name="ScrollViewer" Grid.Row="2">
+            <RichTextBox Grid.Row="1" Block.LineHeight="2" IsReadOnly="True" Background="Transparent" BorderThickness="0" TextChanged="RichTextBox_TextChanged">
+                <FlowDocument x:Name="FlowDocument">
+                    <Paragraph FontFamily="Courier New" FontSize="14">
+                        <Run Text="{Binding LogContents, Mode=OneWay}" />
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+    </Grid>
+</ui:UiWindow>

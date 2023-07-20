@@ -18,29 +18,27 @@
         ExtendsContentIntoTitleBar="True"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-            <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Server information" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Server information" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
-            <StackPanel Grid.Row="1" Margin="12">
-                <TextBlock Text="Instance ID" FontSize="16" FontWeight="Medium" />
-                <TextBlock Text="{Binding InstanceId, Mode=OneWay}" />
+        <StackPanel Grid.Row="1" Margin="12">
+            <TextBlock Text="Instance ID" FontSize="16" FontWeight="Medium" />
+            <TextBlock Text="{Binding InstanceId, Mode=OneWay}" />
 
-                <TextBlock Margin="0,16,0,0" Text="Server location" FontSize="16" FontWeight="Medium" />
-                <TextBlock Text="{Binding ServerLocation, Mode=OneWay}" />
+            <TextBlock Margin="0,16,0,0" Text="Server location" FontSize="16" FontWeight="Medium" />
+            <TextBlock Text="{Binding ServerLocation, Mode=OneWay}" />
+        </StackPanel>
+
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+                <Button MinWidth="100" Content="Copy instance ID" Command="{Binding CopyInstanceIdCommand, Mode=OneTime}" />
+                <Button Margin="12,0,0,0" MinWidth="100" Content="Close" Command="{Binding CloseWindowCommand, Mode=OneTime}" />
             </StackPanel>
-
-            <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
-                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                    <Button MinWidth="100" Content="Copy instance ID" Command="{Binding CopyInstanceIdCommand, Mode=OneTime}" />
-                    <Button Margin="12,0,0,0" MinWidth="100" Content="Close" Command="{Binding CloseWindowCommand, Mode=OneTime}" />
-                </StackPanel>
-            </Border>
-        </Grid>
+        </Border>
     </Grid>
 </ui:UiWindow>

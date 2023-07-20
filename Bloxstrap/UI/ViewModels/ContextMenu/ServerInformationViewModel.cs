@@ -3,13 +3,11 @@ using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.UI.Elements.ContextMenu;
-
 namespace Bloxstrap.UI.ViewModels.ContextMenu
 {
     internal class ServerInformationViewModel : NotifyPropertyChangedViewModel
     {
-        private readonly ServerInformation _window;
+        private readonly Window _window;
         private readonly RobloxActivity _activityWatcher;
 
         public string InstanceId => _activityWatcher.ActivityJobId;
@@ -18,7 +16,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
         public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
 
-        public ServerInformationViewModel(ServerInformation window, RobloxActivity activityWatcher)
+        public ServerInformationViewModel(Window window, RobloxActivity activityWatcher)
         {
             _window = window;
             _activityWatcher = activityWatcher;

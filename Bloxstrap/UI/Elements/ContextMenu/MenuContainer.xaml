@@ -22,6 +22,7 @@
             <Separator />
             <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" />
             <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" />
+            <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </ui:UiWindow>
