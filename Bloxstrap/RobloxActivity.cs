@@ -16,6 +16,7 @@
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
 
         private int _logEntriesRead = 0;
+        private bool _teleportMarker = false;
 
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
@@ -27,8 +28,6 @@
         public string LogFilename = null!;
 
         // these are values to use assuming the player isn't currently in a game
-        // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
-        // because of the weird chronology of where the teleporting entry is outputted, there's no way to reset it in here
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
@@ -130,6 +129,16 @@
                 ActivityJobId = match.Groups[1].Value;
                 ActivityMachineAddress = match.Groups[3].Value;
 
+                if (_teleportMarker)
+                {
+                    ActivityIsTeleport = true;
+                    _teleportMarker = false;
+                }
+                else
+                {
+                    ActivityIsTeleport = false;
+                }
+
                 App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
@@ -184,7 +193,7 @@
                 else if (entry.Contains(GameTeleportingEntry))
                 {
                     App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
-                    ActivityIsTeleport = true;
+                    _teleportMarker = true;
                 }
                 else if (entry.Contains(GameMessageEntry))
                 {

@@ -117,7 +117,7 @@ namespace Bloxstrap.Integrations
 
             App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Setting presence for Place ID {_activityWatcher.ActivityPlaceId}");
 
-            var universeIdResponse = await Utility.Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityWatcher.ActivityPlaceId}/universe");
+            var universeIdResponse = await Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityWatcher.ActivityPlaceId}/universe");
             if (universeIdResponse is null)
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe ID!");
@@ -131,10 +131,9 @@ namespace Bloxstrap.Integrations
             if (_timeStartedUniverse is null || !_activityWatcher.ActivityIsTeleport || universeId != _currentUniverseId)
                 _timeStartedUniverse = DateTime.UtcNow;
 
-            _activityWatcher.ActivityIsTeleport = false;
             _currentUniverseId = universeId;
 
-            var gameDetailResponse = await Utility.Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
+            var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
             if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe info!");
@@ -144,7 +143,7 @@ namespace Bloxstrap.Integrations
             GameDetailResponse universeDetails = gameDetailResponse.Data.ToArray()[0];
             App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Got Universe details");
 
-            var universeThumbnailResponse = await Utility.Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
+            var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
             if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe thumbnail info!");
