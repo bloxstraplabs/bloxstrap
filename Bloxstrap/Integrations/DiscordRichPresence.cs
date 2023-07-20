@@ -8,6 +8,7 @@ namespace Bloxstrap.Integrations
         private readonly RobloxActivity _activityWatcher;
         
         private RichPresence? _currentPresence;
+        private bool _visible = true;
         private string? _initialStatus;
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
@@ -87,6 +88,18 @@ namespace Bloxstrap.Integrations
 
             _currentPresence.State = finalStatus;
             UpdatePresence();
+        }
+
+        public void SetVisibility(bool visible)
+        {
+            App.Logger.WriteLine($"[DiscordRichPresence::SetVisibility] Setting presence visibility ({visible})");
+
+            _visible = visible;
+
+            if (_visible)
+                UpdatePresence();
+            else
+                _rpcClient.ClearPresence();
         }
 
         public async Task<bool> SetCurrentGame()
@@ -195,7 +208,8 @@ namespace Bloxstrap.Integrations
                 return;
             }
 
-            _rpcClient.SetPresence(_currentPresence);
+            if (_visible)
+                _rpcClient.SetPresence(_currentPresence);
         }
 
         public void Dispose()

@@ -13,11 +13,12 @@ namespace Bloxstrap.UI
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
         private MenuContainer? _menuContainer;
+        
         private RobloxActivity? _activityWatcher;
+        private DiscordRichPresence? _richPresenceHandler;
 
         private ServerInformation? _serverInformationWindow;
 
-        public DiscordRichPresence? RichPresenceIntegration;
         
         EventHandler? _alertClickHandler;
 
@@ -35,15 +36,18 @@ namespace Bloxstrap.UI
             _notifyIcon.MouseClick += MouseClickEventHandler;
         }
 
-        public void InitializeContextMenu()
+        #region Handler registers
+        public void SetRichPresenceHandler(DiscordRichPresence richPresenceHandler)
         {
-            if (_menuContainer is not null)
+            if (_richPresenceHandler is not null)
                 return;
 
-            _menuContainer = new();
-            _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
-            _menuContainer.ServerDetailsMenuItem.Click += (_, _) => ShowServerInformationWindow();
-            _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
+            _richPresenceHandler = richPresenceHandler;
+
+            if (_menuContainer is null)
+                return;
+
+            _menuContainer.Dispatcher.Invoke(() => _menuContainer.RichPresenceMenuItem.Visibility = Visibility.Visible);
         }
 
         public void SetActivityWatcher(RobloxActivity activityWatcher)
@@ -55,6 +59,30 @@ namespace Bloxstrap.UI
             _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
             _activityWatcher.OnGameLeave += OnGameLeave;
         }
+        #endregion
+
+        #region Context menu
+        public void InitializeContextMenu()
+        {
+            if (_menuContainer is not null)
+                return;
+
+            _menuContainer = new();
+            _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
+            _menuContainer.ServerDetailsMenuItem.Click += (_, _) => ShowServerInformationWindow();
+            _menuContainer.RichPresenceMenuItem.Click += (_, _) => _richPresenceHandler?.SetVisibility(_menuContainer.RichPresenceMenuItem.IsChecked);
+            _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
+        }
+
+        public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button != System.Windows.Forms.MouseButtons.Right || _menuContainer is null)
+                return;
+
+            _menuContainer.Activate();
+            _menuContainer.ContextMenu.IsOpen = true;
+        }
+        #endregion
 
         public async void OnGameJoin()
         {
@@ -76,15 +104,6 @@ namespace Bloxstrap.UI
             if (_serverInformationWindow is not null && _serverInformationWindow.IsVisible)
                 _serverInformationWindow.Dispatcher.Invoke(_serverInformationWindow.Close);
 
-        }
-
-        public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e) 
-        {
-            if (e.Button != System.Windows.Forms.MouseButtons.Right || _menuContainer is null)
-                return;
-
-            _menuContainer.Activate();
-            _menuContainer.ContextMenu.IsOpen = true;
         }
 
         public void ShowServerInformationWindow()

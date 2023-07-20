@@ -42,15 +42,5 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             exStyle |= NativeMethods.WS_EX_TOOLWINDOW;
             NativeMethods.SetWindowLongPtr(wndHelper.Handle, NativeMethods.GWL_EXSTYLE, (IntPtr)exStyle);
         }
-
-        private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Controls.ShowMessageBox($"hi how u doing i am {RichPresenceMenuItem.IsChecked}", MessageBoxImage.Warning);
-        }
-
-        private void TestMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Controls.ShowMessageBox($"hi how u doing i am {TestMenuItem.IsChecked}", MessageBoxImage.Warning);
-        }
     }
 }

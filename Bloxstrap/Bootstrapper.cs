@@ -259,8 +259,7 @@ namespace Bloxstrap
                     App.Logger.WriteLine("[Bootstrapper::StartRoblox] Using Discord Rich Presence");
                     richPresence = new(activityWatcher);
 
-                    if (App.NotifyIcon is not null)
-                        App.NotifyIcon.RichPresenceIntegration = richPresence;
+                    App.NotifyIcon?.SetRichPresenceHandler(richPresence);
                 }
             }
 
