@@ -11,6 +11,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         private readonly RobloxActivity _activityWatcher;
 
         public string InstanceId => _activityWatcher.ActivityJobId;
+        public string ServerType => $"{_activityWatcher.ActivityServerType} server";
         public string ServerLocation { get; private set; } = "Loading, please wait...";
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);

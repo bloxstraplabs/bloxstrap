@@ -78,7 +78,13 @@ namespace Bloxstrap.UI
         public async void OnGameJoin()
         {
             string serverLocation = await _activityWatcher!.GetServerLocation();
-            ShowAlert("Connnected to server", $"Location: {serverLocation}\nClick for more information", 10, (_, _) => _menuContainer?.ShowServerInformationWindow());
+
+            ShowAlert(
+                $"Connnected to {_activityWatcher.ActivityServerType.ToString().ToLower()} server", 
+                $"Located at {serverLocation}\nClick for more information", 
+                10, 
+                (_, _) => _menuContainer?.ShowServerInformationWindow()
+            );
         }
         #endregion
 

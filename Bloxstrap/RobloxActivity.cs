@@ -5,6 +5,8 @@
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
         private const string GameJoiningEntry = "[FLog::Output] ! Joining game";
+        private const string GameJoiningPrivateServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::joinGamePostPrivateServer";
+        private const string GameJoiningReservedServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToReservedServer";
         private const string GameJoiningUDMUXEntry = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
@@ -17,6 +19,7 @@
 
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
+        private bool _reservedTeleportMarker = false;
 
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
@@ -28,12 +31,14 @@
         public string LogFilename = null!;
 
         // these are values to use assuming the player isn't currently in a game
+        // hmm... do i move this to a model?
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
+        public ServerType ActivityServerType = ServerType.Public;
 
         public bool IsDisposed = false;
 
@@ -113,33 +118,43 @@
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
-            if (!ActivityInGame && ActivityPlaceId == 0 && entry.Contains(GameJoiningEntry))
+            if (!ActivityInGame && ActivityPlaceId == 0)
             {
-                Match match = Regex.Match(entry, GameJoiningEntryPattern);
-
-                if (match.Groups.Count != 4)
+                if (entry.Contains(GameJoiningPrivateServerEntry))
                 {
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
-                    App.Logger.WriteLine(entry);
-                    return;
+                    // we only expect to be joining a private server if we're not already in a game
+                    ActivityServerType = ServerType.Private;
                 }
-
-                ActivityInGame = false;
-                ActivityPlaceId = long.Parse(match.Groups[2].Value);
-                ActivityJobId = match.Groups[1].Value;
-                ActivityMachineAddress = match.Groups[3].Value;
-
-                if (_teleportMarker)
+                else if (entry.Contains(GameJoiningEntry))
                 {
-                    ActivityIsTeleport = true;
-                    _teleportMarker = false;
-                }
-                else
-                {
-                    ActivityIsTeleport = false;
-                }
+                    Match match = Regex.Match(entry, GameJoiningEntryPattern);
 
-                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    if (match.Groups.Count != 4)
+                    {
+                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
+                        App.Logger.WriteLine(entry);
+                        return;
+                    }
+
+                    ActivityInGame = false;
+                    ActivityPlaceId = long.Parse(match.Groups[2].Value);
+                    ActivityJobId = match.Groups[1].Value;
+                    ActivityMachineAddress = match.Groups[3].Value;
+
+                    if (_teleportMarker)
+                    {
+                        ActivityIsTeleport = true;
+                        _teleportMarker = false;
+                    }
+
+                    if (_reservedTeleportMarker)
+                    {
+                        ActivityServerType = ServerType.Reserved;
+                        _reservedTeleportMarker = false;
+                    }
+
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                }
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
             {
@@ -187,6 +202,8 @@
                     ActivityJobId = "";
                     ActivityMachineAddress = "";
                     ActivityMachineUDMUX = false;
+                    ActivityIsTeleport = false;
+                    ActivityServerType = ServerType.Public;
 
                     OnGameLeave?.Invoke(this, new EventArgs());
                 }
@@ -194,6 +211,11 @@
                 {
                     App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                     _teleportMarker = true;
+                }
+                else if (_teleportMarker && entry.Contains(GameJoiningReservedServerEntry))
+                {
+                    // we only expect to be joining a reserved server if we're teleporting to one from a game
+                    _reservedTeleportMarker = true;
                 }
                 else if (entry.Contains(GameMessageEntry))
                 {
