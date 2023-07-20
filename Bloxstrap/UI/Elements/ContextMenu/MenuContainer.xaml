@@ -15,14 +15,15 @@
         ShowInTaskbar="False"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Closed="Window_Closed">
     <ui:UiWindow.ContextMenu>
         <ContextMenu>
             <MenuItem x:Name="VersionMenuItem" IsEnabled="False" />
             <Separator />
-            <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" />
-            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" />
-            <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" />
+            <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
+            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" Click="ServerDetailsMenuItem_Click" />
+            <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </ui:UiWindow>

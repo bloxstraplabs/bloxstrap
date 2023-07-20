@@ -17,9 +17,6 @@ namespace Bloxstrap.UI
         private RobloxActivity? _activityWatcher;
         private DiscordRichPresence? _richPresenceHandler;
 
-        private ServerInformation? _serverInformationWindow;
-        private LogTracer? _logTracerWindow;
-        
         EventHandler? _alertClickHandler;
 
         public NotifyIconWrapper()
@@ -43,11 +40,6 @@ namespace Bloxstrap.UI
                 return;
 
             _richPresenceHandler = richPresenceHandler;
-
-            if (_menuContainer is null)
-                return;
-
-            _menuContainer.Dispatcher.Invoke(() => _menuContainer.RichPresenceMenuItem.Visibility = Visibility.Visible);
         }
 
         public void SetActivityWatcher(RobloxActivity activityWatcher)
@@ -56,11 +48,9 @@ namespace Bloxstrap.UI
                 return;
 
             _activityWatcher = activityWatcher;
-            _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
-            _activityWatcher.OnGameLeave += OnGameLeave;
 
-            if (App.Settings.Prop.OhHeyYouFoundMe && _menuContainer is not null)
-                _menuContainer.Dispatcher.Invoke(() => _menuContainer.LogTracerMenuItem.Visibility = Visibility.Visible);
+            if (App.Settings.Prop.ShowServerDetails)
+                _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
         }
         #endregion
 
@@ -70,12 +60,8 @@ namespace Bloxstrap.UI
             if (_menuContainer is not null)
                 return;
 
-            _menuContainer = new();
-            _menuContainer.Dispatcher.BeginInvoke(_menuContainer.ShowDialog);
-            _menuContainer.RichPresenceMenuItem.Click += (_, _) => _richPresenceHandler?.SetVisibility(_menuContainer.RichPresenceMenuItem.IsChecked);
-            _menuContainer.ServerDetailsMenuItem.Click += (_, _) => ShowServerInformationWindow();
-            _menuContainer.LogTracerMenuItem.Click += (_, _) => ShowLogTracerWindow();
-            _menuContainer.Closing += (_, _) => App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Context menu container closed");
+            _menuContainer = new(_activityWatcher, _richPresenceHandler);
+            _menuContainer.ShowDialog();
         }
 
         public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e)
@@ -91,52 +77,8 @@ namespace Bloxstrap.UI
         #region Activity handlers
         public async void OnGameJoin()
         {
-            if (_menuContainer is not null)
-                _menuContainer.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Visible);
-
-            if (App.Settings.Prop.ShowServerDetails)
-            {
-                string serverLocation = await _activityWatcher!.GetServerLocation();
-                ShowAlert("Connnected to server", $"Location: {serverLocation}\nClick for more information", 10, (_, _) => ShowServerInformationWindow());
-            }
-        }
-
-        public void OnGameLeave(object? sender, EventArgs e)
-        {
-            _menuContainer?.Dispatcher.Invoke(() => _menuContainer.ServerDetailsMenuItem.Visibility = Visibility.Collapsed);
-
-            if (_serverInformationWindow is not null && _serverInformationWindow.IsVisible)
-                _serverInformationWindow.Dispatcher.Invoke(_serverInformationWindow.Close);
-        }
-        #endregion
-
-        #region Window handlers
-        public void ShowServerInformationWindow()
-        {
-            if (_serverInformationWindow is null)
-            {
-                _serverInformationWindow = new ServerInformation(_activityWatcher!);
-                _serverInformationWindow.Closed += (_, _) => _serverInformationWindow = null;
-            }
-
-            if (!_serverInformationWindow.IsVisible)
-                _serverInformationWindow.Show();
-
-            _serverInformationWindow.Activate();
-        }
-
-        public void ShowLogTracerWindow()
-        {
-            if (_logTracerWindow is null)
-            {
-                _logTracerWindow = new LogTracer(_activityWatcher!);
-                _logTracerWindow.Closed += (_, _) => _logTracerWindow = null;
-            }
-
-            if (!_logTracerWindow.IsVisible)
-                _logTracerWindow.Show();
-
-            _logTracerWindow.Activate();
+            string serverLocation = await _activityWatcher!.GetServerLocation();
+            ShowAlert("Connnected to server", $"Location: {serverLocation}\nClick for more information", 10, (_, _) => _menuContainer?.ShowServerInformationWindow());
         }
         #endregion
 
@@ -183,9 +125,7 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
 
-            if (_menuContainer is not null)
-                _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
-
+            _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
             _notifyIcon.Dispose();
 
             _disposed = true;

@@ -314,9 +314,9 @@ namespace Bloxstrap
                     FinalizeExceptionHandling(exception);
                 });
 
-                NotifyIcon?.InitializeContextMenu();
-
+                // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them
                 dialog?.ShowBootstrapper();
+                NotifyIcon?.InitializeContextMenu();
 
                 bootstrapperTask.Wait();
 
