@@ -454,7 +454,7 @@ namespace Bloxstrap
 
         public static void CheckInstall()
         {
-            App.Logger.WriteLine("[Bootstrapper::StartRoblox] Checking install");
+            App.Logger.WriteLine("[Bootstrapper::CheckInstall] Checking install");
 
             // check if launch uri is set to our bootstrapper
             // this doesn't go under register, so we check every launch
@@ -502,8 +502,16 @@ namespace Bloxstrap
             {
                 if (!File.Exists(DesktopShortcutLocation))
                 {
-                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
-                        .WriteToFile(DesktopShortcutLocation);
+                    try
+                    {
+                        ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
+                            .WriteToFile(DesktopShortcutLocation);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine("[Bootstrapper::CheckInstall] Could not create desktop shortcut, aborting");
+                        App.Logger.WriteLine($"[Bootstrapper::CheckInstall] {ex}");
+                    }
                 }
 
                 // one-time toggle, set it back to false
