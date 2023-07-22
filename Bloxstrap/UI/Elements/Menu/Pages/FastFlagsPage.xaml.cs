@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 
 using Bloxstrap.UI.ViewModels.Menu;
 
@@ -11,8 +12,12 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
     {
         public FastFlagsPage()
         {
-            DataContext = new FastFlagsViewModel();
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = new FastFlagsViewModel();
         }
 
         private void ValidateInt32(object sender, TextCompositionEventArgs e) => e.Handled = !Int32.TryParse(e.Text, out int _);
