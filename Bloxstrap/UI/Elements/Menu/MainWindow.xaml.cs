@@ -7,7 +7,7 @@ using Wpf.Ui.Mvvm.Services;
 
 using Bloxstrap.UI.ViewModels.Menu;
 
-namespace Bloxstrap.UI.Menu
+namespace Bloxstrap.UI.Elements.Menu
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,4 +1,4 @@
-﻿<ui:UiPage x:Class="Bloxstrap.UI.Menu.Pages.IntegrationsPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Menu.Pages.IntegrationsPage"
       x:Name="IntegrationsPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

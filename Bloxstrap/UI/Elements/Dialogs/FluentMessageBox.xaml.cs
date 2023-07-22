@@ -6,7 +6,7 @@ using System.Windows.Media.Imaging;
 
 using Bloxstrap.UI.Utility;
 
-namespace Bloxstrap.UI.MessageBox
+namespace Bloxstrap.UI.Elements.Dialogs
 {
     // wpfui does have its own messagebox control but it SUCKS so heres this instead
 

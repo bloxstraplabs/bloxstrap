@@ -2,7 +2,7 @@
 
 using Bloxstrap.UI.ViewModels.Menu;
 
-namespace Bloxstrap.UI.Menu.Pages
+namespace Bloxstrap.UI.Elements.Menu.Pages
 {
     /// <summary>
     /// Interaction logic for IntegrationsPage.xaml

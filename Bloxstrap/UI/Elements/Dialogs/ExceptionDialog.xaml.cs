@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Interop;
 
-namespace Bloxstrap.UI
+namespace Bloxstrap.UI.Elements.Dialogs
 {
     // hmm... do i use MVVM for this?
     // this is entirely static, so i think im fine without it, and this way is just so much more efficient

@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 
 using Wpf.Ui.Mvvm.Contracts;
 
-using Bloxstrap.UI.Menu.Pages;
+using Bloxstrap.UI.Elements.Menu.Pages;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {

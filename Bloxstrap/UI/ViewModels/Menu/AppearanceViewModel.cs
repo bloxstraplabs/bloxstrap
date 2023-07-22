@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 
 using Microsoft.Win32;
 
-using Bloxstrap.UI.Menu;
+using Bloxstrap.UI.Elements.Menu;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {

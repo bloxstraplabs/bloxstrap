@@ -1,4 +1,4 @@
-﻿<ui:UiPage x:Class="Bloxstrap.UI.Menu.Pages.PreInstallPage"
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Menu.Pages.PreInstallPage"
       x:Name="PreInstallPageView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

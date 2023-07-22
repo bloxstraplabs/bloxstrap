@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 
 using Bloxstrap.UI.Elements.Bootstrapper;
-using Bloxstrap.UI.Menu;
-using Bloxstrap.UI.MessageBox;
+using Bloxstrap.UI.Elements.Dialogs;
+using Bloxstrap.UI.Elements.Menu;
 
 namespace Bloxstrap.UI
 {
