@@ -19,20 +19,44 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Log tracer" ShowMinimize="True" ShowMaximize="True" CanMaximize="True" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
-        <TextBlock Grid.Row="1" Padding="12" Text="{Binding LogLocation, Mode=OneWay, StringFormat='Tracing \{0\}'}" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{ui:ThemeResource ControlFillColorDefaultBrush}">
+            <ui:MenuItem Margin="4,8,0,8" Header="Keep on top" IsCheckable="True" Click="KeepOnTopMenuItem_Click" />
+            <ui:MenuItem Margin="0,8,0,8" Header="Scroll to end" IsCheckable="True" IsChecked="True" Click="AutoScrollMenuItem_Click" />
+            <ui:MenuItem Name="TextWrappingToggle" Margin="0,8,0,8" Header="Text wrapping" IsCheckable="True" IsChecked="False" />
+            <ui:MenuItem Margin="0,8,4,8" Header="Locate log file" Command="{Binding LocateLogFileCommand, Mode=OneTime}" />
+        </StackPanel>
 
-        <ScrollViewer x:Name="ScrollViewer" Grid.Row="2">
-            <RichTextBox Grid.Row="1" Block.LineHeight="2" IsReadOnly="True" Background="Transparent" BorderThickness="0" TextChanged="RichTextBox_TextChanged">
-                <FlowDocument x:Name="FlowDocument">
-                    <Paragraph FontFamily="Courier New" FontSize="14">
-                        <Run Text="{Binding LogContents, Mode=OneWay}" />
-                    </Paragraph>
-                </FlowDocument>
-            </RichTextBox>
+        <ScrollViewer x:Name="ScrollViewer" Grid.Row="2" VerticalAlignment="Top">
+            <ScrollViewer.Style>
+                <Style TargetType="ScrollViewer">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=TextWrappingToggle, Path=IsChecked}" Value="True">
+                            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=TextWrappingToggle, Path=IsChecked}" Value="False">
+                            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ScrollViewer.Style>
+            <TextBox Padding="0" Background="Transparent" TextWrapping="WrapWithOverflow" BorderThickness="0" IsReadOnly="True" FontFamily="Courier New" Text="{Binding LogContents, Mode=OneWay}" TextChanged="TextBox_TextChanged" />
         </ScrollViewer>
+
+        <StatusBar Grid.Row="3" Padding="8">
+            <StatusBarItem>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding Mode="OneWay" StringFormat="Tracing {0}">
+                            <Binding Path="LogFilename" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </ui:UiWindow>

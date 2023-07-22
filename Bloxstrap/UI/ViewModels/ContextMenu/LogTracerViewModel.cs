@@ -9,10 +9,12 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
     {
         private readonly Window _window;
         private readonly RobloxActivity _activityWatcher;
+        private int _lineNumber = 1;
 
         public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
+        public ICommand LocateLogFileCommand => new RelayCommand(LocateLogFile);
 
-        public string LogLocation => _activityWatcher.LogFilename;
+        public string LogFilename => Path.GetFileName(_activityWatcher.LogLocation);
         public string LogContents { get; private set; } = "";
 
         public LogTracerViewModel(Window window, RobloxActivity activityWatcher) 
@@ -22,9 +24,13 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
             _activityWatcher.OnLogEntry += (_, message) =>
             {
-                LogContents += message += "\r\n";
+                LogContents += $"{_lineNumber}: {message}\r\n";
                 OnPropertyChanged(nameof(LogContents));
+
+                _lineNumber += 1;
             };
         }
+
+        private void LocateLogFile() => Process.Start("explorer.exe", $"/select,\"{_activityWatcher.LogLocation}\"");
     }
 }

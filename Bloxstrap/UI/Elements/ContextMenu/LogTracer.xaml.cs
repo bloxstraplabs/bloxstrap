@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 using Bloxstrap.UI.ViewModels.ContextMenu;
 
@@ -9,16 +10,22 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     /// </summary>
     public partial class LogTracer
     {
-        private readonly LogTracerViewModel _viewModel;
+        private bool _autoscroll = true;
 
         public LogTracer(RobloxActivity activityWatcher)
         {
-            _viewModel = new LogTracerViewModel(this, activityWatcher);
-            DataContext = _viewModel;
-
+            DataContext = new LogTracerViewModel(this, activityWatcher);
             InitializeComponent();
         }
 
-        private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e) => ScrollViewer.ScrollToEnd();
+        private void KeepOnTopMenuItem_Click(object sender, RoutedEventArgs e) => Topmost = ((MenuItem)sender).IsChecked;
+        
+        private void AutoScrollMenuItem_Click(object sender, RoutedEventArgs e) => _autoscroll = ((MenuItem)sender).IsChecked;
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_autoscroll)
+                ScrollViewer.ScrollToEnd();
+        }
     }
 }

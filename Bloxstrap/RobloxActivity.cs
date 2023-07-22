@@ -28,7 +28,7 @@
 
         private Dictionary<string, string> GeolcationCache = new();
 
-        public string LogFilename = null!;
+        public string LogLocation = null!;
 
         // these are values to use assuming the player isn't currently in a game
         // hmm... do i move this to a model?
@@ -55,6 +55,11 @@
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
 
+            int delay = 1000;
+
+            if (App.Settings.Prop.OhHeyYouFoundMe)
+                delay = 250;
+
             string logDirectory = Path.Combine(Directories.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
@@ -79,9 +84,9 @@
                 await Task.Delay(1000);
             }
 
-            LogFilename = logFileInfo.Name;
+            LogLocation = logFileInfo.FullName;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {LogFilename}");
+            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {LogLocation}");
 
             AutoResetEvent logUpdatedEvent = new(false);
             FileSystemWatcher logWatcher = new()
@@ -99,7 +104,7 @@
                 string? log = await sr.ReadLineAsync();
 
                 if (string.IsNullOrEmpty(log))
-                    logUpdatedEvent.WaitOne(1000);
+                    logUpdatedEvent.WaitOne(delay);
                 else
                     ExamineLogEntry(log);
             }
