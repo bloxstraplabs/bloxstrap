@@ -25,7 +25,7 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] Received ready from user {e.User.Username} ({e.User.ID})");
 
             _rpcClient.OnPresenceUpdate += (_, e) =>
-                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Updated presence");
+                App.Logger.WriteLine("[DiscordRichPresence::DiscordRichPresence] Presence updated");
 
             _rpcClient.OnError += (_, e) =>
                 App.Logger.WriteLine($"[DiscordRichPresence::DiscordRichPresence] An RPC error occurred - {e.Message}");
@@ -114,10 +114,11 @@ namespace Bloxstrap.Integrations
             }
 
             string icon = "roblox";
+            long placeId = _activityWatcher.ActivityPlaceId;
 
-            App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Setting presence for Place ID {_activityWatcher.ActivityPlaceId}");
+            App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Setting presence for Place ID {placeId}");
 
-            var universeIdResponse = await Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{_activityWatcher.ActivityPlaceId}/universe");
+            var universeIdResponse = await Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{placeId}/universe");
             if (universeIdResponse is null)
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Could not get Universe ID!");
@@ -159,7 +160,7 @@ namespace Bloxstrap.Integrations
                 new Button
                 {
                     Label = "See Details",
-                    Url = $"https://www.roblox.com/games/{_activityWatcher.ActivityPlaceId}"
+                    Url = $"https://www.roblox.com/games/{placeId}"
                 }
             };
 
@@ -168,13 +169,19 @@ namespace Bloxstrap.Integrations
                 buttons.Insert(0, new Button
                 {
                     Label = "Join",
-                    Url = $"roblox://experiences/start?placeId={_activityWatcher.ActivityPlaceId}&gameInstanceId={_activityWatcher.ActivityJobId}"
+                    Url = $"roblox://experiences/start?placeId={placeId}&gameInstanceId={_activityWatcher.ActivityJobId}"
                 });
             }
 
             // so turns out discord rejects the presence set request if the place name is less than 2 characters long lol
             if (universeDetails.Name.Length < 2)
                 universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
+
+            if (!_activityWatcher.ActivityInGame || placeId != _activityWatcher.ActivityPlaceId)
+            {
+                App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Aborting presence set because game activity has changed");
+                return false;
+            }
 
             _currentPresence = new RichPresence
             {
@@ -198,14 +205,14 @@ namespace Bloxstrap.Integrations
 
         public void UpdatePresence()
         {
-            App.Logger.WriteLine($"[DiscordRichPresence::UpdatePresence] Updating presence");
-
             if (_currentPresence is null)
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::UpdatePresence] Presence is empty, clearing");
                 _rpcClient.ClearPresence();
                 return;
             }
+
+            App.Logger.WriteLine($"[DiscordRichPresence::UpdatePresence] Updating presence");
 
             if (_visible)
                 _rpcClient.SetPresence(_currentPresence);
@@ -216,6 +223,7 @@ namespace Bloxstrap.Integrations
             App.Logger.WriteLine("[DiscordRichPresence::Dispose] Cleaning up Discord RPC and Presence");
             _rpcClient.ClearPresence();
             _rpcClient.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
