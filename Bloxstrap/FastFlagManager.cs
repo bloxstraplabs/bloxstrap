@@ -3,7 +3,7 @@ using System.Windows.Media.Animation;
 
 namespace Bloxstrap
 {
-    public class FastFlagManager : JsonManager<Dictionary<string, string>>
+    public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
         public override string FileLocation => Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json");
 
@@ -124,8 +124,8 @@ namespace Bloxstrap
         public string? GetValue(string key)
         {
             // check if we have an updated change for it pushed first
-            if (Prop.TryGetValue(key, out string? value) && value is not null)
-                return value;
+            if (Prop.TryGetValue(key, out object? value) && value is not null)
+                return value.ToString();
 
             return null;
         }
@@ -167,6 +167,16 @@ namespace Bloxstrap
             }
 
             return mapping.First().Key;
+        }
+
+        public override void Save()
+        {
+            // convert all flag values to strings before saving
+
+            foreach (var pair in Prop)
+                Prop[pair.Key] = pair.Value.ToString()!;
+
+            base.Save();
         }
 
         public override void Load()

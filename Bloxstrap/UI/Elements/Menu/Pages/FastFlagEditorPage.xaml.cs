@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 {
                     // Enabled = true,
                     Name = pair.Key,
-                    Value = pair.Value
+                    Value = pair.Value.ToString()!
                 };
 
                 /* if (entry.Name.StartsWith("Disable"))
