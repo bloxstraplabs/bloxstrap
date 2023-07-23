@@ -17,6 +17,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            // refresh datacontext on page load to synchronize with editor page
             DataContext = new FastFlagsViewModel();
         }
 

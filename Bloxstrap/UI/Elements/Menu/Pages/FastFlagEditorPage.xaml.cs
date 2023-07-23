@@ -37,20 +37,17 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            // refresh list on page load to synchronize with preset page
+
             _fastFlagList.Clear();
 
-            foreach (string flagName in App.FastFlags.Prop.Keys)
+            foreach (var pair in App.FastFlags.Prop)
             {
-                string? flagValue = App.FastFlags.GetValue(flagName);
-
-                if (flagValue is null)
-                    continue;
-
                 var entry = new FastFlag
                 {
                     Enabled = true,
-                    Name = flagName,
-                    Value = flagValue
+                    Name = pair.Key,
+                    Value = pair.Value
                 };
 
                 if (entry.Name.StartsWith("Disable"))
