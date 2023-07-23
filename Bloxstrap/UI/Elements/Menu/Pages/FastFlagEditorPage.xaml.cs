@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
 
 using Bloxstrap.UI.Elements.Dialogs;
 
@@ -35,14 +22,17 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             InitializeComponent();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void ReloadList(bool showPresets = false)
         {
-            // refresh list on page load to synchronize with preset page
-
             _fastFlagList.Clear();
+
+            var presetFlags = FastFlagManager.PresetFlags.Values;
 
             foreach (var pair in App.FastFlags.Prop)
             {
+                if (!showPresets && presetFlags.Contains(pair.Key))
+                    continue;
+
                 var entry = new FastFlag
                 {
                     Enabled = true,
@@ -61,6 +51,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             DataGrid.ItemsSource = _fastFlagList;
         }
+
+        // refresh list on page load to synchronize with preset page
+        private void Page_Loaded(object sender, RoutedEventArgs e) => ReloadList();
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
@@ -134,6 +127,12 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 _fastFlagList.Remove(entry);
                 App.FastFlags.SetValue(entry.Name, null);
             }
+        }
+
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is ToggleButton button)
+                ReloadList(button.IsChecked ?? false);
         }
     }
 }

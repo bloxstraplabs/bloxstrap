@@ -122,7 +122,7 @@
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingTechnologies.Keys, Mode=OneTime}" Text="{Binding SelectedLightingTechnology, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}" />
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
