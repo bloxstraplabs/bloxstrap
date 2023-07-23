@@ -1,15 +1,31 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
+using Wpf.Ui.Mvvm.Contracts;
+
 using CommunityToolkit.Mvvm.Input;
+
+using Bloxstrap.UI.Elements.Menu.Pages;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class FastFlagsViewModel : NotifyPropertyChangedViewModel
     {
-        public ICommand OpenClientSettingsCommand => new RelayCommand(OpenClientSettings);
+        private readonly Page _page;
 
-        private void OpenClientSettings() => Utilities.ShellExecute(Path.Combine(Directories.Modifications, "ClientSettings\\ClientAppSettings.json"));
+        public FastFlagsViewModel(Page page) 
+        { 
+            _page = page;
+        }
+
+        private void OpenFastFlagEditor()
+        {
+            if (Window.GetWindow(_page) is INavigationWindow window)
+                window.Navigate(typeof(FastFlagEditorPage));
+        }
+
+        public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
         public Visibility ShowDebugFlags => App.Settings.Prop.OhHeyYouFoundMe ? Visibility.Visible : Visibility.Collapsed;
 

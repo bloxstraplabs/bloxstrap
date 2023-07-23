@@ -15,36 +15,14 @@
 
     <Grid>
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
       
-      <ui:CardAction x:Name="OpenClientSettingsCardAction" Grid.Column="0" Margin="0,0,4,0" Icon="DocumentEdit24" Command="{Binding OpenClientSettingsCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
+      <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="WindowDevEdit20" Command="{Binding OpenFastFlagEditorCommand}">
         <StackPanel>
-          <TextBlock FontSize="14" Text="Edit ClientAppSettings.json">
-            <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
-            <TextBlock.Style>
-              <Style>
-                <Style.Triggers>
-                  <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
-                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
-                  </DataTrigger>
-                </Style.Triggers>
-              </Style>
-            </TextBlock.Style>
-          </TextBlock>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-            <TextBlock.Style>
-              <Style>
-                <Setter Property="TextBlock.Text" Value="Where all FastFlags are saved. Manage your own flags here."/>
-                <Style.Triggers>
-                  <DataTrigger Binding="{Binding ElementName=OpenClientSettingsCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
-                    <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
-                  </DataTrigger>
-                </Style.Triggers>
-              </Style>
-            </TextBlock.Style>
-          </TextBlock>
+          <TextBlock FontSize="14" Text="FastFlag Editor" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Manage your own FastFlags." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
 

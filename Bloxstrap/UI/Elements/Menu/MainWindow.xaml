@@ -43,9 +43,9 @@
           <ui:NavigationItem Content="Behaviour" PageType="{x:Type pages:BehaviourPage}" Icon="Settings24" Tag="behaviour" />
           <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
           <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
-          
+
+          <ui:NavigationItem Content="FastFlag Editor" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
           <ui:NavigationItem Content="Before you install..." PageType="{x:Type pages:PreInstallPage}" Tag="preinstall" Visibility="Collapsed" />
-          <ui:NavigationItem Content="FastFlag Editor" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" />
         </ui:NavigationFluent.Items>
       </ui:NavigationFluent>
 

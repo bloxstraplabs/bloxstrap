@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         public FastFlagsPage()
         {
-            DataContext = new FastFlagsViewModel();
+            DataContext = new FastFlagsViewModel(this);
             InitializeComponent();
         }
 
@@ -28,7 +28,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 return;
             }
 
-            DataContext = new FastFlagsViewModel();
+            DataContext = new FastFlagsViewModel(this);
         }
 
         private void ValidateInt32(object sender, TextCompositionEventArgs e) => e.Handled = !Int32.TryParse(e.Text, out int _);

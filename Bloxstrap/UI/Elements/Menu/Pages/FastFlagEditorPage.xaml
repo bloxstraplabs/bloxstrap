@@ -12,13 +12,30 @@
     <Grid Margin="0,0,14,14">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
         <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Double click the value column to edit." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <DataGrid Name="DataGrid" Grid.Row="1" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+        <StackPanel Grid.Row="1" Margin="0,0,0,16" Orientation="Horizontal">
+            <ui:Button Icon="ArrowLeft48" Content="Back" Click="BackButton_Click" />
+            <ui:Button Icon="Add28" Content="Add new" Click="AddButton_Click" Margin="12,0,0,0" />
+            <ui:Button Icon="Delete48" Content="Delete selected" Click="DeleteButton_Click" Appearance="Danger" Margin="12,0,0,0">
+                <ui:Button.Style>
+                    <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=DataGrid, Path=SelectedItems.Count}" Value="0">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ui:Button.Style>
+            </ui:Button>
+            <ToggleButton Content="Show preset flags" Click="ToggleButton_Click" Margin="12,0,0,0" />
+        </StackPanel>
+
+        <DataGrid Name="DataGrid" Grid.Row="2" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Style>
                 <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
                     <Setter Property="Background" Value="Transparent" />
@@ -62,21 +79,5 @@
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-
-        <StackPanel Grid.Row="2" Margin="0,16,0,0" Orientation="Horizontal">
-            <ui:Button Icon="Add28" Content="Add new" Click="AddButton_Click" />
-            <ui:Button Icon="Delete48" Content="Delete selected" Click="DeleteButton_Click" Appearance="Danger" Margin="12,0,0,0">
-                <ui:Button.Style>
-                    <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=DataGrid, Path=SelectedItems.Count}" Value="0">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ui:Button.Style>
-            </ui:Button>
-            <ToggleButton Content="Show preset flags" Click="ToggleButton_Click" Margin="12,0,0,0" />
-        </StackPanel>
     </Grid>
 </ui:UiPage>

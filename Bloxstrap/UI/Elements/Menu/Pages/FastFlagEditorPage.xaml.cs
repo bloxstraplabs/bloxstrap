@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
+using Wpf.Ui.Mvvm.Contracts;
+
 using Bloxstrap.UI.Elements.Dialogs;
 
 namespace Bloxstrap.UI.Elements.Menu.Pages
@@ -65,6 +67,12 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
                     break;
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Window.GetWindow(this) is INavigationWindow window)
+                window.Navigate(typeof(FastFlagsPage));
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
