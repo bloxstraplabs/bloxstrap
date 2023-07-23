@@ -134,7 +134,7 @@ namespace Bloxstrap.UI
             App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
 
             _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
-            _notifyIcon.Dispose();
+            _notifyIcon?.Dispose();
 
             _disposed = true;
 
