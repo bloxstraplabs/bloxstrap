@@ -10,14 +10,24 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
     /// </summary>
     public partial class FastFlagsPage
     {
+        bool _initialLoad = false;
+
         public FastFlagsPage()
         {
+            DataContext = new FastFlagsViewModel();
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             // refresh datacontext on page load to synchronize with editor page
+            
+            if (!_initialLoad)
+            {
+                _initialLoad = true;
+                return;
+            }
+
             DataContext = new FastFlagsViewModel();
         }
 

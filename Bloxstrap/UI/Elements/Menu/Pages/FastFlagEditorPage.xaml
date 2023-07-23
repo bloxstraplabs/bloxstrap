@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Press the delete key to delete a selected entry." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Double click the value column to edit." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <DataGrid Name="DataGrid" Grid.Row="1" Style="{x:Null}" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Columns>
