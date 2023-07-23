@@ -18,15 +18,8 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
-    - uses: actions/cache@v3
-      with:
-        path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-nuget
-
     - name: Restore dependencies
-      run: dotnet restore --locked-mode
+      run: dotnet restore
 
     - name: Build
       run: dotnet build --no-restore
