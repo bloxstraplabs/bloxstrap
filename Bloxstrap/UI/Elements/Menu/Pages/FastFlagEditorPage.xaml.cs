@@ -16,13 +16,14 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         // using a datagrid is a codebehind thing only and thats it theres literally no way around it
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
+        private bool _showPresets = false;
 
         public FastFlagEditorPage()
         {
             InitializeComponent();
         }
 
-        private void ReloadList(bool showPresets = false)
+        private void ReloadList()
         {
             _fastFlagList.Clear();
 
@@ -30,7 +31,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             foreach (var pair in App.FastFlags.Prop)
             {
-                if (!showPresets && presetFlags.Contains(pair.Key))
+                if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
 
                 var entry = new FastFlag
@@ -131,8 +132,11 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is ToggleButton button)
-                ReloadList(button.IsChecked ?? false);
+            if (sender is not ToggleButton button)
+                return;
+
+            _showPresets = button.IsChecked ?? false;
+            ReloadList();
         }
     }
 }
