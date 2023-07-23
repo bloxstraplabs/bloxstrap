@@ -18,15 +18,15 @@
         
         <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Double click the value column to edit." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:DataGrid Name="DataGrid" Grid.Row="1" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
-            <ui:DataGrid.Style>
-                <Style TargetType="ui:DataGrid" BasedOn="{StaticResource {x:Type ui:DataGrid}}">
+        <DataGrid Name="DataGrid" Grid.Row="1" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+            <DataGrid.Style>
+                <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
                     <Setter Property="Background" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
                 </Style>
-            </ui:DataGrid.Style>
+            </DataGrid.Style>
             
-            <ui:DataGrid.ColumnHeaderStyle>
+            <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="Background" Value="{DynamicResource ControlFillColorTertiaryBrush}" />
                     <Setter Property="Height" Value="32" />
@@ -34,9 +34,9 @@
                     <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
                     <Setter Property="BorderThickness" Value="1" />
                 </Style>
-            </ui:DataGrid.ColumnHeaderStyle>
+            </DataGrid.ColumnHeaderStyle>
 
-            <ui:DataGrid.CellStyle>
+            <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
@@ -44,6 +44,7 @@
                             <Setter Property="Background" Value="{DynamicResource PaletteDeepPurpleBrush}" />
                         </Trigger>
                     </Style.Triggers>
+                    <Setter Property="Height" Value="32" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="DataGridCell">
@@ -54,14 +55,13 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </ui:DataGrid.CellStyle>
+            </DataGrid.CellStyle>
             
-            <ui:DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding Enabled}" Width="68" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Key}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*" />
-            </ui:DataGrid.Columns>
-        </ui:DataGrid>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <StackPanel Grid.Row="2" Margin="0,16,0,0" Orientation="Horizontal">
             <ui:Button Icon="Add28" Content="Add new" Click="AddButton_Click" />
