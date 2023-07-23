@@ -34,10 +34,7 @@
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", null },
-                    { "FFlagEnableInGameMenuControls", null },
-                    { "FFlagEnableV3MenuABTest3", null },
-                    { "FFlagEnableMenuControlsABTest", null },
-                    { "FFlagEnableInGameMenuModernization", null }
+                    { "FFlagEnableInGameMenuControls", null }
                 }
             },
 
@@ -46,10 +43,7 @@
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuControls", "False" },
-                    { "FFlagEnableV3MenuABTest3", "False" },
-                    { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization", "False" }
+                    { "FFlagEnableInGameMenuControls", "False" }
                 }
             },
 
@@ -58,10 +52,7 @@
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "False" },
-                    { "FFlagEnableInGameMenuControls", "False" },
-                    { "FFlagEnableV3MenuABTest3", "False" },
-                    { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization", "False" }
+                    { "FFlagEnableInGameMenuControls", "False" }
                 }
             },
 
@@ -70,22 +61,7 @@
                 new Dictionary<string, string?>
                 {
                     { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuControls", "True" },
-                    { "FFlagEnableV3MenuABTest3", "True" },
-                    { "FFlagEnableMenuControlsABTest", "True" },
-                    { "FFlagEnableInGameMenuModernization", "False" }
-                }
-            },
-
-            {
-                "Version 5 (2023)",
-                new Dictionary<string, string?>
-                {
-                    { "FFlagDisableNewIGMinDUA", "True" },
-                    { "FFlagEnableInGameMenuControls", "False" },
-                    { "FFlagEnableV3MenuABTest3", "False" },
-                    { "FFlagEnableMenuControlsABTest", "False" },
-                    { "FFlagEnableInGameMenuModernization", "True" }
+                    { "FFlagEnableInGameMenuControls", "True" }
                 }
             }
         };
