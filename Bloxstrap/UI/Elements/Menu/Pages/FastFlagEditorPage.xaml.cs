@@ -27,6 +27,8 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void ReloadList()
         {
+            var selectedEntry = DataGrid.SelectedItem as FastFlag;
+
             _fastFlagList.Clear();
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
@@ -52,7 +54,19 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 _fastFlagList.Add(entry);
             }
 
-            DataGrid.ItemsSource = _fastFlagList;
+            if (DataGrid.ItemsSource is null)
+                DataGrid.ItemsSource = _fastFlagList;
+
+            if (selectedEntry is null)
+                return;
+
+            var newSelectedEntry = _fastFlagList.Where(x => x.Name == selectedEntry.Name).FirstOrDefault();
+
+            if (newSelectedEntry is null)
+                return;
+            
+            DataGrid.SelectedItem = newSelectedEntry;
+            DataGrid.ScrollIntoView(newSelectedEntry);
         }
 
         // refresh list on page load to synchronize with preset page
