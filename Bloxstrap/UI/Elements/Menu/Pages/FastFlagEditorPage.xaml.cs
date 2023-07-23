@@ -17,7 +17,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         // believe me when i say there is absolutely zero point to using mvvm for this
         // using a datagrid is a codebehind thing only and thats it theres literally no way around it
 
-        private readonly ObservableCollection<KeyValuePair<string, string>> _fastFlagList = new();
+        private readonly ObservableCollection<FastFlag> _fastFlagList = new();
         private bool _showPresets = false;
 
         public FastFlagEditorPage()
@@ -31,10 +31,23 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
 
-            foreach (var entry in App.FastFlags.Prop)
+            foreach (var pair in App.FastFlags.Prop)
             {
-                if (!_showPresets && presetFlags.Contains(entry.Key))
+                if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
+
+                var entry = new FastFlag
+                {
+                    // Enabled = true,
+                    Name = pair.Key,
+                    Value = pair.Value
+                };
+
+                /* if (entry.Name.StartsWith("Disable"))
+                {
+                    entry.Enabled = false;
+                    entry.Name = entry.Name[7..];
+                } */
 
                 _fastFlagList.Add(entry);
             }
@@ -48,14 +61,30 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             int index = e.Row.GetIndex();
-            var entry = _fastFlagList[index];
+            FastFlag entry = _fastFlagList[index];
 
             switch (e.Column.Header)
             {
+                /* case "Enabled":
+                    bool enabled = (bool)((CheckBox)e.EditingElement).IsChecked!;
+
+                    if (enabled)
+                    {
+                        App.FastFlags.SetValue(entry.Name, entry.Value);
+                        App.FastFlags.SetValue($"Disable{entry.Name}", null);
+                    }
+                    else
+                    {
+                        App.FastFlags.SetValue(entry.Name, null);
+                        App.FastFlags.SetValue($"Disable{entry.Name}", entry.Value);
+                    }
+
+                    break; */
+
                 case "Name":
                     string newName = ((TextBox)e.EditingElement).Text;
 
-                    App.FastFlags.SetValue(entry.Key, null);
+                    App.FastFlags.SetValue(entry.Name, null);
                     App.FastFlags.SetValue(newName, entry.Value);
 
                     break;
@@ -63,7 +92,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 case "Value":
                     string newValue = ((TextBox)e.EditingElement).Text;
 
-                    App.FastFlags.SetValue(entry.Key, newValue);
+                    App.FastFlags.SetValue(entry.Name, newValue);
 
                     break;
             }
@@ -83,24 +112,29 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             if (dialog.Result != MessageBoxResult.OK)
                 return;
 
-            var entry = new KeyValuePair<string, string>(dialog.FlagNameTextBox.Text, dialog.FlagValueTextBox.Text);
+            var entry = new FastFlag
+            {
+                // Enabled = true,
+                Name = dialog.FlagNameTextBox.Text,
+                Value = dialog.FlagValueTextBox.Text
+            };
 
             _fastFlagList.Add(entry);
 
-            App.FastFlags.SetValue(entry.Key, entry.Value);
+            App.FastFlags.SetValue(entry.Name, entry.Value);
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var tempList = new List<KeyValuePair<string, string>>();
+            var tempList = new List<FastFlag>();
 
-            foreach (KeyValuePair<string, string> entry in DataGrid.SelectedItems)
+            foreach (FastFlag entry in DataGrid.SelectedItems)
                 tempList.Add(entry);
 
-            foreach (var entry in tempList)
+            foreach (FastFlag entry in tempList)
             {
                 _fastFlagList.Remove(entry);
-                App.FastFlags.SetValue(entry.Key, null);
+                App.FastFlags.SetValue(entry.Name, null);
             }
         }
 
