@@ -10,6 +10,7 @@
     <Version>2.4.0</Version>
     <FileVersion>2.4.0.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
   <ItemGroup>
