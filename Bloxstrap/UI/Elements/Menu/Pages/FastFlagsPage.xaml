@@ -19,7 +19,7 @@
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
       
-      <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="WindowDevEdit20" Command="{Binding OpenFastFlagEditorCommand}">
+      <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
         <StackPanel>
           <TextBlock FontSize="14" Text="FastFlag Editor" />
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Manage your own FastFlags." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

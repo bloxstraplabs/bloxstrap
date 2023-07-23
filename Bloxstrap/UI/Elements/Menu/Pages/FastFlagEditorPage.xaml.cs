@@ -121,6 +121,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             _fastFlagList.Add(entry);
 
+            DataGrid.SelectedItem = entry;
+            DataGrid.ScrollIntoView(entry);
+
             App.FastFlags.SetValue(entry.Name, entry.Value);
         }
 
