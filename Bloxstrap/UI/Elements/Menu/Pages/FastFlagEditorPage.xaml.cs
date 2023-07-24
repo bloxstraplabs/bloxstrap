@@ -126,19 +126,39 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             if (dialog.Result != MessageBoxResult.OK)
                 return;
 
-            var entry = new FastFlag
-            {
-                // Enabled = true,
-                Name = dialog.FlagNameTextBox.Text,
-                Value = dialog.FlagValueTextBox.Text
-            };
+            string name = dialog.FlagNameTextBox.Text;
+            
+            FastFlag? entry;
 
-            _fastFlagList.Add(entry);
+            if (App.FastFlags.GetValue(name) is null)
+            {
+                entry = new FastFlag
+                {
+                    // Enabled = true,
+                    Name = dialog.FlagNameTextBox.Text,
+                    Value = dialog.FlagValueTextBox.Text
+                };
+
+                _fastFlagList.Add(entry);
+
+                App.FastFlags.SetValue(entry.Name, entry.Value);
+            }
+            else
+            {
+                Controls.ShowMessageBox("An entry for this FastFlag already exists.", MessageBoxImage.Information);
+
+                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(dialog.FlagNameTextBox.Text))
+                {
+                    _showPresets = true;
+                    TogglePresetsButton.IsChecked = true;
+                    ReloadList();
+                }
+
+                entry = _fastFlagList.Where(x => x.Name == name).FirstOrDefault();
+            }
 
             DataGrid.SelectedItem = entry;
             DataGrid.ScrollIntoView(entry);
-
-            App.FastFlags.SetValue(entry.Name, entry.Value);
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
