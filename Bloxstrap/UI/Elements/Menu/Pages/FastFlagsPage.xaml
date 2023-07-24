@@ -88,7 +88,7 @@
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Capped to 60 FPS by default. Use a large number like 9999 for no limit." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Use a large number like 9999 for no limit. Set as 0 for defaults. " Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
