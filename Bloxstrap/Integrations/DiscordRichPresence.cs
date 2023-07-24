@@ -172,10 +172,6 @@ namespace Bloxstrap.Integrations
                 Url = $"https://www.roblox.com/games/{placeId}"
             });
 
-            // so turns out discord rejects the presence set request if the place name is less than 2 characters long lol
-            if (universeDetails.Name.Length < 2)
-                universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
-
             if (!_activityWatcher.ActivityInGame || placeId != _activityWatcher.ActivityPlaceId)
             {
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Aborting presence set because game activity has changed");
@@ -191,7 +187,7 @@ namespace Bloxstrap.Integrations
 
             _currentPresence = new RichPresence
             {
-                Details = universeDetails.Name,
+                Details = $"Playing {universeDetails.Name}",
                 State = status,
                 Timestamps = new Timestamps { Start = _timeStartedUniverse },
                 Buttons = buttons.ToArray(),

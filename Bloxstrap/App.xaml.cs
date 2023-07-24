@@ -320,6 +320,8 @@ namespace Bloxstrap
                 if (!IsNoLaunch && Settings.Prop.EnableActivityTracking)
                     NotifyIcon?.InitializeContextMenu();
 
+                Logger.WriteLine($"[App::OnStartup] Waiting for bootstrapper task to finish");
+
                 bootstrapperTask.Wait();
 
                 if (singletonMutex is not null)
