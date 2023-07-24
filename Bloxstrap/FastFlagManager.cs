@@ -110,13 +110,19 @@ namespace Bloxstrap
         {
             if (value is null)
             {
+                if (Prop.ContainsKey(key))
+                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");
+
                 Prop.Remove(key);
-                App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");
             }
             else
             {
+                if (Prop.ContainsKey(key))
+                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Setting of '{key}' from '{Prop[key]}' to '{value}' is pending");
+                else
+                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Setting of '{key}' to '{value}' is pending");
+
                 Prop[key] = value.ToString()!;
-                App.Logger.WriteLine($"[FastFlagManager::SetValue] Setting of '{key}' to '{value}' is pending");
             }
         }
 
@@ -157,13 +163,13 @@ namespace Bloxstrap
 
         public string GetPresetEnum(IReadOnlyDictionary<string, string> mapping, string prefix, string value)
         {
-            foreach (var mode in mapping)
+            foreach (var pair in mapping)
             {
-                if (mode.Key == mapping.First().Key)
+                if (pair.Value == "None")
                     continue;
 
-                if (App.FastFlags.GetPreset($"{prefix}.{mode.Value}") == value)
-                    return mode.Key;
+                if (GetPreset($"{prefix}.{pair.Value}") == value)
+                    return pair.Key;
             }
 
             return mapping.First().Key;
