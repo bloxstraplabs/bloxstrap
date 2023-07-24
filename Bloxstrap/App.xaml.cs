@@ -190,7 +190,7 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
-            if (!IsMenuLaunch)
+            if (!IsUninstall && !IsMenuLaunch)
                 NotifyIcon = new();
 
 #if !DEBUG
