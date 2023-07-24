@@ -96,6 +96,7 @@
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
@@ -176,6 +177,11 @@
         <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/users/388534307/profile">DaMlgNoodle</Hyperlink>
       </TextBlock>
       <TextBlock Grid.Row="14" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Providing FastFlags for fixing DPI scaling" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+      <TextBlock Grid.Row="15" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium">
+        <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/nakoyasha">nakoyasha</Hyperlink>
+      </TextBlock>
+      <TextBlock Grid.Row="15" Grid.Column="1" Margin="0,4,0,4" VerticalAlignment="Bottom" Text="Suggesting the idea for the notification area context menu" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
     </Grid>
     <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
