@@ -30,7 +30,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: Bloxstrap (${{ matrix.configuration }}, x64)
+        name: Bloxstrap (${{ matrix.configuration }})
         path: |
           .\Bloxstrap\bin\${{ matrix.configuration }}\net6.0-windows\win-x64\publish\*
 
@@ -43,17 +43,17 @@ jobs:
       - name: Download x64 release artifact
         uses: actions/download-artifact@v3
         with:
-          name: Bloxstrap (Release, x64)
+          name: Bloxstrap (Release)
           path: x64
 
       - name: Rename binaries
         run: |
-          mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}-x64.exe
+          mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           draft: true
           files: |
-            Bloxstrap-${{ github.ref_name }}-x64.exe
+            Bloxstrap-${{ github.ref_name }}.exe
           name: Bloxstrap ${{ github.ref_name }}
