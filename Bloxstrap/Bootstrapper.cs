@@ -962,19 +962,31 @@ namespace Bloxstrap
             bool appDisabled = App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink");
 
             // cursors
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "Cursor.From2006.ArrowCursor.png");
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png");
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png", "Cursor.From2013.ArrowCursor.png");
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2013.ArrowFarCursor.png");
+
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, new Dictionary<string, string>
+            {
+                { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2006.ArrowCursor.png" },
+                { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png" }
+            });
+
+            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, new Dictionary<string, string>
+            {
+                { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2013.ArrowCursor.png" },
+                { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2013.ArrowFarCursor.png" }
+            });
 
             // character sounds
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_footsteps_plastic.mp3", "OldWalk.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump.mp3", "OldJump.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_falling.mp3", "Empty.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_jump_land.mp3", "Empty.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\action_swim.mp3", "Empty.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, @"content\sounds\impact_water.mp3", "Empty.mp3");
-            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "OldDeath.ogg");
+            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "Sounds.OldDeath.ogg");
+
+            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, new Dictionary<string, string>
+            {
+                { @"content\sounds\action_footsteps_plastic.mp3", "Sounds.OldWalk.mp3" },
+                { @"content\sounds\action_jump.mp3",              "Sounds.OldJump.mp3" },
+                { @"content\sounds\action_falling.mp3",           "Sounds.Empty.mp3" },
+                { @"content\sounds\action_jump_land.mp3",         "Sounds.Empty.mp3" },
+                { @"content\sounds\action_swim.mp3",              "Sounds.Empty.mp3" },
+                { @"content\sounds\impact_water.mp3",             "Sounds.Empty.mp3" }
+            });
 
             // Mobile.rbxl
             await CheckModPreset(appDisabled, @"ExtraContent\places\Mobile.rbxl", "");
@@ -1114,10 +1126,13 @@ namespace Bloxstrap
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
             string fullLocation = Path.Combine(Directories.Modifications, location);
-            string fileHash = File.Exists(fullLocation) ? Utility.MD5Hash.FromFile(fullLocation) : "";
+            string fileHash = File.Exists(fullLocation) ? MD5Hash.FromFile(fullLocation) : "";
+
+            if (!condition && fileHash == "")
+                return;
 
             byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
-            string embeddedHash = Utility.MD5Hash.FromBytes(embeddedData);
+            string embeddedHash = MD5Hash.FromBytes(embeddedData);
 
             if (!condition)
             {
@@ -1134,6 +1149,12 @@ namespace Bloxstrap
 
                 await File.WriteAllBytesAsync(fullLocation, embeddedData);
             }
+        }
+
+        private static async Task CheckModPreset(bool condition, Dictionary<string, string> mapping)
+        {
+            foreach (var pair in mapping)
+                await CheckModPreset(condition, pair.Key, pair.Value);
         }
 
         private async Task DownloadPackage(Package package)

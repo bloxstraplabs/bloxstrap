@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -29,11 +29,11 @@
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowFarCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Empty.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldDeath.ogg" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldJump.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
-    <EmbeddedResource Include="Resources\Mods\OldDeath.ogg" />
-    <EmbeddedResource Include="Resources\Mods\OldJump.mp3" />
-    <EmbeddedResource Include="Resources\Mods\OldWalk.mp3" />
   </ItemGroup>
 
   <ItemGroup>
