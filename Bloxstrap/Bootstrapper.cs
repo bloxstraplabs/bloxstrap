@@ -1000,6 +1000,7 @@ namespace Bloxstrap
             {
                 { @"content\sounds\action_footsteps_plastic.mp3", "Sounds.OldWalk.mp3" },
                 { @"content\sounds\action_jump.mp3",              "Sounds.OldJump.mp3" },
+                { @"content\sounds\action_get_up.mp3",            "Sounds.OldGetUp.mp3" },
                 { @"content\sounds\action_falling.mp3",           "Sounds.Empty.mp3" },
                 { @"content\sounds\action_jump_land.mp3",         "Sounds.Empty.mp3" },
                 { @"content\sounds\action_swim.mp3",              "Sounds.Empty.mp3" },
