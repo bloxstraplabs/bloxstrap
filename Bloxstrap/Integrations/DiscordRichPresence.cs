@@ -164,7 +164,7 @@ namespace Bloxstrap.Integrations
                 }
             };
 
-            if (!App.Settings.Prop.HideRPCButtons)
+            if (!App.Settings.Prop.HideRPCButtons && _activityWatcher.ActivityServerType == ServerType.Public)
             {
                 buttons.Insert(0, new Button
                 {
@@ -183,10 +183,17 @@ namespace Bloxstrap.Integrations
                 return false;
             }
 
+            string status = _activityWatcher.ActivityServerType switch
+            {
+                ServerType.Private => "In a private server",
+                ServerType.Reserved => "In a reserved server",
+                _ => $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
+            };
+
             _currentPresence = new RichPresence
             {
                 Details = universeDetails.Name,
-                State = $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
+                State = status,
                 Timestamps = new Timestamps { Start = _timeStartedUniverse },
                 Buttons = buttons.ToArray(),
                 Assets = new Assets
