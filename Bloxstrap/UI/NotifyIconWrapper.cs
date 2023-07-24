@@ -9,7 +9,7 @@ namespace Bloxstrap.UI
     {
         // lol who needs properly structured mvvm and xaml when you have the absolute catastrophe that this is
 
-        bool _disposed = false;
+        private bool _disposing = false;
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
         private MenuContainer? _menuContainer;
@@ -128,15 +128,16 @@ namespace Bloxstrap.UI
 
         public void Dispose()
         {
-            if (_disposed)
+            if (_disposing)
                 return;
+
+            _disposing = true;
 
             App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
 
             _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
             _notifyIcon?.Dispose();
 
-            _disposed = true;
 
             GC.SuppressFinalize(this);
         }
