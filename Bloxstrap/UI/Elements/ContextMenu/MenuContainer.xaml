@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        xmlns:local="clr-namespace:Bloxstrap.UI.Elements"
+        xmlns:local="clr-namespace:Bloxstrap.UI.Elements.ContextMenu"
         mc:Ignorable="d"
         Title="ContextMenuContainer"
-        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         MinWidth="0"
         MinHeight="0"
         Width="0"
@@ -22,6 +21,7 @@
             <MenuItem x:Name="VersionMenuItem" IsEnabled="False" />
             <Separator />
             <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
+            <MenuItem x:Name="InviteDeeplinkMenuItem" Header="Copy invite deeplink" Visibility="Collapsed" Click="InviteDeeplinkMenuItem_Click" />
             <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" Click="ServerDetailsMenuItem_Click" />
             <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>

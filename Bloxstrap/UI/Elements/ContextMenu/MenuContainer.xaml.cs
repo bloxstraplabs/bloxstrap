@@ -65,6 +65,26 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             _serverInformationWindow.Activate();
         }
 
+        private void ActivityWatcher_OnGameJoin(object? sender, EventArgs e)
+        {
+            Dispatcher.Invoke(() => {
+                if (_activityWatcher?.ActivityServerType == ServerType.Public)
+                    InviteDeeplinkMenuItem.Visibility = Visibility.Visible;
+
+                ServerDetailsMenuItem.Visibility = Visibility.Visible;
+            });
+        }
+
+        private void ActivityWatcher_OnGameLeave(object? sender, EventArgs e)
+        {
+            Dispatcher.Invoke(() => {
+                InviteDeeplinkMenuItem.Visibility = Visibility.Collapsed;
+                ServerDetailsMenuItem.Visibility = Visibility.Collapsed;
+
+                _serverInformationWindow?.Close();
+            });
+        }
+
         private void Window_Loaded(object? sender, RoutedEventArgs e)
         {
             // this is an awful hack lmao im so sorry to anyone who reads this
@@ -81,6 +101,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _richPresenceHandler?.SetVisibility(((MenuItem)sender).IsChecked);
 
+        private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetText($"roblox://experiences/start?placeId={_activityWatcher?.ActivityPlaceId}&gameInstanceId={_activityWatcher?.ActivityJobId}");
+
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 
         private void LogTracerMenuItem_Click(object sender, RoutedEventArgs e)
@@ -95,16 +117,6 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 _logTracerWindow.Show();
 
             _logTracerWindow.Activate();
-        }
-
-        private void ActivityWatcher_OnGameJoin(object? sender, EventArgs e) => Dispatcher.Invoke(() => ServerDetailsMenuItem.Visibility = Visibility.Visible);
-
-        private void ActivityWatcher_OnGameLeave(object? sender, EventArgs e)
-        {
-            Dispatcher.Invoke(() => {
-                ServerDetailsMenuItem.Visibility = Visibility.Collapsed;
-                _serverInformationWindow?.Close();
-            });
         }
     }
 }
