@@ -11,9 +11,12 @@
         MinHeight="0"
         Width="0"
         Height="0"
+        Top="-100"
+        Left="-100"
         ShowInTaskbar="False"
         WindowStyle="None"
         ResizeMode="NoResize"
+        WindowStartupLocation="Manual"
         Loaded="Window_Loaded"
         Closed="Window_Closed">
     <ui:UiWindow.ContextMenu>
