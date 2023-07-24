@@ -75,7 +75,11 @@
 
             while (true)
             {
-                logFileInfo = new DirectoryInfo(logDirectory).GetFiles().OrderByDescending(x => x.CreationTime).First();
+                logFileInfo = new DirectoryInfo(logDirectory)
+                    .GetFiles()
+                    .Where(x => x.CreationTime <= DateTime.Now)
+                    .OrderByDescending(x => x.CreationTime)
+                    .First();
 
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
