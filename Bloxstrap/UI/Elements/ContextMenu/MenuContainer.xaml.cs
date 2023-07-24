@@ -39,7 +39,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_activityWatcher is not null)
             {
-                LogTracerMenuItem.Visibility = Visibility.Visible;
+                if (App.Settings.Prop.OhHeyYouFoundMe)
+                    LogTracerMenuItem.Visibility = Visibility.Visible;
              
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
                 _activityWatcher.OnGameLeave += ActivityWatcher_OnGameLeave;

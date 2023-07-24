@@ -75,7 +75,6 @@ namespace Bloxstrap
                     30, 
                     (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
                 );
-
             }
             else if (!App.IsQuiet)
             {
