@@ -927,7 +927,7 @@ namespace Bloxstrap
             App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Checking executable flags...");
             using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
             {
-                const string flag = " DISABLEDXMAXIMIZEDWINDOWEDMODE";
+                string flag = " DISABLEDXMAXIMIZEDWINDOWEDMODE";
                 string? appFlags = (string?)appFlagsKey.GetValue(_playerLocation);
 
                 if (App.Settings.Prop.DisableFullscreenOptimizations)
@@ -939,6 +939,24 @@ namespace Bloxstrap
                 }
                 else if (appFlags is not null && appFlags.Contains(flag))
                 {
+                    App.Logger.WriteLine($"[Bootstrapper::ApplyModifications] Deleting flag '{flag.Trim()}'");
+
+                    // if there's more than one space, there's more flags set we need to preserve
+                    if (appFlags.Split(' ').Length > 2)
+                        appFlagsKey.SetValue(_playerLocation, appFlags.Remove(appFlags.IndexOf(flag), flag.Length));
+                    else
+                        appFlagsKey.DeleteValue(_playerLocation);
+                }
+
+                // hmm, maybe make a unified handler for this? this is just lazily copy pasted from above
+
+                flag = " RUNASADMIN";
+                appFlags = (string?)appFlagsKey.GetValue(_playerLocation);
+
+                if (appFlags is not null && appFlags.Contains(flag))
+                {
+                    App.Logger.WriteLine($"[Bootstrapper::ApplyModifications] Deleting flag '{flag.Trim()}'");
+                    
                     // if there's more than one space, there's more flags set we need to preserve
                     if (appFlags.Split(' ').Length > 2)
                         appFlagsKey.SetValue(_playerLocation, appFlags.Remove(appFlags.IndexOf(flag), flag.Length));
