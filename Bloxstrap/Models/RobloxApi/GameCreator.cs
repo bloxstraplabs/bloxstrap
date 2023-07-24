@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Bloxstrap.Models.RobloxApi
+﻿namespace Bloxstrap.Models.RobloxApi
 {
     /// <summary>
     /// Roblox.Games.Api.Models.Response.GameCreator

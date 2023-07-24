@@ -7,30 +7,53 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-    <Version>2.3.0</Version>
-    <FileVersion>2.3.0.0</FileVersion>
+    <Version>2.4.0</Version>
+    <FileVersion>2.4.0.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
+    <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
+    <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoDark.jpg" />
+    <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoLight.jpg" />
+    <Resource Include="Resources\Menu\StartMenu.png" />
+    <Resource Include="Resources\MessageBox\Error.png" />
+    <Resource Include="Resources\MessageBox\Information.png" />
+    <Resource Include="Resources\MessageBox\Question.png" />
+    <Resource Include="Resources\MessageBox\Warning.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Mods\OldCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\OldDeath.ogg" />
-    <EmbeddedResource Include="Resources\Mods\OldFarCursor.png" />
+    <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowCursor.png" />
+    <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
+    <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
+    <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowFarCursor.png" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldDeath.ogg" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldGetUp.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldJump.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
+    <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
+    <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-    <PackageReference Include="DiscordRichPresence" Version="1.1.3.18" />
-    <PackageReference Include="ini-parser-netstandard" Version="2.5.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="DiscordRichPresence" Version="1.1.4.20" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\wpfui\src\Wpf.Ui\Wpf.Ui.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="Bloxstrap.Models.Attributes.BuildMetadataAttribute">
+      <_Parameter1>$([System.DateTime]::UtcNow.ToString("s"))Z</_Parameter1>
+      <_Parameter2>$(COMPUTERNAME)\$(USERNAME)</_Parameter2>
+      <_Parameter3>$(CommitHash)</_Parameter3>
+      <_Parameter4>$(CommitRef)</_Parameter4>
+    </AssemblyAttribute>
   </ItemGroup>
 
 </Project>

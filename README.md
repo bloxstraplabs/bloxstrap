@@ -1,10 +1,10 @@
 # <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
-[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total)](https://github.com/pizzaboxer/bloxstrap/releases)
-[![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=4d3dff)](https://github.com/pizzaboxer/bloxstrap/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/pizzaboxer/bloxstrap/releases)
+[![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb)](https://github.com/pizzaboxer/bloxstrap/releases/latest)
+[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
 [![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
-[![Stars](https://img.shields.io/github/stars/pizzaboxer/bloxstrap?style=social)](https://github.com/pizzaboxer/bloxstrap/stargazers)
 
 An open-source, feature-packed alternative bootstrapper for Roblox.
 
@@ -22,7 +22,7 @@ Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/
 > winget install bloxstrap
 ```
 
-You will also need the [.NET 6 Desktop Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.16-windows-x64-installer). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
+You will also need the [.NET 6 Desktop Runtime](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=win11-x64&apphost_version=6.0.16&gui=true). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
 
 It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
 

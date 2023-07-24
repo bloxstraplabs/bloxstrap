@@ -1,40 +1,44 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class RobloxActivity : IDisposable
     {
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
         private const string GameJoiningEntry = "[FLog::Output] ! Joining game";
+        private const string GameJoiningPrivateServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::joinGamePostPrivateServer";
+        private const string GameJoiningReservedServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToReservedServer";
         private const string GameJoiningUDMUXEntry = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
+        private const string GameMessageEntry = "[FLog::Output] [SendBloxstrapMessage]";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
 
         private int _logEntriesRead = 0;
+        private bool _teleportMarker = false;
+        private bool _reservedTeleportMarker = false;
 
+        public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
+        public event EventHandler<GameMessage>? OnGameMessage;
+
+        private Dictionary<string, string> GeolcationCache = new();
+
+        public string LogLocation = null!;
 
         // these are values to use assuming the player isn't currently in a game
-        // keep in mind ActivityIsTeleport is only reset by DiscordRichPresence when it's done accessing it
-        // because of the weird chronology of where the teleporting entry is outputted, there's no way to reset it in here
+        // hmm... do i move this to a model?
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
+        public ServerType ActivityServerType = ServerType.Public;
 
         public bool IsDisposed = false;
 
@@ -51,6 +55,11 @@ namespace Bloxstrap
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
 
+            int delay = 1000;
+
+            if (App.Settings.Prop.OhHeyYouFoundMe)
+                delay = 250;
+
             string logDirectory = Path.Combine(Directories.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
@@ -66,7 +75,11 @@ namespace Bloxstrap
 
             while (true)
             {
-                logFileInfo = new DirectoryInfo(logDirectory).GetFiles().OrderByDescending(x => x.CreationTime).First();
+                logFileInfo = new DirectoryInfo(logDirectory)
+                    .GetFiles()
+                    .Where(x => x.CreationTime <= DateTime.Now)
+                    .OrderByDescending(x => x.CreationTime)
+                    .First();
 
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
@@ -75,8 +88,9 @@ namespace Bloxstrap
                 await Task.Delay(1000);
             }
 
+            LogLocation = logFileInfo.FullName;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {logFileInfo.Name}");
+            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {LogLocation}");
 
             AutoResetEvent logUpdatedEvent = new(false);
             FileSystemWatcher logWatcher = new()
@@ -94,7 +108,7 @@ namespace Bloxstrap
                 string? log = await sr.ReadLineAsync();
 
                 if (string.IsNullOrEmpty(log))
-                    logUpdatedEvent.WaitOne(1000);
+                    logUpdatedEvent.WaitOne(delay);
                 else
                     ExamineLogEntry(log);
             }
@@ -102,7 +116,8 @@ namespace Bloxstrap
 
         private void ExamineLogEntry(string entry)
         {
-            // App.Logger.WriteLine(entry);
+            OnLogEntry?.Invoke(this, entry);
+
             _logEntriesRead += 1;
 
             // debug stats to ensure that the log reader is working correctly
@@ -112,23 +127,43 @@ namespace Bloxstrap
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
 
-            if (!ActivityInGame && ActivityPlaceId == 0 && entry.Contains(GameJoiningEntry))
+            if (!ActivityInGame && ActivityPlaceId == 0)
             {
-                Match match = Regex.Match(entry, GameJoiningEntryPattern);
-
-                if (match.Groups.Count != 4)
+                if (entry.Contains(GameJoiningPrivateServerEntry))
                 {
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
-                    App.Logger.WriteLine(entry);
-                    return;
+                    // we only expect to be joining a private server if we're not already in a game
+                    ActivityServerType = ServerType.Private;
                 }
+                else if (entry.Contains(GameJoiningEntry))
+                {
+                    Match match = Regex.Match(entry, GameJoiningEntryPattern);
 
-                ActivityInGame = false;
-                ActivityPlaceId = long.Parse(match.Groups[2].Value);
-                ActivityJobId = match.Groups[1].Value;
-                ActivityMachineAddress = match.Groups[3].Value;
+                    if (match.Groups.Count != 4)
+                    {
+                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
+                        App.Logger.WriteLine(entry);
+                        return;
+                    }
 
-                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    ActivityInGame = false;
+                    ActivityPlaceId = long.Parse(match.Groups[2].Value);
+                    ActivityJobId = match.Groups[1].Value;
+                    ActivityMachineAddress = match.Groups[3].Value;
+
+                    if (_teleportMarker)
+                    {
+                        ActivityIsTeleport = true;
+                        _teleportMarker = false;
+                    }
+
+                    if (_reservedTeleportMarker)
+                    {
+                        ActivityServerType = ServerType.Reserved;
+                        _reservedTeleportMarker = false;
+                    }
+
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                }
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
             {
@@ -176,20 +211,86 @@ namespace Bloxstrap
                     ActivityJobId = "";
                     ActivityMachineAddress = "";
                     ActivityMachineUDMUX = false;
+                    ActivityIsTeleport = false;
+                    ActivityServerType = ServerType.Public;
 
                     OnGameLeave?.Invoke(this, new EventArgs());
                 }
                 else if (entry.Contains(GameTeleportingEntry))
                 {
                     App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
-                    ActivityIsTeleport = true;
+                    _teleportMarker = true;
+                }
+                else if (_teleportMarker && entry.Contains(GameJoiningReservedServerEntry))
+                {
+                    // we only expect to be joining a reserved server if we're teleporting to one from a game
+                    _reservedTeleportMarker = true;
+                }
+                else if (entry.Contains(GameMessageEntry))
+                {
+                    string messagePlain = entry.Substring(entry.IndexOf(GameMessageEntry) + GameMessageEntry.Length + 1);
+                    GameMessage? message;
+
+                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Received message: '{messagePlain}'");
+
+                    try
+                    {
+                        message = JsonSerializer.Deserialize<GameMessage>(messagePlain);
+                    }
+                    catch (Exception)
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization threw an exception)");
+                        return;
+                    }
+
+                    if (message is null)
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization returned null)");
+                        return;
+                    }
+
+                    if (String.IsNullOrEmpty(message.Command))
+                    {
+                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (Command is empty)");
+                        return;
+                    }
+
+                    OnGameMessage?.Invoke(this, message);
                 }
             }
+        }
+
+        public async Task<string> GetServerLocation()
+        {
+            if (GeolcationCache.ContainsKey(ActivityMachineAddress))
+                return GeolcationCache[ActivityMachineAddress];
+
+            string location = "";
+
+            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
+            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
+            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+
+            locationCity = locationCity.ReplaceLineEndings("");
+            locationRegion = locationRegion.ReplaceLineEndings("");
+            locationCountry = locationCountry.ReplaceLineEndings("");
+
+            if (String.IsNullOrEmpty(locationCountry))
+                location = "N/A";
+            else if (locationCity == locationRegion)
+                location = $"{locationRegion}, {locationCountry}";
+            else
+                location = $"{locationCity}, {locationRegion}, {locationCountry}";
+
+            GeolcationCache[ActivityMachineAddress] = location;
+
+            return location;
         }
 
         public void Dispose()
         {
             IsDisposed = true;
+            GC.SuppressFinalize(this);
         }
     }
 }

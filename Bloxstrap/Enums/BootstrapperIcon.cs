@@ -3,7 +3,7 @@
     public enum BootstrapperIcon
     {
         IconBloxstrap,
-        Icon2009,
+        Icon2008,
         Icon2011,
         IconEarly2015,
         IconLate2015,
