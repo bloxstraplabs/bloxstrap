@@ -155,23 +155,22 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine($"[DiscordRichPresence::SetCurrentGame] Got Universe thumbnail as {icon}");
             }
 
-            List<Button> buttons = new()
-            {
-                new Button
-                {
-                    Label = "See Details",
-                    Url = $"https://www.roblox.com/games/{placeId}"
-                }
-            };
+            List<Button> buttons = new();
 
             if (!App.Settings.Prop.HideRPCButtons && _activityWatcher.ActivityServerType == ServerType.Public)
             {
-                buttons.Insert(0, new Button
+                buttons.Add(new Button
                 {
-                    Label = "Join",
+                    Label = "Join server",
                     Url = $"roblox://experiences/start?placeId={placeId}&gameInstanceId={_activityWatcher.ActivityJobId}"
                 });
             }
+
+            buttons.Add(new Button
+            {
+                Label = "See game page",
+                Url = $"https://www.roblox.com/games/{placeId}"
+            });
 
             // so turns out discord rejects the presence set request if the place name is less than 2 characters long lol
             if (universeDetails.Name.Length < 2)
