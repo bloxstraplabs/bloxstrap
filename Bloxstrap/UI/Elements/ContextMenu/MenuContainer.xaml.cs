@@ -24,13 +24,13 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     {
         // i wouldve gladly done this as mvvm but turns out that data binding just does not work with menuitems for some reason so idk this sucks
 
-        private readonly RobloxActivity? _activityWatcher;
+        private readonly ActivityWatcher? _activityWatcher;
         private readonly DiscordRichPresence? _richPresenceHandler;
 
         private LogTracer? _logTracerWindow;
         private ServerInformation? _serverInformationWindow;
 
-        public MenuContainer(RobloxActivity? activityWatcher, DiscordRichPresence? richPresenceHandler)
+        public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler)
         {
             InitializeComponent();
             

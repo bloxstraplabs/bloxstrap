@@ -1,6 +1,6 @@
-﻿namespace Bloxstrap
+﻿namespace Bloxstrap.Integrations
 {
-    public class RobloxActivity : IDisposable
+    public class ActivityWatcher : IDisposable
     {
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
@@ -44,7 +44,7 @@
 
         public async void StartWatcher()
         {
-            const string LOG_IDENT = "RobloxActivity::StartWatcher";
+            const string LOG_IDENT = "ActivityWatcher::StartWatcher";
 
             // okay, here's the process:
             //
@@ -118,8 +118,8 @@
 
         private void ExamineLogEntry(string entry)
         {
-            const string LOG_IDENT = "RobloxActivity::ExamineLogEntry";
-            
+            const string LOG_IDENT = "ActivityWatcher::ExamineLogEntry";
+
             OnLogEntry?.Invoke(this, entry);
 
             _logEntriesRead += 1;
@@ -253,7 +253,7 @@
                         return;
                     }
 
-                    if (String.IsNullOrEmpty(message.Command))
+                    if (string.IsNullOrEmpty(message.Command))
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (Command is empty)");
                         return;
@@ -266,7 +266,7 @@
 
         public async Task<string> GetServerLocation()
         {
-            const string LOG_IDENT = "RobloxActivity::GetServerLocation";
+            const string LOG_IDENT = "ActivityWatcher::GetServerLocation";
 
             if (GeolcationCache.ContainsKey(ActivityMachineAddress))
                 return GeolcationCache[ActivityMachineAddress];
@@ -291,7 +291,7 @@
             locationRegion = locationRegion.ReplaceLineEndings("");
             locationCountry = locationCountry.ReplaceLineEndings("");
 
-            if (String.IsNullOrEmpty(locationCountry))
+            if (string.IsNullOrEmpty(locationCountry))
                 location = "N/A";
             else if (locationCity == locationRegion)
                 location = $"{locationRegion}, {locationCountry}";

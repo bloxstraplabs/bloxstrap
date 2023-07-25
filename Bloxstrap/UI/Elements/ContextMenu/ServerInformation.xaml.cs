@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using Bloxstrap.Integrations;
 using Bloxstrap.UI.ViewModels.ContextMenu;
 
 namespace Bloxstrap.UI.Elements.ContextMenu
@@ -21,7 +22,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     /// </summary>
     public partial class ServerInformation
     {
-        public ServerInformation(RobloxActivity activityWatcher)
+        public ServerInformation(ActivityWatcher activityWatcher)
         {
             DataContext = new ServerInformationViewModel(this, activityWatcher);
             InitializeComponent();

@@ -5,7 +5,7 @@ namespace Bloxstrap.Integrations
     public class DiscordRichPresence : IDisposable
     {
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
-        private readonly RobloxActivity _activityWatcher;
+        private readonly ActivityWatcher _activityWatcher;
         
         private RichPresence? _currentPresence;
         private bool _visible = true;
@@ -13,7 +13,7 @@ namespace Bloxstrap.Integrations
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
 
-        public DiscordRichPresence(RobloxActivity activityWatcher)
+        public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
             const string LOG_IDENT = "DiscordRichPresence::<construct>";
 

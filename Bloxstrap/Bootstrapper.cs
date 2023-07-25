@@ -236,7 +236,7 @@ namespace Bloxstrap
             }
 
             List<Process> autocloseProcesses = new();
-            RobloxActivity? activityWatcher = null;
+            ActivityWatcher? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");

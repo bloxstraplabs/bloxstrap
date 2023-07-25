@@ -3,12 +3,14 @@ using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
 
+using Bloxstrap.Integrations;
+
 namespace Bloxstrap.UI.ViewModels.ContextMenu
 {
     internal class LogTracerViewModel : NotifyPropertyChangedViewModel
     {
         private readonly Window _window;
-        private readonly RobloxActivity _activityWatcher;
+        private readonly ActivityWatcher _activityWatcher;
         private int _lineNumber = 1;
 
         public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
@@ -17,7 +19,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         public string LogFilename => Path.GetFileName(_activityWatcher.LogLocation);
         public string LogContents { get; private set; } = "";
 
-        public LogTracerViewModel(Window window, RobloxActivity activityWatcher) 
+        public LogTracerViewModel(Window window, ActivityWatcher activityWatcher) 
         { 
             _window = window;
             _activityWatcher = activityWatcher;

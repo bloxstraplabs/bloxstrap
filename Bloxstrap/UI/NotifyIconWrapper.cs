@@ -14,7 +14,7 @@ namespace Bloxstrap.UI
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
         private MenuContainer? _menuContainer;
         
-        private RobloxActivity? _activityWatcher;
+        private ActivityWatcher? _activityWatcher;
         private DiscordRichPresence? _richPresenceHandler;
 
         EventHandler? _alertClickHandler;
@@ -42,7 +42,7 @@ namespace Bloxstrap.UI
             _richPresenceHandler = richPresenceHandler;
         }
 
-        public void SetActivityWatcher(RobloxActivity activityWatcher)
+        public void SetActivityWatcher(ActivityWatcher activityWatcher)
         {
             if (_activityWatcher is not null)
                 return;
