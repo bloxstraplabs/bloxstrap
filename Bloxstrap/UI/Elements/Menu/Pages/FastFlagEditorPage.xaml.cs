@@ -33,7 +33,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
 
-            foreach (var pair in App.FastFlags.Prop)
+            foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
                 if (!_showPresets && presetFlags.Contains(pair.Key))
                     continue;
