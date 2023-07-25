@@ -48,10 +48,11 @@ Bloxstrap also only runs whenever necessary, so it doesn't stay running in the b
 ## Screenshots
 
 <p float="left">
-    <img src="https://user-images.githubusercontent.com/41478239/236173030-cab73a81-21c4-416e-bcba-a1854f3ecce6.png" width="620" />
-    <img src="https://user-images.githubusercontent.com/41478239/219783594-976a3442-2ca2-4940-81db-948528375551.png" width="205" />
-    <img src="https://user-images.githubusercontent.com/41478239/236173107-8da468ff-905e-45d0-af0c-5e433d29b9bc.png" width="419" />
-    <img src="https://user-images.githubusercontent.com/41478239/224809793-9a42c9bf-fdfc-435c-819a-0827b8136ae8.png" width="406" />
+    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/cd723d23-9bff-401e-aadf-deea265a3b1c" width="829" />
+    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/dcfd0cdf-1aae-45bb-849a-f7710ec63b28" width="435" />
+    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/e08cdf28-4f99-46b5-99f2-5c338aac86db" width="390" />
+    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/a45755cb-39da-49df-b0ad-456a139e2efc" Width="593" />
+    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/7ba35223-9115-401f-bbc1-d15e9c5fd79e" width="232" />
 <p>
 
 ## Special thanks
