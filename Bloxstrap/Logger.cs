@@ -1,10 +1,6 @@
 ﻿namespace Bloxstrap
 {
     // https://stackoverflow.com/a/53873141/11852173
-    // TODO - this kind of sucks
-    // the main problem is just that this doesn't finish writing log entries before exiting the program
-    // this can be solved by making writetolog completely synchronous, but while it doesn't affect performance, its's not ideal
-    // also, writing and flushing for every single line that's written may not be great
 
     public class Logger
     {
@@ -97,7 +93,8 @@
             {
                 await _semaphore.WaitAsync();
                 await _filestream!.WriteAsync(Encoding.UTF8.GetBytes($"{message}\r\n"));
-                await _filestream.FlushAsync();
+
+                _ = _filestream.FlushAsync();
             }
             finally
             {
