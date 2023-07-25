@@ -17,8 +17,10 @@ namespace Bloxstrap
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
+        public static string? CustomFontLocation;
 
         public static bool ShouldSaveConfigs { get; set; } = false;
+
         public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; private set; } = true;
         public static bool IsQuiet { get; private set; } = false;

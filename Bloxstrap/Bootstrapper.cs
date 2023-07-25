@@ -980,7 +980,6 @@ namespace Bloxstrap
             bool appDisabled = App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink");
 
             // cursors
-
             await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, new Dictionary<string, string>
             {
                 { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2006.ArrowCursor.png" },
@@ -1036,9 +1035,14 @@ namespace Bloxstrap
             // instead of replacing the fonts themselves, we'll just alter the font family manifests
 
             string modFontFamiliesFolder = Path.Combine(Directories.Modifications, "content\\fonts\\families");
-            string customFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\CustomFont.ttf");
 
-            if (File.Exists(customFontLocation))
+            if (App.IsFirstRun && App.CustomFontLocation is not null)
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(Directories.CustomFont)!);
+                File.Copy(App.CustomFontLocation, Directories.CustomFont);
+            }
+
+            if (File.Exists(Directories.CustomFont))
             {
                 App.Logger.WriteLine("[Bootstrapper::ApplyModifications] Begin font check");
 

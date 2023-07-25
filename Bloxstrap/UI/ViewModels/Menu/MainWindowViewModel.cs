@@ -75,7 +75,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                         $"The folder you've chosen to install {App.ProjectName} to already exists and is NOT empty. It is strongly recommended for {App.ProjectName} to be installed to its own independent folder.\n\n" +
                         "Changing to the following location is suggested:\n" +
                         $"{suggestedChange}\n\n" +
-                        "Would you like to change your install location to this?\n" +
+                        "Would you like to change to the suggested location?\n" +
                         "Selecting 'No' will ignore this warning and continue installation.",
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNoCancel,

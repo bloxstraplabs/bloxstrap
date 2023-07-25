@@ -11,14 +11,16 @@ namespace Bloxstrap.UI.ViewModels.Menu
     {
         private void OpenModsFolder() => Process.Start("explorer.exe", Directories.Modifications);
 
-        private string _customFontLocation = Path.Combine(Directories.Modifications, "content\\fonts\\CustomFont.ttf");
-        private bool _usingCustomFont => File.Exists(_customFontLocation);
+        private bool _usingCustomFont => App.IsFirstRun && App.CustomFontLocation is not null || !App.IsFirstRun && File.Exists(Directories.CustomFont);
 
         private void ManageCustomFont()
         {
             if (_usingCustomFont)
             {
-                File.Delete(_customFontLocation);
+                if (App.IsFirstRun)
+                    App.CustomFontLocation = null;
+                else
+                    File.Delete(Directories.CustomFont);
             }
             else
             {
@@ -30,8 +32,15 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (dialog.ShowDialog() != true)
                     return;
 
-                Directory.CreateDirectory(Path.GetDirectoryName(_customFontLocation)!);
-                File.Copy(dialog.FileName, _customFontLocation);
+                if (App.IsFirstRun)
+                {
+                    App.CustomFontLocation = dialog.FileName;
+                }
+                else
+                { 
+                    Directory.CreateDirectory(Path.GetDirectoryName(Directories.CustomFont)!);
+                    File.Copy(dialog.FileName, Directories.CustomFont);
+                }
             }
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
