@@ -6,6 +6,8 @@ namespace Bloxstrap
     {
         public static void CheckInstalledVersion()
         {
+            const string LOG_IDENT = "Updater::CheckInstalledVersion";
+
             if (Environment.ProcessPath is null || !File.Exists(Directories.Application) || Environment.ProcessPath == Directories.Application)
                 return;
 
@@ -51,7 +53,7 @@ namespace Bloxstrap
                 catch (Exception)
                 {
                     if (attempts == 1)
-                        App.Logger.WriteLine("[Updater::CheckInstalledVersion] Waiting for write permissions to update version");
+                        App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
 
                     Thread.Sleep(500);
                 }
@@ -59,7 +61,7 @@ namespace Bloxstrap
 
             if (attempts == 10)
             {
-                App.Logger.WriteLine("[Updater::CheckInstalledVersion] Failed to update! (Could not get write permissions after 5 seconds)");
+                App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 5 seconds)");
                 return;
             }
 

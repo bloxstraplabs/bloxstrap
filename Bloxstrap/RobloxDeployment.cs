@@ -23,24 +23,26 @@ namespace Bloxstrap
         {
             get
             {
+                const string LOG_IDENT = "DeployManager::DefaultBaseUrl.Set";
+
                 if (string.IsNullOrEmpty(_baseUrl))
                 {
                     // check for a working accessible deployment domain
                     foreach (string attemptedUrl in BaseUrls)
                     {
-                        App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Testing connection to '{attemptedUrl}'...");
+                        App.Logger.WriteLine(LOG_IDENT, $"Testing connection to '{attemptedUrl}'...");
 
                         try
                         {
                             App.HttpClient.GetAsync($"{attemptedUrl}/version").Wait();
-                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Connection successful!");
+                            App.Logger.WriteLine(LOG_IDENT, "Connection successful!");
                             _baseUrl = attemptedUrl;
                             break;
                         }
                         catch (Exception ex)
                         {
-                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] Connection failed!");
-                            App.Logger.WriteLine($"[DeployManager::DefaultBaseUrl.Set] {ex}");
+                            App.Logger.WriteLine(LOG_IDENT, "Connection failed!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
                             continue;
                         }
                     }
@@ -83,13 +85,15 @@ namespace Bloxstrap
 
         public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false)
         {
-            App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Getting deploy info for channel {channel} (extraInformation={extraInformation})");
+            const string LOG_IDENT = "RobloxDeployment::GetInfo";
+
+            App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel} (extraInformation={extraInformation})");
 
             ClientVersion clientVersion;
 
             if (ClientVersionCache.ContainsKey(channel))
             {
-                App.Logger.WriteLine($"[RobloxDeployment::GetInfo] Deploy information is cached");
+                App.Logger.WriteLine(LOG_IDENT, "Deploy information is cached");
                 clientVersion = ClientVersionCache[channel];
             }
             else
@@ -105,8 +109,8 @@ namespace Bloxstrap
                     // 500 = Error while fetching version information.
                     // either way, we throw
 
-                    App.Logger.WriteLine(
-                        "[RobloxDeployment::GetInfo] Failed to fetch deploy info!\r\n" +
+                    App.Logger.WriteLine(LOG_IDENT,
+                        "Failed to fetch deploy info!\r\n" +
                         $"\tStatus code: {deployInfoResponse.StatusCode}\r\n" +
                         $"\tResponse: {rawResponse}"
                     );
@@ -121,7 +125,7 @@ namespace Bloxstrap
             // for preferences
             if (extraInformation && clientVersion.Timestamp is null)
             {
-                App.Logger.WriteLine("[RobloxDeployment::GetInfo] Getting extra information...");
+                App.Logger.WriteLine(LOG_IDENT, "Getting extra information...");
 
                 string manifestUrl = GetLocation($"/{clientVersion.VersionGuid}-rbxPkgManifest.txt", channel);
 
@@ -131,7 +135,7 @@ namespace Bloxstrap
                 if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
                 {
                     string lastModified = values.First();
-                    App.Logger.WriteLine($"[RobloxDeployment::GetInfo] {manifestUrl} - Last-Modified: {lastModified}");
+                    App.Logger.WriteLine(LOG_IDENT, $"{manifestUrl} - Last-Modified: {lastModified}");
                     clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
                 }
 

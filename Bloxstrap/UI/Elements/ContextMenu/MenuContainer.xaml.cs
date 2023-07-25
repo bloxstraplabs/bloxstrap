@@ -98,7 +98,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             NativeMethods.SetWindowLongPtr(wndHelper.Handle, NativeMethods.GWL_EXSTYLE, (IntPtr)exStyle);
         }
 
-        private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("[MenuContainer::Window_Closed] Context menu container closed");
+        private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _richPresenceHandler?.SetVisibility(((MenuItem)sender).IsChecked);
 

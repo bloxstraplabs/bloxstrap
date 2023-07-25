@@ -94,7 +94,7 @@ namespace Bloxstrap
                     return;
             }
 
-            App.Logger.WriteLine($"[Protocol::ParseUri] Changed Roblox build channel from {App.Settings.Prop.Channel} to {channel}");
+            App.Logger.WriteLine("Protocol::ParseUri", $"Changed Roblox build channel from {App.Settings.Prop.Channel} to {channel}");
             App.Settings.Prop.Channel = channel;
         }
 
@@ -137,7 +137,7 @@ namespace Bloxstrap
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine($"[Protocol::Unregister] Failed to unregister {key}: {ex}");
+                App.Logger.WriteLine("Protocol::Unregister", $"Failed to unregister {key}: {ex}");
             }
         }
     }

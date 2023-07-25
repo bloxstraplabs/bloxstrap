@@ -15,6 +15,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         private async Task LoadChannelDeployInfo(string channel)
         {
+            const string LOG_IDENT = "BehaviourViewModel::LoadChannelDeployInfo";
+            
             LoadingSpinnerVisibility = Visibility.Visible;
             LoadingErrorVisibility = Visibility.Collapsed;
             ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
@@ -61,8 +63,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 LoadingSpinnerVisibility = Visibility.Collapsed;
                 LoadingErrorVisibility = Visibility.Visible;
 
-                App.Logger.WriteLine("[BehaviourViewModel::LoadChannelDeployInfo] An exception occurred while fetching channel information");
-                App.Logger.WriteLine($"[BehaviourViewModel::LoadChannelDeployInfo] {ex}");
+                App.Logger.WriteLine(LOG_IDENT, "An exception occurred while fetching channel information");
+                App.Logger.WriteException(LOG_IDENT, ex);
 
                 ChannelInfoLoadingText = $"Failed to fetch information! ({ex.Message})";
 

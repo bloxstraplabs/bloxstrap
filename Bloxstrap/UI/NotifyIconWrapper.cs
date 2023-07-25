@@ -21,7 +21,7 @@ namespace Bloxstrap.UI
 
         public NotifyIconWrapper()
         {
-            App.Logger.WriteLine("[NotifyIconWrapper::NotifyIconWrapper] Initializing notification area icon");
+            App.Logger.WriteLine("NotifyIconWrapper::NotifyIconWrapper", "Initializing notification area icon");
 
             _notifyIcon = new()
             {
@@ -60,7 +60,7 @@ namespace Bloxstrap.UI
             if (_menuContainer is not null)
                 return;
 
-            App.Logger.WriteLine("[NotifyIconWrapper::InitializeContextMenu] Initializing context menu");
+            App.Logger.WriteLine("NotifyIconWrapper::InitializeContextMenu", "Initializing context menu");
 
             _menuContainer = new(_activityWatcher, _richPresenceHandler);
             _menuContainer.ShowDialog();
@@ -94,15 +94,17 @@ namespace Bloxstrap.UI
         {
             string id = Guid.NewGuid().ToString()[..8];
 
-            App.Logger.WriteLine($"[NotifyIconWrapper::ShowAlert] [{id}] Showing alert for {duration} seconds (clickHandler={clickHandler is not null})");
-            App.Logger.WriteLine($"[NotifyIconWrapper::ShowAlert] [{id}] {caption}: {message.Replace("\n", "\\n")}");
+            string LOG_IDENT = $"NotifyIconWrapper::ShowAlert.{id}";
+
+            App.Logger.WriteLine(LOG_IDENT, $"Showing alert for {duration} seconds (clickHandler={clickHandler is not null})");
+            App.Logger.WriteLine(LOG_IDENT, $"{caption}: {message.Replace("\n", "\\n")}");
 
             _notifyIcon.BalloonTipTitle = caption;
             _notifyIcon.BalloonTipText = message;
 
             if (_alertClickHandler is not null)
             {
-                App.Logger.WriteLine($"[NotifyIconWrapper::ShowAlert] [{id}] Previous alert still present, erasing click handler");
+                App.Logger.WriteLine(LOG_IDENT, "Previous alert still present, erasing click handler");
                 _notifyIcon.BalloonTipClicked -= _alertClickHandler;
             }
 
@@ -117,12 +119,12 @@ namespace Bloxstrap.UI
              
                 _notifyIcon.BalloonTipClicked -= clickHandler;
 
-                App.Logger.WriteLine($"[NotifyIconWrapper::ShowAlert] [{id}] Duration over, erasing current click handler");
+                App.Logger.WriteLine(LOG_IDENT, "Duration over, erasing current click handler");
 
                 if (_alertClickHandler == clickHandler)
                     _alertClickHandler = null;
                 else
-                    App.Logger.WriteLine($"[NotifyIconWrapper::ShowAlert] [{id}] Click handler has been overriden by another alert");
+                    App.Logger.WriteLine(LOG_IDENT, "Click handler has been overriden by another alert");
             });
         }
 
@@ -133,7 +135,7 @@ namespace Bloxstrap.UI
 
             _disposing = true;
 
-            App.Logger.WriteLine($"[NotifyIconWrapper::Dispose] Disposing NotifyIcon");
+            App.Logger.WriteLine("NotifyIconWrapper::Dispose", "Disposing NotifyIcon");
 
             _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
             _notifyIcon?.Dispose();

@@ -53,7 +53,7 @@ namespace Bloxstrap
 
             int exitCodeNum = (int)exitCode;
 
-            Logger.WriteLine($"[App::Terminate] Terminating with exit code {exitCodeNum} ({exitCode})");
+            Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
             Settings.Save();
             State.Save();
@@ -66,8 +66,8 @@ namespace Bloxstrap
         {
             e.Handled = true;
 
-            Logger.WriteLine("[App::OnStartup] An exception occurred when running the main thread");
-            Logger.WriteLine($"[App::OnStartup] {e.Exception}");
+            Logger.WriteLine("App::GlobalExceptionHandler", "An exception occurred");
+            Logger.WriteLine("App::GlobalExceptionHandler", $"{e.Exception}");
 
             FinalizeExceptionHandling(e.Exception);
         }
@@ -86,14 +86,16 @@ namespace Bloxstrap
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            const string LOG_IDENT = "App::OnStartup";
+            
             base.OnStartup(e);
 
-            Logger.WriteLine($"[App::OnStartup] Starting {ProjectName} v{Version}");
+            Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
             if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
-                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
+                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
             else
-                Logger.WriteLine($"[App::OnStartup] Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
+                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
@@ -108,31 +110,31 @@ namespace Bloxstrap
             {
                 if (Array.IndexOf(LaunchArgs, "-preferences") != -1 || Array.IndexOf(LaunchArgs, "-menu") != -1)
                 {
-                    Logger.WriteLine("[App::OnStartup] Started with IsMenuLaunch flag");
+                    Logger.WriteLine(LOG_IDENT, "Started with IsMenuLaunch flag");
                     IsMenuLaunch = true;
                 }
 
                 if (Array.IndexOf(LaunchArgs, "-quiet") != -1)
                 {
-                    Logger.WriteLine("[App::OnStartup] Started with IsQuiet flag");
+                    Logger.WriteLine(LOG_IDENT, "Started with IsQuiet flag");
                     IsQuiet = true;
                 }
 
                 if (Array.IndexOf(LaunchArgs, "-uninstall") != -1)
                 {
-                    Logger.WriteLine("[App::OnStartup] Started with IsUninstall flag");
+                    Logger.WriteLine(LOG_IDENT, "Started with IsUninstall flag");
                     IsUninstall = true;
                 }
 
                 if (Array.IndexOf(LaunchArgs, "-nolaunch") != -1)
                 {
-                    Logger.WriteLine("[App::OnStartup] Started with IsNoLaunch flag");
+                    Logger.WriteLine(LOG_IDENT, "Started with IsNoLaunch flag");
                     IsNoLaunch = true;
                 }
 
                 if (Array.IndexOf(LaunchArgs, "-upgrade") != -1)
                 {
-                    Logger.WriteLine("[App::OnStartup] Bloxstrap started with IsUpgrade flag");
+                    Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsUpgrade flag");
                     IsUpgrade = true;
                 }
             }
@@ -147,7 +149,7 @@ namespace Bloxstrap
 
                 if (registryKey is null || installLocation is null)
                 {
-                    Logger.WriteLine("[App::OnStartup] Running first-time install");
+                    Logger.WriteLine(LOG_IDENT, "Running first-time install");
 
                     BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
                     Logger.Initialize(true);
@@ -169,7 +171,7 @@ namespace Bloxstrap
             // exit if we don't click the install button on installation
             if (!IsSetupComplete)
             {
-                Logger.WriteLine("[App::OnStartup] Installation cancelled!");
+                Logger.WriteLine(LOG_IDENT, "Installation cancelled!");
                 Terminate(ErrorCode.ERROR_CANCELLED);
             }
 
@@ -183,7 +185,7 @@ namespace Bloxstrap
 
                 if (!Logger.Initialized)
                 {
-                    Logger.WriteLine("[App::OnStartup] Possible duplicate launch detected, terminating.");
+                    Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
                     Terminate();
                 }
 
@@ -209,7 +211,7 @@ namespace Bloxstrap
                 if (menuProcess is not null)
                 {
                     IntPtr handle = menuProcess.MainWindowHandle;
-                    Logger.WriteLine($"[App::OnStartup] Found an already existing menu window with handle {handle}");
+                    Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window with handle {handle}");
                     NativeMethods.SetForegroundWindow(handle);
                 }
                 else
@@ -255,13 +257,13 @@ namespace Bloxstrap
                     ShouldSaveConfigs = true;
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
-                Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper");
+                Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
                 Bootstrapper bootstrapper = new(commandLine);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
                 {
-                    Logger.WriteLine($"[App::OnStartup] Initializing bootstrapper dialog");
+                    Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
                     dialog = Settings.Prop.BootstrapperStyle.GetNew();
                     bootstrapper.Dialog = dialog;
                     dialog.Bootstrapper = bootstrapper;
@@ -275,12 +277,12 @@ namespace Bloxstrap
 
                 if (Settings.Prop.MultiInstanceLaunching)
                 {
-                    Logger.WriteLine("[App::OnStartup] Creating singleton mutex");
+                    Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
 
                     try
                     {
                         Mutex.OpenExisting("ROBLOX_singletonMutex");
-                        Logger.WriteLine("[App::OnStartup] Warning - singleton mutex already exists!");
+                        Logger.WriteLine(LOG_IDENT, "Warning - singleton mutex already exists!");
                     }
                     catch
                     {
@@ -293,18 +295,18 @@ namespace Bloxstrap
 
                 bootstrapperTask.ContinueWith(t =>
                 {
-                    Logger.WriteLine("[App::OnStartup] Bootstrapper task has finished");
+                    Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 
                     // notifyicon is blocking main thread, must be disposed here
                     NotifyIcon?.Dispose();
 
                     if (t.IsFaulted)
-                        Logger.WriteLine("[App::OnStartup] An exception occurred when running the bootstrapper");
+                        Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
 
                     if (t.Exception is null)
                         return;
 
-                    Logger.WriteLine($"[App::OnStartup] {t.Exception}");
+                    Logger.WriteLine(LOG_IDENT, $"{t.Exception}");
 
                     Exception exception = t.Exception;
 
@@ -322,13 +324,13 @@ namespace Bloxstrap
                 if (!IsNoLaunch && Settings.Prop.EnableActivityTracking)
                     NotifyIcon?.InitializeContextMenu();
 
-                Logger.WriteLine($"[App::OnStartup] Waiting for bootstrapper task to finish");
+                Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
 
                 bootstrapperTask.Wait();
 
                 if (singletonMutex is not null)
                 {
-                    Logger.WriteLine($"[App::OnStartup] We have singleton mutex ownership! Running in background until all Roblox processes are closed");
+                    Logger.WriteLine(LOG_IDENT, "We have singleton mutex ownership! Running in background until all Roblox processes are closed");
 
                     // we've got ownership of the roblox singleton mutex!
                     // if we stop running, everything will screw up once any more roblox instances launched
@@ -337,7 +339,7 @@ namespace Bloxstrap
                 }
             }
 
-            Logger.WriteLine($"[App::OnStartup] Successfully reached end of main thread. Terminating...");
+            Logger.WriteLine(LOG_IDENT, "Successfully reached end of main thread. Terminating...");
 
             Terminate();
         }

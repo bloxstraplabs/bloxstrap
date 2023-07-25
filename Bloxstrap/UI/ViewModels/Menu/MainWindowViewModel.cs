@@ -122,7 +122,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
                 if (shouldCheckInstallLocation)
                 {
-                    App.Logger.WriteLine($"[MainWindowViewModel::ConfirmSettings] Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
+                    App.Logger.WriteLine("MainWindowViewModel::ConfirmSettings", $"Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
 
                     Controls.ShowMessageBox(
                         $"{App.ProjectName} will install to the new location you've set the next time it runs.",

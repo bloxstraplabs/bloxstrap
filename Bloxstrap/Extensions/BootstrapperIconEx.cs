@@ -10,6 +10,8 @@ namespace Bloxstrap.Extensions
 
         public static Icon GetIcon(this BootstrapperIcon icon)
         {
+            const string LOG_IDENT = "BootstrapperIconEx::GetIcon";
+
             // load the custom icon file
             if (icon == BootstrapperIcon.IconCustom)
             {
@@ -21,7 +23,8 @@ namespace Bloxstrap.Extensions
                 }
                 catch (Exception ex)
                 {
-                    App.Logger.WriteLine($"[BootstrapperIconEx::GetIcon] Failed to load custom icon! {ex}");
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to load custom icon!");
+                    App.Logger.WriteException(LOG_IDENT, ex);
                 }
 
                 return customIcon ?? Properties.Resources.IconBloxstrap;

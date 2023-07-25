@@ -106,19 +106,21 @@ namespace Bloxstrap
         // to delete a flag, set the value as null
         public void SetValue(string key, object? value)
         {
+            const string LOG_IDENT = "FastFlagManager::SetValue";
+
             if (value is null)
             {
                 if (Prop.ContainsKey(key))
-                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Deletion of '{key}' is pending");
+                    App.Logger.WriteLine(LOG_IDENT, $"Deletion of '{key}' is pending");
 
                 Prop.Remove(key);
             }
             else
             {
                 if (Prop.ContainsKey(key))
-                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Setting of '{key}' from '{Prop[key]}' to '{value}' is pending");
+                    App.Logger.WriteLine(LOG_IDENT, $"Setting of '{key}' from '{Prop[key]}' to '{value}' is pending");
                 else
-                    App.Logger.WriteLine($"[FastFlagManager::SetValue] Setting of '{key}' to '{value}' is pending");
+                    App.Logger.WriteLine(LOG_IDENT, $"Setting of '{key}' to '{value}' is pending");
 
                 Prop[key] = value.ToString()!;
             }

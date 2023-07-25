@@ -17,16 +17,18 @@
 
         public void Initialize(bool useTempDir = false)
         {
+            const string LOG_IDENT = "Logger::Initialize";
+
             string directory = useTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
             string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
             string filename = $"{App.ProjectName}_{timestamp}.log";
             string location = Path.Combine(directory, filename);
 
-            WriteLine($"[Logger::Initialize] Initializing at {location}");
+            WriteLine(LOG_IDENT, $"Initializing at {location}");
 
             if (Initialized)
             {
-                WriteLine("[Logger::Initialize] Failed to initialize because logger is already initialized");
+                WriteLine(LOG_IDENT, "Failed to initialize because logger is already initialized");
                 return;
             }
 
@@ -34,7 +36,7 @@
 
             if (File.Exists(location))
             {
-                WriteLine("[Logger::Initialize] Failed to initialize because log file already exists");
+                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
                 return;
             }
 
@@ -45,7 +47,7 @@
             if (Backlog.Count > 0)
                 WriteToLog(string.Join("\r\n", Backlog));
 
-            WriteLine($"[Logger::Initialize] Finished initializing!");
+            WriteLine(LOG_IDENT, "Finished initializing!");
 
             FileLocation = location;
 
@@ -57,13 +59,13 @@
                     if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
                         continue;
 
-                    App.Logger.WriteLine($"[Logger::Initialize] Cleaning up old log file '{log.Name}'");
+                    WriteLine(LOG_IDENT, $"Cleaning up old log file '{log.Name}'");
                     log.Delete();
                 }
             }
         }
 
-        public void WriteLine(string message)
+        private void WriteLine(string message)
         {
             string timestamp = DateTime.UtcNow.ToString("s") + "Z";
             string outcon = $"{timestamp} {message}";
@@ -71,6 +73,16 @@
 
             Debug.WriteLine(outcon);
             WriteToLog(outlog);
+        }
+
+        public void WriteLine(string identifier, string message) => WriteLine($"[{identifier}] {message}");
+
+        public void WriteException(string identifier, Exception ex)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
+            WriteLine($"[{identifier}] {ex}");
         }
 
         private async void WriteToLog(string message)
