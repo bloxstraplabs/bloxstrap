@@ -66,6 +66,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
         }
 
+        public bool FixDisplayScaling
+        {
+            get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
+            set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
+        }
+
         public bool AlternateGraphicsSelectorEnabled
         {
             get => App.FastFlags.GetPreset("UI.Menu.GraphicsSlider") == "True";

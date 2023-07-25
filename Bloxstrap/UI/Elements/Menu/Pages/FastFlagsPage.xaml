@@ -176,6 +176,26 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Preserve rendering quality with display scaling" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox reduces your rendering quality, depending on display scaling. This toggle disables that." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
           <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>

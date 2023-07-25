@@ -67,6 +67,15 @@ namespace Bloxstrap
 
             Bootstrapper.Register();
 
+            // update migrations
+
+            if (App.BuildMetadata.CommitRef.StartsWith("tag") && App.Version == "2.4.1")
+            {
+                App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
+                App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
+                App.FastFlags.Save();
+            }
+
             if (isAutoUpgrade)
             {
                 App.NotifyIcon?.ShowAlert(

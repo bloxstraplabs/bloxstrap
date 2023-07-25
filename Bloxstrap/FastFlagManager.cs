@@ -22,9 +22,7 @@ namespace Bloxstrap
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.Fullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.TexturePack", "FStringPartTexturePackTable2022" },
-
-            { "Rendering.DPI.Disable", "DFFlagDisableDPIScale" },
-            { "Rendering.DPI.Variable", "DFFlagVariableDPIScale2" },
+            { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
@@ -191,9 +189,6 @@ namespace Bloxstrap
 
             SetPresetOnce("Rendering.Framerate", 9999);
             SetPresetOnce("Rendering.Fullscreen", "False");
-
-            SetPresetOnce("Rendering.DPI.Disable", "True");
-            SetPresetOnce("Rendering.DPI.Variable", "False");
         }
     }
 }
