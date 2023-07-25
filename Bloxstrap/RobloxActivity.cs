@@ -265,11 +265,21 @@
             if (GeolcationCache.ContainsKey(ActivityMachineAddress))
                 return GeolcationCache[ActivityMachineAddress];
 
-            string location = "";
+            string location, locationCity, locationRegion, locationCountry = "";
 
-            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
-            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
-            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+            try
+            {
+                locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
+                locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
+                locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine($"[RobloxActivity::GetServerLocation] Failed to get server location for {ActivityMachineAddress}");
+                App.Logger.WriteLine($"[RobloxActivity::GetServerLocation] {ex}");
+
+                return "N/A (lookup failed)";
+            }
 
             locationCity = locationCity.ReplaceLineEndings("");
             locationRegion = locationRegion.ReplaceLineEndings("");
