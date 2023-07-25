@@ -11,6 +11,7 @@
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -37,7 +38,10 @@
             </StackPanel>
         </Grid>
 
-        <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+        <Border Grid.Row="2" Padding="15">
+            <Border.Background>
+                <SolidColorBrush Color="{ui:ThemeResource SolidBackgroundFillColorSecondary}" Opacity="{Binding FooterOpacity, Mode=OneTime}" />
+            </Border.Background>
             <Button Margin="0" Content="Cancel" Width="120" HorizontalAlignment="Right" IsEnabled="{Binding CancelEnabled, Mode=OneWay}" Command="{Binding CancelInstallCommand}" />
         </Border>
     </Grid>
