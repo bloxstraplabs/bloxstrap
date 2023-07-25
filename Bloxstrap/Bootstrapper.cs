@@ -52,7 +52,7 @@ namespace Bloxstrap
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
-        private static string DesktopShortcutLocation => Path.Combine(Directories.Desktop, "Play Roblox.lnk");
+        private static string DesktopShortcutLocation => Path.Combine(Paths.Desktop, "Play Roblox.lnk");
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
@@ -192,7 +192,7 @@ namespace Bloxstrap
             ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
             _latestVersionGuid = clientVersion.VersionGuid;
-            _versionFolder = Path.Combine(Directories.Versions, _latestVersionGuid);
+            _versionFolder = Path.Combine(Paths.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
         }
 
@@ -209,7 +209,7 @@ namespace Bloxstrap
                 return;
             }
 
-            if (!File.Exists(Path.Combine(Directories.System, "mfplat.dll")))
+            if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
                 Controls.ShowMessageBox(
                     "Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", 
@@ -337,7 +337,7 @@ namespace Bloxstrap
             {
                 // clean up install
                 if (App.IsFirstRun)
-                    Directory.Delete(Directories.Base, true);
+                    Directory.Delete(Paths.Base, true);
                 else if (Directory.Exists(_versionFolder))
                     Directory.Delete(_versionFolder, true);
             }
@@ -358,25 +358,25 @@ namespace Bloxstrap
 
             using (RegistryKey applicationKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}"))
             {
-                applicationKey.SetValue("InstallLocation", Directories.Base);
+                applicationKey.SetValue("InstallLocation", Paths.Base);
             }
 
             // set uninstall key
             using (RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}"))
             {
-                uninstallKey.SetValue("DisplayIcon", $"{Directories.Application},0");
+                uninstallKey.SetValue("DisplayIcon", $"{Paths.Application},0");
                 uninstallKey.SetValue("DisplayName", App.ProjectName);
                 uninstallKey.SetValue("DisplayVersion", App.Version);
 
                 if (uninstallKey.GetValue("InstallDate") is null)
                     uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
 
-                uninstallKey.SetValue("InstallLocation", Directories.Base);
+                uninstallKey.SetValue("InstallLocation", Paths.Base);
                 uninstallKey.SetValue("NoRepair", 1);
                 uninstallKey.SetValue("Publisher", "pizzaboxer");
-                uninstallKey.SetValue("ModifyPath", $"\"{Directories.Application}\" -menu");
-                uninstallKey.SetValue("QuietUninstallString", $"\"{Directories.Application}\" -uninstall -quiet");
-                uninstallKey.SetValue("UninstallString", $"\"{Directories.Application}\" -uninstall");
+                uninstallKey.SetValue("ModifyPath", $"\"{Paths.Application}\" -menu");
+                uninstallKey.SetValue("QuietUninstallString", $"\"{Paths.Application}\" -uninstall -quiet");
+                uninstallKey.SetValue("UninstallString", $"\"{Paths.Application}\" -uninstall");
                 uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
                 uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
             }
@@ -411,19 +411,19 @@ namespace Bloxstrap
 
             string? oldInstallLocation = (string?)applicationKey?.GetValue("OldInstallLocation");
 
-            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Directories.Base)
+            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Paths.Base)
                 return;
 
             SetStatus("Migrating install location...");
 
             if (Directory.Exists(oldInstallLocation))
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Moving all files in {oldInstallLocation} to {Directories.Base}...");
+                App.Logger.WriteLine(LOG_IDENT, $"Moving all files in {oldInstallLocation} to {Paths.Base}...");
 
                 foreach (string oldFileLocation in Directory.GetFiles(oldInstallLocation, "*.*", SearchOption.AllDirectories))
                 {
                     string relativeFile = oldFileLocation.Substring(oldInstallLocation.Length + 1);
-                    string newFileLocation = Path.Combine(Directories.Base, relativeFile);
+                    string newFileLocation = Path.Combine(Paths.Base, relativeFile);
                     string? newDirectory = Path.GetDirectoryName(newFileLocation);
 
                     try
@@ -453,8 +453,8 @@ namespace Bloxstrap
             applicationKey.DeleteValue("OldInstallLocation");
 
             // allow shortcuts to be re-registered
-            if (Directory.Exists(Directories.StartMenu))
-                Directory.Delete(Directories.StartMenu, true);
+            if (Directory.Exists(Paths.StartMenu))
+                Directory.Delete(Paths.StartMenu, true);
 
             if (File.Exists(DesktopShortcutLocation))
             {
@@ -475,41 +475,41 @@ namespace Bloxstrap
             // this doesn't go under register, so we check every launch
             // just in case the stock bootstrapper changes it back
 
-            ProtocolHandler.Register("roblox", "Roblox", Directories.Application);
-            ProtocolHandler.Register("roblox-player", "Roblox", Directories.Application);
+            ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
+            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
 
             // in case the user is reinstalling
-            if (File.Exists(Directories.Application) && App.IsFirstRun)
-                File.Delete(Directories.Application);
+            if (File.Exists(Paths.Application) && App.IsFirstRun)
+                File.Delete(Paths.Application);
 
             // check to make sure bootstrapper is in the install folder
-            if (!File.Exists(Directories.Application) && Environment.ProcessPath is not null)
-                File.Copy(Environment.ProcessPath, Directories.Application);
+            if (!File.Exists(Paths.Application) && Environment.ProcessPath is not null)
+                File.Copy(Environment.ProcessPath, Paths.Application);
 
             // this SHOULD go under Register(),
             // but then people who have Bloxstrap v1.0.0 installed won't have this without a reinstall
             // maybe in a later version?
-            if (!Directory.Exists(Directories.StartMenu))
+            if (!Directory.Exists(Paths.StartMenu))
             {
-                Directory.CreateDirectory(Directories.StartMenu);
+                Directory.CreateDirectory(Paths.StartMenu);
 
-                ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
-                    .WriteToFile(Path.Combine(Directories.StartMenu, "Play Roblox.lnk"));
+                ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
+                    .WriteToFile(Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
 
-                ShellLink.Shortcut.CreateShortcut(Directories.Application, "-menu", Directories.Application, 0)
-                    .WriteToFile(Path.Combine(Directories.StartMenu, $"{App.ProjectName} Menu.lnk"));
+                ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
+                    .WriteToFile(Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
             }
             else
             {
                 // v2.0.0 - rebadge configuration menu as just "Bloxstrap Menu"
-                string oldMenuShortcut = Path.Combine(Directories.StartMenu, $"Configure {App.ProjectName}.lnk");
-                string newMenuShortcut = Path.Combine(Directories.StartMenu, $"{App.ProjectName} Menu.lnk");
+                string oldMenuShortcut = Path.Combine(Paths.StartMenu, $"Configure {App.ProjectName}.lnk");
+                string newMenuShortcut = Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk");
 
                 if (File.Exists(oldMenuShortcut))
                     File.Delete(oldMenuShortcut);
 
                 if (!File.Exists(newMenuShortcut))
-                    ShellLink.Shortcut.CreateShortcut(Directories.Application, "-menu", Directories.Application, 0)
+                    ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
                         .WriteToFile(newMenuShortcut);
             }
 
@@ -519,7 +519,7 @@ namespace Bloxstrap
                 {
                     try
                     {
-                        ShellLink.Shortcut.CreateShortcut(Directories.Application, "", Directories.Application, 0)
+                        ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
                             .WriteToFile(DesktopShortcutLocation);
                     }
                     catch (Exception ex)
@@ -578,7 +578,7 @@ namespace Bloxstrap
 
             // 64-bit is always the first option
             GithubReleaseAsset asset = releaseInfo.Assets[0];
-            string downloadLocation = Path.Combine(Directories.LocalAppData, "Temp", asset.Name);
+            string downloadLocation = Path.Combine(Paths.LocalAppData, "Temp", asset.Name);
 
             App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
 
@@ -666,29 +666,29 @@ namespace Bloxstrap
             // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder
             // in which case, chances are they chose to install to somewhere they didn't really mean to (prior to the added warning in 2.4.0)
             // if so, we're walking on eggshells and have to ensure we only clean up what we need to clean up
-            bool cautiousUninstall = !Directories.Base.EndsWith(App.ProjectName);
+            bool cautiousUninstall = !Paths.Base.EndsWith(App.ProjectName);
 
             var cleanupSequence = new List<Action>
             {
                 () => Registry.CurrentUser.DeleteSubKey($@"Software\{App.ProjectName}"),
-                () => Directory.Delete(Directories.StartMenu, true),
-                () => File.Delete(Path.Combine(Directories.Desktop, "Play Roblox.lnk")),
+                () => Directory.Delete(Paths.StartMenu, true),
+                () => File.Delete(Path.Combine(Paths.Desktop, "Play Roblox.lnk")),
                 () => Registry.CurrentUser.DeleteSubKey($@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{App.ProjectName}")
             };
 
             if (cautiousUninstall)
             {
-                cleanupSequence.Add(() => Directory.Delete(Directories.Downloads, true));
-                cleanupSequence.Add(() => Directory.Delete(Directories.Modifications, true));
-                cleanupSequence.Add(() => Directory.Delete(Directories.Versions, true));
-                cleanupSequence.Add(() => Directory.Delete(Directories.Logs, true));
+                cleanupSequence.Add(() => Directory.Delete(Paths.Downloads, true));
+                cleanupSequence.Add(() => Directory.Delete(Paths.Modifications, true));
+                cleanupSequence.Add(() => Directory.Delete(Paths.Versions, true));
+                cleanupSequence.Add(() => Directory.Delete(Paths.Logs, true));
                 
                 cleanupSequence.Add(() => File.Delete(App.Settings.FileLocation));
                 cleanupSequence.Add(() => File.Delete(App.State.FileLocation));
             }
             else
             {
-                cleanupSequence.Add(() => Directory.Delete(Directories.Base, true));
+                cleanupSequence.Add(() => Directory.Delete(Paths.Base, true));
             }
 
             foreach (var process in cleanupSequence)
@@ -706,7 +706,7 @@ namespace Bloxstrap
 
             Action? callback = null;
 
-            if (Directory.Exists(Directories.Base))
+            if (Directory.Exists(Paths.Base))
             {
                 callback = delegate
                 {
@@ -717,9 +717,9 @@ namespace Bloxstrap
                     string deleteCommand;
 
                     if (cautiousUninstall)
-                        deleteCommand = $"del /Q \"{Directories.Application}\"";
+                        deleteCommand = $"del /Q \"{Paths.Application}\"";
                     else
-                        deleteCommand = $"del /Q \"{Directories.Base}\\*\" && rmdir \"{Directories.Base}\"";
+                        deleteCommand = $"del /Q \"{Paths.Base}\\*\" && rmdir \"{Paths.Base}\"";
 
                     Process.Start(new ProcessStartInfo()
                     {
@@ -744,16 +744,16 @@ namespace Bloxstrap
 
             SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
 
-            Directory.CreateDirectory(Directories.Base);
-            Directory.CreateDirectory(Directories.Downloads);
-            Directory.CreateDirectory(Directories.Versions);
+            Directory.CreateDirectory(Paths.Base);
+            Directory.CreateDirectory(Paths.Downloads);
+            Directory.CreateDirectory(Paths.Versions);
 
             // package manifest states packed size and uncompressed size in exact bytes
             // packed size only matters if we don't already have the package cached on disk
-            string[] cachedPackages = Directory.GetFiles(Directories.Downloads);
+            string[] cachedPackages = Directory.GetFiles(Paths.Downloads);
             int totalSizeRequired = _versionPackageManifest.Where(x => !cachedPackages.Contains(x.Signature)).Sum(x => x.PackedSize) + _versionPackageManifest.Sum(x => x.Size);
             
-            if (Utilities.GetFreeDiskSpace(Directories.Base) < totalSizeRequired)
+            if (Utilities.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
                 Controls.ShowMessageBox(
                     $"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", 
@@ -826,7 +826,7 @@ namespace Bloxstrap
                     }
                 }
 
-                string oldVersionFolder = Path.Combine(Directories.Versions, App.State.Prop.VersionGuid);
+                string oldVersionFolder = Path.Combine(Paths.Versions, App.State.Prop.VersionGuid);
 
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
@@ -847,7 +847,7 @@ namespace Bloxstrap
                 // while they were launching a second instance or something idk
                 if (!Process.GetProcessesByName(App.RobloxAppName).Any())
                 {
-                    foreach (DirectoryInfo dir in new DirectoryInfo(Directories.Versions).GetDirectories())
+                    foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
                     {
                         if (dir.Name == _latestVersionGuid || !dir.Name.StartsWith("version-"))
                             continue;
@@ -918,14 +918,14 @@ namespace Bloxstrap
         public static void MigrateIntegrations()
         {
             // v2.2.0 - remove rbxfpsunlocker
-            string rbxfpsunlocker = Path.Combine(Directories.Integrations, "rbxfpsunlocker");
+            string rbxfpsunlocker = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
 
             if (Directory.Exists(rbxfpsunlocker))
                 Directory.Delete(rbxfpsunlocker, true);
 
             // v2.3.0 - remove reshade
-            string injectorLocation = Path.Combine(Directories.Modifications, "dxgi.dll");
-            string configLocation = Path.Combine(Directories.Modifications, "ReShade.ini");
+            string injectorLocation = Path.Combine(Paths.Modifications, "dxgi.dll");
+            string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
 
             if (File.Exists(injectorLocation))
             {
@@ -992,10 +992,10 @@ namespace Bloxstrap
 
             // handle file mods
             App.Logger.WriteLine(LOG_IDENT, "Checking file mods...");
-            string modFolder = Path.Combine(Directories.Modifications);
+            string modFolder = Path.Combine(Paths.Modifications);
 
             // manifest has been moved to State.json
-            File.Delete(Path.Combine(Directories.Base, "ModManifest.txt"));
+            File.Delete(Path.Combine(Paths.Base, "ModManifest.txt"));
 
             List<string> modFolderFiles = new();
 
@@ -1036,7 +1036,7 @@ namespace Bloxstrap
             await CheckModPreset(App.Settings.Prop.UseOldAvatarBackground && !appDisabled, @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
 
             // emoji presets are downloaded remotely from github due to how large they are
-            string contentFonts = Path.Combine(Directories.Modifications, "content\\fonts");
+            string contentFonts = Path.Combine(Paths.Modifications, "content\\fonts");
             string emojiFontLocation = Path.Combine(contentFonts, "TwemojiMozilla.ttf");
             string emojiFontHash = File.Exists(emojiFontLocation) ? Utility.MD5Hash.FromFile(emojiFontLocation) : "";
 
@@ -1059,15 +1059,15 @@ namespace Bloxstrap
             // check custom font mod
             // instead of replacing the fonts themselves, we'll just alter the font family manifests
 
-            string modFontFamiliesFolder = Path.Combine(Directories.Modifications, "content\\fonts\\families");
+            string modFontFamiliesFolder = Path.Combine(Paths.Modifications, "content\\fonts\\families");
 
             if (App.IsFirstRun && App.CustomFontLocation is not null)
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(Directories.CustomFont)!);
-                File.Copy(App.CustomFontLocation, Directories.CustomFont);
+                Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
+                File.Copy(App.CustomFontLocation, Paths.CustomFont);
             }
 
-            if (File.Exists(Directories.CustomFont))
+            if (File.Exists(Paths.CustomFont))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Begin font check");
 
@@ -1173,7 +1173,7 @@ namespace Bloxstrap
 
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
-            string fullLocation = Path.Combine(Directories.Modifications, location);
+            string fullLocation = Path.Combine(Paths.Modifications, location);
             string fileHash = File.Exists(fullLocation) ? MD5Hash.FromFile(fullLocation) : "";
 
             if (!condition && fileHash == "")
@@ -1213,8 +1213,8 @@ namespace Bloxstrap
                 return;
 
             string packageUrl = RobloxDeployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
-            string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
-            string robloxPackageLocation = Path.Combine(Directories.LocalAppData, "Roblox", "Downloads", package.Signature);
+            string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
+            string robloxPackageLocation = Path.Combine(Paths.LocalAppData, "Roblox", "Downloads", package.Signature);
 
             if (File.Exists(packageLocation))
             {
@@ -1290,7 +1290,7 @@ namespace Bloxstrap
             if (_cancelFired)
                 return;
 
-            string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
+            string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
             string extractPath;
 
@@ -1339,7 +1339,7 @@ namespace Bloxstrap
 
             DownloadPackage(package).GetAwaiter().GetResult();
 
-            string packageLocation = Path.Combine(Directories.Downloads, package.Signature);
+            string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
 
             using ZipArchive archive = ZipFile.OpenRead(packageLocation);

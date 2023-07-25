@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap
 {
-    static class Directories
+    static class Paths
     {
         // note that these are directories that aren't tethered to the basedirectory
         // so these can safely be called before initialization

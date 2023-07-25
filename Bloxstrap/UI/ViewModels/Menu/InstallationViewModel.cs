@@ -31,7 +31,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         private void OpenFolder()
         {
-            Process.Start("explorer.exe", Directories.Base);
+            Process.Start("explorer.exe", Paths.Base);
         }
 
         public string InstallLocation

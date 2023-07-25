@@ -9,9 +9,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class ModsViewModel : NotifyPropertyChangedViewModel
     {
-        private void OpenModsFolder() => Process.Start("explorer.exe", Directories.Modifications);
+        private void OpenModsFolder() => Process.Start("explorer.exe", Paths.Modifications);
 
-        private bool _usingCustomFont => App.IsFirstRun && App.CustomFontLocation is not null || !App.IsFirstRun && File.Exists(Directories.CustomFont);
+        private bool _usingCustomFont => App.IsFirstRun && App.CustomFontLocation is not null || !App.IsFirstRun && File.Exists(Paths.CustomFont);
 
         private void ManageCustomFont()
         {
@@ -20,7 +20,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (App.IsFirstRun)
                     App.CustomFontLocation = null;
                 else
-                    File.Delete(Directories.CustomFont);
+                    File.Delete(Paths.CustomFont);
             }
             else
             {
@@ -38,8 +38,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 }
                 else
                 { 
-                    Directory.CreateDirectory(Path.GetDirectoryName(Directories.CustomFont)!);
-                    File.Copy(dialog.FileName, Directories.CustomFont);
+                    Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
+                    File.Copy(dialog.FileName, Paths.CustomFont);
                 }
             }
 

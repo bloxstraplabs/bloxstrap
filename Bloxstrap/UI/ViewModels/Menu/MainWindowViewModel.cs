@@ -132,7 +132,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
                     registryKey.SetValue("InstallLocation", App.BaseDirectory);
                     registryKey.SetValue("OldInstallLocation", _originalBaseDirectory);
-                    Directories.Initialize(App.BaseDirectory);
+                    Paths.Initialize(App.BaseDirectory);
                 }
 
                 CloseWindow();

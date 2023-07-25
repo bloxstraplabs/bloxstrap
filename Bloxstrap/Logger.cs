@@ -19,7 +19,7 @@
         {
             const string LOG_IDENT = "Logger::Initialize";
 
-            string directory = useTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            string directory = useTempDir ? Path.Combine(Paths.LocalAppData, "Temp") : Path.Combine(Paths.Base, "Logs");
             string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
             string filename = $"{App.ProjectName}_{timestamp}.log";
             string location = Path.Combine(directory, filename);
@@ -52,9 +52,9 @@
             FileLocation = location;
 
             // clean up any logs older than a week
-            if (Directories.Initialized && Directory.Exists(Directories.Logs))
+            if (Paths.Initialized && Directory.Exists(Paths.Logs))
             {
-                foreach (FileInfo log in new DirectoryInfo(Directories.Logs).GetFiles())
+                foreach (FileInfo log in new DirectoryInfo(Paths.Logs).GetFiles())
                 {
                     if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
                         continue;
@@ -69,7 +69,7 @@
         {
             string timestamp = DateTime.UtcNow.ToString("s") + "Z";
             string outcon = $"{timestamp} {message}";
-            string outlog = outcon.Replace(Directories.UserProfile, "%UserProfile%");
+            string outlog = outcon.Replace(Paths.UserProfile, "%UserProfile%");
 
             Debug.WriteLine(outcon);
             WriteToLog(outlog);

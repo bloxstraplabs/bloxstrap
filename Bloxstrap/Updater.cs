@@ -8,15 +8,15 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Updater::CheckInstalledVersion";
 
-            if (Environment.ProcessPath is null || !File.Exists(Directories.Application) || Environment.ProcessPath == Directories.Application)
+            if (Environment.ProcessPath is null || !File.Exists(Paths.Application) || Environment.ProcessPath == Paths.Application)
                 return;
 
             // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
-            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Path.Combine(Directories.Base, "Updates")) || Environment.ProcessPath.StartsWith(Path.Combine(Directories.LocalAppData, "Temp"));
+            bool isAutoUpgrade = Environment.ProcessPath.StartsWith(Path.Combine(Paths.Base, "Updates")) || Environment.ProcessPath.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"));
 
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Environment.ProcessPath);
 
-            if (MD5Hash.FromFile(Environment.ProcessPath) == MD5Hash.FromFile(Directories.Application))
+            if (MD5Hash.FromFile(Environment.ProcessPath) == MD5Hash.FromFile(Paths.Application))
                 return;
 
             MessageBoxResult result;
@@ -47,7 +47,7 @@ namespace Bloxstrap
 
                 try
                 {
-                    File.Delete(Directories.Application);
+                    File.Delete(Paths.Application);
                     break;
                 }
                 catch (Exception)
@@ -65,7 +65,7 @@ namespace Bloxstrap
                 return;
             }
 
-            File.Copy(Environment.ProcessPath, Directories.Application);
+            File.Copy(Environment.ProcessPath, Paths.Application);
 
             Bootstrapper.Register();
 

@@ -151,7 +151,7 @@ namespace Bloxstrap
                 {
                     Logger.WriteLine(LOG_IDENT, "Running first-time install");
 
-                    BaseDirectory = Path.Combine(Directories.LocalAppData, ProjectName);
+                    BaseDirectory = Path.Combine(Paths.LocalAppData, ProjectName);
                     Logger.Initialize(true);
 
                     if (!IsQuiet)
@@ -175,7 +175,7 @@ namespace Bloxstrap
                 Terminate(ErrorCode.ERROR_CANCELLED);
             }
 
-            Directories.Initialize(BaseDirectory);
+            Paths.Initialize(BaseDirectory);
 
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install

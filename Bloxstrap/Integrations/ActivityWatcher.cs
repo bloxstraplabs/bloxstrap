@@ -62,7 +62,7 @@
             if (App.Settings.Prop.OhHeyYouFoundMe)
                 delay = 250;
 
-            string logDirectory = Path.Combine(Directories.LocalAppData, "Roblox\\logs");
+            string logDirectory = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
                 return;
