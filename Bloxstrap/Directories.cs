@@ -8,7 +8,7 @@
         public static string LocalAppData => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static string Desktop => Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         public static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", App.ProjectName);
-        public static string MyPictures => Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+        public static string System => Environment.GetFolderPath(Environment.SpecialFolder.System);
 
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
