@@ -96,7 +96,7 @@
             try
             {
                 await _semaphore.WaitAsync();
-                await _filestream!.WriteAsync(Encoding.Unicode.GetBytes($"{message}\r\n"));
+                await _filestream!.WriteAsync(Encoding.UTF8.GetBytes($"{message}\r\n"));
                 await _filestream.FlushAsync();
             }
             finally
