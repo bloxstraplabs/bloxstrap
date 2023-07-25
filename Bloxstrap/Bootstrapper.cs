@@ -205,7 +205,8 @@ namespace Bloxstrap
                 return;
             }
 
-            if (!File.Exists("C:\\Windows\\System32\\mfplat.dll"))
+            string mfplatPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "mfplat.dll");
+            if (!File.Exists(mfplatPath))
             {
                 Controls.ShowMessageBox(
                     "Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", 
