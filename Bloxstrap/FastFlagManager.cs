@@ -20,7 +20,7 @@ namespace Bloxstrap
             { "HTTP.Proxy.Address.3", "DFStringHttpCurlProxyHostAndPortForExternalUrl" },
 
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
-            { "Rendering.Fullscreen", "FFlagHandleAltEnterFullscreenManually" },
+            { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.TexturePack", "FStringPartTexturePackTable2022" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
 
@@ -175,6 +175,14 @@ namespace Bloxstrap
             return mapping.First().Key;
         }
 
+        public void CheckManualFullscreenPreset()
+        {
+            if (GetPreset("Rendering.Mode.Vulkan") == "True" || GetPreset("Rendering.Mode.OpenGL") == "True")
+                SetPreset("Rendering.ManualFullscreen", null);
+            else
+                SetPreset("Rendering.ManualFullscreen", "False");
+        }
+
         public override void Save()
         {
             // convert all flag values to strings before saving
@@ -190,7 +198,7 @@ namespace Bloxstrap
             base.Load();
 
             SetPresetOnce("Rendering.Framerate", 9999);
-            SetPresetOnce("Rendering.Fullscreen", "False");
+            CheckManualFullscreenPreset();
         }
     }
 }

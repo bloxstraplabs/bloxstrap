@@ -63,7 +63,11 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public string SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
+            set
+            {
+                App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
+                App.FastFlags.CheckManualFullscreenPreset();
+            }
         }
 
         public bool FixDisplayScaling

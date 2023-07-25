@@ -67,11 +67,9 @@
     
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}">
-      FastFlags for Direct3D
+      FastFlag preset for Direct3D
       <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen">exclusive fullscreen</Hyperlink>
-      (Alt+Enter) and
-      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">DPI scaling fixes</Hyperlink>
-      are already enabled by default.
+      using Alt+Enter is already enabled by default.
     </TextBlock>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
