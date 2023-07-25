@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
             bool shouldCheckInstallLocation = App.IsFirstRun || App.BaseDirectory != _originalBaseDirectory;
 
-            if (shouldCheckInstallLocation)
+            if (shouldCheckInstallLocation && NavigationVisibility == Visibility.Visible)
             {
                 try
                 {
@@ -96,14 +96,15 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     ((INavigationWindow)_window).Navigate(typeof(PreInstallPage));
 
                     NavigationVisibility = Visibility.Collapsed;
-                    ConfirmButtonEnabled = false;
-
                     OnPropertyChanged(nameof(NavigationVisibility));
+                    
+                    ConfirmButtonEnabled = false;
                     OnPropertyChanged(nameof(ConfirmButtonEnabled));
 
                     Task.Run(async delegate
                     {
                         await Task.Delay(3000);
+
                         ConfirmButtonEnabled = true;
                         OnPropertyChanged(nameof(ConfirmButtonEnabled));
                     });
