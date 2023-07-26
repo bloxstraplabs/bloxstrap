@@ -19,6 +19,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
         private bool _showPresets = false;
+        private string _searchFilter = "";
 
         public FastFlagEditorPage()
         {
@@ -36,6 +37,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
                 if (!_showPresets && presetFlags.Contains(pair.Key))
+                    continue;
+
+                if (!pair.Key.ToLower().Contains(_searchFilter.ToLower()))
                     continue;
 
                 var entry = new FastFlag
@@ -67,6 +71,15 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             
             DataGrid.SelectedItem = newSelectedEntry;
             DataGrid.ScrollIntoView(newSelectedEntry);
+        }
+
+        private void ClearSearch(bool refresh = true)
+        {
+            SearchTextBox.Text = "";
+            _searchFilter = "";
+
+            if (refresh)
+                ReloadList();
         }
 
         // refresh list on page load to synchronize with preset page
@@ -139,6 +152,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                     Value = dialog.FlagValueTextBox.Text
                 };
 
+                if (!name.Contains(_searchFilter))
+                    ClearSearch();
+
                 _fastFlagList.Add(entry);
 
                 App.FastFlags.SetValue(entry.Name, entry.Value);
@@ -147,12 +163,23 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             {
                 Controls.ShowMessageBox("An entry for this FastFlag already exists.", MessageBoxImage.Information);
 
-                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(dialog.FlagNameTextBox.Text))
+                bool refresh = false;
+
+                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(name))
                 {
-                    _showPresets = true;
                     TogglePresetsButton.IsChecked = true;
-                    ReloadList();
+                    _showPresets = true;
+                    refresh = true;
                 }
+
+                if (!name.Contains(_searchFilter))
+                {
+                    ClearSearch(false);
+                    refresh = true;
+                }
+
+                if (refresh)
+                    ReloadList();
 
                 entry = _fastFlagList.Where(x => x.Name == name).FirstOrDefault();
             }
@@ -181,6 +208,15 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 return;
 
             _showPresets = button.IsChecked ?? false;
+            ReloadList();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is not TextBox textbox)
+                return;
+
+            _searchFilter = textbox.Text;
             ReloadList();
         }
     }

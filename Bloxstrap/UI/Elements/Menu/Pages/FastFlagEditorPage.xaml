@@ -13,6 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
@@ -35,7 +36,9 @@
             <ToggleButton x:Name="TogglePresetsButton" Content="Show preset flags" Click="ToggleButton_Click" Margin="12,0,0,0" />
         </StackPanel>
 
-        <DataGrid Name="DataGrid" Grid.Row="2" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+        <ui:TextBox x:Name="SearchTextBox" Grid.Row="2" Margin="0,0,0,16" Icon="Search32" PlaceholderText="Search" TextChanged="SearchTextBox_TextChanged" />
+
+        <DataGrid Name="DataGrid" Grid.Row="3" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Style>
                 <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
                     <Setter Property="Background" Value="Transparent" />
