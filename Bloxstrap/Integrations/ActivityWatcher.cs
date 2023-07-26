@@ -26,7 +26,7 @@
         public event EventHandler? OnGameLeave;
         public event EventHandler<GameMessage>? OnGameMessage;
 
-        private Dictionary<string, string> GeolcationCache = new();
+        private Dictionary<string, string> GeolocationCache = new();
 
         public string LogLocation = null!;
 
@@ -268,8 +268,8 @@
         {
             const string LOG_IDENT = "ActivityWatcher::GetServerLocation";
 
-            if (GeolcationCache.ContainsKey(ActivityMachineAddress))
-                return GeolcationCache[ActivityMachineAddress];
+            if (GeolocationCache.ContainsKey(ActivityMachineAddress))
+                return GeolocationCache[ActivityMachineAddress];
 
             string location, locationCity, locationRegion, locationCountry = "";
 
@@ -298,7 +298,10 @@
             else
                 location = $"{locationCity}, {locationRegion}, {locationCountry}";
 
-            GeolcationCache[ActivityMachineAddress] = location;
+            if (!ActivityInGame)
+                return "N/A (left game)";
+
+            GeolocationCache[ActivityMachineAddress] = location;
 
             return location;
         }
