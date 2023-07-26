@@ -10,6 +10,8 @@
         public static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", App.ProjectName);
         public static string System => Environment.GetFolderPath(Environment.SpecialFolder.System);
 
+        public static string Process => Environment.ProcessPath!;
+
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
         public static string Logs { get; private set; } = "";

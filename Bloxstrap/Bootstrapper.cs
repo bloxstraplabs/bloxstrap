@@ -1039,7 +1039,7 @@ namespace Bloxstrap
             // emoji presets are downloaded remotely from github due to how large they are
             string contentFonts = Path.Combine(Paths.Modifications, "content\\fonts");
             string emojiFontLocation = Path.Combine(contentFonts, "TwemojiMozilla.ttf");
-            string emojiFontHash = File.Exists(emojiFontLocation) ? Utility.MD5Hash.FromFile(emojiFontLocation) : "";
+            string emojiFontHash = File.Exists(emojiFontLocation) ? MD5Hash.FromFile(emojiFontLocation) : "";
 
             if (App.Settings.Prop.EmojiType == EmojiType.Default && EmojiTypeEx.Hashes.Values.Contains(emojiFontHash))
             {
@@ -1174,6 +1174,8 @@ namespace Bloxstrap
 
         private static async Task CheckModPreset(bool condition, string location, string name)
         {
+            string LOG_IDENT = $"Bootstrapper::CheckModPreset.{name}";
+
             string fullLocation = Path.Combine(Paths.Modifications, location);
             string fileHash = File.Exists(fullLocation) ? MD5Hash.FromFile(fullLocation) : "";
 
@@ -1185,14 +1187,19 @@ namespace Bloxstrap
 
             if (!condition)
             {
-                if (fileHash != "" && fileHash == embeddedHash)
+                if (fileHash == embeddedHash)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Deleting '{location}' as preset is disabled, and mod file matches preset");
                     File.Delete(fullLocation);
-
+                }
+                
                 return;
             }
 
             if (fileHash != embeddedHash)
-            {                
+            {       
+                App.Logger.WriteLine(LOG_IDENT, $"Writing '{location}' as preset is enabled, and mod file does not exist or does not match preset");
+
                 Directory.CreateDirectory(Path.GetDirectoryName(fullLocation)!);
                 File.Delete(fullLocation);
 
@@ -1294,14 +1301,16 @@ namespace Bloxstrap
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
 
-            App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name} to {packageFolder}...");
+            App.Logger.WriteLine(LOG_IDENT, $"Reading {package.Name}...");
 
             var readTask = new Task<ZipArchive>(() => ZipFile.OpenRead(packageLocation));
             _ = readTask.ContinueWith(AsyncHelpers.ExceptionHandler, $"reading {package.Name}");
             readTask.Start();
 
             using ZipArchive archive = await readTask.WaitAsync(TimeSpan.FromSeconds(30));
-            
+
+            App.Logger.WriteLine(LOG_IDENT, $"Read {package.Name}. Extracting to {packageFolder}...");
+
             // yeah so because roblox is roblox, these packages aren't actually valid zip files
             // besides the fact that they use backslashes instead of forward slashes for directories,
             // empty folders that *BEGIN* with a backslash in their fullname, but have an empty name are listed here for some reason...
