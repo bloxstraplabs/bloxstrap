@@ -39,7 +39,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
-    <PackageReference Include="DiscordRichPresence" Version="1.1.4.20" />
+    <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
   </ItemGroup>
 

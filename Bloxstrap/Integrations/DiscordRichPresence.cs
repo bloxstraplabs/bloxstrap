@@ -1,5 +1,4 @@
 ﻿using DiscordRPC;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Bloxstrap.Integrations
 {
@@ -25,7 +24,7 @@ namespace Bloxstrap.Integrations
             _activityWatcher.OnGameMessage += (_, message) => OnGameMessage(message);
 
             _rpcClient.OnReady += (_, e) =>
-                App.Logger.WriteLine(LOG_IDENT, $"Received ready from user {e.User.Username} ({e.User.ID})");
+                App.Logger.WriteLine(LOG_IDENT, $"Received ready from user {e.User} ({e.User.ID})");
 
             _rpcClient.OnPresenceUpdate += (_, e) =>
                 App.Logger.WriteLine(LOG_IDENT, "Presence updated");
