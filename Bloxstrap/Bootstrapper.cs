@@ -753,7 +753,7 @@ namespace Bloxstrap
             string[] cachedPackages = Directory.GetFiles(Paths.Downloads);
             int totalSizeRequired = _versionPackageManifest.Where(x => !cachedPackages.Contains(x.Signature)).Sum(x => x.PackedSize) + _versionPackageManifest.Sum(x => x.Size);
             
-            if (Utilities.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
+            if (Filesystem.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
                 Controls.ShowMessageBox(
                     $"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", 
@@ -993,15 +993,14 @@ namespace Bloxstrap
 
             // handle file mods
             App.Logger.WriteLine(LOG_IDENT, "Checking file mods...");
-            string modFolder = Path.Combine(Paths.Modifications);
 
             // manifest has been moved to State.json
             File.Delete(Path.Combine(Paths.Base, "ModManifest.txt"));
 
             List<string> modFolderFiles = new();
 
-            if (!Directory.Exists(modFolder))
-                Directory.CreateDirectory(modFolder);
+            if (!Directory.Exists(Paths.Modifications))
+                Directory.CreateDirectory(Paths.Modifications);
 
             bool appDisabled = App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink");
 
@@ -1043,10 +1042,14 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.EmojiType == EmojiType.Default && EmojiTypeEx.Hashes.Values.Contains(emojiFontHash))
             {
+                App.Logger.WriteLine(LOG_IDENT, "Reverting to default emoji font");
+
                 File.Delete(emojiFontLocation);
             }
             else if (App.Settings.Prop.EmojiType != EmojiType.Default && emojiFontHash != App.Settings.Prop.EmojiType.GetHash())
             {
+                App.Logger.WriteLine(LOG_IDENT, $"Configuring emoji font as {App.Settings.Prop.EmojiType}");
+                
                 if (emojiFontHash != "")
                     File.Delete(emojiFontLocation);
 
@@ -1082,6 +1085,8 @@ namespace Bloxstrap
                     if (File.Exists(modFilepath))
                         continue;
 
+                    App.Logger.WriteLine(LOG_IDENT, $"Setting font for {jsonFilename}");
+
                     FontFamily? fontFamilyData = JsonSerializer.Deserialize<FontFamily>(File.ReadAllText(jsonFilePath));
 
                     if (fontFamilyData is null)
@@ -1100,10 +1105,10 @@ namespace Bloxstrap
                 Directory.Delete(modFontFamiliesFolder, true);
             }
 
-            foreach (string file in Directory.GetFiles(modFolder, "*.*", SearchOption.AllDirectories))
+            foreach (string file in Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories))
             {
                 // get relative directory path
-                string relativeFile = file.Substring(modFolder.Length + 1);
+                string relativeFile = file.Substring(Paths.Modifications.Length + 1);
 
                 // v1.7.0 - README has been moved to the preferences menu now
                 if (relativeFile == "README.txt")
@@ -1112,30 +1117,26 @@ namespace Bloxstrap
                     continue;
                 }
 
-                modFolderFiles.Add(relativeFile);
-            }
-
-            // copy and overwrite
-            foreach (string file in modFolderFiles)
-            {
-                string fileModFolder = Path.Combine(modFolder, file);
-                string fileVersionFolder = Path.Combine(_versionFolder, file);
-
-                if (File.Exists(fileVersionFolder))
-                {
-                    if (MD5Hash.FromFile(fileModFolder) == MD5Hash.FromFile(fileVersionFolder))
-                        continue;
-                }
-
-                string? directory = Path.GetDirectoryName(fileVersionFolder);
-
-                if (directory is null)
+                if (relativeFile.EndsWith(".lock"))
                     continue;
 
-                Directory.CreateDirectory(directory);
+                modFolderFiles.Add(relativeFile);
+
+                string fileModFolder = Path.Combine(Paths.Modifications, relativeFile);
+                string fileVersionFolder = Path.Combine(_versionFolder, relativeFile);
+
+                if (File.Exists(fileVersionFolder) && MD5Hash.FromFile(fileModFolder) == MD5Hash.FromFile(fileVersionFolder))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} already exists in the version folder, and is a match");
+                    continue;
+                }
+
+                Directory.CreateDirectory(Path.GetDirectoryName(fileVersionFolder)!);
 
                 File.Copy(fileModFolder, fileVersionFolder, true);
-                File.SetAttributes(fileVersionFolder, File.GetAttributes(fileModFolder) & ~FileAttributes.ReadOnly);
+                Filesystem.AssertReadOnly(fileVersionFolder);
+
+                App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} has been copied to the version folder");
             }
 
             // the manifest is primarily here to keep track of what files have been
@@ -1146,15 +1147,13 @@ namespace Bloxstrap
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
 
-                KeyValuePair<string, string> packageDirectory;
+                var package = PackageDirectories.SingleOrDefault(x => x.Value != "" && fileLocation.StartsWith(x.Value));
 
-                try
+                // package doesn't exist, likely mistakenly placed file
+                if (String.IsNullOrEmpty(package.Key))
                 {
-                    packageDirectory = PackageDirectories.First(x => x.Value != "" && fileLocation.StartsWith(x.Value));
-                }
-                catch (InvalidOperationException)
-                {
-                    // package doesn't exist, likely mistakenly placed file
+                    App.Logger.WriteLine(LOG_IDENT, $"{fileLocation} was removed as a mod but does not belong to a package");
+
                     string versionFileLocation = Path.Combine(_versionFolder, fileLocation);
 
                     if (File.Exists(versionFileLocation))
@@ -1164,12 +1163,16 @@ namespace Bloxstrap
                 }
 
                 // restore original file
-                string fileName = fileLocation.Substring(packageDirectory.Value.Length);
-                ExtractFileFromPackage(packageDirectory.Key, fileName);
+                string fileName = fileLocation.Substring(package.Value.Length);
+                await ExtractFileFromPackage(package.Key, fileName);
+
+                App.Logger.WriteLine(LOG_IDENT, $"{fileLocation} was removed as a mod, restored from {package.Key}");
             }
 
             App.State.Prop.ModManifest = modFolderFiles;
             App.State.Save();
+
+            App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
         }
 
         private static async Task CheckModPreset(bool condition, string location, string name)
@@ -1190,6 +1193,8 @@ namespace Bloxstrap
                 if (fileHash == embeddedHash)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Deleting '{location}' as preset is disabled, and mod file matches preset");
+
+                    Filesystem.AssertReadOnly(fullLocation);
                     File.Delete(fullLocation);
                 }
                 
@@ -1201,7 +1206,12 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Writing '{location}' as preset is enabled, and mod file does not exist or does not match preset");
 
                 Directory.CreateDirectory(Path.GetDirectoryName(fullLocation)!);
-                File.Delete(fullLocation);
+
+                if (File.Exists(fullLocation))
+                {
+                    Filesystem.AssertReadOnly(fullLocation);
+                    File.Delete(fullLocation);
+                }
 
                 await File.WriteAllBytesAsync(fullLocation, embeddedData);
             }
@@ -1337,30 +1347,24 @@ namespace Bloxstrap
             _packagesExtracted += 1;
         }
 
-        private void ExtractFileFromPackage(string packageName, string fileName)
+        private async Task ExtractFileFromPackage(string packageName, string fileName)
         {
             Package? package = _versionPackageManifest.Find(x => x.Name == packageName);
 
             if (package is null)
                 return;
 
-            DownloadPackage(package).GetAwaiter().GetResult();
+            await DownloadPackage(package);
 
-            string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
-            string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
-
-            using ZipArchive archive = ZipFile.OpenRead(packageLocation);
+            using ZipArchive archive = ZipFile.OpenRead(Path.Combine(Paths.Downloads, package.Signature));
 
             ZipArchiveEntry? entry = archive.Entries.FirstOrDefault(x => x.FullName == fileName);
 
             if (entry is null)
                 return;
 
-            string fileLocation = Path.Combine(packageFolder, entry.FullName);
-                
-            File.Delete(fileLocation);
-
-            entry.ExtractToFile(fileLocation);
+            string extractionPath = Path.Combine(_versionFolder, PackageDirectories[package.Name], entry.FullName);
+            entry.ExtractToFile(extractionPath, true);
         }
         #endregion
     }
