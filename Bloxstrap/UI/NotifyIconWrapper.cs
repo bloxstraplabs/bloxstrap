@@ -57,7 +57,7 @@ namespace Bloxstrap.UI
         #region Context menu
         public void InitializeContextMenu()
         {
-            if (_menuContainer is not null)
+            if (_menuContainer is not null || _disposing)
                 return;
 
             App.Logger.WriteLine("NotifyIconWrapper::InitializeContextMenu", "Initializing context menu");
