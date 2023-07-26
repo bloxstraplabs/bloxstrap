@@ -67,13 +67,15 @@ namespace Bloxstrap
             e.Handled = true;
 
             Logger.WriteLine("App::GlobalExceptionHandler", "An exception occurred");
-            Logger.WriteLine("App::GlobalExceptionHandler", $"{e.Exception}");
 
             FinalizeExceptionHandling(e.Exception);
         }
 
-        void FinalizeExceptionHandling(Exception exception)
+        public static void FinalizeExceptionHandling(Exception exception, bool log = true)
         {
+            if (log)
+                Logger.WriteException("App::FinalizeExceptionHandling", exception);
+
 #if DEBUG
             throw exception;
 #else
@@ -306,7 +308,7 @@ namespace Bloxstrap
                     if (t.Exception is null)
                         return;
 
-                    Logger.WriteLine(LOG_IDENT, $"{t.Exception}");
+                    Logger.WriteException(LOG_IDENT, t.Exception);
 
                     Exception exception = t.Exception;
 
@@ -315,7 +317,7 @@ namespace Bloxstrap
                     exception = t.Exception.InnerException!;
 #endif
 
-                    FinalizeExceptionHandling(exception);
+                    FinalizeExceptionHandling(exception, false);
                 });
 
                 // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them

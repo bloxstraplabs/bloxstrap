@@ -787,7 +787,7 @@ namespace Bloxstrap
 
                 // extract the package immediately after download asynchronously
                 // discard is just used to suppress the warning
-                Task _ = ExtractPackage(package);
+                _ = ExtractPackage(package);
             }
 
             if (_cancelFired) 
@@ -808,6 +808,7 @@ namespace Bloxstrap
                 await Task.Delay(100);
             }
 
+            App.Logger.WriteLine(LOG_IDENT, "Writing AppSettings.xml...");
             string appSettingsLocation = Path.Combine(_versionFolder, "AppSettings.xml");
             await File.WriteAllTextAsync(appSettingsLocation, AppSettings);
 
@@ -1220,7 +1221,7 @@ namespace Bloxstrap
             {
                 FileInfo file = new(packageLocation);
 
-                string calculatedMD5 = Utility.MD5Hash.FromFile(packageLocation);
+                string calculatedMD5 = MD5Hash.FromFile(packageLocation);
 
                 if (calculatedMD5 != package.Signature)
                 {
@@ -1292,37 +1293,34 @@ namespace Bloxstrap
 
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
-            string extractPath;
 
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name} to {packageFolder}...");
 
-            using ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(packageLocation));
+            var readTask = new Task<ZipArchive>(() => ZipFile.OpenRead(packageLocation));
+            _ = readTask.ContinueWith(AsyncHelpers.ExceptionHandler, $"reading {package.Name}");
+            readTask.Start();
 
-            foreach (ZipArchiveEntry entry in archive.Entries)
+            using ZipArchive archive = await readTask.WaitAsync(TimeSpan.FromSeconds(30));
+            
+            // yeah so because roblox is roblox, these packages aren't actually valid zip files
+            // besides the fact that they use backslashes instead of forward slashes for directories,
+            // empty folders that *BEGIN* with a backslash in their fullname, but have an empty name are listed here for some reason...
+
+            foreach (var entry in archive.Entries)
             {
                 if (_cancelFired)
                     return;
 
-                if (entry.FullName.EndsWith('\\'))
+                if (String.IsNullOrEmpty(entry.Name))
                     continue;
 
-                extractPath = Path.Combine(packageFolder, entry.FullName);
-
-                //App.Logger.WriteLine("{package.Name}", $"Writing {extractPath}...");
-
+                string extractPath = Path.Combine(packageFolder, entry.FullName);
                 string? directory = Path.GetDirectoryName(extractPath);
 
-                if (directory is null)
-                    continue;
+                if (directory is not null)
+                    Directory.CreateDirectory(directory);
 
-                Directory.CreateDirectory(directory);
-
-                using var fileStream = new FileStream(extractPath, FileMode.CreateNew, FileAccess.Write, FileShare.None, bufferSize: 0x1000, useAsync: true);
-                using var dataStream = entry.Open();
-
-                await dataStream.CopyToAsync(fileStream);
-
-                File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
+                entry.ExtractToFile(extractPath, true);
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
