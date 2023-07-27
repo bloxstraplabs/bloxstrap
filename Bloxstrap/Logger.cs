@@ -36,7 +36,15 @@
                 return;
             }
 
-            _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
+            try
+            {
+                _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
+            }
+            catch (IOException)
+            {
+                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+            }
+            
 
             Initialized = true;
 
