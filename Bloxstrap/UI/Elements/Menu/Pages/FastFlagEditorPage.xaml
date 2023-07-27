@@ -34,6 +34,7 @@
                 </ui:Button.Style>
             </ui:Button>
             <ToggleButton x:Name="TogglePresetsButton" Content="Show preset flags" Click="ToggleButton_Click" Margin="12,0,0,0" />
+            <ui:Button Icon="ArrowImport24" Content="Import JSON" Margin="12,0,0,0" Click="ImportJSONButton_Click" />
         </StackPanel>
 
         <ui:TextBox x:Name="SearchTextBox" Grid.Row="2" Margin="0,0,0,16" Icon="Search32" PlaceholderText="Search" TextChanged="SearchTextBox_TextChanged" />
