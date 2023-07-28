@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
+using System;
 
 namespace Bloxstrap
 {
@@ -811,7 +812,7 @@ namespace Bloxstrap
 
                 // extract the package immediately after download asynchronously
                 // discard is just used to suppress the warning
-                _ = ExtractPackage(package);
+                _ = ExtractPackage(package).ContinueWith(AsyncHelpers.ExceptionHandler, $"extracting {package.Name}");
             }
 
             if (_cancelFired) 
@@ -1249,7 +1250,7 @@ namespace Bloxstrap
 
         private async Task DownloadPackage(Package package)
         {
-            const string LOG_IDENT = "Bootstrapper::DownloadPackage";
+            string LOG_IDENT = $"Bootstrapper::DownloadPackage.{package.Name}";
             
             if (_cancelFired)
                 return;
@@ -1266,14 +1267,16 @@ namespace Bloxstrap
 
                 if (calculatedMD5 != package.Signature)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"{package.Name} is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");
+                    App.Logger.WriteLine(LOG_IDENT, $"Package is corrupted ({calculatedMD5} != {package.Signature})! Deleting and re-downloading...");
                     file.Delete();
                 }
                 else
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"{package.Name} is already downloaded, skipping...");
+                    App.Logger.WriteLine(LOG_IDENT, $"Package is already downloaded, skipping...");
+
                     _totalDownloadedBytes += package.PackedSize;
                     UpdateProgressBar();
+
                     return;
                 }
             }
@@ -1282,24 +1285,34 @@ namespace Bloxstrap
                 // let's cheat! if the stock bootstrapper already previously downloaded the file,
                 // then we can just copy the one from there
 
-                App.Logger.WriteLine(LOG_IDENT, $"Found existing version of {package.Name} ({robloxPackageLocation})! Copying to Downloads folder...");
+                App.Logger.WriteLine(LOG_IDENT, $"Found existing copy at '{robloxPackageLocation}'! Copying to Downloads folder...");
                 File.Copy(robloxPackageLocation, packageLocation);
+
                 _totalDownloadedBytes += package.PackedSize;
                 UpdateProgressBar();
+
                 return;
             }
 
-            if (!File.Exists(packageLocation))
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Downloading {package.Name} ({package.Signature})...");
+            if (File.Exists(packageLocation))
+                return;
 
+            const int maxTries = 5;
+
+            App.Logger.WriteLine(LOG_IDENT, "Downloading...");
+
+            var buffer = new byte[4096];
+
+            for (int i = 1; i <= maxTries; i++)
+            {
+                int totalBytesRead = 0;
+
+                try
                 {
                     var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead, _cancelTokenSource.Token);
-                    var buffer = new byte[4096];
-
                     await using var stream = await response.Content.ReadAsStreamAsync(_cancelTokenSource.Token);
-                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.Write, FileShare.Delete); 
-                    
+                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.Write, FileShare.Delete);
+
                     while (true)
                     {
                         if (_cancelFired)
@@ -1309,19 +1322,35 @@ namespace Bloxstrap
                             return;
                         }
 
-                        var bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length, _cancelTokenSource.Token);
+                        int bytesRead = await stream.ReadAsync(buffer, _cancelTokenSource.Token);
 
                         if (bytesRead == 0)
-                            break; // we're done
+                            break;
 
-                        await fileStream.WriteAsync(buffer, 0, bytesRead, _cancelTokenSource.Token);
+                        totalBytesRead += bytesRead;
+
+                        await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressBar();
                     }
-                }
 
-                App.Logger.WriteLine(LOG_IDENT, $"Finished downloading {package.Name}!");
+                    App.Logger.WriteLine(LOG_IDENT, $"Finished downloading! ({totalBytesRead} bytes total)");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+
+                    File.Delete(packageLocation);
+
+                    if (i >= maxTries)
+                        throw;
+
+                    _totalDownloadedBytes -= totalBytesRead;
+                    UpdateProgressBar();
+                }
             }
         }
 
@@ -1337,11 +1366,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Reading {package.Name}...");
 
-            var readTask = new Task<ZipArchive>(() => ZipFile.OpenRead(packageLocation));
-            _ = readTask.ContinueWith(AsyncHelpers.ExceptionHandler, $"reading {package.Name}");
-            readTask.Start();
-
-            using ZipArchive archive = await readTask.WaitAsync(TimeSpan.FromSeconds(30));
+            var archive = await Task.Run(() => ZipFile.OpenRead(packageLocation));
 
             App.Logger.WriteLine(LOG_IDENT, $"Read {package.Name}. Extracting to {packageFolder}...");
 
