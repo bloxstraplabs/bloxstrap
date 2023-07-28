@@ -191,6 +191,30 @@ namespace Bloxstrap
 
             ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
+            if (clientVersion.IsBehindDefaultChannel)
+            {
+                MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
+                {
+                    ChannelChangeMode.Prompt => Controls.ShowMessageBox(
+                        $"The channel you're currently on ({App.Settings.Prop.Channel}) is out of date, and appears to no longer be receiving updates.\n" +
+                        $"Would you like to switch to the default channel ({RobloxDeployment.DefaultChannel})?",
+                        MessageBoxImage.Warning,
+                        MessageBoxButton.YesNo
+                    ),
+                    ChannelChangeMode.Automatic => MessageBoxResult.Yes,
+                    ChannelChangeMode.Ignore => MessageBoxResult.No,
+                    _ => MessageBoxResult.None
+                };
+
+                if (action == MessageBoxResult.Yes)
+                {
+                    App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {RobloxDeployment.DefaultChannel}");
+
+                    App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
+                    clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+                }
+            }
+
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Paths.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);

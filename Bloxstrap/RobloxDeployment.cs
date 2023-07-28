@@ -120,7 +120,15 @@ namespace Bloxstrap
 
                 clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
             }
-            
+
+            // check if channel is behind LIVE
+            if (channel != DefaultChannel)
+            {
+                var defaultClientVersion = await GetInfo(DefaultChannel);
+
+                if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == -1)
+                    clientVersion.IsBehindDefaultChannel = true;
+            }
 
             // for preferences
             if (extraInformation && clientVersion.Timestamp is null)
@@ -137,15 +145,6 @@ namespace Bloxstrap
                     string lastModified = values.First();
                     App.Logger.WriteLine(LOG_IDENT, $"{manifestUrl} - Last-Modified: {lastModified}");
                     clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
-                }
-
-                // check if channel is behind LIVE
-                if (channel != DefaultChannel)
-                {
-                    var defaultClientVersion = await GetInfo(DefaultChannel);
-
-                    if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == -1)
-                        clientVersion.IsBehindDefaultChannel = true;
                 }
             }
 
