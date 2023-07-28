@@ -34,7 +34,7 @@
             if (emojiType == EmojiType.Default)
                 return "";
 
-            return $"https://github.com/NikSavchenk0/rbxcustom-fontemojis/raw/8a552f4aaaecfa58d6bd9b0540e1ac16e81faadb/{Filenames[emojiType]}";
+            return $"https://github.com/pizzaboxer/rbxcustom-fontemojis/releases/download/my-phone-is-78-percent/{Filenames[emojiType]}";
         }
     }
 }
