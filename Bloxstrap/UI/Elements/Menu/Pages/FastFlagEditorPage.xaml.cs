@@ -255,8 +255,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                     App.FastFlags.SetValue(pair.Key, pair.Value);
                 }
 
-                _searchFilter = "";
-                ReloadList();
+                ClearSearch();
             }
             catch (Exception ex)
             {
