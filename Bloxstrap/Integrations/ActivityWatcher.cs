@@ -11,7 +11,7 @@
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
-        private const string GameMessageEntry = "[FLog::Output] [SendBloxstrapMessage]";
+        private const string GameMessageEntry = "[FLog::Output] [BloxstrapRPC]";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
@@ -24,7 +24,7 @@
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
-        public event EventHandler<GameMessage>? OnGameMessage;
+        public event EventHandler<Message>? OnRPCMessage;
 
         private Dictionary<string, string> GeolocationCache = new();
 
@@ -233,13 +233,13 @@
                 else if (entry.Contains(GameMessageEntry))
                 {
                     string messagePlain = entry.Substring(entry.IndexOf(GameMessageEntry) + GameMessageEntry.Length + 1);
-                    GameMessage? message;
+                    Message? message;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
 
                     try
                     {
-                        message = JsonSerializer.Deserialize<GameMessage>(messagePlain);
+                        message = JsonSerializer.Deserialize<Message>(messagePlain);
                     }
                     catch (Exception)
                     {
@@ -259,7 +259,7 @@
                         return;
                     }
 
-                    OnGameMessage?.Invoke(this, message);
+                    OnRPCMessage?.Invoke(this, message);
                 }
             }
         }

@@ -7,21 +7,20 @@ namespace Bloxstrap.Integrations
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
         private readonly ActivityWatcher _activityWatcher;
         
-        private RichPresence? _currentPresence;
+        private DiscordRPC.RichPresence? _currentPresence;
         private bool _visible = true;
-        private string? _initialStatus;
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
-            const string LOG_IDENT = "DiscordRichPresence::<construct>";
+            const string LOG_IDENT = "DiscordRichPresence::DiscordRichPresence";
 
             _activityWatcher = activityWatcher;
 
             _activityWatcher.OnGameJoin += (_, _) => Task.Run(() => SetCurrentGame());
             _activityWatcher.OnGameLeave += (_, _) => Task.Run(() => SetCurrentGame());
-            _activityWatcher.OnGameMessage += (_, message) => OnGameMessage(message);
+            _activityWatcher.OnRPCMessage += (_, message) => ProcessRPCMessage(message);
 
             _rpcClient.OnReady += (_, e) =>
                 App.Logger.WriteLine(LOG_IDENT, $"Received ready from user {e.User} ({e.User.ID})");
@@ -45,71 +44,12 @@ namespace Bloxstrap.Integrations
             _rpcClient.Initialize();
         }
 
-        public void OnGameMessage(GameMessage message)
+        public void ProcessRPCMessage(Message message)
         {
-            switch (message.Command)
-            {
-                case "SetPresenceStatus":
-                    SetStatus(message.Data);
-                    break;
+            const string LOG_IDENT = "DiscordRichPresence::ProcessRPCMessage";
 
-                case "SetPresenceTimestamp":
-                    SetTimestamp(message.Data);
-                    break;
-
-                case "SetPresenceIcon":
-                    SetIcon(message.Data);
-                    break;
-            }
-        }
-
-        #region Game message commands
-        public void SetStatus(string status)
-        {
-            const string LOG_IDENT = "DiscordRichPresence::SetStatus";
-            
-            App.Logger.WriteLine(LOG_IDENT, $"Setting status to '{status}'");
-
-            if (_currentPresence is null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Presence is not set, aborting");
+            if (message.Command != "SetRichPresence")
                 return;
-            }
-
-            if (status.Length > 128)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Status cannot be longer than 128 characters, aborting");
-                return;
-            }
-
-            if (_initialStatus is null)
-                _initialStatus = _currentPresence.State;
-
-            string finalStatus;
-
-            if (String.IsNullOrEmpty(status))
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Status is empty, reverting to initial status");
-                finalStatus = _initialStatus;
-            }
-            else
-            {
-                finalStatus = status;
-            }
-
-            if (_currentPresence.State == finalStatus)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Status is unchanged, aborting");
-                return;
-            }
-
-            _currentPresence.State = finalStatus;
-            UpdatePresence();
-        }
-
-        public void SetTimestamp(string data)
-        {
-            const string LOG_IDENT = "DiscordRichPresence::SetTimestamp";
 
             if (_currentPresence is null)
             {
@@ -117,62 +57,66 @@ namespace Bloxstrap.Integrations
                 return;
             }
 
-            if (String.IsNullOrEmpty(data))
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Clearing timestamp");
+            Models.BloxstrapRPC.RichPresence? presence;
 
-                _currentPresence.Timestamps.Start = null;
-                _currentPresence.Timestamps.End = null;
+            try
+            {
+                presence = message.Data.Deserialize<Models.BloxstrapRPC.RichPresence>();
             }
-            else
+            catch (Exception)
             {
-                var parameters = data.Split(';');
-
-                if (parameters.Length >= 1 && ulong.TryParse(parameters[0], out ulong startTimestamp))
-                    _currentPresence.Timestamps.StartUnixMilliseconds = startTimestamp * 1000;
-
-                if (parameters.Length >= 2 && ulong.TryParse(parameters[1], out ulong endTimestamp))
-                    _currentPresence.Timestamps.EndUnixMilliseconds = endTimestamp * 1000;
-            }
-
-            UpdatePresence();
-        }
-
-        public void SetIcon(string data)
-        {
-            const string LOG_IDENT = "DiscordRichPresence::SetIcon";
-
-            if (_currentPresence is null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Presence is not set, aborting");
+                App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
                 return;
             }
 
-            if (String.IsNullOrEmpty(data))
+            if (presence is null)
             {
-                _currentPresence.Assets.SmallImageKey = "roblox";
-                _currentPresence.Assets.SmallImageText = "Roblox";
+                App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
+                return;
             }
-            else
+
+            if (presence.Details is not null)
             {
-                var parameters = data.Split(';');
+                if (presence.Details.Length > 128)
+                    App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
+                else
+                    _currentPresence.Details = presence.Details;
+            }
 
-                if (parameters.Length < 2 || !ulong.TryParse(parameters[0], out ulong assetId))
-                    return;
+            if (presence.State is not null)
+            {
+                if (presence.State.Length > 128)
+                    App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
+                else
+                    _currentPresence.State = presence.State;
+            }
 
-                if (parameters[1].Length > 128)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Icon text cannot be longer than 128 characters, aborting");
-                    return;
-                }
+            if (presence.TimestampStart is not null)
+                _currentPresence.Timestamps.StartUnixMilliseconds = presence.TimestampStart * 1000;
 
-                _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={assetId}";
-                _currentPresence.Assets.SmallImageText = parameters[1];
+            if (presence.TimestampEnd is not null)
+                _currentPresence.Timestamps.EndUnixMilliseconds = presence.TimestampEnd * 1000;
+
+            if (presence.SmallImage is not null)
+            {
+                if (presence.SmallImage.AssetId is not null)
+                    _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presence.SmallImage.AssetId}";
+                
+                if (presence.SmallImage.HoverText is not null)
+                    _currentPresence.Assets.SmallImageText = presence.SmallImage.HoverText;
+            }
+
+            if (presence.LargeImage is not null)
+            {
+                if (presence.LargeImage.AssetId is not null)
+                    _currentPresence.Assets.LargeImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presence.LargeImage.AssetId}";
+
+                if (presence.LargeImage.HoverText is not null)
+                    _currentPresence.Assets.LargeImageText = presence.LargeImage.HoverText;
             }
 
             UpdatePresence();
         }
-        #endregion
 
         public void SetVisibility(bool visible)
         {
@@ -194,7 +138,6 @@ namespace Bloxstrap.Integrations
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
                 _currentPresence = null;
-                _initialStatus = null;
                 UpdatePresence();
                 return true;
             }
@@ -271,7 +214,7 @@ namespace Bloxstrap.Integrations
                 _ => $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
             };
 
-            _currentPresence = new RichPresence
+            _currentPresence = new DiscordRPC.RichPresence
             {
                 Details = $"Playing {universeDetails.Name}",
                 State = status,
