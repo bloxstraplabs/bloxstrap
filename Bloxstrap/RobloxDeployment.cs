@@ -98,7 +98,20 @@ namespace Bloxstrap
             }
             else
             {
-                HttpResponseMessage deployInfoResponse = await App.HttpClient.GetAsync($"https://clientsettingscdn.roblox.com/v2/client-version/WindowsPlayer/channel/{channel}");
+                string path = $"/v2/client-version/WindowsPlayer/channel/{channel}";
+                HttpResponseMessage deployInfoResponse;
+
+                try
+                {
+                    deployInfoResponse = await App.HttpClient.GetAsync("https://clientsettingscdn.roblox.com" + path);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to contact clientsettingscdn! Falling back to clientsettings...");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+
+                    deployInfoResponse = await App.HttpClient.GetAsync("https://clientsettings.roblox.com" + path);
+                }
 
                 string rawResponse = await deployInfoResponse.Content.ReadAsStringAsync();
 
