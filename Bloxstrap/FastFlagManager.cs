@@ -23,6 +23,7 @@ namespace Bloxstrap
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.TexturePack", "FStringPartTexturePackTable2022" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
+            { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
@@ -59,6 +60,15 @@ namespace Bloxstrap
             { "Voxel (Phase 1)", "Voxel" },
             { "ShadowMap (Phase 2)", "ShadowMap" },
             { "Future (Phase 3)", "Future" }
+        };
+
+        public static IReadOnlyDictionary<string, string?> MSAAModes => new Dictionary<string, string?>
+        {
+            { "Automatic", null },
+            { "1x MSAA", "1" },
+            { "2x MSAA", "2" },
+            { "4x MSAA", "4" },
+            { "8x MSAA", "8" }
         };
 
         // this is one hell of a dictionary definition lmao
@@ -118,7 +128,7 @@ namespace Bloxstrap
             else
             {
                 if (Prop.ContainsKey(key))
-                    App.Logger.WriteLine(LOG_IDENT, $"Setting of '{key}' from '{Prop[key]}' to '{value}' is pending");
+                    App.Logger.WriteLine(LOG_IDENT, $"Changing of '{key}' from '{Prop[key]}' to '{value}' is pending");
                 else
                     App.Logger.WriteLine(LOG_IDENT, $"Setting of '{key}' to '{value}' is pending");
 

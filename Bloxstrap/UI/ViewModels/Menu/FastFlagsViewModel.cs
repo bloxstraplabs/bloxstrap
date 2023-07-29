@@ -127,6 +127,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
         }
 
+        public IReadOnlyDictionary<string, string?> MSAAModes => FastFlagManager.MSAAModes;
+
+        public string SelectedMSAAMode
+        {
+            get => MSAAModes.First(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA")).Key ?? MSAAModes.First().Key;
+            set => App.FastFlags.SetPreset("Rendering.MSAA", MSAAModes[value]);
+        }
+
         public bool GuiHidingEnabled
         {
             get => App.FastFlags.GetPreset("UI.Hide") == "32380007";
