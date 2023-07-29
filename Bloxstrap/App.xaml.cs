@@ -41,7 +41,11 @@ namespace Bloxstrap
         public static readonly JsonManager<State> State = new();
         public static readonly FastFlagManager FastFlags = new();
 
-        public static readonly HttpClient HttpClient = new(new HttpClientLoggingHandler(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }));
+        public static readonly HttpClient HttpClient = new(
+            new HttpClientLoggingHandler(
+                new HttpClientHandler { AutomaticDecompression = DecompressionMethods.All }
+            )
+        );
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
@@ -107,7 +111,7 @@ namespace Bloxstrap
 
             LaunchArgs = e.Args;
 
-            HttpClient.Timeout = TimeSpan.FromMinutes(5);
+            HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
             if (LaunchArgs.Length > 0)
@@ -295,9 +299,7 @@ namespace Bloxstrap
                     }
                 }
 
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run());
-
-                bootstrapperTask.ContinueWith(t =>
+                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
                 {
                     Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 
