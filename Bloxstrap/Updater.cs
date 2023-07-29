@@ -14,6 +14,7 @@ namespace Bloxstrap
             // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
             bool isAutoUpgrade = Paths.Process.StartsWith(Path.Combine(Paths.Base, "Updates")) || Paths.Process.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"));
 
+            FileVersionInfo existingVersionInfo = FileVersionInfo.GetVersionInfo(Paths.Application);
             FileVersionInfo currentVersionInfo = FileVersionInfo.GetVersionInfo(Paths.Process);
 
             if (MD5Hash.FromFile(Paths.Process) == MD5Hash.FromFile(Paths.Application))
@@ -71,7 +72,7 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (App.BuildMetadata.CommitRef.StartsWith("tag") && App.Version == "2.4.1")
+            if (App.BuildMetadata.CommitRef.StartsWith("tag") && existingVersionInfo.ProductVersion == "2.4.0")
             {
                 App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
                 App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
@@ -90,7 +91,7 @@ namespace Bloxstrap
             else if (!App.IsQuiet)
             {
                 Controls.ShowMessageBox(
-                    $"{App.ProjectName} has been updated to v{currentVersionInfo.ProductVersion}",
+                    $"{App.ProjectName} has been upgraded to v{currentVersionInfo.ProductVersion}",
                     MessageBoxImage.Information,
                     MessageBoxButton.OK
                 );
