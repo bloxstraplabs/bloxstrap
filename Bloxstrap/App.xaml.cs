@@ -147,6 +147,33 @@ namespace Bloxstrap
                 }
             }
 
+            if (!IsMenuLaunch)
+            {
+                Logger.WriteLine(LOG_IDENT, "Performing connectivity check");
+
+                try
+                {
+                    HttpClient.GetAsync("https://detectportal.firefox.com").Wait();
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
+                    Logger.WriteException(LOG_IDENT, ex);
+
+                    Controls.ShowMessageBox(
+                        "Bloxstrap is unable to connect to the internet. Please check your network configuration and try again.\n" +
+                        "\n" +
+                        "More information:\n" +
+                        ex.InnerException!.Message,
+                        MessageBoxImage.Error,
+                        MessageBoxButton.OK
+                    );
+
+                    Terminate();
+                }
+            }
+            
+
             // check if installed
             using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
             {
