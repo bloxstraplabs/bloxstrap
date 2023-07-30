@@ -164,6 +164,8 @@ namespace Bloxstrap
             if (result != MessageBoxResult.Yes)
                 return;
 
+            Filesystem.AssertReadOnly(Paths.Application);
+
             // yes, this is EXTREMELY hacky, but the updater process that launched the
             // new version may still be open and so we have to wait for it to close
             int attempts = 0;

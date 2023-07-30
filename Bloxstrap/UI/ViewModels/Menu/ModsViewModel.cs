@@ -40,6 +40,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 { 
                     Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
                     File.Copy(dialog.FileName, Paths.CustomFont);
+                    Filesystem.AssertReadOnly(Paths.CustomFont);
                 }
             }
 
