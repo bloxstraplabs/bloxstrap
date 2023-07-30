@@ -22,7 +22,8 @@ namespace Bloxstrap
         public static bool ShouldSaveConfigs { get; set; } = false;
 
         public static bool IsSetupComplete { get; set; } = true;
-        public static bool IsFirstRun { get; private set; } = true;
+        public static bool IsFirstRun { get; set; } = true;
+
         public static bool IsQuiet { get; private set; } = false;
         public static bool IsUninstall { get; private set; } = false;
         public static bool IsNoLaunch { get; private set; } = false;
@@ -149,11 +150,12 @@ namespace Bloxstrap
 
             if (!IsMenuLaunch)
             {
-                Logger.WriteLine(LOG_IDENT, "Performing connectivity check");
+                Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
 
                 try
                 {
                     HttpClient.GetAsync("https://detectportal.firefox.com").Wait();
+                    Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
                 }
                 catch (Exception ex)
                 {
@@ -173,41 +175,9 @@ namespace Bloxstrap
                 }
             }
             
-
-            // check if installed
-            using (RegistryKey? registryKey = Registry.CurrentUser.OpenSubKey($@"Software\{ProjectName}"))
+            using (var checker = new InstallChecker())
             {
-                string? installLocation = null;
-                
-                if (registryKey is not null)
-                    installLocation = (string?)registryKey.GetValue("InstallLocation");
-
-                if (registryKey is null || installLocation is null)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Running first-time install");
-
-                    BaseDirectory = Path.Combine(Paths.LocalAppData, ProjectName);
-                    Logger.Initialize(true);
-
-                    if (!IsQuiet)
-                    {
-                        IsSetupComplete = false;
-                        FastFlags.Load();
-                        Controls.ShowMenu();
-                    }
-                }
-                else
-                {
-                    IsFirstRun = false;
-                    BaseDirectory = installLocation;
-                }
-            }
-
-            // exit if we don't click the install button on installation
-            if (!IsSetupComplete)
-            {
-                Logger.WriteLine(LOG_IDENT, "Installation cancelled!");
-                Terminate(ErrorCode.ERROR_CANCELLED);
+                checker.Check();
             }
 
             Paths.Initialize(BaseDirectory);
@@ -234,7 +204,7 @@ namespace Bloxstrap
 
 #if !DEBUG
             if (!IsUninstall && !IsFirstRun)
-                Updater.CheckInstalledVersion();
+                InstallChecker.CheckUpgrade();
 #endif
 
             string commandLine = "";
