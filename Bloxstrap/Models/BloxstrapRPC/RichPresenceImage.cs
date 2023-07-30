@@ -7,5 +7,11 @@
 
         [JsonPropertyName("hoverText")]
         public string? HoverText { get; set; }
+
+        [JsonPropertyName("clear")]
+        public bool Clear { get; set; } = false;
+
+        [JsonPropertyName("reset")]
+        public bool Reset { get; set; } = false;
     }
 }

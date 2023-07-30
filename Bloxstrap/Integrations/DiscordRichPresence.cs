@@ -8,6 +8,8 @@ namespace Bloxstrap.Integrations
         private readonly ActivityWatcher _activityWatcher;
         
         private DiscordRPC.RichPresence? _currentPresence;
+        private DiscordRPC.RichPresence? _currentPresenceCopy;
+
         private bool _visible = true;
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
@@ -51,17 +53,19 @@ namespace Bloxstrap.Integrations
             if (message.Command != "SetRichPresence")
                 return;
 
-            if (_currentPresence is null)
+            if (_currentPresence is null || _currentPresenceCopy is null)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Presence is not set, aborting");
                 return;
             }
 
-            Models.BloxstrapRPC.RichPresence? presence;
+            Models.BloxstrapRPC.RichPresence? presenceData;
+            
+            // a lot of repeated code here, could this somehow be cleaned up?
 
             try
             {
-                presence = message.Data.Deserialize<Models.BloxstrapRPC.RichPresence>();
+                presenceData = message.Data.Deserialize<Models.BloxstrapRPC.RichPresence>();
             }
             catch (Exception)
             {
@@ -69,50 +73,82 @@ namespace Bloxstrap.Integrations
                 return;
             }
 
-            if (presence is null)
+            if (presenceData is null)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
                 return;
             }
 
-            if (presence.Details is not null)
+            if (presenceData.Details is not null)
             {
-                if (presence.Details.Length > 128)
+                if (presenceData.Details.Length > 128)
                     App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
+                else if (presenceData.Details == "<revert>")
+                    _currentPresence.Details = _currentPresenceCopy.Details;
                 else
-                    _currentPresence.Details = presence.Details;
+                    _currentPresence.Details = presenceData.Details;
             }
 
-            if (presence.State is not null)
+            if (presenceData.State is not null)
             {
-                if (presence.State.Length > 128)
+                if (presenceData.State.Length > 128)
                     App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
+                else if (presenceData.State == "<revert>")
+                    _currentPresence.State = _currentPresenceCopy.State;
                 else
-                    _currentPresence.State = presence.State;
+                    _currentPresence.State = presenceData.State;
             }
 
-            if (presence.TimestampStart is not null)
-                _currentPresence.Timestamps.StartUnixMilliseconds = presence.TimestampStart * 1000;
+            if (presenceData.TimestampStart == 0)
+                _currentPresence.Timestamps.Start = null;
+            else if (presenceData.TimestampStart is not null)
+                _currentPresence.Timestamps.StartUnixMilliseconds = presenceData.TimestampStart * 1000;
 
-            if (presence.TimestampEnd is not null)
-                _currentPresence.Timestamps.EndUnixMilliseconds = presence.TimestampEnd * 1000;
+            if (presenceData.TimestampEnd == 0)
+                _currentPresence.Timestamps.End = null;
+            else if (presenceData.TimestampEnd is not null)
+                _currentPresence.Timestamps.EndUnixMilliseconds = presenceData.TimestampEnd * 1000;
 
-            if (presence.SmallImage is not null)
+            if (presenceData.SmallImage is not null)
             {
-                if (presence.SmallImage.AssetId is not null)
-                    _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presence.SmallImage.AssetId}";
-                
-                if (presence.SmallImage.HoverText is not null)
-                    _currentPresence.Assets.SmallImageText = presence.SmallImage.HoverText;
+                if (presenceData.SmallImage.Clear)
+                {
+                    _currentPresence.Assets.SmallImageKey = "";
+                }
+                else if (presenceData.SmallImage.Reset)
+                {
+                    _currentPresence.Assets.SmallImageText = _currentPresenceCopy.Assets.SmallImageText;
+                    _currentPresence.Assets.SmallImageKey = _currentPresenceCopy.Assets.SmallImageKey;
+                }
+                else
+                {
+                    if (presenceData.SmallImage.AssetId is not null)
+                        _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.SmallImage.AssetId}";
+
+                    if (presenceData.SmallImage.HoverText is not null)
+                        _currentPresence.Assets.SmallImageText = presenceData.SmallImage.HoverText;
+                }
             }
 
-            if (presence.LargeImage is not null)
+            if (presenceData.LargeImage is not null)
             {
-                if (presence.LargeImage.AssetId is not null)
-                    _currentPresence.Assets.LargeImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presence.LargeImage.AssetId}";
+                if (presenceData.LargeImage.Clear)
+                {
+                    _currentPresence.Assets.LargeImageKey = "";
+                }
+                else if (presenceData.LargeImage.Reset)
+                {
+                    _currentPresence.Assets.LargeImageText = _currentPresenceCopy.Assets.LargeImageText;
+                    _currentPresence.Assets.LargeImageKey = _currentPresenceCopy.Assets.LargeImageKey;
+                }
+                else
+                {
+                    if (presenceData.LargeImage.AssetId is not null)
+                        _currentPresence.Assets.LargeImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.LargeImage.AssetId}";
 
-                if (presence.LargeImage.HoverText is not null)
-                    _currentPresence.Assets.LargeImageText = presence.LargeImage.HoverText;
+                    if (presenceData.LargeImage.HoverText is not null)
+                        _currentPresence.Assets.LargeImageText = presenceData.LargeImage.HoverText;
+                }
             }
 
             UpdatePresence();
@@ -137,7 +173,7 @@ namespace Bloxstrap.Integrations
             if (!_activityWatcher.ActivityInGame)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
-                _currentPresence = null;
+                _currentPresence = _currentPresenceCopy = null;
                 UpdatePresence();
                 return true;
             }
@@ -228,6 +264,9 @@ namespace Bloxstrap.Integrations
                     SmallImageText = "Roblox"
                 }
             };
+
+            // this is used for configuration from BloxstrapRPC
+            _currentPresenceCopy = _currentPresence.Clone();
 
             UpdatePresence();
 
