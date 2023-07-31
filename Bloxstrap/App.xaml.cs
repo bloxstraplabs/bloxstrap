@@ -162,11 +162,14 @@ namespace Bloxstrap
                     Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
                     Logger.WriteException(LOG_IDENT, ex);
 
+                    if (ex.GetType() == typeof(AggregateException))
+                        ex = ex.InnerException!;
+
                     Controls.ShowMessageBox(
                         "Bloxstrap is unable to connect to the internet. Please check your network configuration and try again.\n" +
                         "\n" +
                         "More information:\n" +
-                        ex.InnerException!.Message,
+                        ex.Message,
                         MessageBoxImage.Error,
                         MessageBoxButton.OK
                     );

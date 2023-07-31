@@ -40,7 +40,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
-            catch (HttpResponseUnsuccessfulException ex)
+            catch (HttpResponseException ex)
             {
                 ShowLoadingError = true;
                 OnPropertyChanged(nameof(ShowLoadingError));
@@ -48,7 +48,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 ChannelInfoLoadingText = ex.ResponseMessage.StatusCode switch
                 {
                     HttpStatusCode.NotFound => "The specified channel name does not exist.",
-                    _ => $"Failed to fetch information! (HTTP {ex.ResponseMessage.StatusCode})",
+                    _ => $"Failed to fetch information! (HTTP {(int)ex.ResponseMessage.StatusCode} - {ex.ResponseMessage.ReasonPhrase})",
                 };
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }

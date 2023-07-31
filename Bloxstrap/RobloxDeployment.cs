@@ -128,7 +128,7 @@ namespace Bloxstrap
                         $"\tResponse: {rawResponse}"
                     );
 
-                    throw new HttpResponseUnsuccessfulException(deployInfoResponse);
+                    throw new HttpResponseException(deployInfoResponse);
                 }
 
                 clientVersion = JsonSerializer.Deserialize<ClientVersion>(rawResponse)!;
