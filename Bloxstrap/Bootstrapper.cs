@@ -670,6 +670,7 @@ namespace Bloxstrap
             SetStatus($"Uninstalling {App.ProjectName}...");
 
             App.ShouldSaveConfigs = false;
+            bool robloxStillInstalled = true;
 
             // check if stock bootstrapper is still installed
             RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
@@ -677,6 +678,8 @@ namespace Bloxstrap
             {
                 ProtocolHandler.Unregister("roblox");
                 ProtocolHandler.Unregister("roblox-player");
+
+                robloxStillInstalled = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio") is not null;
             }
             else
             {
@@ -715,6 +718,11 @@ namespace Bloxstrap
             {
                 cleanupSequence.Add(() => Directory.Delete(Paths.Base, true));
             }
+
+            string robloxFolder = Path.Combine(Paths.LocalAppData, "Roblox");
+
+            if (!robloxStillInstalled && Directory.Exists(robloxFolder))
+                cleanupSequence.Add(() => Directory.Delete(robloxFolder, true));
 
             foreach (var process in cleanupSequence)
             {
