@@ -26,7 +26,8 @@
         public event EventHandler? OnGameLeave;
         public event EventHandler<Message>? OnRPCMessage;
 
-        private Dictionary<string, string> GeolocationCache = new();
+        private readonly Dictionary<string, string> GeolocationCache = new();
+        private DateTime LastRPCRequest;
 
         public string LogLocation = null!;
 
@@ -237,6 +238,12 @@
 
                     App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
 
+                    if ((DateTime.Now - LastRPCRequest).TotalSeconds <= 1)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Dropping message as ratelimit has been hit");
+                        return;
+                    }
+
                     try
                     {
                         message = JsonSerializer.Deserialize<Message>(messagePlain);
@@ -260,6 +267,8 @@
                     }
 
                     OnRPCMessage?.Invoke(this, message);
+
+                    LastRPCRequest = DateTime.Now;
                 }
             }
         }
