@@ -1,8 +1,33 @@
-﻿namespace Bloxstrap
+﻿using System.ComponentModel;
+
+namespace Bloxstrap
 {
     static class Utilities
     {
-        public static void ShellExecute(string website) => Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
+        public static void ShellExecute(string website)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo 
+                { 
+                    FileName = website, 
+                    UseShellExecute = true 
+                });
+            }
+            catch (Win32Exception ex)
+            {
+                // lmfao
+
+                if (!ex.Message.Contains("Application not found"))
+                    throw;
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "rundll32.exe",
+                    Arguments = $"shell32,OpenAs_RunDLL {website}"
+                });
+            }
+        }
 
         /// <summary>
         /// 

@@ -256,7 +256,10 @@ namespace Bloxstrap
                     "Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", 
                     MessageBoxImage.Error
                 );
-                Utilities.ShellExecute("https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a");
+
+                if (!App.IsQuiet)
+                    Utilities.ShellExecute("https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a");
+
                 Dialog?.CloseBootstrapper();
                 return;
             }
