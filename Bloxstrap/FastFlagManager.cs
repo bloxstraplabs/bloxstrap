@@ -1,5 +1,7 @@
-﻿using System.Windows.Input;
-using System.Windows.Media.Animation;
+﻿using System.Windows.Forms;
+
+using Windows.Win32;
+using Windows.Win32.Graphics.Gdi;
 
 namespace Bloxstrap
 {
@@ -152,12 +154,6 @@ namespace Bloxstrap
                 SetValue(pair.Value, value);
         }
 
-        public void SetPresetOnce(string key, object? value)
-        {
-            if (GetPreset(key) is null)
-                SetPreset(key, value);
-        }
-
         public void SetPresetEnum(string prefix, string target, object? value)
         {
             foreach (var pair in PresetFlags.Where(x => x.Key.StartsWith(prefix)))
@@ -207,8 +203,24 @@ namespace Bloxstrap
         {
             base.Load();
 
-            SetPresetOnce("Rendering.Framerate", 9999);
             CheckManualFullscreenPreset();
+
+            if (GetPreset("Rendering.Framerate") is not null)
+                return;
+
+            // set it to be the framerate of the primary display by default
+
+            var screen = Screen.AllScreens.Where(x => x.Primary).Single();
+            var devmode = new DEVMODEW();
+
+            PInvoke.EnumDisplaySettings(screen.DeviceName, ENUM_DISPLAY_SETTINGS_MODE.ENUM_CURRENT_SETTINGS, ref devmode);
+
+            uint framerate = devmode.dmDisplayFrequency;
+
+            if (framerate <= 100)
+                framerate *= 2;
+
+            SetPreset("Rendering.Framerate", framerate);
         }
     }
 }
