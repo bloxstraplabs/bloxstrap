@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
-using System;
 
 namespace Bloxstrap
 {
@@ -190,7 +189,24 @@ namespace Bloxstrap
         {
             SetStatus("Connecting to Roblox...");
 
-            ClientVersion clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+            ClientVersion clientVersion;
+
+            try
+            {
+                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+            }
+            catch (Exception ex)
+            {
+                string message = "It's possible that Roblox is being blocked by a firewall. Please check and try again.";
+
+                if (ex.GetType() == typeof(HttpResponseException))
+                    message = "Roblox may be down right now. See status.roblox.com for more information. Please try again later.";
+
+                Controls.ShowConnectivityDialog("Roblox", message, ex);
+
+                App.Terminate(ErrorCode.ERROR_CANCELLED);
+                return;
+            }
 
             if (clientVersion.IsBehindDefaultChannel)
             {

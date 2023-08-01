@@ -1,6 +1,4 @@
-﻿using Bloxstrap.Exceptions;
-
-namespace Bloxstrap.UI.ViewModels.Menu
+﻿namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {

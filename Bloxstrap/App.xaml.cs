@@ -165,16 +165,13 @@ namespace Bloxstrap
                     if (ex.GetType() == typeof(AggregateException))
                         ex = ex.InnerException!;
 
-                    Controls.ShowMessageBox(
-                        "Bloxstrap is unable to connect to the internet. Please check your network configuration and try again.\n" +
-                        "\n" +
-                        "More information:\n" +
-                        ex.Message,
-                        MessageBoxImage.Error,
-                        MessageBoxButton.OK
+                    Controls.ShowConnectivityDialog(
+                        "the internet",
+                        $"Something may be preventing {ProjectName} from connecting to the internet, or you are currently offline. Please check and try again.",
+                        ex
                     );
 
-                    Terminate();
+                    Terminate(ErrorCode.ERROR_CANCELLED);
                 }
             }
             
