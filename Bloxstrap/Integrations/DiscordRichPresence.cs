@@ -83,7 +83,7 @@ namespace Bloxstrap.Integrations
             {
                 if (presenceData.Details.Length > 128)
                     App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
-                else if (presenceData.Details == "<revert>")
+                else if (presenceData.Details == "<reset>")
                     _currentPresence.Details = _currentPresenceCopy.Details;
                 else
                     _currentPresence.Details = presenceData.Details;
@@ -93,7 +93,7 @@ namespace Bloxstrap.Integrations
             {
                 if (presenceData.State.Length > 128)
                     App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
-                else if (presenceData.State == "<revert>")
+                else if (presenceData.State == "<reset>")
                     _currentPresence.State = _currentPresenceCopy.State;
                 else
                     _currentPresence.State = presenceData.State;

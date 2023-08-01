@@ -8,10 +8,10 @@
         [JsonPropertyName("state")]
         public string? State { get; set; }
 
-        [JsonPropertyName("timestampStart")]
+        [JsonPropertyName("timeStart")]
         public ulong? TimestampStart { get; set; }
 
-        [JsonPropertyName("timestampEnd")]
+        [JsonPropertyName("timeEnd")]
         public ulong? TimestampEnd { get; set; }
 
         [JsonPropertyName("smallImage")]
