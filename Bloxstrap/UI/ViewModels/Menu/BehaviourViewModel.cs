@@ -1,12 +1,8 @@
-﻿using System.Windows;
-
-using Bloxstrap.Exceptions;
-
-namespace Bloxstrap.UI.ViewModels.Menu
+﻿namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
-        private bool _manualChannelEntry = !RobloxDeployment.SelectableChannels.Contains(App.Settings.Prop.Channel);
+        private string _oldVersionGuid = "";
 
         public BehaviourViewModel()
         {
@@ -15,21 +11,23 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         private async Task LoadChannelDeployInfo(string channel)
         {
-            LoadingSpinnerVisibility = Visibility.Visible;
-            LoadingErrorVisibility = Visibility.Collapsed;
-            ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
-            ChannelDeployInfo = null;
+            const string LOG_IDENT = "BehaviourViewModel::LoadChannelDeployInfo";
 
-            OnPropertyChanged(nameof(LoadingSpinnerVisibility));
-            OnPropertyChanged(nameof(LoadingErrorVisibility));
+            ShowLoadingError = false;
+            OnPropertyChanged(nameof(ShowLoadingError));
+
+            ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
             OnPropertyChanged(nameof(ChannelInfoLoadingText));
+
+            ChannelDeployInfo = null;
             OnPropertyChanged(nameof(ChannelDeployInfo));
 
             try
             {
                 ClientVersion info = await RobloxDeployment.GetInfo(channel, true);
 
-                ChannelWarningVisibility = info.IsBehindDefaultChannel ? Visibility.Visible : Visibility.Collapsed;
+                ShowChannelWarning = info.IsBehindDefaultChannel;
+                OnPropertyChanged(nameof(ShowChannelWarning));
 
                 ChannelDeployInfo = new DeployInfo
                 {
@@ -38,43 +36,35 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     Timestamp = info.Timestamp?.ToFriendlyString()!
                 };
 
-                OnPropertyChanged(nameof(ChannelWarningVisibility));
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
-            catch (HttpResponseUnsuccessfulException ex)
+            catch (HttpResponseException ex)
             {
-                LoadingSpinnerVisibility = Visibility.Collapsed;
-                LoadingErrorVisibility = Visibility.Visible;
+                ShowLoadingError = true;
+                OnPropertyChanged(nameof(ShowLoadingError));
 
                 ChannelInfoLoadingText = ex.ResponseMessage.StatusCode switch
                 {
                     HttpStatusCode.NotFound => "The specified channel name does not exist.",
-                    _ => $"Failed to fetch information! (HTTP {ex.ResponseMessage.StatusCode})",
+                    _ => $"Failed to fetch information! (HTTP {(int)ex.ResponseMessage.StatusCode} - {ex.ResponseMessage.ReasonPhrase})",
                 };
-
-                OnPropertyChanged(nameof(LoadingSpinnerVisibility));
-                OnPropertyChanged(nameof(LoadingErrorVisibility));
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
             catch (Exception ex)
             {
-                LoadingSpinnerVisibility = Visibility.Collapsed;
-                LoadingErrorVisibility = Visibility.Visible;
+                App.Logger.WriteLine(LOG_IDENT, "An exception occurred while fetching channel information");
+                App.Logger.WriteException(LOG_IDENT, ex);
 
-                App.Logger.WriteLine("[BehaviourViewModel::LoadChannelDeployInfo] An exception occurred while fetching channel information");
-                App.Logger.WriteLine($"[BehaviourViewModel::LoadChannelDeployInfo] {ex}");
-
+                ShowLoadingError = true;
+                OnPropertyChanged(nameof(ShowLoadingError));
+                
                 ChannelInfoLoadingText = $"Failed to fetch information! ({ex.Message})";
-
-                OnPropertyChanged(nameof(LoadingSpinnerVisibility));
-                OnPropertyChanged(nameof(LoadingErrorVisibility));
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
         }
 
-        public Visibility LoadingSpinnerVisibility { get; private set; } = Visibility.Visible;
-        public Visibility LoadingErrorVisibility { get; private set; } = Visibility.Collapsed;
-        public Visibility ChannelWarningVisibility { get; private set; } = Visibility.Collapsed;
+        public bool ShowLoadingError { get; set; } = false;
+        public bool ShowChannelWarning { get; set; } = false;
 
         public DeployInfo? ChannelDeployInfo { get; private set; } = null;
         public string ChannelInfoLoadingText { get; private set; } = null!;
@@ -108,24 +98,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
-        public bool ManualChannelEntry
-        {
-            get => _manualChannelEntry;
-            set
-            {
-                _manualChannelEntry = value;
-
-                if (!value)
-                {
-                    // roblox typically sets channels in all lowercase, so here we find if a case insensitive match exists
-                    string? matchingChannel = Channels.Where(x => x.ToLowerInvariant() == SelectedChannel.ToLowerInvariant()).FirstOrDefault();
-                    SelectedChannel = string.IsNullOrEmpty(matchingChannel) ? RobloxDeployment.DefaultChannel : matchingChannel;
-                }
-
-                OnPropertyChanged(nameof(SelectedChannel));
-            }
-        }
-
         // todo - move to enum attributes?
         public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
         {
@@ -138,6 +110,23 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => ChannelChangeModes.FirstOrDefault(x => x.Value == App.Settings.Prop.ChannelChangeMode).Key;
             set => App.Settings.Prop.ChannelChangeMode = ChannelChangeModes[value];
+        }
+
+        public bool ForceRobloxReinstallation
+        {
+            get => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+            set
+            {
+                if (value)
+                {
+                    _oldVersionGuid = App.State.Prop.VersionGuid;
+                    App.State.Prop.VersionGuid = "";
+                }
+                else
+                {
+                    App.State.Prop.VersionGuid = _oldVersionGuid;
+                }
+            }
         }
     }
 }

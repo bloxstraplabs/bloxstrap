@@ -15,8 +15,10 @@ global using System.Threading;
 global using System.Threading.Tasks;
 
 global using Bloxstrap.Enums;
+global using Bloxstrap.Exceptions;
 global using Bloxstrap.Extensions;
 global using Bloxstrap.Models;
+global using Bloxstrap.Models.BloxstrapRPC;
 global using Bloxstrap.Models.Attributes;
 global using Bloxstrap.Models.RobloxApi;
 global using Bloxstrap.UI;

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 using Bloxstrap.Integrations;
 
@@ -24,13 +17,13 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     {
         // i wouldve gladly done this as mvvm but turns out that data binding just does not work with menuitems for some reason so idk this sucks
 
-        private readonly RobloxActivity? _activityWatcher;
+        private readonly ActivityWatcher? _activityWatcher;
         private readonly DiscordRichPresence? _richPresenceHandler;
 
         private LogTracer? _logTracerWindow;
         private ServerInformation? _serverInformationWindow;
 
-        public MenuContainer(RobloxActivity? activityWatcher, DiscordRichPresence? richPresenceHandler)
+        public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler)
         {
             InitializeComponent();
             
@@ -49,7 +42,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             if (_richPresenceHandler is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
 
-            VersionMenuItem.Header = $"{App.ProjectName} v{App.Version}";
+            VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }
 
         public void ShowServerInformationWindow()
@@ -92,13 +85,14 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             // this is done to register the context menu wrapper as a tool window so it doesnt appear in the alt+tab switcher
             // https://stackoverflow.com/a/551847/11852173
 
-            var wndHelper = new WindowInteropHelper(this);
-            long exStyle = NativeMethods.GetWindowLongPtr(wndHelper.Handle, NativeMethods.GWL_EXSTYLE).ToInt64();
-            exStyle |= NativeMethods.WS_EX_TOOLWINDOW;
-            NativeMethods.SetWindowLongPtr(wndHelper.Handle, NativeMethods.GWL_EXSTYLE, (IntPtr)exStyle);
+            HWND hWnd = (HWND)new WindowInteropHelper(this).Handle;
+
+            int exStyle = PInvoke.GetWindowLong(hWnd, WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE);
+            exStyle |= 0x00000080; //NativeMethods.WS_EX_TOOLWINDOW;
+            PInvoke.SetWindowLong(hWnd, WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, exStyle);
         }
 
-        private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("[MenuContainer::Window_Closed] Context menu container closed");
+        private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _richPresenceHandler?.SetVisibility(((MenuItem)sender).IsChecked);
 

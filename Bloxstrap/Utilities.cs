@@ -1,19 +1,33 @@
-﻿namespace Bloxstrap
+﻿using System.ComponentModel;
+
+namespace Bloxstrap
 {
     static class Utilities
     {
-        public static long GetFreeDiskSpace(string path)
+        public static void ShellExecute(string website)
         {
-            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            try
             {
-                if (path.StartsWith(drive.Name))
-                    return drive.AvailableFreeSpace;
+                Process.Start(new ProcessStartInfo 
+                { 
+                    FileName = website, 
+                    UseShellExecute = true 
+                });
             }
+            catch (Win32Exception ex)
+            {
+                // lmfao
 
-            return -1;
+                if (!ex.Message.Contains("Application not found"))
+                    throw;
+
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "rundll32.exe",
+                    Arguments = $"shell32,OpenAs_RunDLL {website}"
+                });
+            }
         }
-
-        public static void ShellExecute(string website) => Process.Start(new ProcessStartInfo { FileName = website, UseShellExecute = true });
 
         /// <summary>
         /// 

@@ -21,11 +21,44 @@
         Closed="Window_Closed">
     <ui:UiWindow.ContextMenu>
         <ContextMenu>
-            <MenuItem x:Name="VersionMenuItem" IsEnabled="False" />
+            <MenuItem IsEnabled="False">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="pack://application:,,,/Bloxstrap.ico" />
+                        <TextBlock x:Name="VersionTextBlock" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Grid.Column="1" VerticalAlignment="Center" Margin="6,0,0,0" Text="Bloxstrap v2.4.1" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
             <Separator />
             <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
-            <MenuItem x:Name="InviteDeeplinkMenuItem" Header="Copy invite deeplink" Visibility="Collapsed" Click="InviteDeeplinkMenuItem_Click" />
-            <MenuItem x:Name="ServerDetailsMenuItem" Header="See server details" Visibility="Collapsed" Click="ServerDetailsMenuItem_Click" />
+            <MenuItem x:Name="InviteDeeplinkMenuItem" Visibility="Collapsed" Click="InviteDeeplinkMenuItem_Click">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="ClipboardLink24"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Copy invite deeplink" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem x:Name="ServerDetailsMenuItem"  Visibility="Collapsed" Click="ServerDetailsMenuItem_Click">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="Info28"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="See server details" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
             <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>

@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
+using Microsoft.Win32;
+
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.Elements.Dialogs;
@@ -19,6 +21,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
         private bool _showPresets = false;
+        private string _searchFilter = "";
 
         public FastFlagEditorPage()
         {
@@ -33,9 +36,12 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             var presetFlags = FastFlagManager.PresetFlags.Values;
 
-            foreach (var pair in App.FastFlags.Prop)
+            foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
                 if (!_showPresets && presetFlags.Contains(pair.Key))
+                    continue;
+
+                if (!pair.Key.ToLower().Contains(_searchFilter.ToLower()))
                     continue;
 
                 var entry = new FastFlag
@@ -67,6 +73,15 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             
             DataGrid.SelectedItem = newSelectedEntry;
             DataGrid.ScrollIntoView(newSelectedEntry);
+        }
+
+        private void ClearSearch(bool refresh = true)
+        {
+            SearchTextBox.Text = "";
+            _searchFilter = "";
+
+            if (refresh)
+                ReloadList();
         }
 
         // refresh list on page load to synchronize with preset page
@@ -139,6 +154,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                     Value = dialog.FlagValueTextBox.Text
                 };
 
+                if (!name.Contains(_searchFilter))
+                    ClearSearch();
+
                 _fastFlagList.Add(entry);
 
                 App.FastFlags.SetValue(entry.Name, entry.Value);
@@ -147,12 +165,23 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             {
                 Controls.ShowMessageBox("An entry for this FastFlag already exists.", MessageBoxImage.Information);
 
-                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(dialog.FlagNameTextBox.Text))
+                bool refresh = false;
+
+                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(name))
                 {
-                    _showPresets = true;
                     TogglePresetsButton.IsChecked = true;
-                    ReloadList();
+                    _showPresets = true;
+                    refresh = true;
                 }
+
+                if (!name.Contains(_searchFilter))
+                {
+                    ClearSearch(false);
+                    refresh = true;
+                }
+
+                if (refresh)
+                    ReloadList();
 
                 entry = _fastFlagList.Where(x => x.Name == name).FirstOrDefault();
             }
@@ -181,6 +210,71 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 return;
 
             _showPresets = button.IsChecked ?? false;
+            ReloadList();
+        }
+
+        private void ImportJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "JSON files|*.json|All files|*.*"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                var list = JsonSerializer.Deserialize<Dictionary<string, object>>(File.ReadAllText(dialog.FileName));
+
+                if (list is null)
+                    throw new Exception("JSON deserialization returned null");
+
+                var conflictingFlags = App.FastFlags.Prop.Where(x => list.ContainsKey(x.Key)).Select(x => x.Key);
+                bool overwriteConflicting = false;
+
+                if (conflictingFlags.Any())
+                {
+                    var result = Controls.ShowMessageBox(
+                        "Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?\n" +
+                        "\n" +
+                        "Conflicting flags:\n" +
+                        String.Join(", ", conflictingFlags),
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo
+                    );
+
+                    overwriteConflicting = result == MessageBoxResult.Yes;
+                }
+
+                foreach (var pair in list)
+                {
+                    if (App.FastFlags.Prop.ContainsKey(pair.Key) && !overwriteConflicting)
+                        continue;
+
+                    App.FastFlags.SetValue(pair.Key, pair.Value);
+                }
+
+                ClearSearch();
+            }
+            catch (Exception ex)
+            {
+                Controls.ShowMessageBox(
+                    "The file you've selected does not appear to be valid JSON. Please double check the file contents and try again.\n" +
+                    "\n" + 
+                    "More information:\n" +
+                    $"{ex.Message}",
+                    MessageBoxImage.Error
+                );
+            }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is not TextBox textbox)
+                return;
+
+            _searchFilter = textbox.Text;
             ReloadList();
         }
     }

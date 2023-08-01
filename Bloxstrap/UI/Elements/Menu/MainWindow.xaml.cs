@@ -19,7 +19,7 @@ namespace Bloxstrap.UI.Elements.Menu
 
         public MainWindow()
         {
-            App.Logger.WriteLine("[MainWindow::MainWindow] Initializing menu");
+            App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 
             DataContext = new MainWindowViewModel(this, _dialogService);
             SetTheme();

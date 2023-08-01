@@ -39,6 +39,14 @@ namespace Bloxstrap.UI
             });
         }
 
+        public static void ShowConnectivityDialog(string targetName, string description, Exception exception)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                new ConnectivityDialog(targetName, description, exception).ShowDialog();
+            });
+        }
+
         public static IBootstrapperDialog GetBootstrapperDialog(BootstrapperStyle style)
         {
             return style switch

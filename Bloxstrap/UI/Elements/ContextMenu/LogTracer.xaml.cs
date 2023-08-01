@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
+using Bloxstrap.Integrations;
 using Bloxstrap.UI.ViewModels.ContextMenu;
 
 namespace Bloxstrap.UI.Elements.ContextMenu
@@ -12,7 +13,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     {
         private bool _autoscroll = true;
 
-        public LogTracer(RobloxActivity activityWatcher)
+        public LogTracer(ActivityWatcher activityWatcher)
         {
             DataContext = new LogTracerViewModel(this, activityWatcher);
             InitializeComponent();

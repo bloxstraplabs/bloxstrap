@@ -1,6 +1,6 @@
 ﻿namespace Bloxstrap
 {
-    static class Directories
+    static class Paths
     {
         // note that these are directories that aren't tethered to the basedirectory
         // so these can safely be called before initialization
@@ -8,7 +8,9 @@
         public static string LocalAppData => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static string Desktop => Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         public static string StartMenu => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu), "Programs", App.ProjectName);
-        public static string MyPictures => Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+        public static string System => Environment.GetFolderPath(Environment.SpecialFolder.System);
+
+        public static string Process => Environment.ProcessPath!;
 
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
@@ -18,6 +20,8 @@
         public static string Modifications { get; private set; } = "";
 
         public static string Application { get; private set; } = "";
+
+        public static string CustomFont => Path.Combine(Modifications, "content\\fonts\\CustomFont.ttf");
 
         public static bool Initialized => !String.IsNullOrEmpty(Base);
 

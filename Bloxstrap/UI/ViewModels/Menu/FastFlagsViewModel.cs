@@ -63,7 +63,17 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public string SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
+            set
+            {
+                App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
+                App.FastFlags.CheckManualFullscreenPreset();
+            }
+        }
+
+        public bool FixDisplayScaling
+        {
+            get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
+            set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
         }
 
         public bool AlternateGraphicsSelectorEnabled
@@ -115,6 +125,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => App.FastFlags.GetPresetEnum(LightingModes, "Rendering.Lighting", "True");
             set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
+        }
+
+        public IReadOnlyDictionary<string, string?> MSAAModes => FastFlagManager.MSAAModes;
+
+        public string SelectedMSAAMode
+        {
+            get => MSAAModes.First(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA")).Key ?? MSAAModes.First().Key;
+            set => App.FastFlags.SetPreset("Rendering.MSAA", MSAAModes[value]);
         }
 
         public bool GuiHidingEnabled

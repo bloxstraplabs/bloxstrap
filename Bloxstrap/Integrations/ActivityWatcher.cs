@@ -1,6 +1,6 @@
-﻿namespace Bloxstrap
+﻿namespace Bloxstrap.Integrations
 {
-    public class RobloxActivity : IDisposable
+    public class ActivityWatcher : IDisposable
     {
         // i'm thinking the functionality for parsing roblox logs could be broadened for more features than just rich presence,
         // like checking the ping and region of the current connected server. maybe that's something to add?
@@ -11,7 +11,7 @@
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
-        private const string GameMessageEntry = "[FLog::Output] [SendBloxstrapMessage]";
+        private const string GameMessageEntry = "[FLog::Output] [BloxstrapRPC]";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
@@ -24,9 +24,10 @@
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
-        public event EventHandler<GameMessage>? OnGameMessage;
+        public event EventHandler<Message>? OnRPCMessage;
 
-        private Dictionary<string, string> GeolcationCache = new();
+        private readonly Dictionary<string, string> GeolocationCache = new();
+        private DateTime LastRPCRequest;
 
         public string LogLocation = null!;
 
@@ -44,6 +45,8 @@
 
         public async void StartWatcher()
         {
+            const string LOG_IDENT = "ActivityWatcher::StartWatcher";
+
             // okay, here's the process:
             //
             // - tail the latest log file from %localappdata%\roblox\logs
@@ -60,7 +63,7 @@
             if (App.Settings.Prop.OhHeyYouFoundMe)
                 delay = 250;
 
-            string logDirectory = Path.Combine(Directories.LocalAppData, "Roblox\\logs");
+            string logDirectory = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
                 return;
@@ -71,7 +74,7 @@
             // if roblox doesn't start quickly enough, we can wind up fetching the previous log file
             // good rule of thumb is to find a log file that was created in the last 15 seconds or so
 
-            App.Logger.WriteLine("[RobloxActivity::StartWatcher] Opening Roblox log file...");
+            App.Logger.WriteLine(LOG_IDENT, "Opening Roblox log file...");
 
             while (true)
             {
@@ -84,13 +87,13 @@
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
 
-                App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
+                App.Logger.WriteLine(LOG_IDENT, $"Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
                 await Task.Delay(1000);
             }
 
             LogLocation = logFileInfo.FullName;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine($"[RobloxActivity::StartWatcher] Opened {LogLocation}");
+            App.Logger.WriteLine(LOG_IDENT, $"Opened {LogLocation}");
 
             AutoResetEvent logUpdatedEvent = new(false);
             FileSystemWatcher logWatcher = new()
@@ -116,6 +119,8 @@
 
         private void ExamineLogEntry(string entry)
         {
+            const string LOG_IDENT = "ActivityWatcher::ExamineLogEntry";
+
             OnLogEntry?.Invoke(this, entry);
 
             _logEntriesRead += 1;
@@ -123,9 +128,9 @@
             // debug stats to ensure that the log reader is working correctly
             // if more than 1000 log entries have been read, only log per 100 to save on spam
             if (_logEntriesRead <= 1000 && _logEntriesRead % 50 == 0)
-                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
+                App.Logger.WriteLine(LOG_IDENT, $"Read {_logEntriesRead} log entries");
             else if (_logEntriesRead % 100 == 0)
-                App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Read {_logEntriesRead} log entries");
+                App.Logger.WriteLine(LOG_IDENT, $"Read {_logEntriesRead} log entries");
 
             if (!ActivityInGame && ActivityPlaceId == 0)
             {
@@ -140,8 +145,8 @@
 
                     if (match.Groups.Count != 4)
                     {
-                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join entry");
-                        App.Logger.WriteLine(entry);
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
                         return;
                     }
 
@@ -162,7 +167,7 @@
                         _reservedTeleportMarker = false;
                     }
 
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Joining Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                 }
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
@@ -173,15 +178,15 @@
 
                     if (match.Groups.Count != 3 || match.Groups[2].Value != ActivityMachineAddress)
                     {
-                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game join UDMUX entry");
-                        App.Logger.WriteLine(entry);
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join UDMUX entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
                         return;
                     }
 
                     ActivityMachineAddress = match.Groups[1].Value;
                     ActivityMachineUDMUX = true;
 
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Server is UDMUX protected ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Server is UDMUX protected ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                 }
                 else if (entry.Contains(GameJoinedEntry))
                 {
@@ -189,12 +194,12 @@
 
                     if (match.Groups.Count != 2 || match.Groups[1].Value != ActivityMachineAddress)
                     {
-                        App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Failed to assert format for game joined entry");
-                        App.Logger.WriteLine(entry);
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game joined entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
                         return;
                     }
 
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                     ActivityInGame = true;
                     OnGameJoin?.Invoke(this, new EventArgs());
@@ -204,7 +209,7 @@
             {
                 if (entry.Contains(GameDisconnectedEntry))
                 {
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                     ActivityInGame = false;
                     ActivityPlaceId = 0;
@@ -218,7 +223,7 @@
                 }
                 else if (entry.Contains(GameTeleportingEntry))
                 {
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
                     _teleportMarker = true;
                 }
                 else if (_teleportMarker && entry.Contains(GameJoiningReservedServerEntry))
@@ -229,60 +234,83 @@
                 else if (entry.Contains(GameMessageEntry))
                 {
                     string messagePlain = entry.Substring(entry.IndexOf(GameMessageEntry) + GameMessageEntry.Length + 1);
-                    GameMessage? message;
+                    Message? message;
 
-                    App.Logger.WriteLine($"[RobloxActivity::ExamineLogEntry] Received message: '{messagePlain}'");
+                    App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
+
+                    if ((DateTime.Now - LastRPCRequest).TotalSeconds <= 1)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Dropping message as ratelimit has been hit");
+                        return;
+                    }
 
                     try
                     {
-                        message = JsonSerializer.Deserialize<GameMessage>(messagePlain);
+                        message = JsonSerializer.Deserialize<Message>(messagePlain);
                     }
                     catch (Exception)
                     {
-                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization threw an exception)");
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
                         return;
                     }
 
                     if (message is null)
                     {
-                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (JSON deserialization returned null)");
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
                         return;
                     }
 
-                    if (String.IsNullOrEmpty(message.Command))
+                    if (string.IsNullOrEmpty(message.Command))
                     {
-                        App.Logger.WriteLine($"[Utilities::ExamineLogEntry] Failed to parse message! (Command is empty)");
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (Command is empty)");
                         return;
                     }
 
-                    OnGameMessage?.Invoke(this, message);
+                    OnRPCMessage?.Invoke(this, message);
+
+                    LastRPCRequest = DateTime.Now;
                 }
             }
         }
 
         public async Task<string> GetServerLocation()
         {
-            if (GeolcationCache.ContainsKey(ActivityMachineAddress))
-                return GeolcationCache[ActivityMachineAddress];
+            const string LOG_IDENT = "ActivityWatcher::GetServerLocation";
 
-            string location = "";
+            if (GeolocationCache.ContainsKey(ActivityMachineAddress))
+                return GeolocationCache[ActivityMachineAddress];
 
-            string locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
-            string locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
-            string locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+            string location, locationCity, locationRegion, locationCountry = "";
+
+            try
+            {
+                locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
+                locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
+                locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {ActivityMachineAddress}");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                return "N/A (lookup failed)";
+            }
 
             locationCity = locationCity.ReplaceLineEndings("");
             locationRegion = locationRegion.ReplaceLineEndings("");
             locationCountry = locationCountry.ReplaceLineEndings("");
 
-            if (String.IsNullOrEmpty(locationCountry))
+            if (string.IsNullOrEmpty(locationCountry))
                 location = "N/A";
             else if (locationCity == locationRegion)
                 location = $"{locationRegion}, {locationCountry}";
             else
                 location = $"{locationCity}, {locationRegion}, {locationCountry}";
 
-            GeolcationCache[ActivityMachineAddress] = location;
+            if (!ActivityInGame)
+                return "N/A (left game)";
+
+            GeolocationCache[ActivityMachineAddress] = location;
 
             return location;
         }

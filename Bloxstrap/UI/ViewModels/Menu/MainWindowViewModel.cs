@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
             bool shouldCheckInstallLocation = App.IsFirstRun || App.BaseDirectory != _originalBaseDirectory;
 
-            if (shouldCheckInstallLocation)
+            if (shouldCheckInstallLocation && NavigationVisibility == Visibility.Visible)
             {
                 try
                 {
@@ -75,7 +75,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                         $"The folder you've chosen to install {App.ProjectName} to already exists and is NOT empty. It is strongly recommended for {App.ProjectName} to be installed to its own independent folder.\n\n" +
                         "Changing to the following location is suggested:\n" +
                         $"{suggestedChange}\n\n" +
-                        "Would you like to change your install location to this?\n" +
+                        "Would you like to change to the suggested location?\n" +
                         "Selecting 'No' will ignore this warning and continue installation.",
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNoCancel,
@@ -96,14 +96,15 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     ((INavigationWindow)_window).Navigate(typeof(PreInstallPage));
 
                     NavigationVisibility = Visibility.Collapsed;
-                    ConfirmButtonEnabled = false;
-
                     OnPropertyChanged(nameof(NavigationVisibility));
+                    
+                    ConfirmButtonEnabled = false;
                     OnPropertyChanged(nameof(ConfirmButtonEnabled));
 
                     Task.Run(async delegate
                     {
                         await Task.Delay(3000);
+
                         ConfirmButtonEnabled = true;
                         OnPropertyChanged(nameof(ConfirmButtonEnabled));
                     });
@@ -121,7 +122,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
                 if (shouldCheckInstallLocation)
                 {
-                    App.Logger.WriteLine($"[MainWindowViewModel::ConfirmSettings] Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
+                    App.Logger.WriteLine("MainWindowViewModel::ConfirmSettings", $"Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
 
                     Controls.ShowMessageBox(
                         $"{App.ProjectName} will install to the new location you've set the next time it runs.",
@@ -131,7 +132,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
                     registryKey.SetValue("InstallLocation", App.BaseDirectory);
                     registryKey.SetValue("OldInstallLocation", _originalBaseDirectory);
-                    Directories.Initialize(App.BaseDirectory);
+                    Paths.Initialize(App.BaseDirectory);
                 }
 
                 CloseWindow();

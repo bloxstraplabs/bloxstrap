@@ -67,11 +67,9 @@
     
     <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}">
-      FastFlags for Direct3D
+      FastFlag preset for Direct3D
       <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen">exclusive fullscreen</Hyperlink>
-      (Alt+Enter) and
-      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">DPI scaling fixes</Hyperlink>
-      are already enabled by default.
+      using Alt+Enter is already enabled by default.
     </TextBlock>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
@@ -168,10 +166,39 @@
       <ui:CardControl.Header>
         <StackPanel>
           <TextBlock FontSize="14" Text="Rendering mode" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what graphics renderer Roblox should use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what renderer Roblox should use. VR requires Direct3D/Automatic." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <TextBlock FontSize="14" Text="Antialiasing quality" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Forces the amount of MSAA samples that are taken." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MSAAModes.Keys, Mode=OneTime}" Text="{Binding SelectedMSAAMode, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="14" Text="Preserve rendering quality with display scaling" />
+            <TextBlock Grid.Column="1" Margin="4,0,0,0">
+              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
+                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+              </Hyperlink>
+            </TextBlock>
+          </Grid>
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox reduces your rendering quality, depending on display scaling. This toggle disables that." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardControl.Header>
+      <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>

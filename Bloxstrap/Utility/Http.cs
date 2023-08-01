@@ -4,6 +4,8 @@
     {
         public static async Task<T?> GetJson<T>(string url)
         {
+            string LOG_IDENT = $"Http::GetJson<{typeof(T).Name}>";
+
             string json = await App.HttpClient.GetStringAsync(url);
 
             try
@@ -12,8 +14,8 @@
             }
             catch (Exception ex)
             {
-                App.Logger.WriteLine($"[Http::GetJson<{typeof(T).Name}>] Failed to deserialize JSON for {url}!");
-                App.Logger.WriteLine($"[Http::GetJson<{typeof(T).Name}>] {ex}");
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to deserialize JSON for {url}!");
+                App.Logger.WriteException(LOG_IDENT, ex);
                 return default;
             }
         }

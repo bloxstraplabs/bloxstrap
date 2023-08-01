@@ -1,10 +1,6 @@
 ﻿namespace Bloxstrap
 {
     // https://stackoverflow.com/a/53873141/11852173
-    // TODO - this kind of sucks
-    // the main problem is just that this doesn't finish writing log entries before exiting the program
-    // this can be solved by making writetolog completely synchronous, but while it doesn't affect performance, its's not ideal
-    // also, writing and flushing for every single line that's written may not be great
 
     public class Logger
     {
@@ -17,16 +13,18 @@
 
         public void Initialize(bool useTempDir = false)
         {
-            string directory = useTempDir ? Path.Combine(Directories.LocalAppData, "Temp") : Path.Combine(Directories.Base, "Logs");
+            const string LOG_IDENT = "Logger::Initialize";
+
+            string directory = useTempDir ? Path.Combine(Paths.LocalAppData, "Temp") : Path.Combine(Paths.Base, "Logs");
             string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
             string filename = $"{App.ProjectName}_{timestamp}.log";
             string location = Path.Combine(directory, filename);
 
-            WriteLine($"[Logger::Initialize] Initializing at {location}");
+            WriteLine(LOG_IDENT, $"Initializing at {location}");
 
             if (Initialized)
             {
-                WriteLine("[Logger::Initialize] Failed to initialize because logger is already initialized");
+                WriteLine(LOG_IDENT, "Failed to initialize because logger is already initialized");
                 return;
             }
 
@@ -34,43 +32,61 @@
 
             if (File.Exists(location))
             {
-                WriteLine("[Logger::Initialize] Failed to initialize because log file already exists");
+                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
                 return;
             }
 
-            _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
+            try
+            {
+                _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
+            }
+            catch (IOException)
+            {
+                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+            }
+            
 
             Initialized = true;
 
             if (Backlog.Count > 0)
                 WriteToLog(string.Join("\r\n", Backlog));
 
-            WriteLine($"[Logger::Initialize] Finished initializing!");
+            WriteLine(LOG_IDENT, "Finished initializing!");
 
             FileLocation = location;
 
             // clean up any logs older than a week
-            if (Directories.Initialized && Directory.Exists(Directories.Logs))
+            if (Paths.Initialized && Directory.Exists(Paths.Logs))
             {
-                foreach (FileInfo log in new DirectoryInfo(Directories.Logs).GetFiles())
+                foreach (FileInfo log in new DirectoryInfo(Paths.Logs).GetFiles())
                 {
                     if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
                         continue;
 
-                    App.Logger.WriteLine($"[Logger::Initialize] Cleaning up old log file '{log.Name}'");
+                    WriteLine(LOG_IDENT, $"Cleaning up old log file '{log.Name}'");
                     log.Delete();
                 }
             }
         }
 
-        public void WriteLine(string message)
+        private void WriteLine(string message)
         {
             string timestamp = DateTime.UtcNow.ToString("s") + "Z";
             string outcon = $"{timestamp} {message}";
-            string outlog = outcon.Replace(Directories.UserProfile, "%UserProfile%");
+            string outlog = outcon.Replace(Paths.UserProfile, "%UserProfile%");
 
             Debug.WriteLine(outcon);
             WriteToLog(outlog);
+        }
+
+        public void WriteLine(string identifier, string message) => WriteLine($"[{identifier}] {message}");
+
+        public void WriteException(string identifier, Exception ex)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
+            WriteLine($"[{identifier}] {ex}");
         }
 
         private async void WriteToLog(string message)
@@ -84,8 +100,9 @@
             try
             {
                 await _semaphore.WaitAsync();
-                await _filestream!.WriteAsync(Encoding.Unicode.GetBytes($"{message}\r\n"));
-                await _filestream.FlushAsync();
+                await _filestream!.WriteAsync(Encoding.UTF8.GetBytes($"{message}\r\n"));
+
+                _ = _filestream.FlushAsync();
             }
             finally
             {
