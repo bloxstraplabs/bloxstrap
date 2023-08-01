@@ -1,0 +1,4 @@
+﻿SetForegroundWindow
+FlashWindow
+GetWindowLong
+SetWindowLong

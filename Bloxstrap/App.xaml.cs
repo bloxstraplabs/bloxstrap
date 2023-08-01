@@ -2,7 +2,8 @@
 using System.Windows;
 using System.Windows.Threading;
 
-using Microsoft.Win32;
+using Windows.Win32;
+using Windows.Win32.Foundation;
 
 namespace Bloxstrap
 {
@@ -215,9 +216,9 @@ namespace Bloxstrap
 
                 if (menuProcess is not null)
                 {
-                    IntPtr handle = menuProcess.MainWindowHandle;
+                    var handle = menuProcess.MainWindowHandle;
                     Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window with handle {handle}");
-                    NativeMethods.SetForegroundWindow(handle);
+                    PInvoke.SetForegroundWindow((HWND)handle);
                 }
                 else
                 {

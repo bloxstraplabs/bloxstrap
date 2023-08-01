@@ -2,6 +2,9 @@
 using System.Windows;
 using System.Windows.Interop;
 
+using Windows.Win32;
+using Windows.Win32.Foundation;
+
 namespace Bloxstrap.UI.Elements.Dialogs
 {
     // hmm... do i use MVVM for this?
@@ -60,7 +63,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
             Loaded += delegate
             {
                 IntPtr hWnd = new WindowInteropHelper(this).Handle;
-                NativeMethods.FlashWindow(hWnd, true);
+                PInvoke.FlashWindow((HWND)hWnd, true);
             };
         }
     }

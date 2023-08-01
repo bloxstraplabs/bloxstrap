@@ -4,6 +4,9 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
+using Windows.Win32;
+using Windows.Win32.Foundation;
+
 using Bloxstrap.UI.Utility;
 
 namespace Bloxstrap.UI.Elements.Dialogs
@@ -107,8 +110,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             Loaded += delegate
             {
-                IntPtr hWnd = new WindowInteropHelper(this).Handle;
-                NativeMethods.FlashWindow(hWnd, true);
+                var hWnd = new WindowInteropHelper(this).Handle;
+                PInvoke.FlashWindow((HWND)hWnd, true);
             };
         }
 
