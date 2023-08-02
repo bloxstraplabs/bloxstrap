@@ -114,6 +114,33 @@ namespace Bloxstrap
                 return;
             }
 
+            // connectivity check
+
+            App.Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
+
+            try
+            {
+                await RobloxDeployment.GetInfo(RobloxDeployment.DefaultChannel);
+                App.Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                string message = $"It's possible that something is preventing {App.ProjectName} from connecting to the internet. Please check and try again.";
+
+                if (ex.GetType() == typeof(HttpResponseException))
+                    message = "Roblox may be down right now. See status.roblox.com for more information. Please try again later.";
+
+                if (ex.GetType() == typeof(AggregateException))
+                    ex = ex.InnerException!;
+
+                Controls.ShowConnectivityDialog("Roblox", message, ex);
+
+                App.Terminate(ErrorCode.ERROR_CANCELLED);
+            }
+
 #if !DEBUG
             if (!App.IsFirstRun && App.Settings.Prop.CheckForUpdates)
                 await CheckForUpdates();
@@ -188,25 +215,8 @@ namespace Bloxstrap
         private async Task CheckLatestVersion()
         {
             SetStatus("Connecting to Roblox...");
-
-            ClientVersion clientVersion;
-
-            try
-            {
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
-            }
-            catch (Exception ex)
-            {
-                string message = "It's possible that Roblox is being blocked by a firewall. Please check and try again.";
-
-                if (ex.GetType() == typeof(HttpResponseException))
-                    message = "Roblox may be down right now. See status.roblox.com for more information. Please try again later.";
-
-                Controls.ShowConnectivityDialog("Roblox", message, ex);
-
-                App.Terminate(ErrorCode.ERROR_CANCELLED);
-                return;
-            }
+            
+            var clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
 
             if (clientVersion.IsBehindDefaultChannel)
             {
