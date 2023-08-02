@@ -148,33 +148,6 @@ namespace Bloxstrap
                     IsUpgrade = true;
                 }
             }
-
-            if (!IsMenuLaunch)
-            {
-                Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
-
-                try
-                {
-                    HttpClient.GetAsync("https://detectportal.firefox.com").Wait();
-                    Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
-                }
-                catch (Exception ex)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
-                    Logger.WriteException(LOG_IDENT, ex);
-
-                    if (ex.GetType() == typeof(AggregateException))
-                        ex = ex.InnerException!;
-
-                    Controls.ShowConnectivityDialog(
-                        "the internet",
-                        $"Something may be preventing {ProjectName} from connecting to the internet, or you are currently offline. Please check and try again.",
-                        ex
-                    );
-
-                    Terminate(ErrorCode.ERROR_CANCELLED);
-                }
-            }
             
             using (var checker = new InstallChecker())
             {
