@@ -245,7 +245,7 @@ namespace Bloxstrap
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
-                Utilities.ShellExecute("https://www.roblox.com/games");
+                Utilities.ShellExecute("https://www.roblox.com/discover");
                 Dialog?.CloseBootstrapper();
                 return;
             }
