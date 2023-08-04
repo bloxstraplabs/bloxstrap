@@ -199,11 +199,19 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (App.BuildMetadata.CommitRef.StartsWith("tag") && existingVersionInfo.ProductVersion == "2.4.0")
+            if (App.BuildMetadata.CommitRef.StartsWith("tag"))
             {
-                App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
-                App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
-                App.FastFlags.Save();
+                if (existingVersionInfo.ProductVersion == "2.4.0")
+                { 
+                    App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
+                    App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
+                    App.FastFlags.Save();
+                }
+                else if (existingVersionInfo.ProductVersion == "2.5.0")
+                {
+                    App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
+                    App.FastFlags.Save();
+                }
             }
 
             if (isAutoUpgrade)
