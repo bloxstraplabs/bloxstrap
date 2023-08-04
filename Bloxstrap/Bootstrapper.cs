@@ -276,8 +276,12 @@ namespace Bloxstrap
 
             _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
-            if (App.Settings.Prop.Channel.ToLowerInvariant() != RobloxDeployment.DefaultChannel.ToLowerInvariant())
-                _launchCommandLine += " -channel " + App.Settings.Prop.Channel.ToLowerInvariant();
+            _launchCommandLine += " -channel ";
+
+            if (App.Settings.Prop.Channel.ToLowerInvariant() == RobloxDeployment.DefaultChannel.ToLowerInvariant())
+                _launchCommandLine += "production";
+            else
+                _launchCommandLine += App.Settings.Prop.Channel.ToLowerInvariant();
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
