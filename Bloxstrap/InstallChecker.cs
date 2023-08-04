@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-
 using Microsoft.Win32;
 
 namespace Bloxstrap
@@ -29,9 +28,23 @@ namespace Bloxstrap
                     return;
                 }
 
+                App.Logger.WriteLine(LOG_IDENT, "Installation registry key is likely malformed");
+
                 _installLocation = Path.GetDirectoryName(Paths.Process)!;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Registry key is likely malformed. Setting install location as '{_installLocation}'");
+                var result = Controls.ShowMessageBox(
+                    $"It appears as if {App.ProjectName} hasn't been properly installed. Is it supposed to be installed at {_installLocation}?", 
+                    MessageBoxImage.Warning, 
+                    MessageBoxButton.YesNo
+                );
+
+                if (result != MessageBoxResult.Yes)
+                {
+                    FirstTimeRun();
+                    return;
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Setting install location as '{_installLocation}'");
 
                 if (_registryKey is null)
                     _registryKey = Registry.CurrentUser.CreateSubKey($"Software\\{App.ProjectName}");
