@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
         mc:Ignorable="d"
-        Width="480"
+        Width="540"
         MinHeight="0"
         SizeToContent="Height"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
