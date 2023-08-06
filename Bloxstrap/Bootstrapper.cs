@@ -920,7 +920,16 @@ namespace Bloxstrap
                             continue;
 
                         App.Logger.WriteLine(LOG_IDENT, $"Removing old version folder for {dir.Name}");
-                        dir.Delete(true);
+
+                        try
+                        { 
+                            dir.Delete(true);
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to delete version folder!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
             }
