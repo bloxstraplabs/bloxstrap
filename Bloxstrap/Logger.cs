@@ -43,6 +43,7 @@
             catch (IOException)
             {
                 WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+                return;
             }
             
 
