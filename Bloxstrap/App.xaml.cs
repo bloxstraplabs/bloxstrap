@@ -49,6 +49,8 @@ namespace Bloxstrap
             )
         );
 
+        private static bool _showingExceptionDialog = false;
+
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             if (IsFirstRun)
@@ -85,6 +87,11 @@ namespace Bloxstrap
 #if DEBUG
             throw exception;
 #else
+            if (_showingExceptionDialog)
+                return;
+
+            _showingExceptionDialog = true;
+
             if (!IsQuiet)
                 Controls.ShowExceptionDialog(exception);
 
