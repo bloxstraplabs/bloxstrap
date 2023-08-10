@@ -55,10 +55,10 @@
         </StackPanel>
       </ui:CardAction>
 
-      <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="UninstallApp24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Uninstalling-Bloxstrap">
+      <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="UninstallApp24" Command="models:GlobalViewModel.Uinstall" CommandParameter="dontwanttobreak">
         <StackPanel>
           <TextBlock FontSize="14" Text="Looking to uninstall?" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Here's a guide on how to uninstall Bloxstrap." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Click here to uninstall Bloxstrap." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
     </Grid>

@@ -16,5 +16,10 @@ namespace Bloxstrap.UI.ViewModels
 
             Utilities.ShellExecute(location);
         }
+        private static void Uninstall(string? imjustgonnaleavethiscuzidontwannabreakanything)
+        {
+
+            Utilities.ShellExecute(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Bloxstrap\Bloxstrap.exe -uninstall");
+        }
     }
 }
