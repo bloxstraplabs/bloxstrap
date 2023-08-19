@@ -783,7 +783,7 @@ namespace Bloxstrap
                 };
             }
 
-            Dialog?.ShowSuccess($"{App.ProjectName} has succesfully uninstalled", callback);
+            Dialog?.ShowSuccess($"{App.ProjectName} has successfully uninstalled", callback);
         }
         #endregion
 
