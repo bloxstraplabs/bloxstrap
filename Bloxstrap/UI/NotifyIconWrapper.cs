@@ -124,7 +124,7 @@ namespace Bloxstrap.UI
                 if (_alertClickHandler == clickHandler)
                     _alertClickHandler = null;
                 else
-                    App.Logger.WriteLine(LOG_IDENT, "Click handler has been overriden by another alert");
+                    App.Logger.WriteLine(LOG_IDENT, "Click handler has been overridden by another alert");
             });
         }
 
