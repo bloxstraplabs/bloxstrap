@@ -15,16 +15,14 @@ namespace Bloxstrap.UI.Elements.Menu
     public partial class MainWindow : INavigationWindow
     {
         private readonly IThemeService _themeService = new ThemeService();
-        private readonly IDialogService _dialogService = new DialogService();
 
         public MainWindow()
         {
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 
-            DataContext = new MainWindowViewModel(this, _dialogService);
+            DataContext = new MainWindowViewModel(this);
             SetTheme();
             InitializeComponent();
-            _dialogService.SetDialogControl(RootDialog);
         }
 
         public void SetTheme()

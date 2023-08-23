@@ -178,8 +178,6 @@ namespace Bloxstrap
 
             await CheckLatestVersion();
 
-            CheckInstallMigration();
-
             // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
             if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.VersionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
@@ -477,71 +475,6 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
         }
 
-        private void CheckInstallMigration()
-        {
-            const string LOG_IDENT = "Bootstrapper::CheckInstallMigration";
-            
-            // check if we've changed our install location since the last time we started
-            // in which case, we'll have to copy over all our folders so we don't lose any mods and stuff
-
-            using RegistryKey? applicationKey = Registry.CurrentUser.OpenSubKey($@"Software\{App.ProjectName}", true);
-
-            string? oldInstallLocation = (string?)applicationKey?.GetValue("OldInstallLocation");
-
-            if (applicationKey is null || oldInstallLocation is null || oldInstallLocation == Paths.Base)
-                return;
-
-            SetStatus("Migrating install location...");
-
-            if (Directory.Exists(oldInstallLocation))
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Moving all files in {oldInstallLocation} to {Paths.Base}...");
-
-                foreach (string oldFileLocation in Directory.GetFiles(oldInstallLocation, "*.*", SearchOption.AllDirectories))
-                {
-                    string relativeFile = oldFileLocation.Substring(oldInstallLocation.Length + 1);
-                    string newFileLocation = Path.Combine(Paths.Base, relativeFile);
-                    string? newDirectory = Path.GetDirectoryName(newFileLocation);
-
-                    try
-                    {
-                        if (!String.IsNullOrEmpty(newDirectory))
-                            Directory.CreateDirectory(newDirectory);
-
-                        File.Move(oldFileLocation, newFileLocation, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to move {oldFileLocation} to {newFileLocation}! {ex}");
-                    }
-                }
-
-                try
-                {
-                    Directory.Delete(oldInstallLocation, true);
-                    App.Logger.WriteLine(LOG_IDENT, "Deleted old install location");
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to delete old install location! {ex}");
-                }
-            }
-
-            applicationKey.DeleteValue("OldInstallLocation");
-
-            // allow shortcuts to be re-registered
-            if (Directory.Exists(Paths.StartMenu))
-                Directory.Delete(Paths.StartMenu, true);
-
-            if (File.Exists(DesktopShortcutLocation))
-            {
-                File.Delete(DesktopShortcutLocation);
-                App.Settings.Prop.CreateDesktopIcon = true;
-            }
-
-            App.Logger.WriteLine(LOG_IDENT, "Finished migrating install location!");
-        }
-
         public static void CheckInstall()
         {
             const string LOG_IDENT = "Bootstrapper::CheckInstall";
@@ -746,7 +679,7 @@ namespace Bloxstrap
             // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder
             // in which case, chances are they chose to install to somewhere they didn't really mean to (prior to the added warning in 2.4.0)
             // if so, we're walking on eggshells and have to ensure we only clean up what we need to clean up
-            bool cautiousUninstall = !Paths.Base.EndsWith(App.ProjectName);
+            bool cautiousUninstall = !Paths.Base.ToLower().EndsWith(App.ProjectName.ToLower());
 
             var cleanupSequence = new List<Action>
             {
@@ -1418,7 +1351,8 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    File.Delete(packageLocation);
+                    if (File.Exists(packageLocation))
+                        File.Delete(packageLocation);
 
                     if (i >= maxTries)
                         throw;

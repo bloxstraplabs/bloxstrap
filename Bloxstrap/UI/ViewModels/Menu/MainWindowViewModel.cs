@@ -14,8 +14,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
         private readonly Window _window;
-        private readonly IDialogService _dialogService;
-        private readonly string _originalBaseDirectory = App.BaseDirectory; // we need this to check if the basedirectory changes
 
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
         public ICommand ConfirmSettingsCommand => new RelayCommand(ConfirmSettings);
@@ -24,25 +22,31 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public string ConfirmButtonText => App.IsFirstRun ? "Install" : "Save";
         public bool ConfirmButtonEnabled { get; set; } = true;
 
-        public MainWindowViewModel(Window window, IDialogService dialogService)
+        public MainWindowViewModel(Window window)
         {
             _window = window;
-            _dialogService = dialogService;
         }
 
         private void CloseWindow() => _window.Close();
 
         private void ConfirmSettings()
         {
+            if (!App.IsFirstRun)
+            {
+                App.ShouldSaveConfigs = true;
+                App.FastFlags.Save();
+                CloseWindow();
+
+                return;
+            }
+
             if (string.IsNullOrEmpty(App.BaseDirectory))
             {
                 Controls.ShowMessageBox("You must set an install location", MessageBoxImage.Error);
                 return;
             }
 
-            bool shouldCheckInstallLocation = App.IsFirstRun || App.BaseDirectory != _originalBaseDirectory;
-
-            if (shouldCheckInstallLocation && NavigationVisibility == Visibility.Visible)
+            if (NavigationVisibility == Visibility.Visible)
             {
                 try
                 {
@@ -104,53 +108,28 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     return;
                 }
             }
-
-            if (App.IsFirstRun)
+            
+            if (NavigationVisibility == Visibility.Visible)
             {
-                if (NavigationVisibility == Visibility.Visible)
-                {
-                    ((INavigationWindow)_window).Navigate(typeof(PreInstallPage));
+                ((INavigationWindow)_window).Navigate(typeof(PreInstallPage));
 
-                    NavigationVisibility = Visibility.Collapsed;
-                    OnPropertyChanged(nameof(NavigationVisibility));
+                NavigationVisibility = Visibility.Collapsed;
+                OnPropertyChanged(nameof(NavigationVisibility));
                     
-                    ConfirmButtonEnabled = false;
-                    OnPropertyChanged(nameof(ConfirmButtonEnabled));
+                ConfirmButtonEnabled = false;
+                OnPropertyChanged(nameof(ConfirmButtonEnabled));
 
-                    Task.Run(async delegate
-                    {
-                        await Task.Delay(3000);
-
-                        ConfirmButtonEnabled = true;
-                        OnPropertyChanged(nameof(ConfirmButtonEnabled));
-                    });
-                }
-                else
+                Task.Run(async delegate
                 {
-                    App.IsSetupComplete = true;
-                    CloseWindow();
-                }
+                    await Task.Delay(3000);
+                    
+                    ConfirmButtonEnabled = true;
+                    OnPropertyChanged(nameof(ConfirmButtonEnabled));
+                });
             }
             else
             {
-                App.ShouldSaveConfigs = true;
-                App.FastFlags.Save();
-
-                if (shouldCheckInstallLocation)
-                {
-                    App.Logger.WriteLine("MainWindowViewModel::ConfirmSettings", $"Changing install location from {_originalBaseDirectory} to {App.BaseDirectory}");
-
-                    Controls.ShowMessageBox(
-                        $"{App.ProjectName} will install to the new location you've set the next time it runs.",
-                        MessageBoxImage.Information
-                    );
-
-                    using RegistryKey registryKey = Registry.CurrentUser.CreateSubKey($@"Software\{App.ProjectName}");
-                    registryKey.SetValue("InstallLocation", App.BaseDirectory);
-                    registryKey.SetValue("OldInstallLocation", _originalBaseDirectory);
-                    Paths.Initialize(App.BaseDirectory);
-                }
-
+                App.IsSetupComplete = true;
                 CloseWindow();
             }
         }
