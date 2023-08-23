@@ -46,7 +46,7 @@
                         <TextBlock FontSize="14" Text="Channel" />
                         <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which deployment channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
-                    <ComboBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" IsEditable="True" ItemsSource="{Binding Channels, Mode=OneWay}" Text="{Binding SelectedChannel, Mode=TwoWay, Delay=250}" />
+                    <ui:TextBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding SelectedChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" />
                 </Grid>
             </ui:CardExpander.Header>
             

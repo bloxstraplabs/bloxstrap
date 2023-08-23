@@ -52,18 +52,6 @@
                 return _baseUrl;
             }
         }
-
-        // most commonly used/interesting channels
-        public static readonly List<string> SelectableChannels = new()
-        {
-            "LIVE",
-            "ZFlag",
-            "ZNext",
-            "ZCanary",
-            "ZIntegration",
-            "ZAvatarTeam",
-            "ZSocialTeam"
-        };
         #endregion
 
         public static string GetLocation(string resource, string? channel = null)
