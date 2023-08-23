@@ -422,6 +422,8 @@ namespace Bloxstrap
                 App.Logger.WriteException(LOG_IDENT, ex);
             }
 
+            Dialog?.CloseBootstrapper();
+
             App.Terminate(ErrorCode.ERROR_CANCELLED);
         }
         #endregion
@@ -1313,6 +1315,9 @@ namespace Bloxstrap
 
             for (int i = 1; i <= maxTries; i++)
             {
+                if (_cancelFired)
+                    return;
+
                 int totalBytesRead = 0;
 
                 try
