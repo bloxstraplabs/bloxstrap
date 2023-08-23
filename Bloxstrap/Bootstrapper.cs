@@ -121,7 +121,6 @@ namespace Bloxstrap
             try
             {
                 await RobloxDeployment.GetInfo(RobloxDeployment.DefaultChannel);
-                App.Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
             }
             catch (Exception ex)
             {
@@ -139,6 +138,10 @@ namespace Bloxstrap
                 Controls.ShowConnectivityDialog("Roblox", message, ex);
 
                 App.Terminate(ErrorCode.ERROR_CANCELLED);
+            }
+            finally
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
             }
 
 #if !DEBUG
@@ -214,9 +217,25 @@ namespace Bloxstrap
 
         private async Task CheckLatestVersion()
         {
+            const string LOG_IDENT = "Bootstrapper::CheckLatestVersion";
+
             SetStatus("Connecting to Roblox...");
-            
-            var clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+
+            ClientVersion clientVersion;
+
+            try
+            {
+                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+            }
+            catch (HttpResponseException ex)
+            {
+                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
+                    throw;
+
+                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
+                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+            }
 
             if (clientVersion.IsBehindDefaultChannel)
             {
