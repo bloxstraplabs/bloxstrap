@@ -132,8 +132,9 @@ namespace Bloxstrap
 
                 if (ex.GetType() == typeof(HttpResponseException))
                     message = "Roblox may be down right now. See status.roblox.com for more information. Please try again later.";
-
-                if (ex.GetType() == typeof(AggregateException))
+                else if (ex.GetType() == typeof(TaskCanceledException))
+                    message = "Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.";
+                else if (ex.GetType() == typeof(AggregateException))
                     ex = ex.InnerException!;
 
                 Controls.ShowConnectivityDialog("Roblox", message, ex);
