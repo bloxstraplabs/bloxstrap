@@ -4,7 +4,7 @@
  * Copyright (c) 2015-present MaximumADHD
 */
 
-namespace Bloxstrap.Models
+namespace Bloxstrap.Models.Manifest
 {
     public class Package
     {

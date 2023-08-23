@@ -60,6 +60,7 @@ namespace Bloxstrap
 
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
+        private FileManifest _versionFileManifest = null!;
         private string _versionFolder = null!;
 
         private bool _isInstalling = false;
@@ -262,6 +263,7 @@ namespace Bloxstrap
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Paths.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
+            _versionFileManifest = await FileManifest.Get(_latestVersionGuid);
         }
 
         private async Task StartRoblox()
@@ -1401,6 +1403,16 @@ namespace Bloxstrap
 
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
+
+                if (File.Exists(extractPath))
+                {
+                    var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
+
+                    if (fileManifest is not null && MD5Hash.FromFile(extractPath) == fileManifest.Signature)
+                        continue;
+
+                    File.Delete(extractPath);
+                }
 
                 entry.ExtractToFile(extractPath, true);
             }
