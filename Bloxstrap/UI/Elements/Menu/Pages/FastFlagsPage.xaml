@@ -150,17 +150,17 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Use old material textures" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="Preferred materials" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">
               <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the old material textures used prior to 2022." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which material version should be forced in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ui:ToggleSwitch IsChecked="{Binding Pre2022TexturesEnabled, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}" />
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
