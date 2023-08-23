@@ -87,6 +87,22 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     else if (result == MessageBoxResult.Cancel)
                         return;
                 }
+
+                if (
+                    App.BaseDirectory.Length <= 3 || // prevent from installing to the root of a drive
+                    App.BaseDirectory.StartsWith("\\\\") || // i actually haven't encountered anyone doing this and i dont even know if this is possible but this is just to be safe lmao
+                    App.BaseDirectory.ToLowerInvariant().Contains("onedrive") || // prevent from installing to a onedrive folder
+                    Directory.GetParent(App.BaseDirectory)!.ToString().ToLowerInvariant() == Paths.UserProfile.ToLowerInvariant() // prevent from installing to an essential user profile folder
+                )
+                {
+                    Controls.ShowMessageBox(
+                        $"{App.ProjectName} cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.",
+                        MessageBoxImage.Error,
+                        MessageBoxButton.OK
+                    );
+
+                    return;
+                }
             }
 
             if (App.IsFirstRun)
