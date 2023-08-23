@@ -215,58 +215,65 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void ImportJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog
-            {
-                Filter = "JSON files|*.json|All files|*.*"
-            };
+            string json = "";
+            Dictionary<string, object>? list = null;
 
-            if (dialog.ShowDialog() != true)
-                return;
+            while (list is null)
+            { 
+                var dialog = new BulkAddFastFlagDialog();
+                dialog.JsonTextBox.Text = json;
+                dialog.ShowDialog();
 
-            try
-            {
-                var list = JsonSerializer.Deserialize<Dictionary<string, object>>(File.ReadAllText(dialog.FileName));
+                if (dialog.Result != MessageBoxResult.OK)
+                    return;
 
-                if (list is null)
-                    throw new Exception("JSON deserialization returned null");
+                json = dialog.JsonTextBox.Text;
 
-                var conflictingFlags = App.FastFlags.Prop.Where(x => list.ContainsKey(x.Key)).Select(x => x.Key);
-                bool overwriteConflicting = false;
-
-                if (conflictingFlags.Any())
+                try
                 {
-                    var result = Controls.ShowMessageBox(
-                        "Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?\n" +
+                    list = JsonSerializer.Deserialize<Dictionary<string, object>>(json);
+
+                    if (list is null)
+                        throw new Exception("JSON deserialization returned null");
+                }
+                catch (Exception ex) 
+                {
+                    Controls.ShowMessageBox(
+                        "The JSON you've entered does not appear to be valid. Please double check it and try again.\n" +
                         "\n" +
-                        "Conflicting flags:\n" +
-                        String.Join(", ", conflictingFlags),
-                        MessageBoxImage.Question,
-                        MessageBoxButton.YesNo
+                        "More information:\n" +
+                        $"{ex.Message}",
+                        MessageBoxImage.Error
                     );
-
-                    overwriteConflicting = result == MessageBoxResult.Yes;
                 }
-
-                foreach (var pair in list)
-                {
-                    if (App.FastFlags.Prop.ContainsKey(pair.Key) && !overwriteConflicting)
-                        continue;
-
-                    App.FastFlags.SetValue(pair.Key, pair.Value);
-                }
-
-                ClearSearch();
             }
-            catch (Exception ex)
+
+            var conflictingFlags = App.FastFlags.Prop.Where(x => list.ContainsKey(x.Key)).Select(x => x.Key);
+            bool overwriteConflicting = false;
+
+            if (conflictingFlags.Any())
             {
-                Controls.ShowMessageBox(
-                    "The file you've selected does not appear to be valid JSON. Please double check the file contents and try again.\n" +
-                    "\n" + 
-                    "More information:\n" +
-                    $"{ex.Message}",
-                    MessageBoxImage.Error
+                var result = Controls.ShowMessageBox(
+                    "Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?\n" +
+                    "\n" +
+                    "Conflicting flags:\n" +
+                    String.Join(", ", conflictingFlags),
+                    MessageBoxImage.Question,
+                    MessageBoxButton.YesNo
                 );
+
+                overwriteConflicting = result == MessageBoxResult.Yes;
             }
+
+            foreach (var pair in list)
+            {
+                if (App.FastFlags.Prop.ContainsKey(pair.Key) && !overwriteConflicting)
+                    continue;
+
+                App.FastFlags.SetValue(pair.Key, pair.Value);
+            }
+
+            ClearSearch();
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)

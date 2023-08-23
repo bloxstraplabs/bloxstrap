@@ -1,4 +1,4 @@
-﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.AddFastFlagDialog"
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.BulkAddFastFlagDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
         mc:Ignorable="d"
-        Title="Add FastFlag" 
+        Title="Import JSON" 
         MinHeight="0"
         Width="480"
         SizeToContent="Height"
@@ -21,32 +21,32 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Add FastFlag" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Import JSON" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
-        <Grid Grid.Row="1" Margin="15">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Name" Margin="0,0,0,12" />
-            <TextBox Grid.Row="0" Grid.Column="1" Name="FlagNameTextBox" Margin="0,0,0,12" />
-
-            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" MinWidth="100" Text="Value" />
-            <TextBox Grid.Row="1" Grid.Column="1" Name="FlagValueTextBox" />
+        <Grid Grid.Row="1" Margin="8,4,8,4">
+            <TextBox x:Name="JsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
+            <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=JsonTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+                 Paste in your JSON here...
+            </TextBlock>
         </Grid>
 
-        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+        <Border Grid.Row="3" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button MinWidth="100" Content="OK" Click="OKButton_Click">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=FlagNameTextBox, Path=Text.Length}" Value="0">
+                                <DataTrigger Binding="{Binding ElementName=JsonTextBox, Path=Text.Length}" Value="0">
                                     <Setter Property="IsEnabled" Value="False" />
                                 </DataTrigger>
                             </Style.Triggers>
