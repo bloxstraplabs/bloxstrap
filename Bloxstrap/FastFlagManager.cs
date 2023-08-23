@@ -45,7 +45,12 @@ namespace Bloxstrap
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
-            { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" }
+            { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" },
+
+            { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
+            { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
+            { "UI.Menu.Style.ABTest.3", "FFlagEnableMenuModernizationABTest2" },
+            { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" }
         };
 
         // only one missing here is Metal because lol
@@ -91,7 +96,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", null },
-                    { "EnableV4", null }
+                    { "EnableV4", null },
+                    { "ABTest", null }
                 }
             },
 
@@ -100,7 +106,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
-                    { "EnableV4", "False" }
+                    { "EnableV4", "False" },
+                    { "ABTest", "False" }
                 }
             },
 
@@ -109,7 +116,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "False" },
-                    { "EnableV4", "False" }
+                    { "EnableV4", "False" },
+                    { "ABTest", "False" }
                 }
             },
 
@@ -118,7 +126,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
-                    { "EnableV4", "True" }
+                    { "EnableV4", "True" },
+                    { "ABTest", "False" }
                 }
             }
         };

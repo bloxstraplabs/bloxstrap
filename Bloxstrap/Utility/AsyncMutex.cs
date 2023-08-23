@@ -4,13 +4,15 @@
 
     public sealed class AsyncMutex : IAsyncDisposable
     {
+        private readonly bool _initiallyOwned;
         private readonly string _name;
         private Task? _mutexTask;
         private ManualResetEventSlim? _releaseEvent;
         private CancellationTokenSource? _cancellationTokenSource;
 
-        public AsyncMutex(string name)
+        public AsyncMutex(bool initiallyOwned, string name)
         {
+            _initiallyOwned = initiallyOwned;
             _name = name;
         }
 
@@ -31,7 +33,7 @@
                     try
                     {
                         CancellationToken cancellationToken = _cancellationTokenSource.Token;
-                        using var mutex = new Mutex(false, _name);
+                        using var mutex = new Mutex(_initiallyOwned, _name);
                         try
                         {
                             // Wait for either the mutex to be acquired, or cancellation

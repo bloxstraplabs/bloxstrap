@@ -223,6 +223,10 @@ namespace Bloxstrap
                 else if (existingVersionInfo.ProductVersion == "2.5.0")
                 {
                     App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
+
+                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
+                        App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
+
                     App.FastFlags.Save();
                 }
             }

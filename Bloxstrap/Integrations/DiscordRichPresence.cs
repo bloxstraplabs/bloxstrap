@@ -261,6 +261,9 @@ namespace Bloxstrap.Integrations
                 _ => $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
             };
 
+            if (universeDetails.Name.Length < 2)
+                universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
+
             _currentPresence = new DiscordRPC.RichPresence
             {
                 Details = $"Playing {universeDetails.Name}",

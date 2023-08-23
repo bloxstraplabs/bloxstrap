@@ -10,27 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using Bloxstrap.UI.ViewModels.Menu;
-
-namespace Bloxstrap.UI.Elements.Menu.Pages
+namespace Bloxstrap.UI.Elements.Dialogs
 {
     /// <summary>
-    /// Interaction logic for BehaviourPage.xaml
+    /// Interaction logic for BulkAddFastFlagDialog.xaml
     /// </summary>
-    public partial class BehaviourPage
+    public partial class BulkAddFastFlagDialog
     {
-        public BehaviourPage()
+        public MessageBoxResult Result = MessageBoxResult.Cancel;
+
+        public BulkAddFastFlagDialog()
         {
-            DataContext = new BehaviourViewModel();
             InitializeComponent();
         }
 
-        private void ToggleSwitch_Checked(object sender, RoutedEventArgs e)
+        private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Result = MessageBoxResult.OK;
+            Close();
         }
     }
 }

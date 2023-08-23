@@ -59,26 +59,24 @@
       </Grid>
     </Grid>
 
-    <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,10" Background="{ui:ThemeResource ApplicationBackgroundBrush}" BorderThickness="0,1,0,0">
-      <StatusBar.ItemsPanel>
-        <ItemsPanelTemplate>
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*" />
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-          </Grid>
-        </ItemsPanelTemplate>
-      </StatusBar.ItemsPanel>
-      <StatusBarItem Grid.Column="1" Padding="0,0,4,0">
-        <ui:Button Content="{Binding ConfirmButtonText, Mode=OneTime}" Appearance="Primary" Command="{Binding ConfirmSettingsCommand, Mode=OneWay}" IsEnabled="{Binding ConfirmButtonEnabled, Mode=OneWay}" />
-      </StatusBarItem>
-      <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
-        <ui:Button Content="Cancel" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
-      </StatusBarItem>
-    </StatusBar>
-
-    <ui:Dialog x:Name="RootDialog" Title="WPF UI" Grid.Row="1" Grid.RowSpan="2" ButtonLeftVisibility="Collapsed" ButtonRightName="Continue" DialogHeight="225" DialogWidth="430" />
-  </Grid>
+        <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,10" Background="{ui:ThemeResource ApplicationBackgroundBrush}" BorderThickness="0,1,0,0">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Grid.Column="1" Padding="0,0,4,0">
+                <ui:Button Content="{Binding ConfirmButtonText, Mode=OneTime}" Appearance="Primary" Command="{Binding ConfirmSettingsCommand, Mode=OneWay}" IsEnabled="{Binding ConfirmButtonEnabled, Mode=OneWay}" />
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
+                <ui:Button Content="Cancel" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
 </ui:UiWindow>
