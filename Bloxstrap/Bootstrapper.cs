@@ -119,6 +119,8 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
 
+            SetStatus("Connecting to Roblox...");
+
             try
             {
                 await RobloxDeployment.GetInfo(RobloxDeployment.DefaultChannel);
@@ -158,8 +160,9 @@ namespace Bloxstrap
 
             try
             {
-                Mutex.OpenExisting("Bloxstrap_BootstrapperMutex").Close();
-                App.Logger.WriteLine(LOG_IDENT, "Bloxstrap_BootstrapperMutex mutex exists, waiting...");
+                Mutex.OpenExisting("Bloxstrap_SingletonMutex").Close();
+                App.Logger.WriteLine(LOG_IDENT, "Bloxstrap_SingletonMutex mutex exists, waiting...");
+                SetStatus("Waiting for other instances...");
                 mutexExists = true;
             }
             catch (Exception)
@@ -168,7 +171,7 @@ namespace Bloxstrap
             }
 
             // wait for mutex to be released if it's not yet
-            await using AsyncMutex mutex = new("Bloxstrap_BootstrapperMutex");
+            await using var mutex = new AsyncMutex(true, "Bloxstrap_SingletonMutex");
             await mutex.AcquireAsync(_cancelTokenSource.Token);
 
             // reload our configs since they've likely changed by now
@@ -218,8 +221,6 @@ namespace Bloxstrap
         private async Task CheckLatestVersion()
         {
             const string LOG_IDENT = "Bootstrapper::CheckLatestVersion";
-
-            SetStatus("Connecting to Roblox...");
 
             ClientVersion clientVersion;
 
