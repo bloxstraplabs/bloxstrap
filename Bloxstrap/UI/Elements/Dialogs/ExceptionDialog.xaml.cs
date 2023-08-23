@@ -33,7 +33,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 if (App.Logger.Initialized)
                     Process.Start("explorer.exe", $"/select,\"{App.Logger.FileLocation}\"");
                 else
-                    Clipboard.SetText(String.Join("\r\n", App.Logger.Backlog));
+                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.Backlog));
             };
 
             ReportOptions.DropDownClosed += (sender, e) =>
