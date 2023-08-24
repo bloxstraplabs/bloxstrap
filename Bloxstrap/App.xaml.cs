@@ -49,6 +49,8 @@ namespace Bloxstrap
             )
         );
 
+        private static bool _showingExceptionDialog = false;
+
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             if (IsFirstRun)
@@ -85,6 +87,11 @@ namespace Bloxstrap
 #if DEBUG
             throw exception;
 #else
+            if (_showingExceptionDialog)
+                return;
+
+            _showingExceptionDialog = true;
+
             if (!IsQuiet)
                 Controls.ShowExceptionDialog(exception);
 
@@ -146,33 +153,6 @@ namespace Bloxstrap
                 {
                     Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsUpgrade flag");
                     IsUpgrade = true;
-                }
-            }
-
-            if (!IsMenuLaunch)
-            {
-                Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
-
-                try
-                {
-                    HttpClient.GetAsync("https://detectportal.firefox.com").Wait();
-                    Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
-                }
-                catch (Exception ex)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
-                    Logger.WriteException(LOG_IDENT, ex);
-
-                    if (ex.GetType() == typeof(AggregateException))
-                        ex = ex.InnerException!;
-
-                    Controls.ShowConnectivityDialog(
-                        "the internet",
-                        $"Something may be preventing {ProjectName} from connecting to the internet, or you are currently offline. Please check and try again.",
-                        ex
-                    );
-
-                    Terminate(ErrorCode.ERROR_CANCELLED);
                 }
             }
             

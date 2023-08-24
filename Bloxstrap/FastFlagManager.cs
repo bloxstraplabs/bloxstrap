@@ -14,6 +14,8 @@ namespace Bloxstrap
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
+            { "Network.Log", "FLogNetwork" },
+            
             { "HTTP.Log", "DFLogHttpTraceLight" },
 
             { "HTTP.Proxy.Enable", "DFFlagDebugEnableHttpProxy" },
@@ -25,7 +27,6 @@ namespace Bloxstrap
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.TexturePack", "FStringPartTexturePackTable2022" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
-            { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
@@ -43,7 +44,12 @@ namespace Bloxstrap
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
-            { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" }
+            { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" },
+
+            { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
+            { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
+            { "UI.Menu.Style.ABTest.3", "FFlagEnableMenuModernizationABTest2" },
+            { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" }
         };
 
         // only one missing here is Metal because lol
@@ -82,7 +88,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", null },
-                    { "EnableV4", null }
+                    { "EnableV4", null },
+                    { "ABTest", null }
                 }
             },
 
@@ -91,7 +98,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
-                    { "EnableV4", "False" }
+                    { "EnableV4", "False" },
+                    { "ABTest", "False" }
                 }
             },
 
@@ -100,7 +108,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "False" },
-                    { "EnableV4", "False" }
+                    { "EnableV4", "False" },
+                    { "ABTest", "False" }
                 }
             },
 
@@ -109,7 +118,8 @@ namespace Bloxstrap
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
-                    { "EnableV4", "True" }
+                    { "EnableV4", "True" },
+                    { "ABTest", "False" }
                 }
             }
         };
@@ -204,6 +214,11 @@ namespace Bloxstrap
             base.Load();
 
             CheckManualFullscreenPreset();
+
+            // TODO - remove when activity tracking has been revamped
+            if (GetPreset("Network.Log") != "7")
+                SetPreset("Network.Log", "7");
+
 
             if (GetPreset("Rendering.Framerate") is not null)
                 return;

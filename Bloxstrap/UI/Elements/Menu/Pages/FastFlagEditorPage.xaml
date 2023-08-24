@@ -17,7 +17,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Double click the value column to edit." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="Manage your own FastFlags. Double click a column to edit." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <StackPanel Grid.Row="1" Margin="0,0,0,16" Orientation="Horizontal">
             <ui:Button Icon="ArrowLeft48" Content="Back" Click="BackButton_Click" />
@@ -87,7 +87,7 @@
             </DataGrid.CellStyle>
             
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>

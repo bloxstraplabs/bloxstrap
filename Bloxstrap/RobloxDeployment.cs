@@ -7,7 +7,7 @@
 
         private static Dictionary<string, ClientVersion> ClientVersionCache = new();
 
-        // a list of roblox delpoyment locations that we check for, in case one of them don't work
+        // a list of roblox deployment locations that we check for, in case one of them don't work
         private static List<string> BaseUrls = new()
         {
             "https://setup.rbxcdn.com",
@@ -52,18 +52,6 @@
                 return _baseUrl;
             }
         }
-
-        // most commonly used/interesting channels
-        public static readonly List<string> SelectableChannels = new()
-        {
-            "LIVE",
-            "ZFlag",
-            "ZNext",
-            "ZCanary",
-            "ZIntegration",
-            "ZAvatarTeam",
-            "ZSocialTeam"
-        };
         #endregion
 
         public static string GetLocation(string resource, string? channel = null)

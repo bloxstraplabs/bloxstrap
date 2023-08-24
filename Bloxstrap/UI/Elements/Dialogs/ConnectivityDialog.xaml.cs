@@ -16,17 +16,12 @@ namespace Bloxstrap.UI.Elements.Dialogs
     {
         public ConnectivityDialog(string targetName, string description, Exception exception)
         {
-            Exception? innerException = exception.InnerException;
-
             InitializeComponent();
 
             TitleTextBlock.Text = $"{App.ProjectName} is unable to connect to {targetName}";
             DescriptionTextBlock.Text = description;
 
-            ErrorRichTextBox.Selection.Text = $"{exception.GetType()}: {exception.Message}";
-
-            if (innerException is not null)
-                ErrorRichTextBox.Selection.Text += $"\n\n===== Inner Exception =====\n{innerException.GetType()}: {innerException.Message}";
+            AddException(exception);
 
             CloseButton.Click += delegate
             {
@@ -40,6 +35,19 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 var hWnd = new WindowInteropHelper(this).Handle;
                 PInvoke.FlashWindow((HWND)hWnd, true);
             };
+        }
+
+        private void AddException(Exception exception, bool inner = false)
+        {
+            if (!inner)
+                ErrorRichTextBox.Selection.Text = $"{exception.GetType()}: {exception.Message}";
+            
+            if (exception.InnerException is null)
+                return;
+
+            ErrorRichTextBox.Selection.Text += $"\n\n[Inner Exception]\n{exception.InnerException.GetType()}: {exception.InnerException.Message}";
+
+            AddException(exception.InnerException, true);
         }
     }
 }

@@ -101,8 +101,11 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
                     foreach (var flag in version.Value)
                     {
-                        if (App.FastFlags.GetPreset($"UI.Menu.Style.{flag.Key}") != flag.Value)
-                            flagsMatch = false;
+                        foreach (var presetFlag in FastFlagManager.PresetFlags.Where(x => x.Key.StartsWith($"UI.Menu.Style.{flag.Key}")))
+                        { 
+                            if (App.FastFlags.GetValue(presetFlag.Value) != flag.Value)
+                                flagsMatch = false;
+                        }
                     }
 
                     if (flagsMatch)
@@ -125,14 +128,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => App.FastFlags.GetPresetEnum(LightingModes, "Rendering.Lighting", "True");
             set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
-        }
-
-        public IReadOnlyDictionary<string, string?> MSAAModes => FastFlagManager.MSAAModes;
-
-        public string SelectedMSAAMode
-        {
-            get => MSAAModes.First(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA")).Key ?? MSAAModes.First().Key;
-            set => App.FastFlags.SetPreset("Rendering.MSAA", MSAAModes[value]);
         }
 
         public bool GuiHidingEnabled

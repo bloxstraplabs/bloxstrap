@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-
 using Microsoft.Win32;
 
 namespace Bloxstrap
@@ -29,9 +28,23 @@ namespace Bloxstrap
                     return;
                 }
 
+                App.Logger.WriteLine(LOG_IDENT, "Installation registry key is likely malformed");
+
                 _installLocation = Path.GetDirectoryName(Paths.Process)!;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Registry key is likely malformed. Setting install location as '{_installLocation}'");
+                var result = Controls.ShowMessageBox(
+                    $"It appears as if {App.ProjectName} hasn't been properly installed. Is it supposed to be installed at {_installLocation}?", 
+                    MessageBoxImage.Warning, 
+                    MessageBoxButton.YesNo
+                );
+
+                if (result != MessageBoxResult.Yes)
+                {
+                    FirstTimeRun();
+                    return;
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Setting install location as '{_installLocation}'");
 
                 if (_registryKey is null)
                     _registryKey = Registry.CurrentUser.CreateSubKey($"Software\\{App.ProjectName}");
@@ -199,11 +212,23 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (App.BuildMetadata.CommitRef.StartsWith("tag") && existingVersionInfo.ProductVersion == "2.4.0")
+            if (App.BuildMetadata.CommitRef.StartsWith("tag"))
             {
-                App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
-                App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
-                App.FastFlags.Save();
+                if (existingVersionInfo.ProductVersion == "2.4.0")
+                { 
+                    App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
+                    App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
+                    App.FastFlags.Save();
+                }
+                else if (existingVersionInfo.ProductVersion == "2.5.0")
+                {
+                    App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
+
+                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
+                        App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
+
+                    App.FastFlags.Save();
+                }
             }
 
             if (isAutoUpgrade)

@@ -43,6 +43,7 @@
             catch (IOException)
             {
                 WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+                return;
             }
             
 
@@ -64,7 +65,16 @@
                         continue;
 
                     WriteLine(LOG_IDENT, $"Cleaning up old log file '{log.Name}'");
-                    log.Delete();
+
+                    try
+                    {
+                       log.Delete();
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteLine(LOG_IDENT, "Failed to delete log!");
+                        WriteException(LOG_IDENT, ex);
+                    }
                 }
             }
         }

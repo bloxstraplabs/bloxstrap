@@ -81,18 +81,12 @@
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
-        public IEnumerable<string> Channels => RobloxDeployment.SelectableChannels;
-
         public string SelectedChannel
         {
             get => App.Settings.Prop.Channel;
             set
             {
                 value = value.Trim();
-
-                if (String.IsNullOrEmpty(value))
-                    value = RobloxDeployment.DefaultChannel;
-                
                 Task.Run(() => LoadChannelDeployInfo(value));
                 App.Settings.Prop.Channel = value;
             }
