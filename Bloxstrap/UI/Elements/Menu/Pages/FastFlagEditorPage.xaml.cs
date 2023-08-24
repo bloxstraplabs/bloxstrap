@@ -8,6 +8,7 @@ using Microsoft.Win32;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.Elements.Dialogs;
+using System.Xml.Linq;
 
 namespace Bloxstrap.UI.Elements.Menu.Pages
 {
@@ -111,10 +112,27 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                     break; */
 
                 case "Name":
-                    string newName = ((TextBox)e.EditingElement).Text;
+                    var textbox = e.EditingElement as TextBox;
 
-                    App.FastFlags.SetValue(entry.Name, null);
+                    string oldName = entry.Name;
+                    string newName = textbox!.Text;
+
+                    if (newName == oldName)
+                        return;
+
+                    if (App.FastFlags.GetValue(newName) is not null)
+                    {
+                        Controls.ShowMessageBox("A FastFlag with this name already exists.", MessageBoxImage.Information);
+                        e.Cancel = true;
+                        textbox.Text = oldName;
+                        return;
+                    }
+
+                    App.FastFlags.SetValue(oldName, null);
                     App.FastFlags.SetValue(newName, entry.Value);
+
+                    if (!newName.Contains(_searchFilter))
+                        ClearSearch();
 
                     break;
 
