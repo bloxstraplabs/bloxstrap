@@ -90,7 +90,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             {
                 string oldMaterials = App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.OldTexturesFlagValue);
 
-                if (oldMaterials != "None")
+                if (oldMaterials != "Chosen by game")
                     return oldMaterials;
 
                 return App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.NewTexturesFlagValue);
