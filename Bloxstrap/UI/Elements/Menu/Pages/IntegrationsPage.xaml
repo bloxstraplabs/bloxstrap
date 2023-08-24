@@ -13,7 +13,7 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="Configure quick and easy ways to improve the Roblox gameplay experience." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <TextBlock Text="Roblox activity tracking" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Text="Activity tracking" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
