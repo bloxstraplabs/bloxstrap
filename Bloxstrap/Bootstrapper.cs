@@ -589,39 +589,51 @@ namespace Bloxstrap
                 return;
             }
 
-
             SetStatus($"Getting the latest {App.ProjectName}...");
-
-            // 64-bit is always the first option
-            GithubReleaseAsset asset = releaseInfo.Assets[0];
-            string downloadLocation = Path.Combine(Paths.LocalAppData, "Temp", asset.Name);
-
-            App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
-
-            if (!File.Exists(downloadLocation))
+            
+            try
             {
-                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+                // 64-bit is always the first option
+                GithubReleaseAsset asset = releaseInfo.Assets[0];
+                string downloadLocation = Path.Combine(Paths.LocalAppData, "Temp", asset.Name);
 
-                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
-                await response.Content.CopyToAsync(fileStream);
+                App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
+                
+                if (!File.Exists(downloadLocation))
+                {
+                    var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+
+                    await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
+                    await response.Content.CopyToAsync(fileStream);
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Starting {releaseInfo.TagName}...");
+
+                ProcessStartInfo startInfo = new()
+                {
+                    FileName = downloadLocation,
+                };
+
+                foreach (string arg in App.LaunchArgs)
+                    startInfo.ArgumentList.Add(arg);
+                
+                App.Settings.Save();
+                App.ShouldSaveConfigs = false;
+                
+                Process.Start(startInfo);
+
+                App.Terminate();
             }
-
-            App.Logger.WriteLine(LOG_IDENT, $"Starting {releaseInfo.TagName}...");
-
-            ProcessStartInfo startInfo = new()
+            catch (Exception ex)
             {
-                FileName = downloadLocation,
-            };
+                App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the auto-updater");
+                App.Logger.WriteException(LOG_IDENT, ex);
 
-            foreach (string arg in App.LaunchArgs)
-                startInfo.ArgumentList.Add(arg);
-
-            App.Settings.Save();
-            App.ShouldSaveConfigs = false;
-
-            Process.Start(startInfo);
-
-            App.Terminate();
+                Controls.ShowMessageBox(
+                    $"Bloxstrap was unable to auto-update to {releaseInfo.TagName}. Please update it manually by downloading and running the latest release from the GitHub page.",
+                    MessageBoxImage.Information
+                );
+            }
         }
 
         private void Uninstall()
