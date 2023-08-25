@@ -1351,9 +1351,6 @@ namespace Bloxstrap
                     await using var stream = await response.Content.ReadAsStreamAsync(_cancelTokenSource.Token);
                     await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Delete);
 
-                    if (packageUrl.StartsWith("https://"))
-                        throw new Exception("The decryption operation failed");
-
                     while (true)
                     {
                         if (_cancelFired)
