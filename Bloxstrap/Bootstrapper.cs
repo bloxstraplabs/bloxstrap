@@ -980,7 +980,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
             
-            if (Process.GetProcessesByName("RobloxPlayerBeta").Where(x => x.MainModule!.FileName == _playerLocation).Any())
+            if (Process.GetProcessesByName("RobloxPlayerBeta").Any())
             {
                 App.Logger.WriteLine(LOG_IDENT, "Roblox is running, aborting mod check");
                 return;
