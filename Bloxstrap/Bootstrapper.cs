@@ -1349,7 +1349,10 @@ namespace Bloxstrap
                 {
                     var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead, _cancelTokenSource.Token);
                     await using var stream = await response.Content.ReadAsStreamAsync(_cancelTokenSource.Token);
-                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.Write, FileShare.Delete);
+                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Delete);
+
+                    if (packageUrl.StartsWith("https://"))
+                        throw new Exception("The decryption operation failed");
 
                     while (true)
                     {
@@ -1373,6 +1376,11 @@ namespace Bloxstrap
                         UpdateProgressBar();
                     }
 
+                    fileStream.Seek(0, SeekOrigin.Begin);
+
+                    if (MD5Hash.FromStream(fileStream) != package.Signature)
+                        throw new Exception("Signature does not match!");
+
                     App.Logger.WriteLine(LOG_IDENT, $"Finished downloading! ({totalBytesRead} bytes total)");
                     break;
                 }
@@ -1389,6 +1397,15 @@ namespace Bloxstrap
 
                     _totalDownloadedBytes -= totalBytesRead;
                     UpdateProgressBar();
+
+                    // attempt download over HTTP
+                    // this isn't actually that unsafe - signatures were established earlier over HTTPS
+                    // so we've already established that our signatures are legit, and that there's no MITM anyway
+                    if (ex.Message.Contains("The decryption operation failed"))
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
+                        packageUrl = packageUrl.Replace("https://", "http://");
+                    }
                 }
             }
         }
