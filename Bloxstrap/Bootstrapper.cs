@@ -847,7 +847,16 @@ namespace Bloxstrap
                     if (!_versionPackageManifest.Exists(package => filename.Contains(package.Signature)))
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {filename}");
-                        File.Delete(filename);
+                        
+                        try
+                        {
+                            File.Delete(filename);
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {filename}!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
 
