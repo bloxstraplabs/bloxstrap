@@ -140,9 +140,16 @@ namespace Bloxstrap
             else
             {
                 if (Prop.ContainsKey(key))
+                {
+                    if (key == Prop[key].ToString())
+                        return;
+
                     App.Logger.WriteLine(LOG_IDENT, $"Changing of '{key}' from '{Prop[key]}' to '{value}' is pending");
+                }
                 else
+                {
                     App.Logger.WriteLine(LOG_IDENT, $"Setting of '{key}' to '{value}' is pending");
+                }
 
                 Prop[key] = value.ToString()!;
             }
