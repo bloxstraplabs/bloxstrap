@@ -52,7 +52,6 @@ namespace Bloxstrap
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
-        private static string DesktopShortcutLocation => Path.Combine(Paths.Desktop, "Play Roblox.lnk");
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
@@ -508,45 +507,32 @@ namespace Bloxstrap
             if (!Directory.Exists(Paths.StartMenu))
             {
                 Directory.CreateDirectory(Paths.StartMenu);
-
-                ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
-                    .WriteToFile(Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
-
-                ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
-                    .WriteToFile(Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
             }
             else
             {
                 // v2.0.0 - rebadge configuration menu as just "Bloxstrap Menu"
                 string oldMenuShortcut = Path.Combine(Paths.StartMenu, $"Configure {App.ProjectName}.lnk");
-                string newMenuShortcut = Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk");
 
                 if (File.Exists(oldMenuShortcut))
                     File.Delete(oldMenuShortcut);
-
-                if (!File.Exists(newMenuShortcut))
-                    ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
-                        .WriteToFile(newMenuShortcut);
             }
+
+            Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
+            Utility.Shortcut.Create(Paths.Application, "-menu", Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
 
             if (App.Settings.Prop.CreateDesktopIcon)
             {
-                if (!File.Exists(DesktopShortcutLocation))
+                try
                 {
-                    try
-                    {
-                        ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
-                            .WriteToFile(DesktopShortcutLocation);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Could not create desktop shortcut, aborting");
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
-                }
+                    Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.Desktop, "Play Roblox.lnk"));
 
-                // one-time toggle, set it back to false
-                App.Settings.Prop.CreateDesktopIcon = false;
+                    // one-time toggle, set it back to false
+                    App.Settings.Prop.CreateDesktopIcon = false;
+                }
+                catch (Exception)
+                {
+                    // suppress, we likely just don't have write perms for the desktop folder
+                }
             }
         }
 

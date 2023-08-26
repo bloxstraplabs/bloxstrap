@@ -277,7 +277,7 @@ namespace Bloxstrap
                     }
                 }
 
-                Task bootstrapperTask = Task.Run(() => bootstrapper.Run()).ContinueWith(t =>
+                Task bootstrapperTask = Task.Run(async () => await bootstrapper.Run()).ContinueWith(t =>
                 {
                     Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 
