@@ -20,13 +20,10 @@ namespace Bloxstrap.Utility
                 if (_loadStatus != AssemblyLoadStatus.Successful)
                     _loadStatus = AssemblyLoadStatus.Successful;
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to create a shortcut for {lnkPath}!");
                 App.Logger.WriteException(LOG_IDENT, ex);
-
-                if (ex.GetType() != typeof(FileNotFoundException))
-                    throw;
 
                 if (_loadStatus == AssemblyLoadStatus.Failed)
                     return;
