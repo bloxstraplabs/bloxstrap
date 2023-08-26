@@ -1358,9 +1358,7 @@ namespace Bloxstrap
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressBar();
                     }
-
-                    fileStream.Seek(0, SeekOrigin.Begin);
-
+                    
                     if (MD5Hash.FromStream(fileStream) != package.Signature)
                         throw new Exception("Signature does not match!");
 
@@ -1427,17 +1425,36 @@ namespace Bloxstrap
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
 
+                var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
+                string? signature = fileManifest?.Signature;
+
                 if (File.Exists(extractPath))
                 {
-                    var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
-
-                    if (fileManifest is not null && MD5Hash.FromFile(extractPath) == fileManifest.Signature)
+                    if (signature is not null && MD5Hash.FromFile(extractPath) == signature)
                         continue;
 
                     File.Delete(extractPath);
                 }
 
-                entry.ExtractToFile(extractPath, true);
+                bool retry = false;
+
+                do
+                {
+                    using var entryStream = entry.Open();
+                    using var fileStream = new FileStream(extractPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None, bufferSize: 0x1000);
+                    await entryStream.CopyToAsync(fileStream);
+
+                    if (signature is not null && MD5Hash.FromStream(fileStream) != signature)
+                    {
+                        if (retry)
+                            throw new AssertionException($"Checksum of {entry.FullName} post-extraction did not match manifest");
+
+                        retry = true;
+                    }
+                }
+                while (retry);
+
+                File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");

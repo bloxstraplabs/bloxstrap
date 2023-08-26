@@ -12,6 +12,8 @@ namespace Bloxstrap.Utility
 
         public static string FromStream(Stream stream)
         {
+            stream.Seek(0, SeekOrigin.Begin);
+
             using MD5 md5 = MD5.Create();
             return Stringify(md5.ComputeHash(stream));
         }
