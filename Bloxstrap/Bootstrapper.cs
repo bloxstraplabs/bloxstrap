@@ -406,6 +406,9 @@ namespace Bloxstrap
                 return;
             }
 
+            if (_cancelFired)
+                return;
+
             App.Logger.WriteLine(LOG_IDENT, "Cancelling install...");
 
             _cancelTokenSource.Cancel();

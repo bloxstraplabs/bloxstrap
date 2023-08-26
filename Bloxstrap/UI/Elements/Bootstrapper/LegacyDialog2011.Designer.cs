@@ -30,75 +30,75 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelMessage = new System.Windows.Forms.Label();
-            this.ProgressBar = new System.Windows.Forms.ProgressBar();
-            this.IconBox = new System.Windows.Forms.PictureBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.IconBox)).BeginInit();
-            this.SuspendLayout();
+            labelMessage = new Label();
+            ProgressBar = new ProgressBar();
+            IconBox = new PictureBox();
+            buttonCancel = new Button();
+            ((System.ComponentModel.ISupportInitialize)IconBox).BeginInit();
+            SuspendLayout();
             // 
             // labelMessage
             // 
-            this.labelMessage.Location = new System.Drawing.Point(55, 23);
-            this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(287, 17);
-            this.labelMessage.TabIndex = 0;
-            this.labelMessage.Text = "Please wait...";
+            labelMessage.Location = new System.Drawing.Point(55, 23);
+            labelMessage.Name = "labelMessage";
+            labelMessage.Size = new System.Drawing.Size(287, 17);
+            labelMessage.TabIndex = 0;
+            labelMessage.Text = "Please wait...";
             // 
             // ProgressBar
             // 
-            this.ProgressBar.Location = new System.Drawing.Point(58, 51);
-            this.ProgressBar.MarqueeAnimationSpeed = 33;
-            this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(287, 26);
-            this.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.ProgressBar.TabIndex = 1;
+            ProgressBar.Location = new System.Drawing.Point(58, 51);
+            ProgressBar.MarqueeAnimationSpeed = 33;
+            ProgressBar.Name = "ProgressBar";
+            ProgressBar.Size = new System.Drawing.Size(287, 26);
+            ProgressBar.Style = ProgressBarStyle.Marquee;
+            ProgressBar.TabIndex = 1;
             // 
             // IconBox
             // 
-            this.IconBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.IconBox.ImageLocation = "";
-            this.IconBox.Location = new System.Drawing.Point(19, 16);
-            this.IconBox.Name = "IconBox";
-            this.IconBox.Size = new System.Drawing.Size(32, 32);
-            this.IconBox.TabIndex = 2;
-            this.IconBox.TabStop = false;
+            IconBox.BackgroundImageLayout = ImageLayout.Zoom;
+            IconBox.ImageLocation = "";
+            IconBox.Location = new System.Drawing.Point(19, 16);
+            IconBox.Name = "IconBox";
+            IconBox.Size = new System.Drawing.Size(32, 32);
+            IconBox.TabIndex = 2;
+            IconBox.TabStop = false;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Enabled = false;
-            this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCancel.Location = new System.Drawing.Point(271, 83);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 3;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Visible = false;
-            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
+            buttonCancel.Enabled = false;
+            buttonCancel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            buttonCancel.Location = new System.Drawing.Point(271, 83);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new System.Drawing.Size(75, 23);
+            buttonCancel.TabIndex = 3;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Visible = false;
+            buttonCancel.Click += ButtonCancel_Click;
             // 
             // LegacyDialog2011
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 131);
-            this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.IconBox);
-            this.Controls.Add(this.ProgressBar);
-            this.Controls.Add(this.labelMessage);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(378, 170);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(378, 170);
-            this.Name = "LegacyDialog2011";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LegacyDialog2011";
-            this.Load += new System.EventHandler(this.LegacyDialog2011_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.IconBox)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(362, 131);
+            Controls.Add(buttonCancel);
+            Controls.Add(IconBox);
+            Controls.Add(ProgressBar);
+            Controls.Add(labelMessage);
+            Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size(378, 170);
+            MinimizeBox = false;
+            MinimumSize = new System.Drawing.Size(378, 170);
+            Name = "LegacyDialog2011";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "LegacyDialog2011";
+            FormClosing += Dialog_FormClosing;
+            Load += LegacyDialog2011_Load;
+            ((System.ComponentModel.ISupportInitialize)IconBox).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

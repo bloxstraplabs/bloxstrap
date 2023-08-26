@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
@@ -19,6 +20,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private readonly BootstrapperDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
+
+        private bool _isClosing;
 
         #region UI Elements
         public string Message
@@ -77,11 +80,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             InitializeComponent();
         }
 
-        #region IBootstrapperDialog Methods
+        private void UiWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (!_isClosing)
+                Bootstrapper?.CancelInstall();
+        }
 
+        #region IBootstrapperDialog Methods
         public void ShowBootstrapper() => this.ShowDialog();
 
-        public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
+        public void CloseBootstrapper()
+        {
+            _isClosing = true;
+            Dispatcher.BeginInvoke(this.Close);
+        }
 
         public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
         #endregion

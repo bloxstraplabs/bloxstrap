@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.ComponentModel;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -16,6 +17,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private readonly ByfronDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
+
+        private bool _isClosing;
 
         #region UI Elements
         public string Message
@@ -84,12 +87,21 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             InitializeComponent();
         }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (!_isClosing)
+                Bootstrapper?.CancelInstall();
+        }
 
         #region IBootstrapperDialog Methods
         // Referencing FluentDialog
         public void ShowBootstrapper() => this.ShowDialog();
 
-        public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
+        public void CloseBootstrapper()
+        {
+            _isClosing = true;
+            Dispatcher.BeginInvoke(this.Close);
+        }
 
         public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
         #endregion

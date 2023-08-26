@@ -9,10 +9,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
     public partial class LegacyDialog2008 : WinFormsDialogBase
     {
-        protected override string _message 
-        { 
-            get => labelMessage.Text; 
-            set => labelMessage.Text = value; 
+        protected override string _message
+        {
+            get => labelMessage.Text;
+            set => labelMessage.Text = value;
         }
 
         protected override ProgressBarStyle _progressStyle
@@ -27,10 +27,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             set => ProgressBar.Value = value;
         }
 
-        protected override bool _cancelEnabled 
-        { 
-            get => this.buttonCancel.Enabled; 
-            set => this.buttonCancel.Enabled = value; 
+        protected override bool _cancelEnabled
+        {
+            get => this.buttonCancel.Enabled;
+            set => this.buttonCancel.Enabled = value;
         }
 
         public LegacyDialog2008()
