@@ -10,7 +10,8 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Background="Transparent">
+        Background="Transparent"
+        Closing="Window_Closing">
     <Border CornerRadius="10" BorderBrush="#33393B3D" Background="{Binding Background}" BorderThickness="{Binding DialogBorder}">
         <Grid>
             <Image Source="{Binding ByfronLogoLocation}" Width="114" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="17,13,0,0" />

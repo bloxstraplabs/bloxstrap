@@ -8,6 +8,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
     {
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
+        private bool _isClosing;
+
         #region UI Elements
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
@@ -81,11 +83,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon();
         }
 
-        public void ButtonCancel_Click(object? sender, EventArgs e)
+        #region WinForms event handlers
+        public void ButtonCancel_Click(object? sender, EventArgs e) => Close();
+
+        public void Dialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Bootstrapper?.CancelInstall();
-            Close();
+            if (!_isClosing)
+                Bootstrapper?.CancelInstall();
         }
+        #endregion
 
         #region IBootstrapperDialog Methods
         public void ShowBootstrapper() => ShowDialog();
@@ -93,9 +99,14 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         public virtual void CloseBootstrapper()
         {
             if (InvokeRequired)
+            {
                 Invoke(CloseBootstrapper);
+            }
             else
+            {
+                _isClosing = true;
                 Close();
+            }
         }
 
         public virtual void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);

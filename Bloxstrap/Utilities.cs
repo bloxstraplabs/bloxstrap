@@ -18,7 +18,7 @@ namespace Bloxstrap
             {
                 // lmfao
 
-                if (!ex.Message.Contains("Application not found"))
+                if (ex.NativeErrorCode != (int)ErrorCode.CO_E_APPNOTFOUND)
                     throw;
 
                 Process.Start(new ProcessStartInfo

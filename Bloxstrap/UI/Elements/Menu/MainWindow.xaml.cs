@@ -14,21 +14,14 @@ namespace Bloxstrap.UI.Elements.Menu
     /// </summary>
     public partial class MainWindow : INavigationWindow
     {
-        private readonly IThemeService _themeService = new ThemeService();
-
         public MainWindow()
         {
+            InitializeComponent();
+            ApplyTheme();
+
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 
             DataContext = new MainWindowViewModel(this);
-            SetTheme();
-            InitializeComponent();
-        }
-
-        public void SetTheme()
-        {
-            _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
-            _themeService.SetSystemAccent();
         }
 
         public void OpenWiki(object? sender, EventArgs e) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki");

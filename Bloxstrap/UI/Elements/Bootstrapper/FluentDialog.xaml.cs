@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
@@ -14,11 +15,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     /// </summary>
     public partial class FluentDialog : IBootstrapperDialog
     {
-        private readonly IThemeService _themeService = new ThemeService();
-
         private readonly BootstrapperDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
+
+        private bool _isClosing;
 
         #region UI Elements
         public string Message
@@ -66,22 +67,29 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         public FluentDialog()
         {
+            InitializeComponent();
+            ApplyTheme();
+
             _viewModel = new FluentDialogViewModel(this);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
+        }
 
-            _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
-            _themeService.SetSystemAccent();
-
-            InitializeComponent();
+        private void UiWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (!_isClosing)
+                Bootstrapper?.CancelInstall();
         }
 
         #region IBootstrapperDialog Methods
-
         public void ShowBootstrapper() => this.ShowDialog();
 
-        public void CloseBootstrapper() => Dispatcher.BeginInvoke(this.Close);
+        public void CloseBootstrapper()
+        {
+            _isClosing = true;
+            Dispatcher.BeginInvoke(this.Close);
+        }
 
         public void ShowSuccess(string message, Action? callback) => BaseFunctions.ShowSuccess(message, callback);
         #endregion

@@ -52,7 +52,6 @@ namespace Bloxstrap
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
-        private static string DesktopShortcutLocation => Path.Combine(Paths.Desktop, "Play Roblox.lnk");
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
@@ -407,6 +406,9 @@ namespace Bloxstrap
                 return;
             }
 
+            if (_cancelFired)
+                return;
+
             App.Logger.WriteLine(LOG_IDENT, "Cancelling install...");
 
             _cancelTokenSource.Cancel();
@@ -508,45 +510,32 @@ namespace Bloxstrap
             if (!Directory.Exists(Paths.StartMenu))
             {
                 Directory.CreateDirectory(Paths.StartMenu);
-
-                ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
-                    .WriteToFile(Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
-
-                ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
-                    .WriteToFile(Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
             }
             else
             {
                 // v2.0.0 - rebadge configuration menu as just "Bloxstrap Menu"
                 string oldMenuShortcut = Path.Combine(Paths.StartMenu, $"Configure {App.ProjectName}.lnk");
-                string newMenuShortcut = Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk");
 
                 if (File.Exists(oldMenuShortcut))
                     File.Delete(oldMenuShortcut);
-
-                if (!File.Exists(newMenuShortcut))
-                    ShellLink.Shortcut.CreateShortcut(Paths.Application, "-menu", Paths.Application, 0)
-                        .WriteToFile(newMenuShortcut);
             }
+
+            Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
+            Utility.Shortcut.Create(Paths.Application, "-menu", Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
 
             if (App.Settings.Prop.CreateDesktopIcon)
             {
-                if (!File.Exists(DesktopShortcutLocation))
+                try
                 {
-                    try
-                    {
-                        ShellLink.Shortcut.CreateShortcut(Paths.Application, "", Paths.Application, 0)
-                            .WriteToFile(DesktopShortcutLocation);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Could not create desktop shortcut, aborting");
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
-                }
+                    Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.Desktop, "Play Roblox.lnk"));
 
-                // one-time toggle, set it back to false
-                App.Settings.Prop.CreateDesktopIcon = false;
+                    // one-time toggle, set it back to false
+                    App.Settings.Prop.CreateDesktopIcon = false;
+                }
+                catch (Exception)
+                {
+                    // suppress, we likely just don't have write perms for the desktop folder
+                }
             }
         }
 
@@ -589,39 +578,51 @@ namespace Bloxstrap
                 return;
             }
 
-
             SetStatus($"Getting the latest {App.ProjectName}...");
-
-            // 64-bit is always the first option
-            GithubReleaseAsset asset = releaseInfo.Assets[0];
-            string downloadLocation = Path.Combine(Paths.LocalAppData, "Temp", asset.Name);
-
-            App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
-
-            if (!File.Exists(downloadLocation))
+            
+            try
             {
-                var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+                // 64-bit is always the first option
+                GithubReleaseAsset asset = releaseInfo.Assets[0];
+                string downloadLocation = Path.Combine(Paths.LocalAppData, "Temp", asset.Name);
 
-                await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
-                await response.Content.CopyToAsync(fileStream);
+                App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
+                
+                if (!File.Exists(downloadLocation))
+                {
+                    var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
+
+                    await using var fileStream = new FileStream(downloadLocation, FileMode.CreateNew);
+                    await response.Content.CopyToAsync(fileStream);
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Starting {releaseInfo.TagName}...");
+
+                ProcessStartInfo startInfo = new()
+                {
+                    FileName = downloadLocation,
+                };
+
+                foreach (string arg in App.LaunchArgs)
+                    startInfo.ArgumentList.Add(arg);
+                
+                App.Settings.Save();
+                App.ShouldSaveConfigs = false;
+                
+                Process.Start(startInfo);
+
+                App.Terminate();
             }
-
-            App.Logger.WriteLine(LOG_IDENT, $"Starting {releaseInfo.TagName}...");
-
-            ProcessStartInfo startInfo = new()
+            catch (Exception ex)
             {
-                FileName = downloadLocation,
-            };
+                App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the auto-updater");
+                App.Logger.WriteException(LOG_IDENT, ex);
 
-            foreach (string arg in App.LaunchArgs)
-                startInfo.ArgumentList.Add(arg);
-
-            App.Settings.Save();
-            App.ShouldSaveConfigs = false;
-
-            Process.Start(startInfo);
-
-            App.Terminate();
+                Controls.ShowMessageBox(
+                    $"Bloxstrap was unable to auto-update to {releaseInfo.TagName}. Please update it manually by downloading and running the latest release from the GitHub page.",
+                    MessageBoxImage.Information
+                );
+            }
         }
 
         private void Uninstall()
@@ -847,7 +848,16 @@ namespace Bloxstrap
                     if (!_versionPackageManifest.Exists(package => filename.Contains(package.Signature)))
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {filename}");
-                        File.Delete(filename);
+                        
+                        try
+                        {
+                            File.Delete(filename);
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {filename}!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
 
@@ -980,7 +990,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
             
-            if (Process.GetProcessesByName("RobloxPlayerBeta").Where(x => x.MainModule!.FileName == _playerLocation).Any())
+            if (Process.GetProcessesByName("RobloxPlayerBeta").Any())
             {
                 App.Logger.WriteLine(LOG_IDENT, "Roblox is running, aborting mod check");
                 return;
@@ -1328,7 +1338,7 @@ namespace Bloxstrap
                 {
                     var response = await App.HttpClient.GetAsync(packageUrl, HttpCompletionOption.ResponseHeadersRead, _cancelTokenSource.Token);
                     await using var stream = await response.Content.ReadAsStreamAsync(_cancelTokenSource.Token);
-                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.Write, FileShare.Delete);
+                    await using var fileStream = new FileStream(packageLocation, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Delete);
 
                     while (true)
                     {
@@ -1351,6 +1361,9 @@ namespace Bloxstrap
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressBar();
                     }
+                    
+                    if (MD5Hash.FromStream(fileStream) != package.Signature)
+                        throw new Exception("Signature does not match!");
 
                     App.Logger.WriteLine(LOG_IDENT, $"Finished downloading! ({totalBytesRead} bytes total)");
                     break;
@@ -1368,6 +1381,15 @@ namespace Bloxstrap
 
                     _totalDownloadedBytes -= totalBytesRead;
                     UpdateProgressBar();
+
+                    // attempt download over HTTP
+                    // this isn't actually that unsafe - signatures were fetched earlier over HTTPS
+                    // so we've already established that our signatures are legit, and that there's very likely no MITM anyway
+                    if (ex.GetType() == typeof(IOException) && !packageUrl.StartsWith("http://"))
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
+                        packageUrl = packageUrl.Replace("https://", "http://");
+                    }
                 }
             }
         }
@@ -1406,17 +1428,36 @@ namespace Bloxstrap
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
 
+                var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
+                string? signature = fileManifest?.Signature;
+
                 if (File.Exists(extractPath))
                 {
-                    var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
-
-                    if (fileManifest is not null && MD5Hash.FromFile(extractPath) == fileManifest.Signature)
+                    if (signature is not null && MD5Hash.FromFile(extractPath) == signature)
                         continue;
 
                     File.Delete(extractPath);
                 }
 
-                entry.ExtractToFile(extractPath, true);
+                bool retry = false;
+
+                do
+                {
+                    using var entryStream = entry.Open();
+                    using var fileStream = new FileStream(extractPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None, bufferSize: 0x1000);
+                    await entryStream.CopyToAsync(fileStream);
+
+                    if (signature is not null && MD5Hash.FromStream(fileStream) != signature)
+                    {
+                        if (retry)
+                            throw new AssertionException($"Checksum of {entry.FullName} post-extraction did not match manifest");
+
+                        retry = true;
+                    }
+                }
+                while (retry);
+
+                File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
