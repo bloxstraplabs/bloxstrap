@@ -63,7 +63,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set
             {
                 App.Settings.Prop.Theme = Themes[value];
-                ((MainWindow)Window.GetWindow(_page)!).SetTheme();
+                ((MainWindow)Window.GetWindow(_page)!).ApplyTheme();
             }
         }
 

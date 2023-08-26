@@ -2,6 +2,10 @@
 using System.Windows.Controls;
 using System.Windows.Interop;
 
+using Wpf.Ui.Appearance;
+using Wpf.Ui.Mvvm.Contracts;
+using Wpf.Ui.Mvvm.Services;
+
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
@@ -26,7 +30,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler)
         {
             InitializeComponent();
-            
+            ApplyTheme();
+
             _activityWatcher = activityWatcher;
             _richPresenceHandler = richPresenceHandler;
 

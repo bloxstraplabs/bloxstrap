@@ -15,8 +15,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     /// </summary>
     public partial class FluentDialog : IBootstrapperDialog
     {
-        private readonly IThemeService _themeService = new ThemeService();
-
         private readonly BootstrapperDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
@@ -69,15 +67,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         public FluentDialog()
         {
+            InitializeComponent();
+            ApplyTheme();
+
             _viewModel = new FluentDialogViewModel(this);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
-
-            _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
-            _themeService.SetSystemAccent();
-
-            InitializeComponent();
         }
 
         private void UiWindow_Closing(object sender, CancelEventArgs e)

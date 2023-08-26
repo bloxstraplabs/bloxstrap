@@ -1,4 +1,4 @@
-﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.Menu.MainWindow"
+﻿<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.Menu.MainWindow"
              x:Name="ConfigurationWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
              mc:Ignorable="d"
              Title="Bloxstrap Menu"
              MinWidth="960"
@@ -79,4 +80,4 @@
             </StatusBarItem>
         </StatusBar>
     </Grid>
-</ui:UiWindow>
+</base:WpfUiWindow>

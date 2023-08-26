@@ -1,10 +1,11 @@
-﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.ContextMenu.MenuContainer"
+﻿<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.ContextMenu.MenuContainer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.ContextMenu"
+        xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         mc:Ignorable="d"
         Title="ContextMenuContainer"
         MinWidth="0"
@@ -62,4 +63,4 @@
             <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
-</ui:UiWindow>
+</base:WpfUiWindow>
