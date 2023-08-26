@@ -1396,9 +1396,9 @@ namespace Bloxstrap
                     UpdateProgressBar();
 
                     // attempt download over HTTP
-                    // this isn't actually that unsafe - signatures were established earlier over HTTPS
-                    // so we've already established that our signatures are legit, and that there's no MITM anyway
-                    if (ex.Message.Contains("The decryption operation failed"))
+                    // this isn't actually that unsafe - signatures were fetched earlier over HTTPS
+                    // so we've already established that our signatures are legit, and that there's very likely no MITM anyway
+                    if (ex.GetType() == typeof(IOException) && !packageUrl.StartsWith("http://"))
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
                         packageUrl = packageUrl.Replace("https://", "http://");
