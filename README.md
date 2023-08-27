@@ -35,7 +35,6 @@ Here's some of the features that Bloxstrap provides over the stock Roblox bootst
 * Support for easy and simple FastFlag editing, no need to mess around with a JSON file.
 * Painless and seamless support for Discord Rich Presence - no auth cookie needed!
 * A customizable launcher look
-* Lets you opt into non-production Roblox release channels
 * Lets you see what region your current server is located in
 * Lets you have multiple Roblox game instances open simultaneously
 
