@@ -200,14 +200,23 @@
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
     </ui:CardControl>
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="Enable chrome menu" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the new in-game chrome menu." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
-            <ui:ToggleSwitch IsChecked="{Binding InGameChromeEnabled, Mode=TwoWay}" />
-        </ui:CardControl>
-  </StackPanel>
+    <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+            <StackPanel>
+                <TextBlock FontSize="14" Text="Enable chrome menu" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle whether to use the new in-game chrome menu." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardControl.Header>
+        <ui:ToggleSwitch IsChecked="{Binding InGameChromeEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    <ui:CardControl Margin="0,8,0,0">
+        <ui:CardControl.Header>
+            <StackPanel>
+                <TextBlock FontSize="14" Text="Enable accessibility settings" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggles access to accessibility settings such as reduced motion." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardControl.Header>
+        <ui:ToggleSwitch IsChecked="{Binding AccessibilityEnabled, Mode=TwoWay}" />
+    </ui:CardControl>
+    </StackPanel>
 </ui:UiPage>

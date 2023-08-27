@@ -51,7 +51,12 @@ namespace Bloxstrap
             { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
             { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
             { "UI.Menu.Style.ABTest.3", "FFlagEnableMenuModernizationABTest2" },
-            { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" }
+            { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" },
+
+            { "UI.Menu.Accessibility.EnableAccessibility", "FFlagEnableAccessibilitySettingsAPIV2" },
+            { "UI.Menu.Accessibility.EnableEffectsInCoreScripts", "FFlagEnableAccessibilitySettingsEffectsInCoreScripts" },
+            { "UI.Menu.Accessibility.EnableEffectsInChat", "FFlagEnableAccessibilitySettingsEffectsInExperienceChat" },
+            { "UI.Menu.Accessibility.EnableSettings", "FFlagEnableAccessibilitySettingsInExperienceMenu2" },
         };
 
         // only one missing here is Metal because lol
@@ -80,6 +85,7 @@ namespace Bloxstrap
             { "4x MSAA", "4" },
             { "8x MSAA", "8" }
         };
+
 
         // this is one hell of a dictionary definition lmao
         // since these all set the same flags, wouldn't making this use bitwise operators be better?
