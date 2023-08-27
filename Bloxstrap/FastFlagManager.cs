@@ -42,6 +42,8 @@ namespace Bloxstrap
             { "UI.FlagState", "FStringDebugShowFlagState" },
 
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
+
+            { "UI.Menu.InGameChrome", "FFlagEnableInGameMenuChrome" },
             
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
             { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" },

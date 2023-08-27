@@ -82,6 +82,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("UI.Menu.GraphicsSlider", value ? "True" : null);
         }
 
+        public bool InGameChromeEnabled
+        { 
+            get => App.FastFlags.GetPreset("UI.Menu.InGameChrome") == "True";
+            set => App.FastFlags.SetPreset("UI.Menu.InGameChrome", value ? "True" : null);
+        }
+
         public bool Pre2022TexturesEnabled
         {
             get => App.FastFlags.GetPreset("Rendering.TexturePack") == FastFlagManager.OldTexturesFlagValue;
