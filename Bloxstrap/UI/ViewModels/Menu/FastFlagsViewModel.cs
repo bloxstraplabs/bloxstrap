@@ -100,6 +100,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("Rendering.TexturePack", value ? FastFlagManager.OldTexturesFlagValue : null);
         }
 
+        public int GrassRenderLimit
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Rendering.GrassLimit"), out int x) ? x : 99999;
+            set => App.FastFlags.SetPreset("Rendering.GrassLimit", value);
+        }
+
         public IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
 
         public string SelectedIGMenuVersion

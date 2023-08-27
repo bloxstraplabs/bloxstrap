@@ -38,6 +38,8 @@ namespace Bloxstrap
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
             { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
 
+            { "Rendering.GrassLimit", "FIntFRMMaxGrassDistance" },
+
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
             { "UI.FlagState", "FStringDebugShowFlagState" },
 
