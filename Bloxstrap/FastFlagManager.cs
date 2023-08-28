@@ -40,6 +40,8 @@ namespace Bloxstrap
 
             { "Rendering.GrassLimit", "FIntFRMMaxGrassDistance" },
 
+            { "Rendering.DisableDynamicHeads", "DFFlagEnableDynamicHeadByDefault" },
+
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
             { "UI.FlagState", "FStringDebugShowFlagState" },
 

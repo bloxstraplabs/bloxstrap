@@ -227,13 +227,22 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" FontSize="14" Text="3D Grass Render Distance" />
-                    <TextBlock Grid.Column="1" Margin="4,0,0,0">              
-                </TextBlock>
-                </Grid>
-                <TextBlock Margin="0,2,0,0" FontSize="12" Text="Changes the max distance at which 3D grass can render." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-            </StackPanel>
-        </ui:CardControl.Header>
-        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding GrassRenderLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
-    </ui:CardControl>
+                        <TextBlock Grid.Column="1" Margin="4,0,0,0">
+                        </TextBlock>
+                    </Grid>
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Changes the max distance at which 3D grass can render." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding GrassRenderLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
+        </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Disable dynamic head animations" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggles animations on dynamic heads, making them static." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:ToggleSwitch IsChecked="{Binding DynamicHeadsDisabled, Mode=TwoWay}" />
+        </ui:CardControl>
     </StackPanel>
 </ui:UiPage>

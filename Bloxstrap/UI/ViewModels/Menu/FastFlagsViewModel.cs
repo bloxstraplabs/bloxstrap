@@ -88,6 +88,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("UI.Menu.InGameChrome", value ? "True" : null);
         }
 
+        public bool DynamicHeadsDisabled
+        {
+            get => App.FastFlags.GetPreset("Rendering.DisableDynamicHeads") == "False";
+            set => App.FastFlags.SetPreset("Rendering.DisableDynamicHeads", value ? "False" : null);
+        }
+
         public bool AccessibilityEnabled
         {
             get => App.FastFlags.GetPreset("UI.Menu.Accessibility.EnableAccessibility") == "True";
