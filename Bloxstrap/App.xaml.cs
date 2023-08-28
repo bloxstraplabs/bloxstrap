@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -241,7 +242,19 @@ namespace Bloxstrap
             {
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
-                
+
+                if (Process.GetProcessesByName("RobloxPlayerBeta").Any()) {
+                    MessageBoxResult result = Controls.ShowMessageBox(
+                        "There is already an instance of Roblox running, are you sure you wish to launch?",
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo
+                    );
+                    if (result == MessageBoxResult.No)
+                    {
+                        return;
+                    }
+                }
+
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
                 Bootstrapper bootstrapper = new(commandLine);
