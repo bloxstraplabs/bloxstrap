@@ -42,6 +42,9 @@ namespace Bloxstrap
 
             { "Rendering.DisableDynamicHeads", "DFFlagEnableDynamicHeadByDefault" },
 
+            { "Rendering.TextureLevel.Enabled", "DFFlagTextureQualityOverrideEnabled" },
+            { "Rendering.TextureLevel.Quality", "DFIntTextureQualityOverride" },
+
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
             { "UI.FlagState", "FStringDebugShowFlagState" },
 
@@ -79,6 +82,14 @@ namespace Bloxstrap
             { "Voxel (Phase 1)", "Voxel" },
             { "ShadowMap (Phase 2)", "ShadowMap" },
             { "Future (Phase 3)", "Future" }
+        };
+
+        public static IReadOnlyDictionary<string, string> TextureQualities => new Dictionary<string, string>
+        {
+            { "High (Default)", "3" },
+            { "Medium", "2" },
+            { "Low", "1" },
+            { "Very Low", "0" }
         };
 
         public static IReadOnlyDictionary<string, string?> MSAAModes => new Dictionary<string, string?>

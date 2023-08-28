@@ -244,5 +244,14 @@
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding DynamicHeadsDisabled, Mode=TwoWay}" />
         </ui:CardControl>
+        <ui:CardControl Margin="0,8,0,0">
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="Texture Quality" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Changes the quality level of textures." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding TextureQualities.Keys, Mode=OneTime}" Text="{Binding SelectedTextureQuality, Mode=TwoWay}" />
+        </ui:CardControl>
     </StackPanel>
 </ui:UiPage>

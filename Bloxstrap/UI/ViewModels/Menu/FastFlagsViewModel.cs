@@ -148,10 +148,23 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public IReadOnlyDictionary<string, string> LightingModes => FastFlagManager.LightingModes;
 
+        public IReadOnlyDictionary<string, string> TextureQualities => FastFlagManager.TextureQualities;
+
         public string SelectedLightingMode
         {
             get => App.FastFlags.GetPresetEnum(LightingModes, "Rendering.Lighting", "True");
             set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
+        }
+
+        public string SelectedTextureQuality
+        {
+            get => TextureQualities.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.TextureLevel.Quality")).Key;
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.TextureLevel.Quality", TextureQualities[value]);
+                App.FastFlags.SetPreset("Rendering.TextureLevel.Enabled", true);
+            }
+
         }
 
         public bool GuiHidingEnabled
