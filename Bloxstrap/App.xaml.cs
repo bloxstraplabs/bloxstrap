@@ -203,11 +203,17 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
-                        Controls.ShowMessageBox(
-                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
-                            MessageBoxImage.Information
+                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet) {
+                        MessageBoxResult result = Controls.ShowMessageBox(
+                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.",
+                            MessageBoxImage.Information,
+                            MessageBoxButton.OKCancel
                         );
+
+                        if (result == MessageBoxResult.Cancel)
+                            return;
+                    }
+                        
 
                     Controls.ShowMenu();
                 }
@@ -225,6 +231,8 @@ namespace Bloxstrap
                             "Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", 
                             MessageBoxImage.Information
                         );
+
+
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
@@ -250,9 +258,7 @@ namespace Bloxstrap
                         MessageBoxButton.YesNo
                     );
                     if (result == MessageBoxResult.No)
-                    {
                         return;
-                    }
                 }
 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
