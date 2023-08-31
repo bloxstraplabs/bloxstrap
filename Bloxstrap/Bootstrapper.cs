@@ -1365,9 +1365,11 @@ namespace Bloxstrap
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressBar();
                     }
-                    
-                    if (MD5Hash.FromStream(fileStream) != package.Signature)
-                        throw new Exception("Signature does not match!");
+
+                    string hash = MD5Hash.FromStream(fileStream);
+
+                    if (hash != package.Signature)
+                        throw new ChecksumFailedException($"Failed to verify download of {packageUrl}\n\nGot signature: {hash}\n\nPackage has been downloaded to {packageLocation}\n\nPlease send the file shown above in a bug report.");
 
                     App.Logger.WriteLine(LOG_IDENT, $"Finished downloading! ({totalBytesRead} bytes total)");
                     break;
@@ -1377,11 +1379,11 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
+                    if (i >= maxTries || ex.GetType() == typeof(ChecksumFailedException))
+                        throw;
+
                     if (File.Exists(packageLocation))
                         File.Delete(packageLocation);
-
-                    if (i >= maxTries)
-                        throw;
 
                     _totalDownloadedBytes -= totalBytesRead;
                     UpdateProgressBar();
