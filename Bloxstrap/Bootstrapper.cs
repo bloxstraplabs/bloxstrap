@@ -496,16 +496,19 @@ namespace Bloxstrap
             ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
 
-            // in case the user is reinstalling
-            if (File.Exists(Paths.Application) && App.IsFirstRun)
+            if (Environment.ProcessPath is not null && Environment.ProcessPath != Paths.Application)
             {
-                Filesystem.AssertReadOnly(Paths.Application);
-                File.Delete(Paths.Application);
-            }
+                // in case the user is reinstalling
+                if (File.Exists(Paths.Application) && App.IsFirstRun)
+                {
+                    Filesystem.AssertReadOnly(Paths.Application);
+                    File.Delete(Paths.Application);
+                }
 
-            // check to make sure bootstrapper is in the install folder
-            if (!File.Exists(Paths.Application) && Environment.ProcessPath is not null)
-                File.Copy(Environment.ProcessPath, Paths.Application);
+                // check to make sure bootstrapper is in the install folder
+                if (!File.Exists(Paths.Application))
+                    File.Copy(Environment.ProcessPath, Paths.Application);
+            }
 
             // this SHOULD go under Register(),
             // but then people who have Bloxstrap v1.0.0 installed won't have this without a reinstall
