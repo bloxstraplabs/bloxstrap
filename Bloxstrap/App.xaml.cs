@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -202,11 +203,17 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
-                        Controls.ShowMessageBox(
-                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
-                            MessageBoxImage.Information
+                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet) {
+                        MessageBoxResult result = Controls.ShowMessageBox(
+                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.",
+                            MessageBoxImage.Information,
+                            MessageBoxButton.OKCancel
                         );
+
+                        if (result == MessageBoxResult.Cancel)
+                            return;
+                    }
+                        
 
                     Controls.ShowMenu();
                 }
@@ -225,6 +232,8 @@ namespace Bloxstrap
                             MessageBoxImage.Information
                         );
 
+
+
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
                 else
@@ -241,7 +250,17 @@ namespace Bloxstrap
             {
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
-                
+
+                if (Process.GetProcessesByName("RobloxPlayerBeta").Any()) {
+                    MessageBoxResult result = Controls.ShowMessageBox(
+                        "There is already an instance of Roblox running, are you sure you wish to launch?",
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo
+                    );
+                    if (result == MessageBoxResult.No)
+                        return;
+                }
+
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
                 Bootstrapper bootstrapper = new(commandLine);
