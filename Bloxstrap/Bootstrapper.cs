@@ -306,9 +306,16 @@ namespace Bloxstrap
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
 
+            var startInfo = new ProcessStartInfo()
+            {
+                FileName = _playerLocation,
+                Arguments = _launchCommandLine,
+                WorkingDirectory = _versionFolder
+            };
+
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
-            using (Process gameClient = Process.Start(_playerLocation, _launchCommandLine))
+            using (Process gameClient = Process.Start(startInfo)!)
             {
                 gameClientPid = gameClient.Id;
             }
