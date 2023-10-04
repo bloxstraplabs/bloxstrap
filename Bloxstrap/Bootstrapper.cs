@@ -328,7 +328,7 @@ namespace Bloxstrap
                     return;
             }
 
-            if (App.Settings.Prop.EnableActivityTracking)
+            if (App.Settings.Prop.EnableActivityTracking && !_studioLaunch)
             {
                 activityWatcher = new();
                 shouldWait = true;
