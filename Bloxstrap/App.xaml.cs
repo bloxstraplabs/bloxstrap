@@ -232,9 +232,14 @@ namespace Bloxstrap
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
-                else if (LaunchArgs[0].StartsWith("roblox-studio:") || LaunchArgs[0].StartsWith("roblox-studio-auth:"))
+                else if (LaunchArgs[0].StartsWith("roblox-studio:"))
                 {
                     commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+                    isStudioLaunch = true;
+                }
+                else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
+                {
+                    commandLine = LaunchArgs[0];
                     isStudioLaunch = true;
                 }
                 else
