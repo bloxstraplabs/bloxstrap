@@ -1468,9 +1468,8 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
-            // not async but faster than previous implementation
-            using Ionic.Zip.ZipFile zip = Ionic.Zip.ZipFile.Read(packageLocation);
-            zip.ExtractAll(packageFolder);
+            var fastZip = new ICSharpCode.SharpZipLib.Zip.FastZip();
+            fastZip.ExtractZip(packageLocation, packageFolder, "(.*?)");
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
 
