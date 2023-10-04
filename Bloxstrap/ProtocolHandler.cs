@@ -21,6 +21,10 @@ namespace Bloxstrap
             { "channel", "-channel " },
             // studio
             { "task", "-task " },
+            { "placeId", "-placeId " },
+            { "universeId", "-universeId " },
+            { "userId", "-userId " }
+            // TODO: -protocolString
         };
 
         public static string ParseUri(string protocol)
