@@ -247,6 +247,11 @@ namespace Bloxstrap
                     isStudioLaunch = true;
                     isStudioAuth = true;
                 }
+                else if (LaunchArgs[0] == "-ide" && LaunchArgs.Length >= 2)
+                {
+                    commandLine = $"-task EditFile -localPlaceFile {LaunchArgs[1]}";
+                    isStudioLaunch = true;
+                }
                 else
                 {
                     commandLine = "--app";
