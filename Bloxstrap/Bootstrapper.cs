@@ -680,6 +680,12 @@ namespace Bloxstrap
                         process.CloseMainWindow();
                         process.Close();
                     }
+
+                    foreach (Process process in Process.GetProcessesByName("RobloxStudioBeta"))
+                    {
+                        process.CloseMainWindow();
+                        process.Close();
+                    }
                 }
                 catch (Exception ex)
                 {
