@@ -116,9 +116,10 @@ namespace Bloxstrap
         public static void Register(string key, string name, string handler)
         {
             string handlerArgs = $"\"{handler}\" %1";
-            RegistryKey uriKey = Registry.CurrentUser.CreateSubKey($@"Software\Classes\{key}");
-            RegistryKey uriIconKey = uriKey.CreateSubKey("DefaultIcon");
-            RegistryKey uriCommandKey = uriKey.CreateSubKey(@"shell\open\command");
+            
+            using RegistryKey uriKey = Registry.CurrentUser.CreateSubKey($@"Software\Classes\{key}");
+            using RegistryKey uriIconKey = uriKey.CreateSubKey("DefaultIcon");
+            using RegistryKey uriCommandKey = uriKey.CreateSubKey(@"shell\open\command");
 
             if (uriKey.GetValue("") is null)
             {
@@ -126,15 +127,11 @@ namespace Bloxstrap
                 uriKey.SetValue("URL Protocol", "");
             }
 
-            if ((string?)uriCommandKey.GetValue("") != handlerArgs)
+            if (uriCommandKey.GetValue("") as string != handlerArgs)
             {
                 uriIconKey.SetValue("", handler);
                 uriCommandKey.SetValue("", handlerArgs);
             }
-
-            uriKey.Close();
-            uriIconKey.Close();
-            uriCommandKey.Close();
         }
 
         public static void RegisterRobloxPlace(string handler)
