@@ -954,33 +954,33 @@ namespace Bloxstrap
                         appFlagsKey.DeleteValue(oldGameClientLocation);
                     }
                 }
-
-                // delete any old version folders
-                // we only do this if roblox isnt running just in case an update happened
-                // while they were launching a second instance or something idk
-                if (!Process.GetProcessesByName(App.RobloxPlayerAppName).Any() && !Process.GetProcessesByName(App.RobloxStudioAppName).Any())
-                {
-                    foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
-                    {
-                        if (dir.Name == App.State.Prop.PlayerVersionGuid || dir.Name == App.State.Prop.StudioVersionGuid || !dir.Name.StartsWith("version-"))
-                            continue;
-
-                        App.Logger.WriteLine(LOG_IDENT, $"Removing old version folder for {dir.Name}");
-
-                        try
-                        { 
-                            dir.Delete(true);
-                        }
-                        catch (Exception ex)
-                        {
-                            App.Logger.WriteLine(LOG_IDENT, "Failed to delete version folder!");
-                            App.Logger.WriteException(LOG_IDENT, ex);
-                        }
-                    }
-                }
             }
 
             _versionGuid = _latestVersionGuid;
+
+            // delete any old version folders
+            // we only do this if roblox isnt running just in case an update happened
+            // while they were launching a second instance or something idk
+            if (!Process.GetProcessesByName(App.RobloxPlayerAppName).Any() && !Process.GetProcessesByName(App.RobloxStudioAppName).Any())
+            {
+                foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
+                {
+                    if (dir.Name == App.State.Prop.PlayerVersionGuid || dir.Name == App.State.Prop.StudioVersionGuid || !dir.Name.StartsWith("version-"))
+                        continue;
+
+                    App.Logger.WriteLine(LOG_IDENT, $"Removing old version folder for {dir.Name}");
+
+                    try
+                    {
+                        dir.Delete(true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to delete version folder!");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+            }
 
             // don't register program size until the program is registered, which will be done after this
             if (!App.IsFirstRun && !FreshInstall)
