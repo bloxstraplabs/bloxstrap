@@ -30,6 +30,7 @@ namespace Bloxstrap
         public static bool IsNoLaunch { get; private set; } = false;
         public static bool IsUpgrade { get; private set; } = false;
         public static bool IsMenuLaunch { get; private set; } = false;
+        public static bool IsStudioLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
@@ -153,6 +154,12 @@ namespace Bloxstrap
                 {
                     Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsUpgrade flag");
                     IsUpgrade = true;
+                }
+
+                if (Array.IndexOf(LaunchArgs, "-studio") != -1)
+                {
+                    Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsStudioLaunch flag");
+                    IsStudioLaunch = true;
                 }
             }
             
