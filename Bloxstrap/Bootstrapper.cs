@@ -510,6 +510,10 @@ namespace Bloxstrap
             ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application);
 
+            ProtocolHandler.RegisterRobloxPlace(Paths.Application);
+            ProtocolHandler.RegisterExtension(".rbxl");
+            ProtocolHandler.RegisterExtension(".rbxlx");
+
             if (Environment.ProcessPath is not null && Environment.ProcessPath != Paths.Application)
             {
                 // in case the user is reinstalling
@@ -711,12 +715,18 @@ namespace Bloxstrap
 
                 ProtocolHandler.Unregister("roblox-studio");
                 ProtocolHandler.Unregister("roblox-studio-auth");
+
+                ProtocolHandler.Unregister("Roblox.Place");
+                ProtocolHandler.Unregister(".rbxl");
+                ProtocolHandler.Unregister(".rbxlx");
             }
             else
             {
                 string studioLocation = (string?)studioBootstrapperKey.GetValue("InstallLocation") + "RobloxStudioBeta.exe"; // points to studio exe instead of bootstrapper
                 ProtocolHandler.Register("roblox-studio", "Roblox", studioLocation);
                 ProtocolHandler.Register("roblox-studio-auth", "Roblox", studioLocation);
+
+                ProtocolHandler.RegisterRobloxPlace(studioLocation);
             }
 
             // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder

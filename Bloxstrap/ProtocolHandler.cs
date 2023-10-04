@@ -7,6 +7,8 @@ namespace Bloxstrap
 {
     static class ProtocolHandler
     {
+        private const string RobloxPlaceKey = "Roblox.Place";
+
         // map uri keys to command line args
         private static readonly IReadOnlyDictionary<string, string> UriKeyArgMap = new Dictionary<string, string>()
         {
@@ -133,6 +135,39 @@ namespace Bloxstrap
             uriKey.Close();
             uriIconKey.Close();
             uriCommandKey.Close();
+        }
+
+        public static void RegisterRobloxPlace(string handler)
+        {
+            const string keyValue = "Roblox Place";
+            string handlerArgs = $"\"{handler}\" -ide \"%1\"";
+            string iconValue = $"{handler},0";
+
+            using RegistryKey uriKey = Registry.CurrentUser.CreateSubKey(@"Software\Classes\" + RobloxPlaceKey);
+            using RegistryKey uriIconKey = uriKey.CreateSubKey("DefaultIcon");
+            using RegistryKey uriOpenKey = uriKey.CreateSubKey(@"shell\Open");
+            using RegistryKey uriCommandKey = uriOpenKey.CreateSubKey(@"command");
+
+            if (uriKey.GetValue("") as string != keyValue)
+                uriKey.SetValue("", keyValue);
+
+            if (uriCommandKey.GetValue("") as string != handlerArgs)
+                uriCommandKey.SetValue("", handlerArgs);
+
+            if (uriOpenKey.GetValue("") as string != "Open")
+                uriOpenKey.SetValue("", "Open");
+
+            if (uriIconKey.GetValue("") as string != iconValue)
+                uriIconKey.SetValue("", iconValue);
+        }
+
+        public static void RegisterExtension(string key)
+        {
+            using RegistryKey uriKey = Registry.CurrentUser.CreateSubKey($@"Software\Classes\{key}");
+            uriKey.CreateSubKey(RobloxPlaceKey + @"\ShellNew");
+
+            if (uriKey.GetValue("") as string != RobloxPlaceKey)
+                uriKey.SetValue("", RobloxPlaceKey);
         }
 
         public static void Unregister(string key)
