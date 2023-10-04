@@ -75,12 +75,13 @@
 
             App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel} (extraInformation={extraInformation})");
 
+            string cacheKey = $"{channel}-{binaryType}";
             ClientVersion clientVersion;
 
-            if (ClientVersionCache.ContainsKey(channel))
+            if (ClientVersionCache.ContainsKey(cacheKey))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Deploy information is cached");
-                clientVersion = ClientVersionCache[channel];
+                clientVersion = ClientVersionCache[cacheKey];
             }
             else
             {
@@ -147,7 +148,7 @@
                 }
             }
 
-            ClientVersionCache[channel] = clientVersion;
+            ClientVersionCache[cacheKey] = clientVersion;
 
             return clientVersion;
         }
