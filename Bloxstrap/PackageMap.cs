@@ -62,6 +62,7 @@ namespace Bloxstrap
             { "content-studio_svg_textures.zip", @"content\studio_svg_textures\"},
             { "content-qt_translations.zip",     @"content\qt_translations\" },
             { "content-api-docs.zip",            @"content\api_docs\" },
+            { "extracontent-scripts.zip",        @"ExtraContent\scripts\" },
             { "BuiltInPlugins.zip",              @"BuiltInPlugins\" },
             { "BuiltInStandalonePlugins.zip",    @"BuiltInStandalonePlugins\" },
             { "LibrariesQt5.zip",                @"" },
