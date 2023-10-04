@@ -10,38 +10,6 @@ namespace Bloxstrap
     public class Bootstrapper
     {
         #region Properties
-        // in case a new package is added, you can find the corresponding directory
-        // by opening the stock bootstrapper in a hex editor
-        // TODO - there ideally should be a less static way to do this that's not hardcoded?
-        private static readonly IReadOnlyDictionary<string, string> PackageDirectories = new Dictionary<string, string>()
-        {
-            { "RobloxApp.zip",                 @"" },
-            { "shaders.zip",                   @"shaders\" },
-            { "ssl.zip",                       @"ssl\" },
-
-            // the runtime installer is only extracted if it needs installing
-            { "WebView2.zip",                  @"" },
-            { "WebView2RuntimeInstaller.zip",  @"WebView2RuntimeInstaller\" },
-
-            { "content-avatar.zip",            @"content\avatar\" },
-            { "content-configs.zip",           @"content\configs\" },
-            { "content-fonts.zip",             @"content\fonts\" },
-            { "content-sky.zip",               @"content\sky\" },
-            { "content-sounds.zip",            @"content\sounds\" },
-            { "content-textures2.zip",         @"content\textures\" },
-            { "content-models.zip",            @"content\models\" },
-
-            { "content-textures3.zip",         @"PlatformContent\pc\textures\" },
-            { "content-terrain.zip",           @"PlatformContent\pc\terrain\" },
-            { "content-platform-fonts.zip",    @"PlatformContent\pc\fonts\" },
-
-            { "extracontent-luapackages.zip",  @"ExtraContent\LuaPackages\" },
-            { "extracontent-translations.zip", @"ExtraContent\translations\" },
-            { "extracontent-models.zip",       @"ExtraContent\models\" },
-            { "extracontent-textures.zip",     @"ExtraContent\textures\" },
-            { "extracontent-places.zip",       @"ExtraContent\places\" },
-        };
-
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
             "<Settings>\r\n" +
@@ -51,11 +19,30 @@ namespace Bloxstrap
 
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid);
+        private bool FreshInstall => String.IsNullOrEmpty(_versionGuid);
 
-        private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
+        private string _playerFileName => _studioLaunch ? "RobloxStudioBeta.exe" : "RobloxPlayerBeta.exe";
+        // TODO: change name
+        private string _playerLocation => Path.Combine(_versionFolder, _playerFileName);
 
         private string _launchCommandLine;
+        private bool _studioLaunch;
+
+        private string _versionGuid
+        {
+            get
+            {
+                return _studioLaunch ? App.State.Prop.StudioVersionGuid : App.State.Prop.PlayerVersionGuid;
+            }
+
+            set
+            {
+                if (_studioLaunch)
+                    App.State.Prop.StudioVersionGuid = value;
+                else
+                    App.State.Prop.PlayerVersionGuid = value;
+            }
+        }
 
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
@@ -68,13 +55,16 @@ namespace Bloxstrap
         private int _packagesExtracted = 0;
         private bool _cancelFired = false;
 
+        private IReadOnlyDictionary<string, string> _packageDirectories => _studioLaunch ? PackageMap.Studio : PackageMap.Player;
+
         public IBootstrapperDialog? Dialog = null;
         #endregion
 
         #region Core
-        public Bootstrapper(string launchCommandLine)
+        public Bootstrapper(string launchCommandLine, bool studioLaunch)
         {
             _launchCommandLine = launchCommandLine;
+            _studioLaunch = studioLaunch;
         }
 
         private void SetStatus(string message)
@@ -183,7 +173,7 @@ namespace Bloxstrap
             await CheckLatestVersion();
 
             // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
-            if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.PlayerVersionGuid || !File.Exists(_playerLocation))
+            if (App.IsFirstRun || _latestVersionGuid != _versionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
 
             if (App.IsFirstRun)
@@ -199,7 +189,7 @@ namespace Bloxstrap
             if (App.IsFirstRun || FreshInstall)
             {
                 Register();
-                RegisterProgramSize();
+                RegisterProgramSize(); // STUDIO TODO
             }
 
             CheckInstall();
@@ -223,18 +213,20 @@ namespace Bloxstrap
 
             ClientVersion clientVersion;
 
+            string binaryType = _studioLaunch ? "WindowsStudio64" : "WindowsPlayer";
+
             try
             {
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
             }
             catch (HttpResponseException ex)
             {
                 if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
                     throw;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a {binaryType} build does not exist for {App.Settings.Prop.Channel}");
                 App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
             }
 
             if (clientVersion.IsBehindDefaultChannel)
@@ -257,7 +249,7 @@ namespace Bloxstrap
                     App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {RobloxDeployment.DefaultChannel}");
 
                     App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
-                    clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
+                    clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
                 }
             }
 
@@ -502,8 +494,8 @@ namespace Bloxstrap
 
             ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
-            ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application, "-studio");
-            ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application, "-studio");
+            ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application);
+            ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application);
 
             if (Environment.ProcessPath is not null && Environment.ProcessPath != Paths.Application)
             {
@@ -798,7 +790,8 @@ namespace Bloxstrap
             
             _isInstalling = true;
 
-            SetStatus(FreshInstall ? "Installing Roblox..." : "Upgrading Roblox...");
+            string extra = _studioLaunch ? " Studio" : "";
+            SetStatus(FreshInstall ? $"Installing Roblox{extra}..." : $"Upgrading Roblox{extra}...");
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
@@ -892,12 +885,12 @@ namespace Bloxstrap
                     }
                 }
 
-                string oldVersionFolder = Path.Combine(Paths.Versions, App.State.Prop.PlayerVersionGuid);
+                string oldVersionFolder = Path.Combine(Paths.Versions, _versionGuid);
 
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
                 {
-                    string oldGameClientLocation = Path.Combine(oldVersionFolder, "RobloxPlayerBeta.exe");
+                    string oldGameClientLocation = Path.Combine(oldVersionFolder, _playerFileName);
                     string? appFlags = (string?)appFlagsKey.GetValue(oldGameClientLocation);
 
                     if (appFlags is not null)
@@ -915,7 +908,7 @@ namespace Bloxstrap
                 {
                     foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
                     {
-                        if (dir.Name == _latestVersionGuid || !dir.Name.StartsWith("version-"))
+                        if (dir.Name == App.State.Prop.PlayerVersionGuid || dir.Name == App.State.Prop.StudioVersionGuid || !dir.Name.StartsWith("version-"))
                             continue;
 
                         App.Logger.WriteLine(LOG_IDENT, $"Removing old version folder for {dir.Name}");
@@ -933,7 +926,7 @@ namespace Bloxstrap
                 }
             }
 
-            App.State.Prop.PlayerVersionGuid = _latestVersionGuid;
+            _versionGuid = _latestVersionGuid;
 
             // don't register program size until the program is registered, which will be done after this
             if (!App.IsFirstRun && !FreshInstall)
@@ -1228,7 +1221,7 @@ namespace Bloxstrap
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
 
-                var package = PackageDirectories.SingleOrDefault(x => x.Value != "" && fileLocation.StartsWith(x.Value));
+                var package = _packageDirectories.SingleOrDefault(x => x.Value != "" && fileLocation.StartsWith(x.Value));
 
                 // package doesn't exist, likely mistakenly placed file
                 if (String.IsNullOrEmpty(package.Key))
@@ -1436,7 +1429,7 @@ namespace Bloxstrap
                 return;
 
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
-            string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
+            string packageFolder = Path.Combine(_versionFolder, _packageDirectories[package.Name]);
 
             App.Logger.WriteLine(LOG_IDENT, $"Reading {package.Name}...");
 
@@ -1462,7 +1455,7 @@ namespace Bloxstrap
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
 
-                var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
+                var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(_packageDirectories[package.Name], entry.FullName));
                 string? signature = fileManifest?.Signature;
 
                 if (File.Exists(extractPath))
@@ -1515,7 +1508,7 @@ namespace Bloxstrap
             if (entry is null)
                 return;
 
-            string extractionPath = Path.Combine(_versionFolder, PackageDirectories[package.Name], entry.FullName);
+            string extractionPath = Path.Combine(_versionFolder, _packageDirectories[package.Name], entry.FullName);
             entry.ExtractToFile(extractionPath, true);
         }
         #endregion

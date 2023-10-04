@@ -105,18 +105,9 @@ namespace Bloxstrap
             App.State.Save();
         }
 
-        private static string ConstructHandlerArgs(string handler, string? extraArgs = null)
+        public static void Register(string key, string name, string handler)
         {
-            string handlerArgs = $"\"{handler}\"";
-            if (!string.IsNullOrEmpty(extraArgs))
-                handlerArgs += $" {extraArgs}";
-            handlerArgs += " %1";
-            return handlerArgs;
-        }
-
-        public static void Register(string key, string name, string handler, string? extraArgs = null)
-        {
-            string handlerArgs = ConstructHandlerArgs(handler, extraArgs);
+            string handlerArgs = $"\"{handler}\" %1";
             RegistryKey uriKey = Registry.CurrentUser.CreateSubKey($@"Software\Classes\{key}");
             RegistryKey uriIconKey = uriKey.CreateSubKey("DefaultIcon");
             RegistryKey uriCommandKey = uriKey.CreateSubKey(@"shell\open\command");

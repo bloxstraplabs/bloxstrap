@@ -69,7 +69,7 @@
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false)
+        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false, string binaryType = "WindowsPlayer")
         {
             const string LOG_IDENT = "RobloxDeployment::GetInfo";
 
@@ -84,7 +84,7 @@
             }
             else
             {
-                string path = $"/v2/client-version/WindowsPlayer/channel/{channel}";
+                string path = $"/v2/client-version/{binaryType}/channel/{channel}";
                 HttpResponseMessage deployInfoResponse;
 
                 try

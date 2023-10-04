@@ -30,7 +30,6 @@ namespace Bloxstrap
         public static bool IsNoLaunch { get; private set; } = false;
         public static bool IsUpgrade { get; private set; } = false;
         public static bool IsMenuLaunch { get; private set; } = false;
-        public static bool IsStudioLaunch { get; private set; } = false;
         public static string[] LaunchArgs { get; private set; } = null!;
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
@@ -155,12 +154,6 @@ namespace Bloxstrap
                     Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsUpgrade flag");
                     IsUpgrade = true;
                 }
-
-                if (Array.IndexOf(LaunchArgs, "-studio") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsStudioLaunch flag");
-                    IsStudioLaunch = true;
-                }
             }
             
             using (var checker = new InstallChecker())
@@ -196,6 +189,7 @@ namespace Bloxstrap
 #endif
 
             string commandLine = "";
+            bool isStudioLaunch = false;
 
             if (IsMenuLaunch)
             {
@@ -234,6 +228,10 @@ namespace Bloxstrap
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
+                else if (LaunchArgs[0].StartsWith("roblox-studio:") || LaunchArgs[0].StartsWith("roblox-studio-auth:"))
+                {
+                    commandLine = LaunchArgs[0];
+                }
                 else
                 {
                     commandLine = "--app";
@@ -251,7 +249,7 @@ namespace Bloxstrap
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine);
+                Bootstrapper bootstrapper = new(commandLine, isStudioLaunch);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
