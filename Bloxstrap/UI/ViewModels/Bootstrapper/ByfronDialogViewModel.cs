@@ -20,7 +20,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         {
             get
             {
-                string playerLocation = Path.Combine(Paths.Versions, App.State.Prop.VersionGuid, "RobloxPlayerBeta.exe");
+                string playerLocation = Path.Combine(Paths.Versions, App.State.Prop.PlayerVersionGuid, "RobloxPlayerBeta.exe");
 
                 if (!File.Exists(playerLocation))
                     return "";

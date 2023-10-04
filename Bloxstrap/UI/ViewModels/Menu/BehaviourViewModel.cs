@@ -108,17 +108,17 @@
 
         public bool ForceRobloxReinstallation
         {
-            get => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+            get => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid);
             set
             {
                 if (value)
                 {
-                    _oldVersionGuid = App.State.Prop.VersionGuid;
-                    App.State.Prop.VersionGuid = "";
+                    _oldVersionGuid = App.State.Prop.PlayerVersionGuid;
+                    App.State.Prop.PlayerVersionGuid = "";
                 }
                 else
                 {
-                    App.State.Prop.VersionGuid = _oldVersionGuid;
+                    App.State.Prop.PlayerVersionGuid = _oldVersionGuid;
                 }
             }
         }

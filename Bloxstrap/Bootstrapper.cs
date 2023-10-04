@@ -51,7 +51,7 @@ namespace Bloxstrap
 
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+        private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid);
 
         private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
 
@@ -183,7 +183,7 @@ namespace Bloxstrap
             await CheckLatestVersion();
 
             // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
-            if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.VersionGuid || !File.Exists(_playerLocation))
+            if (App.IsFirstRun || _latestVersionGuid != App.State.Prop.PlayerVersionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
 
             if (App.IsFirstRun)
@@ -874,7 +874,7 @@ namespace Bloxstrap
                     }
                 }
 
-                string oldVersionFolder = Path.Combine(Paths.Versions, App.State.Prop.VersionGuid);
+                string oldVersionFolder = Path.Combine(Paths.Versions, App.State.Prop.PlayerVersionGuid);
 
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
@@ -915,7 +915,7 @@ namespace Bloxstrap
                 }
             }
 
-            App.State.Prop.VersionGuid = _latestVersionGuid;
+            App.State.Prop.PlayerVersionGuid = _latestVersionGuid;
 
             // don't register program size until the program is registered, which will be done after this
             if (!App.IsFirstRun && !FreshInstall)
