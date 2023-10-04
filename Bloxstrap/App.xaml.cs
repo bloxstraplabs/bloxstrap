@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Web;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -194,6 +195,7 @@ namespace Bloxstrap
 
             string commandLine = "";
             bool isStudioLaunch = false;
+            bool isStudioAuth = false;
 
             if (IsMenuLaunch)
             {
@@ -235,12 +237,15 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox-studio:"))
                 {
                     commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+                    if (!commandLine.Contains("-startEvent"))
+                        commandLine += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
                     isStudioLaunch = true;
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
                 {
-                    commandLine = LaunchArgs[0];
+                    commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
                     isStudioLaunch = true;
+                    isStudioAuth = true;
                 }
                 else
                 {
@@ -259,7 +264,7 @@ namespace Bloxstrap
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine, isStudioLaunch);
+                Bootstrapper bootstrapper = new(commandLine, isStudioLaunch, isStudioAuth);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)

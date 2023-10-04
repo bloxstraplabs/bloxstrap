@@ -27,6 +27,7 @@ namespace Bloxstrap
 
         private string _launchCommandLine;
         private bool _studioLaunch;
+        private bool _studioAuth;
 
         private string _versionGuid
         {
@@ -61,10 +62,11 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper(string launchCommandLine, bool studioLaunch)
+        public Bootstrapper(string launchCommandLine, bool studioLaunch, bool studioAuth)
         {
             _launchCommandLine = launchCommandLine;
             _studioLaunch = studioLaunch;
+            _studioAuth = studioAuth;
         }
 
         private void SetStatus(string message)
@@ -286,14 +288,17 @@ namespace Bloxstrap
                 return;
             }
 
-            _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
+            if (!_studioAuth)
+            {
+                _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
-            _launchCommandLine += " -channel ";
+                _launchCommandLine += " -channel ";
 
-            if (App.Settings.Prop.Channel.ToLowerInvariant() == RobloxDeployment.DefaultChannel.ToLowerInvariant())
-                _launchCommandLine += "production";
-            else
-                _launchCommandLine += App.Settings.Prop.Channel.ToLowerInvariant();
+                if (App.Settings.Prop.Channel.ToLowerInvariant() == RobloxDeployment.DefaultChannel.ToLowerInvariant())
+                    _launchCommandLine += "production";
+                else
+                    _launchCommandLine += App.Settings.Prop.Channel.ToLowerInvariant();
+            }
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
             bool shouldWait = false;
@@ -304,6 +309,13 @@ namespace Bloxstrap
                 Arguments = _launchCommandLine,
                 WorkingDirectory = _versionFolder
             };
+
+            if (_studioAuth)
+            {
+                Process.Start(startInfo);
+                Dialog?.CloseBootstrapper();
+                return;
+            }
 
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
