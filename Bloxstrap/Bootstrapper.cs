@@ -45,7 +45,7 @@ namespace Bloxstrap
             }
         }
 
-        private long _distributionSize
+        private int _distributionSize
         {
             get
             {
