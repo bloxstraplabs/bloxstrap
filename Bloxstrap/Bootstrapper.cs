@@ -318,7 +318,8 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
 
-            using (SystemEvent startEvent = new("www.roblox.com/robloxStartedEvent"))
+            string eventName = _studioLaunch ? "www.roblox.com/robloxQTStudioStartedEvent" : "www.roblox.com/robloxStartedEvent";
+            using (SystemEvent startEvent = new(eventName))
             {
                 bool startEventFired = await startEvent.WaitForEvent();
 
