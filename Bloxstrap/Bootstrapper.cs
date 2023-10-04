@@ -677,13 +677,14 @@ namespace Bloxstrap
             SetStatus($"Uninstalling {App.ProjectName}...");
 
             App.ShouldSaveConfigs = false;
-            bool robloxStillInstalled = true;
+            bool robloxPlayerStillInstalled = true;
+            bool robloxStudioStillInstalled = true;
 
             // check if stock bootstrapper is still installed
             using RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
             if (bootstrapperKey is null)
             {
-                robloxStillInstalled = false;
+                robloxPlayerStillInstalled = false;
 
                 ProtocolHandler.Unregister("roblox");
                 ProtocolHandler.Unregister("roblox-player");
@@ -701,15 +702,13 @@ namespace Bloxstrap
             using RegistryKey? studioBootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
             if (studioBootstrapperKey is null)
             {
-                robloxStillInstalled = false;
+                robloxStudioStillInstalled = false;
 
                 ProtocolHandler.Unregister("roblox-studio");
                 ProtocolHandler.Unregister("roblox-studio-auth");
             }
             else
             {
-                robloxStillInstalled = true;
-
                 string studioLocation = (string?)studioBootstrapperKey.GetValue("InstallLocation") + "RobloxStudioBeta.exe"; // points to studio exe instead of bootstrapper
                 ProtocolHandler.Register("roblox-studio", "Roblox", studioLocation);
                 ProtocolHandler.Register("roblox-studio-auth", "Roblox", studioLocation);
@@ -745,7 +744,7 @@ namespace Bloxstrap
 
             string robloxFolder = Path.Combine(Paths.LocalAppData, "Roblox");
 
-            if (!robloxStillInstalled && Directory.Exists(robloxFolder))
+            if (!robloxPlayerStillInstalled && !robloxStudioStillInstalled && Directory.Exists(robloxFolder))
                 cleanupSequence.Add(() => Directory.Delete(robloxFolder, true));
 
             foreach (var process in cleanupSequence)
