@@ -25,7 +25,7 @@
     },
     "Bloxstrap (Studio Launch)": {
       "commandName": "Project",
-      "commandLineArgs": "roblox-studio:"
+      "commandLineArgs": "-ide"
     }
   }
 }

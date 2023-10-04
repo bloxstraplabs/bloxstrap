@@ -250,8 +250,9 @@ namespace Bloxstrap
                 }
                 else if (LaunchArgs[0] == "-ide" && LaunchArgs.Length >= 2)
                 {
-                    commandLine = $"-task EditFile -localPlaceFile {LaunchArgs[1]}";
                     isStudioLaunch = true;
+                    if (LaunchArgs.Length >= 2)
+                        commandLine = $"-task EditFile -localPlaceFile \"{LaunchArgs[1]}\"";
                 }
                 else
                 {
