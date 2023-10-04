@@ -120,6 +120,10 @@ namespace Bloxstrap
 
             LaunchArgs = e.Args;
 
+#if DEBUG
+            Logger.WriteLine(LOG_IDENT, $"Arguments: {string.Join(' ', LaunchArgs)}");
+#endif
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
