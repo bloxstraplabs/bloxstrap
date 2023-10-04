@@ -231,6 +231,7 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox-studio:") || LaunchArgs[0].StartsWith("roblox-studio-auth:"))
                 {
                     commandLine = LaunchArgs[0];
+                    isStudioLaunch = true;
                 }
                 else
                 {
