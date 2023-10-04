@@ -73,6 +73,12 @@ namespace Bloxstrap
         {
             App.Logger.WriteLine("Bootstrapper::SetStatus", message);
 
+            string productName = "Roblox";
+            if (_studioLaunch)
+                productName += " Studio";
+
+            message = message.Replace("{product}", productName);
+
             // yea idk
             if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
                 message = message.Replace("...", "");
@@ -265,7 +271,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
-            SetStatus("Starting Roblox...");
+            SetStatus("Starting {product}...");
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
@@ -813,8 +819,7 @@ namespace Bloxstrap
             
             _isInstalling = true;
 
-            string extra = _studioLaunch ? " Studio" : "";
-            SetStatus(FreshInstall ? $"Installing Roblox{extra}..." : $"Upgrading Roblox{extra}...");
+            SetStatus(FreshInstall ? "Installing {product}..." : "Upgrading {product}...");
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
@@ -871,7 +876,7 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
-                SetStatus("Configuring Roblox...");
+                SetStatus("Configuring {product}...");
             }
 
             // wait for all packages to finish extracting, with an exception for the webview2 runtime installer
