@@ -18,7 +18,9 @@ namespace Bloxstrap
             { "browsertrackerid", "-b " },
             { "robloxLocale", "--rloc " },
             { "gameLocale", "--gloc " },
-            { "channel", "-channel " }
+            { "channel", "-channel " },
+            // studio
+            { "task", "-task " },
         };
 
         public static string ParseUri(string protocol)
