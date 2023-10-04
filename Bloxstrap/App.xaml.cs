@@ -286,7 +286,7 @@ namespace Bloxstrap
 
                 Mutex? singletonMutex = null;
 
-                if (Settings.Prop.MultiInstanceLaunching)
+                if (Settings.Prop.MultiInstanceLaunching && !isStudioLaunch)
                 {
                     Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
 
