@@ -502,6 +502,8 @@ namespace Bloxstrap
 
             ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
+            ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application, "-studio");
+            ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application, "-studio");
 
             if (Environment.ProcessPath is not null && Environment.ProcessPath != Paths.Application)
             {
@@ -678,13 +680,13 @@ namespace Bloxstrap
             bool robloxStillInstalled = true;
 
             // check if stock bootstrapper is still installed
-            RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
+            using RegistryKey? bootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-player");
             if (bootstrapperKey is null)
             {
+                robloxStillInstalled = false;
+
                 ProtocolHandler.Unregister("roblox");
                 ProtocolHandler.Unregister("roblox-player");
-
-                robloxStillInstalled = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio") is not null;
             }
             else
             {
@@ -694,6 +696,23 @@ namespace Bloxstrap
 
                 ProtocolHandler.Register("roblox", "Roblox", bootstrapperLocation);
                 ProtocolHandler.Register("roblox-player", "Roblox", bootstrapperLocation);
+            }
+
+            using RegistryKey? studioBootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
+            if (studioBootstrapperKey is null)
+            {
+                robloxStillInstalled = false;
+
+                ProtocolHandler.Unregister("roblox-studio");
+                ProtocolHandler.Unregister("roblox-studio-auth");
+            }
+            else
+            {
+                robloxStillInstalled = true;
+
+                string studioLocation = (string?)studioBootstrapperKey.GetValue("InstallLocation") + "RobloxStudioBeta.exe"; // points to studio exe instead of bootstrapper
+                ProtocolHandler.Register("roblox-studio", "Roblox", studioLocation);
+                ProtocolHandler.Register("roblox-studio-auth", "Roblox", studioLocation);
             }
 
             // if the folder we're installed to does not end with "Bloxstrap", we're installed to a user-selected folder
