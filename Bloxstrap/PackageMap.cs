@@ -23,6 +23,7 @@ namespace Bloxstrap
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
         private static IReadOnlyDictionary<string, string> _common = new Dictionary<string, string>()
         {
+            { "Libraries.zip",                 @"" },
             { "shaders.zip",                   @"shaders\" },
             { "ssl.zip",                       @"ssl\" },
 
