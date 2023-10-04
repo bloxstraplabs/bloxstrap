@@ -45,6 +45,22 @@ namespace Bloxstrap
             }
         }
 
+        private long _distributionSize
+        {
+            get
+            {
+                return _studioLaunch ? App.State.Prop.StudioSize : App.State.Prop.PlayerSize;
+            }
+
+            set
+            {
+                if (_studioLaunch)
+                    App.State.Prop.StudioSize = value;
+                else
+                    App.State.Prop.PlayerSize = value;
+            }
+        }
+
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
         private FileManifest _versionFileManifest = null!;
@@ -495,7 +511,10 @@ namespace Bloxstrap
             using RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{App.ProjectName}");
 
             // sum compressed and uncompressed package sizes and convert to kilobytes
-            int totalSize = (_versionPackageManifest.Sum(x => x.Size) + _versionPackageManifest.Sum(x => x.PackedSize)) / 1000;
+            long distributionSize = (_versionPackageManifest.Sum(x => x.Size) + _versionPackageManifest.Sum(x => x.PackedSize)) / 1000;
+            _distributionSize = distributionSize;
+
+            long totalSize = App.State.Prop.PlayerSize + App.State.Prop.StudioSize;
 
             uninstallKey.SetValue("EstimatedSize", totalSize);
 
