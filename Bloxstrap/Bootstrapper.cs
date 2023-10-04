@@ -572,7 +572,7 @@ namespace Bloxstrap
 
             Utility.Shortcut.Create(Paths.Application, "", Path.Combine(Paths.StartMenu, "Play Roblox.lnk"));
             Utility.Shortcut.Create(Paths.Application, "-menu", Path.Combine(Paths.StartMenu, $"{App.ProjectName} Menu.lnk"));
-            Utility.Shortcut.Create(Paths.Application, "-ide", Path.Combine(Paths.StartMenu, "Roblox Studio (Bloxstrap).lnk"));
+            Utility.Shortcut.Create(Paths.Application, "-ide", Path.Combine(Paths.StartMenu, $"Roblox Studio ({App.ProjectName}).lnk"));
 
             if (App.Settings.Prop.CreateDesktopIcon)
             {
