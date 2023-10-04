@@ -836,7 +836,7 @@ namespace Bloxstrap
 
                 // extract the package immediately after download asynchronously
                 // discard is just used to suppress the warning
-                _ = ExtractPackage(package).ContinueWith(AsyncHelpers.ExceptionHandler, $"extracting {package.Name}");
+                _ = Task.Run(() => ExtractPackage(package).ContinueWith(AsyncHelpers.ExceptionHandler, $"extracting {package.Name}"));
             }
 
             if (_cancelFired) 
@@ -1421,75 +1421,27 @@ namespace Bloxstrap
             }
         }
 
-        private async Task ExtractPackage(Package package)
+        private Task ExtractPackage(Package package)
         {
             const string LOG_IDENT = "Bootstrapper::ExtractPackage";
 
             if (_cancelFired)
-                return;
+                return Task.CompletedTask;
 
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, _packageDirectories[package.Name]);
 
-            App.Logger.WriteLine(LOG_IDENT, $"Reading {package.Name}...");
+            App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
-            var archive = await Task.Run(() => ZipFile.OpenRead(packageLocation));
-
-            App.Logger.WriteLine(LOG_IDENT, $"Read {package.Name}. Extracting to {packageFolder}...");
-
-            // yeah so because roblox is roblox, these packages aren't actually valid zip files
-            // besides the fact that they use backslashes instead of forward slashes for directories,
-            // empty folders that *BEGIN* with a backslash in their fullname, but have an empty name are listed here for some reason...
-
-            foreach (var entry in archive.Entries)
-            {
-                if (_cancelFired)
-                    return;
-
-                if (String.IsNullOrEmpty(entry.Name))
-                    continue;
-
-                string extractPath = Path.Combine(packageFolder, entry.FullName);
-                string? directory = Path.GetDirectoryName(extractPath);
-
-                if (directory is not null)
-                    Directory.CreateDirectory(directory);
-
-                var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(_packageDirectories[package.Name], entry.FullName));
-                string? signature = fileManifest?.Signature;
-
-                if (File.Exists(extractPath))
-                {
-                    if (signature is not null && MD5Hash.FromFile(extractPath) == signature)
-                        continue;
-
-                    File.Delete(extractPath);
-                }
-
-                bool retry = false;
-
-                do
-                {
-                    using var entryStream = entry.Open();
-                    using var fileStream = new FileStream(extractPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None, bufferSize: 0x1000);
-                    await entryStream.CopyToAsync(fileStream);
-
-                    if (signature is not null && MD5Hash.FromStream(fileStream) != signature)
-                    {
-                        if (retry)
-                            throw new AssertionException($"Checksum of {entry.FullName} post-extraction did not match manifest");
-
-                        retry = true;
-                    }
-                }
-                while (retry);
-
-                File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
-            }
+            // not async but faster than previous implementation
+            using Ionic.Zip.ZipFile zip = Ionic.Zip.ZipFile.Read(packageLocation);
+            zip.ExtractAll(packageFolder);
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
 
             _packagesExtracted += 1;
+
+            return Task.CompletedTask;
         }
 
         private async Task ExtractFileFromPackage(string packageName, string fileName)
