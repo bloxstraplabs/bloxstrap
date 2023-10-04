@@ -69,7 +69,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         public ByfronDialog()
         {
-            _viewModel = new ByfronDialogViewModel(this);
+            _viewModel = new ByfronDialogViewModel(this, Bootstrapper?.IsStudioLaunch ?? false);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

@@ -6,6 +6,8 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
     public class ByfronDialogViewModel : BootstrapperDialogViewModel
     {
+        private bool _studioLaunch;
+
         // Using dark theme for default values.
         public ImageSource ByfronLogoLocation { get; set; } = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoDark.jpg"));
         public Thickness DialogBorder { get; set; } = new Thickness(0);
@@ -20,7 +22,10 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         {
             get
             {
-                string playerLocation = Path.Combine(Paths.Versions, App.State.Prop.PlayerVersionGuid, "RobloxPlayerBeta.exe");
+                string versionGuid = _studioLaunch ? App.State.Prop.StudioVersionGuid : App.State.Prop.PlayerVersionGuid;
+                string fileName = _studioLaunch ? "RobloxStudioBeta.exe" : "RobloxPlayerBeta.exe";
+
+                string playerLocation = Path.Combine(Paths.Versions, versionGuid, fileName);
 
                 if (!File.Exists(playerLocation))
                     return "";
@@ -34,8 +39,9 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
             }
         }
 
-        public ByfronDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
+        public ByfronDialogViewModel(IBootstrapperDialog dialog, bool isStudioLaunch) : base(dialog)
         {
+            _studioLaunch = isStudioLaunch;
         }
     }
 }

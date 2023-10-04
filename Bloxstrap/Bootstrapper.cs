@@ -59,6 +59,7 @@ namespace Bloxstrap
         private IReadOnlyDictionary<string, string> _packageDirectories => _studioLaunch ? PackageMap.Studio : PackageMap.Player;
 
         public IBootstrapperDialog? Dialog = null;
+        public bool IsStudioLaunch => _studioLaunch;
         #endregion
 
         #region Core
