@@ -660,7 +660,7 @@ namespace Bloxstrap
             const string LOG_IDENT = "Bootstrapper::Uninstall";
             
             // prompt to shutdown roblox if its currently running
-            if (Process.GetProcessesByName(App.RobloxAppName).Any())
+            if (Process.GetProcessesByName(App.RobloxPlayerAppName).Any() || Process.GetProcessesByName(App.RobloxStudioAppName).Any())
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Prompting to shut down all open Roblox instances");
                 
@@ -675,13 +675,13 @@ namespace Bloxstrap
 
                 try
                 {
-                    foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
+                    foreach (Process process in Process.GetProcessesByName(App.RobloxPlayerAppName))
                     {
                         process.CloseMainWindow();
                         process.Close();
                     }
 
-                    foreach (Process process in Process.GetProcessesByName("RobloxStudioBeta"))
+                    foreach (Process process in Process.GetProcessesByName(App.RobloxStudioAppName))
                     {
                         process.CloseMainWindow();
                         process.Close();
@@ -938,7 +938,7 @@ namespace Bloxstrap
                 // delete any old version folders
                 // we only do this if roblox isnt running just in case an update happened
                 // while they were launching a second instance or something idk
-                if (!Process.GetProcessesByName(App.RobloxAppName).Any())
+                if (!Process.GetProcessesByName(App.RobloxPlayerAppName).Any() && !Process.GetProcessesByName(App.RobloxStudioAppName).Any())
                 {
                     foreach (DirectoryInfo dir in new DirectoryInfo(Paths.Versions).GetDirectories())
                     {
