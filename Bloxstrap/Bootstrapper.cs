@@ -214,7 +214,7 @@ namespace Bloxstrap
             if (App.IsFirstRun || FreshInstall)
             {
                 Register();
-                RegisterProgramSize(); // STUDIO TODO
+                RegisterProgramSize();
             }
 
             CheckInstall();
@@ -511,10 +511,10 @@ namespace Bloxstrap
             using RegistryKey uninstallKey = Registry.CurrentUser.CreateSubKey($"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{App.ProjectName}");
 
             // sum compressed and uncompressed package sizes and convert to kilobytes
-            long distributionSize = (_versionPackageManifest.Sum(x => x.Size) + _versionPackageManifest.Sum(x => x.PackedSize)) / 1000;
+            int distributionSize = (_versionPackageManifest.Sum(x => x.Size) + _versionPackageManifest.Sum(x => x.PackedSize)) / 1000;
             _distributionSize = distributionSize;
 
-            long totalSize = App.State.Prop.PlayerSize + App.State.Prop.StudioSize;
+            int totalSize = App.State.Prop.PlayerSize + App.State.Prop.StudioSize;
 
             uninstallKey.SetValue("EstimatedSize", totalSize);
 

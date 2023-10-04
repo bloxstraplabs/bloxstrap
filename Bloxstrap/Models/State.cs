@@ -9,8 +9,8 @@
         public string PlayerVersionGuid { get; set; } = "";
         public string StudioVersionGuid { get; set; } = "";
 
-        public long PlayerSize { get; set; } = 0;
-        public long StudioSize { get; set; } = 0;
+        public int PlayerSize { get; set; } = 0;
+        public int StudioSize { get; set; } = 0;
 
         public List<string> ModManifest { get; set; } = new();
     }
