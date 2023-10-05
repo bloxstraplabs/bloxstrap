@@ -1489,7 +1489,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
             var fastZip = new ICSharpCode.SharpZipLib.Zip.FastZip();
-            fastZip.ExtractZip(packageLocation, packageFolder, "(.*?)");
+            fastZip.ExtractZip(packageLocation, packageFolder, null);
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
 
