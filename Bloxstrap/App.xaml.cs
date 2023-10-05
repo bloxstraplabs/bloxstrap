@@ -51,7 +51,9 @@ namespace Bloxstrap
             )
         );
 
+#if RELEASE
         private static bool _showingExceptionDialog = false;
+#endif
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
