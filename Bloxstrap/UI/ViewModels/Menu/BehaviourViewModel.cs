@@ -109,7 +109,9 @@
 
         public bool ForceRobloxReinstallation
         {
-            get => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid);
+            // wouldnt it be better to check old version guids?
+            // what about fresh installs?
+            get => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid) && String.IsNullOrEmpty(App.State.Prop.StudioVersionGuid);
             set
             {
                 if (value)
