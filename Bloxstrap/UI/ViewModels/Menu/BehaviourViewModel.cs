@@ -2,7 +2,8 @@
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
-        private string _oldVersionGuid = "";
+        private string _oldPlayerVersionGuid = "";
+        private string _oldStudioVersionGuid = "";
 
         public BehaviourViewModel()
         {
@@ -113,12 +114,15 @@
             {
                 if (value)
                 {
-                    _oldVersionGuid = App.State.Prop.PlayerVersionGuid;
+                    _oldPlayerVersionGuid = App.State.Prop.PlayerVersionGuid;
+                    _oldStudioVersionGuid = App.State.Prop.StudioVersionGuid;
                     App.State.Prop.PlayerVersionGuid = "";
+                    App.State.Prop.StudioVersionGuid = "";
                 }
                 else
                 {
-                    App.State.Prop.PlayerVersionGuid = _oldVersionGuid;
+                    App.State.Prop.PlayerVersionGuid = _oldPlayerVersionGuid;
+                    App.State.Prop.StudioVersionGuid = _oldStudioVersionGuid;
                 }
             }
         }
