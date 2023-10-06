@@ -26,7 +26,6 @@ namespace Bloxstrap
             { "placeId", "-placeId " },
             { "universeId", "-universeId " },
             { "userId", "-userId " }
-            // TODO: -protocolString
         };
 
         public static string ParseUri(string protocol)
