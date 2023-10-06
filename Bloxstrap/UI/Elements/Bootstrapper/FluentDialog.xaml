@@ -36,7 +36,7 @@
             </Border>
             <StackPanel Grid.Column="1">
                 <TextBlock Margin="16,8,0,0" FontSize="20" Text="{Binding Message, Mode=OneWay}" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                <ProgressBar Margin="16,16,0,16" IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}" Value="{Binding ProgressValue, Mode=OneWay}" />
+                <ProgressBar Margin="16,16,0,16" IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}" Maximum="{Binding ProgressMaximum, Mode=OneWay}" Value="{Binding ProgressValue, Mode=OneWay}" />
             </StackPanel>
         </Grid>
 

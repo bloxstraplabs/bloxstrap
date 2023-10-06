@@ -14,6 +14,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         protected virtual string _message { get; set; } = "Please wait...";
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
+        protected virtual int _progressMaximum { get; set; }
         protected virtual bool _cancelEnabled { get; set; }
 
         public string Message
@@ -37,6 +38,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
                     Invoke(() => _progressStyle = value);
                 else
                     _progressStyle = value;
+            }
+        }
+
+        public int ProgressMaximum
+        {
+            get => _progressMaximum;
+            set
+            {
+                if (InvokeRequired)
+                    Invoke(() => _progressMaximum = value);
+                else
+                    _progressMaximum = value;
             }
         }
 
