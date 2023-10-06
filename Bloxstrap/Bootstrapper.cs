@@ -96,7 +96,7 @@ namespace Bloxstrap
             if (Dialog is null)
                 return;
 
-            int progressValue = (int)(_progressIncrement * _totalDownloadedBytes);
+            int progressValue = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
 
             // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
             // too lazy to fix properly so lol
