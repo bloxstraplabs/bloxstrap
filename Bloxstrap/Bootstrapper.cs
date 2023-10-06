@@ -63,7 +63,6 @@ namespace Bloxstrap
 
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
-        private FileManifest _versionFileManifest = null!;
         private string _versionFolder = null!;
 
         private bool _isInstalling = false;
@@ -283,7 +282,6 @@ namespace Bloxstrap
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Paths.Versions, _latestVersionGuid);
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
-            _versionFileManifest = await FileManifest.Get(_latestVersionGuid);
         }
 
         private async Task StartRoblox()
