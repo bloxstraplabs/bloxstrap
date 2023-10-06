@@ -61,6 +61,7 @@
                 </MenuItem.Header>
             </MenuItem>
             <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
+            <MenuItem x:Name="CloseRobloxMenuItem" Header="Close Roblox" Visibility="Collapsed" Click="CloseRobloxMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </base:WpfUiWindow>
