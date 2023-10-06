@@ -72,7 +72,7 @@ namespace Bloxstrap
         private int _packagesExtracted = 0;
         private bool _cancelFired = false;
 
-        private IReadOnlyDictionary<string, string> _packageDirectories => _studioLaunch ? PackageMap.Studio : PackageMap.Player;
+        private IReadOnlyDictionary<string, string> _packageDirectories;
 
         public IBootstrapperDialog? Dialog = null;
         public bool IsStudioLaunch => _studioLaunch;
@@ -84,6 +84,8 @@ namespace Bloxstrap
             _launchCommandLine = launchCommandLine;
             _studioLaunch = studioLaunch;
             _studioAuth = studioAuth;
+
+            _packageDirectories = _studioLaunch ? PackageMap.Studio : PackageMap.Player;
         }
 
         private void SetStatus(string message)
