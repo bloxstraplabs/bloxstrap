@@ -250,7 +250,7 @@ namespace Bloxstrap
                     isStudioLaunch = true;
                     isStudioAuth = true;
                 }
-                else if (LaunchArgs[0] == "-ide" && LaunchArgs.Length >= 2)
+                else if (LaunchArgs[0] == "-ide")
                 {
                     isStudioLaunch = true;
                     if (LaunchArgs.Length >= 2)
