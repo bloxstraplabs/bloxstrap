@@ -69,22 +69,23 @@
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false)
+        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false, string binaryType = "WindowsPlayer")
         {
             const string LOG_IDENT = "RobloxDeployment::GetInfo";
 
             App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel} (extraInformation={extraInformation})");
 
+            string cacheKey = $"{channel}-{binaryType}";
             ClientVersion clientVersion;
 
-            if (ClientVersionCache.ContainsKey(channel))
+            if (ClientVersionCache.ContainsKey(cacheKey))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Deploy information is cached");
-                clientVersion = ClientVersionCache[channel];
+                clientVersion = ClientVersionCache[cacheKey];
             }
             else
             {
-                string path = $"/v2/client-version/WindowsPlayer/channel/{channel}";
+                string path = $"/v2/client-version/{binaryType}/channel/{channel}";
                 HttpResponseMessage deployInfoResponse;
 
                 try
@@ -147,7 +148,7 @@
                 }
             }
 
-            ClientVersionCache[channel] = clientVersion;
+            ClientVersionCache[cacheKey] = clientVersion;
 
             return clientVersion;
         }

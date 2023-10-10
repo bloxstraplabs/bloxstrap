@@ -47,5 +47,23 @@ namespace Bloxstrap
 
             return version1.CompareTo(version2);
         }
+
+        public static string GetRobloxVersion(bool studio)
+        {
+            string versionGuid = studio ? App.State.Prop.StudioVersionGuid : App.State.Prop.PlayerVersionGuid;
+            string fileName = studio ? "RobloxStudioBeta.exe" : "RobloxPlayerBeta.exe";
+
+            string playerLocation = Path.Combine(Paths.Versions, versionGuid, fileName);
+
+            if (!File.Exists(playerLocation))
+                return "";
+
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(playerLocation);
+
+            if (versionInfo.ProductVersion is null)
+                return "";
+
+            return versionInfo.ProductVersion.Replace(", ", ".");
+        }
     }
 }

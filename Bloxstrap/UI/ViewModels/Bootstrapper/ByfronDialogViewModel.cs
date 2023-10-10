@@ -16,26 +16,11 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
         public Visibility VersionTextVisibility => CancelEnabled ? Visibility.Collapsed : Visibility.Visible;
 
-        public string VersionText
+        public string VersionText { get; init; }
+
+        public ByfronDialogViewModel(IBootstrapperDialog dialog, string version) : base(dialog)
         {
-            get
-            {
-                string playerLocation = Path.Combine(Paths.Versions, App.State.Prop.VersionGuid, "RobloxPlayerBeta.exe");
-
-                if (!File.Exists(playerLocation))
-                    return "";
-
-                FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(playerLocation);
-
-                if (versionInfo.ProductVersion is null)
-                    return "";
-
-                return versionInfo.ProductVersion.Replace(", ", ".");
-            }
-        }
-
-        public ByfronDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
-        {
+            VersionText = version;
         }
     }
 }

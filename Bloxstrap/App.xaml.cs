@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Web;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -14,7 +15,8 @@ namespace Bloxstrap
     {
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
-        public const string RobloxAppName = "RobloxPlayerBeta";
+        public const string RobloxPlayerAppName = "RobloxPlayerBeta";
+        public const string RobloxStudioAppName = "RobloxStudioBeta";
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
@@ -49,7 +51,9 @@ namespace Bloxstrap
             )
         );
 
+#if RELEASE
         private static bool _showingExceptionDialog = false;
+#endif
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
@@ -120,6 +124,10 @@ namespace Bloxstrap
 
             LaunchArgs = e.Args;
 
+#if DEBUG
+            Logger.WriteLine(LOG_IDENT, $"Arguments: {string.Join(' ', LaunchArgs)}");
+#endif
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
@@ -189,6 +197,8 @@ namespace Bloxstrap
 #endif
 
             string commandLine = "";
+            bool isStudioLaunch = false;
+            bool isStudioAuth = false;
 
             if (IsMenuLaunch)
             {
@@ -227,6 +237,25 @@ namespace Bloxstrap
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
                 }
+                else if (LaunchArgs[0].StartsWith("roblox-studio:"))
+                {
+                    commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+                    if (!commandLine.Contains("-startEvent"))
+                        commandLine += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
+                    isStudioLaunch = true;
+                }
+                else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
+                {
+                    commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
+                    isStudioLaunch = true;
+                    isStudioAuth = true;
+                }
+                else if (LaunchArgs[0] == "-ide")
+                {
+                    isStudioLaunch = true;
+                    if (LaunchArgs.Length >= 2)
+                        commandLine = $"-task EditFile -localPlaceFile \"{LaunchArgs[1]}\"";
+                }
                 else
                 {
                     commandLine = "--app";
@@ -244,7 +273,7 @@ namespace Bloxstrap
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine);
+                Bootstrapper bootstrapper = new(commandLine, isStudioLaunch, isStudioAuth);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
@@ -261,7 +290,7 @@ namespace Bloxstrap
 
                 Mutex? singletonMutex = null;
 
-                if (Settings.Prop.MultiInstanceLaunching)
+                if (Settings.Prop.MultiInstanceLaunching && !isStudioLaunch)
                 {
                     Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
 
