@@ -339,6 +339,8 @@ namespace Bloxstrap
                     return;
             }
 
+            App.NotifyIcon?.SetProcessId(gameClientPid);
+
             if (App.Settings.Prop.EnableActivityTracking)
             {
                 activityWatcher = new();
