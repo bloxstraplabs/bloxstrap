@@ -60,8 +60,19 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
+            <MenuItem x:Name="CloseRobloxMenuItem"  Visibility="Collapsed" Click="CloseRobloxMenuItem_Click">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="WindowHeaderHorizontalOff20"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Close Roblox" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
             <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
-            <MenuItem x:Name="CloseRobloxMenuItem" Header="Close Roblox" Visibility="Collapsed" Click="CloseRobloxMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </base:WpfUiWindow>
