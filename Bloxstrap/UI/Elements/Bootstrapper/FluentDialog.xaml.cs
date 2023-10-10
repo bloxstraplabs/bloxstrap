@@ -42,6 +42,16 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
+        public int ProgressMaximum
+        {
+            get => _viewModel.ProgressMaximum;
+            set
+            {
+                _viewModel.ProgressMaximum = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.ProgressMaximum));
+            }
+        }
+
         public int ProgressValue
         {
             get => _viewModel.ProgressValue;

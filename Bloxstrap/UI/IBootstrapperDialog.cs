@@ -9,6 +9,7 @@ namespace Bloxstrap.UI
         string Message { get; set; }
         ProgressBarStyle ProgressStyle { get; set; }
         int ProgressValue { get; set; }
+        int ProgressMaximum { get; set; }
         bool CancelEnabled { get; set; }
 
         void ShowBootstrapper();

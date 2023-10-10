@@ -10,6 +10,8 @@ namespace Bloxstrap
     public class Bootstrapper
     {
         #region Properties
+        private const int ProgressBarMaximum = 10000;
+
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
         // TODO - there ideally should be a less static way to do this that's not hardcoded?
@@ -91,15 +93,16 @@ namespace Bloxstrap
 
         private void UpdateProgressBar()
         {
-            int newProgress = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
+            if (Dialog is null)
+                return;
+
+            int progressValue = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
 
             // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
             // too lazy to fix properly so lol
-            if (newProgress > 100)
-                return;
+            progressValue = Math.Clamp(progressValue, 0, ProgressBarMaximum);
 
-            if (Dialog is not null)
-                Dialog.ProgressValue = newProgress;
+            Dialog.ProgressValue = progressValue;
         }
         
         public async Task Run()
@@ -806,10 +809,12 @@ namespace Bloxstrap
             {
                 Dialog.CancelEnabled = true;
                 Dialog.ProgressStyle = ProgressBarStyle.Continuous;
-            }
 
-            // compute total bytes to download
-            _progressIncrement = (double)100 / _versionPackageManifest.Sum(package => package.PackedSize);
+                Dialog.ProgressMaximum = ProgressBarMaximum;
+
+                // compute total bytes to download
+                _progressIncrement = (double)ProgressBarMaximum / _versionPackageManifest.Sum(package => package.PackedSize);
+            }
 
             foreach (Package package in _versionPackageManifest)
             {
