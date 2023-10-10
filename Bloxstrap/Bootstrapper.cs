@@ -23,27 +23,26 @@ namespace Bloxstrap
 
         private bool FreshInstall => String.IsNullOrEmpty(_versionGuid);
 
-        private string _playerFileName => _studioLaunch ? "RobloxStudioBeta.exe" : "RobloxPlayerBeta.exe";
+        private string _playerFileName => _launchMode == LaunchMode.Player ? "RobloxPlayerBeta.exe" : "RobloxStudioBeta.exe";
         // TODO: change name
         private string _playerLocation => Path.Combine(_versionFolder, _playerFileName);
 
         private string _launchCommandLine;
-        private bool _studioLaunch;
-        private bool _studioAuth;
+        private LaunchMode _launchMode;
 
         private string _versionGuid
         {
             get
             {
-                return _studioLaunch ? App.State.Prop.StudioVersionGuid : App.State.Prop.PlayerVersionGuid;
+                return _launchMode == LaunchMode.Player ? App.State.Prop.PlayerVersionGuid : App.State.Prop.StudioVersionGuid;
             }
 
             set
             {
-                if (_studioLaunch)
-                    App.State.Prop.StudioVersionGuid = value;
-                else
+                if (_launchMode == LaunchMode.Player)
                     App.State.Prop.PlayerVersionGuid = value;
+                else
+                   App.State.Prop.StudioVersionGuid = value;
             }
         }
 
@@ -51,15 +50,15 @@ namespace Bloxstrap
         {
             get
             {
-                return _studioLaunch ? App.State.Prop.StudioSize : App.State.Prop.PlayerSize;
+                return _launchMode == LaunchMode.Player ? App.State.Prop.PlayerSize : App.State.Prop.StudioSize;
             }
 
             set
             {
-                if (_studioLaunch)
-                    App.State.Prop.StudioSize = value;
-                else
+                if (_launchMode == LaunchMode.Player)
                     App.State.Prop.PlayerSize = value;
+                else
+                    App.State.Prop.StudioSize = value;
             }
         }
 
@@ -76,17 +75,17 @@ namespace Bloxstrap
         private IReadOnlyDictionary<string, string> _packageDirectories;
 
         public IBootstrapperDialog? Dialog = null;
-        public bool IsStudioLaunch => _studioLaunch;
+
+        public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
         #endregion
 
         #region Core
-        public Bootstrapper(string launchCommandLine, bool studioLaunch, bool studioAuth)
+        public Bootstrapper(string launchCommandLine, LaunchMode launchMode)
         {
             _launchCommandLine = launchCommandLine;
-            _studioLaunch = studioLaunch;
-            _studioAuth = studioAuth;
+            _launchMode = launchMode;
 
-            _packageDirectories = _studioLaunch ? PackageMap.Studio : PackageMap.Player;
+            _packageDirectories = _launchMode == LaunchMode.Player ? PackageMap.Player : PackageMap.Studio;
         }
 
         private void SetStatus(string message)
@@ -94,7 +93,8 @@ namespace Bloxstrap
             App.Logger.WriteLine("Bootstrapper::SetStatus", message);
 
             string productName = "Roblox";
-            if (_studioLaunch)
+
+            if (_launchMode != LaunchMode.Player)
                 productName += " Studio";
 
             message = message.Replace("{product}", productName);
@@ -242,7 +242,7 @@ namespace Bloxstrap
 
             ClientVersion clientVersion;
 
-            string binaryType = _studioLaunch ? "WindowsStudio64" : "WindowsPlayer";
+            string binaryType = _launchMode == LaunchMode.Player ? "WindowsPlayer" : "WindowsStudio64";
 
             try
             {
@@ -314,7 +314,7 @@ namespace Bloxstrap
                 return;
             }
 
-            if (!_studioAuth)
+            if (_launchMode != LaunchMode.StudioAuth)
             {
                 _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
@@ -336,7 +336,7 @@ namespace Bloxstrap
                 WorkingDirectory = _versionFolder
             };
 
-            if (_studioAuth)
+            if (_launchMode == LaunchMode.StudioAuth)
             {
                 Process.Start(startInfo);
                 Dialog?.CloseBootstrapper();
@@ -356,7 +356,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
 
-            string eventName = _studioLaunch ? "www.roblox.com/robloxQTStudioStartedEvent" : "www.roblox.com/robloxStartedEvent";
+            string eventName = _launchMode == LaunchMode.Player ? "www.roblox.com/robloxStartedEvent" : "www.roblox.com/robloxQTStudioStartedEvent";
             using (SystemEvent startEvent = new(eventName))
             {
                 bool startEventFired = await startEvent.WaitForEvent();
@@ -367,7 +367,7 @@ namespace Bloxstrap
                     return;
             }
 
-            if (App.Settings.Prop.EnableActivityTracking && !_studioLaunch)
+            if (App.Settings.Prop.EnableActivityTracking && _launchMode == LaunchMode.Player)
               App.NotifyIcon?.SetProcessId(gameClientPid);
 
             if (App.Settings.Prop.EnableActivityTracking)

@@ -197,8 +197,7 @@ namespace Bloxstrap
 #endif
 
             string commandLine = "";
-            bool isStudioLaunch = false;
-            bool isStudioAuth = false;
+            LaunchMode launchMode = LaunchMode.Player;
 
             if (IsMenuLaunch)
             {
@@ -240,19 +239,21 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox-studio:"))
                 {
                     commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+
                     if (!commandLine.Contains("-startEvent"))
                         commandLine += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
-                    isStudioLaunch = true;
+
+                    launchMode = LaunchMode.Studio;
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
                 {
                     commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
-                    isStudioLaunch = true;
-                    isStudioAuth = true;
+                    launchMode = LaunchMode.StudioAuth;
                 }
                 else if (LaunchArgs[0] == "-ide")
                 {
-                    isStudioLaunch = true;
+                    launchMode = LaunchMode.Studio;
+
                     if (LaunchArgs.Length >= 2)
                         commandLine = $"-task EditFile -localPlaceFile \"{LaunchArgs[1]}\"";
                 }
@@ -273,7 +274,7 @@ namespace Bloxstrap
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine, isStudioLaunch, isStudioAuth);
+                Bootstrapper bootstrapper = new(commandLine, launchMode);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
@@ -290,7 +291,7 @@ namespace Bloxstrap
 
                 Mutex? singletonMutex = null;
 
-                if (Settings.Prop.MultiInstanceLaunching && !isStudioLaunch)
+                if (Settings.Prop.MultiInstanceLaunching && launchMode == LaunchMode.Player)
                 {
                     Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
 
