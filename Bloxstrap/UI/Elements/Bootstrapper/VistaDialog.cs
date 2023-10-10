@@ -37,6 +37,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
+        protected sealed override int _progressMaximum
+        {
+            get => _dialogPage.ProgressBar?.Maximum ?? 0;
+            set
+            {
+                if (_dialogPage.ProgressBar is null)
+                    return;
+
+                _dialogPage.ProgressBar.Maximum = value;
+            }
+        }
+
         protected sealed override int _progressValue
         {
             get => _dialogPage.ProgressBar?.Value ?? 0;

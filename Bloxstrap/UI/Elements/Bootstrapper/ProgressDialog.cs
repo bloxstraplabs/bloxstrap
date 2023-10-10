@@ -21,6 +21,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             set => ProgressBar.Style = value;
         }
 
+        protected override int _progressMaximum
+        {
+            get => ProgressBar.Maximum;
+            set => ProgressBar.Maximum = value;
+        }
+
         protected override int _progressValue
         {
             get => ProgressBar.Value;
