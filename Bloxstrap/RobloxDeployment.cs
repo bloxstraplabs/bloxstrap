@@ -12,6 +12,7 @@
         {
             "https://setup.rbxcdn.com",
             "https://setup-ak.rbxcdn.com",
+            "https://roblox-setup.cachefly.net",
             "https://s3.amazonaws.com/setup.roblox.com"
         };
 
@@ -32,7 +33,11 @@
 
                         try
                         {
-                            App.HttpClient.GetAsync($"{attemptedUrl}/version").Wait();
+                            var response = App.HttpClient.GetAsync($"{attemptedUrl}/version").Result;
+
+                            if (!response.IsSuccessStatusCode)
+                                throw new HttpResponseException(response);
+
                             App.Logger.WriteLine(LOG_IDENT, "Connection successful!");
                             _baseUrl = attemptedUrl;
                             break;
@@ -46,7 +51,7 @@
                     }
 
                     if (string.IsNullOrEmpty(_baseUrl))
-                        throw new Exception("Unable to find an accessible Roblox deploy mirror!");
+                        throw new Exception("Could not find an accessible Roblox deployment mirror, likely due to a bad internet connection. Please launch again.");
                 }
 
                 return _baseUrl;
