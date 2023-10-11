@@ -44,7 +44,8 @@ namespace Bloxstrap
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
-            { "UI.Menu.Style.EnableV4", "FFlagEnableInGameMenuControls" },
+            { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
+            { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
 
             { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
             { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
@@ -226,6 +227,9 @@ namespace Bloxstrap
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
 
+            string? val = GetPreset("UI.Menu.Style.EnableV4.1");
+            if (GetPreset("UI.Menu.Style.EnableV4.2") != val)
+                SetPreset("UI.Menu.Style.EnableV4.2", val);
 
             if (GetPreset("Rendering.Framerate") is not null)
                 return;
