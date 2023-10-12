@@ -197,7 +197,7 @@ namespace Bloxstrap
 #endif
 
             string commandLine = "";
-            LaunchMode launchMode = LaunchMode.Player;
+            LaunchMode? launchMode = null;
 
             if (IsMenuLaunch)
             {
@@ -225,6 +225,8 @@ namespace Bloxstrap
                 if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
                     commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+
+                    launchMode = LaunchMode.Player;
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
@@ -235,6 +237,8 @@ namespace Bloxstrap
                         );
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
+
+                    launchMode = LaunchMode.Player;
                 }
                 else if (LaunchArgs[0].StartsWith("roblox-studio:"))
                 {
@@ -248,6 +252,7 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
                 {
                     commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
+
                     launchMode = LaunchMode.StudioAuth;
                 }
                 else if (LaunchArgs[0] == "-ide")
@@ -260,21 +265,25 @@ namespace Bloxstrap
                 else
                 {
                     commandLine = "--app";
+
+                    launchMode = LaunchMode.Player;
                 }
             }
             else
             {
                 commandLine = "--app";
+
+                launchMode = LaunchMode.Player;
             }
 
-            if (!String.IsNullOrEmpty(commandLine))
+            if (launchMode != null)
             {
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine, launchMode);
+                Bootstrapper bootstrapper = new(commandLine, (LaunchMode)launchMode);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
