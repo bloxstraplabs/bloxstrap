@@ -82,12 +82,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
-        public IReadOnlyDictionary<string, EmojiType> EmojiTypes => EmojiTypeEx.Selections;
+        public IReadOnlyCollection<EmojiType> EmojiTypes => EmojiTypeEx.Selections;
 
-        public string SelectedEmojiType
+        public EmojiType SelectedEmojiType
         {
-            get => EmojiTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.EmojiType).Key;
-            set => App.Settings.Prop.EmojiType = EmojiTypes[value];
+            get => App.Settings.Prop.EmojiType;
+            set => App.Settings.Prop.EmojiType = value;
         }
 
         public Visibility ChooseCustomFontVisibility => _usingCustomFont ? Visibility.Collapsed : Visibility.Visible;

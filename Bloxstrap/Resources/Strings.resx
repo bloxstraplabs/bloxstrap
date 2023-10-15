@@ -387,6 +387,21 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
     <value>Always prompt</value>
   </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>Catmoji</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>Default (Twemoji)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>Windows 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>Windows 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>Windows 8</value>
+  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.Default" xml:space="preserve">
     <value>Default</value>
   </data>

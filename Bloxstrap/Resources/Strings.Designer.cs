@@ -865,6 +865,51 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Catmoji.
+        /// </summary>
+        public static string Enums_EmojiType_Catmoji {
+            get {
+                return ResourceManager.GetString("Enums.EmojiType.Catmoji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default (Twemoji).
+        /// </summary>
+        public static string Enums_EmojiType_Default {
+            get {
+                return ResourceManager.GetString("Enums.EmojiType.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows 10.
+        /// </summary>
+        public static string Enums_EmojiType_Windows10 {
+            get {
+                return ResourceManager.GetString("Enums.EmojiType.Windows10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows 11.
+        /// </summary>
+        public static string Enums_EmojiType_Windows11 {
+            get {
+                return ResourceManager.GetString("Enums.EmojiType.Windows11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows 8.
+        /// </summary>
+        public static string Enums_EmojiType_Windows8 {
+            get {
+                return ResourceManager.GetString("Enums.EmojiType.Windows8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Enums_FlagPresets_InGameMenuVersion_Default {
