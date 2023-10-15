@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
         Width="480"
         MinHeight="0"
@@ -19,7 +20,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Title="Connectivity error" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Title="{x:Static resources:Strings.Dialog_Connectivity_Title}" />
 
         <Grid Grid.Row="1" Margin="16">
             <Grid.ColumnDefinitions>
@@ -30,14 +31,14 @@
             <StackPanel Grid.Column="1">
                 <TextBlock x:Name="TitleTextBlock" Text="? is unable to connect to ?" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <TextBlock x:Name="DescriptionTextBlock" Text="?" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
-                <TextBlock Text="More information:" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <TextBlock Text="{x:Static resources:Strings.Dialog_Connectivity_MoreInfo}" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <RichTextBox x:Name="ErrorRichTextBox" Padding="8" Margin="0,8,0,0" Block.LineHeight="2" FontFamily="Courier New" IsReadOnly="True" />
             </StackPanel>
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button x:Name="CloseButton" MinWidth="100" Content="Close" Margin="12,0,0,0" />
+                <Button x:Name="CloseButton" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Margin="12,0,0,0" />
             </StackPanel>
         </Border>
     </Grid>

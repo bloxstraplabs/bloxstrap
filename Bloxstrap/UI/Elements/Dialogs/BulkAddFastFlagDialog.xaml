@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
-        Title="Import JSON" 
+        Title="{x:Static resources:Strings.Common_ImportJson}" 
         MinHeight="0"
         Width="480"
         SizeToContent="Height"
@@ -21,11 +22,11 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Import JSON" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Common_ImportJson}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <Grid Grid.Row="1" Margin="8,4,8,4">
             <TextBox x:Name="JsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
-            <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray">
+            <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{x:Static resources:Strings.Dialog_BulkAddFastFlag_Paste}">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -36,13 +37,12 @@
                         </Style.Triggers>
                     </Style>
                 </TextBlock.Style>
-                 Paste in your JSON here...
             </TextBlock>
         </Grid>
 
         <Border Grid.Row="3" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button MinWidth="100" Content="OK" Click="OKButton_Click">
+                <Button MinWidth="100" Content="{x:Static resources:Strings.Common_OK}" Click="OKButton_Click">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                             <Style.Triggers>
@@ -53,7 +53,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button MinWidth="100" Margin="12,0,0,0" Content="Cancel" IsCancel="True" />
+                <Button MinWidth="100" Margin="12,0,0,0" Content="{x:Static resources:Strings.Common_Cancel}" IsCancel="True" />
             </StackPanel>
         </Border>
     </Grid>

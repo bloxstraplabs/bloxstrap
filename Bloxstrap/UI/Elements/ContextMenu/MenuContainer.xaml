@@ -6,6 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.ContextMenu"
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
         Title="ContextMenuContainer"
         MinWidth="0"
@@ -35,7 +36,7 @@
                 </MenuItem.Header>
             </MenuItem>
             <Separator />
-            <MenuItem x:Name="RichPresenceMenuItem" Header="Discord Rich Presence" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
+            <MenuItem x:Name="RichPresenceMenuItem" Header="{x:Static resources:Strings.Common_DiscordRichPresence}" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
             <MenuItem x:Name="InviteDeeplinkMenuItem" Visibility="Collapsed" Click="InviteDeeplinkMenuItem_Click">
                 <MenuItem.Header>
                     <Grid>
@@ -44,7 +45,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ui:SymbolIcon Grid.Column="0" Symbol="ClipboardLink24"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Copy invite deeplink" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_CopyDeeplinkInvite}" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
@@ -56,7 +57,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ui:SymbolIcon Grid.Column="0" Symbol="Info28"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="See server details" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_SeeServerDetails}" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
@@ -68,11 +69,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ui:SymbolIcon Grid.Column="0" Symbol="WindowHeaderHorizontalOff20"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Close Roblox" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_CloseRoblox}" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="LogTracerMenuItem" Header="Open log tracer" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
+            <MenuItem x:Name="LogTracerMenuItem" Header="{x:Static resources:Strings.ContextMenu_OpenLogTracer}" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </base:WpfUiWindow>

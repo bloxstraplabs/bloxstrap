@@ -1,5 +1,6 @@
 ﻿using System.Media;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Interop;
 
 using Windows.Win32;
@@ -21,12 +22,10 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             InitializeComponent();
 
-            Title = RootTitleBar.Title = $"{App.ProjectName} Exception";
-
             AddException(exception);
 
             if (!App.Logger.Initialized)
-                LocateLogFileButton.Content = "Copy log contents";
+                LocateLogFileButton.Content = Bloxstrap.Resources.Strings.Dialog_Exception_CopyLogContents;
 
             LocateLogFileButton.Click += delegate
             {
@@ -38,16 +37,18 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             ReportOptions.DropDownClosed += (sender, e) =>
             {
-                string? selectionName = ReportOptions.SelectedItem.ToString();
+                ComboBoxItem? comboBoxItem = ReportOptions.SelectedItem as ComboBoxItem;
+
+                if (comboBoxItem is null)
+                    return;
 
                 ReportOptions.SelectedIndex = 0;
 
-                if (selectionName is null)
-                    return;
+                string? tag = comboBoxItem.Tag?.ToString();
 
-                if (selectionName.EndsWith("GitHub"))
+                if (tag == "github")
                     Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/issues");
-                else if (selectionName.EndsWith("Discord"))
+                else if (tag == "discord")
                     Utilities.ShellExecute("https://discord.gg/nKjV3mGq6R");
             };
 

@@ -22,6 +22,10 @@ namespace Bloxstrap.UI.Elements.Menu
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 
             DataContext = new MainWindowViewModel(this);
+
+#if DEBUG // easier access
+            PreInstallNavItem.Visibility = System.Windows.Visibility.Visible;
+#endif
         }
 
         public void OpenWiki(object? sender, EventArgs e) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki");

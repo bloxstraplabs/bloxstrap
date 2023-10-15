@@ -91,8 +91,7 @@ namespace Bloxstrap
                     return;
 
                 MessageBoxResult result = Controls.ShowMessageBox(
-                    $"Roblox is attempting to set your channel to {channel}, however your current preferred channel is {App.Settings.Prop.Channel}.\n\n" +
-                    $"Would you like to switch your preferred channel to {channel}?",
+                    string.Format(Resources.Strings.ProtocolHandler_RobloxSwitchedChannel, channel, App.Settings.Prop.Channel),
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
                 );

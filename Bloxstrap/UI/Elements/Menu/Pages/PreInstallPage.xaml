@@ -6,6 +6,8 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:controls="clr-namespace:Bloxstrap.ControlsWpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PreInstallPage"
@@ -22,22 +24,15 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,16" Text="There's just a few things you first should know about." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_PreInstall_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <Border Grid.Row="1" Grid.Column="0" Margin="0,0,16,0" BorderThickness="1" BorderBrush="{DynamicResource TextFillColorPrimaryBrush}">
             <Image RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/Menu/StartMenu.png" />
         </Border>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock FontSize="14" TextWrapping="Wrap" Text="After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there." />
-            <TextBlock Margin="0,16,0,0" FontSize="14" TextWrapping="Wrap">
-                If you ever need help or guidance with anything, be sure to check the 
-                <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.github.com/pizzaboxer/bloxstrap/wiki">Wiki</Hyperlink>.
-                If you still need something, open an
-                <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.github.com/pizzaboxer/bloxstrap/issues">issue</Hyperlink>
-                on GitHub, or join our 
-                <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://discord.gg/nKjV3mGq6R">Discord server</Hyperlink>.
-            </TextBlock>
+            <TextBlock FontSize="14" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_PreInstall_Info_1}" />
+            <controls:MarkdownTextBlock Margin="0,16,0,0" FontSize="14" TextWrapping="Wrap" MarkdownText="{Binding Info2Text, Mode=OneTime}" />
         </StackPanel>
     </Grid>
 </ui:UiPage>

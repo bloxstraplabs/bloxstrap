@@ -5,12 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:controls="clr-namespace:Bloxstrap.ControlsWpf"
       mc:Ignorable="d"
       d:DesignHeight="800" d:DesignWidth="800"
       Title="ModsPage"
       Scrollable="True">
   <StackPanel Margin="0,0,14,14">
-    <TextBlock Text="Manage and apply file mods to the Roblox game client." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
     <Grid Margin="0,16,0,0">
       <Grid.RowDefinitions>
@@ -23,7 +25,7 @@
       </Grid.ColumnDefinitions>
       <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
         <StackPanel>
-          <TextBlock FontSize="14" Text="Open Mods Folder">
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Title}">
             <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
             <TextBlock.Style>
               <Style>
@@ -39,11 +41,11 @@
           <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
             <TextBlock.Style>
               <Style>
-                <Setter Property="TextBlock.Text" Value="Manage custom Roblox mods here."/>
+                <Setter Property="TextBlock.Text" Value="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Description}"/>
                 <Style.Triggers>
                   <DataTrigger Binding="{Binding ElementName=OpenModFolderCardAction, Path=IsEnabled, Mode=OneTime}" Value="False">
                     <Setter Property="TextBlock.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
-                    <Setter Property="TextBlock.Text" Value="Bloxstrap must first be installed." />
+                    <Setter Property="TextBlock.Text" Value="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_MustBeInstalled}" />
                   </DataTrigger>
                 </Style.Triggers>
               </Style>
@@ -53,19 +55,19 @@
       </ui:CardAction>
       <ui:CardAction Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
         <StackPanel>
-          <TextBlock FontSize="14" Text="Help" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="See info about managing and creating mods." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
     </Grid>
 
-    <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Use old death sound" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the classic 'oof' death sound." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
@@ -74,8 +76,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Mouse cursor" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose between using two classic Roblox cursor styles." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypes.Keys, Mode=OneTime}" Text="{Binding SelectedCursorType, Mode=TwoWay}" />
@@ -84,8 +86,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Use old avatar editor background" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bring back the old avatar editor background used in the Roblox app prior to 2020." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding OldAvatarBackground, Mode=TwoWay}" />
@@ -94,8 +96,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Emulate old character sounds" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="An attempt to roughly bring back the character sounds used prior to 2014." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
@@ -104,8 +106,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Disable desktop app" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Stops the desktop app from showing, especially when you leave a game." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
@@ -114,35 +116,31 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Preferred emoji type" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which type of emoji should Roblox use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes.Keys, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}" />
     </ui:CardControl>
 
-    <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <ui:CardControl Margin="0,8,0,0">
        <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Apply custom font" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-            Forces every in-game font to be a font that you choose.
-          </TextBlock>
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Description}" />
         </StackPanel>
       </ui:CardControl.Header>
       <StackPanel>
-        <ui:Button Icon="DocumentAdd16" Content="Choose font..." Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
-        <ui:Button Icon="Delete16" Content="Remove applied font" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
+        <ui:Button Icon="DocumentAdd16" Content="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Choose}" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
+        <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Remove}" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
       </StackPanel>
     </ui:CardControl>
     <ui:CardControl x:Name="FullscreenOptimizationsToggle" Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Disable fullscreen optimizations" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-            A Windows feature that intends to improve fullscreen performance. <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/">See here for more information</Hyperlink>.
-          </TextBlock>
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Title}" />
+          <controls:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" MarkdownText="{Binding DisableFullscreenOptimisationsDescriptionText, Mode=OneTime}"/>
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizations, Mode=TwoWay}" />

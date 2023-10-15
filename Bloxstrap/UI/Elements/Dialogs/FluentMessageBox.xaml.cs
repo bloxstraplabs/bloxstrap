@@ -115,10 +115,29 @@ namespace Bloxstrap.UI.Elements.Dialogs
             };
         }
 
+        // reuse existing strings
+        private static string GetTextForResult(MessageBoxResult result)
+        {
+            switch (result)
+            {
+                case MessageBoxResult.OK:
+                    return Bloxstrap.Resources.Strings.Common_OK;
+                case MessageBoxResult.Cancel:
+                    return Bloxstrap.Resources.Strings.Common_Cancel;
+                case MessageBoxResult.Yes:
+                    return Bloxstrap.Resources.Strings.Common_Yes;
+                case MessageBoxResult.No:
+                    return Bloxstrap.Resources.Strings.Common_No;
+                default:
+                    Debug.Assert(false);
+                    return result.ToString();
+            }
+        }
+
         public void SetButton(Button button, MessageBoxResult result)
         {
             button.Visibility = Visibility.Visible;
-            button.Content = result.ToString();
+            button.Content = GetTextForResult(result);
             button.Click += (_, _) =>
             {
                 Result = result;

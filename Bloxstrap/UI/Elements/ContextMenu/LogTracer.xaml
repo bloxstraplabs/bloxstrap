@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.ContextMenu"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.ContextMenu"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
         d:DataContext="{d:DesignInstance Type=models:LogTracerViewModel}"
         mc:Ignorable="d"
-        Title="Log tracer" 
+        Title="{x:Static resources:Strings.ContextMenu_LogTracer_Title}" 
         Width="800"
         Height="480"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
@@ -22,13 +23,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Log tracer" ShowMinimize="True" ShowMaximize="True" CanMaximize="True" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="{x:Static resources:Strings.ContextMenu_LogTracer_Title}" ShowMinimize="True" ShowMaximize="True" CanMaximize="True" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{ui:ThemeResource ControlFillColorDefaultBrush}">
-            <ui:MenuItem Margin="4,8,0,8" Header="Keep on top" IsCheckable="True" Click="KeepOnTopMenuItem_Click" />
-            <ui:MenuItem Margin="0,8,0,8" Header="Scroll to end" IsCheckable="True" IsChecked="True" Click="AutoScrollMenuItem_Click" />
-            <ui:MenuItem Name="TextWrappingToggle" Margin="0,8,0,8" Header="Text wrapping" IsCheckable="True" IsChecked="False" />
-            <ui:MenuItem Margin="0,8,4,8" Header="Locate log file" Command="{Binding LocateLogFileCommand, Mode=OneTime}" />
+            <ui:MenuItem Margin="4,8,0,8" Header="{x:Static resources:Strings.ContextMenu_LogTracer_KeepOnTop}" IsCheckable="True" Click="KeepOnTopMenuItem_Click" />
+            <ui:MenuItem Margin="0,8,0,8" Header="{x:Static resources:Strings.ContextMenu_LogTracer_ScrollToEnd}" IsCheckable="True" IsChecked="True" Click="AutoScrollMenuItem_Click" />
+            <ui:MenuItem Name="TextWrappingToggle" Margin="0,8,0,8" Header="{x:Static resources:Strings.ContextMenu_LogTracer_TextWrapping}" IsCheckable="True" IsChecked="False" />
+            <ui:MenuItem Margin="0,8,4,8" Header="{x:Static resources:Strings.Common_LocateLogFile}" Command="{Binding LocateLogFileCommand, Mode=OneTime}" />
         </StackPanel>
 
         <ScrollViewer x:Name="ScrollViewer" Grid.Row="2" VerticalAlignment="Top">
@@ -51,7 +52,7 @@
             <StatusBarItem>
                 <TextBlock>
                     <TextBlock.Text>
-                        <MultiBinding Mode="OneWay" StringFormat="Tracing {0}">
+                        <MultiBinding Mode="OneWay" StringFormat="{x:Static resources:Strings.ContextMenu_LogTracer_TracingFormat}">
                             <Binding Path="LogFilename" />
                         </MultiBinding>
                     </TextBlock.Text>

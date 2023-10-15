@@ -33,7 +33,7 @@ namespace Bloxstrap
                 _installLocation = Path.GetDirectoryName(Paths.Process)!;
 
                 var result = Controls.ShowMessageBox(
-                    $"It appears as if {App.ProjectName} hasn't been properly installed. Is it supposed to be installed at {_installLocation}?", 
+                    string.Format(Resources.Strings.InstallChecker_NotInstalledProperly, _installLocation), 
                     MessageBoxImage.Warning, 
                     MessageBoxButton.YesNo
                 );
@@ -75,9 +75,7 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"Drive has changed from {driveName} to {newDriveName}");
 
                     Controls.ShowMessageBox(
-                        $"{App.ProjectName} has detected a drive letter change and has reconfigured its install location from the {driveName} drive to the {newDriveName} drive.\n" +
-                        "\n" +
-                        $"While {App.ProjectName} will continue to work, it's recommended that you change the drive leter back to its original value as other installed applications can experience similar issues.",
+                        string.Format(Resources.Strings.InstallChecker_DriveLetterChangeDetected, driveName, newDriveName),
                         MessageBoxImage.Warning,
                         MessageBoxButton.OK
                     );
@@ -90,7 +88,7 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"Drive {driveName} does not exist anymore, and has likely been removed");
 
                     var result = Controls.ShowMessageBox(
-                        $"{App.ProjectName} was originally installed to the {driveName} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?",
+                        string.Format(Resources.Strings.InstallChecker_InstallDriveMissing, driveName),
                         MessageBoxImage.Warning,
                         MessageBoxButton.OKCancel
                     );
@@ -168,7 +166,7 @@ namespace Bloxstrap
             else
             {
                 result = Controls.ShowMessageBox(
-                    $"The version of {App.ProjectName} you've launched is different to the version you currently have installed.\nWould you like to upgrade your currently installed version?",
+                    Resources.Strings.InstallChecker_VersionDifferentThanInstalled,
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
                 );
@@ -234,8 +232,8 @@ namespace Bloxstrap
             if (isAutoUpgrade)
             {
                 App.NotifyIcon?.ShowAlert(
-                    $"{App.ProjectName} has been upgraded to v{currentVersionInfo.ProductVersion}",
-                    "See what's new in this version",
+                    string.Format(Resources.Strings.InstallChecker_Updated, currentVersionInfo.ProductVersion),
+                    Resources.Strings.InstallChecker_SeeWhatsNew,
                     30,
                     (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
                 );
@@ -243,7 +241,7 @@ namespace Bloxstrap
             else if (!App.IsQuiet)
             {
                 Controls.ShowMessageBox(
-                    $"{App.ProjectName} has been upgraded to v{currentVersionInfo.ProductVersion}",
+                    string.Format(Resources.Strings.InstallChecker_Updated, currentVersionInfo.ProductVersion),
                     MessageBoxImage.Information,
                     MessageBoxButton.OK
                 );

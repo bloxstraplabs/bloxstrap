@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             CustomIntegrations.Add(new CustomIntegration()
             {
-                Name = "New Integration"
+                Name = Resources.Strings.Menu_Integrations_Custom_NewIntegration
             });
 
             SelectedCustomIntegrationIndex = CustomIntegrations.Count - 1;

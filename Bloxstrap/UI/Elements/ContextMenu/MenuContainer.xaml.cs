@@ -127,7 +127,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = Controls.ShowMessageBox(
-                "Are you sure you want to close Roblox? This will forcefully end the process.",
+                Bloxstrap.Resources.Strings.ContextMenu_CloseRobloxMessage,
                 MessageBoxImage.Warning,
                 MessageBoxButton.YesNo
             );

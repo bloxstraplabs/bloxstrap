@@ -19,7 +19,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public ICommand ConfirmSettingsCommand => new RelayCommand(ConfirmSettings);
 
         public Visibility NavigationVisibility { get; set; } = Visibility.Visible;
-        public string ConfirmButtonText => App.IsFirstRun ? "Install" : "Save";
+        public string ConfirmButtonText => App.IsFirstRun ? Resources.Strings.Menu_Install : Resources.Strings.Menu_Save;
         public bool ConfirmButtonEnabled { get; set; } = true;
 
         public MainWindowViewModel(Window window)
@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
             if (string.IsNullOrEmpty(App.BaseDirectory))
             {
-                Controls.ShowMessageBox("You must set an install location", MessageBoxImage.Error);
+                Controls.ShowMessageBox(Resources.Strings.Menu_InstallLocation_NotSet, MessageBoxImage.Error);
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 catch (UnauthorizedAccessException)
                 {
                     Controls.ShowMessageBox(
-                        $"{App.ProjectName} does not have write access to the install location you've selected. Please choose another location.",
+                        Resources.Strings.Menu_InstallLocation_NoWritePerms,
                         MessageBoxImage.Error
                     );
                     return;
@@ -76,11 +76,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     string suggestedChange = Path.Combine(App.BaseDirectory, App.ProjectName);
 
                     MessageBoxResult result = Controls.ShowMessageBox(
-                        $"The folder you've chosen to install {App.ProjectName} to already exists and is NOT empty. It is strongly recommended for {App.ProjectName} to be installed to its own independent folder.\n\n" +
-                        "Changing to the following location is suggested:\n" +
-                        $"{suggestedChange}\n\n" +
-                        "Would you like to change to the suggested location?\n" +
-                        "Selecting 'No' will ignore this warning and continue installation.",
+                        string.Format(Resources.Strings.Menu_InstallLocation_NotEmpty, suggestedChange),
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNoCancel,
                         MessageBoxResult.Yes
@@ -100,7 +96,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 )
                 {
                     Controls.ShowMessageBox(
-                        $"{App.ProjectName} cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.",
+                        Resources.Strings.Menu_InstallLocation_CantInstall,
                         MessageBoxImage.Error,
                         MessageBoxButton.OK
                     );

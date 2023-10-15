@@ -6,6 +6,7 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
       d:DataContext="{d:DesignInstance Type=models:BehaviourViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
@@ -13,13 +14,13 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,8" Text="Configure what Bloxstrap should do when launching." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Behaviour_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Create desktop icon" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
@@ -28,8 +29,8 @@
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Automatically update Bloxstrap" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Bloxstrap will automatically check and update itself when launching Roblox." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
@@ -43,8 +44,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Channel" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which deployment channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                     <ui:TextBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding SelectedChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" />
                 </Grid>
@@ -75,13 +76,13 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_Version}" />
                     <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_VersionGuid}" />
                     <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_Deployed}" />
                     <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
 
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
@@ -96,7 +97,7 @@
                             </Style>
                         </StackPanel.Style>
                         <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
-                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel is out of date, and is likely no longer being updated. Please use another channel." />
+                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Behaviour_Channel_Outdated}" />
                     </StackPanel>
                 </Grid>
                 
@@ -151,11 +152,17 @@
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Automatic channel change action" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox or Bloxstrap may try to change your preferred channel." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes.Keys, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}" />
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.ChannelChangeMode.'}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </ui:CardControl>
 
         <ui:CardControl Margin="0,8,0,0">
@@ -170,8 +177,8 @@
             </ui:CardControl.Style>
             <ui:CardControl.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Force Roblox reinstallation" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox will be installed fresh on next launch." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />

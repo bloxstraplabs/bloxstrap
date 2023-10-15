@@ -35,7 +35,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Icon files|*.ico|All files|*.*"
+                Filter = $"{Resources.Strings.Menu_IconFiles}|*.ico|{Resources.Strings.Menu_AllFiles}|*.*"
             };
 
             if (dialog.ShowDialog() != true)
@@ -50,58 +50,58 @@ namespace Bloxstrap.UI.ViewModels.Menu
             _page = page;
         }
 
-        public IReadOnlyDictionary<string, Theme> Themes { get; set; } = new Dictionary<string, Theme>()
+        public IReadOnlyCollection<Theme> Themes { get; set; } = new Theme[]
         {
-            { "System Default", Enums.Theme.Default },
-            { "Light", Enums.Theme.Light },
-            { "Dark", Enums.Theme.Dark },
+            Theme.Default,
+            Theme.Light,
+            Theme.Dark
         };
 
-        public string Theme
+        public Theme Theme
         {
-            get => Themes.FirstOrDefault(x => x.Value == App.Settings.Prop.Theme).Key;
+            get => App.Settings.Prop.Theme;
             set
             {
-                App.Settings.Prop.Theme = Themes[value];
+                App.Settings.Prop.Theme = value;
                 ((MainWindow)Window.GetWindow(_page)!).ApplyTheme();
             }
         }
 
-        public IReadOnlyDictionary<string, BootstrapperStyle> Dialogs { get; set; } = new Dictionary<string, BootstrapperStyle>()
+        public IReadOnlyCollection<BootstrapperStyle> Dialogs { get; set; } = new BootstrapperStyle[]
         {
-            { "Fluent", BootstrapperStyle.FluentDialog },
-            { "Progress (~2014)", BootstrapperStyle.ProgressDialog },
-            { "Legacy (2011 - 2014)", BootstrapperStyle.LegacyDialog2011 },
-            { "Legacy (2008 - 2011)", BootstrapperStyle.LegacyDialog2008 },
-            { "Vista (2008 - 2011)", BootstrapperStyle.VistaDialog },
-            { "Fake Byfron (2023)", BootstrapperStyle.ByfronDialog },
+            BootstrapperStyle.FluentDialog,
+            BootstrapperStyle.ProgressDialog,
+            BootstrapperStyle.LegacyDialog2011,
+            BootstrapperStyle.LegacyDialog2008,
+            BootstrapperStyle.VistaDialog,
+            BootstrapperStyle.ByfronDialog
         };
 
-        public string Dialog
+        public BootstrapperStyle Dialog
         {
-            get => Dialogs.FirstOrDefault(x => x.Value == App.Settings.Prop.BootstrapperStyle).Key;
-            set => App.Settings.Prop.BootstrapperStyle = Dialogs[value];
+            get => App.Settings.Prop.BootstrapperStyle;
+            set => App.Settings.Prop.BootstrapperStyle = value;
         }
 
-        public IReadOnlyDictionary<string, BootstrapperIcon> Icons { get; set; } = new Dictionary<string, BootstrapperIcon>()
+        public IReadOnlyCollection<BootstrapperIcon> Icons { get; set; } = new BootstrapperIcon[]
         {
-            { "Bloxstrap", BootstrapperIcon.IconBloxstrap },
-            { "2022", BootstrapperIcon.Icon2022 },
-            { "2019", BootstrapperIcon.Icon2019 },
-            { "2017", BootstrapperIcon.Icon2017 },
-            { "Late 2015", BootstrapperIcon.IconLate2015 },
-            { "Early 2015", BootstrapperIcon.IconEarly2015 },
-            { "2011", BootstrapperIcon.Icon2011 },
-            { "2008", BootstrapperIcon.Icon2008 },
-            { "Custom", BootstrapperIcon.IconCustom },
+            BootstrapperIcon.IconBloxstrap,
+            BootstrapperIcon.Icon2022,
+            BootstrapperIcon.Icon2019,
+            BootstrapperIcon.Icon2017,
+            BootstrapperIcon.IconLate2015,
+            BootstrapperIcon.IconEarly2015,
+            BootstrapperIcon.Icon2011,
+            BootstrapperIcon.Icon2008,
+            BootstrapperIcon.IconCustom
         };
 
-        public string Icon
+        public BootstrapperIcon Icon
         {
-            get => Icons.FirstOrDefault(x => x.Value == App.Settings.Prop.BootstrapperIcon).Key;
+            get => App.Settings.Prop.BootstrapperIcon;
             set
             {
-                App.Settings.Prop.BootstrapperIcon = Icons[value];
+                App.Settings.Prop.BootstrapperIcon = value;
                 OnPropertyChanged(nameof(IconPreviewSource));
             }
         }
