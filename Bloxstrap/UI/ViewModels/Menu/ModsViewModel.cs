@@ -62,12 +62,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.UseOldCharacterSounds = value;
         }
 
-        public IReadOnlyDictionary<string, Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
+        public IReadOnlyCollection<Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
 
-        public string SelectedCursorType
+        public Enums.CursorType SelectedCursorType
         {
-            get => CursorTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.CursorType).Key;
-            set => App.Settings.Prop.CursorType = CursorTypes[value];
+            get => App.Settings.Prop.CursorType;
+            set => App.Settings.Prop.CursorType = value;
         }
 
         public bool OldAvatarBackground

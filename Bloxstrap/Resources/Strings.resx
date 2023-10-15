@@ -387,6 +387,15 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
     <value>Always prompt</value>
   </data>
+  <data name="Enums.CursorType.Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (Cartoony)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (Angular)</value>
+  </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
