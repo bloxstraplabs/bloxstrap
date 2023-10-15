@@ -1425,6 +1425,8 @@ namespace Bloxstrap
                 string extractPath = Path.Combine(packageFolder, entry.FullName);
                 string? directory = Path.GetDirectoryName(extractPath);
 
+                App.Logger.WriteLine(LOG_IDENT, $"Attempting to extract {extractPath}...");
+
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
 
