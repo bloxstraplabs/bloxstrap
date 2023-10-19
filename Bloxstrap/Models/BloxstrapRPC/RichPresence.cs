@@ -19,5 +19,8 @@
 
         [JsonPropertyName("largeImage")]
         public RichPresenceImage? LargeImage { get; set; }
+
+        [JsonPropertyName("launchData")]
+        public string? LaunchData { get; set; }
     }
 }

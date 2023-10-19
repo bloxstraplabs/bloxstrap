@@ -14,6 +14,7 @@ namespace Bloxstrap.Integrations
         private bool _visible = true;
         private long _currentUniverseId;
         private DateTime? _timeStartedUniverse;
+        private Button? _joinButton;
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
@@ -159,6 +160,11 @@ namespace Bloxstrap.Integrations
                 }
             }
 
+            if (presenceData.LaunchData is not null && _joinButton is not null)
+            {
+                _joinButton.Url = $"roblox://experiences/start?placeId={_activityWatcher.ActivityPlaceId}&gameInstanceId={_activityWatcher.ActivityJobId}&launchData={presenceData.LaunchData}";
+            }
+
             UpdatePresence();
         }
 
@@ -235,11 +241,12 @@ namespace Bloxstrap.Integrations
 
             if (!App.Settings.Prop.HideRPCButtons && _activityWatcher.ActivityServerType == ServerType.Public)
             {
-                buttons.Add(new Button
+                _joinButton = new Button
                 {
                     Label = "Join server",
                     Url = $"roblox://experiences/start?placeId={placeId}&gameInstanceId={_activityWatcher.ActivityJobId}"
-                });
+                };
+                buttons.Add(_joinButton);
             }
 
             buttons.Add(new Button
