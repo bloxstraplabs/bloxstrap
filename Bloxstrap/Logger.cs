@@ -83,7 +83,7 @@
         {
             string timestamp = DateTime.UtcNow.ToString("s") + "Z";
             string outcon = $"{timestamp} {message}";
-            string outlog = outcon.Replace(Paths.UserProfile, "%UserProfile%");
+            string outlog = outcon;//.Replace(Paths.UserProfile, "%UserProfile%");
 
             Debug.WriteLine(outcon);
             WriteToLog(outlog);

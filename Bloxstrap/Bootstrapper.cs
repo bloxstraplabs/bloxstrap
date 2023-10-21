@@ -1396,7 +1396,7 @@ namespace Bloxstrap
 
         private async Task ExtractPackage(Package package)
         {
-            const string LOG_IDENT = "Bootstrapper::ExtractPackage";
+            string LOG_IDENT = $"Bootstrapper::ExtractPackage.{package.Name}";
 
             if (_cancelFired)
                 return;
@@ -1404,11 +1404,9 @@ namespace Bloxstrap
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string packageFolder = Path.Combine(_versionFolder, PackageDirectories[package.Name]);
 
-            App.Logger.WriteLine(LOG_IDENT, $"Reading {package.Name}...");
+            App.Logger.WriteLine(LOG_IDENT, $"Extracting to '{packageFolder}'...");
 
             var archive = await Task.Run(() => ZipFile.OpenRead(packageLocation));
-
-            App.Logger.WriteLine(LOG_IDENT, $"Read {package.Name}. Extracting to {packageFolder}...");
 
             // yeah so because roblox is roblox, these packages aren't actually valid zip files
             // besides the fact that they use backslashes instead of forward slashes for directories,
@@ -1425,10 +1423,17 @@ namespace Bloxstrap
                 string extractPath = Path.Combine(packageFolder, entry.FullName);
                 string? directory = Path.GetDirectoryName(extractPath);
 
-                App.Logger.WriteLine(LOG_IDENT, $"Attempting to extract {extractPath}...");
-
-                if (directory is not null)
-                    Directory.CreateDirectory(directory);
+                try
+                {
+                    if (directory is not null)
+                        Directory.CreateDirectory(directory);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to create a directory for '{directory}'");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                    throw;
+                }
 
                 var fileManifest = _versionFileManifest.FirstOrDefault(x => x.Name == Path.Combine(PackageDirectories[package.Name], entry.FullName));
                 string? signature = fileManifest?.Signature;
@@ -1452,7 +1457,7 @@ namespace Bloxstrap
                     if (signature is not null && MD5Hash.FromStream(fileStream) != signature)
                     {
                         if (retry)
-                            throw new AssertionException($"Checksum of {entry.FullName} post-extraction did not match manifest");
+                            throw new AssertionException($"Checksum of '{entry.FullName}' post-extraction did not match manifest");
 
                         retry = true;
                     }
@@ -1462,7 +1467,7 @@ namespace Bloxstrap
                 File.SetLastWriteTime(extractPath, entry.LastWriteTime.DateTime);
             }
 
-            App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
+            App.Logger.WriteLine(LOG_IDENT, $"Finished extracting!");
 
             _packagesExtracted += 1;
         }
