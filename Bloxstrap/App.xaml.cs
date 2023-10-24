@@ -97,7 +97,7 @@ namespace Bloxstrap
             _showingExceptionDialog = true;
 
             if (!IsQuiet)
-                Controls.ShowExceptionDialog(exception);
+                Frontend.ShowExceptionDialog(exception);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
 #endif
@@ -212,12 +212,12 @@ namespace Bloxstrap
                 else
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
-                        Methods.ShowMessageBox(
+                        Frontend.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
                             MessageBoxImage.Information
                         );
 
-                    Methods.ShowMenu();
+                    Frontend.ShowMenu();
                 }
             }
             else if (LaunchArgs.Length > 0)
@@ -231,7 +231,7 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
                     if (Settings.Prop.UseDisableAppPatch)
-                        Methods.ShowMessageBox(
+                        Frontend.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Bootstrapper_DeeplinkTempEnabled, 
                             MessageBoxImage.Information
                         );

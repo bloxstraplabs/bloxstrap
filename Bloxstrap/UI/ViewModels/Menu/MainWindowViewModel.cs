@@ -42,7 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
             if (string.IsNullOrEmpty(App.BaseDirectory))
             {
-                Methods.ShowMessageBox(Resources.Strings.Menu_InstallLocation_NotSet, MessageBoxImage.Error);
+                Frontend.ShowMessageBox(Resources.Strings.Menu_InstallLocation_NotSet, MessageBoxImage.Error);
                 return;
             }
 
@@ -59,7 +59,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    Methods.ShowMessageBox(
+                    Frontend.ShowMessageBox(
                         Resources.Strings.Menu_InstallLocation_NoWritePerms,
                         MessageBoxImage.Error
                     );
@@ -67,7 +67,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 }
                 catch (Exception ex)
                 {
-                    Methods.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                    Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
                     return;
                 }
 
@@ -75,7 +75,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 {
                     string suggestedChange = Path.Combine(App.BaseDirectory, App.ProjectName);
 
-                    MessageBoxResult result = Methods.ShowMessageBox(
+                    MessageBoxResult result = Frontend.ShowMessageBox(
                         string.Format(Resources.Strings.Menu_InstallLocation_NotEmpty, suggestedChange),
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNoCancel,
@@ -95,7 +95,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                     Directory.GetParent(App.BaseDirectory)!.ToString().ToLowerInvariant() == Paths.UserProfile.ToLowerInvariant() // prevent from installing to an essential user profile folder
                 )
                 {
-                    Methods.ShowMessageBox(
+                    Frontend.ShowMessageBox(
                         Resources.Strings.Menu_InstallLocation_CantInstall,
                         MessageBoxImage.Error,
                         MessageBoxButton.OK

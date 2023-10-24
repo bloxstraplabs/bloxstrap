@@ -2,6 +2,6 @@
 {
     static class BootstrapperStyleEx
     {
-        public static IBootstrapperDialog GetNew(this BootstrapperStyle bootstrapperStyle) => Methods.GetBootstrapperDialog(bootstrapperStyle);
+        public static IBootstrapperDialog GetNew(this BootstrapperStyle bootstrapperStyle) => Frontend.GetBootstrapperDialog(bootstrapperStyle);
     }
 }

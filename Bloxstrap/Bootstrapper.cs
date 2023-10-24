@@ -157,7 +157,7 @@ namespace Bloxstrap
                 else if (ex.GetType() == typeof(AggregateException))
                     ex = ex.InnerException!;
 
-                Methods.ShowConnectivityDialog("Roblox", message, ex);
+                Frontend.ShowConnectivityDialog("Roblox", message, ex);
 
                 App.Terminate(ErrorCode.ERROR_CANCELLED);
             }
@@ -262,7 +262,7 @@ namespace Bloxstrap
             {
                 MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
                 {
-                    ChannelChangeMode.Prompt => Methods.ShowMessageBox(
+                    ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
                         string.Format(Resources.Strings.Bootstrapper_ChannelOutOfDate, App.Settings.Prop.Channel, RobloxDeployment.DefaultChannel),
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNo
@@ -301,7 +301,7 @@ namespace Bloxstrap
 
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
-                Methods.ShowMessageBox(
+                Frontend.ShowMessageBox(
                     Resources.Strings.Bootstrapper_WMFNotFound, 
                     MessageBoxImage.Error
                 );
@@ -674,7 +674,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the auto-updater");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                Methods.ShowMessageBox(
+                Frontend.ShowMessageBox(
                     string.Format(Resources.Strings.Bootstrapper_AutoUpdateFailed, releaseInfo.TagName),
                     MessageBoxImage.Information
                 );
@@ -690,7 +690,7 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Prompting to shut down all open Roblox instances");
                 
-                MessageBoxResult result = Methods.ShowMessageBox(
+                MessageBoxResult result = Frontend.ShowMessageBox(
                     Resources.Strings.Bootstrapper_Uninstall_RobloxRunning,
                     MessageBoxImage.Information,
                     MessageBoxButton.OKCancel
@@ -864,7 +864,7 @@ namespace Bloxstrap
             
             if (Filesystem.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
-                Methods.ShowMessageBox(
+                Frontend.ShowMessageBox(
                     Resources.Strings.Bootstrapper_NotEnoughSpace, 
                     MessageBoxImage.Error
                 );
@@ -1059,7 +1059,7 @@ namespace Bloxstrap
 
             if (File.Exists(injectorLocation))
             {
-                Methods.ShowMessageBox(
+                Frontend.ShowMessageBox(
                     Resources.Strings.Bootstrapper_HyperionUpdateInfo,
                     MessageBoxImage.Warning
                 );

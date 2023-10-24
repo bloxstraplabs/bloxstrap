@@ -126,7 +126,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = Methods.ShowMessageBox(
+            MessageBoxResult result = Frontend.ShowMessageBox(
                 Bloxstrap.Resources.Strings.ContextMenu_CloseRobloxMessage,
                 MessageBoxImage.Warning,
                 MessageBoxButton.YesNo
