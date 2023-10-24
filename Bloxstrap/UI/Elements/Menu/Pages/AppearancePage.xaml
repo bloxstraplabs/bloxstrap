@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
       d:DesignHeight="520" d:DesignWidth="800"
@@ -12,13 +13,9 @@
   <StackPanel Margin="0,0,14,14">
     <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <ui:CardControl Margin="0,16,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Appearance_Theme_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_Theme_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Appearance_Theme_Title}" 
+        Description="{x:Static resources:Strings.Menu_Appearance_Theme_Description}">
       <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
         <ComboBox.ItemTemplate>
           <DataTemplate>
@@ -26,14 +23,11 @@
           </DataTemplate>
         </ComboBox.ItemTemplate>
       </ComboBox>
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Appearance_Style_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_Style_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Appearance_Style_Title}" 
+        Description="{x:Static resources:Strings.Menu_Appearance_Style_Description}">
       <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Dialogs, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}">
         <ComboBox.ItemTemplate>
           <DataTemplate>
@@ -41,14 +35,11 @@
           </DataTemplate>
         </ComboBox.ItemTemplate>
       </ComboBox>
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Appearance_Icon_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_Icon_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Appearance_Icon_Title}" 
+        Description="{x:Static resources:Strings.Menu_Appearance_Icon_Description}">
       <Grid Width="200">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto" />
@@ -67,7 +58,8 @@
           </ComboBox.ItemTemplate>
         </ComboBox>
       </Grid>
-    </ui:CardControl>
+    </controls:OptionControl>
+      
     <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
       <ui:CardExpander.Header>
         <Grid>

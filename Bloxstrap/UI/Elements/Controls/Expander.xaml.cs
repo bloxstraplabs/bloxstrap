@@ -20,7 +20,7 @@ namespace Bloxstrap.UI.Elements.Controls
   /// <summary>
   /// Interaction logic for Expander.xaml
   /// </summary>
-  [ContentProperty("InnerContent")]
+  [ContentProperty(nameof(InnerContent))]
   public partial class Expander : UserControl
   {
     public static readonly DependencyProperty HeaderIconProperty =

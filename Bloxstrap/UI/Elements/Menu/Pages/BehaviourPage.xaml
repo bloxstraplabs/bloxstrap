@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       d:DataContext="{d:DesignInstance Type=models:BehaviourViewModel}"
@@ -16,25 +17,17 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Behaviour_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
+        <controls:OptionControl 
+              Header="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}"
+              Description="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}">
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
-        </ui:CardControl>
+        </controls:OptionControl>
 
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
+        <controls:OptionControl 
+              Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
+              Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
-        </ui:CardControl>
+        </controls:OptionControl>
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
@@ -149,13 +142,9 @@
             </StackPanel>
         </ui:CardExpander>
 
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
+        <controls:OptionControl 
+              Header="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Title}"
+              Description="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Description}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -163,25 +152,21 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-        </ui:CardControl>
+        </controls:OptionControl>
 
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Style>
-                <Style TargetType="ui:CardControl" BasedOn="{StaticResource {x:Type ui:CardControl}}">
+        <controls:OptionControl 
+              Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
+              Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
+            <controls:OptionControl.Style>
+                <Style TargetType="controls:OptionControl">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ForceRobloxReinstallation, Mode=OneTime}" Value="True">
                             <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </ui:CardControl.Style>
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
+            </controls:OptionControl.Style>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
-        </ui:CardControl>
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

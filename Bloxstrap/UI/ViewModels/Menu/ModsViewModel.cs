@@ -100,12 +100,5 @@ namespace Bloxstrap.UI.ViewModels.Menu
             get => App.Settings.Prop.DisableFullscreenOptimizations;
             set => App.Settings.Prop.DisableFullscreenOptimizations = value;
         }
-
-        public string DisableFullscreenOptimisationsDescriptionText
-        {
-            get => string.Format(
-                        Resources.Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Description,
-                        "https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/");
-        }
     }
 }

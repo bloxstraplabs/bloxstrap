@@ -936,7 +936,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Apply custom font</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>A Windows feature that intends to improve fullscreen performance. [See here for more information]({0}).</value>
+    <value>A Windows feature that may conflict with performance in full-screen.</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
     <value>Disable fullscreen optimisations</value>
@@ -988,6 +988,9 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>Click for more information on this option.</value>
   </data>
   <data name="Menu.PreInstall.Description" xml:space="preserve">
     <value>There's just a few things you first should know about.</value>

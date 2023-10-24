@@ -63,23 +63,15 @@
 
     <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Description}">
       <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Description}">
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypes, Mode=OneTime}" Text="{Binding SelectedCursorType, Mode=TwoWay}">
         <ComboBox.ItemTemplate>
           <DataTemplate>
@@ -87,45 +79,29 @@
           </DataTemplate>
         </ComboBox.ItemTemplate>
       </ComboBox>
-    </ui:CardControl>
-
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Description}">
       <ui:ToggleSwitch IsChecked="{Binding OldAvatarBackground, Mode=TwoWay}" />
-    </ui:CardControl>
-
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Description}">
       <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Description}">
       <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}">
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">
         <ComboBox.ItemTemplate>
           <DataTemplate>
@@ -133,29 +109,25 @@
           </DataTemplate>
         </ComboBox.ItemTemplate>
       </ComboBox>
-    </ui:CardControl>
+    </controls:OptionControl>
 
     <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <ui:CardControl Margin="0,8,0,0">
-       <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Description}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Description}">
       <StackPanel>
         <ui:Button Icon="DocumentAdd16" Content="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Choose}" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
         <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Remove}" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
       </StackPanel>
-    </ui:CardControl>
-    <ui:CardControl x:Name="FullscreenOptimizationsToggle" Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Title}" />
-          <controls:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" MarkdownText="{Binding DisableFullscreenOptimisationsDescriptionText, Mode=OneTime}"/>
-        </StackPanel>
-      </ui:CardControl.Header>
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Title}" 
+        Description="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Description}"
+        HelpLink="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/"
+        x:Name="FullscreenOptimizationsToggle">
       <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizations, Mode=TwoWay}" />
-    </ui:CardControl>
+    </controls:OptionControl>
   </StackPanel>
 </ui:UiPage>

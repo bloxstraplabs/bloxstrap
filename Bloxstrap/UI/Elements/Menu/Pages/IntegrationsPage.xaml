@@ -6,6 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
       d:DesignHeight="1080" d:DesignWidth="800"
@@ -15,67 +16,47 @@
     <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
     <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="Auto" />
-              <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" />
-            <TextBlock Grid.Column="1" Margin="4,0,0,0">
-              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_Integrations_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/What-is-activity-tracking%3F">
-                <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
-              </Hyperlink>
-            </TextBlock>
-          </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch x:Name="ActivityTrackingEnabledToggle" IsChecked="{Binding ActivityTrackingEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ActivityTrackingEnabledToggle, Mode=OneWay}">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" 
+        Description="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Description}" 
+        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/What-is-activity-tracking%3F"
+        x:Name="ActivityTrackingOption">
+      <ui:ToggleSwitch IsChecked="{Binding ActivityTrackingEnabled, Mode=TwoWay}" />
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Title}" 
+        Description="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Description}"
+        IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
       <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
+    </controls:OptionControl>
 
     <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=ActivityTrackingEnabledToggle, Mode=OneWay}">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
-      <ui:ToggleSwitch x:Name="DiscordActivityEnabledToggle" IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
-    <ui:CardControl Margin="0,8,0,0" IsEnabled="{Binding IsChecked, ElementName=DiscordActivityEnabledToggle, Mode=OneWay}">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
+        Description="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}"
+        IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
+        x:Name="DiscordActivityOption">
+      <ui:ToggleSwitch IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
+    </controls:OptionControl>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Title}" 
+        Description="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Description}"
+        IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
       <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
+    </controls:OptionControl>
 
     <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <ui:CardControl Margin="0,8,0,0">
-      <ui:CardControl.Header>
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardControl.Header>
+      
+    <controls:OptionControl 
+        Header="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Title}" 
+        Description="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Description}">
       <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
-    </ui:CardControl>
+    </controls:OptionControl>
 
     <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
     <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />

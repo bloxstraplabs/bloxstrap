@@ -2476,7 +2476,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Windows feature that intends to improve fullscreen performance. [See here for more information]({0})..
+        ///   Looks up a localized string similar to A Windows feature that may conflict with performance in full-screen..
         /// </summary>
         public static string Menu_Mods_Misc_DisableFullscreenOptimisations_Description {
             get {
@@ -2634,6 +2634,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Mods_Title {
             get {
                 return ResourceManager.GetString("Menu.Mods.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click for more information on this option..
+        /// </summary>
+        public static string Menu_MoreInfo {
+            get {
+                return ResourceManager.GetString("Menu.MoreInfo", resourceCulture);
             }
         }
         
