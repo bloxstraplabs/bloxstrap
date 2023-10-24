@@ -1291,11 +1291,38 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string Menu_About_Contributors_Code {
+            get {
+                return ResourceManager.GetString("Menu.About.Contributors.Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to These are the people who have made notable contributions to Bloxstrap, helping make it what it is..
         /// </summary>
         public static string Menu_About_Contributors_Description {
             get {
                 return ResourceManager.GetString("Menu.About.Contributors.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feature Ideas.
+        /// </summary>
+        public static string Menu_About_Contributors_FeatureIdeas {
+            get {
+                return ResourceManager.GetString("Menu.About.Contributors.FeatureIdeas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translations.
+        /// </summary>
+        public static string Menu_About_Contributors_Translations {
+            get {
+                return ResourceManager.GetString("Menu.About.Contributors.Translations", resourceCulture);
             }
         }
         

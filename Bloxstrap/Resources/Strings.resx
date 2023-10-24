@@ -531,8 +531,17 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Contributors</value>
   </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
     <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>Feature Ideas</value>
+  </data>
+  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
+    <value>Translations</value>
   </data>
   <data name="Menu.About.Description.1" xml:space="preserve">
     <value>An open-source, feature-packed alternative bootstrapper for Roblox</value>
