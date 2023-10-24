@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Bloxstrap"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             xmlns:converters="clr-namespace:Bloxstrap.Converters"
+             xmlns:converters="clr-namespace:Bloxstrap.UI.Converters"
              ShutdownMode="OnExplicitShutdown"
              DispatcherUnhandledException="GlobalExceptionHandler">
     <Application.Resources>
@@ -16,6 +16,7 @@
             <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
 
             <converters:ResourceConverter x:Key="ResourceConverter" />
+            <converters:StringFormatConverter x:Key="StringFormatConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

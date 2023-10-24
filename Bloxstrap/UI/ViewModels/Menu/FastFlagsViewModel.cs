@@ -147,20 +147,5 @@ namespace Bloxstrap.UI.ViewModels.Menu
             get => App.FastFlags.GetPreset("UI.Hide") == "32380007";
             set => App.FastFlags.SetPreset("UI.Hide", value ? "32380007" : null);
         }
-
-        public string Direct3DExclusiveFullscreenInfoText
-        {
-            get => string.Format(
-                        Resources.Strings.Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo,
-                        "https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen");
-        }
-
-        public string HideGuisDescriptionText
-        {
-            get => string.Format(
-                        Resources.Strings.Menu_FastFlags_Presets_HideGuis_Description,
-                        "https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding",
-                        "https://www.roblox.com/groups/32380007/Bloxstrap");
-        }
     }
 }

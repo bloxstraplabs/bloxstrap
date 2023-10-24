@@ -1,6 +1,6 @@
 ﻿using System.Windows.Data;
 
-namespace Bloxstrap.Converters
+namespace Bloxstrap.UI.Converters
 {
     internal class ResourceConverter : IValueConverter
     {
@@ -17,9 +17,7 @@ namespace Bloxstrap.Converters
             string parameterStr = parameter.ToString()!;
             string resourceName = parameterStr + valueStr;
 
-            string resourceValue = Resources.Strings.ResourceManager.GetStringSafe(resourceName);
-
-            return resourceValue;
+            return Resources.Strings.ResourceManager.GetStringSafe(resourceName);
         }
 
         public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
