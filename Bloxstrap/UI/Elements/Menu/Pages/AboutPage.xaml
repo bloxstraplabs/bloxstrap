@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
       d:DesignHeight="700" d:DesignWidth="800"
       Title="AboutPage"
@@ -30,20 +31,20 @@
           <TextBlock Grid.Column="0" Text="Bloxstrap" Margin="0,0,4,0" FontSize="24" FontWeight="Medium" />
           <TextBlock Grid.Column="1" Text="{Binding Version, Mode=OneTime}" Margin="4,0,0,2" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </Grid>
-        <TextBlock Text="An open-source, feature-packed alternative bootstrapper for Roblox" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        <TextBlock Text="Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_About_Description_1}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_About_Description_2}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
       </StackPanel>
     </Grid>
     <StackPanel Orientation="Horizontal">
-      <ui:Anchor Margin="0,16,4,0" Content="GitHub repository" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
-      <ui:Anchor Margin="4,16,4,0" Content="Report an issue" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
-      <ui:Anchor Margin="4,16,4,0" Content="Help and Information" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
-      <ui:Anchor Margin="4,16,0,0" Content="Discord server" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
+      <ui:Anchor Margin="0,16,4,0" Content="{x:Static resources:Strings.Menu_About_GithubRepository}" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
+      <ui:Anchor Margin="4,16,4,0" Content="{x:Static resources:Strings.Menu_About_ReportIssue}" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
+      <ui:Anchor Margin="4,16,4,0" Content="{x:Static resources:Strings.Menu_About_HelpInformation}" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
+      <ui:Anchor Margin="4,16,0,0" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
     </StackPanel>
 
     <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
-      <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
-      <TextBlock Text="Using an unreleased version, I see?" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+      <TextBlock Text="{x:Static resources:Strings.Menu_About_BuildInformation}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+      <TextBlock Text="{x:Static resources:Strings.Menu_About_UnreleasedVersion}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
       <Grid Column="0" Margin="0,8,0,0">
         <Grid.RowDefinitions>
@@ -76,8 +77,8 @@
       </Grid>
     </StackPanel>
 
-    <TextBlock Text="Contributors" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
-    <TextBlock Text="These are the people who have made notable contributions to Bloxstrap, helping make it what it is." TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+    <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+    <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
     <Grid Column="0" Margin="0,8,0,0">
       <Grid.RowDefinitions>
         <!-- bruh -->
@@ -185,7 +186,7 @@
     </Grid>
     <ui:Anchor Margin="0,16,0,0" Content="See all code contributors" Icon="People48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/graphs/contributors" />
 
-    <TextBlock Text="Licenses" FontWeight="Medium" FontSize="18" Margin="0,16,0,0" />
+    <TextBlock Text="{x:Static resources:Strings.Menu_About_Licenses}" FontWeight="Medium" FontSize="18" Margin="0,16,0,0" />
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />

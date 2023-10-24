@@ -7,8 +7,9 @@
              xmlns:pages="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+             xmlns:resources="clr-namespace:Bloxstrap.Resources"
              mc:Ignorable="d"
-             Title="Bloxstrap Menu"
+             Title="{x:Static resources:Strings.Menu_Title}"
              MinWidth="960"
              Width="960"
              Height="580"
@@ -23,7 +24,7 @@
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
 
-    <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="True" HelpClicked="OpenWiki" UseSnapLayout="True" Title="Bloxstrap Menu" Icon="pack://application:,,,/Bloxstrap.ico" />
+    <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="True" HelpClicked="OpenWiki" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
 
     <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0" Visibility="Visible">
       <Grid.RowDefinitions>
@@ -37,16 +38,16 @@
 
       <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0" Visibility="{Binding NavigationVisibility, Mode=OneWay}">
         <ui:NavigationFluent.Items>
-          <ui:NavigationItem Content="Integrations" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
-          <ui:NavigationItem Content="Mods" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
-          <ui:NavigationItem Content="FastFlags" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
-          <ui:NavigationItem Content="Appearance" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
-          <ui:NavigationItem Content="Behaviour" PageType="{x:Type pages:BehaviourPage}" Icon="Settings24" Tag="behaviour" />
-          <ui:NavigationItem Content="Installation" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
-          <ui:NavigationItem Content="About" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="Settings24" Tag="behaviour" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Installation_Title}" PageType="{x:Type pages:InstallationPage}" Icon="HardDrive20" Tag="installation" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" />
 
-          <ui:NavigationItem Content="FastFlag Editor" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
-          <ui:NavigationItem Content="Before you install..." PageType="{x:Type pages:PreInstallPage}" Tag="preinstall" Visibility="Collapsed" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
+          <ui:NavigationItem Content="{x:Static resources:Strings.Menu_PreInstall_Title}" PageType="{x:Type pages:PreInstallPage}" Tag="preinstall" Visibility="Collapsed" x:Name="PreInstallNavItem" />
         </ui:NavigationFluent.Items>
       </ui:NavigationFluent>
 

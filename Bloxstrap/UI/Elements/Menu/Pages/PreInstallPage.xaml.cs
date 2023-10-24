@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.UI.Elements.Menu.Pages
+﻿using Bloxstrap.UI.ViewModels.Menu;
+
+namespace Bloxstrap.UI.Elements.Menu.Pages
 {
     /// <summary>
     /// Interaction logic for PreInstallPage.xaml
@@ -7,6 +9,7 @@
     {
         public PreInstallPage()
         {
+            DataContext = new PreInstallViewModel();
             InitializeComponent();
         }
     }

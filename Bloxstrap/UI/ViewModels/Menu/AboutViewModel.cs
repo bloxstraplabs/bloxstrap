@@ -4,7 +4,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class AboutViewModel
     {
-        public string Version => $"Version {App.Version}";
+        public string Version => string.Format(Resources.Strings.Menu_About_Version, App.Version);
 
         public BuildMetadataAttribute BuildMetadata => App.BuildMetadata;
 

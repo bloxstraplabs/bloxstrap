@@ -293,7 +293,7 @@
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {ActivityMachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                return "N/A (lookup failed)";
+                return $"N/A ({Resources.Strings.ActivityTracker_LookupFailed})";
             }
 
             locationCity = locationCity.ReplaceLineEndings("");
@@ -308,7 +308,7 @@
                 location = $"{locationCity}, {locationRegion}, {locationCountry}";
 
             if (!ActivityInGame)
-                return "N/A (left game)";
+                return $"N/A ({Resources.Strings.ActivityTracker_LeftGame})";
 
             GeolocationCache[ActivityMachineAddress] = location;
 

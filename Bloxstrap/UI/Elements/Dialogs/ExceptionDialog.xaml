@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
+        Title="{x:Static resources:Strings.Dialog_Exception_Title}"
         Width="540"
         MinHeight="0"
         SizeToContent="Height"
@@ -19,7 +21,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Title="{x:Static resources:Strings.Dialog_Exception_Title}" />
 
         <Grid Grid.Row="1" Margin="16">
             <Grid.ColumnDefinitions>
@@ -28,21 +30,21 @@
             </Grid.ColumnDefinitions>
             <Image Grid.Column="0" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
             <StackPanel Grid.Column="1">
-                <TextBlock Text="An exception occurred while running Bloxstrap" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <TextBlock Text="{x:Static resources:Strings.Dialog_Exception_Info_1}" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <RichTextBox x:Name="ErrorRichTextBox" Padding="8" Margin="0,16,0,0" Block.LineHeight="2" FontFamily="Courier New" IsReadOnly="True" />
-                <TextBlock Text="Please report this exception through a GitHub issue or in our Discord chat, along with a copy of the log file that was created." Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <TextBlock Text="{x:Static resources:Strings.Dialog_Exception_Info_2}" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             </StackPanel>
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button x:Name="LocateLogFileButton" Content="Locate log file" />
+                <Button x:Name="LocateLogFileButton" Content="{x:Static resources:Strings.Common_LocateLogFile}" />
                 <ComboBox x:Name="ReportOptions" SelectedIndex="0" Padding="12,6,12,6" Margin="12,0,0,0">
-                    <ComboBoxItem Content="Submit report..." Visibility="Collapsed" />
-                    <ComboBoxItem Content="Submit report via GitHub" />
-                    <ComboBoxItem Content="Submit report via Discord" />
+                    <ComboBoxItem Content="{x:Static resources:Strings.Dialog_Exception_SubmitReport}" Visibility="Collapsed" />
+                    <ComboBoxItem Content="{x:Static resources:Strings.Dialog_Exception_SubmitReportGithub}" Tag="github" />
+                    <ComboBoxItem Content="{x:Static resources:Strings.Dialog_Exception_SubmitReportDiscord}" Tag="discord" />
                 </ComboBox>
-                <Button x:Name="CloseButton" MinWidth="100" Content="Close" Margin="12,0,0,0" />
+                <Button x:Name="CloseButton" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Margin="12,0,0,0" />
             </StackPanel>
         </Border>
     </Grid>

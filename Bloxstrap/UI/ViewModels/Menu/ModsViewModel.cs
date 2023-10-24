@@ -26,7 +26,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             {
                 var dialog = new OpenFileDialog
                 {
-                    Filter = "Font files|*.ttf;*.otf|All files|*.*"
+                    Filter = $"{Resources.Strings.Menu_FontFiles}|*.ttf;*.otf|{Resources.Strings.Menu_AllFiles}|*.*"
                 };
 
                 if (dialog.ShowDialog() != true)
@@ -62,12 +62,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.UseOldCharacterSounds = value;
         }
 
-        public IReadOnlyDictionary<string, Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
+        public IReadOnlyCollection<Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
 
-        public string SelectedCursorType
+        public Enums.CursorType SelectedCursorType
         {
-            get => CursorTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.CursorType).Key;
-            set => App.Settings.Prop.CursorType = CursorTypes[value];
+            get => App.Settings.Prop.CursorType;
+            set => App.Settings.Prop.CursorType = value;
         }
 
         public bool OldAvatarBackground
@@ -82,12 +82,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
-        public IReadOnlyDictionary<string, EmojiType> EmojiTypes => EmojiTypeEx.Selections;
+        public IReadOnlyCollection<EmojiType> EmojiTypes => EmojiTypeEx.Selections;
 
-        public string SelectedEmojiType
+        public EmojiType SelectedEmojiType
         {
-            get => EmojiTypes.FirstOrDefault(x => x.Value == App.Settings.Prop.EmojiType).Key;
-            set => App.Settings.Prop.EmojiType = EmojiTypes[value];
+            get => App.Settings.Prop.EmojiType;
+            set => App.Settings.Prop.EmojiType = value;
         }
 
         public Visibility ChooseCustomFontVisibility => _usingCustomFont ? Visibility.Collapsed : Visibility.Visible;
@@ -99,6 +99,13 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => App.Settings.Prop.DisableFullscreenOptimizations;
             set => App.Settings.Prop.DisableFullscreenOptimizations = value;
+        }
+
+        public string DisableFullscreenOptimisationsDescriptionText
+        {
+            get => string.Format(
+                        Resources.Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Description,
+                        "https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/");
         }
     }
 }

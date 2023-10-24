@@ -7,6 +7,7 @@ using Wpf.Ui.Mvvm.Contracts;
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.UI.Elements.Menu.Pages;
+using Bloxstrap.Enums.FlagPresets;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
@@ -58,9 +59,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("Rendering.Framerate", value);
         }
 
-        public IReadOnlyDictionary<string, string> RenderingModes => FastFlagManager.RenderingModes;
+        public IReadOnlyDictionary<RenderingMode, string> RenderingModes => FastFlagManager.RenderingModes;
 
-        public string SelectedRenderingMode
+        public RenderingMode SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
             set
@@ -82,15 +83,15 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("UI.Menu.GraphicsSlider", value ? "True" : null);
         }
 
-        public IReadOnlyDictionary<string, string> MaterialVersions => FastFlagManager.MaterialVersions;
+        public IReadOnlyDictionary<MaterialVersion, string> MaterialVersions => FastFlagManager.MaterialVersions;
 
-        public string SelectedMaterialVersion
+        public MaterialVersion SelectedMaterialVersion
         {
             get
             {
-                string oldMaterials = App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.OldTexturesFlagValue);
+                MaterialVersion oldMaterials = App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.OldTexturesFlagValue);
 
-                if (oldMaterials != "Chosen by game")
+                if (oldMaterials != MaterialVersion.Default)
                     return oldMaterials;
 
                 return App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.NewTexturesFlagValue);
@@ -99,9 +100,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPresetEnum("Rendering.Materials", MaterialVersions[value], MaterialVersions[value] == "NewTexturePack" ? FastFlagManager.OldTexturesFlagValue : FastFlagManager.NewTexturesFlagValue);
         }
 
-        public IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
+        public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
 
-        public string SelectedIGMenuVersion
+        public InGameMenuVersion SelectedIGMenuVersion
         {
             get
             {
@@ -133,9 +134,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
-        public IReadOnlyDictionary<string, string> LightingModes => FastFlagManager.LightingModes;
+        public IReadOnlyDictionary<LightingMode, string> LightingModes => FastFlagManager.LightingModes;
 
-        public string SelectedLightingMode
+        public LightingMode SelectedLightingMode
         {
             get => App.FastFlags.GetPresetEnum(LightingModes, "Rendering.Lighting", "True");
             set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
@@ -145,6 +146,21 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => App.FastFlags.GetPreset("UI.Hide") == "32380007";
             set => App.FastFlags.SetPreset("UI.Hide", value ? "32380007" : null);
+        }
+
+        public string Direct3DExclusiveFullscreenInfoText
+        {
+            get => string.Format(
+                        Resources.Strings.Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo,
+                        "https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen");
+        }
+
+        public string HideGuisDescriptionText
+        {
+            get => string.Format(
+                        Resources.Strings.Menu_FastFlags_Presets_HideGuis_Description,
+                        "https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding",
+                        "https://www.roblox.com/groups/32380007/Bloxstrap");
         }
     }
 }

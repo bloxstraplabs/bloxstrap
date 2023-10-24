@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Bloxstrap.Enums.FlagPresets;
+using System.Windows.Forms;
 
 using Windows.Win32;
 using Windows.Win32.Graphics.Gdi;
@@ -57,45 +58,45 @@ namespace Bloxstrap
         };
 
         // only one missing here is Metal because lol
-        public static IReadOnlyDictionary<string, string> RenderingModes => new Dictionary<string, string>
+        public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
         {
-            { "Automatic", "None" },
-            { "Vulkan", "Vulkan" },
-            { "Direct3D 11", "D3D11" },
-            { "Direct3D 10", "D3D10" },
-            { "OpenGL", "OpenGL" }
+            { RenderingMode.Default, "None" },
+            { RenderingMode.Vulkan, "Vulkan" },
+            { RenderingMode.D3D11, "D3D11" },
+            { RenderingMode.D3D10, "D3D10" },
+            { RenderingMode.OpenGL, "OpenGL" }
         };
 
-        public static IReadOnlyDictionary<string, string> LightingModes => new Dictionary<string, string>
+        public static IReadOnlyDictionary<LightingMode, string> LightingModes => new Dictionary<LightingMode, string>
         {
-            { "Chosen by game", "None" },
-            { "Voxel (Phase 1)", "Voxel" },
-            { "ShadowMap (Phase 2)", "ShadowMap" },
-            { "Future (Phase 3)", "Future" }
+            { LightingMode.Default, "None" },
+            { LightingMode.Voxel, "Voxel" },
+            { LightingMode.ShadowMap, "ShadowMap" },
+            { LightingMode.Future, "Future" }
         };
 
-        public static IReadOnlyDictionary<string, string?> MSAAModes => new Dictionary<string, string?>
+        public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>
         {
-            { "Automatic", null },
-            { "1x MSAA", "1" },
-            { "2x MSAA", "2" },
-            { "4x MSAA", "4" },
-            { "8x MSAA", "8" }
+            { MSAAMode.Default, null },
+            { MSAAMode.x1, "1" },
+            { MSAAMode.x2, "2" },
+            { MSAAMode.x4, "4" },
+            { MSAAMode.x8, "8" }
         };
 
-        public static IReadOnlyDictionary<string, string> MaterialVersions => new Dictionary<string, string>
+        public static IReadOnlyDictionary<MaterialVersion, string> MaterialVersions => new Dictionary<MaterialVersion, string>
         {
-            { "Chosen by game", "None" },
-            { "Old (Pre-2022)", "NewTexturePack" },
-            { "New (2022)", "OldTexturePack" }
+            { MaterialVersion.Default, "None" },
+            { MaterialVersion.Old, "NewTexturePack" },
+            { MaterialVersion.New, "OldTexturePack" }
         };
 
         // this is one hell of a dictionary definition lmao
         // since these all set the same flags, wouldn't making this use bitwise operators be better?
-        public static IReadOnlyDictionary<string, Dictionary<string, string?>> IGMenuVersions => new Dictionary<string, Dictionary<string, string?>>
+        public static IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => new Dictionary<InGameMenuVersion, Dictionary<string, string?>>
         {
             {
-                "Default",
+                InGameMenuVersion.Default,
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", null },
@@ -105,7 +106,7 @@ namespace Bloxstrap
             },
 
             {
-                "Version 1 (2015)",
+                InGameMenuVersion.V1,
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
@@ -115,7 +116,7 @@ namespace Bloxstrap
             },
 
             {
-                "Version 2 (2020)",
+                InGameMenuVersion.V2,
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "False" },
@@ -125,7 +126,7 @@ namespace Bloxstrap
             },
 
             {
-                "Version 4 (2023)",
+                InGameMenuVersion.V4,
                 new Dictionary<string, string?>
                 {
                     { "DisableV2", "True" },
@@ -195,7 +196,7 @@ namespace Bloxstrap
 
         public string? GetPreset(string name) => GetValue(PresetFlags[name]);
 
-        public string GetPresetEnum(IReadOnlyDictionary<string, string> mapping, string prefix, string value)
+        public T GetPresetEnum<T>(IReadOnlyDictionary<T, string> mapping, string prefix, string value) where T : Enum
         {
             foreach (var pair in mapping)
             {

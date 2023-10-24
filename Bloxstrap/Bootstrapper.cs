@@ -137,7 +137,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
 
-            SetStatus("Connecting to Roblox...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_Connecting);
 
             try
             {
@@ -148,12 +148,12 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, "Connectivity check failed!");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                string message = $"It's possible that something is preventing {App.ProjectName} from connecting to the internet. Please check and try again.";
+                string message = Resources.Strings.Bootstrapper_Connectivity_Preventing;
 
                 if (ex.GetType() == typeof(HttpResponseException))
-                    message = "Roblox may be down right now. See status.roblox.com for more information. Please try again later.";
+                    message = Resources.Strings.Bootstrapper_Connectivity_RobloxDown;
                 else if (ex.GetType() == typeof(TaskCanceledException))
-                    message = "Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.";
+                    message = Resources.Strings.Bootstrapper_Connectivity_TimedOut;
                 else if (ex.GetType() == typeof(AggregateException))
                     ex = ex.InnerException!;
 
@@ -180,7 +180,7 @@ namespace Bloxstrap
             {
                 Mutex.OpenExisting("Bloxstrap_SingletonMutex").Close();
                 App.Logger.WriteLine(LOG_IDENT, "Bloxstrap_SingletonMutex mutex exists, waiting...");
-                SetStatus("Waiting for other instances...");
+                SetStatus(Resources.Strings.Bootstrapper_Status_WaitingOtherInstances);
                 mutexExists = true;
             }
             catch (Exception)
@@ -231,7 +231,7 @@ namespace Bloxstrap
             await mutex.ReleaseAsync();
 
             if (App.IsFirstRun && App.IsNoLaunch)
-                Dialog?.ShowSuccess($"{App.ProjectName} has successfully installed");
+                Dialog?.ShowSuccess(Resources.Strings.Bootstrapper_SuccessfullyInstalled);
             else if (!App.IsNoLaunch && !_cancelFired)
                 await StartRoblox();
         }
@@ -263,8 +263,7 @@ namespace Bloxstrap
                 MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
                 {
                     ChannelChangeMode.Prompt => Controls.ShowMessageBox(
-                        $"The channel you're currently on ({App.Settings.Prop.Channel}) is out of date, and appears to no longer be receiving updates.\n" +
-                        $"Would you like to switch to the default channel ({RobloxDeployment.DefaultChannel})?",
+                        string.Format(Resources.Strings.Bootstrapper_ChannelOutOfDate, App.Settings.Prop.Channel, RobloxDeployment.DefaultChannel),
                         MessageBoxImage.Warning,
                         MessageBoxButton.YesNo
                     ),
@@ -291,7 +290,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
-            SetStatus("Starting {product}...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_Starting);
 
             if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
             {
@@ -303,7 +302,7 @@ namespace Bloxstrap
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
                 Controls.ShowMessageBox(
-                    "Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.", 
+                    Resources.Strings.Bootstrapper_WMFNotFound, 
                     MessageBoxImage.Error
                 );
 
@@ -635,7 +634,7 @@ namespace Bloxstrap
                 return;
             }
 
-            SetStatus($"Getting the latest {App.ProjectName}...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_UpgradingBloxstrap);
             
             try
             {
@@ -676,7 +675,7 @@ namespace Bloxstrap
                 App.Logger.WriteException(LOG_IDENT, ex);
 
                 Controls.ShowMessageBox(
-                    $"Bloxstrap was unable to auto-update to {releaseInfo.TagName}. Please update it manually by downloading and running the latest release from the GitHub page.",
+                    string.Format(Resources.Strings.Bootstrapper_AutoUpdateFailed, releaseInfo.TagName),
                     MessageBoxImage.Information
                 );
             }
@@ -692,7 +691,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Prompting to shut down all open Roblox instances");
                 
                 MessageBoxResult result = Controls.ShowMessageBox(
-                    "Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?",
+                    Resources.Strings.Bootstrapper_Uninstall_RobloxRunning,
                     MessageBoxImage.Information,
                     MessageBoxButton.OKCancel
                 );
@@ -722,7 +721,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"All Roblox processes closed");
             }
             
-            SetStatus($"Uninstalling {App.ProjectName}...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_Uninstalling);
 
             App.ShouldSaveConfigs = false;
             bool robloxPlayerStillInstalled = true;
@@ -841,7 +840,7 @@ namespace Bloxstrap
                 };
             }
 
-            Dialog?.ShowSuccess($"{App.ProjectName} has successfully uninstalled", callback);
+            Dialog?.ShowSuccess(Resources.Strings.Bootstrapper_SuccessfullyUninstalled, callback);
         }
         #endregion
 
@@ -852,7 +851,7 @@ namespace Bloxstrap
             
             _isInstalling = true;
 
-            SetStatus(FreshInstall ? "Installing {product}..." : "Upgrading {product}...");
+            SetStatus(FreshInstall ? Resources.Strings.Bootstrapper_Status_Installing : Resources.Strings.Bootstrapper_Status_Upgrading);
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
@@ -866,7 +865,7 @@ namespace Bloxstrap
             if (Filesystem.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
                 Controls.ShowMessageBox(
-                    $"{App.ProjectName} does not have enough disk space to download and install Roblox. Please free up some disk space and try again.", 
+                    Resources.Strings.Bootstrapper_NotEnoughSpace, 
                     MessageBoxImage.Error
                 );
 
@@ -911,7 +910,7 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
-                SetStatus("Configuring {product}...");
+                SetStatus(Resources.Strings.Bootstrapper_Status_Configuring);
             }
 
             // wait for all packages to finish extracting, with an exception for the webview2 runtime installer
@@ -1032,7 +1031,7 @@ namespace Bloxstrap
                 await ExtractPackage(package);
             }
 
-            SetStatus("Installing WebView2, please wait...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_InstallingWebView2);
 
             ProcessStartInfo startInfo = new()
             {
@@ -1061,8 +1060,7 @@ namespace Bloxstrap
             if (File.Exists(injectorLocation))
             {
                 Controls.ShowMessageBox(
-                    "Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.\n\n"+
-                    "Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.", 
+                    Resources.Strings.Bootstrapper_HyperionUpdateInfo,
                     MessageBoxImage.Warning
                 );
 
@@ -1083,7 +1081,7 @@ namespace Bloxstrap
                 return;
             }
 
-            SetStatus("Applying Roblox modifications...");
+            SetStatus(Resources.Strings.Bootstrapper_Status_ApplyingModifications);
 
             // set executable flags for fullscreen optimizations
             App.Logger.WriteLine(LOG_IDENT, "Checking executable flags...");

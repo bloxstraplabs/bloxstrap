@@ -213,7 +213,7 @@ namespace Bloxstrap
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
                         Controls.ShowMessageBox(
-                            $"{ProjectName} is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.", 
+                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
                             MessageBoxImage.Information
                         );
 
@@ -232,7 +232,7 @@ namespace Bloxstrap
                 {
                     if (Settings.Prop.UseDisableAppPatch)
                         Controls.ShowMessageBox(
-                            "Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.", 
+                            Bloxstrap.Resources.Strings.Bootstrapper_DeeplinkTempEnabled, 
                             MessageBoxImage.Information
                         );
 

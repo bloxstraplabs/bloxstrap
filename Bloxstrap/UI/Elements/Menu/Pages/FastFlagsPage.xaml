@@ -5,13 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:controls="clr-namespace:Bloxstrap.ControlsWpf"
       mc:Ignorable="d"
       d:DesignHeight="1000" d:DesignWidth="800"
       Title="FastFlagsPage"
       Scrollable="True"
       Loaded="Page_Loaded">
   <StackPanel Margin="0,0,14,14">
-    <TextBlock Margin="0,0,0,16" Text="Control how specific Roblox engine parameters and features are configured." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
     <Grid>
       <Grid.ColumnDefinitions>
@@ -21,26 +23,26 @@
       
       <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
         <StackPanel>
-          <TextBlock FontSize="14" Text="FastFlag Editor" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Manage your own FastFlags." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
 
       <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
         <StackPanel>
-          <TextBlock FontSize="14" Text="Help" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Learn more about FastFlags." Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
     </Grid>
 
     <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
-      <TextBlock Text="Debug" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+      <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
-            <TextBlock FontSize="14" Text="HTTP request logging" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Enables logging of HTTP requests (DFLogHttpTraceLight=12)." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title}" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
           </StackPanel>
         </ui:CardControl.Header>
         <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
@@ -48,8 +50,8 @@
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
-            <TextBlock FontSize="14" Text="HTTP proxy address" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Set blank if not using a proxy. Don't forget to add cacert.pem as a mod." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Title}" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
           </StackPanel>
         </ui:CardControl.Header>
         <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HttpRequestProxy, Mode=TwoWay}" />
@@ -57,20 +59,16 @@
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
-            <TextBlock FontSize="14" Text="Flag state overlay" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Show values of specified flags during runtime. Each flag is comma separated." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Title}" />
+            <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
           </StackPanel>
         </ui:CardControl.Header>
         <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
       </ui:CardControl>
     </StackPanel>
     
-    <TextBlock Text="Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <TextBlock Foreground="{DynamicResource TextFillColorSecondaryBrush}">
-      FastFlag preset for Direct3D
-      <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen">exclusive fullscreen</Hyperlink>
-      using Alt+Enter is already enabled by default.
-    </TextBlock>
+    <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+    <controls:MarkdownTextBlock MarkdownText="{Binding Direct3DExclusiveFullscreenInfoText}"/>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
@@ -79,14 +77,14 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Framerate limit" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">              
-              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
+              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Use a large number like 9999 for no limit. Set as 0 for defaults. " Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
@@ -94,11 +92,17 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Preferred lighting technology" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which lighting technology should be forced enabled in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.LightingMode.'}" />
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
@@ -108,17 +112,23 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Preferred escape menu version" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Title}" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">
-              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
+              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which version of the escape menu to use." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.InGameMenuVersion.'}" />
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
@@ -128,16 +138,14 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Enable ability to hide GUIs" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">
-              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
+              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-            Toggled with <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">keyboard shortcuts</Hyperlink>. Only works if you're in the <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.roblox.com/groups/32380007/Bloxstrap">Bloxstrap group</Hyperlink>.
-          </TextBlock>
+          <controls:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" MarkdownText="{Binding HideGuisDescriptionText}"/>
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
@@ -150,26 +158,38 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Preferred materials" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Title}" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">
-              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
+              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which material version should be forced in all games." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.MaterialVersion.'}" />
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Rendering mode" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose what renderer Roblox should use. VR requires Direct3D/Automatic." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}" />
+      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.RenderingMode.'}" />
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
     </ui:CardControl>
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
@@ -179,14 +199,14 @@
               <ColumnDefinition Width="Auto" />
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" FontSize="14" Text="Preserve rendering quality with display scaling" />
+            <TextBlock Grid.Column="0" FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" />
             <TextBlock Grid.Column="1" Margin="4,0,0,0">
-              <Hyperlink TextDecorations="None" ToolTip="More information on this preset" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
+              <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_FastFlags_Presets_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
                 <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
               </Hyperlink>
             </TextBlock>
           </Grid>
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox reduces your rendering quality, depending on display scaling. This toggle disables that." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
@@ -194,8 +214,8 @@
     <ui:CardControl Margin="0,8,0,0">
       <ui:CardControl.Header>
         <StackPanel>
-          <TextBlock FontSize="14" Text="Use alternate graphics quality selector" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Title}" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardControl.Header>
       <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />

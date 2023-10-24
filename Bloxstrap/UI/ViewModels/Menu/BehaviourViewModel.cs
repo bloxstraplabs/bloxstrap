@@ -17,7 +17,7 @@
             ShowLoadingError = false;
             OnPropertyChanged(nameof(ShowLoadingError));
 
-            ChannelInfoLoadingText = "Fetching latest deploy info, please wait...";
+            ChannelInfoLoadingText = Resources.Strings.Menu_Behaviour_Channel_Fetching;
             OnPropertyChanged(nameof(ChannelInfoLoadingText));
 
             ChannelDeployInfo = null;
@@ -46,8 +46,8 @@
 
                 ChannelInfoLoadingText = ex.ResponseMessage.StatusCode switch
                 {
-                    HttpStatusCode.NotFound => "The specified channel name does not exist.",
-                    _ => $"Failed to fetch information! (HTTP {(int)ex.ResponseMessage.StatusCode} - {ex.ResponseMessage.ReasonPhrase})",
+                    HttpStatusCode.NotFound => Resources.Strings.Menu_Behaviour_Channel_DoesNotExist,
+                    _ => $"{Resources.Strings.Menu_Behaviour_Channel_FetchFailed} (HTTP {(int)ex.ResponseMessage.StatusCode} - {ex.ResponseMessage.ReasonPhrase})",
                 };
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
@@ -59,7 +59,7 @@
                 ShowLoadingError = true;
                 OnPropertyChanged(nameof(ShowLoadingError));
                 
-                ChannelInfoLoadingText = $"Failed to fetch information! ({ex.Message})";
+                ChannelInfoLoadingText = $"{Resources.Strings.Menu_Behaviour_Channel_FetchFailed} ({ex.Message})";
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
         }
@@ -93,18 +93,17 @@
             }
         }
 
-        // todo - move to enum attributes?
-        public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
+        public IReadOnlyCollection<ChannelChangeMode> ChannelChangeModes => new ChannelChangeMode[]
         {
-            { "Change automatically", ChannelChangeMode.Automatic },
-            { "Always prompt", ChannelChangeMode.Prompt },
-            { "Never change", ChannelChangeMode.Ignore },
+            ChannelChangeMode.Automatic,
+            ChannelChangeMode.Prompt,
+            ChannelChangeMode.Ignore,
         };
 
-        public string SelectedChannelChangeMode
+        public ChannelChangeMode SelectedChannelChangeMode
         {
-            get => ChannelChangeModes.FirstOrDefault(x => x.Value == App.Settings.Prop.ChannelChangeMode).Key;
-            set => App.Settings.Prop.ChannelChangeMode = ChannelChangeModes[value];
+            get => App.Settings.Prop.ChannelChangeMode;
+            set => App.Settings.Prop.ChannelChangeMode = value;
         }
 
         public bool ForceRobloxReinstallation

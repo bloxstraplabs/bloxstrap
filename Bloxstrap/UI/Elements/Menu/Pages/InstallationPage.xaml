@@ -7,13 +7,14 @@
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:viewmodels="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
       d:DataContext="{d:DesignInstance Type=viewmodels:InstallationViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InstallationPage">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="Configure how Bloxstrap/Roblox is installed." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Installation_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <ui:CardExpander Margin="0,16,0,0" IsExpanded="True">
             <ui:CardExpander.Style>
@@ -28,8 +29,8 @@
             </ui:CardExpander.Style>
             <ui:CardExpander.Header>
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Install Location" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose where Bloxstrap should be installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Installation_InstallLocation_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_InstallLocation_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardExpander.Header>
             <Grid>
@@ -39,8 +40,8 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding InstallLocation, Mode=TwoWay}" />
-                <ui:Button Grid.Column="1" Margin="4,0,4,0" Height="35" Icon="Folder24" Content="Browse" Command="{Binding BrowseInstallLocationCommand}" />
-                <ui:Button Grid.Column="2" Margin="4,0,0,0" Height="35" Icon="ArrowCounterclockwise24" Content="Reset" Command="{Binding ResetInstallLocationCommand}" />
+                <ui:Button Grid.Column="1" Margin="4,0,4,0" Height="35" Icon="Folder24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseInstallLocationCommand}" />
+                <ui:Button Grid.Column="2" Margin="4,0,0,0" Height="35" Icon="ArrowCounterclockwise24" Content="{x:Static resources:Strings.Common_Reset}" Command="{Binding ResetInstallLocationCommand}" />
             </Grid>
         </ui:CardExpander>
 
@@ -63,15 +64,15 @@
 
             <ui:CardAction Grid.Column="0" x:Name="OpenFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" >
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Open Installation Folder" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Where Bloxstrap is currently installed to." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Installation_OpenInstallFolder_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_OpenInstallFolder_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
 
             <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="UninstallApp24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Uninstalling-Bloxstrap">
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="Looking to uninstall?" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Here's a guide on how to uninstall Bloxstrap." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Installation_UninstallGuide_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_UninstallGuide_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

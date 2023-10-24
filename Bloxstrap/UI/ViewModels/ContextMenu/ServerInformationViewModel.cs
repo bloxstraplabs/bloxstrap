@@ -11,9 +11,11 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         private readonly ActivityWatcher _activityWatcher;
 
         public string InstanceId => _activityWatcher.ActivityJobId;
-        public string ServerType => $"{_activityWatcher.ActivityServerType} server";
-        public string ServerLocation { get; private set; } = "Loading, please wait...";
-        public string UdmuxProxied => _activityWatcher.ActivityMachineUDMUX ? "Yes" : "No";
+        public string ServerType => string.Format(
+            Resources.Strings.ContextMenu_ServerInformation_TypeFormat,
+            Resources.Strings.ResourceManager.GetStringSafe($"Enums.ServerType.{_activityWatcher.ActivityServerType}"));
+        public string ServerLocation { get; private set; } = Resources.Strings.ContextMenu_ServerInformation_Loading;
+        public string UdmuxProxied => _activityWatcher.ActivityMachineUDMUX ? Resources.Strings.Common_Yes : Resources.Strings.Common_No;
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
         public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
