@@ -6,7 +6,7 @@
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
-      xmlns:controls="clr-namespace:Bloxstrap.ControlsWpf"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d"
       d:DesignHeight="800" d:DesignWidth="800"
       Title="ModsPage"

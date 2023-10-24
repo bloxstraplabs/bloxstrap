@@ -7,7 +7,7 @@ using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
 using Markdig;
 
-namespace Bloxstrap.ControlsWpf
+namespace Bloxstrap.UI.Elements.Controls
 {
     /// <summary>
     /// TextBlock with markdown support. <br/>

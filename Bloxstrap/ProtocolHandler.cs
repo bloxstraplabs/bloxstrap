@@ -90,7 +90,7 @@ namespace Bloxstrap
                 if (channel == App.State.Prop.LastEnrolledChannel)
                     return;
 
-                MessageBoxResult result = Controls.ShowMessageBox(
+                MessageBoxResult result = Methods.ShowMessageBox(
                     string.Format(Resources.Strings.ProtocolHandler_RobloxSwitchedChannel, channel, App.Settings.Prop.Channel),
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo

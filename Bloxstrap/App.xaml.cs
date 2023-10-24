@@ -212,12 +212,12 @@ namespace Bloxstrap
                 else
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
-                        Controls.ShowMessageBox(
+                        Methods.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
                             MessageBoxImage.Information
                         );
 
-                    Controls.ShowMenu();
+                    Methods.ShowMenu();
                 }
             }
             else if (LaunchArgs.Length > 0)
@@ -231,7 +231,7 @@ namespace Bloxstrap
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
                     if (Settings.Prop.UseDisableAppPatch)
-                        Controls.ShowMessageBox(
+                        Methods.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Bootstrapper_DeeplinkTempEnabled, 
                             MessageBoxImage.Information
                         );

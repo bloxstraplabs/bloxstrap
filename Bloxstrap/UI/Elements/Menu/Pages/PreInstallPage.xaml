@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
-      xmlns:controls="clr-namespace:Bloxstrap.ControlsWpf"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PreInstallPage"

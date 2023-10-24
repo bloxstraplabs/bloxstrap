@@ -32,7 +32,7 @@ namespace Bloxstrap
 
                 _installLocation = Path.GetDirectoryName(Paths.Process)!;
 
-                var result = Controls.ShowMessageBox(
+                var result = Methods.ShowMessageBox(
                     string.Format(Resources.Strings.InstallChecker_NotInstalledProperly, _installLocation), 
                     MessageBoxImage.Warning, 
                     MessageBoxButton.YesNo
@@ -74,7 +74,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Drive has changed from {driveName} to {newDriveName}");
 
-                    Controls.ShowMessageBox(
+                    Methods.ShowMessageBox(
                         string.Format(Resources.Strings.InstallChecker_DriveLetterChangeDetected, driveName, newDriveName),
                         MessageBoxImage.Warning,
                         MessageBoxButton.OK
@@ -87,7 +87,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Drive {driveName} does not exist anymore, and has likely been removed");
 
-                    var result = Controls.ShowMessageBox(
+                    var result = Methods.ShowMessageBox(
                         string.Format(Resources.Strings.InstallChecker_InstallDriveMissing, driveName),
                         MessageBoxImage.Warning,
                         MessageBoxButton.OKCancel
@@ -130,7 +130,7 @@ namespace Bloxstrap
             App.IsSetupComplete = false;
 
             App.FastFlags.Load();
-            Controls.ShowMenu();
+            Methods.ShowMenu();
 
             // exit if we don't click the install button on installation
             if (App.IsSetupComplete)
@@ -165,7 +165,7 @@ namespace Bloxstrap
             }
             else
             {
-                result = Controls.ShowMessageBox(
+                result = Methods.ShowMessageBox(
                     Resources.Strings.InstallChecker_VersionDifferentThanInstalled,
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
@@ -240,13 +240,13 @@ namespace Bloxstrap
             }
             else if (!App.IsQuiet)
             {
-                Controls.ShowMessageBox(
+                Methods.ShowMessageBox(
                     string.Format(Resources.Strings.InstallChecker_Updated, currentVersionInfo.ProductVersion),
                     MessageBoxImage.Information,
                     MessageBoxButton.OK
                 );
 
-                Controls.ShowMenu();
+                Methods.ShowMenu();
 
                 App.Terminate();
             }
