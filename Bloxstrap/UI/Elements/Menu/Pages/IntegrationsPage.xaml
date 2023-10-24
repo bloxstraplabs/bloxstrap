@@ -12,101 +12,101 @@
       d:DesignHeight="1080" d:DesignWidth="800"
       Title="IntegrationsPage"
       Scrollable="True">
-  <StackPanel Margin="0,0,14,14">
-    <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" 
-        Description="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Description}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/What-is-activity-tracking%3F"
-        x:Name="ActivityTrackingOption">
-      <ui:ToggleSwitch IsChecked="{Binding ActivityTrackingEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Title}" 
-        Description="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Description}"
-        IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
-      <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
-    <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
-        Description="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}"
-        IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
-        x:Name="DiscordActivityOption">
-      <ui:ToggleSwitch IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Title}" 
-        Description="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Description}"
-        IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
-      <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Description}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/What-is-activity-tracking%3F"
+            x:Name="ActivityTrackingOption">
+            <ui:ToggleSwitch IsChecked="{Binding ActivityTrackingEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
 
-    <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Title}" 
-        Description="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Description}">
-      <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_ShowServerDetails_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
 
-    <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-    <Grid Margin="0,8,0,0">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="Auto" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="250" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <ListBox x:Name="CustomIntegrationsListBox" Grid.Row="0" Grid.Column="0" Margin="0,0,4,0" ItemsSource="{Binding CustomIntegrations, Mode=OneWay}" DisplayMemberPath="Name" SelectionChanged="CustomIntegrationSelection" SelectedIndex="{Binding SelectedCustomIntegrationIndex, Mode=TwoWay}" />
-      <Grid Grid.Row="1" Grid.Column="0" Margin="0,8,4,0">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <ui:Button Grid.Column="0" Margin="0,0,4,0" Icon="Add28" Content="{x:Static resources:Strings.Common_New}" HorizontalAlignment="Stretch" Command="{Binding AddIntegrationCommand, Mode=OneTime}" />
-        <ui:Button Grid.Column="1" Margin="4,0,0,0" Icon="Delete28" Content="{x:Static resources:Strings.Common_Delete}" HorizontalAlignment="Stretch" Appearance="Danger" IsEnabled="{Binding IsCustomIntegrationSelected, Mode=OneWay}" Command="{Binding DeleteIntegrationCommand, Mode=OneTime}" />
-      </Grid>
-      <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="4,0,0,0">
-        <StackPanel.Style>
-          <Style>
-            <Style.Triggers>
-              <DataTrigger Binding="{Binding IsCustomIntegrationSelected}" Value="False">
-                <Setter Property="StackPanel.Visibility" Value="Hidden"></Setter>
-              </DataTrigger>
-            </Style.Triggers>
-          </Style>
-        </StackPanel.Style>
-        <TextBlock Text="{x:Static resources:Strings.Common_Name}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <ui:TextBox Margin="0,4,0,0" Text="{Binding SelectedCustomIntegration.Name}" />
-        <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation_Placeholder}" Text="{Binding SelectedCustomIntegration.Location}" />
-        <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" />
-        <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
-      </StackPanel>
-      <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <TextBlock.Style>
-          <Style>
-            <Style.Triggers>
-              <DataTrigger Binding="{Binding IsCustomIntegrationSelected}" Value="True">
-                <Setter Property="TextBlock.Visibility" Value="Hidden"></Setter>
-              </DataTrigger>
-            </Style.Triggers>
-          </Style>
-        </TextBlock.Style>
-      </TextBlock>
-    </Grid>
-  </StackPanel>
+        <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
+            x:Name="DiscordActivityOption">
+            <ui:ToggleSwitch IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Grid Margin="0,8,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="CustomIntegrationsListBox" Grid.Row="0" Grid.Column="0" Margin="0,0,4,0" ItemsSource="{Binding CustomIntegrations, Mode=OneWay}" DisplayMemberPath="Name" SelectionChanged="CustomIntegrationSelection" SelectedIndex="{Binding SelectedCustomIntegrationIndex, Mode=TwoWay}" />
+            <Grid Grid.Row="1" Grid.Column="0" Margin="0,8,4,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ui:Button Grid.Column="0" Margin="0,0,4,0" Icon="Add28" Content="{x:Static resources:Strings.Common_New}" HorizontalAlignment="Stretch" Command="{Binding AddIntegrationCommand, Mode=OneTime}" />
+                <ui:Button Grid.Column="1" Margin="4,0,0,0" Icon="Delete28" Content="{x:Static resources:Strings.Common_Delete}" HorizontalAlignment="Stretch" Appearance="Danger" IsEnabled="{Binding IsCustomIntegrationSelected, Mode=OneWay}" Command="{Binding DeleteIntegrationCommand, Mode=OneTime}" />
+            </Grid>
+            <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="4,0,0,0">
+                <StackPanel.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCustomIntegrationSelected}" Value="False">
+                                <Setter Property="StackPanel.Visibility" Value="Hidden"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <TextBlock Text="{x:Static resources:Strings.Common_Name}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <ui:TextBox Margin="0,4,0,0" Text="{Binding SelectedCustomIntegration.Name}" />
+                <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation_Placeholder}" Text="{Binding SelectedCustomIntegration.Location}" />
+                <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" />
+                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
+            </StackPanel>
+            <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsCustomIntegrationSelected}" Value="True">
+                                <Setter Property="TextBlock.Visibility" Value="Hidden"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+    </StackPanel>
 </ui:UiPage>

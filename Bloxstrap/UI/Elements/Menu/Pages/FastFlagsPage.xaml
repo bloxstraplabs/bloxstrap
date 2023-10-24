@@ -12,130 +12,130 @@
       Title="FastFlagsPage"
       Scrollable="True"
       Loaded="Page_Loaded">
-  <StackPanel Margin="0,0,14,14">
-    <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      
-      <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+
+            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+        </Grid>
+
+        <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+            <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+
+            <controls:OptionControl 
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl 
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding HttpRequestProxy, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl 
+                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Title}" 
+                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Description}">
+                <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
+            </controls:OptionControl>
         </StackPanel>
-      </ui:CardAction>
 
-      <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
-        <StackPanel>
-          <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
-          <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
-      </ui:CardAction>
-    </Grid>
+        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <controls:MarkdownTextBlock MarkdownText="{Binding Direct3DExclusiveFullscreenInfoText}"/>
 
-    <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
-      <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        
-      <controls:OptionControl 
-          Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title}" 
-          Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Description}">
-        <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
-      </controls:OptionControl>
-        
-      <controls:OptionControl 
-          Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Title}" 
-          Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Description}">
-        <ui:ToggleSwitch IsChecked="{Binding HttpRequestProxy, Mode=TwoWay}" />
-      </controls:OptionControl>
-        
-      <controls:OptionControl 
-          Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Title}" 
-          Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Description}">
-        <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
-      </controls:OptionControl>
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.LightingMode.'}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Description}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.InGameMenuVersion.'}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
+            Description="{Binding HideGuisDescriptionText}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
+            <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Description}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.MaterialVersion.'}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.RenderingMode.'}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
+            <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Title}" 
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
     </StackPanel>
-    
-    <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-    <controls:MarkdownTextBlock MarkdownText="{Binding Direct3DExclusiveFullscreenInfoText}"/>
-
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
-      <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}">
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
-        <ComboBox.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.LightingMode.'}" />
-          </DataTemplate>
-        </ComboBox.ItemTemplate>
-      </ComboBox>
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Description}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
-        <ComboBox.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.InGameMenuVersion.'}" />
-          </DataTemplate>
-        </ComboBox.ItemTemplate>
-      </ComboBox>
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
-        Description="{Binding HideGuisDescriptionText}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
-      <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Description}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}">
-        <ComboBox.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.MaterialVersion.'}" />
-          </DataTemplate>
-        </ComboBox.ItemTemplate>
-      </ComboBox>
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}">
-      <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
-        <ComboBox.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.RenderingMode.'}" />
-          </DataTemplate>
-        </ComboBox.ItemTemplate>
-      </ComboBox>
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
-        HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
-      <ui:ToggleSwitch IsChecked="{Binding FixDisplayScaling, Mode=TwoWay}" />
-    </controls:OptionControl>
-      
-    <controls:OptionControl 
-        Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Title}" 
-        Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Description}">
-      <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
-    </controls:OptionControl>
-  </StackPanel>
 </ui:UiPage>

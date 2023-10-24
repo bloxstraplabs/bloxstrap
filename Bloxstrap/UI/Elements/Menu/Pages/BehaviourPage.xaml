@@ -18,14 +18,14 @@
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Behaviour_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
-              Header="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}"
-              Description="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}">
+            Header="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}">
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopIcon, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
-              Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
-              Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
+            Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
@@ -143,8 +143,8 @@
         </ui:CardExpander>
 
         <controls:OptionControl 
-              Header="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Title}"
-              Description="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Description}">
+            Header="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_AutoChannelChange_Description}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -155,8 +155,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-              Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
-              Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
+            Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
             <controls:OptionControl.Style>
                 <Style TargetType="controls:OptionControl">
                     <Style.Triggers>

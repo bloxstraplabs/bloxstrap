@@ -8,16 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              x:Name="Control">
-  <Expander VerticalAlignment="Top" IsExpanded="True" Content="{Binding InnerContent, ElementName=Control}">
-    <Expander.Header>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto" />
-          <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <ui:SymbolIcon Grid.Column="0" Margin="0,0,8,0" VerticalAlignment="Center" Symbol="{Binding HeaderIcon, ElementName=Control}" />
-        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding HeaderText, ElementName=Control}" />
-      </Grid>
-    </Expander.Header>
-  </Expander>
+    <Expander VerticalAlignment="Top" IsExpanded="True" Content="{Binding InnerContent, ElementName=Control}">
+        <Expander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ui:SymbolIcon Grid.Column="0" Margin="0,0,8,0" VerticalAlignment="Center" Symbol="{Binding HeaderIcon, ElementName=Control}" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding HeaderText, ElementName=Control}" />
+            </Grid>
+        </Expander.Header>
+    </Expander>
 </UserControl>
