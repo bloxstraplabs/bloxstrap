@@ -1283,6 +1283,8 @@ namespace Bloxstrap
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
             string robloxPackageLocation = Path.Combine(Paths.LocalAppData, "Roblox", "Downloads", package.Signature);
 
+            App.Logger.WriteLine(LOG_IDENT, packageLocation);
+
             if (File.Exists(packageLocation))
             {
                 FileInfo file = new(packageLocation);
