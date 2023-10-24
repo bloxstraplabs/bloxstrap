@@ -16,7 +16,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             // fullscreen optimizations were only added in windows 10 build 17093
             if (Environment.OSVersion.Version.Build < 17093)
-                this.MiscellaneousOptions.Visibility = Visibility.Collapsed;
+                this.FullscreenOptimizationsToggle.Visibility = Visibility.Collapsed;
         }
     }
 }

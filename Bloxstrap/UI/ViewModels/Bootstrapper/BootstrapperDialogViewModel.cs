@@ -16,6 +16,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         public ImageSource Icon { get; set; } = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
         public string Message { get; set; } = "Please wait...";
         public bool ProgressIndeterminate { get; set; } = true;
+        public int ProgressMaximum { get; set; } = 0;
         public int ProgressValue { get; set; } = 0;
 
         public bool CancelEnabled { get; set; } = false;

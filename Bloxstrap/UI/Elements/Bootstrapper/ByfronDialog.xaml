@@ -38,7 +38,7 @@
                         <ScaleTransform ScaleY="0.9"/>
                     </TextBlock.LayoutTransform>
                 </TextBlock>
-                <ProgressBar Grid.Row="1" Width="480" Height="12" Foreground="{Binding Foreground}" Background="{Binding ProgressBarBackground}" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Value="{Binding ProgressValue}"></ProgressBar>
+                <ProgressBar Grid.Row="1" Width="480" Height="12" Foreground="{Binding Foreground}" Background="{Binding ProgressBarBackground}" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Maximum="{Binding ProgressMaximum, Mode=OneWay}" Value="{Binding ProgressValue}"></ProgressBar>
             </Grid>
         </Grid>
     </Border>

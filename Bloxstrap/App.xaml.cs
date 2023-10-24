@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Web;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -14,7 +15,8 @@ namespace Bloxstrap
     {
         public const string ProjectName = "Bloxstrap";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
-        public const string RobloxAppName = "RobloxPlayerBeta";
+        public const string RobloxPlayerAppName = "RobloxPlayerBeta";
+        public const string RobloxStudioAppName = "RobloxStudioBeta";
 
         // used only for communicating between app and menu - use Directories.Base for anything else
         public static string BaseDirectory = null!;
@@ -49,7 +51,9 @@ namespace Bloxstrap
             )
         );
 
+#if RELEASE
         private static bool _showingExceptionDialog = false;
+#endif
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
@@ -120,6 +124,10 @@ namespace Bloxstrap
 
             LaunchArgs = e.Args;
 
+#if DEBUG
+            Logger.WriteLine(LOG_IDENT, $"Arguments: {string.Join(' ', LaunchArgs)}");
+#endif
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
@@ -189,6 +197,7 @@ namespace Bloxstrap
 #endif
 
             string commandLine = "";
+            LaunchMode? launchMode = null;
 
             if (IsMenuLaunch)
             {
@@ -216,6 +225,8 @@ namespace Bloxstrap
                 if (LaunchArgs[0].StartsWith("roblox-player:"))
                 {
                     commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+
+                    launchMode = LaunchMode.Player;
                 }
                 else if (LaunchArgs[0].StartsWith("roblox:"))
                 {
@@ -226,25 +237,53 @@ namespace Bloxstrap
                         );
 
                     commandLine = $"--app --deeplink {LaunchArgs[0]}";
+
+                    launchMode = LaunchMode.Player;
+                }
+                else if (LaunchArgs[0].StartsWith("roblox-studio:"))
+                {
+                    commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
+
+                    if (!commandLine.Contains("-startEvent"))
+                        commandLine += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
+
+                    launchMode = LaunchMode.Studio;
+                }
+                else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
+                {
+                    commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
+
+                    launchMode = LaunchMode.StudioAuth;
+                }
+                else if (LaunchArgs[0] == "-ide")
+                {
+                    launchMode = LaunchMode.Studio;
+
+                    if (LaunchArgs.Length >= 2)
+                        commandLine = $"-task EditFile -localPlaceFile \"{LaunchArgs[1]}\"";
                 }
                 else
                 {
                     commandLine = "--app";
+
+                    launchMode = LaunchMode.Player;
                 }
             }
             else
             {
                 commandLine = "--app";
+
+                launchMode = LaunchMode.Player;
             }
 
-            if (!String.IsNullOrEmpty(commandLine))
+            if (launchMode != null)
             {
                 if (!IsFirstRun)
                     ShouldSaveConfigs = true;
                 
                 // start bootstrapper and show the bootstrapper modal if we're not running silently
                 Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine);
+                Bootstrapper bootstrapper = new(commandLine, (LaunchMode)launchMode);
                 IBootstrapperDialog? dialog = null;
 
                 if (!IsQuiet)
@@ -261,7 +300,7 @@ namespace Bloxstrap
 
                 Mutex? singletonMutex = null;
 
-                if (Settings.Prop.MultiInstanceLaunching)
+                if (Settings.Prop.MultiInstanceLaunching && launchMode == LaunchMode.Player)
                 {
                     Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
 

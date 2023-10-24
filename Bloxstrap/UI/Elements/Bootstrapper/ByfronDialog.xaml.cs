@@ -41,6 +41,16 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
+        public int ProgressMaximum
+        {
+            get => _viewModel.ProgressMaximum;
+            set
+            {
+                _viewModel.ProgressMaximum = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.ProgressMaximum));
+            }
+        }
+
         public int ProgressValue
         {
             get => _viewModel.ProgressValue;
@@ -69,7 +79,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         public ByfronDialog()
         {
-            _viewModel = new ByfronDialogViewModel(this);
+            string version = Utilities.GetRobloxVersion(Bootstrapper?.IsStudioLaunch ?? false);
+            _viewModel = new ByfronDialogViewModel(this, version);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

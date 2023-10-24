@@ -16,6 +16,7 @@ namespace Bloxstrap.UI
         
         private ActivityWatcher? _activityWatcher;
         private DiscordRichPresence? _richPresenceHandler;
+        private int? _processId;
 
         EventHandler? _alertClickHandler;
 
@@ -52,6 +53,14 @@ namespace Bloxstrap.UI
             if (App.Settings.Prop.ShowServerDetails)
                 _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
         }
+
+        public void SetProcessId(int processId)
+        {
+            if (_processId is not null)
+                return;
+
+            _processId = processId;
+        }
         #endregion
 
         #region Context menu
@@ -62,7 +71,7 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine("NotifyIconWrapper::InitializeContextMenu", "Initializing context menu");
 
-            _menuContainer = new(_activityWatcher, _richPresenceHandler);
+            _menuContainer = new(_activityWatcher, _richPresenceHandler, _processId);
             _menuContainer.ShowDialog();
         }
 

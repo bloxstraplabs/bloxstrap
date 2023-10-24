@@ -2,7 +2,8 @@
 {
     public class BehaviourViewModel : NotifyPropertyChangedViewModel
     {
-        private string _oldVersionGuid = "";
+        private string _oldPlayerVersionGuid = "";
+        private string _oldStudioVersionGuid = "";
 
         public BehaviourViewModel()
         {
@@ -108,17 +109,22 @@
 
         public bool ForceRobloxReinstallation
         {
-            get => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
+            // wouldnt it be better to check old version guids?
+            // what about fresh installs?
+            get => String.IsNullOrEmpty(App.State.Prop.PlayerVersionGuid) && String.IsNullOrEmpty(App.State.Prop.StudioVersionGuid);
             set
             {
                 if (value)
                 {
-                    _oldVersionGuid = App.State.Prop.VersionGuid;
-                    App.State.Prop.VersionGuid = "";
+                    _oldPlayerVersionGuid = App.State.Prop.PlayerVersionGuid;
+                    _oldStudioVersionGuid = App.State.Prop.StudioVersionGuid;
+                    App.State.Prop.PlayerVersionGuid = "";
+                    App.State.Prop.StudioVersionGuid = "";
                 }
                 else
                 {
-                    App.State.Prop.VersionGuid = _oldVersionGuid;
+                    App.State.Prop.PlayerVersionGuid = _oldPlayerVersionGuid;
+                    App.State.Prop.StudioVersionGuid = _oldStudioVersionGuid;
                 }
             }
         }

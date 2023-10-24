@@ -26,14 +26,16 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private LogTracer? _logTracerWindow;
         private ServerInformation? _serverInformationWindow;
+        private int? _processId;
 
-        public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler)
+        public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler, int? processId)
         {
             InitializeComponent();
             ApplyTheme();
 
             _activityWatcher = activityWatcher;
             _richPresenceHandler = richPresenceHandler;
+            _processId = processId;
 
             if (_activityWatcher is not null)
             {
@@ -46,6 +48,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_richPresenceHandler is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
+
+            if (_processId is not null)
+                CloseRobloxMenuItem.Visibility = Visibility.Visible;
 
             VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }
@@ -117,6 +122,22 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 _logTracerWindow.Show();
 
             _logTracerWindow.Activate();
+        }
+
+        private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = Controls.ShowMessageBox(
+                "Are you sure you want to close Roblox? This will forcefully end the process.",
+                MessageBoxImage.Warning,
+                MessageBoxButton.YesNo
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            using Process process = Process.GetProcessById((int)_processId!);
+            process.CloseMainWindow();
+            process.Close();
         }
     }
 }

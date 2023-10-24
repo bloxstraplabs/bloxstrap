@@ -221,9 +221,15 @@
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
-      <ui:CardAction Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
+      <ui:CardAction Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager/blob/main/LICENSE">
         <StackPanel>
-          <TextBlock FontSize="14" Text="Roblox Studio Mod Manager by MaximumADHD" />
+          <TextBlock FontSize="13" Text="RSMM by MaximumADHD" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        </StackPanel>
+      </ui:CardAction>
+      <ui:CardAction Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/icsharpcode/SharpZipLib/blob/master/LICENSE.txt">
+        <StackPanel>
+          <TextBlock FontSize="13" Text="SharpZipLib by icsharpcode" />
           <TextBlock Margin="0,2,0,0" FontSize="12" Text="MIT License" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         </StackPanel>
       </ui:CardAction>
