@@ -15,6 +15,25 @@
 
             <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
 
+            <Style TargetType="{x:Type Hyperlink}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground">
+                            <Setter.Value>
+                                <SolidColorBrush Color="{DynamicResource SystemAccentColorTertiary}" />
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="TextDecorations" Value="Underline" />
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="TextDecorations" Value="None" />
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <converters:ResourceConverter x:Key="ResourceConverter" />
             <converters:StringFormatConverter x:Key="StringFormatConverter" />
         </ResourceDictionary>

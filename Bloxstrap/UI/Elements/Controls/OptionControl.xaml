@@ -21,16 +21,30 @@
                     <TextBlock Grid.Column="0" FontSize="14" Text="{Binding Header, ElementName=Control}" />
                     <TextBlock Grid.Column="1" Margin="4,0,0,0">
                         <TextBlock.Style>
-                            <Style>
+                            <Style TargetType="TextBlock">
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding HelpLink, ElementName=Control}" Value="{x:Null}">
-                                        <Setter Property="TextBlock.Visibility" Value="Collapsed" />
+                                        <Setter Property="Visibility" Value="Collapsed" />
                                     </DataTrigger>
                                 </Style.Triggers>
                             </Style>
                         </TextBlock.Style>
                         <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding HelpLink, ElementName=Control}">
-                            <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0" />
+                            <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0">
+                                <ui:SymbolIcon.Style>
+                                    <Style TargetType="ui:SymbolIcon" BasedOn="{StaticResource {x:Type ui:SymbolIcon}}">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Foreground">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="{DynamicResource SystemAccentColorTertiary}" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ui:SymbolIcon.Style>
+                            </ui:SymbolIcon>
                         </Hyperlink>
                     </TextBlock>
                 </Grid>

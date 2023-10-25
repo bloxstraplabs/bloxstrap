@@ -50,11 +50,10 @@ namespace Bloxstrap.UI.Elements.Controls
                 return;
 
             MarkdownDocument document = Markdown.Parse((string)dependencyPropertyChangedEventArgs.NewValue);
-            ParagraphBlock? paragraphBlock = document.FirstOrDefault() as ParagraphBlock;
 
             markdownTextBlock.Inlines.Clear();
 
-            if (paragraphBlock == null || paragraphBlock.Inline == null)
+            if (document.FirstOrDefault() is not ParagraphBlock paragraphBlock || paragraphBlock.Inline == null)
                 return;
 
             foreach (var inline in paragraphBlock.Inline)
@@ -71,15 +70,11 @@ namespace Bloxstrap.UI.Elements.Controls
                     if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(text))
                         continue;
 
-                    var link = new Hyperlink(new Run(text))
+                    markdownTextBlock.Inlines.Add(new Hyperlink(new Run(text))
                     {
                         Command = GlobalViewModel.OpenWebpageCommand,
                         CommandParameter = url
-                    };
-
-                    link.SetResourceReference(Control.ForegroundProperty, "TextFillColorPrimaryBrush");
-
-                    markdownTextBlock.Inlines.Add(link);
+                    });
                 }
             }
         }
