@@ -271,14 +271,17 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
             if (conflictingFlags.Any())
             {
-                var result = Controls.ShowMessageBox(
-                    "Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?\n" +
+                int count = conflictingFlags.Count();
+
+                string message = "Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?\n" +
                     "\n" +
-                    "Conflicting flags:\n" +
-                    String.Join(", ", conflictingFlags),
-                    MessageBoxImage.Question,
-                    MessageBoxButton.YesNo
-                );
+                    $"There are {count} conflicting flag definitions:\n" + 
+                    String.Join(", ", conflictingFlags.Take(25));
+
+                if (count > 25)
+                    message += "...";
+
+                var result = Controls.ShowMessageBox(message, MessageBoxImage.Question, MessageBoxButton.YesNo);
 
                 overwriteConflicting = result == MessageBoxResult.Yes;
             }
