@@ -245,7 +245,14 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 if (dialog.Result != MessageBoxResult.OK)
                     return;
 
-                json = dialog.JsonTextBox.Text;
+                json = dialog.JsonTextBox.Text.Trim();
+
+                // autocorrect where possible
+                if (!json.StartsWith('{'))
+                    json = '{' + json;
+
+                if (!json.EndsWith('}'))
+                    json += '}';
 
                 try
                 {
