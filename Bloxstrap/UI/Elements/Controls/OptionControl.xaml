@@ -48,7 +48,17 @@
                         </Hyperlink>
                     </TextBlock>
                 </Grid>
-                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                    <local:MarkdownTextBlock.Style>
+                        <Style TargetType="local:MarkdownTextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Description, ElementName=Control}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </local:MarkdownTextBlock.Style>
+                </local:MarkdownTextBlock>
             </StackPanel>
         </ui:CardControl.Header>
     </ui:CardControl>

@@ -17,23 +17,9 @@ namespace Bloxstrap.UI.Elements.Controls
     [Localizability(LocalizationCategory.Text)]
     class MarkdownTextBlock : TextBlock
     {
-        public static readonly DependencyProperty MarkdownTextProperty = DependencyProperty.Register(
-            "MarkdownText",
-            typeof(string),
-            typeof(MarkdownTextBlock),
-            new FrameworkPropertyMetadata(
-                string.Empty,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
-                OnTextMarkdownChanged));
-
-        public MarkdownTextBlock(string markdownText)
-        {
-            MarkdownText = markdownText;
-        }
-
-        public MarkdownTextBlock()
-        {
-        }
+        public static readonly DependencyProperty MarkdownTextProperty = 
+            DependencyProperty.Register(nameof(MarkdownText), typeof(string), typeof(MarkdownTextBlock),
+                new FrameworkPropertyMetadata(string.Empty,FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnTextMarkdownChanged));
 
         [Localizability(LocalizationCategory.Text)]
         public string MarkdownText
@@ -44,12 +30,13 @@ namespace Bloxstrap.UI.Elements.Controls
 
         private static void OnTextMarkdownChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var markdownTextBlock = dependencyObject as MarkdownTextBlock;
-
-            if (markdownTextBlock == null)
+            if (dependencyObject is not MarkdownTextBlock markdownTextBlock)
                 return;
 
-            MarkdownDocument document = Markdown.Parse((string)dependencyPropertyChangedEventArgs.NewValue);
+            if (dependencyPropertyChangedEventArgs.NewValue is not string rawDocument)
+                return;
+
+            MarkdownDocument document = Markdown.Parse(rawDocument);
 
             markdownTextBlock.Inlines.Clear();
 

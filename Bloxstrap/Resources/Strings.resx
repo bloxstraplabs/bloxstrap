@@ -579,11 +579,17 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.AlreadyRunning" xml:space="preserve">
     <value>Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances."</value>
   </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>You can make it look different, retro, or even just like Roblox.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>Bootstrapper</value>
+  </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configure other customisable Bootstrapper options.</value>
+    <value>Configure other miscellaneous customisable options.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Bootstrapper customisation</value>
+    <value>Customisation</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
     <value>Must be a multi-size .ico file with sizes 16px to 128px. Set Icon as 'Custom' to use it.</value>
@@ -600,8 +606,14 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Appearance.Description" xml:space="preserve">
     <value>Configure how Bloxstrap should look.</value>
   </data>
+  <data name="Menu.Appearance.Global.Theme.Description" xml:space="preserve">
+    <value>Dark theme does not apply to Legacy or Vista styles.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>Global Theme</value>
+  </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Choose what icon the bootstrapper should use.</value>
+    <value>Choose what icon it should use.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
     <value>Icon</value>
@@ -610,16 +622,10 @@ Would you like to upgrade your currently installed version?</value>
     <value>Preview</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Choose how the bootstrapper should look.</value>
+    <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
     <value>Style</value>
-  </data>
-  <data name="Menu.Appearance.Theme.Description" xml:space="preserve">
-    <value>Dark theme does not apply to Legacy or Vista styles.</value>
-  </data>
-  <data name="Menu.Appearance.Theme.Title" xml:space="preserve">
-    <value>Theme</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>Appearance</value>

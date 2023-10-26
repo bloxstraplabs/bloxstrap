@@ -33,7 +33,7 @@
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
@@ -59,7 +59,7 @@
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Margin="0,4,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <Grid Margin="0,8,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

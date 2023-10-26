@@ -1435,7 +1435,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure other customisable Bootstrapper options..
+        ///   Looks up a localized string similar to You can make it look different, retro, or even just like Roblox..
+        /// </summary>
+        public static string Menu_Appearance_Bootstrapper_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Bootstrapper.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bootstrapper.
+        /// </summary>
+        public static string Menu_Appearance_Bootstrapper_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Bootstrapper.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure other miscellaneous customisable options..
         /// </summary>
         public static string Menu_Appearance_Customisation_Description {
             get {
@@ -1444,7 +1462,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bootstrapper customisation.
+        ///   Looks up a localized string similar to Customisation.
         /// </summary>
         public static string Menu_Appearance_Customisation_Title {
             get {
@@ -1498,7 +1516,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose what icon the bootstrapper should use..
+        ///   Looks up a localized string similar to Dark theme does not apply to Legacy or Vista styles..
+        /// </summary>
+        public static string Menu_Appearance_Global_Theme_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Global.Theme.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global Theme.
+        /// </summary>
+        public static string Menu_Appearance_Global_Theme_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Global.Theme.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose what icon it should use..
         /// </summary>
         public static string Menu_Appearance_Icon_Description {
             get {
@@ -1525,7 +1561,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose how the bootstrapper should look..
+        ///   Looks up a localized string similar to Choose how it should look. Dark theme does not apply to Legacy/Vista..
         /// </summary>
         public static string Menu_Appearance_Style_Description {
             get {
@@ -1539,24 +1575,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Appearance_Style_Title {
             get {
                 return ResourceManager.GetString("Menu.Appearance.Style.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dark theme does not apply to Legacy or Vista styles..
-        /// </summary>
-        public static string Menu_Appearance_Theme_Description {
-            get {
-                return ResourceManager.GetString("Menu.Appearance.Theme.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Theme.
-        /// </summary>
-        public static string Menu_Appearance_Theme_Title {
-            get {
-                return ResourceManager.GetString("Menu.Appearance.Theme.Title", resourceCulture);
             }
         }
         

@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 using CommunityToolkit.Mvvm.Input;
 
@@ -48,14 +48,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public AppearanceViewModel(Page page)
         {
             _page = page;
+
+            foreach (var entry in Enum.GetValues(typeof(BootstrapperIcon)).Cast<BootstrapperIcon>())
+                Icons.Add(new BootstrapperIconEntry { IconType = entry });
         }
 
-        public IReadOnlyCollection<Theme> Themes { get; set; } = new Theme[]
-        {
-            Theme.Default,
-            Theme.Light,
-            Theme.Dark
-        };
+        public IEnumerable<Theme> Themes { get; } = Enum.GetValues(typeof(Theme)).Cast<Theme>();
 
         public Theme Theme
         {
@@ -67,15 +65,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
-        public IReadOnlyCollection<BootstrapperStyle> Dialogs { get; set; } = new BootstrapperStyle[]
-        {
-            BootstrapperStyle.FluentDialog,
-            BootstrapperStyle.ProgressDialog,
-            BootstrapperStyle.LegacyDialog2011,
-            BootstrapperStyle.LegacyDialog2008,
-            BootstrapperStyle.VistaDialog,
-            BootstrapperStyle.ByfronDialog
-        };
+        public IEnumerable<BootstrapperStyle> Dialogs { get; } = Enum.GetValues(typeof(BootstrapperStyle)).Cast<BootstrapperStyle>();
 
         public BootstrapperStyle Dialog
         {
@@ -83,30 +73,13 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.BootstrapperStyle = value;
         }
 
-        public IReadOnlyCollection<BootstrapperIcon> Icons { get; set; } = new BootstrapperIcon[]
-        {
-            BootstrapperIcon.IconBloxstrap,
-            BootstrapperIcon.Icon2022,
-            BootstrapperIcon.Icon2019,
-            BootstrapperIcon.Icon2017,
-            BootstrapperIcon.IconLate2015,
-            BootstrapperIcon.IconEarly2015,
-            BootstrapperIcon.Icon2011,
-            BootstrapperIcon.Icon2008,
-            BootstrapperIcon.IconCustom
-        };
+        public ObservableCollection<BootstrapperIconEntry> Icons { get; set; } = new();
 
         public BootstrapperIcon Icon
         {
             get => App.Settings.Prop.BootstrapperIcon;
-            set
-            {
-                App.Settings.Prop.BootstrapperIcon = value;
-                OnPropertyChanged(nameof(IconPreviewSource));
-            }
+            set => App.Settings.Prop.BootstrapperIcon = value; 
         }
-
-        public ImageSource IconPreviewSource => App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
 
         public string Title
         {
@@ -119,11 +92,20 @@ namespace Bloxstrap.UI.ViewModels.Menu
             get => App.Settings.Prop.BootstrapperIconCustomLocation;
             set
             {
-                App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconCustom;
+                if (String.IsNullOrEmpty(value))
+                {
+                    if (App.Settings.Prop.BootstrapperIcon == BootstrapperIcon.IconCustom)
+                        App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconBloxstrap;
+                }
+                else
+                {
+                    App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconCustom;
+                }
+
                 App.Settings.Prop.BootstrapperIconCustomLocation = value;
 
                 OnPropertyChanged(nameof(Icon));
-                OnPropertyChanged(nameof(IconPreviewSource));
+                OnPropertyChanged(nameof(Icons));
             }
         }
     }

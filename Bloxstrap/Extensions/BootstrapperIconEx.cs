@@ -16,15 +16,23 @@ namespace Bloxstrap.Extensions
             if (icon == BootstrapperIcon.IconCustom)
             {
                 Icon? customIcon = null;
+                string location = App.Settings.Prop.BootstrapperIconCustomLocation;
 
-                try
+                if (String.IsNullOrEmpty(location)) 
                 {
-                    customIcon = new Icon(App.Settings.Prop.BootstrapperIconCustomLocation);
+                    App.Logger.WriteLine(LOG_IDENT, "Warning: custom icon is not set.");
                 }
-                catch (Exception ex)
+                else
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to load custom icon!");
-                    App.Logger.WriteException(LOG_IDENT, ex);
+                    try
+                    {
+                        customIcon = new Icon(location);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to load custom icon!");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
                 }
 
                 return customIcon ?? Properties.Resources.IconBloxstrap;

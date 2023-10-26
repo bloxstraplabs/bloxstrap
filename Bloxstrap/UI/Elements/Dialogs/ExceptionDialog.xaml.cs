@@ -37,9 +37,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             ReportOptions.DropDownClosed += (sender, e) =>
             {
-                ComboBoxItem? comboBoxItem = ReportOptions.SelectedItem as ComboBoxItem;
-
-                if (comboBoxItem is null)
+                if (ReportOptions.SelectedItem is not ComboBoxItem comboBoxItem)
                     return;
 
                 ReportOptions.SelectedIndex = 0;

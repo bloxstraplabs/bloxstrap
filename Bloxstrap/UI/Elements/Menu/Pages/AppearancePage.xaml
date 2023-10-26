@@ -11,11 +11,10 @@
       Title="AppearancePage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Appearance_Theme_Title}" 
-            Description="{x:Static resources:Strings.Menu_Appearance_Theme_Description}">
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}">
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -25,6 +24,18 @@
             </ComboBox>
         </controls:OptionControl>
 
+        <Grid Margin="0,4,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="128" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
+                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Title}" FontSize="16" FontWeight="Medium" VerticalAlignment="Bottom" />
+                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+            <ui:Button Grid.Column="1" Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" Margin="0,16,0,0" Command="{Binding PreviewBootstrapperCommand}" />
+        </Grid>
+        
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Appearance_Style_Title}" 
             Description="{x:Static resources:Strings.Menu_Appearance_Style_Description}">
@@ -38,26 +49,23 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            x:Name="IconSelector"
             Header="{x:Static resources:Strings.Menu_Appearance_Icon_Title}" 
             Description="{x:Static resources:Strings.Menu_Appearance_Icon_Description}">
-            <Grid Width="200">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Width="28" Height="28" Margin="0,0,5,0">
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding IconPreviewSource, Mode=OneWay}" />
-                    </Border.Background>
-                </Border>
-                <ComboBox Grid.Column="1" Margin="5,0,0,0" Padding="10,5,10,5" ItemsSource="{Binding Icons, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.BootstrapperIcon.'}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Grid>
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Icons, Mode=OneWay}" SelectedValuePath="IconType" SelectedValue="{Binding Icon, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="16" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Height="16" Source="{Binding ImageSource, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{Binding Name, Mode=OneWay, Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.BootstrapperIcon.'}" />
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </controls:OptionControl>
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
@@ -69,7 +77,7 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Appearance_Customisation_Title}" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_Customisation_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_Customisation_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                 </Grid>
             </ui:CardExpander.Header>
@@ -94,12 +102,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding CustomIconLocation, Mode=TwoWay}" />
+                    <ui:TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding CustomIconLocation, Mode=TwoWay}" />
                     <ui:Button Grid.Column="1" Margin="4,0,0,0" Height="35" Icon="Folder24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseCustomIconLocationCommand}" />
                 </Grid>
                 <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,4,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Appearance_CustomisationIcon_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </Grid>
         </ui:CardExpander>
-        <ui:Button Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" Margin="0,8,0,0" Command="{Binding PreviewBootstrapperCommand}" />
     </StackPanel>
 </ui:UiPage>
