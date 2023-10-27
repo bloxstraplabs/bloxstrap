@@ -4,7 +4,7 @@ namespace Bloxstrap.Utility
 {
     internal static class Shortcut
     {
-        private static AssemblyLoadStatus _loadStatus = AssemblyLoadStatus.NotAttempted;
+        private static GenericTriState _loadStatus = GenericTriState.Unknown;
 
         public static void Create(string exePath, string exeArgs, string lnkPath)
         {
@@ -17,18 +17,18 @@ namespace Bloxstrap.Utility
             {
                 ShellLink.Shortcut.CreateShortcut(exePath, exeArgs, exePath, 0).WriteToFile(lnkPath);
 
-                if (_loadStatus != AssemblyLoadStatus.Successful)
-                    _loadStatus = AssemblyLoadStatus.Successful;
+                if (_loadStatus != GenericTriState.Successful)
+                    _loadStatus = GenericTriState.Successful;
             }
             catch (FileNotFoundException ex)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to create a shortcut for {lnkPath}!");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                if (_loadStatus == AssemblyLoadStatus.Failed)
+                if (_loadStatus == GenericTriState.Failed)
                     return;
 
-                _loadStatus = AssemblyLoadStatus.Failed;
+                _loadStatus = GenericTriState.Failed;
 
                 Frontend.ShowMessageBox(
                     $"{App.ProjectName} was unable to create shortcuts for the Desktop and Start menu. They will be created the next time Roblox is launched.",
