@@ -229,10 +229,19 @@ namespace Bloxstrap
             }
             catch (HttpResponseException ex)
             {
-                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
+                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound && ex.ResponseMessage.StatusCode != HttpStatusCode.Unauthorized)
                     throw;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                if (ex.ResponseMessage.StatusCode == HttpStatusCode.NotFound)
+                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                // Janky fix for error 401 ~25/10/2023
+                if (ex.ResponseMessage.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Setting channel to {RobloxDeployment.DefaultChannel} because channel {App.Settings.Prop.Channel} is unavailable to the user.");
+                    Controls.ShowMessageBox(
+                        $"Release channel {App.Settings.Prop.Channel} is not available to you. It has been reset to {RobloxDeployment.DefaultChannel}.", MessageBoxImage.Information);
+                }
+
                 App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
                 clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
             }
