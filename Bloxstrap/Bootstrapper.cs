@@ -237,9 +237,24 @@ namespace Bloxstrap
                 // Janky fix for error 401 ~25/10/2023
                 if (ex.ResponseMessage.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Setting channel to {RobloxDeployment.DefaultChannel} because channel {App.Settings.Prop.Channel} is unavailable to the user.");
-                    Controls.ShowMessageBox(
-                        $"Release channel {App.Settings.Prop.Channel} is not available to you. It has been reset to {RobloxDeployment.DefaultChannel}.", MessageBoxImage.Information);
+                    App.Logger.WriteLine(LOG_IDENT, $"Channel {App.Settings.Prop.Channel} is unavailable to the user.");
+                    if (App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic)
+                        Controls.ShowMessageBox($"Release channel {App.Settings.Prop.Channel} is not available to you. It has been reset to {RobloxDeployment.DefaultChannel}.", MessageBoxImage.Information);
+                    else
+                    {
+                        MessageBoxResult channelChangeResult = Controls.ShowMessageBox(
+                            $"Release channel {App.Settings.Prop.Channel} is not available to you. Would you like to reset to {RobloxDeployment.DefaultChannel}?",
+                            MessageBoxImage.Warning,
+                            MessageBoxButton.YesNo);
+
+                        if (channelChangeResult != MessageBoxResult.Yes)
+                        {
+                            Controls.ShowMessageBox($"Client cannot be launched as you are enrolled into an unavailable release channel and refused to reset.", MessageBoxImage.Error);
+                            App.Logger.WriteLine(LOG_IDENT, $"User refused to reset channel. Aborting.");
+                            App.Terminate(ErrorCode.ERROR_CANCELLED);
+                        }
+                    }
+                    App.Logger.WriteLine(LOG_IDENT, $"Resetting release channel to {RobloxDeployment.DefaultChannel} as {App.Settings.Prop.Channel} is unavailable to the user.");
                 }
 
                 App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
