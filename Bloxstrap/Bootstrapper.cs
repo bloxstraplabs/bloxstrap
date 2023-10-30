@@ -53,7 +53,7 @@ namespace Bloxstrap
 
         private static bool FreshInstall => String.IsNullOrEmpty(App.State.Prop.VersionGuid);
 
-        private string _playerLocation => Path.Combine(_versionFolder, "RobloxPlayerBeta.exe");
+        private string _playerLocation => Path.Combine(_versionFolder, "eurotruck2.exe");
 
         private string _launchCommandLine;
 
@@ -645,7 +645,7 @@ namespace Bloxstrap
 
                 try
                 {
-                    foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
+                    foreach (Process process in Process.GetProcessesByName("eurotruck2"))
                     {
                         process.CloseMainWindow();
                         process.Close();
@@ -866,7 +866,7 @@ namespace Bloxstrap
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
                 {
-                    string oldGameClientLocation = Path.Combine(oldVersionFolder, "RobloxPlayerBeta.exe");
+                    string oldGameClientLocation = Path.Combine(oldVersionFolder, "eurotruck2.exe");
                     string? appFlags = (string?)appFlagsKey.GetValue(oldGameClientLocation);
 
                     if (appFlags is not null)
@@ -990,7 +990,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
             
-            if (Process.GetProcessesByName("RobloxPlayerBeta").Any())
+            if (Process.GetProcessesByName("eurotruck2").Any())
             {
                 App.Logger.WriteLine(LOG_IDENT, "Roblox is running, aborting mod check");
                 return;
@@ -1424,6 +1424,9 @@ namespace Bloxstrap
 
                 string extractPath = Path.Combine(packageFolder, entry.FullName);
                 string? directory = Path.GetDirectoryName(extractPath);
+
+                if (package.Name == "RobloxApp.zip" && entry.Name == "RobloxPlayerBeta.exe")
+                     extractPath = extractPath.Replace("RobloxPlayerBeta.exe", "eurotruck2.exe");
 
                 if (directory is not null)
                     Directory.CreateDirectory(directory);
