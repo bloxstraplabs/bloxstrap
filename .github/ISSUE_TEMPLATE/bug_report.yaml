@@ -7,6 +7,7 @@ body:
       value: |
         ### **Preliminary instructions**
         - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
+          - **[Read this if Roblox is crashing or not launching](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch).** Only open an issue for it if this does not address your problem.
         - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
         - If your problem is with Roblox itself, [check to see if it happens without Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch). Please only open an issue if your problem only happens with Bloxstrap, as anything else is out of my control.
         - If more clarification on the issue is needed, and you don't respond after a month, then your issue will be closed as stale.
