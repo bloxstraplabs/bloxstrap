@@ -229,18 +229,15 @@ namespace Bloxstrap
             }
             catch (HttpResponseException ex)
             {
-                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound && ex.ResponseMessage.StatusCode != HttpStatusCode.Unauthorized)
-                    throw;
-
+                // If channel does not exist
                 if (ex.ResponseMessage.StatusCode == HttpStatusCode.NotFound)
                     App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
-                // Janky fix for error 401 ~25/10/2023
-                if (ex.ResponseMessage.StatusCode == HttpStatusCode.Unauthorized)
+                // If channel is not available to the user (private/internal release channel)
+                else if (ex.ResponseMessage.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Channel {App.Settings.Prop.Channel} is unavailable to the user.");
-                    if (App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Automatic)
-                        Controls.ShowMessageBox($"Release channel {App.Settings.Prop.Channel} is not available to you. It has been reset to {RobloxDeployment.DefaultChannel}.", MessageBoxImage.Information);
-                    else
+                    // Only prompt if user has channel switching mode set to something other than Automatic.
+                    if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
                     {
                         MessageBoxResult channelChangeResult = Controls.ShowMessageBox(
                             $"Release channel {App.Settings.Prop.Channel} is not available to you. Would you like to reset to {RobloxDeployment.DefaultChannel}?",
@@ -256,6 +253,7 @@ namespace Bloxstrap
                     }
                     App.Logger.WriteLine(LOG_IDENT, $"Resetting release channel to {RobloxDeployment.DefaultChannel} as {App.Settings.Prop.Channel} is unavailable to the user.");
                 }
+                else throw;
 
                 App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
                 clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel);
