@@ -229,6 +229,16 @@ namespace Bloxstrap
 
                     App.FastFlags.Save();
                 }
+                else if (existingVersionInfo.ProductVersion == "2.5.3")
+                {
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11", null);
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11FL10", null);
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferVulkan", null);
+                    App.FastFlags.SetValue("FFlagRenderVulkanFixMinimizeWindow", null);
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferOpenGL", null);
+
+                    App.FastFlags.Save();
+                }
             }
 
             if (isAutoUpgrade)

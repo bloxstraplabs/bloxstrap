@@ -58,18 +58,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("Rendering.Framerate", value);
         }
 
-        public IReadOnlyDictionary<string, string> RenderingModes => FastFlagManager.RenderingModes;
-
-        public string SelectedRenderingMode
-        {
-            get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set
-            {
-                App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
-                App.FastFlags.CheckManualFullscreenPreset();
-            }
-        }
-
         public bool FixDisplayScaling
         {
             get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";

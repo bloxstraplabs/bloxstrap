@@ -28,12 +28,6 @@ namespace Bloxstrap
             { "Rendering.TexturePack", "FStringPartTexturePackTable2022" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
 
-            { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
-            { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
-            { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
-            { "Rendering.Mode.Vulkan.Fix", "FFlagRenderVulkanFixMinimizeWindow" },
-            { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
-
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
             { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
@@ -51,16 +45,6 @@ namespace Bloxstrap
             { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
             { "UI.Menu.Style.ABTest.3", "FFlagEnableMenuModernizationABTest2" },
             { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" }
-        };
-
-        // only one missing here is Metal because lol
-        public static IReadOnlyDictionary<string, string> RenderingModes => new Dictionary<string, string>
-        {
-            { "Automatic", "None" },
-            { "Vulkan", "Vulkan" },
-            { "Direct3D 11", "D3D11" },
-            { "Direct3D 10", "D3D10" },
-            { "OpenGL", "OpenGL" }
         };
 
         public static IReadOnlyDictionary<string, string> LightingModes => new Dictionary<string, string>
@@ -199,14 +183,6 @@ namespace Bloxstrap
             return mapping.First().Key;
         }
 
-        public void CheckManualFullscreenPreset()
-        {
-            if (GetPreset("Rendering.Mode.Vulkan") == "True" || GetPreset("Rendering.Mode.OpenGL") == "True")
-                SetPreset("Rendering.ManualFullscreen", null);
-            else
-                SetPreset("Rendering.ManualFullscreen", "False");
-        }
-
         public override void Save()
         {
             // convert all flag values to strings before saving
@@ -221,7 +197,8 @@ namespace Bloxstrap
         {
             base.Load();
 
-            CheckManualFullscreenPreset();
+            if (GetPreset("Rendering.ManualFullscreen") != "False")
+                SetPreset("Rendering.ManualFullscreen", "False");
 
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
