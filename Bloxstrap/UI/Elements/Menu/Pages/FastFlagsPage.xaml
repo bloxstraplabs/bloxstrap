@@ -34,7 +34,7 @@
       </ui:CardAction>
     </Grid>
 
-    <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+    <StackPanel Visibility="{Binding Source={x:Static models:GlobalViewModel.ShowDebugStuff}, Mode=OneTime}">
       <TextBlock Text="Debug" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
