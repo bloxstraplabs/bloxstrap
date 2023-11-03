@@ -120,23 +120,25 @@
       </ui:CardControl.Header>
       <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes.Keys, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}" />
     </ui:CardControl>
-
-    <StackPanel x:Name="MiscellaneousOptions">
-      <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-      <ui:CardControl Margin="0,8,0,0">
-        <ui:CardControl.Header>
-          <StackPanel>
-            <TextBlock FontSize="14" Text="Apply custom font" />
-            <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-              Forces every in-game font to be a font that you choose.
-            </TextBlock>
-          </StackPanel>
-        </ui:CardControl.Header>
+      
+    <TextBlock Text="Miscellaneous" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+      
+    <ui:CardControl Margin="0,8,0,0">
+      <ui:CardControl.Header>
         <StackPanel>
-          <ui:Button Icon="DocumentAdd16" Content="Choose font..." Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
-          <ui:Button Icon="Delete16" Content="Remove applied font" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
+          <TextBlock FontSize="14" Text="Apply custom font" />
+          <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+            Forces every in-game font to be a font that you choose.
+          </TextBlock>
         </StackPanel>
-      </ui:CardControl>
+      </ui:CardControl.Header>
+      <StackPanel>
+        <ui:Button Icon="DocumentAdd16" Content="Choose font..." Command="{Binding ManageCustomFontCommand}" Visibility="{Binding ChooseCustomFontVisibility, Mode=OneWay}" />
+        <ui:Button Icon="Delete16" Content="Remove applied font" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
+      </StackPanel>
+    </ui:CardControl>
+
+    <StackPanel x:Name="FullscreenOptimizations">
       <ui:CardControl Margin="0,8,0,0">
         <ui:CardControl.Header>
           <StackPanel>
