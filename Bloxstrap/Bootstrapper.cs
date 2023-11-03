@@ -518,7 +518,10 @@ namespace Bloxstrap
 
             // in case the user is reinstalling
             if (File.Exists(Paths.Application) && App.IsFirstRun)
+            {
+                Filesystem.AssertReadOnly(Paths.Application);
                 File.Delete(Paths.Application);
+            }
 
             // check to make sure bootstrapper is in the install folder
             if (!File.Exists(Paths.Application) && Environment.ProcessPath is not null)
