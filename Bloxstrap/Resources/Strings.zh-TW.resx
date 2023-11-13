@@ -574,7 +574,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>所有檔案</value>
   </data>
   <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Bloxstrap正在運行中, 可能在追蹤Roblox動態. 請留意：由於Roblox在運行中, 並非所有設定會即時套用. 你可以關閉所有Roblox客户端來套用所有設定."</value>
+    <value>Bloxstrap正在運行中, 可能在追蹤Roblox動態. 請留意：由於Roblox在運行中, 並非所有設定會即時套用. 你可以關閉所有Roblox客戶端來套用所有設定."</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>讓啓動器的外觀煥然一新.</value>
@@ -860,7 +860,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>讓你開啓多於一個.</value>
   </data>
   <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
-    <value>多客户端</value>
+    <value>多客戶端</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>程式位置</value>
@@ -920,7 +920,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>功能</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>管理及套用模組到Roblox客户端.</value>
+    <value>管理及套用模組到Roblox客戶端.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
     <value>更多關於管理及建立模組...</value>
