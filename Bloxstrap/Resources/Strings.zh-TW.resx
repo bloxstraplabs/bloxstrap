@@ -911,7 +911,7 @@
     <value>顯示遊戲動態</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>在您加入遊戲時, 會顯示顯示伺服器的位置. 注意: 在全螢幕中無法顯示.</value>
+    <value>在您加入遊戲時, 會顯示伺服器的位置. 注意: 在全螢幕中無法顯示.</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
     <value>顯示伺服器位置</value>
