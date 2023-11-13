@@ -226,7 +226,7 @@
     <value>否</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>是</value>
+    <value>確定</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
     <value>預置</value>
@@ -397,7 +397,7 @@
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>預設(Twemoji)</value>
+    <value>預設 (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -498,10 +498,10 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>Bloxstrap的安裝磁碟({0})未能被探測. 要重新安裝Bloxstrap嗎?</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Bloxstrap未能被正確安裝. 請您確定安裝位置：{0}?</value>
+    <value>Bloxstrap未能被正確安裝. 請您確定安裝位置是否：{0}</value>
   </data>
   <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>新版本功能</value>
+    <value>按此查看新版本的新增功能</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap已更新到v{0}</value>
@@ -568,13 +568,13 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>你正在使用測試版本</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>版本{0}</value>
+    <value>版本v{0}</value>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>所有檔案</value>
   </data>
   <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Bloxstrap正在運行中, 可能在追蹤Roblox動態. 請留意：由於Roblox在運行中, 並非所有設定會即時套用. 你可以關閉所有Roblox客戶端來套用所有設定."</value>
+    <value>Bloxstrap正在運行中, 可能在追蹤Roblox動態. 請留意：由於Roblox在運行中, 並非所有設定會即時套用. 你可以關閉所有Roblox客戶端來套用所有設定.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>讓啓動器的外觀煥然一新... 或者回到過去.</value>
@@ -604,7 +604,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>設定Bloxstrap的外觀.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Description" xml:space="preserve">
-    <value>暗黑主題不適於於Legacy/Vista.</value>
+    <value>暗黑主題不適於於舊版/Vista.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>顏色主題</value>
@@ -673,7 +673,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>建立桌面圖示</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>設定Bloxstrap的開啓行為.</value>
+    <value>更改Bloxstrap的安裝設定.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox會被重新安裝.</value>
@@ -709,11 +709,11 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>更改Roblox遊戲引擎的設定.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>管理你的FastFlags.</value>
+    <value>管理你的FastFlags</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>瞭解FastFlags...</value>
+    <value>瞭解更多有關FastFlags的資訊</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
@@ -723,7 +723,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>啓用更多品質級數</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>FastFlag preset for Direct3D [exclusive fullscreen]({0}) using Alt+Enter is already enabled by default.</value>
+    <value>Direct3D全螢幕獨占模式([Exclusive Fullscreen]({0}),在遊戲中用Alt+Enter啓用)的FastFlag已預設為啓用.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
     <value>在Roblox運行時顯示FastFlag狀態. 每個FastFlag以一個逗號分隔.</value>
@@ -749,7 +749,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>除錯</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Description" xml:space="preserve">
-    <value>設定ESC選單的版本.</value>
+    <value>設定ESC選單的版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>偏好ESC選單版本</value>
@@ -767,7 +767,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>幀率上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>在遊戲中使用[快捷鍵]({0})來啓動. 注意: 你需要加入[Bloxstrap群组]({1})才能使用.</value>
+    <value>在遊戲中使用[快捷鍵]({0})來啓動. 注意: 你需要加入[Bloxstrap群组]({1})才能使用</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>開啓隱藏GUI功能</value>
@@ -887,7 +887,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>請選擇或建立一個新腳本/程式</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>新腳本/程式</value>
+    <value>自訂腳本/程式</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
     <value>改善你的Roblox遊戲體驗.</value>
@@ -923,7 +923,7 @@ Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, �
     <value>管理及套用模組到Roblox客戶端.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>更多關於管理及建立模組...</value>
+    <value>更多關於管理及建立模組</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
