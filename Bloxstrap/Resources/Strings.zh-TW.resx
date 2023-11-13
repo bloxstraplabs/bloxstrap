@@ -490,12 +490,12 @@
     <value>淺白</value>
   </data>
   <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>某一個磁碟的代號已被更改, Bloxstrap已將安裝位置從{0}磁碟更改為{1}磁碟.
+    <value>一個磁碟的代號已被更改, Bloxstrap已將安裝位置從{0}磁碟更改為{1}磁碟.
 
-Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, 以避免其他程式發生錯誤.</value>
+    Bloxstrap並不受這影響. 但我們建議你更改磁碟代號為原來的, 以避免其他程式發生錯誤.</value>
   </data>
   <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap的安裝磁碟({0})未能被探測. 要重新安裝Bloxstrap嗎?</value>
+    <value>Bloxstrap原來安裝到的磁碟({0})未能被探測. 要重新安裝Bloxstrap嗎?</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
     <value>Bloxstrap未能被正確安裝. 請您確定安裝位置是否：{0}</value>
