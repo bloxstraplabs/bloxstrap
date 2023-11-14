@@ -513,19 +513,19 @@
     <value>您启动的Bloxstrap版本与您当前安装的版本不同,要升级当前安装的版本吗?</value>
   </data>
   <data name="Menu.About.BuildCommitHash" xml:space="preserve">
-    <value>Commit Hash</value>
+    <value>提交Hash</value>
   </data>
   <data name="Menu.About.BuildInformation" xml:space="preserve">
     <value>建造信息n</value>
   </data>
   <data name="Menu.About.BuildMachine" xml:space="preserve">
-    <value>Machine</value>
+    <value>设备</value>
   </data>
   <data name="Menu.About.BuildRef" xml:space="preserve">
-    <value>Commit Ref</value>
+    <value>提交Ref</value>
   </data>
   <data name="Menu.About.BuildTimestamp" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>时间戳</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>贡献者</value>
