@@ -690,334 +690,334 @@
     <value>新增</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>Back</value>
+    <value>返回</value>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>Delete selected</value>
+    <value>删除所选</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your own FastFlags. Double click a column to edit.</value>
+    <value>管理你自己的FastFlags,双击来编辑.</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>Search</value>
+    <value>搜索</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>Show preset flags</value>
+    <value>显示预设flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Fast Flag Editor</value>
+    <value>Fast Flag编辑器</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Control how specific Roblox engine parameters and features are configured.</value>
+    <value>控制Roblox特定引擎参数和特性的配置</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Manage your own FastFlags.</value>
+    <value>管理你的FastFlags.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Learn more about FastFlags.</value>
+    <value>了解更多关于FastFlags的信息</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider.</value>
+    <value>将原来的1-10格的画质调节为1-21格画质调节</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use alternate graphics quality selector</value>
+    <value>使用更多画质调节</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>FastFlag preset for Direct3D [exclusive fullscreen]({0}) using Alt+Enter is already enabled by default.</value>
+    <value>使用Alt+Enter的Direct3D[开启全屏]({0})FastFlag预设已默认启用</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
-    <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
+    <value>在运行时显示FastFlag的值,每个FastFlag用逗号分隔</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title" xml:space="preserve">
-    <value>Flag state overlay</value>
+    <value>Flag状态</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description" xml:space="preserve">
-    <value>Set blank if not using a proxy. Don't forget to add cacert.pem as a mod.</value>
+    <value>如果不使用代理,请设置为空,别忘了将cacert.pem添加为一个模块</value>
     <comment>Do not translate "cacert.pem"</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title" xml:space="preserve">
-    <value>HTTP proxy address</value>
+    <value>HTTP代理地址</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description" xml:space="preserve">
-    <value>Enables logging of HTTP requests (DFLogHttpTraceLight=12).</value>
+    <value>启用HTTP请求日志记录(DFLogHttpTraceLight=12)</value>
     <comment>Do not translate "DFLogHttpTraceLight"</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title" xml:space="preserve">
-    <value>HTTP request logging</value>
+    <value>HTTP请求日志</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.Title" xml:space="preserve">
-    <value>Debug</value>
+    <value>调试</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Description" xml:space="preserve">
-    <value>Choose which version of the escape menu to use.</value>
+    <value>选择要使用哪个版本的自定义用户菜单</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferred escape menu version</value>
+    <value>首选自定义菜单版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox reduces your rendering quality, depending on display scaling. This toggle disables that.</value>
+    <value>Roblox会根据你的屏幕比例降低渲染质量,这个开关禁用了这个</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>Preserve rendering quality with display scaling</value>
+    <value>通过屏幕缩放保持渲染质量</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Use a large number like 9999 for no limit. Set as 0 for defaults.</value>
+    <value>使用像9999这样的大数字表示没有限制,默认认设置为0</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate limit</value>
+    <value>帧数突破</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled with [keyboard shortcuts]({0}). Only works if you're in the [Bloxstrap group]({1}).</value>
+    <value>切换[键盘快捷键]({0})只适用于你的Roblox账号加入[Bloxstrap群组]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Enable ability to hide GUIs</value>
+    <value>启用隐藏gui的功能</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Choose which lighting technology should be forced enabled in all games.</value>
+    <value>选择在所有游戏中启用的光效版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferred lighting technology</value>
+    <value>首选光效版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.Materials.Description" xml:space="preserve">
-    <value>Choose which material version should be forced in all games.</value>
+    <value>选择在所有游戏中使用的材质版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.Materials.Title" xml:space="preserve">
-    <value>Preferred materials</value>
+    <value>首选材质版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.MoreInfo" xml:space="preserve">
-    <value>More information on this preset</value>
+    <value>关于此预设的更多信息</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
-    <value>Choose what renderer Roblox should use. VR requires Direct3D/Automatic.</value>
+    <value>选择Roblox应该使用的渲染器,VR需要Direct3D/Automatic</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>Rendering mode</value>
+    <value>渲染模式</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
     <value>Fast Flags</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>Font files</value>
+    <value>字体文件</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>Icon files</value>
+    <value>图标文件</value>
   </data>
   <data name="Menu.Install" xml:space="preserve">
-    <value>Install</value>
+    <value>安装</value>
   </data>
   <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap/Roblox is installed.</value>
+    <value>配置Bloxstrap/Roblox的安装方式</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Choose where Bloxstrap should be installed to.</value>
+    <value>选择安装Bloxstrap的位置</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Install Location</value>
+    <value>安装位置</value>
   </data>
   <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Where Bloxstrap is currently installed to.</value>
+    <value>Bloxstrap当前安装的位置</value>
   </data>
   <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Open Installation Folder</value>
+    <value>打开安装文件夹</value>
   </data>
   <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Installation</value>
+    <value>安装</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Here's a guide on how to uninstall Bloxstrap.</value>
+    <value>下面是如何卸载Bloxstrap的指南</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Looking to uninstall?</value>
+    <value>卸载?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
+    <value>此处不能安装Bloxstrap,请选择不同的位置或通过单击重置按钮使用默认位置</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>The folder you've chosen to install Bloxstrap to already exists and is NOT empty. It is strongly recommended for Bloxstrap to be installed to its own independent folder.
+    <value>您选择安装Bloxstrap的文件夹已经存在,并且不是空的,强烈建议将Bloxstrap安装到自己的独立文件夹中
 
-Changing to the following location is suggested:
+建议更改到以下位置:
 {0}
 
-Would you like to change to the suggested location?
-Selecting 'No' will ignore this warning and continue installation.</value>
+您想换到建议的地点吗?
+选择“否”将忽略此警告并继续安装</value>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>You must set an install location</value>
+    <value>您必须设置一个安装位置</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap does not have write access to the install location you've selected. Please choose another location.</value>
+    <value>Bloxstrap没有对您所选择的安装位置有访问权限,请选择其他位置</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Activity tracking</value>
+    <value>游戏状态跟踪</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Allows for anybody to join the game you're currently in through your Discord profile.</value>
+    <value>让其他人能够在你的discord个人信息加入你正在游玩的游戏中</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Allow activity joining</value>
+    <value>允许在discord加入</value>
   </data>
   <data name="Menu.Integrations.AllowMultipleInstances.Description" xml:space="preserve">
-    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
+    <value>允许打开多个Roblox客户端来进行游玩</value>
   </data>
   <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
-    <value>Allow multi-instance launching</value>
+    <value>允许多个Roblox客户端启动</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Application Location</value>
+    <value>应用程序位置</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
     <value>e.g. C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Auto close when Roblox closes</value>
+    <value>当Roblox关闭时自动关闭</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>Here, you can have other programs launch with Roblox automatically.</value>
+    <value>您可以让其他程序与Roblox一起自动启动</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>Launch Arguments</value>
+    <value>启动参数</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
     <value>e.g. /k echo Roblox is running!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>New Integration</value>
+    <value>新集成</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>No integration selected, please select or add a new one</value>
+    <value>没有选择集成,请选择或添加一个新的集成</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>Custom Integrations</value>
+    <value>自定义集成</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configure quick and easy ways to improve the Roblox gameplay experience.</value>
+    <value>配置快速简单的方法来改善Roblox的游戏体验</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this.</value>
+    <value>允许Bloxstrap检测你正在玩什么Roblox游戏,某些功能可能需要这样做</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>Enable activity tracking</value>
+    <value>启用游戏状态跟踪</value>
   </data>
   <data name="Menu.Integrations.MoreInfo" xml:space="preserve">
-    <value>More information on this integration</value>
+    <value>有关此集成的更多信息</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>This feature requires activity tracking to be enabled.</value>
+    <value>此功能需要启用游戏状态跟踪</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>When playing a Roblox game, the game you're playing will show on your Discord profile activity.</value>
+    <value>当你在玩Roblox游戏时,你正在玩的游戏会显示在你的Discord个人信息中</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>Show game activity</value>
+    <value>展示游戏状态</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>When you join a game, you'll be notified of where your server's located. Won't show in fullscreen.</value>
+    <value>当你加入游戏时,你会收到服务器所在位置的通知,不会全屏显示</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>See server location when joining a game</value>
+    <value>加入游戏时查看服务器位置</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>Integrations</value>
+    <value>集成</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Manage and apply file mods to the Roblox game client.</value>
+    <value>管理和应用文件模型到Roblox游戏客户端</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>See info about managing and creating mods.</value>
+    <value>请参阅有关管理和创建mod的信息</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>Choose font...</value>
+    <value>选择字体...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Forces every in-game font to be a font that you choose.</value>
+    <value>强制每个游戏中的字体都是你选择的字体</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>Remove applied font</value>
+    <value>移除应用的字体</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Apply custom font</value>
+    <value>应用自定义字体</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>A Windows feature that may conflict with performance in full-screen.</value>
+    <value>一个可能与全屏时的性能冲突的Windows特性</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Disable fullscreen optimisations</value>
+    <value>禁用全屏优化</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Manage custom Roblox mods here.</value>
+    <value>管理自定义Roblox模型</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap must first be installed.</value>
+    <value>必须先安装Bloxstrap。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>Open Mods Folder</value>
+    <value>打开mod文件夹</value>
   </data>
   <data name="Menu.Mods.Presets.DisableDesktopApp.Description" xml:space="preserve">
-    <value>Stops the desktop app from showing, especially when you leave a game.</value>
+    <value>停止桌面应用程序显示,特别是当你离开游戏</value>
   </data>
   <data name="Menu.Mods.Presets.DisableDesktopApp.Title" xml:space="preserve">
-    <value>Disable desktop app</value>
+    <value>禁用Roblox桌面应用</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Choose which type of emoji should Roblox use.</value>
+    <value>选择Roblox应该使用哪种表情符号</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>Preferred emoji type</value>
+    <value>首选表情符号类型</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>Choose between using two classic Roblox cursor styles.</value>
+    <value>选择使用两种经典Roblox光标样式</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>Mouse cursor</value>
+    <value>鼠标光标</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Bring back the old avatar editor background used in the Roblox app prior to 2020.</value>
+    <value>恢复2020年之前装扮编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>Use old avatar editor background</value>
+    <value>使用旧的装扮编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>An attempt to roughly bring back the character sounds used prior to 2014.</value>
+    <value>大致恢复2014年之前使用的角色声音</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>Emulate old character sounds</value>
+    <value>模仿旧角色的声音</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bring back the classic 'oof' death sound.</value>
+    <value>使用OOF音效</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Use old death sound</value>
+    <value>使用旧的死亡声音</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>Mods</value>
+    <value>模组</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Click for more information on this option.</value>
+    <value>单击此处查看有关此选项的更多信息</value>
   </data>
   <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>There's just a few things you first should know about.</value>
+    <value>有几件事你首先应该知道</value>
   </data>
   <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there.</value>
+    <value>安装完成后,Bloxstrap菜单将在开始菜单中注册为应用程序,如果你需要再次访问它来重新调整你的设置,或者访问FastFlag管理等资源,你可以左下角先找到Bloxstrap打开然后就会看见Bloxstrap Menu</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>If you ever need help or guidance with anything, be sure to check the [Wiki]({0}). If you still need something, open an [issue]({1}) on GitHub, or join our [Discord server]({2}).</value>
+    <value>如果您需要任何帮助或指导,请务必查看[Wiki]({0}),如果你没有找到你需要的可以在GitHub上创建一个[issue]({1}),或者加入[Discord服务器]({2}).</value>
   </data>
   <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Before you install...</value>
+    <value>在您安装前...</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Menu</value>
+    <value>Bloxstrap菜单选项</value>
   </data>
   <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
-    <value>Roblox is attempting to set your channel to {0}, however your current preferred channel is {1}.
+    <value>Roblox试图将您的版本设置为{0},但您当前的首选频道是{1}.
 
-Would you like to switch your preferred channel to {0}?</value>
+你想把你喜欢的频道转到{0}?</value>
   </data>
 </root>
