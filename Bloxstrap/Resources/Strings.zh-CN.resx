@@ -118,133 +118,133 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>left game</value>
+    <value>离开游戏</value>
   </data>
   <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>lookup failed</value>
+    <value>查找失败</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
+    <value>Bloxstrap无法自动更新至 {0}. 请通过从GitHub页面下载并运行最新版本来手动更新它(使用vpn).</value>
   </data>
   <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
-    <value>The channel you're currently on ({0}) is out of date, and appears to no longer be receiving updates.
-Would you like to switch to the default channel ({1})?</value>
+    <value>您当前所在的版本 ({0}) 已经过时了, 已经不再接收更新了.
+您想要切换到默认版本 ({1}) 吗?</value>
   </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
+    <value>无法连接到网络. 请检查是否已经加速Roblox. 如果已经加速请再次重新尝试.</value>
   </data>
   <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox may be down right now. See status.roblox.com for more information. Please try again later.</value>
+    <value>土豆服务器可能又炸了. 查看Roblox官方站点status.roblox.com以查看Roblox允许是否正常. 如果是正常请再次重试.</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.</value>
+    <value>Bloxstrap连接Roblox超时, 请检查是否加速Roblox. 如果已经加速请再次试一遍.</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.</value>
+    <value>Roblox是通过深度链接启动的, 但是需要桌面应用程序才能进行深度链接启动。由于您选择禁用桌面应用程序，Roblox将仅在此次启动期间暂时重新启用.</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
+    <value>Roblox已完成新游戏客户端更新的推出，增加了64位支持和Hyperion反作弊系统。ReShade不支持此更新，因此已被禁用并从Bloxstrap中移除.
 
-Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.</value>
+您的ReShade配置文件仍将保留，您可以通过打开Bloxstrap安装的文件夹并转到“Integrations”文件夹来找到它们。如果愿意，您可以选择删除这些文件.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
+    <value>Bloxstrap没有足够的空间来下载和安装Roblox. 请清理磁盘内存然后重试.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Applying Roblox modifications...</value>
+    <value>正在应用Roblox修改...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>Configuring {product}...</value>
+    <value>正在配置 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Connecting to Roblox...</value>
+    <value>连接Roblox中...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>Installing {product}...</value>
+    <value>正在安装 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>Installing WebView2, please wait...</value>
+    <value>正在安装 WebView2, 请等一会...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>Starting {product}...</value>
+    <value>正在启动 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Uninstalling Bloxstrap...</value>
+    <value>正在解除安装 Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>Upgrading {product}...</value>
+    <value>正在升级 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Getting the latest Bloxstrap...</value>
+    <value>正在更新Bloxstrap最新版本...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>Waiting for other instances...</value>
+    <value>正在等待进程...</value>
   </data>
   <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully installed</value>
+    <value>Bloxstrap安装成功</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully uninstalled</value>
+    <value>Bloxstrap已成功卸载</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?</value>
+    <value>Roblox正在运行, 卸载Bloxstrap之前需要关闭. 您想要关闭Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
+    <value>Roblox需要使用Windows Media Foundation组件才能启动. 您似乎缺少这些组件. 请先安装Windows Media Foundation, 然后再重新启动Roblox.</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Browse</value>
+    <value>浏览</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>Close</value>
+    <value>关闭</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>删除</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Discord Rich Presence</value>
+    <value>在您的Discord上显示正在游玩什么游戏</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Help</value>
+    <value>帮助</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>Import JSON</value>
+    <value>打开 JSON</value>
   </data>
   <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Locate log file</value>
+    <value>打开日志文件位置</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Miscellaneous</value>
+    <value>杂项</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>Name</value>
+    <value>名字</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>New</value>
+    <value>新出现的</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>No</value>
+    <value>否</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>OK</value>
+    <value>确定</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>Presets</value>
+    <value>预设</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>重置</value>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>Value</value>
+    <value>内容</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>是</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Close Roblox</value>
+    <value>关闭Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
     <value>Are you sure you want to close Roblox? This will forcefully end the process.</value>
