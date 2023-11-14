@@ -124,31 +124,31 @@
     <value>查找失败</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap无法自动更新至 {0}. 请通过从GitHub页面下载并运行最新版本来手动更新它(使用vpn).</value>
+    <value>Bloxstrap无法自动更新至最新版 {0}, 请通过从GitHub页面下载并运行最新版本来手动更新它(使用vpn)</value>
   </data>
   <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
-    <value>您当前所在的版本 ({0}) 已经过时了, 已经不再接收更新了.
+    <value>您当前所在的版本 ({0}) 已经过时了, 已经不再接收更新了
 您想要切换到默认版本 ({1}) 吗?</value>
   </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>无法连接到网络. 请检查是否已经加速Roblox. 如果已经加速请再次重新尝试.</value>
+    <value>无法连接到网络, 请检查是否已经加速Roblox, 如果已经加速请再次重新尝试</value>
   </data>
   <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>土豆服务器可能又炸了. 查看Roblox官方站点status.roblox.com以查看Roblox允许是否正常. 如果是正常请再次重试.</value>
+    <value>土豆服务器可能又炸了, 查看Roblox官方站点status.roblox.com以查看Roblox运行是否正常, 如果是正常请再次重试</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap连接Roblox超时, 请检查是否加速Roblox. 如果已经加速请再次试一遍.</value>
+    <value>Bloxstrap连接Roblox超时, 请检查是否加速Roblox, 如果已经加速请再次试一遍</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
     <value>Roblox是通过深度链接启动的, 但是需要桌面应用程序才能进行深度链接启动。由于您选择禁用桌面应用程序，Roblox将仅在此次启动期间暂时重新启用.</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox已完成新游戏客户端更新的推出，增加了64位支持和Hyperion反作弊系统。ReShade不支持此更新，因此已被禁用并从Bloxstrap中移除.
+    <value>Roblox已完成新游戏客户端更新的推出,增加了64位支持和Hyperion反作弊系统,ReShade不支持此更新,因此已被禁用并从Bloxstrap中移除
 
-您的ReShade配置文件仍将保留，您可以通过打开Bloxstrap安装的文件夹并转到“Integrations”文件夹来找到它们。如果愿意，您可以选择删除这些文件.</value>
+您的ReShade配置文件仍将保留,您可以通过打开Bloxstrap安装的文件夹并转到“Integrations”文件夹来找到它们.如果愿意,您可以选择删除这些文件</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap没有足够的空间来下载和安装Roblox. 请清理磁盘内存然后重试.</value>
+    <value>Bloxstrap没有足够的空间来下载和安装Roblox,请清理磁盘内存然后重试</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>正在应用Roblox修改...</value>
@@ -187,10 +187,10 @@
     <value>Bloxstrap已成功卸载</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox正在运行, 卸载Bloxstrap之前需要关闭. 您想要关闭Roblox?</value>
+    <value>Roblox正在运行,卸载Bloxstrap之前需要关闭,您想要关闭Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox需要使用Windows Media Foundation组件才能启动. 您似乎缺少这些组件. 请先安装Windows Media Foundation, 然后再重新启动Roblox.</value>
+    <value>Roblox需要使用Windows Media Foundation组件才能启动,您似乎缺少这些组件,请先安装Windows Media Foundation,然后再重新启动Roblox</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>浏览</value>
@@ -247,160 +247,160 @@
     <value>关闭Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Are you sure you want to close Roblox? This will forcefully end the process.</value>
+    <value>你要关闭Roblox吗? 这将强制关闭</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Copy invite deeplink</value>
+    <value>复制邀请链接</value>
   </data>
   <data name="ContextMenu.LogTracer.KeepOnTop" xml:space="preserve">
-    <value>Keep on top</value>
+    <value>保持在屏幕不关闭</value>
   </data>
   <data name="ContextMenu.LogTracer.ScrollToEnd" xml:space="preserve">
-    <value>Scroll to end</value>
+    <value>滚动至底</value>
   </data>
   <data name="ContextMenu.LogTracer.TextWrapping" xml:space="preserve">
-    <value>Text wrapping</value>
+    <value>文本换行</value>
   </data>
   <data name="ContextMenu.LogTracer.Title" xml:space="preserve">
-    <value>Log tracer</value>
+    <value>日志追踪器</value>
   </data>
   <data name="ContextMenu.LogTracer.TracingFormat" xml:space="preserve">
-    <value>Tracing {0}</value>
+    <value>正在追踪 {0}</value>
   </data>
   <data name="ContextMenu.OpenLogTracer" xml:space="preserve">
-    <value>Open log tracer</value>
+    <value>打开日志追踪器</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>See server details</value>
+    <value>查看服务器详细信息</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copy Instance ID</value>
+    <value>复制服务器ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>Instance ID</value>
+    <value>服务器ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Loading, please wait...</value>
+    <value>正在加载, 请稍后...</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Location</value>
+    <value>服务器位置</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>Server information</value>
+    <value>服务器信息</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>Type</value>
+    <value>类型</value>
   </data>
   <data name="ContextMenu.ServerInformation.TypeFormat" xml:space="preserve">
-    <value>{0} server</value>
+    <value>{0} 服务器</value>
   </data>
   <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
-    <value>UDMUX proxied</value>
+    <value>UDMUX代理</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Add FastFlag</value>
+    <value>添加FastFlag</value>
   </data>
   <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
-    <value>Paste in your JSON here...</value>
+    <value>在这里粘贴你的JSON...</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>More information:</value>
+    <value>更多信息:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Connectivity error</value>
+    <value>连接错误</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to {0}</value>
+    <value>Bloxstrap无法连接到 {0}</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copy log contents</value>
+    <value>复制日志内容</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>An exception occurred while running Bloxstrap</value>
+    <value>运行Bloxstrap时发生错误</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Please report this exception through a GitHub issue or in our Discord chat, along with a copy of the log file that was created.</value>
+    <value>请通过GitHub或官方的Discord聊天报告此错误,并提供创建的日志文件副本</value>
   </data>
   <data name="Dialog.Exception.SubmitReport" xml:space="preserve">
-    <value>Submit report...</value>
+    <value>提交报告...</value>
   </data>
   <data name="Dialog.Exception.SubmitReportDiscord" xml:space="preserve">
-    <value>Submit report via Discord</value>
+    <value>通过Discord提交报告</value>
   </data>
   <data name="Dialog.Exception.SubmitReportGithub" xml:space="preserve">
-    <value>Submit report via GitHub</value>
+    <value>通过GitHub提交报告</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Exception</value>
+    <value>Bloxstrap错误</value>
   </data>
   <data name="Enums.BootstrapperIcon.Icon2008" xml:space="preserve">
-    <value>2008</value>
+    <value>2008年</value>
   </data>
   <data name="Enums.BootstrapperIcon.Icon2011" xml:space="preserve">
-    <value>2011</value>
+    <value>2011年</value>
   </data>
   <data name="Enums.BootstrapperIcon.Icon2017" xml:space="preserve">
-    <value>2017</value>
+    <value>2017年</value>
   </data>
   <data name="Enums.BootstrapperIcon.Icon2019" xml:space="preserve">
-    <value>2019</value>
+    <value>2019年</value>
   </data>
   <data name="Enums.BootstrapperIcon.Icon2022" xml:space="preserve">
-    <value>2022</value>
+    <value>2022年</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconBloxstrap" xml:space="preserve">
     <value>Bloxstrap</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconCustom" xml:space="preserve">
-    <value>Custom</value>
+    <value>自定义</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Early 2015</value>
+    <value>2015早期</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Late 2015</value>
+    <value>2015晚期</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Fake Byfron (2023)</value>
+    <value>Byfron反作弊(2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentDialog" xml:space="preserve">
-    <value>Fluent</value>
+    <value>流畅</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>Legacy (2008 - 2011)</value>
+    <value>远古版(2008 - 2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>Legacy (2011 - 2014)</value>
+    <value>远古版(2011 - 2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
-    <value>Progress (~2014)</value>
+    <value>进步(~2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>Vista (2008 - 2011)</value>
+    <value>视图(2008 - 2011)</value>
   </data>
   <data name="Enums.ChannelChangeMode.Automatic" xml:space="preserve">
-    <value>Change automatically</value>
+    <value>自动变化</value>
   </data>
   <data name="Enums.ChannelChangeMode.Ignore" xml:space="preserve">
-    <value>Never change</value>
+    <value>永远不会改变e</value>
   </data>
   <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
-    <value>Always prompt</value>
-  </data>
+    <value>一直提示</value>
+ </data>
   <data name="Enums.CursorType.Default" xml:space="preserve">
-    <value>Default</value>
+    <value>默认</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartoony)</value>
+    <value>2006年卡通风格</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angular)</value>
+    <value>2013年风格</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>Default (Twemoji)</value>
+    <value>默认(Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -412,40 +412,40 @@
     <value>Windows 8</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.Default" xml:space="preserve">
-    <value>Default</value>
+    <value>默认</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
-    <value>Version 1 (2015)</value>
+    <value>版本1(2015)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>Version 2 (2020)</value>
+    <value>版本2(2020)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
-    <value>Version 4 (2023)</value>
+    <value>版本42023)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Chosen by game</value>
+    <value>默认游戏选择</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Phase 3)</value>
+    <value>Future (第三期)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Phase 2)</value>
+    <value>Shadow Map (第二期)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Phase 1)</value>
+    <value>Voxel (第一期)</value>
   </data>
   <data name="Enums.FlagPresets.MaterialVersion.Default" xml:space="preserve">
-    <value>Chosen by game</value>
+    <value>默认游戏选择</value>
   </data>
   <data name="Enums.FlagPresets.MaterialVersion.New" xml:space="preserve">
-    <value>New (2022)</value>
+    <value>新版(2022年)</value>
   </data>
   <data name="Enums.FlagPresets.MaterialVersion.Old" xml:space="preserve">
-    <value>Old (Pre-2022)</value>
+    <value>旧版(之前-2022年)</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.Default" xml:space="preserve">
-    <value>Automatic</value>
+    <value>自动</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.x1" xml:space="preserve">
     <value>1x MSAA</value>
@@ -466,58 +466,57 @@
     <value>D3D11</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.Default" xml:space="preserve">
-    <value>Automatic</value>
+    <value>自动</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.OpenGL" xml:space="preserve">
-    <value>OpenGL</value>
+    <value>开放图形库</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.Vulkan" xml:space="preserve">
-    <value>Vulkan</value>
+    <value>Vulkan图形</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Private</value>
+    <value>私人</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Public</value>
+    <value>公共</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Reserved</value>
+    <value>保留</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>黑暗风格</value>
   </data>
   <data name="Enums.Theme.Default" xml:space="preserve">
-    <value>System Default</value>
+    <value>系统默认</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Light</value>
+    <value>全白风格</value>
   </data>
   <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
+    <value>Bloxstrap已检测原来的安装位置被更改,并已将其安装位置从{0}更改到{1}
 
-While Bloxstrap will continue to work, it's recommended that you change the drive letter back to its original value as other installed applications can experience similar issues.</value>
+虽然Bloxstrap将继续正常运行,但建议您将安装位置更改回其原始位置,因为其他安装的应用程序可能会遇到类似的问题</value>
   </data>
   <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap was originally installed to the {0} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?</value>
+    <value>Bloxstrap最初安装在{0}上,但它似乎不再存在,您要继续并重新安装吗?</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>It appears as if Bloxstrap hasn't been properly installed. Is it supposed to be installed at {0}?</value>
+    <value>看起来好像Bloxstrap没有正确安装,它应该安装在{0}?</value>
   </data>
   <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>See what's new in this version</value>
+    <value>看看这个版本有什么新内容</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap has been upgraded to v{0}</value>
+    <value>Bloxstrap已更新为v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
-Would you like to upgrade your currently installed version?</value>
+    <value>您启动的Bloxstrap版本与您当前安装的版本不同,要升级当前安装的版本吗?</value>
   </data>
   <data name="Menu.About.BuildCommitHash" xml:space="preserve">
     <value>Commit Hash</value>
   </data>
   <data name="Menu.About.BuildInformation" xml:space="preserve">
-    <value>Build Information</value>
+    <value>建造信息n</value>
   </data>
   <data name="Menu.About.BuildMachine" xml:space="preserve">
     <value>Machine</value>
@@ -529,112 +528,112 @@ Would you like to upgrade your currently installed version?</value>
     <value>Timestamp</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributors</value>
+    <value>贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Code</value>
+    <value>代码脚本</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+    <value>这些人对Bloxstrap做出了显著的贡献,帮助它成为今天的样子,给予他们支持</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Feature Ideas</value>
+    <value>功能的想法</value>
   </data>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Translations</value>
+    <value>翻译者</value>
   </data>
   <data name="Menu.About.Description.1" xml:space="preserve">
-    <value>An open-source, feature-packed alternative bootstrapper for Roblox</value>
+    <value>一个开源的,功能丰富的Roblox引导程序</value>
   </data>
   <data name="Menu.About.Description.2" xml:space="preserve">
-    <value>Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!</value>
+    <value>由pizzaboxer开发-如果你喜欢这个这个第三方程序,请考虑前往在官方GitHub上留下一颗星!</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Discord server</value>
+    <value>Discord服务器</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>GitHub repository</value>
+    <value>GitHub库</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Help and Information</value>
+    <value>帮助和信息</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>Licenses</value>
+    <value>许可证</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Report an issue</value>
+    <value>报告问题</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>About</value>
+    <value>关于我们</value>
   </data>
   <data name="Menu.About.UnreleasedVersion" xml:space="preserve">
-    <value>Using an unreleased version, I see?</value>
+    <value>你正在使用未发布的版本,也许是测试版本?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>Version {0}</value>
+    <value>版本{0}</value>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>All files</value>
+    <value>所有文件</value>
   </data>
   <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances."</value>
+    <value>Bloxstrap目前正在运行,可能作为后台Roblox进程.请注意,在您关闭所有当前打开的Roblox之前,并非所有更改都将立即应用"</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>You can make it look different, retro, or even just like Roblox.</value>
+    <value>你可以让它看起来与众不同,复古,甚至像Roblox一样</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>Bootstrapper</value>
+    <value>启动器</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configure other miscellaneous customisable options.</value>
+    <value>配置其他杂项自定义选项</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Customisation</value>
+    <value>自定义定制</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Must be a multi-size .ico file with sizes 16px to 128px. Set Icon as 'Custom' to use it.</value>
+    <value>必须是一个多尺寸的ico文件,大小为16px到128px,将图标设置为“自定义”来使用它,</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Custom Icon</value>
+    <value>自定义图标</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>The text that shows as the title of the bootstrapper.</value>
+    <value>显示为启动器名字的文本</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>Title</value>
+    <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap should look.</value>
+    <value>配置Bloxstrap的外观</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Description" xml:space="preserve">
-    <value>Dark theme does not apply to Legacy or Vista styles.</value>
+    <value>深色主题不适用于旧版或Vista样式</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Global Theme</value>
+    <value>全球主题</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Choose what icon it should use.</value>
+    <value>选择使用的图标</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Icon</value>
+    <value>图标</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>Preview</value>
+    <value>预览</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.</value>
+    <value>选择样式,暗主题不适用于旧版/Vista</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>Style</value>
+    <value>风格</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>Appearance</value>
+    <value>外观</value>
   </data>
   <data name="Menu.Behaviour.AutoChannelChange.Description" xml:space="preserve">
-    <value>Roblox or Bloxstrap may try to change your preferred channel.</value>
+    <value>Roblox或Bloxstrap可能会尝试更改您的首选位置</value>
   </data>
   <data name="Menu.Behaviour.AutoChannelChange.Title" xml:space="preserve">
-    <value>Automatic channel change action</value>
+    <value>自动变化位置</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
