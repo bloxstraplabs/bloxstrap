@@ -142,7 +142,9 @@
     <value>你用了一個深層鏈接來開啓 Roblox. Roblox 的桌面環境將會暫時被重新啓用. 下一次開啓 Roblox 的時候將會回復原狀.</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap. Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.</value>
+    <value>Roblox最新的64位元客戶端現已推出, 並內建Hyperion防外掛. ReShade已經不再適用, 也已經被停用和從Bloxstrap中移除. 
+    
+    你的ReShade設置檔案會被保留, 可以到Bloxstrap的安裝位置並開啟“Integrations”資料夾找到. 你也可以把他們刪除.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>你的磁碟空間不足. 請先清理磁碟, 再重新嘗試.</value>
