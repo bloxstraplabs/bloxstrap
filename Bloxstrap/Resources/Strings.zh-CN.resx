@@ -636,58 +636,58 @@
     <value>自动变化位置</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
+    <value>当启动Roblox时,Bloxstrap将自动检查和更新到最新版本</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatically update Bloxstrap</value>
+    <value>自动更新Bloxstrap</value>
   </data>
   <data name="Menu.Behaviour.Channel.Deployed" xml:space="preserve">
-    <value>Deployed</value>
+    <value>发布日期</value>
   </data>
   <data name="Menu.Behaviour.Channel.Description" xml:space="preserve">
-    <value>Choose which deployment channel Roblox should be downloaded from.</value>
+    <value>选择从哪个位置下载Roblox</value>
   </data>
   <data name="Menu.Behaviour.Channel.DoesNotExist" xml:space="preserve">
-    <value>The specified channel name does not exist.</value>
+    <value>指定的位置不存在</value>
   </data>
   <data name="Menu.Behaviour.Channel.FetchFailed" xml:space="preserve">
-    <value>Failed to fetch information!</value>
+    <value>获取信息失败</value>
   </data>
   <data name="Menu.Behaviour.Channel.Fetching" xml:space="preserve">
-    <value>Fetching latest deploy info, please wait...</value>
+    <value>正在获取最新发布信息,请稍候...</value>
   </data>
   <data name="Menu.Behaviour.Channel.Outdated" xml:space="preserve">
-    <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
+    <value>此频道已过期,可能不再更新,请使用其他频道</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
-    <value>Channel</value>
+    <value>通道</value>
   </data>
   <data name="Menu.Behaviour.Channel.Version" xml:space="preserve">
-    <value>Version</value>
+    <value>版本</value>
   </data>
   <data name="Menu.Behaviour.Channel.VersionGuid" xml:space="preserve">
-    <value>Version GUID</value>
+    <value>版本GUID</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches.</value>
+    <value>Bloxstrap将在桌面放置一个图标,在下次启动Roblox时启动它</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Create desktop icon</value>
+    <value>创建桌面图标</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configure what Bloxstrap should do when launching.</value>
+    <value>配置启动时Bloxstrap应该做什么</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox will be installed fresh on next launch.</value>
+    <value>Roblox将在下次发布时重新安装</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Force Roblox reinstallation</value>
+    <value>强制重新安装Roblox</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Behaviour</value>
+    <value>安装设定</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>Add new</value>
+    <value>新增</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
     <value>Back</value>
