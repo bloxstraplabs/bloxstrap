@@ -274,10 +274,10 @@
     <value>Посмотреть информацию о сервере</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copy Instance ID</value>
+    <value>Копировать идентификатор экземпляра</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>Instance ID</value>
+    <value>Идентификатор экземпляра</value>
   </data>
   <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
     <value>Загрузка, пожалуйста подождите...</value>
@@ -295,40 +295,40 @@
     <value>{0} сервер</value>
   </data>
   <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
-    <value>UDMUX proxied</value>
+    <value>UDMUX-прокси</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>Добавить FastFlag</value>
   </data>
   <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
-    <value>Paste in your JSON here...</value>
+    <value>Вставьте сюда свой JSON...</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>More information:</value>
+    <value>Больше информации:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Connectivity error</value>
+    <value>Ошибка подключения</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to {0}</value>
+    <value>Bloxstrap не может подключиться к {0}</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copy log contents</value>
+    <value>Копировать содержимое журнала</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>An exception occurred while running Bloxstrap</value>
+    <value>Исключение произошло при запуске Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Please report this exception through a GitHub issue or in our Discord chat, along with a copy of the log file that was created.</value>
+    <value>Пожалуйста, сообщите об этом исключении через проблему GitHub или в нашем чате Discord вместе с копией созданного файла журнала..</value>
   </data>
   <data name="Dialog.Exception.SubmitReport" xml:space="preserve">
-    <value>Submit report...</value>
+    <value>Отправить отчет...</value>
   </data>
   <data name="Dialog.Exception.SubmitReportDiscord" xml:space="preserve">
-    <value>Submit report via Discord</value>
+    <value>Отправить отчет через Discord</value>
   </data>
   <data name="Dialog.Exception.SubmitReportGithub" xml:space="preserve">
-    <value>Submit report via GitHub</value>
+    <value>Отправить отчет через GitHub</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap Exception</value>
@@ -352,13 +352,13 @@
     <value>Bloxstrap</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconCustom" xml:space="preserve">
-    <value>Custom</value>
+    <value>Кастомный</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Early 2015</value>
+    <value>2015 (Ранняя вариация)</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Late 2015</value>
+    <value>2015 (Поздняя вариация)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
     <value>Fake Byfron (2023)</value>
