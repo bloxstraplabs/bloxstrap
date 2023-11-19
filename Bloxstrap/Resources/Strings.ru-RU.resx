@@ -134,7 +134,7 @@
     <value>Возможно, что-то мешает Bloxstrap подключиться к Интернету. Пожалуйста проверьте и попробуйте снова.</value>
   </data>
   <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Роблокс может быть недоступен прямо сейчас. Посетите status.roblox.com для получения дополнительной информации. Пожалуйста, повторите попытку позже.</value>
+    <value>Roblox может быть недоступен прямо сейчас. Посетите status.roblox.com для получения дополнительной информации. Пожалуйста, повторите попытку позже.</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
     <value>Время ожидания Bloxstrap истекло при попытке подключения к трем различным зеркалам развертывания Roblox, что указывает на плохое подключение к Интернету. Пожалуйста, повторите попытку позже.</value>
@@ -157,7 +157,7 @@
     <value>Configuring {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Подключение к Роблоксу...</value>
+    <value>Подключение к Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
     <value>Установка {product}...</value>
