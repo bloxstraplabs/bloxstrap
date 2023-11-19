@@ -391,10 +391,10 @@
     <value>По умолчанию</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartoony)</value>
+    <value>2006 (Мультяшный)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angular)</value>
+    <value>2013 (Угловой)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
@@ -412,7 +412,7 @@
     <value>Windows 8</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.Default" xml:space="preserve">
-    <value>Default</value>
+    <value>По умолчанию</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
     <value>1 версия (2015)</value>
@@ -493,61 +493,61 @@
     <value>Светлая</value>
   </data>
   <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
+    <value>Bloxstrap обнаружил изменение буквы диска и изменил местоположение установки с диска {0} на диск {1}.
 
-While Bloxstrap will continue to work, it's recommended that you change the drive letter back to its original value as other installed applications can experience similar issues.</value>
+Хотя Bloxstrap продолжит работать, рекомендуется изменить букву диска на исходное значение, поскольку в других установленных приложениях могут возникнуть аналогичные проблемы.</value>
   </data>
   <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap was originally installed to the {0} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?</value>
+    <value>Bloxstrap изначально был установлен на диск {0}, но, похоже, его больше нет. Хотите продолжить и выполнить новую установку?</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>It appears as if Bloxstrap hasn't been properly installed. Is it supposed to be installed at {0}?</value>
+    <value>Похоже, что Bloxstrap установлен неправильно. Предполагается ли он быть установлен в {0}?</value>
   </data>
   <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>See what's new in this version</value>
+    <value>Посмотрите, что нового в этой версии</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap has been upgraded to v{0}</value>
+    <value>Bloxstrap обновлен до версии {0}.</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
-Would you like to upgrade your currently installed version?</value>
+    <value>Версия Bloxstrap, которую вы запустили, отличается от версии, которую вы сейчас установили.
+Хотите обновить текущую установленную версию?</value>
   </data>
   <data name="Menu.About.BuildCommitHash" xml:space="preserve">
-    <value>Commit Hash</value>
+    <value>Зафиксировать хэш</value>
   </data>
   <data name="Menu.About.BuildInformation" xml:space="preserve">
-    <value>Build Information</value>
+    <value>Информация о сборке</value>
   </data>
   <data name="Menu.About.BuildMachine" xml:space="preserve">
-    <value>Machine</value>
+    <value>Аппарат</value>
   </data>
   <data name="Menu.About.BuildRef" xml:space="preserve">
-    <value>Commit Ref</value>
+    <value>Зафиксировать ссылку</value>
   </data>
   <data name="Menu.About.BuildTimestamp" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>Временная метка</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributors</value>
+    <value>Авторы</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Code</value>
+    <value>Код</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+    <value>Это люди, которые внесли заметный вклад в Bloxstrap, помогая сделать его таким, какой он есть.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Feature Ideas</value>
+    <value>Идеи функций</value>
   </data>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Translations</value>
+    <value>Переводы</value>
   </data>
   <data name="Menu.About.Description.1" xml:space="preserve">
     <value>Многофункциональный альтернативный загрузчик с открытым исходным кодом для Roblox.</value>
   </data>
   <data name="Menu.About.Description.2" xml:space="preserve">
-    <value>Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!</value>
+    <value>Разработано Pizzaboxer. Если вам это нравится, пожалуйста, подумайте о том, чтобы оставить звезду на GitHub!</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord сервер</value>
@@ -556,13 +556,13 @@ Would you like to upgrade your currently installed version?</value>
     <value>GitHub репозиторий</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Help and Information</value>
+    <value>Помощь и информация</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
     <value>Лицензии</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Report an issue</value>
+    <value>Сообщить о проблеме</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
     <value>About</value>
@@ -709,41 +709,41 @@ Would you like to upgrade your currently installed version?</value>
     <value>Редактор Fast Flag'ов</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Control how specific Roblox engine parameters and features are configured.</value>
+    <value>Контролируйте настройку конкретных параметров и функций движка Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Manage your own FastFlags.</value>
+    <value>Управляете своим собственным FastFlags.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Learn more about FastFlags.</value>
+    <value>Узнать больше об FastFlags.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider.</value>
+    <value>Переключайтесь между использованием объединенного ползунка качества графики 1-10/детализированного 1-21.</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use alternate graphics quality selector</value>
+    <value>Использовать альтернативный переключатель качества графики</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>FastFlag preset for Direct3D [exclusive fullscreen]({0}) using Alt+Enter is already enabled by default.</value>
+    <value>Предустановка FastFlag для Direct3D [эксклюзивный полноэкранный режим]({0}) с использованием Alt+Enter уже включена по умолчанию.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
-    <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
+    <value>Показывать значения указанных флагов во время выполнения. Каждый флаг разделяется запятой.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title" xml:space="preserve">
-    <value>Flag state overlay</value>
+    <value>Наложение состояния флага</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description" xml:space="preserve">
-    <value>Set blank if not using a proxy. Don't forget to add cacert.pem as a mod.</value>
-    <comment>Do not translate "cacert.pem"</comment>
+    <value>Установите пустое значение, если не используете прокси. Не забудьте добавить cacert.pem в качестве мода.</value>
+    <comment>"cacert.pem" не переводить</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title" xml:space="preserve">
-    <value>HTTP proxy address</value>
+    <value>Адрес HTTP-прокси</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description" xml:space="preserve">
-    <value>Enables logging of HTTP requests (DFLogHttpTraceLight=12).</value>
-    <comment>Do not translate "DFLogHttpTraceLight"</comment>
+    <value>Включает регистрацию HTTP-запросов (DFLogHttpTraceLight=12).</value>
+    <comment>"DFLogHttpTraceLight"</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title" xml:space="preserve">
     <value>HTTP request logging</value>
@@ -800,10 +800,10 @@ Would you like to upgrade your currently installed version?</value>
     <value>Fast Flags</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>Font files</value>
+    <value>Файлы шрифта</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>Icon files</value>
+    <value>Файлы иконок</value>
   </data>
   <data name="Menu.Install" xml:space="preserve">
     <value>Установить</value>
@@ -869,7 +869,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Местоположение приложения</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>e.g. C:\Windows\System32\cmd.exe</value>
+    <value>например: C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Автоматическое закрытие при закрытии Roblox</value>
@@ -881,7 +881,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Аргументы запуска</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>e.g. /k echo Roblox is running!</value>
+    <value>например: /k echo Roblox запускается!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Новая интеграция</value>
@@ -996,19 +996,19 @@ Would you like to upgrade your currently installed version?</value>
     <value>Модификации</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Click for more information on this option.</value>
+    <value>Нажмите, чтобы получить дополнительную информацию об этой опции.</value>
   </data>
   <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>There's just a few things you first should know about.</value>
+    <value>Есть лишь несколько вещей, о которых вам следует знать в первую очередь.</value>
   </data>
   <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there.</value>
+    <value>После завершения установки меню Bloxstrap будет зарегистрировано как приложение в меню «Пуск». Если вам когда-нибудь понадобится доступ к нему снова, чтобы изменить настройки или получить доступ к таким ресурсам, как управление FastFlag, вы можете найти его там.</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>If you ever need help or guidance with anything, be sure to check the [Wiki]({0}). If you still need something, open an [issue]({1}) on GitHub, or join our [Discord server]({2}).</value>
+    <value>Если вам когда-нибудь понадобится помощь или совет, обязательно посетите [Wiki]({0}). Если вам что-то еще нужно, откройте [проблему]({1}) на GitHub или присоединитесь к нашему [серверу Discord]({2}).</value>
   </data>
   <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Before you install...</value>
+    <value>Перед установкой...</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Сохранить</value>
@@ -1017,8 +1017,8 @@ Would you like to upgrade your currently installed version?</value>
     <value>Bloxstrap Menu</value>
   </data>
   <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
-    <value>Roblox is attempting to set your channel to {0}, however your current preferred channel is {1}.
+    <value>Roblox пытается установить для вашего канала {0}, однако в настоящее время предпочитаемый вам канал — {1}.
 
-Would you like to switch your preferred channel to {0}?</value>
+Хотите переключить предпочитаемый канал на {0}?</value>
   </data>
 </root>
