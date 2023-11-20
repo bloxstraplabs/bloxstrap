@@ -580,7 +580,7 @@
     <value>Bloxstrap сейчас запущен, вероятно, в качестве фонового процесса Roblox. Обратите внимание, что не все ваши изменения немедленно вступят в силу, пока вы не закроете все открытые в данный момент экземпляры Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>Вы можете придать загрузчику другой вид, в стиле ретро или даже похожим на Roblox.</value>
+    <value>Вы можете придать загрузчику другой вид, в стиле ретро или даже похожий на Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>Загрузчик</value>
@@ -697,7 +697,7 @@
     <value>Удалить выбранные</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Управляйте своими собственными FastFlags. Дважды щелкните столбец для редактирования.</value>
+    <value>Управляйте своими собственными FastFlags. Дважды щёлкните столбец для редактирования.</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
     <value>Поиск</value>
@@ -706,7 +706,7 @@
     <value>Показать предустановленные флаги</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Редактор FastFlag</value>
+    <value>Редактор FastFlags</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Управляйте параметрами и возможностями движка Roblox.</value>
@@ -720,7 +720,7 @@
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Переключайтесь между использованием объединенного 1-10 / детализированного 1-21 ползунка качества графики.</value>
+    <value>Переключайтесь между использованием объединённого 1-10 / детализированного 1-21 ползунка качества графики.</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
     <value>Использовать альтернативный переключатель качества графики</value>
