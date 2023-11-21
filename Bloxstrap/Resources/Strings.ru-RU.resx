@@ -140,12 +140,12 @@
     <value>Время ожидания Bloxstrap истекло при попытке подключиться к трём разным зеркалам развёртывания Roblox, что указывает на плохое интернет-соединение. Пожалуйста, повторите попытку позже.</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>Roblox был запущен через deeplink, однако для его работы требуется настольное приложение. Поскольку вы решили отключить настольное приложение, оно будет временно включено только для этого запуска.</value>
+    <value>Roblox был запущен через диплинк, однако для его работы требуется настольное приложение. Поскольку вы решили отключить настольное приложение, оно будет временно включено только для этого запуска.</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
     <value>Roblox завершили выпуск нового обновления игрового клиента с поддержкой 64-битной версии и античитом Hyperion. ReShade не работает с этим обновлением, поэтому он был отключён и удалён из Bloxstrap.
 
-Конфигурационные файлы ReShade будут сохранены, и их можно найти, открыв папку, в которую установлен Bloxstrap, и перейдя в папку Integrations. При желании их можно удалить.</value>
+Ваши файлы конфигурации ReShade будут сохранены, и вы сможете найти их, открыв папку, в которую установлен Bloxstrap, и перейдя в папку Integrations. При желании их можно удалить.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap не хватает места на диске для загрузки и установки Roblox. Пожалуйста, освободите немного места на диске и повторите попытку.</value>
@@ -166,13 +166,13 @@
     <value>Установка WebView2, пожалуйста, подождите...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>{product} запускается...</value>
+    <value>Запуск {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
     <value>Удаление Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>{product} обновляется...</value>
+    <value>Обновление {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Получение последней версии Bloxstrap...</value>
@@ -205,7 +205,7 @@
     <value>Удалить</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Статус активности Discord</value>
+    <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
     <value>Помощь</value>
@@ -250,7 +250,7 @@
     <value>Вы уверены, что хотите закрыть Roblox? Это принудительно завершит процесс.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Копировать deeplink-приглашение</value>
+    <value>Копировать диплинк-приглашение</value>
   </data>
   <data name="ContextMenu.LogTracer.KeepOnTop" xml:space="preserve">
     <value>Поверх всех окон</value>
@@ -352,13 +352,13 @@
     <value>Bloxstrap</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconCustom" xml:space="preserve">
-    <value>Пользовательский</value>
+    <value>Пользовательская</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>2015 (ранний)</value>
+    <value>2015 (ранняя)</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>2015 (поздний)</value>
+    <value>2015 (поздняя)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
     <value>Имитация Byfron (2023)</value>
@@ -507,10 +507,10 @@
     <value>Узнайте, что нового в этой версии</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap был обновлен до версии {0}</value>
+    <value>Bloxstrap был обновлён до версии {0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Версия Bloxstrap, которую вы запустили, отличается от версии, которая сейчас установлена.
+    <value>Версия Bloxstrap, которую вы запустили, отличается от версии, которая установлена сейчас.
 Хотите ли вы обновить установленную версию?</value>
   </data>
   <data name="Menu.About.BuildCommitHash" xml:space="preserve">
@@ -544,7 +544,7 @@
     <value>Переводы</value>
   </data>
   <data name="Menu.About.Description.1" xml:space="preserve">
-    <value>Многофункциональный альтернативный загрузчик с открытым исходным кодом для Roblox.</value>
+    <value>Многофункциональный альтернативный загрузчик для Roblox с открытым исходным кодом</value>
   </data>
   <data name="Menu.About.Description.2" xml:space="preserve">
     <value>Разработано pizzaboxer - если вам это нравится, пожалуйста, оставьте звезду на GitHub!</value>
@@ -580,7 +580,7 @@
     <value>Bloxstrap сейчас запущен, вероятно, в качестве фонового процесса Roblox. Обратите внимание, что не все ваши изменения немедленно вступят в силу, пока вы не закроете все открытые в данный момент экземпляры Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>Вы можете придать загрузчику другой вид, в стиле ретро или даже похожий на Roblox.</value>
+    <value>Вы можете придать ему другой вид, в стиле ретро или даже похожий на Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>Загрузчик</value>
@@ -592,10 +592,10 @@
     <value>Персонализация</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Укажите многоразмерный файл .ico с размерами от 16 до 128 пикселей. Установите для значка значение «Пользовательский», чтобы использовать его.</value>
+    <value>Укажите многоразмерный файл .ico с размерами от 16 до 128 пикселей. Установите иконку как «Пользовательская», чтобы использовать её.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Пользовательский значок</value>
+    <value>Пользовательская иконка</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
     <value>Текст, отображаемый в качестве заголовка загрузчика.</value>
@@ -613,16 +613,16 @@
     <value>Общая тема</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Выберите, какой значок должен использовать загрузчик.</value>
+    <value>Выберите, какую иконку он должен использовать.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Значок</value>
+    <value>Иконка</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
     <value>Предпросмотр</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Выберите, как должен выглядеть загрузчик. Тёмная тема не применяется к Legacy/Vista.</value>
+    <value>Выберите, как он должен выглядеть. Тёмная тема не применяется к Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
     <value>Стиль</value>
@@ -634,7 +634,7 @@
     <value>Roblox или Bloxstrap могут попытаться изменить предпочитаемый вами канал.</value>
   </data>
   <data name="Menu.Behaviour.AutoChannelChange.Title" xml:space="preserve">
-    <value>Действие автоматической смены канала</value>
+    <value>Автоматическая смена канала</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap автоматически проверит и обновит себя при запуске Roblox.</value>
@@ -670,10 +670,10 @@
     <value>Версия GUID</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap поместит на рабочий стол иконку, запускающую Roblox при следующем запуске.</value>
+    <value>Bloxstrap поместит на рабочий стол ярлык, запускающий Roblox при следующем своём запуске.</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Создать иконку на рабочем столе</value>
+    <value>Создать ярлык на рабочем столе</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
     <value>Настройте, что должен делать Bloxstrap при запуске.</value>
@@ -706,7 +706,7 @@
     <value>Показать предустановленные флаги</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Редактор FastFlags</value>
+    <value>Редактор Fast Flag</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Управляйте параметрами и возможностями движка Roblox.</value>
@@ -716,7 +716,7 @@
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Узнать больше об FastFlags.</value>
+    <value>Узнать больше о FastFlags.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
@@ -729,7 +729,7 @@
     <value>Пресет FastFlag для [эксклюзивного полноэкранного режима]({0}) Direct3D по нажатию Alt+Enter уже включён по умолчанию.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
-    <value>Показывать значения указанных флагов во время выполнения. Каждый флаг разделяется запятой.</value>
+    <value>Показать значения указанных флагов во время выполнения. Каждый флаг разделяется запятой.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title" xml:space="preserve">
     <value>Оверлей состояний флагов</value>
@@ -773,7 +773,7 @@
     <value>Переключается с помощью [сочетаний клавиш]({0}). Работает, только если вы состоите в [группе Bloxstrap]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Включить возможность скрывать GUI</value>
+    <value>Включить возможность скрывать интерфейс</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
     <value>Выберите, какая технология освещения должна быть принудительно включена во всех играх.</value>
@@ -803,7 +803,7 @@
     <value>Файлы шрифтов</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>Файлы значков</value>
+    <value>Файлы иконок</value>
   </data>
   <data name="Menu.Install" xml:space="preserve">
     <value>Установить</value>
@@ -833,15 +833,15 @@
     <value>Хотите удалить?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Невозможно установить Bloxstrap сюда. Пожалуйста, выберите другое местоположение или используйте местоположение по умолчанию, нажав кнопку сброса.</value>
+    <value>Невозможно установить Bloxstrap сюда. Пожалуйста, выберите другое расположение или используйте расположение по умолчанию, нажав кнопку сброса.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
     <value>Папка, которую вы выбрали для установки Bloxstrap, уже существует и НЕ пуста. Настоятельно рекомендуется устанавливать Bloxstrap в отдельную независимую папку.
 
-Предлагается перейти в следующее местоположение:
+Предлагается перейти в следующее расположение:
 {0}
 
-Хотите перейти на предложенное место?
+Хотели бы вы перейти на предложенное место?
 Если выбрать «Нет», это предупреждение будет проигнорировано, и установка продолжится.</value>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
@@ -866,13 +866,13 @@
     <value>Разрешить запуск нескольких экземпляров</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Местоположение приложения</value>
+    <value>Расположение приложения</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
     <value>например: C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Автоматическое закрытие при закрытии Roblox</value>
+    <value>Автоматически закрывать вместе с Roblox</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
     <value>Здесь вы можете автоматически запускать другие программы с Roblox.</value>
