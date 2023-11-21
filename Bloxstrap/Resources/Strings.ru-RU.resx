@@ -1017,7 +1017,7 @@
     <value>Меню Bloxstrap</value>
   </data>
   <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
-    <value>Roblox пытается установить ваш канал на {0}, однако ваш текущий предпочитаемый канал - {1}.
+    <value>Roblox пытается установить ваш канал на {0}, однако ваш текущий предпочитаемый канал — {1}.
 
 Вы хотите переключить предпочитаемый канал на {0}?</value>
   </data>
