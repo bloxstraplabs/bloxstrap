@@ -283,7 +283,7 @@ ReShade yapılandırma dosyalarınız kaydedilmeye devam edecek ve Bloxstrap'in 
     <value>Yükleniyor, lütfen bekleyin...</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Location</value>
+    <value>Lokasyon</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Sunucu bilgisi</value>
