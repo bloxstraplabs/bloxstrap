@@ -292,7 +292,7 @@ ReShade yapılandırma dosyalarınız kaydedilmeye devam edecek ve Bloxstrap'in 
     <value>Tip</value>
   </data>
   <data name="ContextMenu.ServerInformation.TypeFormat" xml:space="preserve">
-    <value>{0} sunucusu</value>
+    <value>{0} sunucu</value>
   </data>
   <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
     <value>UDMUX proxy'li</value>
@@ -385,7 +385,7 @@ ReShade yapılandırma dosyalarınız kaydedilmeye devam edecek ve Bloxstrap'in 
     <value>Asla değiştirme</value>
   </data>
   <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
-    <value>Always prompt</value>
+    <value>Her zaman sor</value>
   </data>
   <data name="Enums.CursorType.Default" xml:space="preserve">
     <value>Varsayılan</value>
