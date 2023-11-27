@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivityTracker.LeftGame" xml:space="preserve">
+    <value>oyundan ayrıldı</value>
+  </data>
+  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
+    <value>arama başarısız</value>
+  </data>
+  <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
+    <value>Bloxstrap {0} sürümüne otomatik güncelleme yapamadı. Lütfen GitHub sayfasından en son sürümü indirip çalıştırarak manuel olarak güncelleyin.</value>
+  </data>
+  <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
+    <value>Şu anda bulunduğunuz kanal ({0}) güncel değil ve artık güncelleme almıyor gibi görünüyor.
+Varsayılan kanala ({1}) geçmek ister misiniz?</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
+    <value>Bir şey Bloxstrap'in internete bağlanmasını engelliyor olabilir. Lütfen kontrol edin ve tekrar deneyin.</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox şu anda çökmüş olabilir. Daha fazla bilgi için status.roblox.com adresine bakıp daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
+    <value>Bloxstrap, üç farklı Roblox dağıtım bağlantısına bağlanmaya çalışırken zaman aşımına uğradı, bu da internet bağlantısının zayıf olduğunu gösteriyor. Lütfen daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
+    <value>Roblox bir derin bağlantı aracılığıyla başlatıldı, ancak derin bağlantı başlatmanın çalışması için masaüstü uygulaması gereklidir. Masaüstü uygulamasını devre dışı bırakmayı tercih ettiğiniz için, yalnızca bu başlatma için geçici olarak yeniden etkinleştirilecektir.</value>
+  </data>
+  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
+    <value>Roblox, 64-bit desteği ve Hyperion hile koruması içeren yeni oyun istemcisi güncellemesini yayınlamayı tamamladı. ReShade bu güncelleme ile çalışmıyor ve bu nedenle artık devre dışı bırakıldı ve Bloxstrap'tan kaldırıldı.
+
+ReShade yapılandırma dosyalarınız kaydedilmeye devam edecek ve Bloxstrap'in yüklü olduğu klasörü açıp Entegrasyonlar klasörüne giderek bunları bulabilirsiniz. İsterseniz bunları silmeyi seçebilirsiniz.</value>
+  </data>
+  <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
+    <value>Bloxstrap'ın ve Roblox'un indirilmesi için gereken depolama alanı yok. Lütfen depolamayı biraz boşaltıp tekrar deneyin.</value>
+  </data>
+  <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
+    <value>Roblox modifikasyonları uygulanıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
+    <value>{product} Yapılandırılıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
+    <value>Roblox'a bağlanılıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.Installing" xml:space="preserve">
+    <value>{product} Yükleniyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
+    <value>WebView2 yükleniyor, lütfen bekleyin...</value>
+  </data>
+  <data name="Bootstrapper.Status.Starting" xml:space="preserve">
+    <value>{product} Başlatılıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
+    <value>Bloxstrap Kaldırılıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
+    <value>{product} yükseltiliyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>En son sürüm Bloxstrap alınıyor...</value>
+  </data>
+  <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
+    <value>Diğer örnekler için bekleniyor...</value>
+  </data>
+  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
+    <value>Bloxstrap başarılı bir şekilde yüklendi</value>
+  </data>
+  <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
+    <value>Bloxstrap başarılı bir şekilde kaldırıldı</value>
+  </data>
+  <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
+    <value>Bloxstrap'i kaldırmadan önce Roblox'un kapatılması gerekiyor. Roblox'u şimdi kapatmak ister misiniz?</value>
+  </data>
+  <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
+    <value>Roblox, Windows Media Foundation bileşenlerinin kullanılmasını gerektirir. Muhtemelen Windows'un N sürümünü kullandığınız için bu bileşenleri eksik görüyorsunuz. Lütfen önce bunları yükleyin ve ardından Roblox'u tekrardan başlatın.</value>
+  </data>
+  <data name="Common.Browse" xml:space="preserve">
+    <value>Göz at</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Common.DiscordRichPresence" xml:space="preserve">
+    <value>Discord Rich Presence</value>
+  </data>
+  <data name="Common.Help" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>JSON İçe Aktar</value>
+  </data>
+  <data name="Common.LocateLogFile" xml:space="preserve">
+    <value>Günlük dosyasının yerini belirleyin</value>
+  </data>
+  <data name="Common.Miscellaneous" xml:space="preserve">
+    <value>Diğer</value>
+  </data>
+  <data name="Common.Name" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="Common.New" xml:space="preserve">
+    <value>Yeni</value>
+  </data>
+  <data name="Common.No" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+  <data name="Common.OK" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="Common.Presets" xml:space="preserve">
+    <value>Önayarlar</value>
+  </data>
+  <data name="Common.Reset" xml:space="preserve">
+    <value>Sıfırla</value>
+  </data>
+  <data name="Common.Value" xml:space="preserve">
+    <value>Değer</value>
+  </data>
+  <data name="Common.Yes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="ContextMenu.CloseRoblox" xml:space="preserve">
+    <value>Roblox'u Kapat</value>
+  </data>
+  <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
+    <value>Roblox'u kapatmak istediğinizden emin misiniz? Bu Roblox'u zorla kapatacaktır.</value>
+  </data>
+  <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
+    <value>Derin davet bağlantısını kopyala</value>
+  </data>
+  <data name="ContextMenu.LogTracer.KeepOnTop" xml:space="preserve">
+    <value>Üstte tut</value>
+  </data>
+  <data name="ContextMenu.LogTracer.ScrollToEnd" xml:space="preserve">
+    <value>Sona doğru kaydırın</value>
+  </data>
+  <data name="ContextMenu.LogTracer.TextWrapping" xml:space="preserve">
+    <value>Metin kaydırma</value>
+  </data>
+  <data name="ContextMenu.LogTracer.Title" xml:space="preserve">
+    <value>Günlük İzleyicisi</value>
+  </data>
+  <data name="ContextMenu.LogTracer.TracingFormat" xml:space="preserve">
+    <value>{0} İzleniyor</value>
+  </data>
+  <data name="ContextMenu.OpenLogTracer" xml:space="preserve">
+    <value>Günlük izleyicisini açın</value>
+  </data>
+  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
+    <value>Sunucu detaylarını görün</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
+    <value>Örnek ID'sini kopyala</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
+    <value>Örnek ID'si</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
+    <value>Yükleniyor, lütfen bekleyin...</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
+    <value>Sunucu bilgisi</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.TypeFormat" xml:space="preserve">
+    <value>{0} sunucusu</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
+    <value>UDMUX proxy'li</value>
+  </data>
+  <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
+    <value>FastFlag Ekle</value>
+  </data>
+  <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
+    <value>JSON'unu buraya yapıştır...</value>
+  </data>
+  <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
+    <value>Daha fazla bilgi:</value>
+  </data>
+  <data name="Dialog.Connectivity.Title" xml:space="preserve">
+    <value>Bağlantı hatası</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
+    <value>Bloxstrap {0}'a bağlanamıyor</value>
+  </data>
+  <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
+    <value>Günlük içeriğini kopyala</value>
+  </data>
+  <data name="Dialog.Exception.Info.1" xml:space="preserve">
+    <value>Bloxstrap çalıştırılırken bir istisna oluştu</value>
+  </data>
+  <data name="Dialog.Exception.Info.2" xml:space="preserve">
+    <value>Lütfen bu istisnayı bir GitHub sorunu aracılığıyla veya Discord sohbetimizde, oluşturulan günlük dosyasının bir kopyasıyla birlikte bildirin.</value>
+  </data>
+  <data name="Dialog.Exception.SubmitReport" xml:space="preserve">
+    <value>Rapor Gönder...</value>
+  </data>
+  <data name="Dialog.Exception.SubmitReportDiscord" xml:space="preserve">
+    <value>Discord üzerinden rapor gönderin</value>
+  </data>
+  <data name="Dialog.Exception.SubmitReportGithub" xml:space="preserve">
+    <value>GitHub üzerinden rapor gönderin</value>
+  </data>
+  <data name="Dialog.Exception.Title" xml:space="preserve">
+    <value>Bloxstrap İstisnası</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.Icon2008" xml:space="preserve">
+    <value>2008</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.Icon2011" xml:space="preserve">
+    <value>2011</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.Icon2017" xml:space="preserve">
+    <value>2017</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.Icon2019" xml:space="preserve">
+    <value>2019</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.Icon2022" xml:space="preserve">
+    <value>2022</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconBloxstrap" xml:space="preserve">
+    <value>Bloxstrap</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconCustom" xml:space="preserve">
+    <value>Özel</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
+    <value>2015'in Başlarında</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
+    <value>2015'in Sonlarında</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
+    <value>Sahte Byfron (2023)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentDialog" xml:space="preserve">
+    <value>Fluent</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.EskiDialog2008" xml:space="preserve">
+    <value>Eski (2008 - 2011)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.EskiDialog2011" xml:space="preserve">
+    <value>Eski (2011 - 2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
+    <value>Gelişme (~2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
+    <value>Vista (2008 - 2011)</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Automatic" xml:space="preserve">
+    <value>Otomatik olarak değiştir</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Ignore" xml:space="preserve">
+    <value>Asla değiştirme</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
+    <value>Always prompt</value>
+  </data>
+  <data name="Enums.CursorType.Default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (Karikatürize)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (Köşeli)</value>
+  </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>Catmoji</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>Varsayılan (Twemoji)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>Windows 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>Windows 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>Windows 8</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.Default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
+    <value>Versiyon 1 (2015)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
+    <value>Versiyon 2 (2020)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
+    <value>Versiyon 4 (2023)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
+    <value>Oyun tarafından seçilen</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
+    <value>Future (3. Aşama)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
+    <value>Shadow Map (2. Aşama)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
+    <value>Voxel (1. Aşama)</value>
+  </data>
+  <data name="Enums.FlagPresets.MaterialVersion.Default" xml:space="preserve">
+    <value>Oyun tarafından seçilen</value>
+  </data>
+  <data name="Enums.FlagPresets.MaterialVersion.New" xml:space="preserve">
+    <value>Yeni (2022)</value>
+  </data>
+  <data name="Enums.FlagPresets.MaterialVersion.Old" xml:space="preserve">
+    <value>Eski (2022'den önce)</value>
+  </data>
+  <data name="Enums.FlagPresets.MSAAMode.Default" xml:space="preserve">
+    <value>Otomatik</value>
+  </data>
+  <data name="Enums.FlagPresets.MSAAMode.x1" xml:space="preserve">
+    <value>1x MSAA</value>
+  </data>
+  <data name="Enums.FlagPresets.MSAAMode.x2" xml:space="preserve">
+    <value>2x MSAA</value>
+  </data>
+  <data name="Enums.FlagPresets.MSAAMode.x4" xml:space="preserve">
+    <value>4x MSAA</value>
+  </data>
+  <data name="Enums.FlagPresets.MSAAMode.x8" xml:space="preserve">
+    <value>8x MSAA</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
+    <value>D3D10</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
+    <value>D3D11</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.Default" xml:space="preserve">
+    <value>Otomatik</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.OpenGL" xml:space="preserve">
+    <value>OpenGL</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.Vulkan" xml:space="preserve">
+    <value>Vulkan</value>
+  </data>
+  <data name="Enums.ServerType.Private" xml:space="preserve">
+    <value>Özel</value>
+  </data>
+  <data name="Enums.ServerType.Public" xml:space="preserve">
+    <value>Herkese Açık</value>
+  </data>
+  <data name="Enums.ServerType.Reserved" xml:space="preserve">
+    <value>Rezerve Edilmiş</value>
+  </data>
+  <data name="Enums.Theme.Dark" xml:space="preserve">
+    <value>Koyu</value>
+  </data>
+  <data name="Enums.Theme.Default" xml:space="preserve">
+    <value>Sistem Varsayılanı</value>
+  </data>
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
+    <value>Bloxstrap bir sürücü harfi değişikliği algıladı ve yükleme konumunu {0} sürücüsünden {1} sürücüsüne yeniden yapılandırdı.
+
+Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar benzer sorunlar yaşayabileceğinden sürücü harfini orijinal değerine geri döndürmeniz önerilir.</value>
+  </data>
+  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
+    <value>Bloxstrap başlangıçta {0} sürücüsüne yüklenmişti, ancak artık mevcut değil gibi görünüyor. Devam etmek ve yeni bir yükleme yapmak ister misiniz?</value>
+  </data>
+  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
+    <value>Bloxstrap düzgün bir şekilde yüklenmemiş gibi görünüyor. {0}'da mı yüklenmesi gerekiyor?</value>
+  </data>
+  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
+    <value>Bu sürümdeki yeniliklere göz atın</value>
+  </data>
+  <data name="InstallChecker.Updated" xml:space="preserve">
+    <value>Bloxstrap v{0} sürümüne yükseltildi</value>
+  </data>
+  <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
+    <value>Başlattığınız Bloxstrap sürümü, şu anda yüklü olan sürümden farklı.
+Şu anda yüklü olan sürümünüzü yükseltmek ister misiniz?</value>
+  </data>
+  <data name="Menu.About.BuildCommitHash" xml:space="preserve">
+    <value>Hash Taahhüt Et</value>
+  </data>
+  <data name="Menu.About.BuildInformation" xml:space="preserve">
+    <value>Yapı Bilgisi</value>
+  </data>
+  <data name="Menu.About.BuildMachine" xml:space="preserve">
+    <value>Makine</value>
+  </data>
+  <data name="Menu.About.BuildRef" xml:space="preserve">
+    <value>Taahhüt Referansı</value>
+  </data>
+  <data name="Menu.About.BuildTimestamp" xml:space="preserve">
+    <value>Zaman Damgası</value>
+  </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>Katkıda Bulunanlar</value>
+  </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Menu.About.Contributors.Description" xml:space="preserve">
+    <value>Bunlar Bloxstrap'e kayda değer katkılarda bulunmuş ve Bloxstrap'in bu hale gelmesine yardımcı olmuş kişilerdir.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>Özellik Fikirleri</value>
+  </data>
+  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
+    <value>Çeviriler</value>
+  </data>
+  <data name="Menu.About.Description.1" xml:space="preserve">
+    <value>Roblox için açık kaynaklı, özelliklerle dolu alternatif bir önyükleyici</value>
+  </data>
+  <data name="Menu.About.Description.2" xml:space="preserve">
+    <value>pizzaboxer tarafından geliştirildi - eğer bunu beğendiyseniz, lütfen GitHub'da bir yıldız bırakmayı düşünün!</value>
+  </data>
+  <data name="Menu.About.DiscordServer" xml:space="preserve">
+    <value>Discord sunucusu</value>
+  </data>
+  <data name="Menu.About.GithubRepository" xml:space="preserve">
+    <value>GitHub deposu</value>
+  </data>
+  <data name="Menu.About.HelpInformation" xml:space="preserve">
+    <value>Yardım ve Bilgi</value>
+  </data>
+  <data name="Menu.About.Licenses" xml:space="preserve">
+    <value>Lisanslar</value>
+  </data>
+  <data name="Menu.About.ReportIssue" xml:space="preserve">
+    <value>Bir sorun bildirin</value>
+  </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="Menu.About.UnreleasedVersion" xml:space="preserve">
+    <value>Gördüğüm kadarıyla yayınlanmamış bir versiyonu kullanıyorsun?</value>
+  </data>
+  <data name="Menu.About.Version" xml:space="preserve">
+    <value>Sürüm {0}</value>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>Tüm dosyalar</value>
+  </data>
+  <data name="Menu.AlreadyRunning" xml:space="preserve">
+    <value>Bloxstrap şu anda muhtemelen bir arka plan Roblox işlemi olarak çalışıyor. Şu anda açık olan tüm Roblox işlemlerini kapatana kadar tüm değişikliklerinizin hemen uygulanmayacağını lütfen unutmayın."</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>Farklı, Retro ve hatta sadece Roblox gibi görünmesini sağlayabilirsiniz.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>Önyükleyici</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
+    <value>Diğer çeşitli özelleştirilebilir seçenekleri yapılandır.</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
+    <value>Kişiselleştirme</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
+    <value>Boyutları 16px ila 128px olan çok boyutlu bir .ico dosyası olmalıdır. Kullanmak için İkonu 'Özel' olarak ayarlayın.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>Özel İkon</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
+    <value>Önyükleyici başlığı olarak gösterilen metin.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Menu.Appearance.Description" xml:space="preserve">
+    <value>Bloxstrap'in nasıl görünmesi gerektiğini yapılandır.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Description" xml:space="preserve">
+    <value>Koyu tema Eski veya Vista stili için geçerli değildir.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>Küresel Tema</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
+    <value>Hangi ikonu kullanması gerektiğini seçin.</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
+    <value>İkon</value>
+  </data>
+  <data name="Menu.Appearance.Preview" xml:space="preserve">
+    <value>Önizleme</value>
+  </data>
+  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+    <value>Nasıl görünmesi gerektiğini seçin. Koyu tema Eski/Vista için geçerli değildir.</value>
+  </data>
+  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
+    <value>Stil</value>
+  </data>
+  <data name="Menu.Appearance.Title" xml:space="preserve">
+    <value>Görünüm</value>
+  </data>
+  <data name="Menu.Behaviour.AutoChannelChange.Description" xml:space="preserve">
+    <value>Roblox veya Bloxstrap tercih ettiğiniz kanalı değiştirmeye çalışabilir.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoChannelChange.Title" xml:space="preserve">
+    <value>Otomatik kanal değişikliği eylemi</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+    <value>Bloxstrap, Roblox'u başlatırken otomatik olarak kendini kontrol edecek ve güncelleyecektir.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+    <value>Bloxstrap'i otomatik olarak güncelle</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Deployed" xml:space="preserve">
+    <value>Dağıtıldı</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Description" xml:space="preserve">
+    <value>Roblox'un hangi dağıtım kanalından indirileceğini seçin.</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.DoesNotExist" xml:space="preserve">
+    <value>Belirtilen kanal adı mevcut değil.</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.FetchFailed" xml:space="preserve">
+    <value>Bilgi alma işlemi başarısız oldu!</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Fetching" xml:space="preserve">
+    <value>En son dağıtım bilgileri alınıyor, lütfen bekleyin...</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Outdated" xml:space="preserve">
+    <value>Bu kanal güncel değil ve muhtemelen artık güncellenmiyor. Lütfen başka bir kanal kullanın.</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
+    <value>Kanal</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Version" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.VersionGuid" xml:space="preserve">
+    <value>Sürüm GUID'i</value>
+  </data>
+  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
+    <value>Bloxstrap masaüstüne bir sonraki açılışta Roblox'u başlatan bir simge yerleştirecektir.</value>
+  </data>
+  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
+    <value>Masaüstü simgesi oluştur</value>
+  </data>
+  <data name="Menu.Behaviour.Description" xml:space="preserve">
+    <value>Bloxstrap'in başlatılırken ne yapması gerektiğini yapılandır.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+    <value>Roblox bir sonraki açılışta yeni yüklenecek.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+    <value>Roblox'u yeniden yüklemeye zorla</value>
+  </data>
+  <data name="Menu.Behaviour.Title" xml:space="preserve">
+    <value>Davranış</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
+    <value>Yeni ekle</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
+    <value>Geri dön</value>
+  </data>
+  <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
+    <value>Seçili olanları sil</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
+    <value>Kendi FastFlags'inizi yönetin. Düzenlemek için bir sütuna çift tıklayın.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
+    <value>Önayarlı flagleri göster</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
+    <value>Fast Flag Düzenleyici</value>
+  </data>
+  <data name="Menu.FastFlags.Description" xml:space="preserve">
+    <value>Belirli Roblox motor parametrelerinin ve özelliklerinin nasıl yapılandırılacağını kontrol edin.</value>
+  </data>
+  <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
+    <value>Kendi FastFlags'inizi yönetin.</value>
+    <comment>Title is Menu.FastFlagEditor.Title</comment>
+  </data>
+  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
+    <value>FastFlags'ler hakkında daha fazla bilgi edinin.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
+    <value>Birleştirilmiş 1-10 / ince taneli 1-21 grafik kalitesi kaydırıcısını kullanma arasında geçiş yapın.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
+    <value>Alternatif grafik kalitesi seçicisini kullanın</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
+    <value>Alt+Enter kullanarak Direct3D [exclusive fullscreen]({0}) için FastFlag ön ayarı varsayılan olarak zaten etkindir.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
+    <value>Çalışma zamanı sırasında belirtilen flaglerin değerlerini gösterir. Her flag virgülle ayrılmıştır.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title" xml:space="preserve">
+    <value>Flag durumu katmanı</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description" xml:space="preserve">
+    <value>Proxy kullanmıyorsanız boş bırakın. cacert.pem'i mod olarak eklemeyi unutmayın.</value>
+    <comment>Do not translate "cacert.pem"</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title" xml:space="preserve">
+    <value>HTTP proxy adresi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description" xml:space="preserve">
+    <value>HTTP isteklerinin günlüğe kaydedilmesini etkinleştirir (DFLogHttpTraceLight=12).</value>
+    <comment>Do not translate "DFLogHttpTraceLight"</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title" xml:space="preserve">
+    <value>HTTP istek günlüğü</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Debug.Title" xml:space="preserve">
+    <value>Hata Ayıklama</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Description" xml:space="preserve">
+    <value>Escape menüsünün hangi sürümünün kullanılacağını seçin.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Tercih edilen escape menüsü sürümü</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
+    <value>Roblox, ekran ölçeklendirmesine bağlı olarak işleme kalitenizi düşürür. Bu özellik bunu ayarlar.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
+    <value>Ekran ölçeklendirme ile işleme kalitesini koruyun</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Limit olmaması için 9999 gibi büyük bir sayı kullanın. Varsayılan için 0 olarak ayarlayın.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Kare hızı limiti</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Klavye kısayolları]({0}) ile kullanılır. Yalnızca [Bloxstrap grubu]({1})ndaysanız çalışır.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>GUI'ları gizleme özelliğini etkinleştirin</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Tüm oyunlarda hangi ışıklandırma teknolojisinin zorunlu olarak etkinleştirilmesi gerektiğini seçin.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Tercih edilen ışıklandırma teknolojisi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Materials.Description" xml:space="preserve">
+    <value>Tüm oyunlarda hangi materyal sürümünün zorlanması gerektiğini seçin.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Materials.Title" xml:space="preserve">
+    <value>Tercih edilen materyaller</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MoreInfo" xml:space="preserve">
+    <value>Bu önayar hakkında daha fazla bilgi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
+    <value>Roblox'un hangi görüntüleyiciyi kullanması gerektiğini seçin. VR Direct3D/Otomatik gerektirir.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>İşleme modu</value>
+  </data>
+  <data name="Menu.FastFlags.Title" xml:space="preserve">
+    <value>Fast Flagler</value>
+  </data>
+  <data name="Menu.FontFiles" xml:space="preserve">
+    <value>Yazı tipi dosyaları</value>
+  </data>
+  <data name="Menu.IconFiles" xml:space="preserve">
+    <value>İkon dosyaları</value>
+  </data>
+  <data name="Menu.Install" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="Menu.Installation.Description" xml:space="preserve">
+    <value>Bloxstrap/Roblox'un nasıl kurulacağını yapılandır.</value>
+  </data>
+  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
+    <value>Bloxstrap'in nereye kurulacağını seçin.</value>
+  </data>
+  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
+    <value>Kurulum Yeri</value>
+  </data>
+  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
+    <value>Bloxstrap'in şu anda kurulu olduğu yer.</value>
+  </data>
+  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
+    <value>Kurulum Klasörünü Açın</value>
+  </data>
+  <data name="Menu.Installation.Title" xml:space="preserve">
+    <value>Kurulum</value>
+  </data>
+  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
+    <value>Bloxstrap'in nasıl kaldırılacağına dair bir kılavuz.</value>
+  </data>
+  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
+    <value>Kaldırmak mı istiyorsunuz?</value>
+  </data>
+  <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
+    <value>Bloxstrap buraya yüklenemez. Lütfen farklı bir konum seçin veya sıfırla düğmesine tıklayarak varsayılan konumu kullanmaya devam edin.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
+    <value>Bloxstrap'i yüklemek için seçtiğiniz klasör zaten var ve boş değil. Bloxstrap'in kendi bağımsız klasörüne kurulması şiddetle tavsiye edilir.
+
+Aşağıdaki konuma değiştirilmesi önerilir:
+{0}
+
+Önerilen konuma geçmek ister misiniz?
+'Hayır' seçeneğinin seçilmesi bu uyarıyı yok sayacak ve kuruluma devam edecektir.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
+    <value>Bir yükleme konumu ayarlamalısınız</value>
+  </data>
+  <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
+    <value>Bloxstrap, seçtiğiniz yükleme konumuna yazma erişimine sahip değil. Lütfen başka bir konum seçin.</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
+    <value>Aktivite takibi</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
+    <value>Discord profiliniz aracılığıyla herhangi birinin o anda bulunduğunuz oyuna katılmasına izin verir.</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
+    <value>Aktiviteye katılmaya izin ver</value>
+  </data>
+  <data name="Menu.Integrations.AllowMultipleInstances.Description" xml:space="preserve">
+    <value>Aynı anda birden fazla Roblox oyun istemcisi örneğinin açık olmasına izin verir.</value>
+  </data>
+  <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
+    <value>Çoklu örnek başlatmaya izin ver</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
+    <value>Uygulama Konumu</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
+    <value>örneğin: C:\Windows\System32\cmd.exe</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
+    <value>Roblox kapandığında otomatik kapanma</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
+    <value>Burada, diğer programların Roblox ile otomatik olarak başlatılmasını sağlayabilirsiniz.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>Başlatma Argümanları</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
+    <value>örneğin: /k echo Roblox çalışıyor!</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
+    <value>Yeni Entegrasyon</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
+    <value>Seçili entegrasyon yok, lütfen seçin veya yeni bir tane ekleyin</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
+    <value>Özel Entegrasyonlar</value>
+  </data>
+  <data name="Menu.Integrations.Description" xml:space="preserve">
+    <value>Roblox oyun deneyimini geliştirmek için hızlı ve kolay yollar yapılandırın.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
+    <value>Bloxstrap'in hangi Roblox oyununu oynadığınızı algılamasını sağlar. Bazı özellikler bunu gerektirebilir.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
+    <value>Etkinlik izlemeyi etkinleştirin</value>
+  </data>
+  <data name="Menu.Integrations.MoreInfo" xml:space="preserve">
+    <value>Bu entegrasyon hakkında daha fazla bilgi</value>
+  </data>
+  <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
+    <value>Bu özellik, etkinlik izlemenin etkinleştirilmesini gerektirir.</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>Bir Roblox oyunu oynarken, oynadığınız oyun Discord profil etkinliğinizde görünecektir.</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>Oyun aktivitesini göster</value>
+  </data>
+  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
+    <value>Bir oyuna katıldığınızda, sunucunun hangi lokasyonda olduğu size bildirilir. Tam ekranda gösterilmez.</value>
+  </data>
+  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
+    <value>Bir oyuna katılırken sunucu lokasyonunu gör</value>
+  </data>
+  <data name="Menu.Integrations.Title" xml:space="preserve">
+    <value>Entegrasyonlar</value>
+  </data>
+  <data name="Menu.Mods.Description" xml:space="preserve">
+    <value>Roblox oyun istemcisine dosya modlarını yönet ve uygula.</value>
+  </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>Modları yönetme ve oluşturma hakkındaki bilgilere bakın.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
+    <value>Yazı tipi seç...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
+    <value>Her oyun içi yazı tipini sizin seçtiğiniz bir yazı tipi olmaya zorlar.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
+    <value>Uygulanmış yazı tipini kaldır</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
+    <value>Özel yazı tipi uygula</value>
+  </data>
+  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
+    <value>Tam ekranda performansla çakışabilecek bir Windows özelliği.</value>
+  </data>
+  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
+    <value>Tam ekran optimizasyonlarını devre dışı bırak</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
+    <value>Özel Roblox modlarını buradan yönetin.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
+    <value>Bloxstrap ilk önce kurulmalıdır.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>Modlar klasörünü aç</value>
+  </data>
+  <data name="Menu.Mods.Presets.DisableDesktopApp.Description" xml:space="preserve">
+    <value>Masaüstü uygulamasının çıkmasını engeller, Özellikle oyundan ayrılırken.</value>
+  </data>
+  <data name="Menu.Mods.Presets.DisableDesktopApp.Title" xml:space="preserve">
+    <value>Masaüstü uygulamasını devre dışı bırak</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
+    <value>Roblox'un hangi emoji türünü kullanması gerektiğini seçin.</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>Tercih edilen emoji türü</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
+    <value>İki klasik Roblox imleç stilini kullanmak arasında seçim yapın.</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
+    <value>Fare imleci</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
+    <value>2020'den önce Roblox uygulamasında kullanılan eski avatar düzenleyici arka planını geri getirin.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
+    <value>Eski avatar düzenleyici arka planını kullan</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
+    <value>2014'ten önce kullanılan karakter seslerini geri getirmeye çalışır.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
+    <value>Eski karakter seslerini taklit edin</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
+    <value>Klasik 'oof' sesini geri getirir.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
+    <value>Eski ölüm sesini kullan</value>
+  </data>
+  <data name="Menu.Mods.Title" xml:space="preserve">
+    <value>Modlar</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>Bu seçenek hakkında daha fazla bilgi için tıklayın.</value>
+  </data>
+  <data name="Menu.PreInstall.Description" xml:space="preserve">
+    <value>İlk önce bilmeniz gereken birkaç şey var.</value>
+  </data>
+  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
+    <value>Kurulum tamamlandıktan sonra, Bloxstrap Menüsü Başlat menüsünde bir uygulama olarak kaydedilecektir. Ayarlarınızı yeniden yapmak veya FastFlag yönetimi gibi kaynaklara erişmek için tekrar erişmeniz gerekirse, orada bulabilirsiniz.</value>
+  </data>
+  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
+    <value>Herhangi bir konuda yardıma veya rehberliğe ihtiyacınız olursa, [Wiki]({0})'yi kontrol ettiğinizden emin olun. Hala bir şeye ihtiyacınız varsa, GitHub'da bir [issue]({1}) açın veya [Discord sunucumuza]({2}) katılın.</value>
+  </data>
+  <data name="Menu.PreInstall.Title" xml:space="preserve">
+    <value>Yüklemeden önce...</value>
+  </data>
+  <data name="Menu.Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Menu.Title" xml:space="preserve">
+    <value>Bloxstrap Menüsü</value>
+  </data>
+  <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
+    <value>Roblox kanalınızı {0} olarak ayarlamaya çalışıyor, ancak şu anda tercih ettiğiniz kanal {1}.
+
+Tercih ettiğiniz kanalı {0} olarak değiştirmek ister misiniz?</value>
+  </data>
+</root>
