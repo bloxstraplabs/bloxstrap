@@ -755,7 +755,7 @@ Bạn có muốn nâng cấp lên phiên bản hiện đang được cài đặt
     <value>Chọn phiên bản menu thoát được sử dụng.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Phiên bản menu thoát được lựa chọn</value>
+    <value>Ưu tiên phiên bản menu thoát</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox giảm chất lượng render, tùy thuộc vào việc mở rộng màn hình. Tính năng này vô hiệu hóa việc đó.</value>
@@ -923,7 +923,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Tích hợp</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Quản lý và áp dụng các mod tệp cho ứng dụng trò chơi Roblox.</value>
+    <value>Quản lý và áp dụng các mod cho ứng dụng trò chơi Roblox.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
     <value>Xem thông tin về cách quản lý và tạo mod.</value>
@@ -1017,7 +1017,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Bloxstrap Menu</value>
   </data>
   <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
-    <value>Roblox đang cố gắng đặt kênh của bạn thành {0}, tuy nhiên kênh ưa thích hiện tại của bạn là {1}.
+    <value>Roblox đang cố gắng đặt kênh của bạn thành {0}, tuy nhiên kênh ưu tiên hiện tại của bạn là {1}.
 
 Bạn có muốn chuyển kênh ưa thích của mình sang {0} không?</value>
   </data>
