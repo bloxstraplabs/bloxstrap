@@ -192,6 +192,14 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
   </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>Style preview - Click the X button at the top right to close</value>
+	<comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>Style preview - Click Cancel to close</value>
+	<comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>Browse</value>
   </data>

@@ -278,7 +278,29 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Bootstrapper.WMFNotFound", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Style preview - Click the X button at the top right to close.
+        /// </summary>
+        public static string Bootstrapper_StylePreview_ImageCancel
+        {
+            get
+            {
+                return ResourceManager.GetString("Bootstrapper.StylePreview.ImageCancel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Style preview - Click Cancel to close.
+        /// </summary>
+        public static string Bootstrapper_StylePreview_TextCancel
+        {
+            get
+            {
+                return ResourceManager.GetString("Bootstrapper.StylePreview.TextCancel", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
