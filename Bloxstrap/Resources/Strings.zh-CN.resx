@@ -223,7 +223,7 @@
     <value>名字</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>新出现的</value>
+    <value>添加</value>
   </data>
   <data name="Common.No" xml:space="preserve">
     <value>否</value>
@@ -669,7 +669,7 @@
     <value>版本GUID</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap将在桌面放置一个图标,在下次启动Roblox时启动它</value>
+    <value>下一次Bloxstrap启动时，会在桌面上放置快捷方式让你启动Roblox</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
     <value>创建桌面图标</value>
@@ -790,7 +790,7 @@
     <value>关于此预设的更多信息</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
-    <value>选择Roblox应该使用的渲染器,VR需要Direct3D/Automatic</value>
+    <value>选择Roblox应该使用的渲染器,VR需要Direct3D/自动</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>渲染模式</value>
@@ -853,7 +853,7 @@
     <value>游戏状态跟踪</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>让其他人能够在你的discord个人信息加入你正在游玩的游戏中</value>
+    <value>让其他人能够在你的Discord个人信息加入你正在游玩的游戏中</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>允许在discord加入</value>
