@@ -79,7 +79,7 @@
                 <ui:Button Content="{Binding ConfirmButtonText, Mode=OneTime}" Appearance="Primary" Command="{Binding ConfirmSettingsCommand, Mode=OneWay}" IsEnabled="{Binding ConfirmButtonEnabled, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
-                <ui:Button Content="Cancel" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
+                <ui:Button Content="{x:Static resources:Strings.Common_Cancel}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
     </Grid>

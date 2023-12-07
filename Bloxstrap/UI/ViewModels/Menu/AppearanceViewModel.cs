@@ -23,9 +23,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
 
             if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
-                dialog.Message = "Style preview - Click the X button at the top right to close";
+                dialog.Message = Resources.Strings.Bootstrapper_StylePreview_ImageCancel;
             else
-                dialog.Message = "Style preview - Click Cancel to close";
+                dialog.Message = Resources.Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
