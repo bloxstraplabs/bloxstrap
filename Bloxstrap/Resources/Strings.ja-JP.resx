@@ -180,6 +180,14 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>他のインスタンスを待機しています...</value>
   </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>～プレビュー中～ 右上の✕ボタンで閉じます。</value>
+    <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>～プレビュー中～ 下のボタンで閉じます。</value>
+    <comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
   <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
     <value>Bloxstrapがインストールされました。</value>
   </data>
