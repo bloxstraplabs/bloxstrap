@@ -124,34 +124,34 @@
     <value>参照失敗</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrapの自動アップデートに失敗しました。({0})Githubのページからアップデートを手動でダウンロードし、インストールを行ってください。</value>
+    <value>Bloxstrapの自動更新に失敗しました(最新版:{0})。手動でGithubのページから最新版をインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
-    <value>設定中の{0}チャンネルは利用不可能になり、更新が受けれない可能性があります。
-デフォルトチャンネル({1})に変更しますか？</value>
+    <value>設定中の{0}チャンネルが配信終了したため、Robloxがアップデートできなくなります。
+通常のチャンネル({1})に変更しますか？</value>
   </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Bloxstrapが他のアプリによってインターネットに接続できないようになっています。もう一度試してください。</value>
+    <value>何らかの原因でBloxstrapはインターネット接続を制限されています。確認の後、もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Robloxに障害が発生している可能性があります。status.roblox.comより詳細情報が確認できます。もう一度試してください。</value>
+    <value>Robloxにサーバー障害が発生している可能性があります。 status.roblox.com より詳細情報が確認できます。障害が解消された後、もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
     <value>インターネット接続が不安定なため、3つのRoblox配信元への接続がタイムアウトしました。もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>デスクトップアプリを無効化する設定が有効ですが、Robloxをディープリンク(招待URLなど)から起動するためデスクトップアプリを一時的に有効にします。</value>
+    <value>Robloxをディープリンク(招待URL等)から起動するために、今回に限りデスクトップアプリを有効にします。(デスクトップアプリを無効にするよう設定されているため、再度無効化されます。)</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Hyperionアンチチートを搭載した64ビット版Robloxが配信されました。その影響によりReShadeは利用不可能となったため、Bloxstrapの設定からは削除されました。
+    <value>Hyperionアンチチートを搭載した64bit版Robloxが配信されました。その影響によりReShadeは利用不可能となったため、Bloxstrapの設定からは削除されました。
 
-ReShadeの設定ファイルはBloxstrapがインストールされたファイルのIntergrationsフォルダに保存されています。希望する場合は削除を行うことができます。</value>
+またReShadeの設定ファイルは、Bloxstrapがインストールされたフォルダ中のIntergrationsフォルダに保存されています。削除はご自身の判断で行ってください。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>容量不足のためRobloxがインストールできませんでした。容量を空けてもう一度試してください。</value>
+    <value>容量不足のためRobloxをインストールできません。容量を空けてもう一度試してください。</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>MODを適用中...</value>
+    <value>Modを適用中...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
     <value>{product}を設定中...</value>
@@ -175,7 +175,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>{product}を更新中...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Bloxstrapの最新バージョンを取得しています...</value>
+    <value>Bloxstrapの最新版を取得しています...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>他のインスタンスを待機しています...</value>
@@ -198,7 +198,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>BloxstrapをアンインストールするためにはRobloxを終了する必要があります。Robloxを終了しますか？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Robloxを実行するには"Windows Media Foundation"が必要です。WindowsのNバージョンを利用している場合インストールされていない可能性があります。インストールしてからRobloxを実行してください。</value>
+    <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションの場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>参照</value>
@@ -279,7 +279,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>ログ記録を開く</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>サーバーの詳細を確認</value>
+    <value>サーバー情報を確認</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>インスタンスIDをコピー</value>
@@ -303,7 +303,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>{0}サーバー</value>
   </data>
   <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
-    <value>UDMUXプロキシ済み</value>
+    <value>UDMUX</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>FastFlag追加</value>
@@ -327,7 +327,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>Bloxstrap実行中に例外が発生しました</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>作成されたログファイルとともに、Github issuesまたはDiscordチャンネルで報告してください。</value>
+    <value>作成されたログファイルとともに、Github issuesまたはDiscordで報告してください。</value>
   </data>
   <data name="Dialog.Exception.SubmitReport" xml:space="preserve">
     <value>報告を送信中...</value>
@@ -369,7 +369,7 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>2015後期</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>偽Byfron (2023)</value>
+    <value>ﾆｾByfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentDialog" xml:space="preserve">
     <value>オリジナル</value>
@@ -483,10 +483,10 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
     <value>Vulkan</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>プライベート</value>
+    <value>プライベートサーバー</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>パブリック</value>
+    <value>公開サーバー</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
     <value>予約済み</value>
@@ -503,19 +503,19 @@ ReShadeの設定ファイルはBloxstrapがインストールされたファイ�
   <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
     <value>ドライブ文字が変更されたため、インストール先を{0}ドライブから{1}ドライブへ変更しました。
 
-Bloxstrapは引き続き動作しますが、他のアプリケーションに問題が発生する可能性があるため、元に戻すことを推奨します。</value>
+Bloxstrapは引き続き動作しますが、ほかのアプリケーションに問題が発生する可能性があるため、元に戻すことを推奨します。</value>
   </data>
   <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
     <value>Bloxstrapがインストールされていた{0}ドライブが見つかりませんでした。再度インストールしますか？</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Bloxstrapが正しくインストールされていません。{0}ドライブにインストールされていますか?</value>
+    <value>Bloxstrapが正しくインストールされていません。{0}ドライブにインストールされていますか？</value>
   </data>
   <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
     <value>更新情報を確認</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrapはv{0}にアップデートされました。</value>
+    <value>Bloxstrapは{0}にアップデートされました。</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
     <value>起動したBloxstrapのバージョンは、現在インストールされているバージョンと異なります。
@@ -543,7 +543,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>コード</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>この人々はBloxstrapに大きく貢献し、今の姿を作りました。</value>
+    <value>Bloxstrap開発に貢献し、今の姿を作り上げた人々です。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>機能アイデア</value>
@@ -555,7 +555,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>オープンソースで、便利機能の詰まったRoblox用カスタムランチャー</value>
   </data>
   <data name="Menu.About.Description.2" xml:space="preserve">
-    <value>開発:pizzaboxer "もし気に入ったら、GithubでStarをお願いします。"</value>
+    <value>開発:pizzaboxer "もし気に入ったら、GithubでStarをお願いします！"</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discordサーバー</value>
@@ -585,7 +585,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>すべてのファイル</value>
   </data>
   <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Robloxをプレイ中のためBloxstrapはすでに起動しています。現在開いているRobloxを終了するまで変更は適用されません。</value>
+    <value>Robloxをプレイ中のため、Bloxstrapはすでに起動しています。現在開いているRobloxを終了するまで変更は適用されません。</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>見た目を変えてレトロにしたり、Roblox風にしたりできます。</value>
@@ -600,7 +600,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>カスタマイズ</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>16px～128pxのマルチサイズ.ico形式を指定できます。アイコン設定を"カスタム"に変更すると使用できます。</value>
+    <value>16px～128pxのマルチサイズ.ico形式を指定できます。(アイコン設定を"カスタム"にすることで使用できます)</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
     <value>カスタムアイコン</value>
@@ -666,7 +666,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>配信情報を取得しています。しばらくお待ち下さい...</value>
   </data>
   <data name="Menu.Behaviour.Channel.Outdated" xml:space="preserve">
-    <value>このチャンネルは使用できなくなったため、Robloxはアップデートされません。他のチャンネルに変更してください。</value>
+    <value>このチャンネルは使用できなくなったため、Robloxをアップデートできません。他のチャンネルに変更してください。</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>チャンネル</value>
@@ -743,7 +743,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>FastFlag状態画面</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description" xml:space="preserve">
-    <value>プロキシを使用していない場合は空に設定してください。cacert.pemをMODとして追加することを忘れないでください。</value>
+    <value>プロキシを使用していない場合は空に設定してください。必ずcacert.pemをModとして追加してください。</value>
     <comment>Do not translate "cacert.pem"</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title" xml:space="preserve">
@@ -766,19 +766,19 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>Robloxメニュー画面を変更</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>画面スケーリングの影響でRobloxの画面解像度が低下することを防ぎます。</value>
+    <value>カスタムスケールの影響でRobloxの画面解像度が低下することを防ぎます。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>画面スケーリング時の画面解像度を保持</value>
+    <value>カスタムスケール設定時の画面解像度を保持</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>9999などの大きい数にすることで無制限にできます。0はデフォルトに設定されます。</value>
+    <value>9999などの大きい数にすることで無制限にできます。(0はデフォルトに設定)</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>フレームレート上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[ショートカットキー]({0})で切り替えることができます。[Bloxstrapグループ]({1})に参加している場合のみ有効です。</value>
+    <value>[ショートカットキー]({0})で切り替えることができます。([Bloxstrapグループ]({1})に参加している場合のみ有効)</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUIを非表示にできるようにする</value>
@@ -799,7 +799,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>このプリセットの詳細情報</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
-    <value>Robloxのレンダラーを変更できます。VRモードではDirect3D/自動に設定する必要があります。</value>
+    <value>Robloxのレンダラーを変更できます。(VRモードはDirect3D/自動への設定が必須)</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>レンダラーの変更</value>
@@ -835,7 +835,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>インストール方法</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Bloxstrapをアンインストールする方法を確認できます。</value>
+    <value>Bloxstrapのアンインストール方法を確認できます。</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
     <value>アンインストール方法について</value>
@@ -844,9 +844,9 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>Bloxstrapをこの場所にインストールすることはできません。他の場所を選択するか、リセットボタンを押してデフォルトの場所に変更してください。</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>選択したBloxstrapのインストール場所はすでに存在しており、中身が含まれています。独立したフォルダにインストールすることを強く推奨します。
+    <value>選択したBloxstrapのインストール場所には中身が含まれています。独立したフォルダにインストールすることを強く推奨します。
 
-次の場所に変更することをおすすめします。
+この場所に変更することをおすすめします。
 {0}
 
 おすすめの場所に変更しますか？
@@ -904,7 +904,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>Robloxのゲームプレイをより良くする方法を設定できます。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>BloxstrapがRobloxでプレイ中のゲームを検出できるようにします。他の機能に必要な場合があります。</value>
+    <value>BloxstrapがRobloxでプレイ中のゲームを検出できるようにします。(一部機能に必要)</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>プレイ中ゲームの追跡</value>
@@ -913,7 +913,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>この連携についての詳細情報</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>この機能はプレイ中ゲームの追跡の有効化が必要です。</value>
+    <value>この機能はプレイ中ゲームの追跡が必要です。</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Robloxでプレイ中のゲームをDiscordプロファイルに表示します。</value>
@@ -922,7 +922,7 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>プレイ中ゲームの表示</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>ゲーム参加時にサーバー地域を通知します。フルスクリーンでは表示されません。</value>
+    <value>ゲーム参加時にサーバー地域を通知します。(全画面では表示不可)</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
     <value>ゲーム参加時にサーバー地域を表示</value>
@@ -950,19 +950,19 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>カスタムフォント</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>フルスクリーンモードでパフォーマンスに影響を及ぼす可能性のあるWindowsの機能を無効化します。</value>
+    <value>全画面表示でパフォーマンスに悪影響を及ぼす可能性のあるWindowsの機能を無効化します。</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>フルスクリーン最適化を無効化</value>
+    <value>全画面表示最適化を無効化</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>RobloxのMODを管理できます。</value>
+    <value>RobloxのModを管理できます。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
     <value>最初にBloxstrapをインストールする必要があります。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>MODフォルダを開く</value>
+    <value>Modフォルダを開く</value>
   </data>
   <data name="Menu.Mods.Presets.DisableDesktopApp.Description" xml:space="preserve">
     <value>ゲーム退出時にデスクトップアプリが表示されないようにします。</value>
@@ -995,13 +995,13 @@ Bloxstrapは引き続き動作しますが、他のアプリケーションに�
     <value>旧キャラクター効果音を再現</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>古いOof音(死亡時の効果音)を取り戻します。</value>
+    <value>古き良きOof(死亡時の効果音)に変更します。</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
     <value>古いOof音を使用</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>MOD</value>
+    <value>Mod</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>クリックするとこの設定の詳細情報を確認できます。</value>
