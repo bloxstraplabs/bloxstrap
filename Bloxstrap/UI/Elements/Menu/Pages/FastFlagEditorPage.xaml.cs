@@ -134,6 +134,8 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                     if (!newName.Contains(_searchFilter))
                         ClearSearch();
 
+                    entry.Name = newName;
+
                     break;
 
                 case "Value":
