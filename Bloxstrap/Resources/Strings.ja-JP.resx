@@ -483,10 +483,10 @@
     <value>Vulkan</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>プライベートサーバー</value>
+    <value>プライベート</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>公開サーバー</value>
+    <value>公開</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
     <value>予約済み</value>
