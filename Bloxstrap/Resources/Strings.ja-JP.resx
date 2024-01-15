@@ -124,7 +124,7 @@
     <value>参照失敗</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrapの自動更新に失敗しました(最新版:{0})。手動でGithubのページから最新版をインストールしてください。</value>
+    <value>Bloxstrapの自動更新に失敗しました(Ver. {0})。手動でGithubのページから最新版をインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
     <value>設定中の{0}チャンネルが配信終了したため、Robloxがアップデートできなくなります。
@@ -198,7 +198,7 @@
     <value>BloxstrapをアンインストールするためにはRobloxを終了する必要があります。Robloxを終了しますか？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションの場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
+    <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションを利用している場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>参照</value>
@@ -778,7 +778,7 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>フレームレート上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[ショートカットキー]({0})で切り替えることができます。([Bloxstrapグループ]({1})に参加している場合のみ有効)</value>
+    <value>[ショートカットキー]({0})で切り替えることができます。[Bloxstrapグループ]({1})に参加している場合のみ有効です。</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUIを非表示にできるようにする</value>
@@ -904,7 +904,7 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>Robloxのゲームプレイをより良くする方法を設定できます。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>BloxstrapがRobloxでプレイ中のゲームを検出できるようにします。(一部機能に必要)</value>
+    <value>BloxstrapがRobloxでプレイ中のゲームを検出できるようにします。一部機能に必要です。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>プレイ中ゲームの追跡</value>
@@ -1013,7 +1013,7 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>インストール終了後、Bloxstrap Menuがスタートメニューに追加されます。設定やFastFlagの編集を行う場合はここからアクセスすることができます。</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>ヘルプやガイドが必要な場合は、[Wiki]({0})を確認してください。それでも解決しない場合は、Githubで[issue]({1})を投稿したり、[公式Discordサーバー]({2})への参加をお願いします。</value>
+    <value>ヘルプやガイドが必要な場合は、[Wiki]({0})を確認してください。解決しない場合は、Githubで[issue]({1})を投稿したり、[公式Discordサーバー]({2})への参加をお願いします。</value>
   </data>
   <data name="Menu.PreInstall.Title" xml:space="preserve">
     <value>インストールする前に</value>
