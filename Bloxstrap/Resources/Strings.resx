@@ -216,7 +216,7 @@ Your ReShade configuration files will still be saved, and you can locate them by
     <value>Discord Rich Presence</value>
   </data>
   <data name="Common.ExportJson" xml:space="preserve">
-    <value>Export Flags as json</value>
+    <value>Copy FastFlags to clipboard</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
     <value>Help</value>
