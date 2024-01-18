@@ -314,5 +314,33 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             _searchFilter = textbox.Text;
             ReloadList();
         }
+        private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var flags = App.FastFlags.Prop;
+            string JSON = JsonSerializer.Serialize(App.FastFlags.Prop);
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(Paths.Base, "ExportedFlags.json")))
+            {
+                try
+                {
+                    outputFile.WriteLine(JSON);
+                    Frontend.ShowMessageBox("Successfully exported fast flags as ExportedFlags.json", MessageBoxImage.Information);
+                }
+                catch (IOException es)
+                {
+                    Frontend.ShowExceptionDialog(es);
+
+                }
+                {
+
+                }
+            }
+
+
+
+
+
+
+        }
     }
 }

@@ -343,6 +343,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export Flags as json.
+        /// </summary>
+        public static string Common_ExportJson {
+            get {
+                return ResourceManager.GetString("Common.ExportJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Common_Help {
