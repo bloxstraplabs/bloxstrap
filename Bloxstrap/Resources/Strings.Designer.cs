@@ -1813,6 +1813,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export JSON.
+        /// </summary>
+        public static string Menu_FastFlagEditor_ExportJson {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.ExportJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied JSON to clipboard..
+        /// </summary>
+        public static string Menu_FastFlagEditor_JsonCopiedToClipboard {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.JsonCopiedToClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Menu_FastFlagEditor_Search {

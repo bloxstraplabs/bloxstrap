@@ -707,6 +707,12 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
     <value>Manage your own FastFlags. Double click a column to edit.</value>
   </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>Export JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
+    <value>Copied JSON to clipboard.</value>
+  </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
     <value>Search</value>
   </data>
