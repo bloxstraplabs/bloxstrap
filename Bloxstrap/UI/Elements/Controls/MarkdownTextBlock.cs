@@ -32,7 +32,7 @@ namespace Bloxstrap.UI.Elements.Controls
         /// <returns>Span, skip</returns>
         private static (Span, int) GetInlineUntilEndTagDetected(Markdig.Syntax.Inlines.Inline? inline, string tagName)
         {
-            string endTag = $"<{tagName}/>"; // TODO: better way of doing this
+            string endTag = $"</{tagName}>"; // TODO: better way of doing this
 
             var span = new Span();
 
