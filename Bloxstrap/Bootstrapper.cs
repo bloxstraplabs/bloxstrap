@@ -703,13 +703,13 @@ namespace Bloxstrap
                 {
                     foreach (Process process in Process.GetProcessesByName(App.RobloxPlayerAppName))
                     {
-                        process.CloseMainWindow();
+                        process.Kill();
                         process.Close();
                     }
 
                     foreach (Process process in Process.GetProcessesByName(App.RobloxStudioAppName))
                     {
-                        process.CloseMainWindow();
+                        process.Kill();
                         process.Close();
                     }
                 }

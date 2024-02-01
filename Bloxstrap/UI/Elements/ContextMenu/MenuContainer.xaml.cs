@@ -136,7 +136,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             using Process process = Process.GetProcessById((int)_processId!);
-            process.CloseMainWindow();
+            process.Kill();
             process.Close();
         }
     }
