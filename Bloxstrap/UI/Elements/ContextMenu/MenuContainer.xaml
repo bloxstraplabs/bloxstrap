@@ -30,7 +30,7 @@
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="pack://application:,,,/Bloxstrap.ico" />
+                        <Image Grid.Column="0" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock x:Name="VersionTextBlock" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Grid.Column="1" VerticalAlignment="Center" Margin="6,0,0,0" Text="Bloxstrap v2.4.1" />
                     </Grid>
                 </MenuItem.Header>
