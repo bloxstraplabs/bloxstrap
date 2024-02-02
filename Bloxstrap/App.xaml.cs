@@ -91,7 +91,7 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            if (!IsQuiet)
+            if (!LaunchSettings.IsQuiet)
                 Frontend.ShowExceptionDialog(exception);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
@@ -159,7 +159,7 @@ namespace Bloxstrap
                 NotifyIcon = new();
 
 #if !DEBUG
-            if (!IsUninstall && !IsFirstRun)
+            if (!LaunchSettings.IsUninstall && !IsFirstRun)
                 InstallChecker.CheckUpgrade();
 #endif
 
