@@ -124,7 +124,7 @@ namespace Bloxstrap
             App.BaseDirectory = Path.Combine(Paths.LocalAppData, App.ProjectName);
             App.Logger.Initialize(true);
 
-            if (App.IsQuiet)
+            if (App.LaunchSettings.IsQuiet)
                 return;
 
             App.IsSetupComplete = false;
@@ -159,7 +159,7 @@ namespace Bloxstrap
             MessageBoxResult result;
 
             // silently upgrade version if the command line flag is set or if we're launching from an auto update
-            if (App.IsUpgrade || isAutoUpgrade)
+            if (App.LaunchSettings.IsUpgrade || isAutoUpgrade)
             {
                 result = MessageBoxResult.Yes;
             }
@@ -238,7 +238,7 @@ namespace Bloxstrap
                     (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
                 );
             }
-            else if (!App.IsQuiet)
+            else if (!App.LaunchSettings.IsQuiet)
             {
                 Frontend.ShowMessageBox(
                     string.Format(Resources.Strings.InstallChecker_Updated, currentVersionInfo.ProductVersion),
