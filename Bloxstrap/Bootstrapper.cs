@@ -99,10 +99,6 @@ namespace Bloxstrap
 
             message = message.Replace("{product}", productName);
 
-            // yea idk
-            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
-                message = message.Replace("...", "");
-
             if (Dialog is not null)
                 Dialog.Message = message;
         }
