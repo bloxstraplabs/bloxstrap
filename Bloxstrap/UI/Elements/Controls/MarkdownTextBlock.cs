@@ -11,8 +11,7 @@ using System.Windows.Media;
 namespace Bloxstrap.UI.Elements.Controls
 {
     /// <summary>
-    /// TextBlock with markdown support. <br/>
-    /// Only supports text and urls.
+    /// TextBlock with markdown support.
     /// </summary>
     [ContentProperty("MarkdownText")]
     [Localizability(LocalizationCategory.Text)]
