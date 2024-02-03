@@ -6,26 +6,91 @@ using System.Windows;
 using Markdig.Syntax;
 using Markdig.Syntax.Inlines;
 using Markdig;
+using System.Windows.Media;
 
 namespace Bloxstrap.UI.Elements.Controls
 {
     /// <summary>
-    /// TextBlock with markdown support. <br/>
-    /// Only supports text and urls.
+    /// TextBlock with markdown support.
     /// </summary>
     [ContentProperty("MarkdownText")]
     [Localizability(LocalizationCategory.Text)]
     class MarkdownTextBlock : TextBlock
     {
+        private static MarkdownPipeline _markdownPipeline;
+
         public static readonly DependencyProperty MarkdownTextProperty = 
             DependencyProperty.Register(nameof(MarkdownText), typeof(string), typeof(MarkdownTextBlock),
-                new FrameworkPropertyMetadata(string.Empty,FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnTextMarkdownChanged));
+                new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnTextMarkdownChanged));
 
         [Localizability(LocalizationCategory.Text)]
         public string MarkdownText
         {
-            get => Inlines.ToString() ?? "";
+            get => (string)GetValue(MarkdownTextProperty);
             set => SetValue(MarkdownTextProperty, value);
+        }
+
+        private static System.Windows.Documents.Inline? GetWpfInlineFromMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
+        {
+            if (inline is LiteralInline literalInline)
+            {
+                return new Run(literalInline.ToString());
+            }
+            else if (inline is EmphasisInline emphasisInline)
+            {
+                switch (emphasisInline.DelimiterChar)
+                {
+                    case '*':
+                    case '_':
+                        {
+                            if (emphasisInline.DelimiterCount == 1) // 1 = italic
+                            {
+                                var childInline = new Italic(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                                return childInline;
+                            }
+                            else // 2 = bold
+                            {
+                                var childInline = new Bold(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                                return childInline;
+                            }
+                        }
+
+                    case '=': // marked
+                        {
+                            var childInline = new Span(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                            childInline.Background = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)); // TODO: better colour?
+                            return childInline;
+                        }
+                }
+
+            }
+            else if (inline is LinkInline linkInline)
+            {
+                string? url = linkInline.Url;
+                var textInline = linkInline.FirstChild;
+
+                if (string.IsNullOrEmpty(url))
+                {
+                    return GetWpfInlineFromMarkdownInline(textInline);
+                }
+
+                var childInline = GetWpfInlineFromMarkdownInline(textInline);
+
+                return new Hyperlink(childInline)
+                {
+                    Command = GlobalViewModel.OpenWebpageCommand,
+                    CommandParameter = url
+                };
+            }
+
+            return null;
+        }
+
+        private void AddMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
+        {
+            var wpfInline = GetWpfInlineFromMarkdownInline(inline);
+            if (wpfInline != null)
+                Inlines.Add(wpfInline);
         }
 
         private static void OnTextMarkdownChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
@@ -36,34 +101,26 @@ namespace Bloxstrap.UI.Elements.Controls
             if (dependencyPropertyChangedEventArgs.NewValue is not string rawDocument)
                 return;
 
-            MarkdownDocument document = Markdown.Parse(rawDocument);
+            MarkdownDocument document = Markdown.Parse(rawDocument, _markdownPipeline);
 
             markdownTextBlock.Inlines.Clear();
 
             if (document.FirstOrDefault() is not ParagraphBlock paragraphBlock || paragraphBlock.Inline == null)
                 return;
 
-            foreach (var inline in paragraphBlock.Inline)
+            for (int i = 0; i < paragraphBlock.Inline.Count(); i++)
             {
-                if (inline is LiteralInline literalInline)
-                {
-                    markdownTextBlock.Inlines.Add(new Run(literalInline.ToString()));
-                }
-                else if (inline is LinkInline linkInline)
-                {
-                    string? url = linkInline.Url;
-                    string? text = linkInline.FirstChild?.ToString();
+                var inline = paragraphBlock.Inline.ElementAt(i);
 
-                    if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(text))
-                        continue;
-
-                    markdownTextBlock.Inlines.Add(new Hyperlink(new Run(text))
-                    {
-                        Command = GlobalViewModel.OpenWebpageCommand,
-                        CommandParameter = url
-                    });
-                }
+                markdownTextBlock.AddMarkdownInline(inline);
             }
+        }
+
+        static MarkdownTextBlock()
+        {
+            _markdownPipeline = new MarkdownPipelineBuilder()
+                .UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Marked) // enable '==' support
+                .Build();
         }
     }
 }
