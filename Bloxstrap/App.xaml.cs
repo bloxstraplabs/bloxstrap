@@ -172,7 +172,7 @@ namespace Bloxstrap
                 if (!menuLock.IsAcquired)
                 {
                     Frontend.ShowMessageBox(
-                        "The Bloxstrap menu is already open.",
+                        Bloxstrap.Resources.Strings.Menu_MenuAlreadyRunning,
                         MessageBoxImage.Error
                     );
                 }
