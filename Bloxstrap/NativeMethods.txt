@@ -1,5 +1,4 @@
-﻿SetForegroundWindow
-FlashWindow
+﻿FlashWindow
 GetWindowLong
 SetWindowLong
 EnumDisplaySettings

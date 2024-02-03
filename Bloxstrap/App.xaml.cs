@@ -163,19 +163,22 @@ namespace Bloxstrap
                 InstallChecker.CheckUpgrade();
 #endif
 
+            using InterProcessLock processLock = new InterProcessLock("Process", TimeSpan.FromMilliseconds(100));
+
             if (LaunchSettings.IsMenuLaunch)
             {
-                Process? menuProcess = Process.GetProcesses().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
+                using InterProcessLock menuLock = new InterProcessLock("Menu", TimeSpan.FromMilliseconds(100));
 
-                if (menuProcess is not null)
+                if (!menuLock.IsAcquired)
                 {
-                    var handle = menuProcess.MainWindowHandle;
-                    Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window with handle {handle}");
-                    PInvoke.SetForegroundWindow((HWND)handle);
+                    Frontend.ShowMessageBox(
+                        "The Bloxstrap menu is already open.",
+                        MessageBoxImage.Error
+                    );
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet)
+                    if (!processLock.IsAcquired && !LaunchSettings.IsQuiet)
                         Frontend.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
                             MessageBoxImage.Information
