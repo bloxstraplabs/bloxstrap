@@ -18,6 +18,8 @@ namespace Bloxstrap.UI.Elements.Controls
     [Localizability(LocalizationCategory.Text)]
     class MarkdownTextBlock : TextBlock
     {
+        private static MarkdownPipeline _markdownPipeline;
+
         public static readonly DependencyProperty MarkdownTextProperty = 
             DependencyProperty.Register(nameof(MarkdownText), typeof(string), typeof(MarkdownTextBlock),
                 new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnTextMarkdownChanged));
@@ -29,43 +31,39 @@ namespace Bloxstrap.UI.Elements.Controls
             set => SetValue(MarkdownTextProperty, value);
         }
 
-        /// <returns>Span, skip</returns>
-        private static (Span, int) GetInlineUntilEndTagDetected(Markdig.Syntax.Inlines.Inline? inline, string tagName)
-        {
-            string endTag = $"</{tagName}>"; // TODO: better way of doing this
-
-            var span = new Span();
-
-            int skip = 0;
-            var current = inline;
-            while (current is Markdig.Syntax.Inlines.Inline currentInline)
-            {
-                skip++;
-
-                if (currentInline is HtmlInline html)
-                {
-                    if (html.Tag == endTag)
-                        return (span, skip);
-                }
-
-                (var childInline, int childSkip) = GetWpfInlineFromMarkdownInline(currentInline);
-                if (childInline != null)
-                    span.Inlines.Add(childInline);
-
-                skip += childSkip;
-
-                current = currentInline.NextSibling;
-            }
-
-            throw new Exception("End tag not detected");
-        }
-
-        /// <returns>Inline, skip</returns>
-        private static (System.Windows.Documents.Inline?, int) GetWpfInlineFromMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
+        private static System.Windows.Documents.Inline? GetWpfInlineFromMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
         {
             if (inline is LiteralInline literalInline)
             {
-                return (new Run(literalInline.ToString()), 0);
+                return new Run(literalInline.ToString());
+            }
+            else if (inline is EmphasisInline emphasisInline)
+            {
+                switch (emphasisInline.DelimiterChar)
+                {
+                    case '*':
+                    case '_':
+                        {
+                            if (emphasisInline.DelimiterCount == 1) // 1 = italic
+                            {
+                                var childInline = new Italic(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                                return childInline;
+                            }
+                            else // 2 = bold
+                            {
+                                var childInline = new Bold(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                                return childInline;
+                            }
+                        }
+
+                    case '=': // marked
+                        {
+                            var childInline = new Span(GetWpfInlineFromMarkdownInline(emphasisInline.FirstChild));
+                            childInline.Background = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)); // TODO: better colour?
+                            return childInline;
+                        }
+                }
+
             }
             else if (inline is LinkInline linkInline)
             {
@@ -77,38 +75,23 @@ namespace Bloxstrap.UI.Elements.Controls
                     return GetWpfInlineFromMarkdownInline(textInline);
                 }
 
-                (var childInline, int skip) = GetWpfInlineFromMarkdownInline(textInline);
+                var childInline = GetWpfInlineFromMarkdownInline(textInline);
 
-                return (new Hyperlink(childInline)
+                return new Hyperlink(childInline)
                 {
                     Command = GlobalViewModel.OpenWebpageCommand,
                     CommandParameter = url
-                }, skip);
-            }
-            else if (inline is HtmlInline htmlInline)
-            {
-                string? tag = htmlInline.Tag; // TODO: parse tag
-                var nextInline = htmlInline.NextSibling;
-
-                if (tag == "<highlight>")
-                {
-                    (var span, int skip) = GetInlineUntilEndTagDetected(nextInline, "highlight");
-                    span.Background = new SolidColorBrush(Color.FromArgb(50,255,255,255));
-                    return (span, skip);
-                }
+                };
             }
 
-            return (null, 0);
+            return null;
         }
 
-        /// <returns>Skip</returns>
-        private int AddMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
+        private void AddMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
         {
-            (var wpfInline, int skip) = GetWpfInlineFromMarkdownInline(inline);
+            var wpfInline = GetWpfInlineFromMarkdownInline(inline);
             if (wpfInline != null)
                 Inlines.Add(wpfInline);
-
-            return skip;
         }
 
         private static void OnTextMarkdownChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
@@ -119,7 +102,7 @@ namespace Bloxstrap.UI.Elements.Controls
             if (dependencyPropertyChangedEventArgs.NewValue is not string rawDocument)
                 return;
 
-            MarkdownDocument document = Markdown.Parse(rawDocument);
+            MarkdownDocument document = Markdown.Parse(rawDocument, _markdownPipeline);
 
             markdownTextBlock.Inlines.Clear();
 
@@ -130,9 +113,15 @@ namespace Bloxstrap.UI.Elements.Controls
             {
                 var inline = paragraphBlock.Inline.ElementAt(i);
 
-                int skip = markdownTextBlock.AddMarkdownInline(inline);
-                i += skip;
+                markdownTextBlock.AddMarkdownInline(inline);
             }
+        }
+
+        static MarkdownTextBlock()
+        {
+            _markdownPipeline = new MarkdownPipelineBuilder()
+                .UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Marked) // enable '==' support
+                .Build();
         }
     }
 }
