@@ -9,5 +9,6 @@
         FluentDialog,
         ByfronDialog,
         ProgressFluentDialog,
+        ProgressFluentAeroDialog
     }
 }

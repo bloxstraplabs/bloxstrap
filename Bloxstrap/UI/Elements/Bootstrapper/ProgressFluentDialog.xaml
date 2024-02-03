@@ -11,14 +11,14 @@
     Width="520"
     Height="280"
     MinHeight="0"
-    d:DataContext="{d:DesignInstance vms:BootstrapperDialogViewModel,
+    d:DataContext="{d:DesignInstance vms:ProgressFluentDialogViewModel,
                                      IsDesignTimeCreatable=True}"
     AllowsTransparency="True"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     Closing="UiWindow_Closing"
     ExtendsContentIntoTitleBar="True"
     ResizeMode="NoResize"
-    WindowBackdropType="Acrylic"
+    WindowBackdropType="{Binding Path=WindowBackdropType, Mode=OneTime}"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">

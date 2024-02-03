@@ -85,12 +85,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
         #endregion
 
-        public ProgressFluentDialog()
+        public ProgressFluentDialog(bool aero)
         {
             InitializeComponent();
             ApplyTheme();
 
-            _viewModel = new FluentDialogViewModel(this);
+            _viewModel = new ProgressFluentDialogViewModel(this, aero);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
