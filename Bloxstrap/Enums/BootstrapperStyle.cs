@@ -7,6 +7,7 @@
         LegacyDialog2011,
         ProgressDialog,
         FluentDialog,
-        ByfronDialog
+        ByfronDialog,
+        ProgressFluentDialog,
     }
 }
