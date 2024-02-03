@@ -22,47 +22,50 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Grid Margin="32,16">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <!--  Background is a hack to stop weirdness  -->
+    <Grid Background="#01ffffff">
+        <Grid Margin="32,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Image
-            Grid.Row="0"
-            Width="80"
-            Height="80"
-            Margin="0,30,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            RenderOptions.BitmapScalingMode="HighQuality"
-            Source="{Binding Icon, Mode=OneWay}" />
+            <Image
+                Grid.Row="0"
+                Width="80"
+                Height="80"
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="{Binding Icon, Mode=OneWay}" />
 
-        <TextBlock
-            Grid.Row="1"
-            Margin="0,0,0,8"
-            HorizontalAlignment="Center"
-            FontSize="18"
-            Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-            Text="{Binding Message, Mode=OneWay}" />
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,0,0,8"
+                HorizontalAlignment="Center"
+                FontSize="18"
+                Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                Text="{Binding Message, Mode=OneWay}" />
 
-        <ProgressBar
-            Grid.Row="2"
-            Margin="0,0,0,16"
-            IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}"
-            Maximum="{Binding ProgressMaximum, Mode=OneWay}"
-            Value="{Binding ProgressValue, Mode=OneWay}" />
+            <ProgressBar
+                Grid.Row="2"
+                Margin="0,0,0,16"
+                IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}"
+                Maximum="{Binding ProgressMaximum, Mode=OneWay}"
+                Value="{Binding ProgressValue, Mode=OneWay}" />
 
-        <Button
-            Grid.Row="3"
-            Width="120"
-            Padding="4"
-            HorizontalAlignment="Center"
-            Command="{Binding CancelInstallCommand}"
-            Content="{x:Static resources:Strings.Common_Cancel}"
-            FontSize="14"
-            IsEnabled="{Binding CancelEnabled, Mode=OneWay}" />
+            <Button
+                Grid.Row="3"
+                Width="120"
+                Padding="4"
+                HorizontalAlignment="Center"
+                Command="{Binding CancelInstallCommand}"
+                Content="{x:Static resources:Strings.Common_Cancel}"
+                FontSize="14"
+                IsEnabled="{Binding CancelEnabled, Mode=OneWay}" />
+        </Grid>
     </Grid>
 </base:WpfUiWindow>
