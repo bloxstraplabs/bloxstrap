@@ -28,6 +28,7 @@
         <!--  Allow for drag  -->
         <ui:TitleBar
             VerticalAlignment="Top"
+            CanMaximize="False"
             ShowClose="False"
             ShowMaximize="False"
             ShowMinimize="False" />
