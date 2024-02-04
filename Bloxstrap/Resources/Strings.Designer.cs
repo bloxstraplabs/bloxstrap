@@ -2413,6 +2413,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A fix for Roblox when ReShade is installed. (Does NOT enable ReShade for Roblox, needs admin).
+        /// </summary>
+        public static string Menu_Integrations_ReshadeFix_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ReshadeFix.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReShade Fix.
+        /// </summary>
+        public static string Menu_Integrations_ReshadeFix_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ReshadeFix.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When playing a Roblox game, the game you&apos;re playing will show on your Discord profile activity..
         /// </summary>
         public static string Menu_Integrations_ShowGameActivity_Description {
