@@ -22,8 +22,16 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+
     <!--  Background is a hack to stop weirdness  -->
     <Grid Background="#01ffffff">
+        <!--  Allow for drag  -->
+        <ui:TitleBar
+            VerticalAlignment="Top"
+            ShowClose="False"
+            ShowMaximize="False"
+            ShowMinimize="False" />
+
         <Grid Margin="32,16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
