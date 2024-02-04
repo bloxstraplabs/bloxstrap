@@ -23,8 +23,8 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
-    <!--  Background is a hack to stop weirdness  -->
-    <Grid Background="#01ffffff">
+    <!--  Background is for Aero theme only  -->
+    <Grid Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}">
         <!--  Allow for drag  -->
         <ui:TitleBar
             VerticalAlignment="Top"

@@ -25,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     /// </summary>
     public partial class ProgressFluentDialog : IBootstrapperDialog
     {
-        private readonly BootstrapperDialogViewModel _viewModel;
+        private readonly ProgressFluentDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
