@@ -13,6 +13,7 @@ namespace Bloxstrap.Models
         public bool CheckForUpdates { get; set; } = true;
         public bool CreateDesktopIcon { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
+        public bool ReshadeFixLaunching { get; set; } = true;
         public bool OhHeyYouFoundMe { get; set; } = false;
 
         // channel configuration
