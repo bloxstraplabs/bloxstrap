@@ -19,12 +19,14 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
         public ProgressFluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
         {
+            const int alpha = 32;
+
             WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
 
             if (aero)
                 BackgroundColourBrush = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ?
-                    new SolidColorBrush(Color.FromArgb(32, 255, 255, 255)) :
-                    new SolidColorBrush(Color.FromArgb(32, 0, 0, 0));
+                    new SolidColorBrush(Color.FromArgb(alpha, 255, 255, 255)) :
+                    new SolidColorBrush(Color.FromArgb(alpha, 0, 0, 0));
         }
     }
 }
