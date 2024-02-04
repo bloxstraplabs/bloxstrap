@@ -92,6 +92,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.Settings.Prop.MultiInstanceLaunching = value;
         }
 
+        public bool ReshadeFixLaunchingEnabled
+        {
+            get => App.Settings.Prop.ReshadeFixLaunching;
+            set => App.Settings.Prop.ReshadeFixLaunching = value;
+        }
+
         public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations;

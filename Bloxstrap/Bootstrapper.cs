@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace Bloxstrap
 {
@@ -419,6 +421,80 @@ namespace Bloxstrap
                 await Task.Delay(1000);
 
             App.Logger.WriteLine(LOG_IDENT, $"Roblox has exited");
+
+            // Move the ReShade directory back, so it can continue working
+            if (App.Settings.Prop.ReshadeFixLaunching == true)
+            {
+                if (Directory.Exists("C:\\ProgramData\\ReShade_fix"))
+                {
+                    try
+                    {
+                        Directory.Move("C:\\ProgramData\\ReShade_fix", "C:\\ProgramData\\ReShade"); // Move ReShade's directory so it won't launch with NVIDIA (6.0.0+)
+                        App.Logger.WriteLine(LOG_IDENT, $"Moved ReShade to a position where it won't inject into Roblox."); // Log for debug
+                    }
+                    catch (Exception)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Unable to move ReShade, checking if fix is applicable");
+                        var acl = new FileInfo("C:\\ProgramData\\ReShade_fix").GetAccessControl(); // Check if we need to change permissions
+                        AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(NTAccount));
+                        bool needs = true;
+                        foreach (AuthorizationRule rule in rules)
+                        {
+                            if (rule.IdentityReference.Value.Equals("Everyone", StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                var filesystemAccessRule = (FileSystemAccessRule)rule;
+
+                                //Cast to a FileSystemAccessRule to check for access rights
+                                if (!((filesystemAccessRule.FileSystemRights & FileSystemRights.Modify) > 0 && filesystemAccessRule.AccessControlType != AccessControlType.Deny))
+                                {
+                                    needs = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    needs = false;
+                                }
+                            }
+                        }
+                        if (needs)
+                        {
+                            try
+                            {
+                                System.Windows.Forms.MessageBox.Show("Bloxstrap needs administrator permission to fix the permissions issue with ReShade, this should only happen once.");
+                                App.Logger.WriteLine(LOG_IDENT, $"Attempting a permission fix"); // Log without crashing
+                                Process process = new Process();
+                                ProcessStartInfo startInfo2 = new ProcessStartInfo();
+                                startInfo2.WindowStyle = ProcessWindowStyle.Hidden;
+                                startInfo2.CreateNoWindow = true;
+                                startInfo2.UseShellExecute = true;
+                                startInfo2.FileName = "powershell.exe";
+                                startInfo2.Arguments = "-Command \"Start-Process icacls \\\"C:\\ProgramData\\ReShade_fix /grant Everyone:(OI)(CI)F /T\\\" -Verb RunAs\""; // Fix
+                                process.StartInfo = startInfo2;
+                                process.Start();
+                                process.WaitForExit(1000 * 10);
+                            }
+                            catch (Exception) { }
+                        }
+                        try
+                        {
+                            Directory.Move("C:\\ProgramData\\ReShade_fix", "C:\\ProgramData\\ReShade"); // Move ReShade's directory so it won't launch with NVIDIA (6.0.0+)
+                            App.Logger.WriteLine(LOG_IDENT, $"Moved ReShade to a position where it won't inject into Roblox."); // Log for debug
+                        }
+                        catch (Exception)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Unable to move ReShade, even without fix (Is it possible that something else is using ReShade?)"); // Log without crashing
+                        }
+                    }
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"ReShade folder not found");
+                }
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"ReShade fix not enabled");
+            }
 
             richPresence?.Dispose();
 
@@ -1233,6 +1309,78 @@ namespace Bloxstrap
             else if (Directory.Exists(modFontFamiliesFolder))
             {
                 Directory.Delete(modFontFamiliesFolder, true);
+            }
+
+            // ReShade fix
+            if (App.Settings.Prop.ReshadeFixLaunching == true)
+            {
+                if (Directory.Exists("C:\\ProgramData\\ReShade"))
+                {
+                    try
+                    {
+                        Directory.Move("C:\\ProgramData\\ReShade", "C:\\ProgramData\\ReShade_fix"); // Move ReShade's directory so it won't launch with NVIDIA (6.0.0+)
+                        App.Logger.WriteLine(LOG_IDENT, $"Moved ReShade to a position where it won't inject into Roblox."); // Log for debug
+                    }
+                    catch (Exception)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Unable to move ReShade, checking if fix is applicable");
+                        var acl = new FileInfo("C:\\ProgramData\\ReShade").GetAccessControl(); // Check if we need to change permissions
+                        AuthorizationRuleCollection rules = acl.GetAccessRules(true, true, typeof(NTAccount));
+                        bool needs = true;
+                        foreach (AuthorizationRule rule in rules)
+                        {
+                            if (rule.IdentityReference.Value.Equals("Everyone", StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                var filesystemAccessRule = (FileSystemAccessRule)rule;
+
+                                //Cast to a FileSystemAccessRule to check for access rights
+                                if (!((filesystemAccessRule.FileSystemRights & FileSystemRights.Modify) > 0 && filesystemAccessRule.AccessControlType != AccessControlType.Deny))
+                                {
+                                    needs = true;
+                                    break;
+                                } else
+                                {
+                                    needs = false;
+                                }
+                            }
+                        }
+                        if (needs)
+                        {
+                            try
+                            {
+                                System.Windows.Forms.MessageBox.Show("Bloxstrap needs administrator permission to fix the permissions issue with ReShade, this should only happen once.");
+                                App.Logger.WriteLine(LOG_IDENT, $"Attempting a permission fix"); // Log without crashing
+                                Process process = new Process();
+                                ProcessStartInfo startInfo = new ProcessStartInfo();
+                                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                                startInfo.CreateNoWindow = true;
+                                startInfo.UseShellExecute = true;
+                                startInfo.FileName = "powershell.exe";
+                                startInfo.Arguments = "-Command \"Start-Process icacls \\\"C:\\ProgramData\\ReShade /grant Everyone:(OI)(CI)F /T\\\" -Verb RunAs\""; // Fix
+                                process.StartInfo = startInfo;
+                                process.Start();
+                                process.WaitForExit(1000 * 10);
+                            }
+                            catch (Exception) { }
+                        }
+                        try
+                        {
+                            Directory.Move("C:\\ProgramData\\ReShade", "C:\\ProgramData\\ReShade_fix"); // Move ReShade's directory so it won't launch with NVIDIA (6.0.0+)
+                            App.Logger.WriteLine(LOG_IDENT, $"Moved ReShade to a position where it won't inject into Roblox."); // Log for debug
+                        }
+                        catch (Exception)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Unable to move ReShade, even without fix (Is it possible that something else is using ReShade?)"); // Log without crashing
+                        }
+                    }
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"ReShade folder not found");
+                }
+            } else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"ReShade fix not enabled");
             }
 
             foreach (string file in Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories))
