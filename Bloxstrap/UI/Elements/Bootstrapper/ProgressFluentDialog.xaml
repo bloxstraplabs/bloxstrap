@@ -8,7 +8,7 @@
     xmlns:resources="clr-namespace:Bloxstrap.Resources"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     xmlns:vms="clr-namespace:Bloxstrap.UI.ViewModels.Bootstrapper"
-    Width="520"
+    Width="500"
     Height="280"
     MinHeight="0"
     d:DataContext="{d:DesignInstance vms:ProgressFluentDialogViewModel,
