@@ -26,7 +26,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             get => _viewModel.Message;
             set
             {
-                _viewModel.Message = value;
+                string message = value;
+                if (message.EndsWith("..."))
+                    message = message[..^3];
+
+                _viewModel.Message = message;
                 _viewModel.OnPropertyChanged(nameof(_viewModel.Message));
             }
         }
