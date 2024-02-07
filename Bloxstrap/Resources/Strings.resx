@@ -930,9 +930,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integrations</value>
   </data>
-  <data name="Menu.MenuAlreadyRunning" xml:space="preserve">
-    <value>The Bloxstrap menu is already open.</value>
-  </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
     <value>Manage and apply file mods to the Roblox game client.</value>
   </data>

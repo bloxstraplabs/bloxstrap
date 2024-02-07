@@ -2458,15 +2458,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Bloxstrap menu is already open..
-        /// </summary>
-        public static string Menu_MenuAlreadyRunning {
-            get {
-                return ResourceManager.GetString("Menu.MenuAlreadyRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Manage and apply file mods to the Roblox game client..
         /// </summary>
         public static string Menu_Mods_Description {
