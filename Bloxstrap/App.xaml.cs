@@ -171,13 +171,10 @@ namespace Bloxstrap
 
                 if (!menuLock.IsAcquired)
                 {
-                    Logger.WriteLine(LOG_IDENT, "Could not acquire menu mutex");
-
-                    if (!LaunchSettings.IsQuiet)
-                        Frontend.ShowMessageBox(
-                            Bloxstrap.Resources.Strings.Menu_MenuAlreadyRunning,
-                            MessageBoxImage.Error
-                        );
+                    Frontend.ShowMessageBox(
+                        Bloxstrap.Resources.Strings.Menu_MenuAlreadyRunning,
+                        MessageBoxImage.Error
+                    );
                 }
                 else
                 {
