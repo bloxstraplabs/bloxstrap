@@ -6,11 +6,12 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
-      xmlns:viewmodels="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
-      d:DataContext="{d:DesignInstance Type=viewmodels:InstallationViewModel}"
+      xmlns:vms="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance vms:InstallationViewModel,
+                                       IsDesignTimeCreatable=True}"
       Title="InstallationPage">
 
     <StackPanel Margin="0,0,14,14">

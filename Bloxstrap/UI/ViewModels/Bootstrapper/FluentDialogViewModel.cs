@@ -8,6 +8,10 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
     {
         public double FooterOpacity => Environment.OSVersion.Version.Build >= 22000 ? 0.4 : 1;
 
+        [Obsolete("Do not use this! This is for the designer only.", true)]
+        public FluentDialogViewModel() : this(null!)
+        { }
+
         public FluentDialogViewModel(IBootstrapperDialog dialog) : base(dialog)
         {
         }

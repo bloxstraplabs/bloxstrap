@@ -7,7 +7,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
     public class ByfronDialogViewModel : BootstrapperDialogViewModel
     {
         // Using dark theme for default values.
-        public ImageSource ByfronLogoLocation { get; set; } = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoDark.jpg"));
+        public ImageSource ByfronLogoLocation { get; set; } = new BitmapImage(new Uri("pack://application:,,,/Bloxstrap;component/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoDark.jpg"));
         public Thickness DialogBorder { get; set; } = new Thickness(0);
         public Brush Background { get; set; } = Brushes.Black;
         public Brush Foreground { get; set; } = new SolidColorBrush(Color.FromRgb(239, 239, 239));
@@ -17,6 +17,10 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         public Visibility VersionTextVisibility => CancelEnabled ? Visibility.Collapsed : Visibility.Visible;
 
         public string VersionText { get; init; }
+
+        [Obsolete("Do not use this! This is for the designer only.", true)]
+        public ByfronDialogViewModel() : this(null!, "0.611.0.6110432")
+        { }
 
         public ByfronDialogViewModel(IBootstrapperDialog dialog, string version) : base(dialog)
         {

@@ -6,8 +6,11 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:vms="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
       mc:Ignorable="d"
       d:DesignHeight="520" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance vms:AppearanceViewModel,
+                                       IsDesignTimeCreatable=True}"
       Title="AppearancePage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">

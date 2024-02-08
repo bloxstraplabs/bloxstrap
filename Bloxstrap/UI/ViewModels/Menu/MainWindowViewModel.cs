@@ -22,6 +22,10 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public string ConfirmButtonText => App.IsFirstRun ? Resources.Strings.Menu_Install : Resources.Strings.Menu_Save;
         public bool ConfirmButtonEnabled { get; set; } = true;
 
+        [Obsolete("Do not use this! This is for the designer only.", true)]
+        public MainWindowViewModel() : this(null!)
+        { }
+
         public MainWindowViewModel(Window window)
         {
             _window = window;

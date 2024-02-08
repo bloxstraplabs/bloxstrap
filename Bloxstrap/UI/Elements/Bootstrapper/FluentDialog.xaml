@@ -6,9 +6,12 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        xmlns:vms="clr-namespace:Bloxstrap.UI.ViewModels.Bootstrapper"
         mc:Ignorable="d"
         Width="420"
         MinHeight="0"
+        d:DataContext="{d:DesignInstance vms:FluentDialogViewModel,
+                                         IsDesignTimeCreatable=True}"
         SizeToContent="Height"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"

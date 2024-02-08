@@ -15,6 +15,10 @@ namespace Bloxstrap.UI.ViewModels.Menu
     {
         private readonly Page _page;
 
+        [Obsolete("Do not use this! This is for the designer only.", true)]
+        public FastFlagsViewModel() : this(null!)
+        { }
+
         public FastFlagsViewModel(Page page) 
         { 
             _page = page;

@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
 
         [Obsolete("Do not use this! This is for the designer only.", true)]
-        public ProgressFluentDialogViewModel() : base()
+        public ProgressFluentDialogViewModel() : this(null!, false)
         { }
 
         public ProgressFluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)

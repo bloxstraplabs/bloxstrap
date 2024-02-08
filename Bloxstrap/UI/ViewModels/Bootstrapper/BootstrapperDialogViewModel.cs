@@ -23,10 +23,8 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         public Visibility CancelButtonVisibility => CancelEnabled ? Visibility.Visible : Visibility.Collapsed;
 
         [Obsolete("Do not use this! This is for the designer only.", true)]
-        public BootstrapperDialogViewModel()
-        {
-            _dialog = null!;
-        }
+        public BootstrapperDialogViewModel() : this(null!)
+        { }
 
         public BootstrapperDialogViewModel(IBootstrapperDialog dialog)
         {

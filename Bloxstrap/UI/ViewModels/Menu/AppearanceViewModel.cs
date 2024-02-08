@@ -45,6 +45,10 @@ namespace Bloxstrap.UI.ViewModels.Menu
             OnPropertyChanged(nameof(CustomIconLocation));
         }
 
+        [Obsolete("Do not use this! This is for the designer only.", true)]
+        public AppearanceViewModel() : this(null!)
+        { }
+
         public AppearanceViewModel(Page page)
         {
             _page = page;
