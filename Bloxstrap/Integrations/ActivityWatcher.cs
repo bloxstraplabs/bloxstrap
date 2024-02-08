@@ -60,7 +60,7 @@
 
             int delay = 1000;
 
-            if (App.Settings.Prop.OhHeyYouFoundMe)
+            if (App.Settings.Prop.PowerTools)
                 delay = 250;
 
             string logDirectory = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
