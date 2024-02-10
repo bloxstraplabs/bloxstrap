@@ -5,8 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Menu.Pages"
-      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
-      d:DataContext="{d:DesignInstance Type=models:BehaviourViewModel}"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:menuModels="clr-namespace:Bloxstrap.UI.ViewModels.Menu"
+      d:DataContext="{d:DesignInstance Type=menuModels:BehaviourViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="BehaviourPage"
@@ -35,129 +36,6 @@
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </ui:CardControl>
 
-        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
-            <ui:CardExpander.Header>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock FontSize="14" Text="Channel" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which deployment channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
-                    </StackPanel>
-                    <ui:TextBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding SelectedChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" />
-                </Grid>
-            </ui:CardExpander.Header>
-            
-            <StackPanel>
-                <Grid Margin="0,0,4,0">
-                    <Grid.Style>
-                        <Style TargetType="Grid">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Grid.Style>
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
-                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
-
-                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
-                    <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
-
-                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
-                    <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
-
-                    <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
-                        <StackPanel.Style>
-                            <Style TargetType="StackPanel">
-                                <Setter Property="Visibility" Value="Collapsed" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ShowChannelWarning, Mode=OneWay}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Style>
-                        <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
-                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel is out of date, and is likely no longer being updated. Please use another channel." />
-                    </StackPanel>
-                </Grid>
-                
-                <Grid Column="0">
-                    <Grid.Style>
-                        <Style TargetType="Grid">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
-                                    <Setter Property="Visibility" Value="Visible" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Grid.Style>
-                    
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True">
-                        <ui:ProgressRing.Style>
-                            <Style TargetType="ui:ProgressRing" BasedOn="{StaticResource {x:Type ui:ProgressRing}}">
-                                <Setter Property="Visibility" Value="Visible" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ShowLoadingError, Mode=OneWay}" Value="True">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ui:ProgressRing.Style>
-                    </ui:ProgressRing>
-
-                    <Image Grid.Column="0" Margin="6" Width="60" Height="60" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png">
-                        <Image.Style>
-                            <Style TargetType="Image">
-                                <Setter Property="Visibility" Value="Collapsed" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ShowLoadingError, Mode=OneWay}" Value="True">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Image.Style>
-                    </Image>
-
-                    <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" TextWrapping="Wrap" />
-                </Grid>
-            </StackPanel>
-        </ui:CardExpander>
-
-        <ui:CardControl Margin="0,8,0,0">
-            <ui:CardControl.Header>
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="Automatic channel change action" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox or Bloxstrap may try to change your preferred channel." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardControl.Header>
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes.Keys, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}" />
-        </ui:CardControl>
-
         <ui:CardControl Margin="0,8,0,0">
             <ui:CardControl.Style>
                 <Style TargetType="ui:CardControl" BasedOn="{StaticResource {x:Type ui:CardControl}}">
@@ -176,5 +54,133 @@
             </ui:CardControl.Header>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
         </ui:CardControl>
+
+
+        <StackPanel Visibility="{Binding Source={x:Static models:GlobalViewModel.ShowDebugStuff}, Mode=OneTime}">
+            <TextBlock Text="lol" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+
+            <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+                <ui:CardExpander.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="14" Text="Channel" />
+                            <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which deployment channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        </StackPanel>
+                        <ui:TextBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding SelectedChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" />
+                    </Grid>
+                </ui:CardExpander.Header>
+
+                <StackPanel>
+                    <Grid Margin="0,0,4,0">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Version, Mode=OneWay}" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="Deployed" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.Timestamp, Mode=OneWay}" />
+
+                        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowChannelWarning, Mode=OneWay}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                            <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
+                            <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel is out of date, and is likely no longer being updated. Please use another channel." />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Column="0">
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChannelDeployInfo}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ui:ProgressRing Grid.Column="0" Margin="6" IsIndeterminate="True">
+                            <ui:ProgressRing.Style>
+                                <Style TargetType="ui:ProgressRing" BasedOn="{StaticResource {x:Type ui:ProgressRing}}">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowLoadingError, Mode=OneWay}" Value="True">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ui:ProgressRing.Style>
+                        </ui:ProgressRing>
+
+                        <Image Grid.Column="0" Margin="6" Width="60" Height="60" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowLoadingError, Mode=OneWay}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+
+                        <TextBlock Grid.Column="1" Margin="16" VerticalAlignment="Center" Text="{Binding ChannelInfoLoadingText, Mode=OneWay}" TextWrapping="Wrap" />
+                    </Grid>
+                </StackPanel>
+            </ui:CardExpander>
+
+            <ui:CardControl Margin="0,8,0,0">
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="Automatic channel change action" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Roblox or Bloxstrap may try to change your preferred channel." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardControl.Header>
+                <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding ChannelChangeModes.Keys, Mode=OneTime}" Text="{Binding SelectedChannelChangeMode, Mode=TwoWay}" />
+            </ui:CardControl>
+        </StackPanel>
     </StackPanel>
 </ui:UiPage>
