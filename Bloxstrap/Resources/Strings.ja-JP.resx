@@ -309,7 +309,7 @@
     <value>FastFlag追加</value>
   </data>
   <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
-    <value>JSONデータをペーストしてください。</value>
+    <value>JSONデータを貼り付けてください。</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
     <value>詳細情報:</value>
@@ -576,7 +576,7 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>情報</value>
   </data>
   <data name="Menu.About.UnreleasedVersion" xml:space="preserve">
-    <value>未公開バージョンを実行中ですな？</value>
+    <value>未公開バージョンを実行中ですな？( 'ᢦ' )</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Ver. {0}</value>
@@ -892,10 +892,10 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>例: /k echo Robloxをプレイ中</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>新規連携</value>
+    <value>新しい連携</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>連携が選択されていません。選択または新しく作成してください。</value>
+    <value>連携が選択されていません。選択または新規作成を行ってください。</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
     <value>カスタム連携</value>
