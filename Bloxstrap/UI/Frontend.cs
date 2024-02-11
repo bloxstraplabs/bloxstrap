@@ -12,7 +12,7 @@ namespace Bloxstrap.UI
 
         public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK, MessageBoxResult defaultResult = MessageBoxResult.None)
         {
-            if (App.IsQuiet)
+            if (App.LaunchSettings.IsQuiet)
                 return defaultResult;
 
             switch (App.Settings.Prop.BootstrapperStyle)
@@ -57,6 +57,8 @@ namespace Bloxstrap.UI
                 BootstrapperStyle.ProgressDialog => new ProgressDialog(),
                 BootstrapperStyle.FluentDialog => new FluentDialog(),
                 BootstrapperStyle.ByfronDialog => new ByfronDialog(),
+                BootstrapperStyle.ProgressFluentDialog => new ProgressFluentDialog(false),
+                BootstrapperStyle.ProgressFluentAeroDialog => new ProgressFluentDialog(true),
                 _ => new FluentDialog()
             };
         }

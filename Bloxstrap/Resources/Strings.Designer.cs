@@ -847,6 +847,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fluent Progress (Aero).
+        /// </summary>
+        public static string Enums_BootstrapperStyle_ProgressFluentAeroDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.ProgressFluentAeroDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent Progress.
+        /// </summary>
+        public static string Enums_BootstrapperStyle_ProgressFluentDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.ProgressFluentDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vista (2008 - 2011).
         /// </summary>
         public static string Enums_BootstrapperStyle_VistaDialog {
