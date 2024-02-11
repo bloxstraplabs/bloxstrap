@@ -65,7 +65,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
-        public IEnumerable<BootstrapperStyle> Dialogs { get; } = Enum.GetValues(typeof(BootstrapperStyle)).Cast<BootstrapperStyle>();
+        public IEnumerable<BootstrapperStyle> Dialogs { get; } = BootstrapperStyleEx.Selections;
 
         public BootstrapperStyle Dialog
         {
