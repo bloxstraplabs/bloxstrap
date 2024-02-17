@@ -5,7 +5,7 @@ using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
 
-namespace Bloxstrap
+namespace Bloxstrap TESTING
 {
     public class Bootstrapper
     {
