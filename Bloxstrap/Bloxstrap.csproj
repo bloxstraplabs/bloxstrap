@@ -10,6 +10,7 @@
     <Version>2.5.4</Version>
     <FileVersion>2.5.4.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,11 +41,10 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
-    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.18-beta">
-      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
+    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.49-beta">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,4 +60,25 @@
     </AssemblyAttribute>
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="NativeMethods.txt" />
+
+    <!-- Provide the path to the winmds used as input into the analyzer. -->
+    <CompilerVisibleProperty Include="CsWin32InputMetadataPaths" />
+    <CompilerVisibleProperty Include="CsWin32InputDocPaths" />
+  </ItemGroup>
+
+  <Target Name="AssembleCsWin32InputPaths" BeforeTargets="GenerateMSBuildEditorConfigFileCore">
+    <!-- Roslyn only allows source generators to see msbuild properties, to lift msbuild items into semicolon-delimited properties. -->
+    <PropertyGroup>
+      <CsWin32InputMetadataPaths>@(ProjectionMetadataWinmd->'%(FullPath)','|')</CsWin32InputMetadataPaths>
+      <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath)','|')</CsWin32InputDocPaths>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="FixMds" BeforeTargets="CoreCompile" Condition="'@(ProjectionMetadataWinmd)'==''">
+    <ItemGroup>
+      <ProjectionMetadataWinmd Include="$(UserProfile)\.nuget\packages\microsoft.windows.sdk.win32metadata\55.0.45-preview\Windows.Win32.winmd" />
+    </ItemGroup>
+  </Target>
 </Project>

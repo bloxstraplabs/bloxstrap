@@ -1,8 +1,10 @@
 ﻿using System.Media;
 using System.Windows.Interop;
 
+#if !DEBUG_ROSLYN_PUBLISH
 using Windows.Win32;
 using Windows.Win32.Foundation;
+#endif
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
@@ -33,7 +35,9 @@ namespace Bloxstrap.UI.Elements.Dialogs
             Loaded += delegate
             {
                 var hWnd = new WindowInteropHelper(this).Handle;
+#if !DEBUG_ROSLYN_PUBLISH
                 PInvoke.FlashWindow((HWND)hWnd, true);
+#endif
             };
         }
 

@@ -4,8 +4,10 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
+#if !DEBUG_ROSLYN_PUBLISH
 using Windows.Win32;
 using Windows.Win32.Foundation;
+#endif
 
 using Bloxstrap.UI.Utility;
 
@@ -111,7 +113,9 @@ namespace Bloxstrap.UI.Elements.Dialogs
             Loaded += delegate
             {
                 var hWnd = new WindowInteropHelper(this).Handle;
+#if !DEBUG_ROSLYN_PUBLISH
                 PInvoke.FlashWindow((HWND)hWnd, true);
+#endif
             };
         }
 
