@@ -2,8 +2,10 @@
 using System.Windows;
 using System.Windows.Threading;
 
+#if !DEBUG_ROSLYN_PUBLISH
 using Windows.Win32;
 using Windows.Win32.Foundation;
+#endif
 
 namespace Bloxstrap
 {
@@ -196,7 +198,9 @@ namespace Bloxstrap
                 {
                     var handle = menuProcess.MainWindowHandle;
                     Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window with handle {handle}");
+#if !DEBUG_ROSLYN_PUBLISH
                     PInvoke.SetForegroundWindow((HWND)handle);
+#endif
                 }
                 else
                 {
