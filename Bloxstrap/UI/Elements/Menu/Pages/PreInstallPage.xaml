@@ -29,7 +29,7 @@
         </Border>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock FontSize="14" TextWrapping="Wrap" Text="After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there." />
+            <TextBlock FontSize="14" TextWrapping="Wrap" Text="After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as mod management, you can find it there." />
             <TextBlock Margin="0,16,0,0" FontSize="14" TextWrapping="Wrap">
                 If you ever need help or guidance with anything, be sure to check the 
                 <Hyperlink Foreground="{DynamicResource TextFillColorPrimaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://www.github.com/pizzaboxer/bloxstrap/wiki">Wiki</Hyperlink>.

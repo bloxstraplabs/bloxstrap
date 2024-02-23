@@ -131,7 +131,6 @@ namespace Bloxstrap
 
             App.IsSetupComplete = false;
 
-            App.FastFlags.Load();
             Controls.ShowMenu();
 
             // exit if we don't click the install button on installation
@@ -209,37 +208,6 @@ namespace Bloxstrap
             File.Copy(Paths.Process, Paths.Application);
 
             Bootstrapper.Register();
-
-            // update migrations
-
-            if (App.BuildMetadata.CommitRef.StartsWith("tag"))
-            {
-                if (existingVersionInfo.ProductVersion == "2.4.0")
-                { 
-                    App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
-                    App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
-                    App.FastFlags.Save();
-                }
-                else if (existingVersionInfo.ProductVersion == "2.5.0")
-                {
-                    App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
-
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
-                        App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
-
-                    App.FastFlags.Save();
-                }
-                else if (existingVersionInfo.ProductVersion == "2.5.3")
-                {
-                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11", null);
-                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11FL10", null);
-                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferVulkan", null);
-                    App.FastFlags.SetValue("FFlagRenderVulkanFixMinimizeWindow", null);
-                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferOpenGL", null);
-
-                    App.FastFlags.Save();
-                }
-            }
 
             if (isAutoUpgrade)
             {

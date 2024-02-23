@@ -193,7 +193,6 @@ namespace Bloxstrap
 
             await InstallWebView2();
 
-            App.FastFlags.Save();
             await ApplyModifications();
 
             if (App.IsFirstRun || FreshInstall)

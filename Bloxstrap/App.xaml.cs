@@ -41,7 +41,6 @@ namespace Bloxstrap
 
         public static readonly JsonManager<Settings> Settings = new();
         public static readonly JsonManager<State> State = new();
-        public static readonly FastFlagManager FastFlags = new();
 
         public static readonly HttpClient HttpClient = new(
             new HttpClientLoggingHandler(
@@ -177,7 +176,6 @@ namespace Bloxstrap
 
                 Settings.Load();
                 State.Load();
-                FastFlags.Load();
             }
 
             if (!IsUninstall && !IsMenuLaunch)
