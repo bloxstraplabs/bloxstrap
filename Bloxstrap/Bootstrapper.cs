@@ -657,7 +657,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Prompting to shut down all open Roblox instances");
                 
                 MessageBoxResult result = Controls.ShowMessageBox(
-                    "Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?",
+                    "Roblox is currently running, but must be closed before uninstalling Bloxstrap. Please close Roblox before continuing. Continuing will terminate all currently running Roblox processes.",
                     MessageBoxImage.Information,
                     MessageBoxButton.OKCancel
                 );
@@ -669,7 +669,7 @@ namespace Bloxstrap
                 {
                     foreach (Process process in Process.GetProcessesByName("RobloxPlayerBeta"))
                     {
-                        process.CloseMainWindow();
+                        process.Kill();
                         process.Close();
                     }
                 }
