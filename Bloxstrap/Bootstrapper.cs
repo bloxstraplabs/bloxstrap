@@ -313,7 +313,11 @@ namespace Bloxstrap
             {
                 _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
-                _launchCommandLine += " -channel ";
+
+                if (_launchCommandLine.StartsWith("roblox-player:1"))
+                    _launchCommandLine += "+channel:";
+                else
+                    _launchCommandLine += " -channel ";
 
                 if (App.Settings.Prop.Channel.ToLowerInvariant() == RobloxDeployment.DefaultChannel.ToLowerInvariant())
                     _launchCommandLine += "production";
