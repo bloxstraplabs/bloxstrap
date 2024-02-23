@@ -148,7 +148,7 @@
                 {
                     string lastModified = values.First();
                     App.Logger.WriteLine(LOG_IDENT, $"{manifestUrl} - Last-Modified: {lastModified}");
-                    clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
+                    clientVersion.Timestamp = DateTime.Parse(lastModified, CultureInfo.InvariantCulture).ToLocalTime();
                 }
             }
 
