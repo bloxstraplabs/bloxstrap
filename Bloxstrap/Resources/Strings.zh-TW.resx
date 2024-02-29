@@ -139,7 +139,7 @@
     <value>Bloxstrap 在連接 Roblox 時超時. 請檢查你的網絡連接狀況並重新嘗試.</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>你用了一個深層鏈接來開啓 Roblox. Roblox 的桌面環境將會暫時被重新啓用. 下一次開啓 Roblox 的時候將會回復原狀.</value>
+    <value>你用了一個深層鏈接來開啟 Roblox. Roblox 的桌面環境將會暫時被重新啟用. 下一次開啟 Roblox 的時候將會回復原狀.</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
     <value>Roblox最新的64位元客戶端現已推出, 並內建Hyperion防外掛. ReShade已經不再適用, 也已經被停用和從Bloxstrap中移除. 
@@ -165,7 +165,7 @@
     <value>正在安裝 WebView2, 請稍後...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>正在啓動 {product}...</value>
+    <value>正在啟動 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
     <value>正在解除安裝 Bloxstrap...</value>
@@ -213,7 +213,7 @@
     <value>匯入 JSON</value>
   </data>
   <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>開啓日誌文件的位置</value>
+    <value>開啟日誌文件的位置</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>其他</value>
@@ -267,7 +267,7 @@
     <value>正在追蹤 {0}</value>
   </data>
   <data name="ContextMenu.OpenLogTracer" xml:space="preserve">
-    <value>開啓日誌記錄追蹤工具</value>
+    <value>開啟日誌記錄追蹤工具</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
     <value>查看伺服器資料</value>
@@ -509,7 +509,7 @@
     <value>Bloxstrap已更新到v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>你開啓的Bloxstrap版本與已安裝的版本不符合. 
+    <value>你開啟的Bloxstrap版本與已安裝的版本不相符. 
     要更新已安裝的版本嗎?</value>
   </data>
   <data name="Menu.About.BuildCommitHash" xml:space="preserve">
@@ -543,7 +543,7 @@
     <value>翻譯員</value>
   </data>
   <data name="Menu.About.Description.1" xml:space="preserve">
-    <value>開源, 功能强大的第三方Roblox啓動器</value>
+    <value>開源, 功能强大的第三方Roblox啟動器</value>
   </data>
   <data name="Menu.About.Description.2" xml:space="preserve">
     <value>如果喜歡/有用, 請到GitHub點星!</value>
@@ -579,10 +579,10 @@
     <value>Bloxstrap正在運行中, 可能在追蹤Roblox動態. 請留意：由於Roblox在運行中, 並非所有設定會即時套用. 你可以關閉所有Roblox客戶端來套用所有設定.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>讓啓動器的外觀煥然一新... 或者回到過去.</value>
+    <value>讓啟動器的外觀煥然一新... 或者回到過去.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>啓動器</value>
+    <value>啟動器</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
     <value>其他個人化設定.</value>
@@ -597,7 +597,7 @@
     <value>自訂圖示</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>更改啓動器的名稱.</value>
+    <value>更改啟動器的名稱.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
     <value>名稱</value>
@@ -636,7 +636,7 @@
     <value>自動轉換發行通道</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>在啓動Roblox時檢查並更新Bloxstrap.</value>
+    <value>在啟動Roblox時檢查並更新Bloxstrap.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>自動更新Bloxstrap</value>
@@ -669,7 +669,7 @@
     <value>版本GUID</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>下一次開啓Roblox的時候, 開啓Roblox的捷徑將會加入到你的桌面.</value>
+    <value>下一次開啟Roblox的時候, 開啟Roblox的捷徑將會加入到你的桌面.</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
     <value>建立桌面圖示</value>
@@ -722,10 +722,10 @@
     <value>將原來等級1-10的品質滑桿改為1-21</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>啓用更多品質級數</value>
+    <value>啟用更多品質級數</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D全螢幕獨占模式([Exclusive Fullscreen]({0}),在遊戲中用Alt+Enter啓用)的FastFlag已預設為啓用.</value>
+    <value>Direct3D全螢幕獨占模式([Exclusive Fullscreen]({0}),在遊戲中用Alt+Enter啟用)的FastFlag已預設為啟用.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
     <value>在Roblox運行時顯示FastFlag狀態. 每個FastFlag以一個逗號分隔.</value>
@@ -741,7 +741,7 @@
     <value>HTTP代理(Proxy)地址</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description" xml:space="preserve">
-    <value>啓用HTTP請求記錄 (DFLogHttpTraceLight=12).</value>
+    <value>啟用HTTP請求記錄 (DFLogHttpTraceLight=12).</value>
     <comment>Do not translate "DFLogHttpTraceLight"</comment>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title" xml:space="preserve">
@@ -769,10 +769,10 @@
     <value>幀率上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>在遊戲中使用[快捷鍵]({0})來啓動. 注意: 你需要加入[Bloxstrap群组]({1})才能使用</value>
+    <value>在遊戲中使用[快捷鍵]({0})來啟動. 注意: 你需要加入[Bloxstrap群组]({1})才能使用</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>開啓隱藏GUI功能</value>
+    <value>開啟隱藏GUI功能</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
     <value>設定所有遊戲所使用的光效版本</value>
@@ -859,7 +859,7 @@
     <value>從Discord加入遊戲</value>
   </data>
   <data name="Menu.Integrations.AllowMultipleInstances.Description" xml:space="preserve">
-    <value>讓你開啓多於一個Roblox客戶端.</value>
+    <value>讓你開啟多於一個Roblox客戶端.</value>
   </data>
   <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
     <value>多客戶端</value>
@@ -874,7 +874,7 @@
     <value>與Roblox一同關閉</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>讓其他程式在Roblox開啓時一起啓動.</value>
+    <value>讓其他程式在Roblox開啟時一起啟動.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
     <value>命令行參數</value>
@@ -898,13 +898,13 @@
     <value>讓Bloxstrap追蹤你玩的遊戲. 注意：某些其他功能需要使用這個功能.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>啓用活動追蹤</value>
+    <value>啟用活動追蹤</value>
   </data>
   <data name="Menu.Integrations.MoreInfo" xml:space="preserve">
     <value>更多資訊...</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>注意：需要啓用活動追蹤.</value>
+    <value>注意：需要啟用活動追蹤.</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>在Discord上顯示你在玩的遊戲</value>
@@ -953,7 +953,7 @@
     <value>你需要先安裝Bloxstrap.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>開啓模組資料夾</value>
+    <value>開啟模組資料夾</value>
   </data>
   <data name="Menu.Mods.Presets.DisableDesktopApp.Description" xml:space="preserve">
     <value>按 ESC 離開遊戲的時候不會跳到桌面環境</value>
@@ -1001,7 +1001,7 @@
     <value>有幾個需要留意的事項.</value>
   </data>
   <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>完成安裝後, Bloxstrap選單的捷徑將會加入到你的開始選單. 如果你需要更改某些Bloxstrap設定, 你可以尋找捷徑來開啓選單.</value>
+    <value>完成安裝後, Bloxstrap選單的捷徑將會加入到你的開始選單. 如果你需要更改某些Bloxstrap設定, 你可以尋找捷徑來開啟選單.</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
     <value>如果你需要幫助, 可以到[Wiki]({0})看看（英文版）. 如果Wiki上沒有適合的文章, 可以到GitHub建立一個新的[issue]({1}), 或加入我們的[Discord伺服器]({2})（請用英文）.</value>
