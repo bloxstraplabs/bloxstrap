@@ -137,10 +137,10 @@
     <value>Robloxにサーバー障害が発生している可能性があります。 status.roblox.com より詳細情報が確認できます。障害が解消された後、もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>インターネット接続が不安定なため、3つのRoblox配信元への接続がタイムアウトしました。もう一度試してください。</value>
+    <value>インターネット接続が不安定なため、3つのRoblox配信サーバーへの接続がタイムアウトしました。もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>Robloxをディープリンク(招待URL等)から起動するために、今回に限りデスクトップアプリを有効にします。(デスクトップアプリを無効にするよう設定されているため、再度無効化されます。)</value>
+    <value>Robloxをディープリンク(招待URL等)から起動するために、一時的にデスクトップアプリを有効にします。(デスクトップアプリを無効にするよう設定されているため、再度無効化されます。)</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
     <value>Hyperionアンチチートを搭載した64bit版Robloxが配信されました。その影響によりReShadeは利用不可能となったため、Bloxstrapの設定からは削除されました。
@@ -303,7 +303,7 @@
     <value>{0}サーバー</value>
   </data>
   <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
-    <value>UDMUX</value>
+    <value>UDMUX保護</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>FastFlag追加</value>
@@ -383,6 +383,12 @@
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>現在 (~2014)</value>
   </data>
+	<data name="Enums.BootstrapperStyle.ProgressFluentAeroDialog" xml:space="preserve">
+    <value>オリジナル&amp;進行度(透)</value>
+  </data>
+	<data name="Enums.BootstrapperStyle.ProgressFluentDialog" xml:space="preserve">
+    <value>オリジナル&amp;進行度</value>
+  </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 ~ 2011)</value>
   </data>
@@ -450,7 +456,7 @@
     <value>新 (2022)</value>
   </data>
   <data name="Enums.FlagPresets.MaterialVersion.Old" xml:space="preserve">
-    <value>旧 (Pre-2022)</value>
+    <value>旧 (2022初期)</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.Default" xml:space="preserve">
     <value>自動</value>
@@ -576,7 +582,7 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
     <value>情報</value>
   </data>
   <data name="Menu.About.UnreleasedVersion" xml:space="preserve">
-    <value>未公開バージョンを実行中ですな？( 'ᢦ' )</value>
+    <value>未公開バージョンを実行中ですな？</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Ver. {0}</value>
@@ -1027,6 +1033,6 @@ Bloxstrapは引き続き動作しますが、ほかのアプリケーション�
   <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
     <value>現在{1}チャンネルに設定されていますが、Robloxは{0}チャンネルに変更しようとしています。
 
-{0}チャンネルに変更しますか?</value>
+{0}チャンネルに変更しますか？</value>
   </data>
 </root>
