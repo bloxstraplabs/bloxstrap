@@ -7,8 +7,9 @@ body:
       value: |
         ### **Preliminary instructions**
         - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
+          - If it isn't, please confirm which pages that you read that were relevant to your issue.
         - If your problem is with Roblox itself (i.e. it crashes or doesn't launch), [check to see if it happens without Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch). 
-          - Please only open an issue if your problem happens only with Bloxstrap, as anything else is out of my control.
+          - Please only open an issue if your problem happens only with Bloxstrap, and state clearly that this is the case, as anything else is out of my control.
         - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
         - If more clarification on the issue is needed, and you don't respond after a month, then your issue will be closed as stale.
   - type: checkboxes
