@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/github/downloads/KoutchguestAccount/limbstrap/latest/total?color=981bfe)](https://github.com/KoutchguestAccount/limbstrap/releases)
 [![Version](https://img.shields.io/github/v/release/KoutchguestAccount/limbstrap?color=7a39fb)](https://github.com/KoutchguestAccount/limbstrap/releases/latest)
 [![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/lolsorrytheresnolimbstrapdiscord)
-[![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
+[![lol](https://img.shields.io/badge/wumbo%20made-cheese-yellow)](https://media1.tenor.com/m/8xuNZWHFNIgAAAAC/evil-lario.gif)
 
 Bloxstrap but it's made for Limbo, an old roblox revival.
 
@@ -13,7 +13,7 @@ Running into a problem or need help with something? [Check out the Wiki](https:/
 Limbstrap is only supported for PCs running Windows.
  
  ## Installing
-Download the [latest release of Bloxstrap](https://github.com/KoutchguestAccount/limbstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
+Download the [latest release of Limbstrap](https://github.com/KoutchguestAccount/limbstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
 Stuff here works like Bloxstrap, you do need to install [.NET 6 Desktop Runtime](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=win11-x64&apphost_version=6.0.16&gui=true) to run this program.
  
