@@ -1,45 +1,28 @@
-# <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap
+# <img src="https://github.com/KoutchguestAccount/limbstrap/raw/main/Images/Bloxstrap.png" width="48"/> Limbstrap
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
-[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/pizzaboxer/bloxstrap/releases)
-[![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb)](https://github.com/pizzaboxer/bloxstrap/releases/latest)
-[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
+[![Downloads](https://img.shields.io/github/downloads/KoutchguestAccount/limbstrap/latest/total?color=981bfe)](https://github.com/KoutchguestAccount/limbstrap/releases)
+[![Version](https://img.shields.io/github/v/release/KoutchguestAccount/limbstrap?color=7a39fb)](https://github.com/KoutchguestAccount/limbstrap/releases/latest)
+[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/lolsorrytheresnolimbstrapdiscord)
 [![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
 
-An open-source, alternative bootstrapper for Roblox. 
+Bloxstrap but it's made for Limbo, an old roblox revival.
 
-This is a drop-in replacement for the standard Roblox bootstrapper, providing additional useful features and improvements. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's no risk of being banned for using this.
-
-Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues) or report it in our [Discord server](https://discord.gg/nKjV3mGq6R).
+Running into a problem or need help with something? [Check out the Wiki](https://github.com/KoutchguestAccount/limbstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/KoutchguestAccount/limbstrap/issues).
  
-Bloxstrap is only supported for PCs running Windows.
+Limbstrap is only supported for PCs running Windows.
  
  ## Installing
-Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
+Download the [latest release of Bloxstrap](https://github.com/KoutchguestAccount/limbstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
-Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap) by running this in a Command Prompt window:
-```
-> winget install bloxstrap
-```
-
-You will also need the [.NET 6 Desktop Runtime](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=win11-x64&apphost_version=6.0.16&gui=true). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
-
-It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
-
-Once installed, Bloxstrap is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
+Stuff here works like Bloxstrap, you do need to install [.NET 6 Desktop Runtime](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=win11-x64&apphost_version=6.0.16&gui=true) to run this program.
  
 ## Features
-Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
-
-* Persistent file modifications, includes re-adding the old death sound!
-* Painless and seamless support for Discord Rich Presence - no auth cookie needed!
-* A customizable launcher look
-* Lets you see what region your current server is located in
-* Lets you have multiple Roblox game instances open simultaneously
+Limbstrap provides all features Bloxstrap already does.
 
 All the available features are browsable through the Bloxstrap menu.
 
-Bloxstrap also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
+Limbstrap also only runs whenever necessary, so it doesn't stay running in the background when you're not playing.
 
 ## Screenshots
 
@@ -50,6 +33,7 @@ Bloxstrap also only runs whenever necessary, so it doesn't stay running in the b
 <p>
 
 ## Special thanks
+* [@pizzaboxer](https://github.com/pizzaboxer) - The original creator of Bloxstrap, the inspiration for Limbstrap.
 * [@MaximumADHD](https://github.com/MaximumADHD) - Initially inspiring the idea for Bloxstrap with [Roblox Studio Mod Manager](https://github.com/MaximumADHD/Roblox-Studio-Mod-Manager).
 * [Multako](https://www.roblox.com/users/2485612194/profile) - Designing the Bloxstrap logo.
 * [@1011025m](https://github.com/1011025m) - Providing a method for disabling the Roblox desktop app.
