@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="UI\Elements\Bootstrapper\Base\WinFormsDialogBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\Bootstrapper\LegacyDialog2008.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\Bootstrapper\LegacyDialog2011.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\Bootstrapper\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Elements\Bootstrapper\VistaDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
