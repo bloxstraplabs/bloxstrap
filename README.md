@@ -3,7 +3,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
 [![Downloads](https://img.shields.io/github/downloads/KoutchguestAccount/limbstrap/latest/total?color=981bfe)](https://github.com/KoutchguestAccount/limbstrap/releases)
 [![Version](https://img.shields.io/github/v/release/KoutchguestAccount/limbstrap?color=7a39fb)](https://github.com/KoutchguestAccount/limbstrap/releases/latest)
-[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/lolsorrytheresnolimbstrapdiscord)
+[![Discord](https://img.shields.io/discord/nil?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/lolsorrytheresnolimbstrapdiscord)
 [![lol](https://img.shields.io/badge/wumbo%20made-cheese-yellow)](https://media1.tenor.com/m/8xuNZWHFNIgAAAAC/evil-lario.gif)
 
 Bloxstrap but it's made for Limbo, an old roblox revival.
