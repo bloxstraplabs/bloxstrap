@@ -10,6 +10,13 @@
 *.userosscache
 *.sln.docstates
 
+# the
+Bloxstrap/App.xaml.cs
+Bloxstrap/RobloxDeployment.cs
+Bloxstrap/Paths.cs
+Bloxstrap/ProtocolHandler.cs
+Bloxstrap/Bootstrapper.cs
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
