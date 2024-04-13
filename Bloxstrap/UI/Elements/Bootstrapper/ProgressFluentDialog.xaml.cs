@@ -1,20 +1,31 @@
-﻿using System.Windows;
+﻿using Bloxstrap.UI.Elements.Bootstrapper.Base;
+using Bloxstrap.UI.ViewModels.Bootstrapper;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-
-using Bloxstrap.UI.Elements.Bootstrapper.Base;
-using Bloxstrap.UI.ViewModels.Bootstrapper;
+using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     /// <summary>
-    /// Interaction logic for ByfronDialog.xaml
+    /// Interaction logic for ProgressFluentDialog.xaml
     /// </summary>
-    public partial class ByfronDialog : IBootstrapperDialog
+    public partial class ProgressFluentDialog : IBootstrapperDialog
     {
-        private readonly ByfronDialogViewModel _viewModel;
+        private readonly ProgressFluentDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
@@ -26,11 +37,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             get => _viewModel.Message;
             set
             {
-                string message = value;
-                if (message.EndsWith("..."))
-                    message = message[..^3];
-
-                _viewModel.Message = message;
+                _viewModel.Message = value;
                 _viewModel.OnPropertyChanged(nameof(_viewModel.Message));
             }
         }
@@ -72,44 +79,30 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             {
                 _viewModel.CancelEnabled = value;
 
-                _viewModel.OnPropertyChanged(nameof(_viewModel.CancelEnabled));
                 _viewModel.OnPropertyChanged(nameof(_viewModel.CancelButtonVisibility));
-                
-                _viewModel.OnPropertyChanged(nameof(_viewModel.VersionTextVisibility));
-                _viewModel.OnPropertyChanged(nameof(_viewModel.VersionText));
+                _viewModel.OnPropertyChanged(nameof(_viewModel.CancelEnabled));
             }
         }
         #endregion
 
-        public ByfronDialog()
+        public ProgressFluentDialog(bool aero)
         {
-            string version = Utilities.GetRobloxVersion(Bootstrapper?.IsStudioLaunch ?? false);
-            _viewModel = new ByfronDialogViewModel(this, version);
+            InitializeComponent();
+            ApplyTheme();
+
+            _viewModel = new ProgressFluentDialogViewModel(this, aero);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
-
-            if (App.Settings.Prop.Theme.GetFinal() == Theme.Light)
-            {
-                // Matching the roblox website light theme as close as possible.
-                _viewModel.DialogBorder = new Thickness(1);
-                _viewModel.Background = new SolidColorBrush(Color.FromRgb(242, 244, 245));
-                _viewModel.Foreground = new SolidColorBrush(Color.FromRgb(57, 59, 61));
-                _viewModel.IconColor = new SolidColorBrush(Color.FromRgb(57, 59, 61));
-                _viewModel.ProgressBarBackground = new SolidColorBrush(Color.FromRgb(189, 190, 190));
-                _viewModel.ByfronLogoLocation = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoLight.jpg"));
-            }
-
-            InitializeComponent();
         }
-        private void Window_Closing(object sender, CancelEventArgs e)
+
+        private void UiWindow_Closing(object sender, CancelEventArgs e)
         {
             if (!_isClosing)
                 Bootstrapper?.CancelInstall();
         }
 
         #region IBootstrapperDialog Methods
-        // Referencing FluentDialog
         public void ShowBootstrapper() => this.ShowDialog();
 
         public void CloseBootstrapper()

@@ -99,10 +99,6 @@ namespace Bloxstrap
 
             message = message.Replace("{product}", productName);
 
-            // yea idk
-            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
-                message = message.Replace("...", "");
-
             if (Dialog is not null)
                 Dialog.Message = message;
         }
@@ -127,7 +123,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Running bootstrapper");
 
-            if (App.IsUninstall)
+            if (App.LaunchSettings.IsUninstall)
             {
                 Uninstall();
                 return;
@@ -230,9 +226,9 @@ namespace Bloxstrap
 
             await mutex.ReleaseAsync();
 
-            if (App.IsFirstRun && App.IsNoLaunch)
+            if (App.IsFirstRun && App.LaunchSettings.IsNoLaunch)
                 Dialog?.ShowSuccess(Resources.Strings.Bootstrapper_SuccessfullyInstalled);
-            else if (!App.IsNoLaunch && !_cancelFired)
+            else if (!App.LaunchSettings.IsNoLaunch && !_cancelFired)
                 await StartRoblox();
         }
 
@@ -306,7 +302,7 @@ namespace Bloxstrap
                     MessageBoxImage.Error
                 );
 
-                if (!App.IsQuiet)
+                if (!App.LaunchSettings.IsQuiet)
                     Utilities.ShellExecute("https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a");
 
                 Dialog?.CloseBootstrapper();
@@ -659,7 +655,7 @@ namespace Bloxstrap
                     FileName = downloadLocation,
                 };
 
-                foreach (string arg in App.LaunchArgs)
+                foreach (string arg in App.LaunchSettings.Args)
                     startInfo.ArgumentList.Add(arg);
                 
                 App.Settings.Save();
@@ -703,13 +699,13 @@ namespace Bloxstrap
                 {
                     foreach (Process process in Process.GetProcessesByName(App.RobloxPlayerAppName))
                     {
-                        process.CloseMainWindow();
+                        process.Kill();
                         process.Close();
                     }
 
                     foreach (Process process in Process.GetProcessesByName(App.RobloxStudioAppName))
                     {
-                        process.CloseMainWindow();
+                        process.Kill();
                         process.Close();
                     }
                 }

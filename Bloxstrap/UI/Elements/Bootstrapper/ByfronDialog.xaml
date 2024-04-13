@@ -14,7 +14,7 @@
         Closing="Window_Closing">
     <Border CornerRadius="10" BorderBrush="#33393B3D" Background="{Binding Background}" BorderThickness="{Binding DialogBorder}">
         <Grid>
-            <Image Source="{Binding ByfronLogoLocation}" Width="114" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="17,13,0,0" />
+            <Image Source="{Binding ByfronLogoLocation}" RenderOptions.BitmapScalingMode="HighQuality" Width="114" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="17,13,0,0" />
             <Button Margin="15" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
                 <Path Fill="{Binding IconColor}" Stretch="Fill">
                     <Path.Data>

@@ -27,12 +27,7 @@ namespace Bloxstrap
         public static bool IsSetupComplete { get; set; } = true;
         public static bool IsFirstRun { get; set; } = true;
 
-        public static bool IsQuiet { get; private set; } = false;
-        public static bool IsUninstall { get; private set; } = false;
-        public static bool IsNoLaunch { get; private set; } = false;
-        public static bool IsUpgrade { get; private set; } = false;
-        public static bool IsMenuLaunch { get; private set; } = false;
-        public static string[] LaunchArgs { get; private set; } = null!;
+        public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
@@ -96,11 +91,20 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            if (!IsQuiet)
+            if (!LaunchSettings.IsQuiet)
                 Frontend.ShowExceptionDialog(exception);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
 #endif
+        }
+
+        private void StartupFinished()
+        {
+            const string LOG_IDENT = "App::StartupFinished";
+
+            Logger.WriteLine(LOG_IDENT, "Successfully reached end of main thread. Terminating...");
+
+            Terminate();
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -122,47 +126,10 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            LaunchArgs = e.Args;
-
-#if DEBUG
-            Logger.WriteLine(LOG_IDENT, $"Arguments: {string.Join(' ', LaunchArgs)}");
-#endif
+            LaunchSettings = new LaunchSettings(e.Args);
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
-
-            if (LaunchArgs.Length > 0)
-            {
-                if (Array.IndexOf(LaunchArgs, "-preferences") != -1 || Array.IndexOf(LaunchArgs, "-menu") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Started with IsMenuLaunch flag");
-                    IsMenuLaunch = true;
-                }
-
-                if (Array.IndexOf(LaunchArgs, "-quiet") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Started with IsQuiet flag");
-                    IsQuiet = true;
-                }
-
-                if (Array.IndexOf(LaunchArgs, "-uninstall") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Started with IsUninstall flag");
-                    IsUninstall = true;
-                }
-
-                if (Array.IndexOf(LaunchArgs, "-nolaunch") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Started with IsNoLaunch flag");
-                    IsNoLaunch = true;
-                }
-
-                if (Array.IndexOf(LaunchArgs, "-upgrade") != -1)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Bloxstrap started with IsUpgrade flag");
-                    IsUpgrade = true;
-                }
-            }
             
             using (var checker = new InstallChecker())
             {
@@ -175,7 +142,7 @@ namespace Bloxstrap
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
             {
-                Logger.Initialize(IsUninstall);
+                Logger.Initialize(LaunchSettings.IsUninstall);
 
                 if (!Logger.Initialized)
                 {
@@ -188,18 +155,15 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
-            if (!IsUninstall && !IsMenuLaunch)
+            if (!LaunchSettings.IsUninstall && !LaunchSettings.IsMenuLaunch)
                 NotifyIcon = new();
 
 #if !DEBUG
-            if (!IsUninstall && !IsFirstRun)
+            if (!LaunchSettings.IsUninstall && !IsFirstRun)
                 InstallChecker.CheckUpgrade();
 #endif
 
-            string commandLine = "";
-            LaunchMode? launchMode = null;
-
-            if (IsMenuLaunch)
+            if (LaunchSettings.IsMenuLaunch)
             {
                 Process? menuProcess = Process.GetProcesses().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
 
@@ -211,7 +175,7 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !IsQuiet)
+                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet)
                         Frontend.ShowMessageBox(
                             Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
                             MessageBoxImage.Information
@@ -219,152 +183,95 @@ namespace Bloxstrap
 
                     Frontend.ShowMenu();
                 }
-            }
-            else if (LaunchArgs.Length > 0)
-            {
-                if (LaunchArgs[0].StartsWith("roblox-player:"))
-                {
-                    commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
 
-                    launchMode = LaunchMode.Player;
-                }
-                else if (LaunchArgs[0].StartsWith("roblox:"))
-                {
-                    if (Settings.Prop.UseDisableAppPatch)
-                        Frontend.ShowMessageBox(
-                            Bloxstrap.Resources.Strings.Bootstrapper_DeeplinkTempEnabled, 
-                            MessageBoxImage.Information
-                        );
-
-                    commandLine = $"--app --deeplink {LaunchArgs[0]}";
-
-                    launchMode = LaunchMode.Player;
-                }
-                else if (LaunchArgs[0].StartsWith("roblox-studio:"))
-                {
-                    commandLine = ProtocolHandler.ParseUri(LaunchArgs[0]);
-
-                    if (!commandLine.Contains("-startEvent"))
-                        commandLine += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
-
-                    launchMode = LaunchMode.Studio;
-                }
-                else if (LaunchArgs[0].StartsWith("roblox-studio-auth:"))
-                {
-                    commandLine = HttpUtility.UrlDecode(LaunchArgs[0]);
-
-                    launchMode = LaunchMode.StudioAuth;
-                }
-                else if (LaunchArgs[0] == "-ide")
-                {
-                    launchMode = LaunchMode.Studio;
-
-                    if (LaunchArgs.Length >= 2)
-                        commandLine = $"-task EditFile -localPlaceFile \"{LaunchArgs[1]}\"";
-                }
-                else
-                {
-                    commandLine = "--app";
-
-                    launchMode = LaunchMode.Player;
-                }
-            }
-            else
-            {
-                commandLine = "--app";
-
-                launchMode = LaunchMode.Player;
+                StartupFinished();
+                return;
             }
 
-            if (launchMode != null)
+            if (!IsFirstRun)
+                ShouldSaveConfigs = true;
+
+            // start bootstrapper and show the bootstrapper modal if we're not running silently
+            Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
+            Bootstrapper bootstrapper = new(LaunchSettings.RobloxLaunchArgs, LaunchSettings.RobloxLaunchMode);
+            IBootstrapperDialog? dialog = null;
+
+            if (!LaunchSettings.IsQuiet)
             {
-                if (!IsFirstRun)
-                    ShouldSaveConfigs = true;
-                
-                // start bootstrapper and show the bootstrapper modal if we're not running silently
-                Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-                Bootstrapper bootstrapper = new(commandLine, (LaunchMode)launchMode);
-                IBootstrapperDialog? dialog = null;
+                Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
+                dialog = Settings.Prop.BootstrapperStyle.GetNew();
+                bootstrapper.Dialog = dialog;
+                dialog.Bootstrapper = bootstrapper;
+            }
 
-                if (!IsQuiet)
+            // handle roblox singleton mutex for multi-instance launching
+            // note we're handling it here in the main thread and NOT in the
+            // bootstrapper as handling mutexes in async contexts suuuuuucks
+
+            Mutex? singletonMutex = null;
+
+            if (Settings.Prop.MultiInstanceLaunching && LaunchSettings.RobloxLaunchMode == LaunchMode.Player)
+            {
+                Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
+
+                try
                 {
-                    Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
-                    dialog = Settings.Prop.BootstrapperStyle.GetNew();
-                    bootstrapper.Dialog = dialog;
-                    dialog.Bootstrapper = bootstrapper;
+                    Mutex.OpenExisting("ROBLOX_singletonMutex");
+                    Logger.WriteLine(LOG_IDENT, "Warning - singleton mutex already exists!");
                 }
-
-                // handle roblox singleton mutex for multi-instance launching
-                // note we're handling it here in the main thread and NOT in the
-                // bootstrapper as handling mutexes in async contexts suuuuuucks
-
-                Mutex? singletonMutex = null;
-
-                if (Settings.Prop.MultiInstanceLaunching && launchMode == LaunchMode.Player)
+                catch
                 {
-                    Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
-
-                    try
-                    {
-                        Mutex.OpenExisting("ROBLOX_singletonMutex");
-                        Logger.WriteLine(LOG_IDENT, "Warning - singleton mutex already exists!");
-                    }
-                    catch
-                    {
-                        // create the singleton mutex before the game client does
-                        singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
-                    }
+                    // create the singleton mutex before the game client does
+                    singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
                 }
+            }
 
-                Task bootstrapperTask = Task.Run(async () => await bootstrapper.Run()).ContinueWith(t =>
-                {
-                    Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
+            Task bootstrapperTask = Task.Run(async () => await bootstrapper.Run()).ContinueWith(t =>
+            {
+                Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 
-                    // notifyicon is blocking main thread, must be disposed here
-                    NotifyIcon?.Dispose();
+                // notifyicon is blocking main thread, must be disposed here
+                NotifyIcon?.Dispose();
 
-                    if (t.IsFaulted)
-                        Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
+                if (t.IsFaulted)
+                    Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
 
-                    if (t.Exception is null)
-                        return;
+                if (t.Exception is null)
+                    return;
 
-                    Logger.WriteException(LOG_IDENT, t.Exception);
+                Logger.WriteException(LOG_IDENT, t.Exception);
 
-                    Exception exception = t.Exception;
+                Exception exception = t.Exception;
 
 #if !DEBUG
-                    if (t.Exception.GetType().ToString() == "System.AggregateException")
+                if (t.Exception.GetType().ToString() == "System.AggregateException")
                     exception = t.Exception.InnerException!;
 #endif
 
-                    FinalizeExceptionHandling(exception, false);
-                });
+                FinalizeExceptionHandling(exception, false);
+            });
 
-                // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them
-                dialog?.ShowBootstrapper();
+            // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them
+            dialog?.ShowBootstrapper();
 
-                if (!IsNoLaunch && Settings.Prop.EnableActivityTracking)
-                    NotifyIcon?.InitializeContextMenu();
+            if (!LaunchSettings.IsNoLaunch && Settings.Prop.EnableActivityTracking)
+                NotifyIcon?.InitializeContextMenu();
 
-                Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
+            Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
 
-                bootstrapperTask.Wait();
+            bootstrapperTask.Wait();
 
-                if (singletonMutex is not null)
-                {
-                    Logger.WriteLine(LOG_IDENT, "We have singleton mutex ownership! Running in background until all Roblox processes are closed");
+            if (singletonMutex is not null)
+            {
+                Logger.WriteLine(LOG_IDENT, "We have singleton mutex ownership! Running in background until all Roblox processes are closed");
 
-                    // we've got ownership of the roblox singleton mutex!
-                    // if we stop running, everything will screw up once any more roblox instances launched
-                    while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
-                        Thread.Sleep(5000);
-                }
+                // we've got ownership of the roblox singleton mutex!
+                // if we stop running, everything will screw up once any more roblox instances launched
+                while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
+                    Thread.Sleep(5000);
             }
 
-            Logger.WriteLine(LOG_IDENT, "Successfully reached end of main thread. Terminating...");
-
-            Terminate();
+            StartupFinished();
         }
     }
 }

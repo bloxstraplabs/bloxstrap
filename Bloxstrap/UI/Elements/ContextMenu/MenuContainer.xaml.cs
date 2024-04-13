@@ -39,7 +39,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_activityWatcher is not null)
             {
-                if (App.Settings.Prop.OhHeyYouFoundMe)
+                if (App.Settings.Prop.PowerTools)
                     LogTracerMenuItem.Visibility = Visibility.Visible;
              
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
@@ -136,7 +136,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             using Process process = Process.GetProcessById((int)_processId!);
-            process.CloseMainWindow();
+            process.Kill();
             process.Close();
         }
     }

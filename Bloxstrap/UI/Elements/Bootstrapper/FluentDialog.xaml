@@ -30,11 +30,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="0" Margin="0,12,0,0" Width="48" Height="48" VerticalAlignment="Top">
-                <Border.Background>
-                    <ImageBrush ImageSource="{Binding Icon, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
-                </Border.Background>
-            </Border>
+            <Image Grid.Column="0" Margin="0,12,0,0" Width="48" Height="48" VerticalAlignment="Top" Source="{Binding Icon, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
             <StackPanel Grid.Column="1">
                 <TextBlock Margin="16,8,0,0" FontSize="20" Text="{Binding Message, Mode=OneWay}" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <ProgressBar Margin="16,16,0,16" IsIndeterminate="{Binding ProgressIndeterminate, Mode=OneWay}" Maximum="{Binding ProgressMaximum, Mode=OneWay}" Value="{Binding ProgressValue, Mode=OneWay}" />

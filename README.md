@@ -6,9 +6,9 @@
 [![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
 [![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
 
-An open-source, feature-packed alternative bootstrapper for Roblox.
+An open-source, alternative bootstrapper for Roblox. 
 
-This a drop-in replacement for the stock Roblox bootstrapper, working more or less how you'd expect it to, while providing additional useful features. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's practically no risk of being banned for using this.
+This is a drop-in replacement for the standard Roblox bootstrapper, providing additional useful features and improvements. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's no risk of being banned for using this.
 
 Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues) or report it in our [Discord server](https://discord.gg/nKjV3mGq6R).
  
@@ -32,7 +32,6 @@ Once installed, Bloxstrap is added to your Start Menu, where you can access the 
 Here's some of the features that Bloxstrap provides over the stock Roblox bootstrapper:
 
 * Persistent file modifications, includes re-adding the old death sound!
-* Support for easy and simple FastFlag editing, no need to mess around with a JSON file.
 * Painless and seamless support for Discord Rich Presence - no auth cookie needed!
 * A customizable launcher look
 * Lets you see what region your current server is located in
@@ -45,10 +44,8 @@ Bloxstrap also only runs whenever necessary, so it doesn't stay running in the b
 ## Screenshots
 
 <p float="left">
-    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/cd723d23-9bff-401e-aadf-deea265a3b1c" width="829" />
     <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/dcfd0cdf-1aae-45bb-849a-f7710ec63b28" width="435" />
     <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/e08cdf28-4f99-46b5-99f2-5c338aac86db" width="390" />
-    <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/a45755cb-39da-49df-b0ad-456a139e2efc" Width="593" />
     <img src="https://github.com/pizzaboxer/bloxstrap/assets/41478239/7ba35223-9115-401f-bbc1-d15e9c5fd79e" width="232" />
 <p>
 
