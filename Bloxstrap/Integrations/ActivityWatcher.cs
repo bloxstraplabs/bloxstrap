@@ -284,9 +284,11 @@
 
             try
             {
-                locationCity = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/city");
-                locationRegion = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/region");
-                locationCountry = await App.HttpClient.GetStringAsync($"https://ipinfo.io/{ActivityMachineAddress}/country");
+                locationInformation = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
+
+                locationCity = locationInformation.IP;
+                locationRegion = locationInformation.Region;
+                locationCountry = locationInformation.Country;
             }
             catch (Exception ex)
             {
