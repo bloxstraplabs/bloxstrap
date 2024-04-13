@@ -2,62 +2,90 @@
 {
     public static class RobloxDeployment
     {
-        #region Properties
         public const string DefaultChannel = "LIVE";
 
-        private static Dictionary<string, ClientVersion> ClientVersionCache = new();
+        public static string BaseUrl { get; private set; } = null!;
+
+        private static readonly Dictionary<string, ClientVersion> ClientVersionCache = new();
 
         // a list of roblox deployment locations that we check for, in case one of them don't work
-        private static List<string> BaseUrls = new()
+        // these are all weighted based on their priority, so that we pick the most optimal one that we can. 0 = highest
+        private static readonly Dictionary<string, int> BaseUrls = new()
         {
-            "https://setup.rbxcdn.com",
-            "https://setup-ak.rbxcdn.com",
-            "https://roblox-setup.cachefly.net",
-            "https://s3.amazonaws.com/setup.roblox.com"
+            { "https://setup.rbxcdn.com", 0 },
+            { "https://setup-ak.rbxcdn.com", 2 },
+            { "https://roblox-setup.cachefly.net", 2 },
+            {  "https://s3.amazonaws.com/setup.roblox.com", 4 }
         };
 
-        private static string? _baseUrl = null;
-
-        public static string BaseUrl
+        private static async Task<string?> TestConnection(string url, int priority)
         {
-            get
+            string LOG_IDENT = $"DeployManager::TestConnection.{url}";
+
+            await Task.Delay(priority * 1000);
+
+            if (BaseUrl is not null)
+                return null;
+
+            App.Logger.WriteLine(LOG_IDENT, "Connecting...");
+
+            try
             {
-                const string LOG_IDENT = "DeployManager::DefaultBaseUrl.Set";
+                var response = await App.HttpClient.GetAsync($"{url}/version");
+                
+                if (!response.IsSuccessStatusCode)
+                    throw new HttpResponseException(response);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                throw;
+            }
 
-                if (string.IsNullOrEmpty(_baseUrl))
+            return url;
+        }
+
+        public static async Task<Exception?> InitializeConnectivity()
+        {
+            const string LOG_IDENT = "DeployManager::InitializeConnectivity";
+
+            // this function serves double duty as the setup mirror enumerator, and as our connectivity check
+            // since we're basically asking four different urls for the exact same thing, if all four fail, then it has to be a user-side problem
+
+            // this should be checked for in the installer, in the menu, and in the bootstrapper, as each of those have a dedicated spot they show in
+
+            // returns null for success
+
+            if (!String.IsNullOrEmpty(BaseUrl))
+                return null;
+
+            var exceptions = new List<Exception>();
+            var tasks = (from entry in BaseUrls select TestConnection(entry.Key, entry.Value)).ToList();
+
+            App.Logger.WriteLine(LOG_IDENT, "Testing connectivity...");
+
+            while (tasks.Any())
+            {
+                var finishedTask = await Task.WhenAny(tasks);
+
+                if (finishedTask.IsFaulted)
                 {
-                    // check for a working accessible deployment domain
-                    foreach (string attemptedUrl in BaseUrls)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Testing connection to '{attemptedUrl}'...");
-
-                        try
-                        {
-                            var response = App.HttpClient.GetAsync($"{attemptedUrl}/version").Result;
-
-                            if (!response.IsSuccessStatusCode)
-                                throw new HttpResponseException(response);
-
-                            App.Logger.WriteLine(LOG_IDENT, "Connection successful!");
-                            _baseUrl = attemptedUrl;
-                            break;
-                        }
-                        catch (Exception ex)
-                        {
-                            App.Logger.WriteLine(LOG_IDENT, "Connection failed!");
-                            App.Logger.WriteException(LOG_IDENT, ex);
-                            continue;
-                        }
-                    }
-
-                    if (string.IsNullOrEmpty(_baseUrl))
-                        throw new Exception("Could not find an accessible Roblox deployment mirror, likely due to a bad internet connection. Please launch again.");
+                    tasks.Remove(finishedTask);
+                    exceptions.Add(finishedTask.Exception!.InnerException!);
+                    continue;
                 }
 
-                return _baseUrl;
+                BaseUrl = await finishedTask;
+                break;
             }
+
+            if (String.IsNullOrEmpty(BaseUrl))
+                return exceptions[0];
+
+            App.Logger.WriteLine(LOG_IDENT, $"Got {BaseUrl} as the optimal base URL");
+
+            return null;
         }
-        #endregion
 
         public static string GetLocation(string resource, string? channel = null)
         {
@@ -95,6 +123,7 @@
 
                 try
                 {
+                    // TODO - this needs to try both clientsettings and clientsettingscdn
                     deployInfoResponse = await App.HttpClient.GetAsync("https://clientsettingscdn.roblox.com" + path);
                 }
                 catch (Exception ex)
