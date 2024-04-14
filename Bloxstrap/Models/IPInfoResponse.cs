@@ -2,13 +2,13 @@ namespace Bloxstrap.Models
 {
     public class IPInfoResponse
     {
-        [JsonPropertyName("city")]
-        public string? City { get; set; }
+        [JsonPropertyName("ip")]
+        public string IP { get; set; } = null!;
 
         [JsonPropertyName("country")]
-        public string? Country { get; set; }
+        public string Country { get; set; } = null!;
 
         [JsonPropertyName("region")]
-        public string? Region { get; set; }
+        public string Region { get; set; } = null!;
     }
 }
