@@ -282,7 +282,7 @@
 
             string location, locationCity, locationRegion, locationCountry = "";
 
-            IPInfoResponse locationInformation
+            IPInfoResponse locationInformation;
 
             try
             {
