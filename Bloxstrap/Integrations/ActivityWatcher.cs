@@ -282,9 +282,11 @@
 
             string location, locationCity, locationRegion, locationCountry = "";
 
+            IPInfoResponse locationInformation
+
             try
             {
-                locationInformation = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
+                IPInfoResponse locationInformation = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
                 locationCity = locationInformation.IP;
                 locationRegion = locationInformation.Region;
