@@ -590,8 +590,11 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>All files</value>
   </data>
-  <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>Bloxstrap is already running</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>You can make it look different, retro, or even just like Roblox.</value>
