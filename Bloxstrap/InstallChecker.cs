@@ -235,7 +235,7 @@ namespace Bloxstrap
                     string.Format(Resources.Strings.InstallChecker_Updated, currentVersionInfo.ProductVersion),
                     Resources.Strings.InstallChecker_SeeWhatsNew,
                     30,
-                    (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
+                    clickHandler: (_, _) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{currentVersionInfo.ProductVersion}")
                 );
             }
             else if (!App.LaunchSettings.IsQuiet)

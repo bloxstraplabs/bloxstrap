@@ -155,7 +155,7 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
-            if (!LaunchSettings.IsUninstall && !LaunchSettings.IsMenuLaunch)
+            if (!LaunchSettings.IsUninstall)
                 NotifyIcon = new();
 
 #if !DEBUG
@@ -176,10 +176,17 @@ namespace Bloxstrap
                 else
                 {
                     if (Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet)
-                        Frontend.ShowMessageBox(
-                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
-                            MessageBoxImage.Information
+                    {
+                        App.NotifyIcon?.SetVisibility(true);
+
+                        App.NotifyIcon?.ShowAlert(
+                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning_Caption,
+                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning_Message,
+                            10,
+                            clickHandler: (_, _) => App.NotifyIcon?.SetVisibility(false),
+                            closeHandler: (_, _) => App.NotifyIcon?.SetVisibility(false)
                         );
+                    }
 
                     Frontend.ShowMenu();
                 }
@@ -187,6 +194,8 @@ namespace Bloxstrap
                 StartupFinished();
                 return;
             }
+
+            App.NotifyIcon?.SetVisibility(true);
 
             if (!IsFirstRun)
                 ShouldSaveConfigs = true;

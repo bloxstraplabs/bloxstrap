@@ -1462,11 +1462,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances..
+        ///   Looks up a localized string similar to Bloxstrap is already running.
         /// </summary>
-        public static string Menu_AlreadyRunning {
+        public static string Menu_AlreadyRunning_Caption {
             get {
-                return ResourceManager.GetString("Menu.AlreadyRunning", resourceCulture);
+                return ResourceManager.GetString("Menu.AlreadyRunning.Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please note that not all your changes will immediately apply until you close all currently open Roblox instances..
+        /// </summary>
+        public static string Menu_AlreadyRunning_Message {
+            get {
+                return ResourceManager.GetString("Menu.AlreadyRunning.Message", resourceCulture);
             }
         }
         

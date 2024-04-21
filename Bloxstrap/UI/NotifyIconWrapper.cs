@@ -19,6 +19,7 @@ namespace Bloxstrap.UI
         private int? _processId;
 
         EventHandler? _alertClickHandler;
+        EventHandler? _alertCloseHandler;
 
         public NotifyIconWrapper()
         {
@@ -28,7 +29,7 @@ namespace Bloxstrap.UI
             {
                 Icon = Properties.Resources.IconBloxstrap,
                 Text = App.ProjectName,
-                Visible = true
+                Visible = false
             };
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
@@ -99,13 +100,18 @@ namespace Bloxstrap.UI
         }
         #endregion
 
-        public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler)
+        public void SetVisibility(bool value)
+        {
+            _notifyIcon.Visible = value;
+        }
+
+        public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler = null, EventHandler? closeHandler = null)
         {
             string id = Guid.NewGuid().ToString()[..8];
 
             string LOG_IDENT = $"NotifyIconWrapper::ShowAlert.{id}";
 
-            App.Logger.WriteLine(LOG_IDENT, $"Showing alert for {duration} seconds (clickHandler={clickHandler is not null})");
+            App.Logger.WriteLine(LOG_IDENT, $"Showing alert for {duration} seconds (clickHandler={clickHandler is not null}) (closeHandler={closeHandler is not null})");
             App.Logger.WriteLine(LOG_IDENT, $"{caption}: {message.Replace("\n", "\\n")}");
 
             _notifyIcon.BalloonTipTitle = caption;
@@ -113,28 +119,23 @@ namespace Bloxstrap.UI
 
             if (_alertClickHandler is not null)
             {
-                App.Logger.WriteLine(LOG_IDENT, "Previous alert still present, erasing click handler");
+                //App.Logger.WriteLine(LOG_IDENT, "Previous alert still present, erasing click handler");
                 _notifyIcon.BalloonTipClicked -= _alertClickHandler;
+            }
+
+            if (_alertCloseHandler is not null)
+            {
+                //App.Logger.WriteLine(LOG_IDENT, "Previous alert still present, erasing closed handler");
+                _notifyIcon.BalloonTipClicked -= _alertCloseHandler;
             }
 
             _alertClickHandler = clickHandler;
             _notifyIcon.BalloonTipClicked += clickHandler;
 
+            _alertCloseHandler = closeHandler;
+            _notifyIcon.BalloonTipClosed += closeHandler;
+
             _notifyIcon.ShowBalloonTip(duration);
-
-            Task.Run(async () =>
-            {
-                await Task.Delay(duration * 1000);
-             
-                _notifyIcon.BalloonTipClicked -= clickHandler;
-
-                App.Logger.WriteLine(LOG_IDENT, "Duration over, erasing current click handler");
-
-                if (_alertClickHandler == clickHandler)
-                    _alertClickHandler = null;
-                else
-                    App.Logger.WriteLine(LOG_IDENT, "Click handler has been overridden by another alert");
-            });
         }
 
         public void Dispose()
