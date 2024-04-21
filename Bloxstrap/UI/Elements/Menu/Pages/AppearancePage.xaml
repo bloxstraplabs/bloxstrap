@@ -41,11 +41,7 @@
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Width="28" Height="28" Margin="0,0,5,0">
-          <Border.Background>
-            <ImageBrush ImageSource="{Binding IconPreviewSource, Mode=OneWay}" />
-          </Border.Background>
-        </Border>
+        <Image Grid.Column="0" Width="28" Height="28" Margin="0,0,5,0" Source="{Binding IconPreviewSource, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
         <ComboBox Grid.Column="1" Margin="5,0,0,0" Padding="10,5,10,5" ItemsSource="{Binding Icons.Keys, Mode=OneTime}" Text="{Binding Icon, Mode=TwoWay}" />
       </Grid>
     </ui:CardControl>
