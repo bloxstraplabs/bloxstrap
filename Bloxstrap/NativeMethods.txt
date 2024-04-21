@@ -2,3 +2,4 @@
 FlashWindow
 GetWindowLong
 SetWindowLong
+EnumDisplaySettings
