@@ -34,6 +34,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             if (!App.IsFirstRun)
             {
                 App.ShouldSaveConfigs = true;
+                App.FastFlags.Save();
                 CloseWindow();
 
                 return;
