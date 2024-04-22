@@ -175,13 +175,8 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet)
-                        Frontend.ShowMessageBox(
-                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
-                            MessageBoxImage.Information
-                        );
-
-                    Frontend.ShowMenu();
+                    bool showAlreadyRunningWarning = Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet;
+                    Frontend.ShowMenu(showAlreadyRunningWarning);
                 }
 
                 StartupFinished();

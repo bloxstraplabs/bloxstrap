@@ -10,7 +10,7 @@ namespace Bloxstrap.UI.Elements.Menu
     /// </summary>
     public partial class MainWindow : INavigationWindow
     {
-        public MainWindow()
+        public MainWindow(bool showAlreadyRunningWarning)
         {
             InitializeComponent();
             ApplyTheme();
@@ -22,6 +22,15 @@ namespace Bloxstrap.UI.Elements.Menu
 #if DEBUG // easier access
             PreInstallNavItem.Visibility = System.Windows.Visibility.Visible;
 #endif
+
+            if (showAlreadyRunningWarning)
+                _ = ShowAlreadyRunningSnackbar();
+        }
+
+        private async Task ShowAlreadyRunningSnackbar()
+        {
+            await Task.Delay(500); // wait for everything to finish loading
+            AlreadyRunningSnackbar.Show();
         }
 
         public void OpenWiki(object? sender, EventArgs e) => Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki");
