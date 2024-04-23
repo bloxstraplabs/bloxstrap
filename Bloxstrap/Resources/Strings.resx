@@ -142,6 +142,9 @@ Would you like to switch to the default channel ({1})?</value>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
     <value>Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.</value>
   </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>You must first install Bloxstrap before uninstalling.</value>
+  </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
     <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
 

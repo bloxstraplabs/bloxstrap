@@ -146,6 +146,13 @@ namespace Bloxstrap
                 return;
             }
 
+            if (LaunchSettings.IsUninstall && IsFirstRun)
+            {
+                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_FirstRunUninstall, MessageBoxImage.Error);
+                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
+                return;
+            }
+
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
