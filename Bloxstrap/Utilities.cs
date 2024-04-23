@@ -1,9 +1,18 @@
 ﻿using System.ComponentModel;
+using System.Security.Principal;
 
 namespace Bloxstrap
 {
     static class Utilities
     {
+        /// <summary>
+        /// Is process running as administrator
+        /// https://stackoverflow.com/a/11660205
+        /// </summary>
+        public static bool IsAdministrator =>
+           new WindowsPrincipal(WindowsIdentity.GetCurrent())
+               .IsInRole(WindowsBuiltInRole.Administrator);
+
         public static void ShellExecute(string website)
         {
             try

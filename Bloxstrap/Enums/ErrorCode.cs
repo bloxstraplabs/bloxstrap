@@ -8,6 +8,7 @@
     public enum ErrorCode
     {
         ERROR_SUCCESS = 0,
+        ERROR_INVALID_FUNCTION = 1,
         ERROR_INSTALL_USEREXIT = 1602,
         ERROR_INSTALL_FAILURE = 1603,
         ERROR_CANCELLED = 1223,
