@@ -141,7 +141,7 @@ namespace Bloxstrap
             // disallow running as administrator except for uninstallation
             if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
             {
-                Frontend.ShowMessageBox("Bloxstrap does not support running in administrator mode. Relaunch or reinstall Bloxstrap with lower privileges.", MessageBoxImage.Error);
+                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_RanInAdminMode, MessageBoxImage.Error);
                 Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
                 return;
             }
