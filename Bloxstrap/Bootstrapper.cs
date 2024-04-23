@@ -1198,11 +1198,7 @@ namespace Bloxstrap
             if (App.IsFirstRun && App.CustomFontLocation is not null)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
-
-                if (File.Exists(Paths.CustomFont))
-                    File.Delete(Paths.CustomFont);
-
-                File.Copy(App.CustomFontLocation, Paths.CustomFont);
+                File.Copy(App.CustomFontLocation, Paths.CustomFont, true);
             }
 
             if (File.Exists(Paths.CustomFont))
