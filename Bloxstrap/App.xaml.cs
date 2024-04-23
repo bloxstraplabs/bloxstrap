@@ -138,6 +138,14 @@ namespace Bloxstrap
 
             Paths.Initialize(BaseDirectory);
 
+            // disallow running as administrator except for uninstallation
+            if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
+            {
+                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_RanInAdminMode, MessageBoxImage.Error);
+                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
+                return;
+            }
+
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)

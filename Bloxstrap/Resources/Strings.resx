@@ -150,6 +150,9 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
   </data>
+  <data name="Bootstrapper.RanInAdminMode" xml:space="preserve">
+    <value>Bloxstrap does not support running in administrator mode. Relaunch or reinstall Bloxstrap with lower privileges.</value>
+  </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Applying Roblox modifications...</value>
   </data>
