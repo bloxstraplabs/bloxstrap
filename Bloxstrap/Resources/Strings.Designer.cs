@@ -134,6 +134,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must first install Bloxstrap before uninstalling..
+        /// </summary>
+        public static string Bootstrapper_FirstRunUninstall {
+            get {
+                return ResourceManager.GetString("Bootstrapper.FirstRunUninstall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
         ///
         ///Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want..
@@ -150,6 +159,15 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_NotEnoughSpace {
             get {
                 return ResourceManager.GetString("Bootstrapper.NotEnoughSpace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap does not support running in administrator mode. Relaunch or reinstall Bloxstrap with lower privileges..
+        /// </summary>
+        public static string Bootstrapper_RanInAdminMode {
+            get {
+                return ResourceManager.GetString("Bootstrapper.RanInAdminMode", resourceCulture);
             }
         }
         
@@ -1462,11 +1480,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances..
+        ///   Looks up a localized string similar to Please note that not all your changes will immediately apply until you close all currently open Roblox instances..
         /// </summary>
-        public static string Menu_AlreadyRunning {
+        public static string Menu_AlreadyRunning_Caption {
             get {
-                return ResourceManager.GetString("Menu.AlreadyRunning", resourceCulture);
+                return ResourceManager.GetString("Menu.AlreadyRunning.Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap is already running.
+        /// </summary>
+        public static string Menu_AlreadyRunning_Title {
+            get {
+                return ResourceManager.GetString("Menu.AlreadyRunning.Title", resourceCulture);
             }
         }
         

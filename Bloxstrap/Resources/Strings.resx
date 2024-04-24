@@ -142,6 +142,9 @@ Would you like to switch to the default channel ({1})?</value>
   <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
     <value>Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.</value>
   </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>You must first install Bloxstrap before uninstalling.</value>
+  </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
     <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
 
@@ -149,6 +152,9 @@ Your ReShade configuration files will still be saved, and you can locate them by
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
+  </data>
+  <data name="Bootstrapper.RanInAdminMode" xml:space="preserve">
+    <value>Bloxstrap does not support running in administrator mode. Relaunch or reinstall Bloxstrap with lower privileges.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Applying Roblox modifications...</value>
@@ -590,8 +596,11 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>All files</value>
   </data>
-  <data name="Menu.AlreadyRunning" xml:space="preserve">
-    <value>Bloxstrap is currently running, likely as a background Roblox process. Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>Bloxstrap is already running</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>You can make it look different, retro, or even just like Roblox.</value>

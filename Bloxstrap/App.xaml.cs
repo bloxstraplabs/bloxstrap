@@ -138,6 +138,21 @@ namespace Bloxstrap
 
             Paths.Initialize(BaseDirectory);
 
+            // disallow running as administrator except for uninstallation
+            if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
+            {
+                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_RanInAdminMode, MessageBoxImage.Error);
+                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
+                return;
+            }
+
+            if (LaunchSettings.IsUninstall && IsFirstRun)
+            {
+                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_FirstRunUninstall, MessageBoxImage.Error);
+                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
+                return;
+            }
+
             // we shouldn't save settings on the first run until the first installation is finished,
             // just in case the user decides to cancel the install
             if (!IsFirstRun)
@@ -175,13 +190,8 @@ namespace Bloxstrap
                 }
                 else
                 {
-                    if (Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet)
-                        Frontend.ShowMessageBox(
-                            Bloxstrap.Resources.Strings.Menu_AlreadyRunning, 
-                            MessageBoxImage.Information
-                        );
-
-                    Frontend.ShowMenu();
+                    bool showAlreadyRunningWarning = Process.GetProcessesByName(ProjectName).Length > 1 && !LaunchSettings.IsQuiet;
+                    Frontend.ShowMenu(showAlreadyRunningWarning);
                 }
 
                 StartupFinished();
