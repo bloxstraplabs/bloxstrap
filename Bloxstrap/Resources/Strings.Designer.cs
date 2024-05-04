@@ -134,6 +134,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to fetch the {0} emoji preset. Your preferred emoji type has been set back to default..
+        /// </summary>
+        public static string Bootstrapper_EmojiPresetFetchFailed {
+            get {
+                return ResourceManager.GetString("Bootstrapper.EmojiPresetFetchFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must first install Bloxstrap before uninstalling..
         /// </summary>
         public static string Bootstrapper_FirstRunUninstall {

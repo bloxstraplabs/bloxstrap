@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
+using Bloxstrap.Resources;
 
 namespace Bloxstrap
 {
@@ -1185,9 +1186,19 @@ namespace Bloxstrap
 
                 Directory.CreateDirectory(contentFonts);
 
-                var response = await App.HttpClient.GetAsync(App.Settings.Prop.EmojiType.GetUrl());
-                await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
-                await response.Content.CopyToAsync(fileStream);
+                try
+                {
+                    var response = await App.HttpClient.GetAsync(App.Settings.Prop.EmojiType.GetUrl());
+                    response.EnsureSuccessStatusCode();
+                    await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
+                    await response.Content.CopyToAsync(fileStream);
+                }
+                catch (HttpRequestException ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to fetch emoji preset from Github: {ex}");
+                    Frontend.ShowMessageBox(string.Format(Strings.Bootstrapper_EmojiPresetFetchFailed, App.Settings.Prop.EmojiType), MessageBoxImage.Error);
+                    App.Settings.Prop.EmojiType = EmojiType.Default;
+                }
             }
 
             // check custom font mod
