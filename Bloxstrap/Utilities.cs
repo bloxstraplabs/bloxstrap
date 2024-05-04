@@ -74,5 +74,20 @@ namespace Bloxstrap
 
             return versionInfo.ProductVersion.Replace(", ", ".");
         }
+
+        public static Process[] GetProcessesSafe()
+        {
+            const string LOG_IDENT = "Utilities::GetProcessesSafe";
+
+            try
+            {
+                return Process.GetProcesses();
+            }
+            catch (ArithmeticException ex) // thanks microsoft
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Arithmetic exception occured with System.Diagnostics.Process.GetProcesses: {ex}");
+                return Array.Empty<Process>(); // can we retry?
+            }
+        }
     }
 }
