@@ -29,3 +29,28 @@
     }
   }
 }
+{
+  "BootstrapperStyle": 4,
+  "BootstrapperIcon": 7,
+  "BootstrapperTitle": "Bloxstrap",
+  "BootstrapperIconCustomLocation": "",
+  "Theme": 0,
+  "CheckForUpdates": true,
+  "CreateDesktopIcon": false,
+  "MultiInstanceLaunching": false,
+  "OhHeyYouFoundMe": true,
+  "Channel": "Live",
+  "ChannelChangeMode": 1,
+  "EnableActivityTracking": true,
+  "UseDiscordRichPresence": false,
+  "HideRPCButtons": true,
+  "ShowServerDetails": false,
+  "CustomIntegrations": [],
+  "UseOldDeathSound": false,
+  "UseOldCharacterSounds": false,
+  "UseDisableAppPatch": false,
+  "UseOldAvatarBackground": false,
+  "CursorType": 0,
+  "EmojiType": 0,
+  "DisableFullscreenOptimizations": false
+}
