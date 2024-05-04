@@ -1174,12 +1174,15 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, "Reverting to default emoji font");
 
+                Filesystem.AssertReadOnly(emojiFontLocation);
                 File.Delete(emojiFontLocation);
             }
             else if (App.Settings.Prop.EmojiType != EmojiType.Default && emojiFontHash != App.Settings.Prop.EmojiType.GetHash())
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Configuring emoji font as {App.Settings.Prop.EmojiType}");
-                
+
+                Filesystem.AssertReadOnly(emojiFontLocation);
+
                 if (emojiFontHash != "")
                     File.Delete(emojiFontLocation);
 
@@ -1198,6 +1201,8 @@ namespace Bloxstrap
             if (App.IsFirstRun && App.CustomFontLocation is not null)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
+
+                Filesystem.AssertReadOnly(App.CustomFontLocation);
                 File.Copy(App.CustomFontLocation, Paths.CustomFont, true);
             }
 
