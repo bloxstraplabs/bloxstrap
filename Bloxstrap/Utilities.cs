@@ -85,7 +85,8 @@ namespace Bloxstrap
             }
             catch (ArithmeticException ex) // thanks microsoft
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Arithmetic exception occured with System.Diagnostics.Process.GetProcesses: {ex}");
+                App.Logger.WriteLine(LOG_IDENT, $"Unable to fetch processes!");
+                App.Logger.WriteException(LOG_IDENT, ex);
                 return Array.Empty<Process>(); // can we retry?
             }
         }
