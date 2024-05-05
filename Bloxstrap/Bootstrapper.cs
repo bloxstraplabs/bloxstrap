@@ -1195,7 +1195,8 @@ namespace Bloxstrap
                 }
                 catch (HttpRequestException ex)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to fetch emoji preset from Github: {ex}");
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to fetch emoji preset from Github");
+                    App.Logger.WriteException(LOG_IDENT, ex);
                     Frontend.ShowMessageBox(string.Format(Strings.Bootstrapper_EmojiPresetFetchFailed, App.Settings.Prop.EmojiType), MessageBoxImage.Warning);
                     App.Settings.Prop.EmojiType = EmojiType.Default;
                 }
