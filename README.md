@@ -8,6 +8,8 @@
 
 An open-source, alternative bootstrapper for Roblox. 
 
+> ⚠️ YOU MUST BE ABLE TO SOLVE [THIS](https://www.k5learning.com/worksheets/kindergarten-reading-comprehension-matching-sentences-pictures-1.pdf) BEFORE CONTINUING!
+
 This is a drop-in replacement for the standard Roblox bootstrapper, providing additional useful features and improvements. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's no risk of being banned for using this.
 
 Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues) or report it in our [Discord server](https://discord.gg/nKjV3mGq6R).
