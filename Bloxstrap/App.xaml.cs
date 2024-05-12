@@ -107,7 +107,7 @@ namespace Bloxstrap
             Terminate();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
             
@@ -130,6 +130,10 @@ namespace Bloxstrap
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
+
+            // TEMPORARY FILL-IN FOR NEW FUNCTIONALITY
+            // REMOVE WHEN LARGER REFACTORING IS DONE
+            await RobloxDeployment.InitializeConnectivity();
             
             using (var checker = new InstallChecker())
             {
