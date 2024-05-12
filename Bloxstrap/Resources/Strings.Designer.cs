@@ -134,7 +134,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to fetch the {0} emoji preset. Your preferred emoji type has been set back to default..
+        ///   Looks up a localized string similar to Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu..
         /// </summary>
         public static string Bootstrapper_EmojiPresetFetchFailed {
             get {
@@ -2796,6 +2796,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Save {
             get {
                 return ResourceManager.GetString("Menu.Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes will take effect the next time you launch Roblox..
+        /// </summary>
+        public static string Menu_SettingsSaved_Message {
+            get {
+                return ResourceManager.GetString("Menu.SettingsSaved.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved!.
+        /// </summary>
+        public static string Menu_SettingsSaved_Title {
+            get {
+                return ResourceManager.GetString("Menu.SettingsSaved.Title", resourceCulture);
             }
         }
         

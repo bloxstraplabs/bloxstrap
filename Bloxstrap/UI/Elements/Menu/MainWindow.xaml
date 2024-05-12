@@ -29,6 +29,12 @@
             Title="{x:Static resources:Strings.Menu_AlreadyRunning_Title}"
             Message="{x:Static resources:Strings.Menu_AlreadyRunning_Caption}"
             Icon="Info20" Timeout="10000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="10" />
+        
+        <ui:Snackbar
+            x:Name="SettingsSavedSnackbar"
+            Title="{x:Static resources:Strings.Menu_SettingsSaved_Title}"
+            Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
+            Appearance="Primary" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
         <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" ShowHelp="True" HelpClicked="OpenWiki" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
 
@@ -85,7 +91,7 @@
                 <ui:Button Content="{Binding ConfirmButtonText, Mode=OneTime}" Appearance="Primary" Command="{Binding ConfirmSettingsCommand, Mode=OneWay}" IsEnabled="{Binding ConfirmButtonEnabled, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
-                <ui:Button Content="{x:Static resources:Strings.Common_Cancel}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
+                <ui:Button Content="{Binding CloseButtonText, Mode=OneTime}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
     </Grid>

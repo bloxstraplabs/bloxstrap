@@ -7,22 +7,24 @@ using CommunityToolkit.Mvvm.Input;
 
 using Wpf.Ui.Mvvm.Contracts;
 
+using Bloxstrap.UI.Elements.Menu;
 using Bloxstrap.UI.Elements.Menu.Pages;
 
 namespace Bloxstrap.UI.ViewModels.Menu
 {
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
-        private readonly Window _window;
+        private readonly MainWindow _window;
 
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
         public ICommand ConfirmSettingsCommand => new RelayCommand(ConfirmSettings);
 
         public Visibility NavigationVisibility { get; set; } = Visibility.Visible;
         public string ConfirmButtonText => App.IsFirstRun ? Resources.Strings.Menu_Install : Resources.Strings.Menu_Save;
+        public string CloseButtonText => App.IsFirstRun ? Resources.Strings.Common_Cancel : Resources.Strings.Common_Close;
         public bool ConfirmButtonEnabled { get; set; } = true;
 
-        public MainWindowViewModel(Window window)
+        public MainWindowViewModel(MainWindow window)
         {
             _window = window;
         }
@@ -34,8 +36,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
             if (!App.IsFirstRun)
             {
                 App.ShouldSaveConfigs = true;
+                App.Settings.Save();
+                App.State.Save();
                 App.FastFlags.Save();
-                CloseWindow();
+                App.ShouldSaveConfigs = false;
+
+                _window.SettingsSavedSnackbar.Show();
 
                 return;
             }
