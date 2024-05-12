@@ -47,9 +47,6 @@
 
             <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_Location}" />
             <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ServerLocation, Mode=OneWay}" />
-
-            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,0,16,0" VerticalAlignment="Center" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_UdmuxProxied}" />
-            <TextBlock Grid.Row="3" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding UdmuxProxied, Mode=OneWay}" />
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
