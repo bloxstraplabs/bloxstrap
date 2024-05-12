@@ -420,7 +420,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Waiting for Roblox to close");
 
-            while (Process.GetProcesses().Any(x => x.Id == gameClientPid))
+            while (Utilities.GetProcessesSafe().Any(x => x.Id == gameClientPid))
                 await Task.Delay(1000);
 
             App.Logger.WriteLine(LOG_IDENT, $"Roblox has exited");

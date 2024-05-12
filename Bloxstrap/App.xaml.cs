@@ -180,7 +180,7 @@ namespace Bloxstrap
 
             if (LaunchSettings.IsMenuLaunch)
             {
-                Process? menuProcess = Process.GetProcesses().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
+                Process? menuProcess = Utilities.GetProcessesSafe().Where(x => x.MainWindowTitle == $"{ProjectName} Menu").FirstOrDefault();
 
                 if (menuProcess is not null)
                 {

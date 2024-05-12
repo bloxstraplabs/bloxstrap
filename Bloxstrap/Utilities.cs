@@ -74,5 +74,21 @@ namespace Bloxstrap
 
             return versionInfo.ProductVersion.Replace(", ", ".");
         }
+
+        public static Process[] GetProcessesSafe()
+        {
+            const string LOG_IDENT = "Utilities::GetProcessesSafe";
+
+            try
+            {
+                return Process.GetProcesses();
+            }
+            catch (ArithmeticException ex) // thanks microsoft
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Unable to fetch processes!");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                return Array.Empty<Process>(); // can we retry?
+            }
+        }
     }
 }
