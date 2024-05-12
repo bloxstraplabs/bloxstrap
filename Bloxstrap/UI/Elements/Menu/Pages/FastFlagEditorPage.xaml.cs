@@ -306,6 +306,13 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             ClearSearch();
         }
 
+        private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+            string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
+            Clipboard.SetText(json);
+            Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
+        }
+
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is not TextBox textbox)
