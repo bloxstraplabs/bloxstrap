@@ -280,18 +280,27 @@
             if (GeolocationCache.ContainsKey(ActivityMachineAddress))
                 return GeolocationCache[ActivityMachineAddress];
 
-            string location = "", locationCity = "", locationRegion = "", locationCountry = "";
-
             try
             {
-                var locationInformation = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
+                string location = "";
+                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
-                if (locationInformation is not null)
-                {
-                    locationCity = locationInformation.IP;
-                    locationRegion = locationInformation.Region;
-                    locationCountry = locationInformation.Country;
-                }
+                if (ipInfo is null)
+                    return $"N/A ({Resources.Strings.ActivityTracker_LookupFailed})";
+
+                if (string.IsNullOrEmpty(ipInfo.Country))
+                    location = "N/A";
+                else if (ipInfo.City == ipInfo.Region)
+                    location = $"{ipInfo.Region}, {ipInfo.Country}";
+                else
+                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+
+                if (!ActivityInGame)
+                    return $"N/A ({Resources.Strings.ActivityTracker_LeftGame})";
+
+                GeolocationCache[ActivityMachineAddress] = location;
+
+                return location;
             }
             catch (Exception ex)
             {
@@ -300,24 +309,6 @@
 
                 return $"N/A ({Resources.Strings.ActivityTracker_LookupFailed})";
             }
-
-            locationCity = locationCity.ReplaceLineEndings("");
-            locationRegion = locationRegion.ReplaceLineEndings("");
-            locationCountry = locationCountry.ReplaceLineEndings("");
-
-            if (string.IsNullOrEmpty(locationCountry))
-                location = "N/A";
-            else if (locationCity == locationRegion)
-                location = $"{locationRegion}, {locationCountry}";
-            else
-                location = $"{locationCity}, {locationRegion}, {locationCountry}";
-
-            if (!ActivityInGame)
-                return $"N/A ({Resources.Strings.ActivityTracker_LeftGame})";
-
-            GeolocationCache[ActivityMachineAddress] = location;
-
-            return location;
         }
 
         public void Dispose()
