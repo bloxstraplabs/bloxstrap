@@ -51,26 +51,16 @@ namespace Bloxstrap
             if (channel.ToLowerInvariant() == App.Settings.Prop.Channel.ToLowerInvariant())
                 return;
 
-            if (App.Settings.Prop.ChannelChangeMode == ChannelChangeMode.Ignore)
-                return;
-
-            if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
+            // don't change if roblox is already running
+            if (Process.GetProcessesByName("RobloxPlayerBeta").Any())
             {
-                if (channel == App.State.Prop.LastEnrolledChannel)
-                    return;
-
-                MessageBoxResult result = Frontend.ShowMessageBox(
-                    string.Format(Resources.Strings.ProtocolHandler_RobloxSwitchedChannel, channel, App.Settings.Prop.Channel),
-                    MessageBoxImage.Question,
-                    MessageBoxButton.YesNo
-                );
-
-                if (result != MessageBoxResult.Yes)
-                    return;
+                App.Logger.WriteLine("ProtocolHandler::ChangeChannel", $"Ignored channel change from {App.Settings.Prop.Channel} to {channel} because Roblox is already running");
             }
-
-            App.Logger.WriteLine("Protocol::ParseUri", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {channel}");
-            App.Settings.Prop.Channel = channel;
+            else
+            {
+                App.Logger.WriteLine("ProtocolHandler::ChangeChannel", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {channel}");
+                App.Settings.Prop.Channel = channel;
+            }
         }
 
         public static void EnrollChannel(string channel)

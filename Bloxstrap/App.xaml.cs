@@ -126,6 +126,22 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            using (var checker = new InstallChecker())
+            {
+                checker.Check();
+            }
+
+            Paths.Initialize(BaseDirectory);
+
+            // we shouldn't save settings on the first run until the first installation is finished,
+            // just in case the user decides to cancel the install
+            if (!IsFirstRun)
+            {
+                Settings.Load();
+                State.Load();
+                FastFlags.Load();
+            }
+
             LaunchSettings = new LaunchSettings(e.Args);
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
@@ -134,13 +150,6 @@ namespace Bloxstrap
             // TEMPORARY FILL-IN FOR NEW FUNCTIONALITY
             // REMOVE WHEN LARGER REFACTORING IS DONE
             await RobloxDeployment.InitializeConnectivity();
-            
-            using (var checker = new InstallChecker())
-            {
-                checker.Check();
-            }
-
-            Paths.Initialize(BaseDirectory);
 
             // disallow running as administrator except for uninstallation
             if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
@@ -168,10 +177,6 @@ namespace Bloxstrap
                     Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
                     Terminate();
                 }
-
-                Settings.Load();
-                State.Load();
-                FastFlags.Load();
             }
 
             if (!LaunchSettings.IsUninstall && !LaunchSettings.IsMenuLaunch)

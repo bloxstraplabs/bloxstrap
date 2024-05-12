@@ -20,7 +20,6 @@ namespace Bloxstrap.Models
 
         // channel configuration
         public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
-        public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
 
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
