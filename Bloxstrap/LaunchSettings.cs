@@ -86,11 +86,6 @@ namespace Bloxstrap
             }
             else if (arg.StartsWith("roblox:"))
             {
-                if (App.Settings.Prop.UseDisableAppPatch)
-                    Frontend.ShowMessageBox(
-                        Resources.Strings.Bootstrapper_DeeplinkTempEnabled,
-                        MessageBoxImage.Information
-                    );
 
                 RobloxLaunchArgs = $"--app --deeplink {arg}";
 

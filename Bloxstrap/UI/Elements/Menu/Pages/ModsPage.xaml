@@ -94,12 +94,6 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Title}" 
-            Description="{x:Static resources:Strings.Menu_Mods_Presets_DisableDesktopApp_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">

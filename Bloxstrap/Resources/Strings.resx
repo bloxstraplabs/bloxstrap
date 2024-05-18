@@ -927,6 +927,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.Description" xml:space="preserve">
     <value>Configure quick and easy ways to improve the Roblox gameplay experience.</value>
   </data>
+  <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
+    <value>Roblox will fully close when you leave a game instead of dropping you back into the app.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
+    <value>Don't exit to desktop app</value>
+  </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
     <value>Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this.</value>
   </data>
@@ -990,12 +996,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Open Mods Folder</value>
-  </data>
-  <data name="Menu.Mods.Presets.DisableDesktopApp.Description" xml:space="preserve">
-    <value>Stops the desktop app from showing, especially when you leave a game.</value>
-  </data>
-  <data name="Menu.Mods.Presets.DisableDesktopApp.Title" xml:space="preserve">
-    <value>Disable desktop app</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
     <value>Choose which type of emoji should Roblox use.</value>

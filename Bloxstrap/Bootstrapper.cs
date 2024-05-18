@@ -274,13 +274,6 @@ namespace Bloxstrap
 
             SetStatus(Resources.Strings.Bootstrapper_Status_Starting);
 
-            if (_launchCommandLine == "--app" && App.Settings.Prop.UseDisableAppPatch)
-            {
-                Utilities.ShellExecute("https://www.roblox.com/games");
-                Dialog?.CloseBootstrapper();
-                return;
-            }
-
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
                 Frontend.ShowMessageBox(
@@ -357,7 +350,7 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.EnableActivityTracking)
             {
-                activityWatcher = new();
+                activityWatcher = new(gameClientPid);
                 shouldWait = true;
 
                 App.NotifyIcon?.SetActivityWatcher(activityWatcher);
@@ -1122,8 +1115,6 @@ namespace Bloxstrap
             if (!Directory.Exists(Paths.Modifications))
                 Directory.CreateDirectory(Paths.Modifications);
 
-            bool appDisabled = App.Settings.Prop.UseDisableAppPatch && !_launchCommandLine.Contains("--deeplink");
-
             // cursors
             await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, new Dictionary<string, string>
             {
@@ -1152,8 +1143,7 @@ namespace Bloxstrap
             });
 
             // Mobile.rbxl
-            await CheckModPreset(appDisabled, @"ExtraContent\places\Mobile.rbxl", "");
-            await CheckModPreset(App.Settings.Prop.UseOldAvatarBackground && !appDisabled, @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
+            await CheckModPreset(App.Settings.Prop.UseOldAvatarBackground, @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
 
             // emoji presets are downloaded remotely from github due to how large they are
             string contentFonts = Path.Combine(Paths.Modifications, "content\\fonts");

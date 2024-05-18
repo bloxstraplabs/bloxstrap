@@ -49,10 +49,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (!value)
                 {
                     ShowServerDetailsEnabled = value;
+                    DisableAppPatchEnabled = value;
                     DiscordActivityEnabled = value;
                     DiscordActivityJoinEnabled = value;
 
                     OnPropertyChanged(nameof(ShowServerDetailsEnabled));
+                    OnPropertyChanged(nameof(DisableAppPatchEnabled));
                     OnPropertyChanged(nameof(DiscordActivityEnabled));
                     OnPropertyChanged(nameof(DiscordActivityJoinEnabled));
                 }
@@ -90,6 +92,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             get => App.Settings.Prop.MultiInstanceLaunching;
             set => App.Settings.Prop.MultiInstanceLaunching = value;
+        }
+
+        public bool DisableAppPatchEnabled
+        {
+            get => App.Settings.Prop.UseDisableAppPatch;
+            set => App.Settings.Prop.UseDisableAppPatch = value;
         }
 
         public ObservableCollection<CustomIntegration> CustomIntegrations
