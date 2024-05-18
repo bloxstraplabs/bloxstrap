@@ -110,7 +110,7 @@ namespace Bloxstrap
         protected override async void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
-            
+
             base.OnStartup(e);
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
@@ -125,6 +125,8 @@ namespace Bloxstrap
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            LaunchSettings = new LaunchSettings(e.Args);
 
             using (var checker = new InstallChecker())
             {
@@ -141,8 +143,6 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
             }
-
-            LaunchSettings = new LaunchSettings(e.Args);
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
