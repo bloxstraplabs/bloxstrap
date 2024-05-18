@@ -45,7 +45,7 @@
 
         <ui:TextBox x:Name="SearchTextBox" Grid.Row="3" Margin="0,0,0,16" Icon="Search32" PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}" TextChanged="SearchTextBox_TextChanged" />
 
-        <DataGrid Name="DataGrid" Grid.Row="4" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding">
+        <DataGrid Name="DataGrid" Grid.Row="4" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" CanUserReorderColumns="False">
             <DataGrid.Style>
                 <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
                     <Setter Property="Background" Value="Transparent" />
