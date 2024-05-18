@@ -26,7 +26,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             {
                 var dialog = new OpenFileDialog
                 {
-                    Filter = $"{Resources.Strings.Menu_FontFiles}|*.ttf;*.otf|{Resources.Strings.Menu_AllFiles}|*.*"
+                    Filter = $"{Resources.Strings.Menu_FontFiles}|*.ttf;*.otf;*.ttc"
                 };
 
                 if (dialog.ShowDialog() != true)
