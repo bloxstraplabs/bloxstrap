@@ -2566,6 +2566,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file you have chosen does not appear to be a valid font file..
+        /// </summary>
+        public static string Menu_Mods_Misc_CustomFont_Invalid {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CustomFont.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove applied font.
         /// </summary>
         public static string Menu_Mods_Misc_CustomFont_Remove {

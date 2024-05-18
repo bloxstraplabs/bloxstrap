@@ -967,6 +967,9 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
     <value>Forces every in-game font to be a font that you choose.</value>
   </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>The file you have chosen does not appear to be a valid font file.</value>
+  </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
     <value>Remove applied font</value>
   </data>
