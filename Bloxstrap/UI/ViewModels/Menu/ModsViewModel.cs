@@ -25,9 +25,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
             if (_usingCustomFont)
             {
                 if (App.IsFirstRun)
+                {
                     App.CustomFontLocation = null;
+                }
                 else
+                {
+                    Filesystem.AssertReadOnly(Paths.CustomFont);
                     File.Delete(Paths.CustomFont);
+                }
             }
             else
             {
