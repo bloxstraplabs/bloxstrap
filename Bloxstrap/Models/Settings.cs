@@ -12,7 +12,6 @@ namespace Bloxstrap.Models
         public Theme Theme { get; set; } = Theme.Default;
         public bool CheckForUpdates { get; set; } = true;
         public bool CreateDesktopIcon { get; set; } = true;
-        public bool MultiInstanceLaunching { get; set; } = false;
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         [JsonPropertyName("OhHeyYouFoundMeAgain")]

@@ -223,28 +223,6 @@ namespace Bloxstrap
                 dialog.Bootstrapper = bootstrapper;
             }
 
-            // handle roblox singleton mutex for multi-instance launching
-            // note we're handling it here in the main thread and NOT in the
-            // bootstrapper as handling mutexes in async contexts suuuuuucks
-
-            Mutex? singletonMutex = null;
-
-            if (Settings.Prop.MultiInstanceLaunching && LaunchSettings.RobloxLaunchMode == LaunchMode.Player)
-            {
-                Logger.WriteLine(LOG_IDENT, "Creating singleton mutex");
-
-                try
-                {
-                    Mutex.OpenExisting("ROBLOX_singletonMutex");
-                    Logger.WriteLine(LOG_IDENT, "Warning - singleton mutex already exists!");
-                }
-                catch
-                {
-                    // create the singleton mutex before the game client does
-                    singletonMutex = new Mutex(true, "ROBLOX_singletonMutex");
-                }
-            }
-
             Task bootstrapperTask = Task.Run(async () => await bootstrapper.Run()).ContinueWith(t =>
             {
                 Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
@@ -279,16 +257,6 @@ namespace Bloxstrap
             Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
 
             bootstrapperTask.Wait();
-
-            if (singletonMutex is not null)
-            {
-                Logger.WriteLine(LOG_IDENT, "We have singleton mutex ownership! Running in background until all Roblox processes are closed");
-
-                // we've got ownership of the roblox singleton mutex!
-                // if we stop running, everything will screw up once any more roblox instances launched
-                while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
-                    Thread.Sleep(5000);
-            }
 
             StartupFinished();
         }

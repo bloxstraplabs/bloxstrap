@@ -59,12 +59,6 @@
 
         <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Title}" 
-            Description="{x:Static resources:Strings.Menu_Integrations_AllowMultipleInstances_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
-
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <Grid Margin="0,8,0,0">
