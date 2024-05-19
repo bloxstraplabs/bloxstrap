@@ -33,6 +33,8 @@
 
         public string LogLocation = null!;
 
+        public string LastServer = "";
+
         // these are values to use assuming the player isn't currently in a game
         // hmm... do i move this to a model?
         public bool ActivityInGame = false;
@@ -161,6 +163,7 @@
                     ActivityPlaceId = long.Parse(match.Groups[2].Value);
                     ActivityJobId = match.Groups[1].Value;
                     ActivityMachineAddress = match.Groups[3].Value;
+                    LastServer = $"roblox://experiences/start?placeId={ActivityPlaceId}&gameInstanceId={ActivityJobId}";
 
                     if (_teleportMarker)
                     {

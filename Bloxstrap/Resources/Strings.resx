@@ -269,6 +269,12 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
+  <data name="ContextMenu.JoinLastServer" xml:space="preserve">
+    <value>Join Last Server</value>
+  </data>
+  <data name="ContextMenu.JoinLastServerMessage" xml:space="preserve">
+    <value>Are you sure? This will restart Roblox and join to last connected server.</value>
+  </data>
   <data name="ContextMenu.LogTracer.KeepOnTop" xml:space="preserve">
     <value>Keep on top</value>
   </data>
