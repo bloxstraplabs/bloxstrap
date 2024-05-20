@@ -44,7 +44,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (dialog.ShowDialog() != true)
                     return;
 
-                string type = dialog.FileName.Substring(dialog.FileName.Length-3, 3).ToLower();
+                string type = dialog.FileName.Substring(dialog.FileName.Length-3, 3).ToLowerInvariant();
 
                 if (!File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(FontHeaders[type]))
                 {
