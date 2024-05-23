@@ -1,4 +1,5 @@
 # <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap
+
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
 [![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/pizzaboxer/bloxstrap/releases)
@@ -8,7 +9,7 @@
 
 An open-source, alternative bootstrapper for Roblox. 
 
-This is a drop-in replacement for the standard Roblox bootstrapper, providing additional useful features and improvements. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's no risk of being banned for using this.
+This is a drop-in replacement for the standard Roblox bootstrapper, providing additional useful features and improvements. This does not touch or modify the game client itself, it's just a launcher! So don't worry, there's [no risk of being banned](https://github.com/pizzaboxer/bloxstrap/wiki/Why-it%27s-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap) for using this.
 
 Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues) or report it in our [Discord server](https://discord.gg/nKjV3mGq6R).
  
