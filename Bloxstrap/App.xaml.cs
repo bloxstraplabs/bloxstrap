@@ -209,6 +209,21 @@ namespace Bloxstrap
 
             if (!IsFirstRun)
                 ShouldSaveConfigs = true;
+            
+            if (Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
+            {
+                var result = Frontend.ShowMessageBox(
+                    "Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?", 
+                    MessageBoxImage.Warning, 
+                    MessageBoxButton.YesNo
+                );
+
+                if (result != MessageBoxResult.Yes)
+                {
+                    StartupFinished();
+                    return;
+                }
+            }
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");

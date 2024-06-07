@@ -112,7 +112,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void LogTracerMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Utilities.ShellExecute(_activityWatcher?.LogLocation);
+            Utilities.ShellExecute(_activityWatcher?.LogLocation!);
         }
 
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)
