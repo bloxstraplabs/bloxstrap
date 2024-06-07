@@ -28,7 +28,11 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
-        public Visibility ShowDebugFlags => App.Settings.Prop.PowerTools ? Visibility.Visible : Visibility.Collapsed;
+#if DEBUG
+        public Visibility ShowDebugFlags => Visibility.Visible;
+#else
+        public Visibility ShowDebugFlags => Visibility.Collapsed;
+#endif
 
         public bool HttpRequestLogging
         {

@@ -73,7 +73,7 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="LogTracerMenuItem" Header="{x:Static resources:Strings.ContextMenu_OpenLogTracer}" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
+            <MenuItem x:Name="LogTracerMenuItem" Header="{x:Static resources:Strings.ContextMenu_OpenLogFile}" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </base:WpfUiWindow>

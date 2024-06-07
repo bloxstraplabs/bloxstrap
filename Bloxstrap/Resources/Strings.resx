@@ -269,23 +269,8 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
-  <data name="ContextMenu.LogTracer.KeepOnTop" xml:space="preserve">
-    <value>Keep on top</value>
-  </data>
-  <data name="ContextMenu.LogTracer.ScrollToEnd" xml:space="preserve">
-    <value>Scroll to end</value>
-  </data>
-  <data name="ContextMenu.LogTracer.TextWrapping" xml:space="preserve">
-    <value>Text wrapping</value>
-  </data>
-  <data name="ContextMenu.LogTracer.Title" xml:space="preserve">
-    <value>Log tracer</value>
-  </data>
-  <data name="ContextMenu.LogTracer.TracingFormat" xml:space="preserve">
-    <value>Tracing {0}</value>
-  </data>
-  <data name="ContextMenu.OpenLogTracer" xml:space="preserve">
-    <value>Open log tracer</value>
+  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
     <value>See server details</value>

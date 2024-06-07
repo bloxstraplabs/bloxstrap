@@ -24,7 +24,6 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         private readonly ActivityWatcher? _activityWatcher;
         private readonly DiscordRichPresence? _richPresenceHandler;
 
-        private LogTracer? _logTracerWindow;
         private ServerInformation? _serverInformationWindow;
         private int? _processId;
 
@@ -39,9 +38,10 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_activityWatcher is not null)
             {
-                if (App.Settings.Prop.PowerTools)
-                    LogTracerMenuItem.Visibility = Visibility.Visible;
-             
+#if DEBUG
+                LogTracerMenuItem.Visibility = Visibility.Visible;
+#endif
+
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
                 _activityWatcher.OnGameLeave += ActivityWatcher_OnGameLeave;
             }
@@ -112,16 +112,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void LogTracerMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (_logTracerWindow is null)
-            {
-                _logTracerWindow = new LogTracer(_activityWatcher!);
-                _logTracerWindow.Closed += (_, _) => _logTracerWindow = null;;
-            }
-
-            if (!_logTracerWindow.IsVisible)
-                _logTracerWindow.Show();
-
-            _logTracerWindow.Activate();
+            Utilities.ShellExecute(_activityWatcher?.LogLocation);
         }
 
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)

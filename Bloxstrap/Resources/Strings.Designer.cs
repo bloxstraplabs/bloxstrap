@@ -505,56 +505,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep on top.
+        ///   Looks up a localized string similar to Open log file.
         /// </summary>
-        public static string ContextMenu_LogTracer_KeepOnTop {
+        public static string ContextMenu_OpenLogFile {
             get {
-                return ResourceManager.GetString("ContextMenu.LogTracer.KeepOnTop", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Scroll to end.
-        /// </summary>
-        public static string ContextMenu_LogTracer_ScrollToEnd {
-            get {
-                return ResourceManager.GetString("ContextMenu.LogTracer.ScrollToEnd", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Text wrapping.
-        /// </summary>
-        public static string ContextMenu_LogTracer_TextWrapping {
-            get {
-                return ResourceManager.GetString("ContextMenu.LogTracer.TextWrapping", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Log tracer.
-        /// </summary>
-        public static string ContextMenu_LogTracer_Title {
-            get {
-                return ResourceManager.GetString("ContextMenu.LogTracer.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tracing {0}.
-        /// </summary>
-        public static string ContextMenu_LogTracer_TracingFormat {
-            get {
-                return ResourceManager.GetString("ContextMenu.LogTracer.TracingFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open log tracer.
-        /// </summary>
-        public static string ContextMenu_OpenLogTracer {
-            get {
-                return ResourceManager.GetString("ContextMenu.OpenLogTracer", resourceCulture);
+                return ResourceManager.GetString("ContextMenu.OpenLogFile", resourceCulture);
             }
         }
         

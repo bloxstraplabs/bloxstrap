@@ -65,11 +65,6 @@
             //
             // we'll tail the log file continuously, monitoring for any log entries that we need to determine the current game activity
 
-            int delay = 1000;
-
-            if (App.Settings.Prop.PowerTools)
-                delay = 250;
-
             string logDirectory = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
 
             if (!Directory.Exists(logDirectory))
@@ -118,7 +113,7 @@
                 string? log = await sr.ReadLineAsync();
 
                 if (string.IsNullOrEmpty(log))
-                    logUpdatedEvent.WaitOne(delay);
+                    logUpdatedEvent.WaitOne(1000);
                 else
                     ExamineLogEntry(log);
             }

@@ -17,13 +17,15 @@ namespace Bloxstrap
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
             { "Network.Log", "FLogNetwork" },
-            
+
+#if DEBUG
             { "HTTP.Log", "DFLogHttpTraceLight" },
 
             { "HTTP.Proxy.Enable", "DFFlagDebugEnableHttpProxy" },
             { "HTTP.Proxy.Address.1", "DFStringDebugPlayerHttpProxyUrl" },
             { "HTTP.Proxy.Address.2", "DFStringHttpCurlProxyHostAndPort" },
             { "HTTP.Proxy.Address.3", "DFStringHttpCurlProxyHostAndPortForExternalUrl" },
+#endif
 
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
@@ -43,7 +45,9 @@ namespace Bloxstrap
             { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
 
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
+#if DEBUG
             { "UI.FlagState", "FStringDebugShowFlagState" },
+#endif
 
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             
