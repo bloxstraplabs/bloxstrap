@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Bloxstrap.UI.Elements.Dialogs
 {
     /// <summary>
-    /// Interaction logic for AddFlagDialog.xaml
+    /// Interaction logic for AddFastFlagDialog.xaml
     /// </summary>
     public partial class AddFastFlagDialog
     {

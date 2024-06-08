@@ -36,6 +36,7 @@
 
             <converters:ResourceConverter x:Key="ResourceConverter" />
             <converters:StringFormatConverter x:Key="StringFormatConverter" />
+            <converters:RangeConverter x:Key="RangeConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

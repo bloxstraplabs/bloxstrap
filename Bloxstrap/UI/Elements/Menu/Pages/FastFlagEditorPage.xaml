@@ -18,10 +18,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <StackPanel Grid.Row="1" Margin="0,0,0,8" Orientation="Horizontal">
+        <ui:InfoBar Grid.Row="1" Margin="0,0,0,16" Padding="8" Title="{x:Static resources:Strings.Menu_FastFlagEditor_BannerTitle}" IsOpen="True" Message="{x:Static resources:Strings.Menu_FastFlagEditor_BannerText}" Severity="Warning" IsClosable="False" />
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,16" Orientation="Horizontal">
             <ui:Button Icon="ArrowLeft48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_Back}" Click="BackButton_Click" />
             <ui:Button Icon="Add28" Content="{x:Static resources:Strings.Menu_FastFlagEditor_AddNew}" Click="AddButton_Click" Margin="12,0,0,0" />
             <ui:Button Icon="Delete48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click" Appearance="Danger" Margin="12,0,0,0">
@@ -35,11 +37,7 @@
                     </Style>
                 </ui:Button.Style>
             </ui:Button>
-            <ToggleButton x:Name="TogglePresetsButton" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" Click="ToggleButton_Click" Margin="12,0,0,0" />
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Margin="0,0,0,16" Orientation="Horizontal">
-            <ui:Button Icon="ArrowImport24" Content="{x:Static resources:Strings.Common_ImportJson}" Click="ImportJSONButton_Click" />
+            <ToggleButton x:Name="TogglePresetsButton"  Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" Click="ToggleButton_Click" Margin="12,0,0,0" />
             <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}" Margin="12,0,0,0" Click="ExportJSONButton_Click" />
         </StackPanel>
 

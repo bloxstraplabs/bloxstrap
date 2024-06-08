@@ -306,7 +306,9 @@ Your ReShade configuration files will still be saved, and you can locate them by
     <value>Add FastFlag</value>
   </data>
   <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
-    <value>Paste in your JSON here...</value>
+    <value>{
+    "FFlagDebugDisplayFPS": "True"
+}</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
     <value>More information:</value>
@@ -704,20 +706,51 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Add new</value>
   </data>
+  <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
+    <value>An entry for this flag name already exists.</value>
+  </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
     <value>Back</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
+    <value>Misusing this can lead to instability or unexpected things happening.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
+    <value>Use with caution.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
+    <value>Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?
+
+</value>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Delete selected</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your own FastFlags. Use with caution. Double click a column to edit.</value>
+    <value>Manage your own FastFlags. Double click a column to edit.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
   </data>
+  <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
+    <value>The name of this flag is not valid as names can only contain letters, numbers, and underscores</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
+    <value>The JSON you've entered does not appear to be valid. Please double check it and try again.
+
+More information:
+{0}</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
+    <value>The name of this flag is not valid as names must start with FFlag, DFInt, etc</value>
+  </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>Copied JSON to clipboard.</value>
+    <value>Copied to clipboard.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
+    <value>You appear to be importing a very large configuration. You should only be importing configurations that you fully understand. Do NOT blindly paste in configurations made by other people. If you continue, you will very likely end up with stability issues and encounter unexpected changes.
+
+Are you sure you want to continue?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
     <value>Search</value>
