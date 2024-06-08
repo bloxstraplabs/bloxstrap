@@ -23,7 +23,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
         private void OpenFastFlagEditor()
         {
             if (Window.GetWindow(_page) is INavigationWindow window)
-                window.Navigate(typeof(FastFlagEditorPage));
+            {
+                if (App.State.Prop.ShowFFlagEditorWarning)
+                    window.Navigate(typeof(FastFlagEditorWarningPage));
+                else
+                    window.Navigate(typeof(FastFlagEditorPage));
+            }
         }
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);

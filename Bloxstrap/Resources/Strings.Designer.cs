@@ -469,6 +469,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Common_Warning {
+            get {
+                return ResourceManager.GetString("Common.Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
         public static string Common_Yes {
@@ -1813,7 +1822,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your own FastFlags. Double click a column to edit..
+        ///   Looks up a localized string similar to Manage your own FastFlags. Use with caution. Double click a column to edit..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
@@ -1867,6 +1876,44 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Go back.
+        /// </summary>
+        public static string Menu_FastFlagEditor_Warning_Back {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Warning.Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I know what I&apos;m doing.
+        /// </summary>
+        public static string Menu_FastFlagEditor_Warning_Continue {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Warning.Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you know what you are doing?.
+        /// </summary>
+        public static string Menu_FastFlagEditor_Warning_Header {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Warning.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flags are extremely powerful, being that they are intended to only be used by Roblox engineers. While they can be very useful, manually configuring them can cause serious issues with stability and functionality. Do NOT use the editor if you are unsure of what you are doing.
+        ///
+        ///Do NOT use this to import large &quot;flag lists&quot; made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Menu_FastFlagEditor_Warning_Text {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.Warning.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control how specific Roblox engine parameters and features are configured..
         /// </summary>
         public static string Menu_FastFlags_Description {
@@ -1876,7 +1923,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your own FastFlags..
+        ///   Looks up a localized string similar to Manage your own Fast Flags. Use with caution..
         /// </summary>
         public static string Menu_FastFlags_Editor_Description {
             get {
@@ -1885,7 +1932,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Learn more about FastFlags..
+        ///   Looks up a localized string similar to Learn more about Fast Flags, what these presets do, and how to use them..
         /// </summary>
         public static string Menu_FastFlags_Help_Description {
             get {

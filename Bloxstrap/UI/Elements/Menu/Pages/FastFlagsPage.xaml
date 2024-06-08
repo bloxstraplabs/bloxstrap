@@ -15,28 +15,14 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <ui:CardAction Grid.Column="0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
+            <StackPanel>
+                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardAction>
 
-            <ui:CardAction Grid.Column="0" Margin="0,0,4,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardAction>
-
-            <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardAction>
-        </Grid>
-
-        <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+            <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
             <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
             <controls:OptionControl 
@@ -137,5 +123,12 @@
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Description}">
             <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
+        
+        <ui:CardAction Margin="0,24,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
+            <StackPanel>
+                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
+                <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            </StackPanel>
+        </ui:CardAction>
     </StackPanel>
 </ui:UiPage>

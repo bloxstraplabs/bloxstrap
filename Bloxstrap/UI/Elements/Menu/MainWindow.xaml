@@ -59,6 +59,7 @@
 
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_PreInstall_Title}" PageType="{x:Type pages:PreInstallPage}" Tag="preinstall" Visibility="Collapsed" x:Name="PreInstallNavItem" />
+                    <ui:NavigationItem Content="" PageType="{x:Type pages:FastFlagEditorWarningPage}" Tag="fastflageditorwarning" Visibility="Collapsed" x:Name="EditorWarningNavItem" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" Margin="0,0,0,12" />

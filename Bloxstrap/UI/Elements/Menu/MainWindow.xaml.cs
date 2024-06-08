@@ -21,6 +21,7 @@ namespace Bloxstrap.UI.Elements.Menu
 
 #if DEBUG // easier access
             PreInstallNavItem.Visibility = System.Windows.Visibility.Visible;
+            EditorWarningNavItem.Visibility = System.Windows.Visibility.Visible;
 #endif
 
             if (showAlreadyRunningWarning)
