@@ -721,7 +721,8 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
     <value>Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?
 
-</value>
+There are {0} conflicting flag definitions:
+{1}</value>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Delete selected</value>

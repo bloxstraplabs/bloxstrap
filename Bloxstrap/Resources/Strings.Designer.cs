@@ -1844,7 +1844,8 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?
         ///
-        ///.
+        ///There are {0} conflicting flag definitions:
+        ///{1}.
         /// </summary>
         public static string Menu_FastFlagEditor_ConflictingImport {
             get {
