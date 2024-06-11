@@ -49,7 +49,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             _page = page;
 
-            foreach (var entry in Enum.GetValues(typeof(BootstrapperIcon)).Cast<BootstrapperIcon>())
+            foreach (var entry in BootstrapperIconEx.Selections)
                 Icons.Add(new BootstrapperIconEntry { IconType = entry });
         }
 
