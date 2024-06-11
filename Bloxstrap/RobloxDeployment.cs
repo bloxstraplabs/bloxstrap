@@ -20,7 +20,7 @@
 
         private static async Task<string?> TestConnection(string url, int priority)
         {
-            string LOG_IDENT = $"DeployManager::TestConnection.{url}";
+            string LOG_IDENT = $"RobloxDeployment::TestConnection.{url}";
 
             await Task.Delay(priority * 1000);
 
@@ -47,7 +47,7 @@
 
         public static async Task<Exception?> InitializeConnectivity()
         {
-            const string LOG_IDENT = "DeployManager::InitializeConnectivity";
+            const string LOG_IDENT = "RobloxDeployment::InitializeConnectivity";
 
             // this function serves double duty as the setup mirror enumerator, and as our connectivity check
             // since we're basically asking four different urls for the exact same thing, if all four fail, then it has to be a user-side problem
