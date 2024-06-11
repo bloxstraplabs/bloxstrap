@@ -1,31 +1,21 @@
-﻿using Bloxstrap.UI.Elements.Bootstrapper.Base;
-using Bloxstrap.UI.ViewModels.Bootstrapper;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Threading;
+
+using Wpf.Ui.Appearance;
+using Wpf.Ui.Mvvm.Contracts;
+using Wpf.Ui.Mvvm.Services;
+
+using Bloxstrap.UI.ViewModels.Bootstrapper;
+using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     /// <summary>
-    /// Interaction logic for ProgressFluentDialog.xaml
+    /// Interaction logic for ClassicFluentDialog.xaml
     /// </summary>
-    public partial class ProgressFluentDialog : IBootstrapperDialog
+    public partial class ClassicFluentDialog : IBootstrapperDialog
     {
-        private readonly ProgressFluentDialogViewModel _viewModel;
+        private readonly BootstrapperDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
@@ -85,12 +75,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
         #endregion
 
-        public ProgressFluentDialog(bool aero)
+        public ClassicFluentDialog()
         {
             InitializeComponent();
             ApplyTheme();
 
-            _viewModel = new ProgressFluentDialogViewModel(this, aero);
+            _viewModel = new ClassicFluentDialogViewModel(this);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

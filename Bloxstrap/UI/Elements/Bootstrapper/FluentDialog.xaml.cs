@@ -1,12 +1,22 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
-
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Services;
-
+﻿using Bloxstrap.UI.Elements.Bootstrapper.Base;
 using Bloxstrap.UI.ViewModels.Bootstrapper;
-using Bloxstrap.UI.Elements.Bootstrapper.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Forms;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
@@ -15,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     /// </summary>
     public partial class FluentDialog : IBootstrapperDialog
     {
-        private readonly BootstrapperDialogViewModel _viewModel;
+        private readonly FluentDialogViewModel _viewModel;
 
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
@@ -75,12 +85,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
         #endregion
 
-        public FluentDialog()
+        public FluentDialog(bool aero)
         {
             InitializeComponent();
             ApplyTheme();
 
-            _viewModel = new FluentDialogViewModel(this);
+            _viewModel = new FluentDialogViewModel(this, aero);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

@@ -7,9 +7,10 @@
         public static IReadOnlyCollection<BootstrapperStyle> Selections => new BootstrapperStyle[]
         {
             BootstrapperStyle.FluentDialog,
-            BootstrapperStyle.ProgressFluentDialog,
-            BootstrapperStyle.ProgressFluentAeroDialog,
+            BootstrapperStyle.FluentAeroDialog,
+            BootstrapperStyle.ClassicFluentDialog,
             BootstrapperStyle.ByfronDialog,
+            BootstrapperStyle.ProgressDialog,
             BootstrapperStyle.LegacyDialog2011,
             BootstrapperStyle.LegacyDialog2008,
             BootstrapperStyle.VistaDialog

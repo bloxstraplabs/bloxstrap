@@ -55,11 +55,11 @@ namespace Bloxstrap.UI
                 BootstrapperStyle.LegacyDialog2008 => new LegacyDialog2008(),
                 BootstrapperStyle.LegacyDialog2011 => new LegacyDialog2011(),
                 BootstrapperStyle.ProgressDialog => new ProgressDialog(),
-                BootstrapperStyle.FluentDialog => new FluentDialog(),
+                BootstrapperStyle.ClassicFluentDialog => new ClassicFluentDialog(),
                 BootstrapperStyle.ByfronDialog => new ByfronDialog(),
-                BootstrapperStyle.ProgressFluentDialog => new ProgressFluentDialog(false),
-                BootstrapperStyle.ProgressFluentAeroDialog => new ProgressFluentDialog(true),
-                _ => new FluentDialog()
+                BootstrapperStyle.FluentDialog => new FluentDialog(false),
+                BootstrapperStyle.FluentAeroDialog => new FluentDialog(true),
+                _ => new FluentDialog(false)
             };
         }
     }

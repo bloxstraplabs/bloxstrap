@@ -804,6 +804,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fluent (Classic).
+        /// </summary>
+        public static string Enums_BootstrapperStyle_ClassicFluentDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.ClassicFluentDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent (Aero).
+        /// </summary>
+        public static string Enums_BootstrapperStyle_FluentAeroDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.FluentAeroDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fluent (Classic).
+        /// </summary>
+        public static string Enums_BootstrapperStyle_FluentClassicDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.FluentClassicDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fluent.
         /// </summary>
         public static string Enums_BootstrapperStyle_FluentDialog {
@@ -836,24 +863,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_BootstrapperStyle_ProgressDialog {
             get {
                 return ResourceManager.GetString("Enums.BootstrapperStyle.ProgressDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fluent Progress (Aero).
-        /// </summary>
-        public static string Enums_BootstrapperStyle_ProgressFluentAeroDialog {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperStyle.ProgressFluentAeroDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fluent Progress.
-        /// </summary>
-        public static string Enums_BootstrapperStyle_ProgressFluentDialog {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperStyle.ProgressFluentDialog", resourceCulture);
             }
         }
         

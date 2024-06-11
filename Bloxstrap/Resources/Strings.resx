@@ -370,6 +370,15 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
     <value>Fake Byfron (2023)</value>
   </data>
+  <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
+    <value>Fluent (Classic)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
+    <value>Fluent (Aero)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentClassicDialog" xml:space="preserve">
+    <value>Fluent (Classic)</value>
+  </data>
   <data name="Enums.BootstrapperStyle.FluentDialog" xml:space="preserve">
     <value>Fluent</value>
   </data>
@@ -381,12 +390,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Progress (~2014)</value>
-  </data>
-  <data name="Enums.BootstrapperStyle.ProgressFluentAeroDialog" xml:space="preserve">
-    <value>Fluent Progress (Aero)</value>
-  </data>
-  <data name="Enums.BootstrapperStyle.ProgressFluentDialog" xml:space="preserve">
-    <value>Fluent Progress</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
