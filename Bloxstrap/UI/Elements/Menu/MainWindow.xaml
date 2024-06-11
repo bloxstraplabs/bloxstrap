@@ -76,7 +76,10 @@
             </Grid>
         </Grid>
 
-        <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,10" Background="{ui:ThemeResource ApplicationBackgroundBrush}" BorderThickness="0,1,0,0">
+        <StatusBar x:Name="RootStatusBar" Grid.Row="2" Padding="14,10" BorderThickness="0,1,0,0">
+            <StatusBar.Background>
+                <SolidColorBrush Color="{ui:ThemeResource ApplicationBackgroundColor}" Opacity="0" />
+            </StatusBar.Background>
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
