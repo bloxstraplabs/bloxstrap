@@ -95,7 +95,16 @@
             string location = BaseUrl;
 
             if (channel.ToLowerInvariant() != DefaultChannel.ToLowerInvariant())
-                location += $"/channel/{channel.ToLowerInvariant()}";
+            {
+                string channelName;
+
+                if (RobloxFastFlags.GetSettings(nameof(RobloxFastFlags.PCClientBootstrapper), channel).Get<bool>("FFlagReplaceChannelNameForDownload"))
+                    channelName = "common";
+                else
+                    channelName = channel.ToLowerInvariant();
+
+                location += $"/channel/{channelName}";
+            }
 
             location += resource;
 
