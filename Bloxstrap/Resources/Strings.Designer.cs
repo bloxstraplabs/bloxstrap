@@ -840,7 +840,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fluent Progress (Aero).
+        ///   Looks up a localized string similar to Fluent Progress (Glass).
         /// </summary>
         public static string Enums_BootstrapperStyle_ProgressFluentAeroDialog {
             get {
