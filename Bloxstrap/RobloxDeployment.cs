@@ -15,12 +15,12 @@
             { "https://setup.rbxcdn.com", 0 },
             { "https://setup-ak.rbxcdn.com", 2 },
             { "https://roblox-setup.cachefly.net", 2 },
-            {  "https://s3.amazonaws.com/setup.roblox.com", 4 }
+            { "https://s3.amazonaws.com/setup.roblox.com", 4 }
         };
 
         private static async Task<string?> TestConnection(string url, int priority)
         {
-            string LOG_IDENT = $"DeployManager::TestConnection.{url}";
+            string LOG_IDENT = $"RobloxDeployment::TestConnection.{url}";
 
             await Task.Delay(priority * 1000);
 
@@ -47,7 +47,7 @@
 
         public static async Task<Exception?> InitializeConnectivity()
         {
-            const string LOG_IDENT = "DeployManager::InitializeConnectivity";
+            const string LOG_IDENT = "RobloxDeployment::InitializeConnectivity";
 
             // this function serves double duty as the setup mirror enumerator, and as our connectivity check
             // since we're basically asking four different urls for the exact same thing, if all four fail, then it has to be a user-side problem
@@ -95,7 +95,16 @@
             string location = BaseUrl;
 
             if (channel.ToLowerInvariant() != DefaultChannel.ToLowerInvariant())
-                location += $"/channel/{channel.ToLowerInvariant()}";
+            {
+                string channelName;
+
+                if (RobloxFastFlags.GetSettings(nameof(RobloxFastFlags.PCClientBootstrapper), channel).Get<bool>("FFlagReplaceChannelNameForDownload"))
+                    channelName = "common";
+                else
+                    channelName = channel.ToLowerInvariant();
+
+                location += $"/channel/{channelName}";
+            }
 
             location += resource;
 
@@ -123,7 +132,6 @@
 
                 try
                 {
-                    // TODO - this needs to try both clientsettings and clientsettingscdn
                     deployInfoResponse = await App.HttpClient.GetAsync("https://clientsettingscdn.roblox.com" + path);
                 }
                 catch (Exception ex)
