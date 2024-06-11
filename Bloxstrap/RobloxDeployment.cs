@@ -132,7 +132,6 @@
 
                 try
                 {
-                    // TODO - this needs to try both clientsettings and clientsettingscdn
                     deployInfoResponse = await App.HttpClient.GetAsync("https://clientsettingscdn.roblox.com" + path);
                 }
                 catch (Exception ex)
