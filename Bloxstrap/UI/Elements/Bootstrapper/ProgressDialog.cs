@@ -46,11 +46,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (App.Settings.Prop.Theme.GetFinal() == Theme.Dark)
             {
                 this.labelMessage.ForeColor = SystemColors.Window;
+                this.buttonCancel.ForeColor = Color.FromArgb(196, 197, 196);
                 this.buttonCancel.Image = Properties.Resources.DarkCancelButton;
                 this.panel1.BackColor = Color.FromArgb(35, 37, 39);
                 this.BackColor = Color.FromArgb(25, 27, 29);
             }
 
+            this.labelMessage.Text = Resources.Strings.Common_Cancel;
             this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIcon().GetSized(128, 128).ToBitmap();
 
             SetupDialog();

@@ -33,10 +33,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ProgressBar = new ProgressBar();
             labelMessage = new Label();
             IconBox = new PictureBox();
-            buttonCancel = new PictureBox();
             panel1 = new Panel();
+            buttonCancel = new Label();
             ((System.ComponentModel.ISupportInitialize)IconBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)buttonCancel).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,32 +70,33 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             IconBox.TabIndex = 2;
             IconBox.TabStop = false;
             // 
-            // buttonCancel
-            // 
-            buttonCancel.Enabled = false;
-            buttonCancel.Image = Properties.Resources.CancelButton;
-            buttonCancel.Location = new System.Drawing.Point(194, 264);
-            buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new System.Drawing.Size(130, 44);
-            buttonCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            buttonCancel.TabIndex = 3;
-            buttonCancel.TabStop = false;
-            buttonCancel.Visible = false;
-            buttonCancel.Click += ButtonCancel_Click;
-            buttonCancel.MouseEnter += ButtonCancel_MouseEnter;
-            buttonCancel.MouseLeave += ButtonCancel_MouseLeave;
-            // 
             // panel1
             // 
             panel1.BackColor = System.Drawing.SystemColors.Window;
+            panel1.Controls.Add(buttonCancel);
             panel1.Controls.Add(labelMessage);
             panel1.Controls.Add(IconBox);
-            panel1.Controls.Add(buttonCancel);
             panel1.Controls.Add(ProgressBar);
             panel1.Location = new System.Drawing.Point(1, 1);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(518, 318);
             panel1.TabIndex = 4;
+            // 
+            // buttonCancel
+            // 
+            buttonCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            buttonCancel.ForeColor = System.Drawing.Color.FromArgb(75, 75, 75);
+            buttonCancel.Image = Properties.Resources.CancelButton;
+            buttonCancel.Location = new System.Drawing.Point(194, 264);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new System.Drawing.Size(130, 44);
+            buttonCancel.TabIndex = 4;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            buttonCancel.UseMnemonic = false;
+            buttonCancel.Click += ButtonCancel_Click;
+            buttonCancel.MouseEnter += ButtonCancel_MouseEnter;
+            buttonCancel.MouseLeave += ButtonCancel_MouseLeave;
             // 
             // ProgressDialog
             // 
@@ -114,7 +114,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             FormClosing += Dialog_FormClosing;
             Load += ProgressDialog_Load;
             ((System.ComponentModel.ISupportInitialize)IconBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)buttonCancel).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -124,7 +123,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private ProgressBar ProgressBar;
         private Label labelMessage;
         private PictureBox IconBox;
-        private PictureBox buttonCancel;
         private Panel panel1;
+        private Label buttonCancel;
     }
 }
