@@ -126,6 +126,8 @@ namespace Bloxstrap
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            LaunchSettings = new LaunchSettings(e.Args);
+
             using (var checker = new InstallChecker())
             {
                 checker.Check();
@@ -141,8 +143,6 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
             }
-
-            LaunchSettings = new LaunchSettings(e.Args);
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
