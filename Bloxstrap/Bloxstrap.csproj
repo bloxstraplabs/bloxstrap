@@ -10,6 +10,7 @@
     <Version>2.6.0</Version>
     <FileVersion>2.6.0.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -62,6 +63,28 @@
       <_Parameter4>$(CommitRef)</_Parameter4>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="NativeMethods.txt" />
+
+    <!-- Provide the path to the winmds used as input into the analyzer. -->
+    <CompilerVisibleProperty Include="CsWin32InputMetadataPaths" />
+    <CompilerVisibleProperty Include="CsWin32InputDocPaths" />
+  </ItemGroup>
+
+  <Target Name="AssembleCsWin32InputPaths" BeforeTargets="GenerateMSBuildEditorConfigFileCore">
+    <!-- Roslyn only allows source generators to see msbuild properties, to lift msbuild items into semicolon-delimited properties. -->
+    <PropertyGroup>
+      <CsWin32InputMetadataPaths>@(ProjectionMetadataWinmd->'%(FullPath)','|')</CsWin32InputMetadataPaths>
+      <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath)','|')</CsWin32InputDocPaths>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="FixMds" BeforeTargets="CoreCompile" Condition="'@(ProjectionMetadataWinmd)'==''">
+    <ItemGroup>
+      <ProjectionMetadataWinmd Include="$(UserProfile)\.nuget\packages\microsoft.windows.sdk.win32metadata\55.0.45-preview\Windows.Win32.winmd" />
+    </ItemGroup>
+  </Target>
 
   <ItemGroup>
     <Compile Update="Resources\Strings.Designer.cs">
