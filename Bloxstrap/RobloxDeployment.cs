@@ -15,7 +15,7 @@
             { "https://setup.rbxcdn.com", 0 },
             { "https://setup-ak.rbxcdn.com", 2 },
             { "https://roblox-setup.cachefly.net", 2 },
-            {  "https://s3.amazonaws.com/setup.roblox.com", 4 }
+            { "https://s3.amazonaws.com/setup.roblox.com", 4 }
         };
 
         private static async Task<string?> TestConnection(string url, int priority)
