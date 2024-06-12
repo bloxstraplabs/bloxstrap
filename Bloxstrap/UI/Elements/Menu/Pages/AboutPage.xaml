@@ -80,11 +80,12 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Code24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Code}">
                 <StackPanel>
-                    <controls:MarkdownTextBlock MarkdownText="[bluepilledgreat](https://github.com/bluepilledgreat)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Matt](https://github.com/bluepilledgreat)" />
                     <controls:MarkdownTextBlock MarkdownText="[1011025m](https://github.com/1011025m)" />
                     <controls:MarkdownTextBlock MarkdownText="[EasternBloxxer](https://github.com/EasternBloxxer)" />
                     <controls:MarkdownTextBlock MarkdownText="[sitiom](https://github.com/sitiom)" />
@@ -92,6 +93,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[EpixScripts](https://github.com/EpixScripts)" />
                     <controls:MarkdownTextBlock MarkdownText="[swatTurret](https://github.com/swatTurret)" />
                     <controls:MarkdownTextBlock MarkdownText="[fxeP1](https://github.com/fxeP1)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Redusofficial](https://github.com/Redusofficial)" />
                 </StackPanel>
             </controls:Expander>
 
@@ -100,18 +102,31 @@
                     <controls:MarkdownTextBlock MarkdownText="[he3als](https://github.com/he3als)" />
                     <controls:MarkdownTextBlock MarkdownText="[NikSavchenk0](https://github.com/NikSavchenk0)" />
                     <controls:MarkdownTextBlock MarkdownText="[carter0nline](https://github.com/carter0nline)" />
+                    <controls:MarkdownTextBlock MarkdownText="[lolmanurfunny](https://github.com/lolmanurfunny)" />
                     <controls:MarkdownTextBlock MarkdownText="[MehKako](https://github.com/MehKako)" />
                     <controls:MarkdownTextBlock MarkdownText="[EpixScripts](https://github.com/EpixScripts)" />
                     <controls:MarkdownTextBlock MarkdownText="[knivesofeylis](https://github.com/knivesofeylis)" />
                     <controls:MarkdownTextBlock MarkdownText="[sha4owz](https://github.com/sha4owz)" />
                     <controls:MarkdownTextBlock MarkdownText="[DaMlgNoodle](https://github.com/DaMlgNoodle)" />
                     <controls:MarkdownTextBlock MarkdownText="[nakoyasha](https://github.com/nakoyasha)" />
+                    <controls:MarkdownTextBlock MarkdownText="[exurd](https://github.com/exurd)" />
+                    <controls:MarkdownTextBlock MarkdownText="[0xFE0F](https://github.com/0xFE0F)" />
                 </StackPanel>
             </controls:Expander>
 
-            <controls:Expander Grid.Column="2" Margin="4,0,0,0" HeaderIcon="Translate24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Translations}">
+            <controls:Expander Grid.Column="2" Margin="4,0,4,0" HeaderIcon="Translate24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Translations}">
                 <StackPanel>
                     <TextBlock Text="lol" />
+                </StackPanel>
+            </controls:Expander>
+
+            <controls:Expander Grid.Column="3" Margin="4,0,0,0" HeaderIcon="Heart16" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_SpecialThanks}">
+                <StackPanel>
+                    <controls:MarkdownTextBlock MarkdownText="[MaximumADHD](https://github.com/MaximumADHD)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Multako](https://www.roblox.com/users/2485612194/profile)" />
+                    <controls:MarkdownTextBlock MarkdownText="[axstin](https://github.com/axstin)" />
+                    <controls:MarkdownTextBlock MarkdownText="[taskmanager](https://github.com/Manataraix)" />
+                    <controls:MarkdownTextBlock MarkdownText="[apprehensions](https://github.com/apprehensions)" />
                 </StackPanel>
             </controls:Expander>
         </Grid>

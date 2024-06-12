@@ -543,6 +543,9 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature Ideas</value>
   </data>
+  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
+    <value>Special Thanks</value>
+  </data>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
     <value>Translations</value>
   </data>

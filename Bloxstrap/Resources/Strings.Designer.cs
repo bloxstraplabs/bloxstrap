@@ -1319,6 +1319,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Special Thanks.
+        /// </summary>
+        public static string Menu_About_Contributors_SpecialThanks {
+            get {
+                return ResourceManager.GetString("Menu.About.Contributors.SpecialThanks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translations.
         /// </summary>
         public static string Menu_About_Contributors_Translations {
