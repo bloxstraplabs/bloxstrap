@@ -126,10 +126,6 @@
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
     <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
   </data>
-  <data name="Bootstrapper.ChannelOutOfDate" xml:space="preserve">
-    <value>The channel you're currently on ({0}) is out of date, and appears to no longer be receiving updates.
-Would you like to switch to the default channel ({1})?</value>
-  </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
     <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
   </data>
@@ -138,9 +134,6 @@ Would you like to switch to the default channel ({1})?</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
     <value>Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.</value>
-  </data>
-  <data name="Bootstrapper.DeeplinkTempEnabled" xml:space="preserve">
-    <value>Roblox was launched via a deeplink, however the desktop app is required for deeplink launching to work. Because you've opted to disable the desktop app, it will temporarily be re-enabled for this launch only.</value>
   </data>
   <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
     <value>Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu.</value>
@@ -299,9 +292,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.ServerInformation.TypeFormat" xml:space="preserve">
     <value>{0} server</value>
   </data>
-  <data name="ContextMenu.ServerInformation.UdmuxProxied" xml:space="preserve">
-    <value>UDMUX proxied</value>
-  </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>Add FastFlag</value>
   </data>
@@ -374,10 +364,7 @@ Your ReShade configuration files will still be saved, and you can locate them by
     <value>Fluent (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Fluent (Aero)</value>
-  </data>
-  <data name="Enums.BootstrapperStyle.FluentClassicDialog" xml:space="preserve">
-    <value>Fluent (Classic)</value>
+    <value>Fluent (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentDialog" xml:space="preserve">
     <value>Fluent</value>
@@ -476,10 +463,10 @@ Your ReShade configuration files will still be saved, and you can locate them by
     <value>8x MSAA</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
-    <value>D3D10</value>
+    <value>Direct3D 10</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
-    <value>D3D11</value>
+    <value>Direct3D 11</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.Default" xml:space="preserve">
     <value>Automatic</value>
@@ -622,9 +609,6 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Appearance.Description" xml:space="preserve">
     <value>Configure how Bloxstrap should look.</value>
   </data>
-  <data name="Menu.Appearance.Global.Theme.Description" xml:space="preserve">
-    <value>Dark theme does not apply to Legacy or Vista styles.</value>
-  </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Global Theme</value>
   </data>
@@ -646,44 +630,11 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>Appearance</value>
   </data>
-  <data name="Menu.Behaviour.AutoChannelChange.Description" xml:space="preserve">
-    <value>Roblox or Bloxstrap may try to change your preferred channel.</value>
-  </data>
-  <data name="Menu.Behaviour.AutoChannelChange.Title" xml:space="preserve">
-    <value>Automatic channel change action</value>
-  </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automatically update Bloxstrap</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Deployed" xml:space="preserve">
-    <value>Deployed</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Description" xml:space="preserve">
-    <value>Choose which deployment channel Roblox should be downloaded from.</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.DoesNotExist" xml:space="preserve">
-    <value>The specified channel name does not exist.</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.FetchFailed" xml:space="preserve">
-    <value>Failed to fetch information!</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Fetching" xml:space="preserve">
-    <value>Fetching latest deploy info, please wait...</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Outdated" xml:space="preserve">
-    <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
-    <value>Channel</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.Version" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="Menu.Behaviour.Channel.VersionGuid" xml:space="preserve">
-    <value>Version GUID</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
     <value>Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches.</value>
@@ -855,9 +806,6 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Presets.Materials.Title" xml:space="preserve">
     <value>Preferred materials</value>
   </data>
-  <data name="Menu.FastFlags.Presets.MoreInfo" xml:space="preserve">
-    <value>More information on this preset</value>
-  </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
     <value>Choose what renderer Roblox should use. VR requires Direct3D/Automatic.</value>
   </data>
@@ -927,12 +875,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Allow activity joining</value>
   </data>
-  <data name="Menu.Integrations.AllowMultipleInstances.Description" xml:space="preserve">
-    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
-  </data>
-  <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
-    <value>Allow multi-instance launching</value>
-  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>
   </data>
@@ -974,9 +916,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Enable activity tracking</value>
-  </data>
-  <data name="Menu.Integrations.MoreInfo" xml:space="preserve">
-    <value>More information on this integration</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
     <value>This feature requires activity tracking to be enabled.</value>
@@ -1092,10 +1031,5 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
     <value>Bloxstrap Menu</value>
-  </data>
-  <data name="ProtocolHandler.RobloxSwitchedChannel" xml:space="preserve">
-    <value>Roblox is attempting to set your channel to {0}, however your current preferred channel is {1}.
-
-Would you like to switch your preferred channel to {0}?</value>
   </data>
 </root>
