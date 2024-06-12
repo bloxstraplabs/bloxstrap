@@ -12,6 +12,7 @@ namespace Bloxstrap.Models
         public Theme Theme { get; set; } = Theme.Default;
         public bool CheckForUpdates { get; set; } = true;
         public bool CreateDesktopIcon { get; set; } = true;
+        public bool SoftwareRenderingEnabled { get; set; } = false;
 
         // channel configuration
         public string Channel { get; set; } = RobloxDeployment.DefaultChannel;

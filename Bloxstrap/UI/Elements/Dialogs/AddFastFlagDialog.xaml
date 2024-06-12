@@ -1,9 +1,10 @@
-﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.AddFastFlagDialog"
+﻿<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.AddFastFlagDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
         xmlns:converters="clr-namespace:Bloxstrap.UI.Converters"
@@ -96,4 +97,4 @@
             </StackPanel>
         </Border>
     </Grid>
-</ui:UiWindow>
+</base:WpfUiWindow>
