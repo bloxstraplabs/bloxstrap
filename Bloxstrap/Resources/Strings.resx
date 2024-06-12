@@ -559,11 +559,8 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
     <value>Translations</value>
   </data>
-  <data name="Menu.About.Description.1" xml:space="preserve">
-    <value>An open-source, feature-packed alternative bootstrapper for Roblox</value>
-  </data>
-  <data name="Menu.About.Description.2" xml:space="preserve">
-    <value>Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!</value>
+  <data name="Menu.About.Description" xml:space="preserve">
+    <value>An alternative bootstrapper for Roblox with a bunch of extra features.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
     <value>Discord server</value>

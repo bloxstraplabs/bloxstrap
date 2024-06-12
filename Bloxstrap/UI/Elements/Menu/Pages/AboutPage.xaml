@@ -28,8 +28,7 @@
                     <TextBlock Grid.Column="0" Text="Bloxstrap" Margin="0,0,4,0" FontSize="24" FontWeight="Medium" />
                     <TextBlock Grid.Column="1" Text="{Binding Version, Mode=OneTime}" Margin="4,0,0,2" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </Grid>
-                <TextBlock Text="{x:Static resources:Strings.Menu_About_Description_1}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                <TextBlock Text="{x:Static resources:Strings.Menu_About_Description_2}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                <TextBlock Text="{x:Static resources:Strings.Menu_About_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal">

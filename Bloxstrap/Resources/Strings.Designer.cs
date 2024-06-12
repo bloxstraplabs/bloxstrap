@@ -1365,20 +1365,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An open-source, feature-packed alternative bootstrapper for Roblox.
+        ///   Looks up a localized string similar to An alternative bootstrapper for Roblox with a bunch of extra features..
         /// </summary>
-        public static string Menu_About_Description_1 {
+        public static string Menu_About_Description {
             get {
-                return ResourceManager.GetString("Menu.About.Description.1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Developed by pizzaboxer - if you like this, please consider leaving a star on GitHub!.
-        /// </summary>
-        public static string Menu_About_Description_2 {
-            get {
-                return ResourceManager.GetString("Menu.About.Description.2", resourceCulture);
+                return ResourceManager.GetString("Menu.About.Description", resourceCulture);
             }
         }
         
