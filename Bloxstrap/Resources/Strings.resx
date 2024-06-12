@@ -126,6 +126,15 @@
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
     <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
   </data>
+  <data name="Bootstrapper.ChangedRenderingMode" xml:space="preserve">
+    <value>Now using {0} rendering!</value>
+  </data>
+  <data name="Bootstrapper.ChangedRenderingMode.Hardware" xml:space="preserve">
+    <value>hardware</value>
+  </data>
+  <data name="Bootstrapper.ChangedRenderingMode.Software" xml:space="preserve">
+    <value>software</value>
+  </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
     <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
   </data>

@@ -27,6 +27,9 @@ namespace Bloxstrap
         [LaunchFlag("-upgrade")]
         public bool IsUpgrade { get; private set; } = false;
 
+        [LaunchFlag("-changerenderingmode")]
+        public bool ChangeRenderingMode { get; private set; } = false;
+
         public LaunchMode RobloxLaunchMode { get; private set; } = LaunchMode.Player;
 
         public string RobloxLaunchArgs { get; private set; } = "--app";

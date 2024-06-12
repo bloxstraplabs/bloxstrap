@@ -144,6 +144,21 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
+            if (LaunchSettings.ChangeRenderingMode)
+            {
+                Settings.Prop.SoftwareRenderingEnabled = !Settings.Prop.SoftwareRenderingEnabled;
+
+                if (!LaunchSettings.IsQuiet)
+                {
+                    string renderingMode = Settings.Prop.SoftwareRenderingEnabled ?
+                        Bloxstrap.Resources.Strings.Bootstrapper_ChangedRenderingMode_Software :
+                        Bloxstrap.Resources.Strings.Bootstrapper_ChangedRenderingMode_Hardware;
+                    string message = string.Format(Bloxstrap.Resources.Strings.Bootstrapper_ChangedRenderingMode, renderingMode);
+
+                    Frontend.ShowMessageBox(message, MessageBoxImage.Information, MessageBoxButton.OK);
+                }
+            }
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
