@@ -18,6 +18,8 @@ namespace Bloxstrap.UI
             switch (App.Settings.Prop.BootstrapperStyle)
             {
                 case BootstrapperStyle.FluentDialog:
+                case BootstrapperStyle.ClassicFluentDialog:
+                case BootstrapperStyle.FluentAeroDialog:
                 case BootstrapperStyle.ByfronDialog:
                     return Application.Current.Dispatcher.Invoke(new Func<MessageBoxResult>(() =>
                     {
