@@ -561,6 +561,12 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.About.Licenses" xml:space="preserve">
     <value>Licenses</value>
   </data>
+  <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
+    <value>BSD 2-Clause License</value>
+  </data>
+  <data name="Menu.About.Licenses.MIT" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
     <value>Report an issue</value>
   </data>

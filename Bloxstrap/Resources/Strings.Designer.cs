@@ -1373,6 +1373,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BSD 2-Clause License.
+        /// </summary>
+        public static string Menu_About_Licenses_BSD2 {
+            get {
+                return ResourceManager.GetString("Menu.About.Licenses.BSD2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIT License.
+        /// </summary>
+        public static string Menu_About_Licenses_MIT {
+            get {
+                return ResourceManager.GetString("Menu.About.Licenses.MIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Report an issue.
         /// </summary>
         public static string Menu_About_ReportIssue {
