@@ -247,10 +247,10 @@ namespace Bloxstrap
             }
             catch (HttpResponseException ex)
             {
-                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
+                if (ex.ResponseMessage.StatusCode is not HttpStatusCode.Unauthorized and not HttpStatusCode.Forbidden and not HttpStatusCode.NotFound)
                     throw;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because a {binaryType} build does not exist for {App.Settings.Prop.Channel}");
+                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because HTTP {(int)ex.ResponseMessage.StatusCode}");
                 App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
                 clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
             }
