@@ -294,17 +294,17 @@
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
                 if (ipInfo is null)
-                    return $"N/A ({Resources.Strings.ActivityTracker_LookupFailed})";
+                    return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
 
                 if (string.IsNullOrEmpty(ipInfo.Country))
-                    location = "N/A";
+                    location = "?";
                 else if (ipInfo.City == ipInfo.Region)
                     location = $"{ipInfo.Region}, {ipInfo.Country}";
                 else
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
                 if (!ActivityInGame)
-                    return $"N/A ({Resources.Strings.ActivityTracker_LeftGame})";
+                    return $"? ({Resources.Strings.ActivityTracker_LeftGame})";
 
                 GeolocationCache[ActivityMachineAddress] = location;
 
@@ -315,7 +315,7 @@
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {ActivityMachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                return $"N/A ({Resources.Strings.ActivityTracker_LookupFailed})";
+                return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
             }
         }
 

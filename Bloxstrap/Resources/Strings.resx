@@ -283,6 +283,14 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
+    <value>Located at {0}
+Click for more information</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
+    <value>Connected to {0} server</value>
+    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Server information</value>
   </data>

@@ -549,6 +549,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Located at {0}
+        ///Click for more information.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Notification_Text {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected to {0} server.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Notification_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Server information.
         /// </summary>
         public static string ContextMenu_ServerInformation_Title {
