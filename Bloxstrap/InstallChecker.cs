@@ -227,7 +227,7 @@ namespace Bloxstrap
 
                     App.FastFlags.Save();
                 }
-                else if (currentVersionInfo.ProductVersion.StartsWith("2.6.0"))
+                else if (existingVersionInfo.ProductVersion == "2.5.4")
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
                     {
