@@ -64,8 +64,8 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public int FramerateLimit
         {
-            get => int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x) ? x : 60;
-            set => App.FastFlags.SetPreset("Rendering.Framerate", value);
+            get => int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x) ? x : 0;
+            set => App.FastFlags.SetPreset("Rendering.Framerate", value == 0 ? null : value);
         }
 
         public IReadOnlyDictionary<RenderingMode, string> RenderingModes => FastFlagManager.RenderingModes;

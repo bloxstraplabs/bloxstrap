@@ -144,20 +144,14 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
+            LaunchSettings.ParseRoblox();
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
             // TEMPORARY FILL-IN FOR NEW FUNCTIONALITY
             // REMOVE WHEN LARGER REFACTORING IS DONE
             await RobloxDeployment.InitializeConnectivity();
-
-            // disallow running as administrator except for uninstallation
-            if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
-            {
-                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_RanInAdminMode, MessageBoxImage.Error);
-                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
-                return;
-            }
 
             if (LaunchSettings.IsUninstall && IsFirstRun)
             {

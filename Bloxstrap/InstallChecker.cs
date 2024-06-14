@@ -210,7 +210,7 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (App.BuildMetadata.CommitRef.StartsWith("tag"))
+            if (App.BuildMetadata.CommitRef.StartsWith("tag") && currentVersionInfo.ProductVersion is not null)
             {
                 if (existingVersionInfo.ProductVersion == "2.4.0")
                 { 
@@ -226,6 +226,34 @@ namespace Bloxstrap
                         App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
 
                     App.FastFlags.Save();
+                }
+                else if (existingVersionInfo.ProductVersion == "2.5.4")
+                {
+                    if (App.Settings.Prop.UseDisableAppPatch)
+                    {
+                        try
+                        { 
+                            File.Delete(Path.Combine(Paths.Modifications, "ExtraContent\\places\\Mobile.rbxl"));
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
+
+                        App.Settings.Prop.EnableActivityTracking = true;
+                    }
+
+                    if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
+                        App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
+
+                    _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
+                    if (x == 0)
+                    {
+                        App.FastFlags.SetPreset("Rendering.Framerate", null);
+                        App.FastFlags.Save();
+                    }
+
+                    App.Settings.Save();
                 }
             }
 

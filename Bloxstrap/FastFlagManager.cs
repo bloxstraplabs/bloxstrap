@@ -245,23 +245,6 @@ namespace Bloxstrap
             string? val = GetPreset("UI.Menu.Style.EnableV4.1");
             if (GetPreset("UI.Menu.Style.EnableV4.2") != val)
                 SetPreset("UI.Menu.Style.EnableV4.2", val);
-
-            if (GetPreset("Rendering.Framerate") is not null)
-                return;
-
-            // set it to be the framerate of the primary display by default
-
-            var screen = Screen.AllScreens.Where(x => x.Primary).Single();
-            var devmode = new DEVMODEW();
-
-            PInvoke.EnumDisplaySettings(screen.DeviceName, ENUM_DISPLAY_SETTINGS_MODE.ENUM_CURRENT_SETTINGS, ref devmode);
-
-            uint framerate = devmode.dmDisplayFrequency;
-
-            if (framerate <= 100)
-                framerate *= 2;
-
-            SetPreset("Rendering.Framerate", framerate);
         }
     }
 }

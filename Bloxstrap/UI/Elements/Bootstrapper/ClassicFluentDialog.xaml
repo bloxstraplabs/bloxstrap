@@ -17,7 +17,6 @@
     ResizeMode="NoResize"
     WindowBackdropType="Mica"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
     mc:Ignorable="d">
 
     <Grid>
@@ -26,7 +25,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-            
+
+        <ui:TitleBar Grid.Row="0" x:Name="RootTitleBar" Padding="8" Title="{Binding Title, Mode=OneTime}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" ShowClose="False" />
+
         <ui:TitleBar
             Grid.Row="0"
             VerticalAlignment="Top"
@@ -35,7 +36,7 @@
             ShowMaximize="False"
             ShowMinimize="False" />
 
-        <Grid Grid.Row="1" Margin="16,0,16,0" VerticalAlignment="Top">
+        <Grid Grid.Row="1" Margin="16,0,16,0" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />

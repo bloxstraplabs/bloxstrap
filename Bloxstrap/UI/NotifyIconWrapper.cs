@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-using Bloxstrap.Integrations;
+﻿using Bloxstrap.Integrations;
 using Bloxstrap.UI.Elements.ContextMenu;
 
 namespace Bloxstrap.UI
@@ -91,9 +89,9 @@ namespace Bloxstrap.UI
             string serverLocation = await _activityWatcher!.GetServerLocation();
 
             ShowAlert(
-                $"Connected to {_activityWatcher.ActivityServerType.ToString().ToLower()} server", 
-                $"Located at {serverLocation}\nClick for more information", 
-                10, 
+                String.Format(Resources.Strings.ContextMenu_ServerInformation_Notification_Title, _activityWatcher.ActivityServerType.ToTranslatedString().ToLower()),
+                String.Format(Resources.Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
+                10,
                 (_, _) => _menuContainer?.ShowServerInformationWindow()
             );
         }
