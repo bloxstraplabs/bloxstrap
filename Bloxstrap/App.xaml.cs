@@ -153,14 +153,6 @@ namespace Bloxstrap
             // REMOVE WHEN LARGER REFACTORING IS DONE
             await RobloxDeployment.InitializeConnectivity();
 
-            // disallow running as administrator except for uninstallation
-            if (Utilities.IsAdministrator && !LaunchSettings.IsUninstall)
-            {
-                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_RanInAdminMode, MessageBoxImage.Error);
-                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
-                return;
-            }
-
             if (LaunchSettings.IsUninstall && IsFirstRun)
             {
                 Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Bootstrapper_FirstRunUninstall, MessageBoxImage.Error);
