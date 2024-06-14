@@ -210,7 +210,7 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (App.BuildMetadata.CommitRef.StartsWith("tag"))
+            if (App.BuildMetadata.CommitRef.StartsWith("tag") && currentVersionInfo.ProductVersion is not null)
             {
                 if (existingVersionInfo.ProductVersion == "2.4.0")
                 { 
@@ -227,7 +227,7 @@ namespace Bloxstrap
 
                     App.FastFlags.Save();
                 }
-                else if (currentVersionInfo.ProductVersion == "2.6.0")
+                else if (currentVersionInfo.ProductVersion.StartsWith("2.6.0"))
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
                     {
@@ -245,6 +245,13 @@ namespace Bloxstrap
 
                     if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
                         App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
+
+                    _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
+                    if (x == 0)
+                    {
+                        App.FastFlags.SetPreset("Rendering.Framerate", null);
+                        App.FastFlags.Save();
+                    }
 
                     App.Settings.Save();
                 }
