@@ -144,6 +144,8 @@ namespace Bloxstrap
                 FastFlags.Load();
             }
 
+            LaunchSettings.ParseRoblox();
+
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", ProjectRepository);
 
