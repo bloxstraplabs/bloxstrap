@@ -227,6 +227,27 @@ namespace Bloxstrap
 
                     App.FastFlags.Save();
                 }
+                else if (currentVersionInfo.ProductVersion == "2.6.0")
+                {
+                    if (App.Settings.Prop.UseDisableAppPatch)
+                    {
+                        try
+                        { 
+                            File.Delete(Path.Combine(Paths.Modifications, "ExtraContent\\places\\Mobile.rbxl"));
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
+
+                        App.Settings.Prop.EnableActivityTracking = true;
+                    }
+
+                    if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
+                        App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
+
+                    App.Settings.Save();
+                }
             }
 
             if (isAutoUpgrade)
