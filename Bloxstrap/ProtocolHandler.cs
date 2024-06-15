@@ -11,13 +11,16 @@ namespace Bloxstrap
 
         public static string ParseUri(string protocol)
         {
-            var args = new Dictionary<string, string>();
+            var args = new Dictionary<string, string?>();
             bool channelArgPresent = false;
 
             foreach (var parameter in protocol.Split('+'))
             {
                 if (!parameter.Contains(':'))
+                {
+                    args[parameter] = null;
                     continue;
+                }
 
                 var kv = parameter.Split(':');
                 string key = kv[0];
@@ -42,7 +45,7 @@ namespace Bloxstrap
             if (!channelArgPresent)
                 EnrollChannel(RobloxDeployment.DefaultChannel);
 
-            var pairs = args.Select(x => x.Key + ":" + x.Value).ToArray();
+            var pairs = args.Select(x => x.Value != null ? x.Key + ":" + x.Value : x.Key).ToArray();
             return String.Join("+", pairs);
         }
 
