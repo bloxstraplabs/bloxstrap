@@ -106,9 +106,6 @@ namespace Bloxstrap
             {
                 RobloxLaunchArgs = ProtocolHandler.ParseUri(arg);
 
-                if (!RobloxLaunchArgs.Contains("-startEvent"))
-                    RobloxLaunchArgs += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
-
                 RobloxLaunchMode = LaunchMode.Studio;
             }
             else if (arg.StartsWith("roblox-studio-auth:"))

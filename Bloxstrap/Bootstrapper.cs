@@ -295,7 +295,7 @@ namespace Bloxstrap
                 _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
 
-                if (_launchCommandLine.StartsWith("roblox-player:1"))
+                if (_launchCommandLine.StartsWith("roblox-player:1") || _launchCommandLine.StartsWith("roblox-studio:1"))
                     _launchCommandLine += "+channel:";
                 else
                     _launchCommandLine += " -channel ";
