@@ -38,5 +38,11 @@
                 }
             }
         }
+
+        public bool LaunchConfirmation
+        {
+            get => App.Settings.Prop.LaunchConfirmation;
+            set => App.Settings.Prop.LaunchConfirmation = value;
+        }
     }
 }

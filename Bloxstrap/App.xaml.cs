@@ -204,10 +204,10 @@ namespace Bloxstrap
             if (!IsFirstRun)
                 ShouldSaveConfigs = true;
             
-            if (Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
+            if (App.Settings.Prop.LaunchConfirmation && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
             {
                 var result = Frontend.ShowMessageBox(
-                    "Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?", 
+                    Bloxstrap.Resources.Strings.Bootstrapper_LaunchConfirmation, 
                     MessageBoxImage.Warning, 
                     MessageBoxButton.YesNo
                 );

@@ -144,6 +144,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?.
+        /// </summary>
+        public static string Bootstrapper_LaunchConfirmation {
+            get {
+                return ResourceManager.GetString("Bootstrapper.LaunchConfirmation", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again..
         /// </summary>
         public static string Bootstrapper_NotEnoughSpace {
@@ -1676,6 +1685,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_ForceRobloxReinstall_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.ForceRobloxReinstall.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A confirmation window for launching will be displayed if Roblox is already running..
+        /// </summary>
+        public static string Menu_Behaviour_LaunchConfirmation_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.LaunchConfirmation.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch confirmation.
+        /// </summary>
+        public static string Menu_Behaviour_LaunchConfirmation_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.LaunchConfirmation.Title", resourceCulture);
             }
         }
         
