@@ -47,15 +47,6 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_LaunchConfirmation_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_LaunchConfirmation_Description}">
-            <controls:OptionControl.Style>
-                <Style TargetType="{x:Type controls:OptionControl}">
-                    <d:Style.Triggers>
-                        <DataTrigger Binding="{Binding LaunchConfirmation, Mode=OneTime}" Value="True">
-                            <Setter Property="IsEnabled" Value="True" />
-                        </DataTrigger>
-                    </d:Style.Triggers>
-                </Style>
-            </controls:OptionControl.Style>
             <ui:ToggleSwitch IsChecked="{Binding LaunchConfirmation, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
