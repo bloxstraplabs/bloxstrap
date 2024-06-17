@@ -2,7 +2,6 @@
 {
     public class State
     {
-        public string LastEnrolledChannel { get; set; } = "";
         public bool ShowFFlagEditorWarning { get; set; } = true;
 
         [Obsolete("Use PlayerVersionGuid instead", true)]

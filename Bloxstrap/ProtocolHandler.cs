@@ -66,7 +66,6 @@ namespace Bloxstrap
         public static void EnrollChannel(string channel)
         {
             ChangeChannel(channel);
-            App.State.Prop.LastEnrolledChannel = channel;
             App.State.Save();
         }
 
