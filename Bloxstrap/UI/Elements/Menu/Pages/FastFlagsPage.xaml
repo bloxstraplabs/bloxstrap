@@ -87,19 +87,6 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Materials_Description}" 
-            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#old-material-textures">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MaterialVersions.Keys, Mode=OneTime}" Text="{Binding SelectedMaterialVersion, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.MaterialVersion.'}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-        </controls:OptionControl>
-
-        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}" 
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
