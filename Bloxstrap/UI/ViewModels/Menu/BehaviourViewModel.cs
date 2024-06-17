@@ -17,6 +17,12 @@
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
+        public bool ConfirmLaunches
+        {
+            get => App.Settings.Prop.ConfirmLaunches;
+            set => App.Settings.Prop.ConfirmLaunches = value;
+        }
+
         public bool ForceRobloxReinstallation
         {
             // wouldnt it be better to check old version guids?

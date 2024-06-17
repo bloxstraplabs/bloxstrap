@@ -126,6 +126,9 @@
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
     <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
   </data>
+  <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
+    <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
+  </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
     <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
   </data>
@@ -649,6 +652,12 @@ Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automatically update Bloxstrap</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+    <value>Prevent against closures of your existing game from accidentally launching another one.</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>Prompt to confirm when launching another Roblox instance</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
     <value>Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches.</value>
