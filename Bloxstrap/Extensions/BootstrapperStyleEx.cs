@@ -13,7 +13,8 @@
             BootstrapperStyle.ProgressDialog,
             BootstrapperStyle.LegacyDialog2011,
             BootstrapperStyle.LegacyDialog2008,
-            BootstrapperStyle.VistaDialog
+            BootstrapperStyle.VistaDialog,
+            BootstrapperStyle.Yeezus
         };
     }
 }

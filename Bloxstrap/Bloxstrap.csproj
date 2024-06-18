@@ -19,6 +19,7 @@
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoDark.jpg" />
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoLight.jpg" />
+	<Resource Include="Resources\BootstrapperStyles\YeezusDialog\Yeezus.gif" />
     <Resource Include="Resources\Menu\StartMenu.png" />
     <Resource Include="Resources\MessageBox\Error.png" />
     <Resource Include="Resources\MessageBox\Information.png" />
@@ -50,6 +51,7 @@
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>

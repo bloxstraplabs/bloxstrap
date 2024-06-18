@@ -1,0 +1,54 @@
+﻿<Window x:Class="Bloxstrap.UI.Elements.Bootstrapper.YeezusDialog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:vms="clr-namespace:Bloxstrap.UI.ViewModels.Bootstrapper"
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
+      WindowStyle="None"
+      ResizeMode="NoResize"
+      AllowsTransparency="True"
+      WindowStartupLocation="CenterScreen"
+      Height="524"
+      Width="408"
+      Background="White"
+      Closing="UiWindow_Closing">
+    <Border CornerRadius="10" BorderBrush="#33393B3D" Background="White" BorderThickness="0">
+        <Grid>
+            <Grid>
+                <Button Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="20" Height="20" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
+                    <Path Fill="Black" Width="18" Height="18" Stretch="Fill">
+                        <Path.Data>
+                            <PathGeometry Figures="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                </Button>
+                <Path Fill="Black" Stretch="Fill" Margin="192,452,192,48" RenderTransformOrigin="0.5,0.5">
+                    <Path.Data>
+                        <PathGeometry Figures="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+                <Path Fill="Black" Stretch="Fill" Margin="130,452,254,48">
+                    <Path.Data>
+                        <PathGeometry Figures="M21.9998 17.5737L21.9998 6.42632C21.9998 4.57895 20.3991 3.41122 19.0966 4.30838L13 8.76844L13 7.12303C13 5.50658 11.5327 4.48482 10.3388 5.26983L2.92136 10.1468C1.69288 10.9545 1.69288 13.0455 2.92135 13.8532L10.3388 18.7302C11.5327 19.5152 13 18.4934 13 16.877V15.2316L19.0966 19.6916C20.3991 20.5888 21.9998 19.4211 21.9998 17.5737Z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+                <Path Fill="Black" Stretch="Fill" Margin="254,452,130,48">
+                    <Path.Data>
+                        <PathGeometry Figures="M2 17.5737L2 6.42632C2 4.57895 3.60064 3.41122 4.90312 4.30838L10.9998 8.76844L10.9998 7.12303C10.9998 5.50658 12.467 4.48482 13.661 5.26983L21.0784 10.1468C22.3069 10.9545 22.3069 13.0455 21.0784 13.8532L13.661 18.7302C12.467 19.5152 10.9998 18.4934 10.9998 16.877V15.2316L4.90313 19.6916C3.60065 20.5888 2 19.4211 2 17.5737Z" FillRule="NonZero"/>
+                    </Path.Data>
+                </Path>
+            </Grid>
+            <TextBlock Margin="0,382,0,118" TextAlignment="Center" Grid.Row="0" Text="{Binding Message}" Panel.ZIndex="1" Foreground="Black" FontFamily="{StaticResource Rubik}" FontSize="17" FontWeight="Light">
+                <TextBlock.LayoutTransform>
+                    <ScaleTransform ScaleY="1"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <Image gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="/Resources/BootstrapperStyles/YeezusDialog/Yeezus.gif" Height="406" Width="408" Margin="0,0,0,118" Panel.ZIndex="-1"/>
+            <ProgressBar Width="350" Height="12" Foreground="Black" Background="LightGray" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Maximum="{Binding ProgressMaximum, Mode=OneWay}" Value="{Binding ProgressValue}" Margin="31,411,27,101" Panel.ZIndex="1"/>
+        </Grid>
+    </Border>
+</Window>

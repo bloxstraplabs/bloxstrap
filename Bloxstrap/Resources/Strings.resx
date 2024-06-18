@@ -386,6 +386,9 @@ Click for more information</value>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
   </data>
+  <data name="Enums.BootstrapperStyle.Yeezus" xml:space="preserve">
+    <value>Yeezus (2024)</value>
+  </data>
   <data name="Enums.ChannelChangeMode.Automatic" xml:space="preserve">
     <value>Change automatically</value>
   </data>
