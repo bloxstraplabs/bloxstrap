@@ -88,6 +88,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to copy to the clipboard: {0}.
+        /// </summary>
+        public static string Bootstrapper_ClipboardCopyFailed {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ClipboardCopyFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?.
         /// </summary>
         public static string Bootstrapper_ConfirmLaunch {

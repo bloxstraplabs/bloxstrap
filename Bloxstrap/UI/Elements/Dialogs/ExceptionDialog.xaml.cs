@@ -1,4 +1,5 @@
 ﻿using System.Media;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -30,9 +31,20 @@ namespace Bloxstrap.UI.Elements.Dialogs
             LocateLogFileButton.Click += delegate
             {
                 if (App.Logger.Initialized)
+                {
                     Process.Start("explorer.exe", $"/select,\"{App.Logger.FileLocation}\"");
+                }
                 else
-                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.Backlog));
+                {
+                    try
+                    {
+                        Clipboard.SetText(String.Join("\r\n", App.Logger.Backlog));
+                    }
+                    catch (COMException ex)
+                    {
+                        Frontend.ShowMessageBox(string.Format(Bloxstrap.Resources.Strings.Bootstrapper_ClipboardCopyFailed, ex.Message), MessageBoxImage.Error);
+                    }
+                }
             };
 
             ReportOptions.DropDownClosed += (sender, e) =>

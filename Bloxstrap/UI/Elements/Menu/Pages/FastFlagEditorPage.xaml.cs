@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.Elements.Dialogs;
+using System.Runtime.InteropServices;
 
 namespace Bloxstrap.UI.Elements.Menu.Pages
 {
@@ -341,8 +342,22 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
 
         private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
         {
+            const string LOG_IDENT = "FastFlagEditorPage::ExportJSONButton_Click";
+
             string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
-            Clipboard.SetText(json);
+
+            try
+            {
+                Clipboard.SetText(json);
+            }
+            catch (COMException ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to copy to the clipboard");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(string.Format(Bloxstrap.Resources.Strings.Bootstrapper_ClipboardCopyFailed, ex.Message), MessageBoxImage.Error);
+                return;
+            }
+
             Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
         }
 
