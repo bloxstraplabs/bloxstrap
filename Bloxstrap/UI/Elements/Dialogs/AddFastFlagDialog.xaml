@@ -51,7 +51,7 @@
             <TabItem Header="{x:Static resources:Strings.Common_ImportJson}">
                 <Grid Margin="11">
                     <TextBox x:Name="JsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
-                    <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{x:Static resources:Strings.Dialog_BulkAddFastFlag_Paste}">
+                    <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{}{&#10;    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;&#10;}">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>

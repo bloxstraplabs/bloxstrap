@@ -306,11 +306,6 @@ Click for more information</value>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>Add FastFlag</value>
   </data>
-  <data name="Dialog.BulkAddFastFlag.Paste" xml:space="preserve">
-    <value>{
-    "FFlagDebugDisplayFPS": "True"
-}</value>
-  </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
     <value>More information:</value>
   </data>
@@ -391,15 +386,6 @@ Click for more information</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
-  </data>
-  <data name="Enums.ChannelChangeMode.Automatic" xml:space="preserve">
-    <value>Change automatically</value>
-  </data>
-  <data name="Enums.ChannelChangeMode.Ignore" xml:space="preserve">
-    <value>Never change</value>
-  </data>
-  <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
-    <value>Always prompt</value>
   </data>
   <data name="Enums.CursorType.Default" xml:space="preserve">
     <value>Default</value>
@@ -527,21 +513,6 @@ While Bloxstrap will continue to work, it's recommended that you change the driv
     <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
 Would you like to upgrade your currently installed version?</value>
   </data>
-  <data name="Menu.About.BuildCommitHash" xml:space="preserve">
-    <value>Commit Hash</value>
-  </data>
-  <data name="Menu.About.BuildInformation" xml:space="preserve">
-    <value>Build Information</value>
-  </data>
-  <data name="Menu.About.BuildMachine" xml:space="preserve">
-    <value>Machine</value>
-  </data>
-  <data name="Menu.About.BuildRef" xml:space="preserve">
-    <value>Commit Ref</value>
-  </data>
-  <data name="Menu.About.BuildTimestamp" xml:space="preserve">
-    <value>Timestamp</value>
-  </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Contributors</value>
   </data>
@@ -586,9 +557,6 @@ Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
     <value>About</value>
-  </data>
-  <data name="Menu.About.UnreleasedVersion" xml:space="preserve">
-    <value>Using an unreleased version, I see?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Version {0}</value>

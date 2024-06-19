@@ -39,8 +39,8 @@
         </StackPanel>
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
-            <TextBlock Text="{x:Static resources:Strings.Menu_About_BuildInformation}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
-            <TextBlock Text="{x:Static resources:Strings.Menu_About_UnreleasedVersion}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+            <TextBlock Text="hmmmm" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
             <Grid Column="0" Margin="0,8,0,0">
                 <Grid.RowDefinitions>
@@ -54,20 +54,20 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_About_BuildTimestamp}" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Timestamp" />
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildTimestamp, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_About_BuildMachine}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Machine" />
                 <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.Machine, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_About_BuildCommitHash}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Hash" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
                 <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}">
           <Hyperlink Foreground="{DynamicResource TextFillColorTertiaryBrush}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding BuildCommitHashUrl, Mode=OneTime}">
             <TextBlock Text="{Binding BuildMetadata.CommitHash, Mode=OneTime}" />
           </Hyperlink>
         </TextBlock>
 
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_About_BuildRef}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,4,16,4" FontSize="14" FontWeight="Medium" Text="Commit Ref" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
                 <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.CommitRef, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
 
             </Grid>
