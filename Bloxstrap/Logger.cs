@@ -93,10 +93,11 @@
 
         public void WriteException(string identifier, Exception ex)
         {
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
             WriteLine($"[{identifier}] {ex}");
+
+            Thread.CurrentThread.CurrentUICulture = App.CurrentCulture;
         }
 
         private async void WriteToLog(string message)
