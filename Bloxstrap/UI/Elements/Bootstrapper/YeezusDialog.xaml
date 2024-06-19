@@ -42,11 +42,9 @@
                     </Path.Data>
                 </Path>
             </Grid>
-            <TextBlock Margin="0,382,0,118" TextAlignment="Center" Grid.Row="0" Text="{Binding Message}" Panel.ZIndex="1" Foreground="Black" FontFamily="{StaticResource Rubik}" FontSize="17" FontWeight="Light">
-                <TextBlock.LayoutTransform>
-                    <ScaleTransform ScaleY="1"/>
-                </TextBlock.LayoutTransform>
-            </TextBlock>
+            <TextBlock Margin="0,371,0,129" TextAlignment="Center" Grid.Row="0" Text="Guilt Trip" Panel.ZIndex="1" Foreground="Black" FontFamily="{StaticResource Rubik}" FontSize="17"/>
+            <TextBlock Margin="0,387,0,113" TextAlignment="Center" Grid.Row="0" Text="Kanye West" Panel.ZIndex="1" Foreground="Black" FontFamily="{StaticResource Rubik}" FontSize="17" FontWeight="Light"/>
+
             <Image gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="/Resources/BootstrapperStyles/YeezusDialog/Yeezus.gif" Height="406" Width="408" Margin="0,0,0,118" Panel.ZIndex="-1"/>
             <ProgressBar Width="350" Height="12" Foreground="Black" Background="LightGray" BorderThickness="0" IsIndeterminate="{Binding ProgressIndeterminate}" Maximum="{Binding ProgressMaximum, Mode=OneWay}" Value="{Binding ProgressValue}" Margin="31,411,27,101" Panel.ZIndex="1"/>
         </Grid>
