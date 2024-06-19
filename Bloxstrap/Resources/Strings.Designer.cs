@@ -306,6 +306,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add single.
+        /// </summary>
+        public static string Common_AddSingle {
+            get {
+                return ResourceManager.GetString("Common.AddSingle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
         public static string Common_Browse {

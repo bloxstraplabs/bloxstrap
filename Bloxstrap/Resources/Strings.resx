@@ -202,6 +202,9 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
   </data>
+  <data name="Common.AddSingle" xml:space="preserve">
+    <value>Add single</value>
+  </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>Browse</value>
   </data>

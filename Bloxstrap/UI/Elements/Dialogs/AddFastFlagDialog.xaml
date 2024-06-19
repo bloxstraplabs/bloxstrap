@@ -30,7 +30,7 @@
         <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Dialog_AddFastFlag_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <TabControl x:Name="Tabs" Grid.Row="1" Margin="16">
-            <TabItem Header="Add single">
+            <TabItem Header="{x:Static resources:Strings.Common_AddSingle}">
                 <Grid Grid.Row="1" Margin="16">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
