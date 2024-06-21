@@ -29,7 +29,7 @@ namespace Bloxstrap
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
-        public static CultureInfo CurrentCulture { get; private set; } = CultureInfo.InvariantCulture;
+        public static CultureInfo CurrentCulture { get; set; } = CultureInfo.InvariantCulture;
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
@@ -113,8 +113,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
-            CultureInfo.DefaultThreadCurrentUICulture = CurrentCulture;
-            Thread.CurrentThread.CurrentUICulture = CurrentCulture;
+            CurrentCulture = Thread.CurrentThread.CurrentUICulture;
 
             base.OnStartup(e);
 
@@ -147,6 +146,7 @@ namespace Bloxstrap
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();
+                Locale.Set();
             }
 
             LaunchSettings.ParseRoblox();

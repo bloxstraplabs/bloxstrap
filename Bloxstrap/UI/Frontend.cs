@@ -8,6 +8,8 @@ namespace Bloxstrap.UI
 {
     static class Frontend
     {
+        public static void ShowLanguageSelection() => new LanguageSelectorDialog().ShowDialog();
+
         public static void ShowMenu(bool showAlreadyRunningWarning = false) => new MainWindow(showAlreadyRunningWarning).ShowDialog();
 
         public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK, MessageBoxResult defaultResult = MessageBoxResult.None)

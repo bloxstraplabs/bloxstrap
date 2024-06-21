@@ -484,7 +484,7 @@ Click for more information</value>
     <value>Dark</value>
   </data>
   <data name="Enums.Theme.Default" xml:space="preserve">
-    <value>System Default</value>
+    <value>System default</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Light</value>
@@ -1022,5 +1022,24 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
     <value>Bloxstrap Menu</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
+    <value>Choose preferred language</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
+    <value>Choose a language before continuing with installation.
+Scroll for more languages.</value>
+  </data>
+  <data name="Menu.Appearance.Language.Title" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Menu.Appearance.Language.Description" xml:space="preserve">
+    <value>Scroll to see more. A relaunch is required for changes to take effect.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+    <value>Force Roblox language</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+    <value>Roblox will be forced to display the same language that Bloxstrap is presently using.</value>
   </data>
 </root>

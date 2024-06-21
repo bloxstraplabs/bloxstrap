@@ -694,6 +694,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose preferred language.
+        /// </summary>
+        public static string Dialog_LanguageSelector_Header {
+            get {
+                return ResourceManager.GetString("Dialog.LanguageSelector.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a language before continuing with installation.
+        ///Scroll for more languages..
+        /// </summary>
+        public static string Dialog_LanguageSelector_Subtext {
+            get {
+                return ResourceManager.GetString("Dialog.LanguageSelector.Subtext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2008.
         /// </summary>
         public static string Enums_BootstrapperIcon_Icon2008 {
@@ -1144,7 +1163,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System Default.
+        ///   Looks up a localized string similar to System default.
         /// </summary>
         public static string Enums_Theme_Default {
             get {
@@ -1498,6 +1517,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scroll to see more. A relaunch is required for changes to take effect..
+        /// </summary>
+        public static string Menu_Appearance_Language_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Language.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Menu_Appearance_Language_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Language.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
         public static string Menu_Appearance_Preview {
@@ -1593,6 +1630,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_Description {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox will be forced to display the same language that Bloxstrap is presently using..
+        /// </summary>
+        public static string Menu_Behaviour_ForceRobloxLanguage_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ForceRobloxLanguage.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force Roblox language.
+        /// </summary>
+        public static string Menu_Behaviour_ForceRobloxLanguage_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ForceRobloxLanguage.Title", resourceCulture);
             }
         }
         

@@ -1,0 +1,41 @@
+﻿<ui:UiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.LanguageSelectorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        mc:Ignorable="d"
+        Title="Bloxstrap"
+        MinWidth="0"
+        MinHeight="0"
+        Width="380"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+
+        <StackPanel Grid.Row="1" Margin="12">
+            <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Header}" FontSize="18" FontWeight="Medium" />
+            <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Subtext}" TextWrapping="Wrap" Margin="0,0,0,12" />
+            <ComboBox ItemsSource="{Binding Languages, Mode=OneTime}" Text="{Binding SelectedLanguage, Mode=TwoWay}" />
+        </StackPanel>
+
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+                <Button MinWidth="100" Content="{x:Static resources:Strings.Common_OK}" Command="{Binding SetLocaleCommand}" />
+                <!--<Button MinWidth="100" Margin="12,0,0,0" Content="{x:Static resources:Strings.Common_Cancel}" IsCancel="True" />-->
+            </StackPanel>
+        </Border>
+    </Grid>
+</ui:UiWindow>

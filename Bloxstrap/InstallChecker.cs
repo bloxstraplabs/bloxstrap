@@ -130,6 +130,7 @@ namespace Bloxstrap
             App.IsSetupComplete = false;
 
             App.FastFlags.Load();
+            Frontend.ShowLanguageSelection();
             Frontend.ShowMenu();
 
             // exit if we don't click the install button on installation

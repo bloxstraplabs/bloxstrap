@@ -65,6 +65,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
+        public static List<string> Languages => Locale.SupportedLocales.Values.ToList();
+
+        public string SelectedLanguage 
+        { 
+            get => Locale.SupportedLocales[App.Settings.Prop.Locale]; 
+            set => App.Settings.Prop.Locale = Locale.GetIdentifierFromName(value);
+        }
+
         public IEnumerable<BootstrapperStyle> Dialogs { get; } = BootstrapperStyleEx.Selections;
 
         public BootstrapperStyle Dialog

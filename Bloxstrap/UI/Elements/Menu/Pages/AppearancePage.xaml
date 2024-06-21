@@ -24,6 +24,12 @@
             </ComboBox>
         </controls:OptionControl>
 
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_Language_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_Language_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Languages, Mode=OneTime}" Text="{Binding SelectedLanguage, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <Grid Margin="0,4,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

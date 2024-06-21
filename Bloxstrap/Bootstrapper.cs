@@ -302,6 +302,16 @@ namespace Bloxstrap
                     _launchCommandLine += "production";
                 else
                     _launchCommandLine += App.Settings.Prop.Channel.ToLowerInvariant();
+
+                if (App.Settings.Prop.ForceRobloxLanguage)
+                {
+                    if (_launchCommandLine.StartsWith("roblox-player:1"))
+                        _launchCommandLine += "+robloxLocale:";
+                    else
+                        _launchCommandLine += " -robloxLocale ";
+
+                    _launchCommandLine += App.CurrentCulture.Name.Replace('-', '_');
+                }
             }
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
