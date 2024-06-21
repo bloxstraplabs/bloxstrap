@@ -595,15 +595,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} server.
-        /// </summary>
-        public static string ContextMenu_ServerInformation_TypeFormat {
-            get {
-                return ResourceManager.GetString("ContextMenu.ServerInformation.TypeFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add FastFlag.
         /// </summary>
         public static string Dialog_AddFastFlag_Title {

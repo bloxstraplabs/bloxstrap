@@ -300,9 +300,6 @@ Click for more information</value>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="ContextMenu.ServerInformation.TypeFormat" xml:space="preserve">
-    <value>{0} server</value>
-  </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>Add FastFlag</value>
   </data>
