@@ -159,7 +159,7 @@
             </controls:Expander>
         </Grid>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_About_Licenses}" FontWeight="Medium" FontSize="18" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_About_Licenses}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

@@ -30,13 +30,13 @@
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Languages, Mode=OneTime}" Text="{Binding SelectedLanguage, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <Grid Margin="0,4,0,0">
+        <Grid Margin="0,8,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="128" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Title}" FontSize="16" FontWeight="Medium" VerticalAlignment="Bottom" />
+                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Title}" FontSize="20" FontWeight="Medium" VerticalAlignment="Bottom" />
                 <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
             </StackPanel>
             <ui:Button Grid.Column="1" Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" Margin="0,16,0,0" Command="{Binding PreviewBootstrapperCommand}" />

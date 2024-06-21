@@ -23,7 +23,7 @@
         </ui:CardAction>
 
             <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
-            <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+            <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
             <controls:OptionControl 
                 Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title}" 
@@ -44,7 +44,7 @@
             </controls:OptionControl>
         </StackPanel>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
