@@ -76,13 +76,48 @@
         <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
         <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
         <Grid Margin="0,8,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Code24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Code}">
+            <controls:Expander Grid.Row="0" Grid.ColumnSpan="3" Margin="0,0,0,8" HeaderIcon="Translate24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Translations}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="English" FontSize="16" FontWeight="Medium" />
+                        <controls:MarkdownTextBlock MarkdownText="[foo bar](https://github.com/bluepilledgreat)" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="English" FontSize="16" FontWeight="Medium" />
+                        <controls:MarkdownTextBlock MarkdownText="[bar foo](https://github.com/bluepilledgreat)" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="English" FontSize="16" FontWeight="Medium" />
+                        <controls:MarkdownTextBlock MarkdownText="[foo foo](https://github.com/bluepilledgreat)" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3">
+                        <TextBlock Text="English" FontSize="16" FontWeight="Medium" />
+                        <controls:MarkdownTextBlock MarkdownText="[fffffffffffffffff](https://github.com/bluepilledgreat)" />
+                    </StackPanel>
+                </Grid>
+            </controls:Expander>
+
+            <controls:Expander Grid.Row="1" Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Code24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Code}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[Matt](https://github.com/bluepilledgreat)" />
                     <controls:MarkdownTextBlock MarkdownText="[1011025m](https://github.com/1011025m)" />
@@ -96,7 +131,7 @@
                 </StackPanel>
             </controls:Expander>
 
-            <controls:Expander Grid.Column="1" Margin="4,0,4,0" HeaderIcon="AppsAddIn28" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_FeatureIdeas}">
+            <controls:Expander Grid.Row="1" Grid.Column="1" Margin="4,0,4,0" HeaderIcon="AppsAddIn28" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_FeatureIdeas}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[he3als](https://github.com/he3als)" />
                     <controls:MarkdownTextBlock MarkdownText="[NikSavchenk0](https://github.com/NikSavchenk0)" />
@@ -113,13 +148,7 @@
                 </StackPanel>
             </controls:Expander>
 
-            <!--<controls:Expander Grid.Column="2" Margin="4,0,4,0" HeaderIcon="Translate24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Translations}">
-                <StackPanel>
-                    <TextBlock Text="lol" />
-                </StackPanel>
-            </controls:Expander>-->
-
-            <controls:Expander Grid.Column="2" Margin="4,0,0,0" HeaderIcon="Heart16" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_SpecialThanks}">
+            <controls:Expander Grid.Row="1" Grid.Column="2" Margin="4,0,0,0" HeaderIcon="Heart16" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_SpecialThanks}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[MaximumADHD](https://github.com/MaximumADHD)" />
                     <controls:MarkdownTextBlock MarkdownText="[Multako](https://www.roblox.com/users/2485612194/profile)" />
