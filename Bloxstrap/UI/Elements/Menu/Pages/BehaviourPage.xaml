@@ -37,7 +37,8 @@
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxLanguage_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxLanguage_Description}">
+            Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxLanguage_Description}"
+            HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/Information-on-Roblox-app-localisation">
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxLanguage, Mode=TwoWay}" />
         </controls:OptionControl>
 

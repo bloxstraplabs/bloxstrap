@@ -1037,9 +1037,9 @@ Scroll for more languages.</value>
     <value>Scroll to see more. A relaunch is required for changes to take effect.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Force Roblox language</value>
+    <value>Allow use of unsupported Roblox languages</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Roblox will be forced to display the same language that Bloxstrap is presently using.</value>
+    <value>Only applies to games launched from the Roblox website.</value>
   </data>
 </root>

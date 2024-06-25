@@ -305,12 +305,10 @@ namespace Bloxstrap
 
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {
-                    if (_launchCommandLine.StartsWith("roblox-player:1"))
-                        _launchCommandLine += "+robloxLocale:";
-                    else
-                        _launchCommandLine += " -robloxLocale ";
+                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)");
 
-                    _launchCommandLine += App.CurrentCulture.Name.Replace('-', '_');
+                    if (match.Groups.Count == 2)
+                        _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}");
                 }
             }
 
