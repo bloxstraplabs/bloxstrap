@@ -65,7 +65,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
         }
 
-        public static List<string> Languages => Locale.SupportedLocales.Values.ToList();
+        public static List<string> Languages => Locale.GetLanguages();
 
         public string SelectedLanguage 
         { 

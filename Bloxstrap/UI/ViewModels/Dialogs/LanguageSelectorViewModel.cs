@@ -15,7 +15,7 @@ namespace Bloxstrap.UI.ViewModels.Dialogs
 
         public ICommand SetLocaleCommand => new RelayCommand(SetLocale);
 
-        public static List<string> Languages => Locale.SupportedLocales.Values.ToList();
+        public static List<string> Languages => Locale.GetLanguages();
 
         public string SelectedLanguage { get; set; } = Locale.SupportedLocales[App.Settings.Prop.Locale];
 
