@@ -1,9 +1,5 @@
-﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
+
 using Bloxstrap.Resources;
 
 namespace Bloxstrap
@@ -67,14 +63,16 @@ namespace Bloxstrap
             CultureInfo.DefaultThreadCurrentUICulture = App.CurrentCulture;
             Thread.CurrentThread.CurrentUICulture = App.CurrentCulture;
 
+            RoutedEventHandler? handler = null;
+
             if (identifier == "ar" || identifier == "he")
-            {
-                // TODO: credit the SO post i took this from
-                EventManager.RegisterClassHandler(typeof(Window), FrameworkElement.LoadedEvent, new RoutedEventHandler((window, _) =>
-                {
-                    ((Window)window).FlowDirection = FlowDirection.RightToLeft;
-                }));
-            }
+                handler = new((window, _) => ((Window)window).FlowDirection = FlowDirection.RightToLeft);
+            else if (identifier == "th")
+                handler = new((window, _) => ((Window)window).FontFamily = new System.Windows.Media.FontFamily(new Uri("pack://application:,,,/Resources/Fonts/"), "./#Noto Sans Thai"));
+
+            // https://supportcenter.devexpress.com/ticket/details/t905790/is-there-a-way-to-set-right-to-left-mode-in-wpf-for-the-whole-application
+            if (handler is not null)
+                EventManager.RegisterClassHandler(typeof(Window), FrameworkElement.LoadedEvent, handler);
         }
     }
 }
