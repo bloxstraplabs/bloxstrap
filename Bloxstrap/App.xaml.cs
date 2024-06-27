@@ -156,7 +156,14 @@ namespace Bloxstrap
 
             // TEMPORARY FILL-IN FOR NEW FUNCTIONALITY
             // REMOVE WHEN LARGER REFACTORING IS DONE
-            await RobloxDeployment.InitializeConnectivity();
+            var connectionResult = await RobloxDeployment.InitializeConnectivity();
+
+            if (connectionResult is not null)
+            {
+                Logger.WriteException(LOG_IDENT, connectionResult);
+                Frontend.ShowConnectivityDialog("Roblox", Bloxstrap.Resources.Strings.Bootstrapper_Connectivity_Preventing, connectionResult);
+                return;
+            }
 
             if (LaunchSettings.IsUninstall && IsFirstRun)
             {
