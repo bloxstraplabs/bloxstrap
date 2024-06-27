@@ -35,7 +35,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         {
             var dialog = new OpenFileDialog
             {
-                Filter = $"{Resources.Strings.Menu_IconFiles}|*.ico|{Resources.Strings.Menu_AllFiles}|*.*"
+                Filter = $"{Resources.Strings.Menu_IconFiles}|*.ico"
             };
 
             if (dialog.ShowDialog() != true)
