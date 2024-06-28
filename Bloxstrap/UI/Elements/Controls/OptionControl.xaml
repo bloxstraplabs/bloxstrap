@@ -42,6 +42,11 @@
                                                 </Setter>
                                             </Trigger>
                                         </Style.Triggers>
+                                        <Setter Property="Foreground">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                                            </Setter.Value>
+                                        </Setter>
                                     </Style>
                                 </ui:SymbolIcon.Style>
                             </ui:SymbolIcon>

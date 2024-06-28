@@ -15,7 +15,7 @@
 
             <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
 
-            <Style TargetType="{x:Type Hyperlink}">
+            <Style TargetType="Hyperlink">
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Foreground">
