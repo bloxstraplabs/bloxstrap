@@ -947,7 +947,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 1 (2015).
+        ///   Looks up a localized string similar to 2015 (V1).
         /// </summary>
         public static string Enums_FlagPresets_InGameMenuVersion_V1 {
             get {
@@ -956,7 +956,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 2 (2020).
+        ///   Looks up a localized string similar to 2022 (V2).
         /// </summary>
         public static string Enums_FlagPresets_InGameMenuVersion_V2 {
             get {
@@ -965,11 +965,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 4 (2023).
+        ///   Looks up a localized string similar to 2023 (V4).
         /// </summary>
         public static string Enums_FlagPresets_InGameMenuVersion_V4 {
             get {
                 return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2023 (V4 + New UI).
+        /// </summary>
+        public static string Enums_FlagPresets_InGameMenuVersion_V4Chrome {
+            get {
+                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4Chrome", resourceCulture);
             }
         }
         

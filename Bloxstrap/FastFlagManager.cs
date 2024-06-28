@@ -47,11 +47,11 @@ namespace Bloxstrap
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
             { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
+            { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
 
             { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
-            { "UI.Menu.Style.ABTest.2", "FFlagEnableMenuModernizationABTest" },
-            { "UI.Menu.Style.ABTest.3", "FFlagEnableMenuModernizationABTest2" },
-            { "UI.Menu.Style.ABTest.4", "FFlagEnableV3MenuABTest3" }
+            { "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
+            { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" }
         };
 
         // only one missing here is Metal because lol
@@ -91,6 +91,7 @@ namespace Bloxstrap
                 {
                     { "DisableV2", null },
                     { "EnableV4", null },
+                    { "EnableV4Chrome", null },
                     { "ABTest", null }
                 }
             },
@@ -101,6 +102,7 @@ namespace Bloxstrap
                 {
                     { "DisableV2", "True" },
                     { "EnableV4", "False" },
+                    { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
                 }
             },
@@ -111,6 +113,7 @@ namespace Bloxstrap
                 {
                     { "DisableV2", "False" },
                     { "EnableV4", "False" },
+                    { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
                 }
             },
@@ -121,6 +124,18 @@ namespace Bloxstrap
                 {
                     { "DisableV2", "True" },
                     { "EnableV4", "True" },
+                    { "EnableV4Chrome", "False" },
+                    { "ABTest", "False" }
+                }
+            },
+
+            {
+                InGameMenuVersion.V4Chrome,
+                new Dictionary<string, string?>
+                {
+                    { "DisableV2", "True" },
+                    { "EnableV4", "True" },
+                    { "EnableV4Chrome", "True" },
                     { "ABTest", "False" }
                 }
             }

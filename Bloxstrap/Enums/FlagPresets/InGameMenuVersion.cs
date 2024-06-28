@@ -5,6 +5,7 @@
         Default,
         V1,
         V2,
-        V4
+        V4,
+        V4Chrome
     }
 }
