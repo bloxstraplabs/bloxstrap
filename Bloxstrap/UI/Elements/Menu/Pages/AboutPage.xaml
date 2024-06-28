@@ -494,7 +494,7 @@
                         <TextBlock Text="bacon1295" />
                         <TextBlock Text="NightPlay" />
 
-                        <TextBlock Text="中文(简体)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                        <TextBlock Text="中文 (简体)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                             </TextBlock.Foreground>
@@ -507,7 +507,17 @@
                         <TextBlock Text="Typel" />
                         <TextBlock Text="yuhaodatt" />
 
-                        <TextBlock Text="中文(繁體)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                        <TextBlock Text="中文 (廣東話)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBlock Text="henrychu1125" />
+                        <TextBlock Text="kitzure" />
+                        <TextBlock Text="Kimina898" />
+                        <TextBlock Text="shhh_op" />
+
+                        <TextBlock Text="中文 (繁體)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                             </TextBlock.Foreground>
