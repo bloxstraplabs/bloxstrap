@@ -798,7 +798,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Preferred materials</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
-    <value>Choose what renderer Roblox should use. VR requires Direct3D/Automatic.</value>
+    <value>Choose which renderer Roblox should use.</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering mode</value>
@@ -1044,5 +1044,11 @@ Scroll for more languages.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + New UI)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
+    <value>Rendering and Graphics</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
+    <value>User Interface and Layout</value>
   </data>
 </root>
