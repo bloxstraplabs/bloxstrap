@@ -15,6 +15,7 @@ namespace Bloxstrap.Models
         public bool ConfirmLaunches { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
+        public bool UseFastFlagManager { get; set; } = true;
 
         // channel configuration
         public string Channel { get; set; } = RobloxDeployment.DefaultChannel;

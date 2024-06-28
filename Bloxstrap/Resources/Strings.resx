@@ -1051,4 +1051,9 @@ Scroll for more languages.</value>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
     <value>User Interface and Layout</value>
   </data>
+    <value>Enable Fast Flag manager</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
+    <value>Choose whether Fast Flags configured here should apply to Roblox</value>
+  </data>
 </root>

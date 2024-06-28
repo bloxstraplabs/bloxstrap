@@ -1258,6 +1258,9 @@ namespace Bloxstrap
                     continue;
                 }
 
+                if (!App.Settings.Prop.UseFastFlagManager && String.Equals(relativeFile, "ClientSettings\\ClientAppSettings.json", StringComparison.OrdinalIgnoreCase))
+                    continue;
+
                 if (relativeFile.EndsWith(".lock"))
                     continue;
 

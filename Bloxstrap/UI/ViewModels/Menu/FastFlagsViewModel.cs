@@ -39,6 +39,12 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public Visibility ShowDebugFlags => Visibility.Collapsed;
 #endif
 
+        public bool UseFastFlagManager
+        {
+            get => App.Settings.Prop.UseFastFlagManager;
+            set => App.Settings.Prop.UseFastFlagManager = value;
+        }
+
         public bool HttpRequestLogging
         {
             get => App.FastFlags.GetPreset("HTTP.Log") is not null;

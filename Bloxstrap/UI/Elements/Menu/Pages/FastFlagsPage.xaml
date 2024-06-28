@@ -15,14 +15,20 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:CardAction Grid.Column="0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
+        <ui:CardAction Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags">
             <StackPanel>
                 <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
                 <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </ui:CardAction>
+        
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
+        </controls:OptionControl>
 
-            <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
+        <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
             <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
             <controls:OptionControl 
