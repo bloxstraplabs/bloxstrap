@@ -11,9 +11,10 @@ namespace Bloxstrap.Utility
     {
         internal static long GetFreeDiskSpace(string path)
         {
-            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            foreach (var drive in DriveInfo.GetDrives())
             {
-                if (path.StartsWith(drive.Name))
+                // https://github.com/pizzaboxer/bloxstrap/issues/1648#issuecomment-2192571030
+                if (path.ToUpperInvariant().StartsWith(drive.Name))
                     return drive.AvailableFreeSpace;
             }
 
