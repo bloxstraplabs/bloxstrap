@@ -92,23 +92,6 @@ namespace Bloxstrap.UI.ViewModels.Menu
             set => App.FastFlags.SetPreset("UI.Menu.GraphicsSlider", value ? "True" : null);
         }
 
-        public IReadOnlyDictionary<MaterialVersion, string> MaterialVersions => FastFlagManager.MaterialVersions;
-
-        public MaterialVersion SelectedMaterialVersion
-        {
-            get
-            {
-                MaterialVersion oldMaterials = App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.OldTexturesFlagValue);
-
-                if (oldMaterials != MaterialVersion.Default)
-                    return oldMaterials;
-
-                return App.FastFlags.GetPresetEnum(MaterialVersions, "Rendering.Materials", FastFlagManager.NewTexturesFlagValue);
-            }
-
-            set => App.FastFlags.SetPresetEnum("Rendering.Materials", MaterialVersions[value], MaterialVersions[value] == "NewTexturePack" ? FastFlagManager.OldTexturesFlagValue : FastFlagManager.NewTexturesFlagValue);
-        }
-
         public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
 
         public InGameMenuVersion SelectedIGMenuVersion
