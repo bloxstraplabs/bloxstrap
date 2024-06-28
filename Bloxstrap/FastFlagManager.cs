@@ -26,6 +26,9 @@ namespace Bloxstrap
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
+            { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
+            { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
+            { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
@@ -37,12 +40,18 @@ namespace Bloxstrap
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
             { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
 
+            { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
+            { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
+            { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
+
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
+            { "UI.FontSize", "FIntFontSizePadding" },
 #if DEBUG
             { "UI.FlagState", "FStringDebugShowFlagState" },
 #endif
 
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
+            { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
             
             { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
@@ -77,8 +86,16 @@ namespace Bloxstrap
             { MSAAMode.Default, null },
             { MSAAMode.x1, "1" },
             { MSAAMode.x2, "2" },
-            { MSAAMode.x4, "4" },
-            { MSAAMode.x8, "8" }
+            { MSAAMode.x4, "4" }
+        };
+
+        public static IReadOnlyDictionary<TextureQuality, string?> TextureQualityLevels => new Dictionary<TextureQuality, string?>
+        {
+            { TextureQuality.Default, null },
+            { TextureQuality.Level0, "0" },
+            { TextureQuality.Level1, "1" },
+            { TextureQuality.Level2, "2" },
+            { TextureQuality.Level3, "3" },
         };
 
         // this is one hell of a dictionary definition lmao

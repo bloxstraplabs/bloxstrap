@@ -445,16 +445,13 @@ Click for more information</value>
     <value>Automatic</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.x1" xml:space="preserve">
-    <value>1x MSAA</value>
+    <value>1x</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.x2" xml:space="preserve">
-    <value>2x MSAA</value>
+    <value>2x</value>
   </data>
   <data name="Enums.FlagPresets.MSAAMode.x4" xml:space="preserve">
-    <value>4x MSAA</value>
-  </data>
-  <data name="Enums.FlagPresets.MSAAMode.x8" xml:space="preserve">
-    <value>8x MSAA</value>
+    <value>4x</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -730,13 +727,13 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Toggle between using the consolidated 1-10 / fine-grained 1-21 graphics quality slider.</value>
+    <value>Allows you to configure 21 different quality levels instead of 10.</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use alternate graphics quality selector</value>
+    <value>Use advanced graphics quality selector</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>FastFlag preset for Direct3D [exclusive fullscreen]({0}) using Alt+Enter is already enabled by default.</value>
+    <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
     <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
@@ -761,20 +758,17 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Presets.Debug.Title" xml:space="preserve">
     <value>Debug</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Description" xml:space="preserve">
-    <value>Choose which version of the escape menu to use.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Preferred escape menu version</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox reduces your rendering quality, depending on display scaling. This toggle disables that.</value>
+    <value>Roblox reduces your rendering quality depending on how your display is scaled in Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Preserve rendering quality with display scaling</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Use a large number like 9999 for no limit. Set as 0 for defaults.</value>
+    <value>Set to 0 for defaults if you want to use Roblox's native framerate unlocker.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>Framerate limit</value>
@@ -790,15 +784,6 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
     <value>Preferred lighting technology</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Materials.Description" xml:space="preserve">
-    <value>Choose which material version should be forced in all games.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Materials.Title" xml:space="preserve">
-    <value>Preferred materials</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
-    <value>Choose which renderer Roblox should use.</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering mode</value>
@@ -937,7 +922,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Choose font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Forces every in-game font to be a font that you choose.</value>
+    <value>Font size can be adjusted in the Fast Flags tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>The file you have chosen does not appear to be a valid font file.</value>
@@ -946,7 +931,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Remove applied font</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Apply custom font</value>
+    <value>Use custom font</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
     <value>A Windows feature that may conflict with performance in full-screen.</value>
@@ -1051,9 +1036,52 @@ Scroll for more languages.</value>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
     <value>User Interface and Layout</value>
   </data>
-    <value>Enable Fast Flag manager</value>
+  <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
+    <value>Allow Bloxstrap to manage Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>Choose whether Fast Flags configured here should apply to Roblox</value>
+    <value>Disabling this will prevent anything configured here from being applied to Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
+    <value>Anti-aliasing quality (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Disable post-processing effects</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Disable full-screen titlebar</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
+    <value>Stops it from showing whenever you move your mouse to the top of the screen.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
+    <value>Texture quality</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
+    <value>Level 0 (Lowest)</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
+    <value>Level 1</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
+    <value>Level 2</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
+    <value>Level 3 (Highest)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Disable player shadows</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Default value is 1. Adjust if you use a custom font.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Disable terrain textures</value>
   </data>
 </root>
