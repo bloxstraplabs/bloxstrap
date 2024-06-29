@@ -29,8 +29,6 @@ namespace Bloxstrap
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
-        public static CultureInfo CurrentCulture { get; set; } = CultureInfo.InvariantCulture;
-
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
@@ -113,7 +111,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
-            CurrentCulture = Thread.CurrentThread.CurrentUICulture;
+            Locale.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
 
             base.OnStartup(e);
 

@@ -97,7 +97,7 @@
 
             WriteLine($"[{identifier}] {ex}");
 
-            Thread.CurrentThread.CurrentUICulture = App.CurrentCulture;
+            Thread.CurrentThread.CurrentUICulture = Locale.CurrentCulture;
         }
 
         private async void WriteToLog(string message)
