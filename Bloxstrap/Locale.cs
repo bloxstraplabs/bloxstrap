@@ -8,6 +8,8 @@ namespace Bloxstrap
     {
         public static CultureInfo CurrentCulture = CultureInfo.InvariantCulture;
 
+        public static bool RightToLeft { get; private set; } = false;
+
         public static readonly Dictionary<string, string> SupportedLocales = new()
         {
             { "nil", Strings.Enums_Theme_Default }, // /shrug
@@ -83,6 +85,8 @@ namespace Bloxstrap
 
             if (identifier == "ar" || identifier == "he")
             {
+                RightToLeft = true;
+
                 handler = new((sender, _) => 
                 { 
                     var window = (Window)sender;
