@@ -29,23 +29,23 @@
         </controls:OptionControl>
 
         <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
-            <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+            <TextBlock Text="Debug" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
             <controls:OptionControl 
-                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title}" 
-                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpRequestLogging_Description}">
+                Header="HTTP request logging" 
+                Description="Enables logging of HTTP requests (DFLogHttpTraceLight=12).">
                 <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl 
-                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Title}" 
-                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_HttpProxyAddress_Description}">
+                Header="HTTP proxy address" 
+                Description="Set blank if not using a proxy. Don't forget to add cacert.pem as a mod.">
                 <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HttpRequestProxy, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl 
-                Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Title}" 
-                Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Debug_FlagStateOverlay_Description}">
+                Header="Flag state overlay" 
+                Description="Show values of specified flags during runtime. Each flag is comma separated.">
                 <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
             </controls:OptionControl>
         </StackPanel>

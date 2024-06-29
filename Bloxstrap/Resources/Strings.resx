@@ -735,29 +735,6 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description" xml:space="preserve">
-    <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title" xml:space="preserve">
-    <value>Flag state overlay</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description" xml:space="preserve">
-    <value>Set blank if not using a proxy. Don't forget to add cacert.pem as a mod.</value>
-    <comment>Do not translate "cacert.pem"</comment>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title" xml:space="preserve">
-    <value>HTTP proxy address</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description" xml:space="preserve">
-    <value>Enables logging of HTTP requests (DFLogHttpTraceLight=12).</value>
-    <comment>Do not translate "DFLogHttpTraceLight"</comment>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title" xml:space="preserve">
-    <value>HTTP request logging</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Debug.Title" xml:space="preserve">
-    <value>Debug</value>
-  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Preferred escape menu version</value>
   </data>

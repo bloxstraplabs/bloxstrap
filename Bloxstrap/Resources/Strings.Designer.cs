@@ -1950,7 +1950,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecting this will prevent anything configured here from being applied to Roblox..
+        ///   Looks up a localized string similar to Disabling this will prevent anything configured here from being applied to Roblox..
         /// </summary>
         public static string Menu_FastFlags_ManagerEnabled_Description {
             get {
@@ -2009,69 +2009,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show values of specified flags during runtime. Each flag is comma separated..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_FlagStateOverlay_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.FlagStateOverlay.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Flag state overlay.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_FlagStateOverlay_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.FlagStateOverlay.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set blank if not using a proxy. Don&apos;t forget to add cacert.pem as a mod..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_HttpProxyAddress_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.HttpProxyAddress.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to HTTP proxy address.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_HttpProxyAddress_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.HttpProxyAddress.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enables logging of HTTP requests (DFLogHttpTraceLight=12)..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_HttpRequestLogging_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.HttpRequestLogging.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to HTTP request logging.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_HttpRequestLogging_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.HttpRequestLogging.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Debug.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_Debug_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.Debug.Title", resourceCulture);
             }
         }
         
