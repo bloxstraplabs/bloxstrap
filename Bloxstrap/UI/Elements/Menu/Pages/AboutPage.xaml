@@ -31,12 +31,12 @@
                 <TextBlock Text="{x:Static resources:Strings.Menu_About_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </Grid>
-        <StackPanel Orientation="Horizontal">
-            <ui:Anchor Margin="0,16,4,0" Content="{x:Static resources:Strings.Menu_About_GithubRepository}" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
-            <ui:Anchor Margin="4,16,4,0" Content="{x:Static resources:Strings.Menu_About_ReportIssue}" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
-            <ui:Anchor Margin="4,16,4,0" Content="{x:Static resources:Strings.Menu_About_HelpInformation}" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
-            <ui:Anchor Margin="4,16,0,0" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
-        </StackPanel>
+        <WrapPanel Orientation="Horizontal">
+            <ui:Anchor Margin="0,16,8,0" Content="{x:Static resources:Strings.Menu_About_GithubRepository}" Icon="Code24" NavigateUri="https://github.com/pizzaboxer/bloxstrap" />
+            <ui:Anchor Margin="0,16,8,0" Content="{x:Static resources:Strings.Menu_About_ReportIssue}" Icon="Chat48" NavigateUri="https://github.com/pizzaboxer/bloxstrap/issues" />
+            <ui:Anchor Margin="0,16,8,0" Content="{x:Static resources:Strings.Menu_About_HelpInformation}" Icon="BookQuestionMark24" NavigateUri="https://github.com/pizzaboxer/bloxstrap/wiki" />
+            <ui:Anchor Margin="0,16,0,0" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
+        </WrapPanel>
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
             <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />

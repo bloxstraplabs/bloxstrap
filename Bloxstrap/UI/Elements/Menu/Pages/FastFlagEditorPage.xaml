@@ -23,10 +23,10 @@
 
         <ui:InfoBar Grid.Row="1" Margin="0,0,0,16" Padding="8" Title="{x:Static resources:Strings.Menu_FastFlagEditor_BannerTitle}" IsOpen="True" Message="{x:Static resources:Strings.Menu_FastFlagEditor_BannerText}" Severity="Warning" IsClosable="False" />
 
-        <StackPanel Grid.Row="2" Margin="0,0,0,16" Orientation="Horizontal">
-            <ui:Button Icon="ArrowLeft48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_Back}" Click="BackButton_Click" />
-            <ui:Button Icon="Add28" Content="{x:Static resources:Strings.Menu_FastFlagEditor_AddNew}" Click="AddButton_Click" Margin="12,0,0,0" />
-            <ui:Button Icon="Delete48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click" Appearance="Danger" Margin="12,0,0,0">
+        <WrapPanel Grid.Row="2" Orientation="Horizontal">
+            <ui:Button Icon="ArrowLeft48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_Back}" Click="BackButton_Click" Margin="0,0,12,16" />
+            <ui:Button Icon="Add28" Content="{x:Static resources:Strings.Menu_FastFlagEditor_AddNew}" Click="AddButton_Click" Margin="0,0,12,16" />
+            <ui:Button Icon="Delete48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click" Appearance="Danger"  Margin="0,0,12,16">
                 <ui:Button.Style>
                     <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
                         <Style.Triggers>
@@ -37,9 +37,9 @@
                     </Style>
                 </ui:Button.Style>
             </ui:Button>
-            <ToggleButton x:Name="TogglePresetsButton"  Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" Click="ToggleButton_Click" Margin="12,0,0,0" />
-            <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}" Margin="12,0,0,0" Click="ExportJSONButton_Click" />
-        </StackPanel>
+            <ToggleButton x:Name="TogglePresetsButton"  Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" Click="ToggleButton_Click"  Margin="0,0,12,16" />
+            <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}" Click="ExportJSONButton_Click" Margin="0,0,12,16" />
+        </WrapPanel>
 
         <ui:TextBox x:Name="SearchTextBox" Grid.Row="3" Margin="0,0,0,16" Icon="Search32" PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}" TextChanged="SearchTextBox_TextChanged" />
 

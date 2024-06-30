@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}" IsEnabled="{Binding Source={x:Static models:GlobalViewModel.IsNotFirstRun}, Mode=OneTime}">
                 <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Title}">
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Title}" TextWrapping="Wrap">
                     <!--this is so fucking stupid the disabled state of the cardaction doesnt change the header text colour-->
                         <TextBlock.Style>
                             <Style>
@@ -38,7 +38,7 @@
                         </TextBlock.Style>
                     </TextBlock>
 
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap">
                         <TextBlock.Style>
                             <Style>
                                 <Setter Property="TextBlock.Text" Value="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Description}"/>
@@ -96,7 +96,7 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="220" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.EmojiType.'}" />

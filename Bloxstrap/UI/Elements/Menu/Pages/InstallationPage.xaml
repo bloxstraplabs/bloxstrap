@@ -65,14 +65,14 @@
             <ui:CardAction Grid.Column="0" x:Name="OpenFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenFolderCommand}" >
                 <StackPanel>
                     <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Installation_OpenInstallFolder_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_OpenInstallFolder_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_OpenInstallFolder_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
                 </StackPanel>
             </ui:CardAction>
 
             <ui:CardAction Grid.Column="1" Margin="4,0,0,0" Icon="UninstallApp24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Uninstalling-Bloxstrap">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Installation_UninstallGuide_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_UninstallGuide_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Installation_UninstallGuide_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

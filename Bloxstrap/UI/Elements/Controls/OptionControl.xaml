@@ -53,7 +53,7 @@
                         </Hyperlink>
                     </TextBlock>
                 </Grid>
-                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
                     <local:MarkdownTextBlock.Style>
                         <Style TargetType="local:MarkdownTextBlock">
                             <Style.Triggers>
