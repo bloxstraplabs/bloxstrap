@@ -342,7 +342,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
         {
             string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
-            Clipboard.SetText(json);
+            Clipboard.SetDataObject(json);
             Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
         }
 
