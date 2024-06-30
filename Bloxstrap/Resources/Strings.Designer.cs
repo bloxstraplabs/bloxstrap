@@ -721,8 +721,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a language before continuing with installation.
-        ///Scroll for more languages..
+        ///   Looks up a localized string similar to Choose a language before continuing with installation..
         /// </summary>
         public static string Dialog_LanguageSelector_Subtext {
             get {
@@ -1580,7 +1579,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scroll to see more. A relaunch is required for changes to take effect..
+        ///   Looks up a localized string similar to A relaunch is required for changes to take effect..
         /// </summary>
         public static string Menu_Appearance_Language_Description {
             get {

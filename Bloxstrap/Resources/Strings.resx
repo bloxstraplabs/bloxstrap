@@ -989,14 +989,13 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Choose preferred language</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Choose a language before continuing with installation.
-Scroll for more languages.</value>
+    <value>Choose a language before continuing with installation.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>Scroll to see more. A relaunch is required for changes to take effect.</value>
+    <value>A relaunch is required for changes to take effect.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>Allow use of unsupported Roblox languages</value>
