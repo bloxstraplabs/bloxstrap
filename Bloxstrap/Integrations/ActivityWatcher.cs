@@ -112,8 +112,8 @@
             {
                 string? log = await sr.ReadLineAsync();
 
-                if (string.IsNullOrEmpty(log))
-                    logUpdatedEvent.WaitOne(1000);
+                if (log is null)
+                    logUpdatedEvent.WaitOne(250);
                 else
                     ExamineLogEntry(log);
             }
