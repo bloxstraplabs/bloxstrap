@@ -310,7 +310,7 @@ Click for more information</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to {0}</value>
+    <value>Bloxstrap is unable to connect to Roblox</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Copy log contents</value>
@@ -1060,5 +1060,11 @@ Scroll for more languages.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
     <value>Disable terrain textures</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
+    <value>Bloxstrap is unable to download Roblox</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
+    <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
   </data>
 </root>

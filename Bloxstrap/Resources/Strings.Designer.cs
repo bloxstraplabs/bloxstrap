@@ -622,11 +622,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is unable to connect to {0}.
+        ///   Looks up a localized string similar to Bloxstrap is unable to connect to Roblox.
         /// </summary>
         public static string Dialog_Connectivity_UnableToConnect {
             get {
                 return ResourceManager.GetString("Dialog.Connectivity.UnableToConnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap is unable to download Roblox.
+        /// </summary>
+        public static string Dialog_Connectivity_UnableToDownload {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.UnableToDownload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}.
+        /// </summary>
+        public static string Dialog_Connectivity_UnableToDownloadReason {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.UnableToDownloadReason", resourceCulture);
             }
         }
         

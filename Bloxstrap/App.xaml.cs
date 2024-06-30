@@ -159,7 +159,13 @@ namespace Bloxstrap
             if (connectionResult is not null)
             {
                 Logger.WriteException(LOG_IDENT, connectionResult);
-                Frontend.ShowConnectivityDialog("Roblox", Bloxstrap.Resources.Strings.Bootstrapper_Connectivity_Preventing, connectionResult);
+
+                Frontend.ShowConnectivityDialog(
+                    Bloxstrap.Resources.Strings.Dialog_Connectivity_UnableToConnect, 
+                    Bloxstrap.Resources.Strings.Bootstrapper_Connectivity_Preventing, 
+                    connectionResult
+                );
+
                 return;
             }
 
