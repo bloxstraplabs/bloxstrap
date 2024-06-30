@@ -197,6 +197,15 @@
                         <TextBlock Text="thatsirwaffles" />
                         <TextBlock Text="tyundrai" />
                         <TextBlock Text="Waza80" />
+
+                        <TextBlock Text="Hrvatski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBlock Text="Dzigos" />
+                        <TextBlock Text="Koyroii" />
+                        <TextBlock Text="Nemznja" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="1">
@@ -387,7 +396,7 @@
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                             </TextBlock.Foreground>
                         </TextBlock>
-                        <TextBlock Text="3tcy" />
+                        <TextBlock Text="3tcy" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
                         <TextBlock Text="andBroz" />
                         <TextBlock Text="alexneonwithglue" />
                         <TextBlock Text="AnonymousDudeLOL123" />
@@ -400,11 +409,11 @@
                         <TextBlock Text="Dr1mG" />
                         <TextBlock Text="Externalkinetics" />
                         <TextBlock Text="fxstyxx" />
-                        <TextBlock Text="Gustodd4202" />
+                        <TextBlock Text="Gustodd4202" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
                         <TextBlock Text="harababura" />
-                        <TextBlock Text="ImperialRhyme" />
-                        <TextBlock Text="IStoleYourCheese" />
-                        <TextBlock Text="khat7" />
+                        <TextBlock Text="ImperialRhyme" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
+                        <TextBlock Text="IStoleYourCheese" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
+                        <TextBlock Text="khat7" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
                         <TextBlock Text="kostyan" />
                         <TextBlock Text="Maks" />
                         <TextBlock Text="niktoyou" />
@@ -414,13 +423,13 @@
                         <TextBlock Text="Provo" />
                         <TextBlock Text="Quenevelly" />
                         <TextBlock Text="sally13249" />
-                        <TextBlock Text="simmon8800" />
-                        <TextBlock Text="Skylan031" />
+                        <TextBlock Text="simmon8800" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
+                        <TextBlock Text="Skylan031" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
                         <TextBlock Text="Spuffio" />
                         <TextBlock Text="StraiF" />
                         <TextBlock Text="StrayCatSimb" />
                         <TextBlock Text="Voxel" />
-                        <TextBlock Text="XonaShera" />
+                        <TextBlock Text="XonaShera" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
                         <TextBlock Text="Ziio123" />
                         <TextBlock Text="zor9na90000" />
                     </StackPanel>
