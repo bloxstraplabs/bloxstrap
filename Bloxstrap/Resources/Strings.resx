@@ -383,6 +383,9 @@ Click for more information</value>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Progress (~2014)</value>
   </data>
+  <data name="Enums.BootstrapperStyle.Terminal" xml:space="preserve">
+    <value>Terminal (2024)</value>
+  </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
   </data>

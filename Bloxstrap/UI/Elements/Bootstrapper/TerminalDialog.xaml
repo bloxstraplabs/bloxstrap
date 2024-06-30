@@ -1,0 +1,62 @@
+﻿<Window   x:Class="Bloxstrap.UI.Elements.Bootstrapper.TerminalDialog"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+          xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Bootstrapper"
+          mc:Ignorable="d" 
+          Height="413"
+          Width="692"
+          Title="TerminalDialog"
+          ResizeMode="NoResize"
+          WindowStyle="None"
+          Background="Transparent"
+          WindowStartupLocation="CenterScreen"
+          AllowsTransparency="True"
+          Closing="UiWindow_Closing">
+    <Grid>
+            <Button Panel.ZIndex="1" Margin="0,14,17,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="12" Height="12" BorderThickness="0" Padding="1" Background="Transparent" BorderBrush="Transparent" Visibility="{Binding CancelButtonVisibility, Mode=OneWay}" Command="{Binding CancelInstallCommand}">
+            <Path Fill="White" Stretch="Fill">
+                <Path.Data>
+                    <PathGeometry Figures="m 6.7507011 2.1168752 c -1.0144874 0 -2.0291944 0.3884677 -2.8065471 1.1658203 -1.5547052 1.5547053 -1.5547052 4.0583888 10e-8 5.6130941 L 28.499761 33.45088 3.9441541 58.006487 c -1.5547058 1.554706 -1.5547051 4.057873 0 5.612578 1.554705 1.554705 4.0583891 1.554705 5.6130942 0 l 24.5550907 -24.55509 24.555607 24.55509 c 1.554705 1.554705 4.057871 1.554705 5.612577 0 1.554705 -1.554706 1.554705 -4.057872 0 -5.612577 L 39.725433 33.450881 64.280523 8.89579 c 1.554706 -1.5547058 1.554705 -4.0583892 0 -5.6130942 -1.554705 -1.5547051 -4.057872 -1.5547058 -5.612578 -7e-7 L 34.112338 27.838303 9.5572482 3.2826955 C 8.7798955 2.5053428 7.7651883 2.1168752 6.7507011 2.1168752 Z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+        </Button>
+            <TextBlock Margin="5,48,592,344" Panel.ZIndex="2" TextAlignment="Center" Grid.Row="0" Text="tezos" Foreground="Black" FontFamily="{StaticResource Rubik}" FontSize="17" FontWeight="Light">
+                <TextBlock.LayoutTransform>
+                    <ScaleTransform ScaleY="1"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+            <Image Source="/Resources/BootstrapperStyles/TerminalDialog/Reference.png" />
+            <Path Fill="#f3ae35" Stretch="Fill" Panel.ZIndex="1" Margin="8,48,595,344">
+                <Path.Data>
+                    <PathGeometry Figures="m6.53.5h73.4c.71,0,1.39.31,1.86.85l6.76,7.83c.81.94.79,2.33-.04,3.25l-6.73,7.46c-.47.52-1.13.81-1.82.81H7.67c-.64,0-1.25-.25-1.71-.69L1.24,15.43c-.48-.46-.74-1.1-.74-1.76v-7.2c0-.66.26-1.29.73-1.75l3.58-3.52c.46-.45,1.08-.7,1.72-.7Z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+            <Path Fill="#f07623" Stretch="Fill" Panel.ZIndex="1" Margin="98,48,525,344">
+                <Path.Data>
+                    <PathGeometry Figures="M 1.11 .5 10.02 10.6 1.11 20.71 61.37 20.71 70.2 10.6 62.17 .5 1.64 .5" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+            <Path Fill="#4b95e9" Stretch="Fill" Panel.ZIndex="1" Margin="168,48,470,344">
+                <Path.Data>
+                    <PathGeometry Figures="M 1.13 .5 9.95 10.21 1.13 20.71 44.28 20.71 50.1 13.65 50.1 6.76 44.89 .5 1.13 .5z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+            <Path Fill="#FFFFFF" Stretch="Fill" Panel.ZIndex="2" Margin="118,52,560,349">
+                <Path.Data>
+                    <PathGeometry Figures="M .5 11.44 .5 .5 5.44 .5 5.44 1.44 13.47 1.47 13.47 11.44 .5 11.44z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+            <Path Fill="#FFFFFF" Stretch="Fill" Panel.ZIndex="2" Margin="188,52,490,350">
+                <Path.Data>
+                    <PathGeometry Figures="M .5 4.47 1.59 4.47 4.53 7.47 5.71 7.47 12.65 .5 13.74 .5 13.74 2.53 5.56 10.56 4.5 10.56 .5 6.26 .5 4.47z" FillRule="NonZero"/>
+                </Path.Data>
+            </Path>
+            <TextBlock Margin="232,48,32,344" Panel.ZIndex="2" TextAlignment="Left" Grid.Row="0" Text="{Binding Message}" Foreground="White" FontFamily="{StaticResource Rubik}" FontSize="17" FontWeight="Light">
+                <TextBlock.LayoutTransform>
+                    <ScaleTransform ScaleY="1"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Grid>
+</Window>

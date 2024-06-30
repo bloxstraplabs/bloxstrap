@@ -20,6 +20,7 @@
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoDark.jpg" />
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoLight.jpg" />
 	<Resource Include="Resources\BootstrapperStyles\YeezusDialog\Yeezus.gif" />
+    <Resource Include="Resources\BootstrapperStyles\TerminalDialog\Reference.png" />
     <Resource Include="Resources\Menu\StartMenu.png" />
     <Resource Include="Resources\MessageBox\Error.png" />
     <Resource Include="Resources\MessageBox\Information.png" />
