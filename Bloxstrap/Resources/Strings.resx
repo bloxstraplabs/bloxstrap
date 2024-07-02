@@ -673,7 +673,7 @@ There are {0} conflicting flag definitions:
     <value>Export JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>The name of this flag is not valid as names can only contain letters, numbers, and underscores</value>
+    <value>The entry for '{0}' is not valid as the name can only contain letters, numbers, and underscores</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
     <value>The JSON you've entered does not appear to be valid. Please double check it and try again.
@@ -682,7 +682,7 @@ More information:
 {0}</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>The name of this flag is not valid as names must start with FFlag, DFInt, etc</value>
+    <value>The entry for '{0}' is not valid as the name must start with FFlag, DFInt, etc</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
     <value>Copied to clipboard.</value>
@@ -1071,5 +1071,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON files</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
+    <value>The entry for '{0}' is not valid as the value must be a boolean (either 'True' or 'False')</value>
+    <comment>Do not translate 'True' and 'False', those must stay in English</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
+    <value>The entry for '{0}' is not valid as the value must be a number</value>
   </data>
 </root>

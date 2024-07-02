@@ -1843,7 +1843,16 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The name of this flag is not valid as names can only contain letters, numbers, and underscores.
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the value must be a boolean (either &apos;True&apos; or &apos;False&apos;).
+        /// </summary>
+        public static string Menu_FastFlagEditor_InvalidBoolValue {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.InvalidBoolValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the name can only contain letters, numbers, and underscores.
         /// </summary>
         public static string Menu_FastFlagEditor_InvalidCharacter {
             get {
@@ -1864,7 +1873,16 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The name of this flag is not valid as names must start with FFlag, DFInt, etc.
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the value must be a number.
+        /// </summary>
+        public static string Menu_FastFlagEditor_InvalidNumberValue {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.InvalidNumberValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the name must start with FFlag, DFInt, etc.
         /// </summary>
         public static string Menu_FastFlagEditor_InvalidPrefix {
             get {
