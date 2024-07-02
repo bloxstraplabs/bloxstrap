@@ -91,7 +91,7 @@
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}"
+            Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_LightingTechnology_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}"
             HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#preferred-lighting-technology">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>

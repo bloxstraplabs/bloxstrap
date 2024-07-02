@@ -757,7 +757,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Enable ability to hide GUIs</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Choose which lighting technology should be forced enabled in all games.</value>
+    <value>Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
     <value>Preferred lighting technology</value>
