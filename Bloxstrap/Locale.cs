@@ -51,7 +51,7 @@ namespace Bloxstrap
             { "vi", "Tiếng Việt" }
         };
 
-        public static string GetIdentifierFromName(string language) => Locale.SupportedLocales.Where(x => x.Value == language).First().Key;
+        public static string GetIdentifierFromName(string language) => SupportedLocales.FirstOrDefault(x => x.Value == language).Key ?? "nil";
 
         public static List<string> GetLanguages()
         {
