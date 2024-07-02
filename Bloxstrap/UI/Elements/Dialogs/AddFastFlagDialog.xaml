@@ -50,8 +50,12 @@
             </TabItem>
             <TabItem Header="{x:Static resources:Strings.Common_ImportJson}">
                 <Grid Margin="11">
-                    <TextBox x:Name="JsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
-                    <TextBlock IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{}{&#10;    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;&#10;}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" x:Name="JsonTextBox" Margin="5" AcceptsTab="True" AcceptsReturn="True" MinHeight="80" MaxHeight="480" />
+                    <TextBlock Grid.Row="0" IsHitTestVisible="False" Margin="18,14,0,0" Foreground="DarkGray" Text="{}{&#10;    &quot;FFlagDebugDisplayFPS&quot;: &quot;True&quot;&#10;}">
                         <TextBlock.Style>
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -63,6 +67,7 @@
                             </Style>
                         </TextBlock.Style>
                     </TextBlock>
+                    <ui:Button Grid.Row="1" Margin="4" Icon="DocumentArrowUp16" Content="{x:Static resources:Strings.Common_ImportFromFile}" HorizontalAlignment="Stretch" Click="ImportButton_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

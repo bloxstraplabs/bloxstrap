@@ -369,6 +369,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import from file.
+        /// </summary>
+        public static string Common_ImportFromFile {
+            get {
+                return ResourceManager.GetString("Common.ImportFromFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Import JSON.
         /// </summary>
         public static string Common_ImportJson {
@@ -595,7 +604,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add FastFlag.
+        ///   Looks up a localized string similar to Add Fast Flag.
         /// </summary>
         public static string Dialog_AddFastFlag_Title {
             get {
@@ -1243,6 +1252,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JSON files.
+        /// </summary>
+        public static string FileTypes_JSONFiles {
+            get {
+                return ResourceManager.GetString("FileTypes.JSONFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
         ///
         ///While Bloxstrap will continue to work, it&apos;s recommended that you change the drive letter back to its original value as other installed applications can experience similar issues..
@@ -1807,7 +1825,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage your own FastFlags. Double click a column to edit..
+        ///   Looks up a localized string similar to Manage your own Fast Flags. Double click a column to edit..
         /// </summary>
         public static string Menu_FastFlagEditor_Description {
             get {
@@ -2783,7 +2801,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there..
+        ///   Looks up a localized string similar to After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as Fast Flag management, you can find it there..
         /// </summary>
         public static string Menu_PreInstall_Info_1 {
             get {

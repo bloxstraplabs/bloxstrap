@@ -301,7 +301,7 @@ Click for more information</value>
     <value>Type</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Add FastFlag</value>
+    <value>Add Fast Flag</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
     <value>More information:</value>
@@ -667,7 +667,7 @@ There are {0} conflicting flag definitions:
     <value>Delete selected</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your own FastFlags. Double click a column to edit.</value>
+    <value>Manage your own Fast Flags. Double click a column to edit.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
     <value>Export JSON</value>
@@ -965,7 +965,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>There's just a few things you first should know about.</value>
   </data>
   <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as FastFlag management, you can find it there.</value>
+    <value>After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as Fast Flag management, you can find it there.</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
     <value>If you ever need help or guidance with anything, be sure to check the [Wiki]({0}). If you still need something, open an [issue]({1}) on GitHub, or join our [Discord server]({2}).</value>
@@ -1065,5 +1065,11 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
+  </data>
+  <data name="Common.ImportFromFile" xml:space="preserve">
+    <value>Import from file</value>
+  </data>
+  <data name="FileTypes.JSONFiles" xml:space="preserve">
+    <value>JSON files</value>
   </data>
 </root>
