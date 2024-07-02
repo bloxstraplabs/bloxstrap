@@ -150,7 +150,7 @@
             x:Name="FontPaddingOption"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_FontPadding_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}">
-            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FontSize, Mode=TwoWay}" PreviewTextInput="ValidateInt32" IsEnabled="{Binding InnerContent.Children[1].IsChecked, ElementName=FontPaddingOption, Mode=OneWay}" />
+            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FontSize, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
         </controls:OptionControl>
 
         <controls:OptionControl 
