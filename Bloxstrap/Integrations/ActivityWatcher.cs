@@ -17,6 +17,7 @@
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
+        private const string GameMessageEntryPattern = @"\[BloxstrapRPC\] (.*)";
 
         private int _gameClientPid;
         private int _logEntriesRead = 0;
@@ -243,7 +244,16 @@
                 }
                 else if (entry.Contains(GameMessageEntry))
                 {
-                    string messagePlain = entry.Substring(entry.IndexOf(GameMessageEntry) + GameMessageEntry.Length + 1);
+                    var match = Regex.Match(entry, GameMessageEntryPattern);
+
+                    if (match.Groups.Count != 2)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for RPC message entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        return;
+                    }
+
+                    string messagePlain = match.Groups[1].Value;
                     Message? message;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
