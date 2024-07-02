@@ -90,9 +90,16 @@
                 <TextBlock Text="{x:Static resources:Strings.Common_Name}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <ui:TextBox Margin="0,4,0,0" Text="{Binding SelectedCustomIntegration.Name}" />
                 <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation_Placeholder}" Text="{Binding SelectedCustomIntegration.Location}" />
+                <Grid Margin="0,4,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBox Grid.Column="0" Margin="0,0,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation_Placeholder}" Text="{Binding SelectedCustomIntegration.Location}" />
+                    <ui:Button Grid.Column="1" Margin="8,0,0,0" Height="34" Icon="Folder24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseIntegrationLocationCommand}" />
+                </Grid>
                 <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" />
+                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
                 <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
             </StackPanel>
             <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">

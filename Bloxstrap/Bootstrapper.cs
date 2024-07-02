@@ -336,7 +336,7 @@ namespace Bloxstrap
                 gameClientPid = gameClient.Id;
             }
 
-            List<Process> autocloseProcesses = new();
+            List<Process?> autocloseProcesses = new();
             ActivityWatcher? activityWatcher = null;
             DiscordRichPresence? richPresence = null;
 
@@ -379,7 +379,13 @@ namespace Bloxstrap
 
                 try
                 {
-                    Process process = Process.Start(integration.Location, integration.LaunchArgs);
+                    var process = Process.Start(new ProcessStartInfo
+                    {
+                        FileName = integration.Location,
+                        Arguments = integration.LaunchArgs.Replace("\r\n", " "),
+                        WorkingDirectory = Path.GetDirectoryName(integration.Location),
+                        UseShellExecute = true
+                    });
 
                     if (integration.AutoClose)
                     {
@@ -413,9 +419,9 @@ namespace Bloxstrap
 
             richPresence?.Dispose();
 
-            foreach (Process process in autocloseProcesses)
+            foreach (var process in autocloseProcesses)
             {
-                if (process.HasExited)
+                if (process is null || process.HasExited)
                     continue;
 
                 App.Logger.WriteLine(LOG_IDENT, $"Autoclosing process '{process.ProcessName}' (PID {process.Id})");

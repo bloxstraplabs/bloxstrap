@@ -1,6 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
+using Bloxstrap.Resources;
+
+using Microsoft.Win32;
+
 using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.UI.ViewModels.Menu
@@ -9,6 +13,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
     {
         public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
         public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
+        public ICommand BrowseIntegrationLocationCommand => new RelayCommand(BrowseIntegrationLocation);
 
         private void AddIntegration()
         {
@@ -37,6 +42,23 @@ namespace Bloxstrap.UI.ViewModels.Menu
             }
 
             OnPropertyChanged(nameof(IsCustomIntegrationSelected));
+        }
+
+        private void BrowseIntegrationLocation()
+        {
+            if (SelectedCustomIntegration is null)
+                return;
+
+            var dialog = new OpenFileDialog
+            {
+                Filter = $"{Strings.Menu_AllFiles}|*.*"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            SelectedCustomIntegration.Location = dialog.FileName;
+            OnPropertyChanged(nameof(SelectedCustomIntegration));
         }
 
         public bool ActivityTrackingEnabled
