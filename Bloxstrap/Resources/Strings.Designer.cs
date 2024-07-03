@@ -2495,7 +2495,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure quick and easy ways to improve the Roblox gameplay experience..
+        ///   Looks up a localized string similar to Configure additional functionality to go alongside Roblox..
         /// </summary>
         public static string Menu_Integrations_Description {
             get {
@@ -2540,7 +2540,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This feature requires activity tracking to be enabled..
+        ///   Looks up a localized string similar to This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running..
         /// </summary>
         public static string Menu_Integrations_RequiresActivityTracking {
             get {
@@ -2549,7 +2549,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When playing a Roblox game, the game you&apos;re playing will show on your Discord profile activity..
+        ///   Looks up a localized string similar to The Roblox game you&apos;re playing will be shown on your Discord profile. [Not working?]({0}).
         /// </summary>
         public static string Menu_Integrations_ShowGameActivity_Description {
             get {

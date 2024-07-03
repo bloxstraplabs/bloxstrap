@@ -44,7 +44,7 @@
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
-            Description="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}"
+            Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki/Discord-Rich-Presence-does-not-work'}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
             x:Name="DiscordActivityOption">
             <ui:ToggleSwitch IsChecked="{Binding DiscordActivityEnabled, Mode=TwoWay}" />

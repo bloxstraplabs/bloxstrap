@@ -856,7 +856,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Custom Integrations</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configure quick and easy ways to improve the Roblox gameplay experience.</value>
+    <value>Configure additional functionality to go alongside Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
     <value>Roblox will fully close when you leave a game instead of dropping you back into the app.</value>
@@ -871,10 +871,10 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Enable activity tracking</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>This feature requires activity tracking to be enabled.</value>
+    <value>This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running.</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>When playing a Roblox game, the game you're playing will show on your Discord profile activity.</value>
+    <value>The Roblox game you're playing will be shown on your Discord profile. [Not working?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Show game activity</value>
