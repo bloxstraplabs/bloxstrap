@@ -21,8 +21,10 @@ namespace Bloxstrap.UI.ViewModels.Dialogs
 
         private void SetLocale()
         {
-            App.Settings.Prop.Locale = Locale.GetIdentifierFromName(SelectedLanguage);
-            Locale.Set();
+            string identifier = Locale.GetIdentifierFromName(SelectedLanguage);
+
+            Locale.Set(identifier);
+            App.Settings.Prop.Locale = identifier;
 
             CloseRequestEvent?.Invoke(this, new());
         }

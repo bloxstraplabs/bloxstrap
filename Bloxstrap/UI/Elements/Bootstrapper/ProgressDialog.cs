@@ -57,6 +57,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             this.IconBox.BackgroundImage = App.Settings.Prop.BootstrapperIcon.GetIcon().GetSized(128, 128).ToBitmap();
 
             SetupDialog();
+
+            this.ProgressBar.RightToLeft = this.RightToLeft;
+            this.ProgressBar.RightToLeftLayout = this.RightToLeftLayout;
         }
 
         private void ButtonCancel_MouseEnter(object sender, EventArgs e)

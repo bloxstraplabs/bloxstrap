@@ -47,6 +47,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ScaleWindow();
             SetupDialog();
+
+            this.ProgressBar.RightToLeft = this.RightToLeft;
+            this.ProgressBar.RightToLeftLayout = this.RightToLeftLayout;
         }
 
         private void LegacyDialog2008_Load(object sender, EventArgs e)

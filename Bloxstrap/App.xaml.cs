@@ -111,7 +111,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "App::OnStartup";
 
-            Locale.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
+            Locale.Initialize();
 
             base.OnStartup(e);
 
@@ -144,7 +144,8 @@ namespace Bloxstrap
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();
-                Locale.Set();
+
+                Locale.Set(Settings.Prop.Locale);
             }
 
             LaunchSettings.ParseRoblox();

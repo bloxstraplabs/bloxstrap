@@ -100,11 +100,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
                 this.RightToLeft = RightToLeft.Yes;
                 this.RightToLeftLayout = true;
             }
-            else
-            {
-                this.RightToLeft = RightToLeft.No;
-                this.RightToLeftLayout = false;
-            }
         }
 
         #region WinForms event handlers
