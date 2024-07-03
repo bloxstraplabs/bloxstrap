@@ -1318,6 +1318,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No log file will be written for this launch because Bloxstrap is unable to write to the folder at &apos;{0}&apos;.
+        /// </summary>
+        public static string Logger_NoWriteMode {
+            get {
+                return ResourceManager.GetString("Logger.NoWriteMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contributors.
         /// </summary>
         public static string Menu_About_Contributors {

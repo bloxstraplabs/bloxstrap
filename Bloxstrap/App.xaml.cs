@@ -182,7 +182,7 @@ namespace Bloxstrap
             {
                 Logger.Initialize(LaunchSettings.IsUninstall);
 
-                if (!Logger.Initialized)
+                if (!Logger.Initialized && !Logger.NoWriteMode)
                 {
                     Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
                     Terminate();

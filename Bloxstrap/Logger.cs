@@ -9,6 +9,7 @@
 
         public readonly List<string> Backlog = new();
         public bool Initialized = false;
+        public bool NoWriteMode = false;
         public string? FileLocation;
 
         public void Initialize(bool useTempDir = false)
@@ -43,6 +44,23 @@
             catch (IOException)
             {
                 WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+                return;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                if (NoWriteMode)
+                    return;
+
+                WriteLine(LOG_IDENT, $"Failed to initialize because Bloxstrap cannot write to {directory}");
+
+                Frontend.ShowMessageBox(
+                    String.Format(Resources.Strings.Logger_NoWriteMode, directory), 
+                    System.Windows.MessageBoxImage.Warning, 
+                    System.Windows.MessageBoxButton.OK
+                );
+
+                NoWriteMode = true;
+
                 return;
             }
             
