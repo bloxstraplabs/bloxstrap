@@ -34,7 +34,7 @@
             x:Name="SettingsSavedSnackbar"
             Title="{x:Static resources:Strings.Menu_SettingsSaved_Title}"
             Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
-            Appearance="Primary" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
+            Appearance="Success" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
         <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
 
