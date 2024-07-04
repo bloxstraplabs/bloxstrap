@@ -38,10 +38,6 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_activityWatcher is not null)
             {
-#if DEBUG
-                LogTracerMenuItem.Visibility = Visibility.Visible;
-#endif
-
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
                 _activityWatcher.OnGameLeave += ActivityWatcher_OnGameLeave;
             }

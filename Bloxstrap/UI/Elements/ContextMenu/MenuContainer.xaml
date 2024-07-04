@@ -73,7 +73,18 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="LogTracerMenuItem" Header="{x:Static resources:Strings.ContextMenu_OpenLogFile}" Visibility="Collapsed" Click="LogTracerMenuItem_Click" />
+            <MenuItem x:Name="LogTracerMenuItem" Click="LogTracerMenuItem_Click">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="DocumentCatchUp20"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_OpenLogFile}" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
         </ContextMenu>
     </ui:UiWindow.ContextMenu>
 </base:WpfUiWindow>
