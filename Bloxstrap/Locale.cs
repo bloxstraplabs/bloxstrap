@@ -12,7 +12,7 @@ namespace Bloxstrap
 
         public static readonly Dictionary<string, string> SupportedLocales = new()
         {
-            { "nil", Strings.Enums_Theme_Default }, // /shrug
+            { "nil", Strings.Common_SystemDefault },
             { "en", "English" },
             { "en-US", "English (United States)" },
             { "ar", "العربية" },
@@ -55,13 +55,9 @@ namespace Bloxstrap
 
         public static List<string> GetLanguages()
         {
-            var languages = new List<string>()
-            {
-                Strings.Enums_Theme_Default,
-                "English",
-                "English (United States)"
-            };
-
+            var languages = new List<string>();
+            
+            languages.AddRange(SupportedLocales.Values.Take(3));
             languages.AddRange(SupportedLocales.Values.Where(x => !languages.Contains(x)).OrderBy(x => x));
 
             return languages;

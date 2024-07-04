@@ -2,6 +2,7 @@
 {
     public enum TextureQuality
     {
+        [EnumName(FromTranslation = "Common.Automatic")]
         Default,
         Level0,
         Level1,

@@ -2,6 +2,7 @@
 {
     public enum InGameMenuVersion
     {
+        [EnumName(FromTranslation = "Common.Default")]
         Default,
         V1,
         V2,

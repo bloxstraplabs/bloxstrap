@@ -60,7 +60,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MSAALevels.Keys, Mode=OneTime}" Text="{Binding SelectedMSAALevel, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.MSAAMode.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -96,7 +96,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding LightingModes.Keys, Mode=OneTime}" Text="{Binding SelectedLightingMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.LightingMode.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -114,7 +114,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.RenderingMode.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -125,7 +125,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding TextureQualities.Keys, Mode=OneTime}" Text="{Binding SelectedTextureQuality, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.TextureQuality.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -159,7 +159,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.FlagPresets.InGameMenuVersion.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

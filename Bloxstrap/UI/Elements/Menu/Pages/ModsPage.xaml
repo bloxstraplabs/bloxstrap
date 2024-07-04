@@ -75,7 +75,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypes, Mode=OneTime}" Text="{Binding SelectedCursorType, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.CursorType.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -99,7 +99,7 @@
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="220" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.EmojiType.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

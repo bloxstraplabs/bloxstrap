@@ -8,6 +8,7 @@
         ProgressDialog,
         ClassicFluentDialog,
         ByfronDialog,
+        [EnumName(StaticName = "Bloxstrap")]
         FluentDialog,
         FluentAeroDialog
     }

@@ -19,7 +19,7 @@
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.Theme.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -59,7 +59,7 @@
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Dialogs, Mode=OneTime}" Text="{Binding Dialog, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=., Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.BootstrapperStyle.'}" />
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -78,7 +78,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Height="16" Source="{Binding ImageSource, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
-                            <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{Binding Name, Mode=OneWay, Converter={StaticResource ResourceConverter}, ConverterParameter='Enums.BootstrapperIcon.'}" />
+                            <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{Binding Path=IconType, Converter={StaticResource EnumNameConverter}}" />
                         </Grid>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

@@ -315,6 +315,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatic.
+        /// </summary>
+        public static string Common_Automatic {
+            get {
+                return ResourceManager.GetString("Common.Automatic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Browse.
         /// </summary>
         public static string Common_Browse {
@@ -338,6 +347,24 @@ namespace Bloxstrap.Resources {
         public static string Common_Close {
             get {
                 return ResourceManager.GetString("Common.Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string Common_Custom {
+            get {
+                return ResourceManager.GetString("Common.Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string Common_Default {
+            get {
+                return ResourceManager.GetString("Common.Default", resourceCulture);
             }
         }
         
@@ -455,6 +482,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Reset {
             get {
                 return ResourceManager.GetString("Common.Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System default.
+        /// </summary>
+        public static string Common_SystemDefault {
+            get {
+                return ResourceManager.GetString("Common.SystemDefault", resourceCulture);
             }
         }
         
@@ -739,69 +775,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2008.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_Icon2008 {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.Icon2008", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2011.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_Icon2011 {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.Icon2011", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2017.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_Icon2017 {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.Icon2017", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2019.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_Icon2019 {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.Icon2019", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2022.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_Icon2022 {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.Icon2022", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_IconBloxstrap {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.IconBloxstrap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom.
-        /// </summary>
-        public static string Enums_BootstrapperIcon_IconCustom {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperIcon.IconCustom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Early 2015.
         /// </summary>
         public static string Enums_BootstrapperIcon_IconEarly2015 {
@@ -847,15 +820,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap.
-        /// </summary>
-        public static string Enums_BootstrapperStyle_FluentDialog {
-            get {
-                return ResourceManager.GetString("Enums.BootstrapperStyle.FluentDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Legacy (2008 - 2011).
         /// </summary>
         public static string Enums_BootstrapperStyle_LegacyDialog2008 {
@@ -888,15 +852,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_BootstrapperStyle_VistaDialog {
             get {
                 return ResourceManager.GetString("Enums.BootstrapperStyle.VistaDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default.
-        /// </summary>
-        public static string Enums_CursorType_Default {
-            get {
-                return ResourceManager.GetString("Enums.CursorType.Default", resourceCulture);
             }
         }
         
@@ -960,15 +915,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_EmojiType_Windows8 {
             get {
                 return ResourceManager.GetString("Enums.EmojiType.Windows8", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default.
-        /// </summary>
-        public static string Enums_FlagPresets_InGameMenuVersion_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.Default", resourceCulture);
             }
         }
         
@@ -1045,69 +991,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chosen by game.
-        /// </summary>
-        public static string Enums_FlagPresets_MaterialVersion_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MaterialVersion.Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New (2022).
-        /// </summary>
-        public static string Enums_FlagPresets_MaterialVersion_New {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MaterialVersion.New", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Old (Pre-2022).
-        /// </summary>
-        public static string Enums_FlagPresets_MaterialVersion_Old {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MaterialVersion.Old", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Automatic.
-        /// </summary>
-        public static string Enums_FlagPresets_MSAAMode_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MSAAMode.Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 1x.
-        /// </summary>
-        public static string Enums_FlagPresets_MSAAMode_x1 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MSAAMode.x1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2x.
-        /// </summary>
-        public static string Enums_FlagPresets_MSAAMode_x2 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MSAAMode.x2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 4x.
-        /// </summary>
-        public static string Enums_FlagPresets_MSAAMode_x4 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.MSAAMode.x4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Direct3D 10.
         /// </summary>
         public static string Enums_FlagPresets_RenderingMode_D3D10 {
@@ -1122,42 +1005,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_FlagPresets_RenderingMode_D3D11 {
             get {
                 return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.D3D11", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Automatic.
-        /// </summary>
-        public static string Enums_FlagPresets_RenderingMode_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OpenGL.
-        /// </summary>
-        public static string Enums_FlagPresets_RenderingMode_OpenGL {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.OpenGL", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Vulkan.
-        /// </summary>
-        public static string Enums_FlagPresets_RenderingMode_Vulkan {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.Vulkan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default.
-        /// </summary>
-        public static string Enums_FlagPresets_TextureQuality_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.TextureQuality.Default", resourceCulture);
             }
         }
         
@@ -1230,15 +1077,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_Theme_Dark {
             get {
                 return ResourceManager.GetString("Enums.Theme.Dark", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to System default.
-        /// </summary>
-        public static string Enums_Theme_Default {
-            get {
-                return ResourceManager.GetString("Enums.Theme.Default", resourceCulture);
             }
         }
         
