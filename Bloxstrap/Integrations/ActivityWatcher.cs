@@ -13,9 +13,9 @@
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
         private const string GameMessageEntry = "[FLog::Output] [BloxstrapRPC]";
         private const string GameLeavingEntry = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
-        private const string GameJoinLoadTimeEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:"
+        private const string GameJoinLoadTimeEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
         
-        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)"
+        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)";
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
@@ -157,7 +157,7 @@
                     return;                
                 }
 
-                ActivityUserId = match.Groups[1].Value
+                ActivityUserId = match.Groups[1].Value;
             }
             if (!ActivityInGame && ActivityPlaceId == 0)
             {
@@ -245,7 +245,7 @@
                     ActivityMachineUDMUX = false;
                     ActivityIsTeleport = false;
                     ActivityServerType = ServerType.Public;
-                    ActivityUserId = ""
+                    ActivityUserId = "";
                     
                     OnGameLeave?.Invoke(this, new EventArgs());
                 }
