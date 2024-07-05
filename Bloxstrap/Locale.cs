@@ -31,7 +31,7 @@ namespace Bloxstrap
             { "de", "Deutsch" },
             { "he", "עברית‎" },
             { "hr", "Hrvatski" },
-            // { "hi", "हिन्दी" },
+            // { "hi", "Hindi (Latin)" },
             { "hu", "Magyar" },
             // { "id", "Bahasa Indonesia" },
             // { "it", "Italiano" },
