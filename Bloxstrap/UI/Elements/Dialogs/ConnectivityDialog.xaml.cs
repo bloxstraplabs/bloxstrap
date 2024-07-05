@@ -14,12 +14,12 @@ namespace Bloxstrap.UI.Elements.Dialogs
     /// </summary>
     public partial class ConnectivityDialog
     {
-        public ConnectivityDialog(string targetName, string description, Exception exception)
+        public ConnectivityDialog(string title, string description, Exception exception)
         {
             InitializeComponent();
 
-            TitleTextBlock.Text = string.Format(Bloxstrap.Resources.Strings.Dialog_Connectivity_UnableToConnect, targetName);
-            DescriptionTextBlock.Text = description;
+            TitleTextBlock.Text = title;
+            DescriptionTextBlock.MarkdownText = description;
 
             AddException(exception);
 
