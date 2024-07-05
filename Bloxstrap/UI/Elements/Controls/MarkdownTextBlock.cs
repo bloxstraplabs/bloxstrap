@@ -17,7 +17,10 @@ namespace Bloxstrap.UI.Elements.Controls
     [Localizability(LocalizationCategory.Text)]
     class MarkdownTextBlock : TextBlock
     {
-        private static MarkdownPipeline _markdownPipeline;
+        private static readonly MarkdownPipeline _markdownPipeline = new MarkdownPipelineBuilder()
+                .UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Marked) // enable '==' support
+                .UseSoftlineBreakAsHardlineBreak()
+                .Build();
 
         public static readonly DependencyProperty MarkdownTextProperty = 
             DependencyProperty.Register(nameof(MarkdownText), typeof(string), typeof(MarkdownTextBlock),
@@ -70,9 +73,7 @@ namespace Bloxstrap.UI.Elements.Controls
                 var textInline = linkInline.FirstChild;
 
                 if (string.IsNullOrEmpty(url))
-                {
                     return GetWpfInlineFromMarkdownInline(textInline);
-                }
 
                 var childInline = GetWpfInlineFromMarkdownInline(textInline);
 
@@ -82,6 +83,10 @@ namespace Bloxstrap.UI.Elements.Controls
                     CommandParameter = url
                 };
             }
+            else if (inline is LineBreakInline)
+            {
+                return new LineBreak();
+            }
 
             return null;
         }
@@ -89,7 +94,8 @@ namespace Bloxstrap.UI.Elements.Controls
         private void AddMarkdownInline(Markdig.Syntax.Inlines.Inline? inline)
         {
             var wpfInline = GetWpfInlineFromMarkdownInline(inline);
-            if (wpfInline != null)
+
+            if (wpfInline is not null)
                 Inlines.Add(wpfInline);
         }
 
@@ -101,26 +107,28 @@ namespace Bloxstrap.UI.Elements.Controls
             if (dependencyPropertyChangedEventArgs.NewValue is not string rawDocument)
                 return;
 
-            MarkdownDocument document = Markdown.Parse(rawDocument, _markdownPipeline);
+            var document = Markdown.Parse(rawDocument, _markdownPipeline);
 
             markdownTextBlock.Inlines.Clear();
 
-            if (document.FirstOrDefault() is not ParagraphBlock paragraphBlock || paragraphBlock.Inline == null)
-                return;
+            var lastBlock = document.Last();
 
-            for (int i = 0; i < paragraphBlock.Inline.Count(); i++)
+            // matt was evidently very tired on the night he was first writing this
+            // https://github.com/pizzaboxer/bloxstrap/blob/289b9dec77cf35b2cc6504019bc9c7701626be1f/Bloxstrap/UI/Elements/Controls/MarkdownTextBlock.cs#L111
+            foreach (var block in document)
             {
-                var inline = paragraphBlock.Inline.ElementAt(i);
+                if (block is not ParagraphBlock paragraphBlock || paragraphBlock.Inline is null)
+                    continue;
 
-                markdownTextBlock.AddMarkdownInline(inline);
+                foreach (var inline in paragraphBlock.Inline)
+                    markdownTextBlock.AddMarkdownInline(inline);
+
+                if (block != lastBlock)
+                {
+                    markdownTextBlock.AddMarkdownInline(new LineBreakInline());
+                    markdownTextBlock.AddMarkdownInline(new LineBreakInline());
+                }
             }
-        }
-
-        static MarkdownTextBlock()
-        {
-            _markdownPipeline = new MarkdownPipelineBuilder()
-                .UseEmphasisExtras(Markdig.Extensions.EmphasisExtras.EmphasisExtraOptions.Marked) // enable '==' support
-                .Build();
         }
     }
 }
