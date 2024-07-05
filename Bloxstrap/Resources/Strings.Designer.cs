@@ -712,38 +712,13 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please report this exception through a GitHub issue or in our Discord chat, along with a copy of the log file that was created..
+        ///   Looks up a localized string similar to Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+        ///
+        ///If not, then please report this exception through a [GitHub issue]({1}) along with a copy of the log file that was created..
         /// </summary>
         public static string Dialog_Exception_Info_2 {
             get {
                 return ResourceManager.GetString("Dialog.Exception.Info.2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submit report....
-        /// </summary>
-        public static string Dialog_Exception_SubmitReport {
-            get {
-                return ResourceManager.GetString("Dialog.Exception.SubmitReport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submit report via Discord.
-        /// </summary>
-        public static string Dialog_Exception_SubmitReportDiscord {
-            get {
-                return ResourceManager.GetString("Dialog.Exception.SubmitReportDiscord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submit report via GitHub.
-        /// </summary>
-        public static string Dialog_Exception_SubmitReportGithub {
-            get {
-                return ResourceManager.GetString("Dialog.Exception.SubmitReportGithub", resourceCulture);
             }
         }
         

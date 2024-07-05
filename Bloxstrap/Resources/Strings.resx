@@ -319,16 +319,9 @@ Click for more information</value>
     <value>An exception occurred while running Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Please report this exception through a GitHub issue or in our Discord chat, along with a copy of the log file that was created.</value>
-  </data>
-  <data name="Dialog.Exception.SubmitReport" xml:space="preserve">
-    <value>Submit report...</value>
-  </data>
-  <data name="Dialog.Exception.SubmitReportDiscord" xml:space="preserve">
-    <value>Submit report via Discord</value>
-  </data>
-  <data name="Dialog.Exception.SubmitReportGithub" xml:space="preserve">
-    <value>Submit report via GitHub</value>
+    <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+
+If not, then please report this exception through a [GitHub issue]({1}) along with a copy of the log file that was created.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap Exception</value>
