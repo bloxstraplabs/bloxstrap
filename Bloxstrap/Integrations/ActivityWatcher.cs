@@ -13,7 +13,9 @@
         private const string GameTeleportingEntry = "[FLog::SingleSurfaceApp] initiateTeleport";
         private const string GameMessageEntry = "[FLog::Output] [BloxstrapRPC]";
         private const string GameLeavingEntry = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
-
+        private const string GameJoinLoadTimeEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:"
+        
+        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)"
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
@@ -39,6 +41,7 @@
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
         public string ActivityJobId = "";
+        public string ActivityUserId = "";
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
@@ -143,6 +146,19 @@
                 process.CloseMainWindow();
             }
 
+            if (ActivityUserId == "" && entry.Contains(GameJoinLoadTimeEntry))
+            {
+                Match match = Regex.Match(entry, GameJoinLoadTimeEntryPattern);
+
+                if (match.Groups.Count != 2)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join load time entry");
+                    App.Logger.WriteLine(LOG_IDENT, entry);
+                    return;                
+                }
+
+                ActivityUserId = match.Groups[1].Value
+            }
             if (!ActivityInGame && ActivityPlaceId == 0)
             {
                 if (entry.Contains(GameJoiningPrivateServerEntry))
@@ -229,7 +245,8 @@
                     ActivityMachineUDMUX = false;
                     ActivityIsTeleport = false;
                     ActivityServerType = ServerType.Public;
-
+                    ActivityUserId = ""
+                    
                     OnGameLeave?.Invoke(this, new EventArgs());
                 }
                 else if (entry.Contains(GameTeleportingEntry))
