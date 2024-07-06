@@ -255,8 +255,8 @@ namespace Bloxstrap.Integrations
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
                 } else
                 {
-                    smallImagetext = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallImagetext}");
+                    smallImageText = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
+                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallImageText}");
                 }
             }
 
@@ -304,8 +304,8 @@ namespace Bloxstrap.Integrations
                 {
                     LargeImageKey = icon,
                     LargeImageText = universeDetails.Name,
-                    SmallImageKey = smallimage,
-                    SmallImageText = smallimagetext
+                    SmallImageKey = smallImage,
+                    SmallImageText = smallImageText
                 }
             };
 
