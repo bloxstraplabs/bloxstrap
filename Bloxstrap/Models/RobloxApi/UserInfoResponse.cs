@@ -12,10 +12,10 @@
         public string JoinDate { get; set; } = null!;
 
         [JsonPropertyName("isBanned")]
-        public bool IsBanned { get; set; } = null!;
+        public bool IsBanned { get; set; }
 
         [JsonPropertyName("hasVerifiedBadge")]
-        public bool HasVerifiedBadge { get; set; } = null!;
+        public bool HasVerifiedBadge { get; set; }
 
         [JsonPropertyName("name")]
         public string Username { get; set; } = null!;
