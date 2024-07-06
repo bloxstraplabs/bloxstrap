@@ -245,8 +245,8 @@ namespace Bloxstrap.Integrations
                 }
                 else
                 {
-                    smallimage = userPfpResponse.Data.ToArray()[0].ImageUrl;
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallimage}");
+                    smallImage = userPfpResponse.Data.ToArray()[0].ImageUrl;
+                    App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallImage}");
                 }
                 
                 var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{userId}");
@@ -255,8 +255,8 @@ namespace Bloxstrap.Integrations
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
                 } else
                 {
-                    smallimagetext = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
+                    smallImagetext = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
+                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallImagetext}");
                 }
             }
 
