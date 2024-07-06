@@ -57,6 +57,13 @@
             <ui:ToggleSwitch IsChecked="{Binding DiscordActivityJoinEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Integrations_ShowAccountOnProfile_Title}" 
+            Description="{x:Static resources:Strings.Menu_Integrations_ShowAccountOnProfile_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding DiscordAccountOnProfile, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
         <Grid Margin="0,8,0,0">
