@@ -99,7 +99,9 @@ namespace Bloxstrap.UI.ViewModels.Menu
                 if (!value)
                 {
                     DiscordActivityJoinEnabled = value;
+                    DiscordAccountOnProfile = value;
                     OnPropertyChanged(nameof(DiscordActivityJoinEnabled));
+                    OnPropertyChanged(nameof(DiscordAccountOnProfile));
                 }
             }
         }
