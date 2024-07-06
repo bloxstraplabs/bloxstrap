@@ -24,6 +24,7 @@ namespace Bloxstrap.Models
         public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;
+        public bool AccountShownOnProfile { get; set; } = true;
         public bool ShowServerDetails { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
