@@ -249,7 +249,7 @@ namespace Bloxstrap.Integrations
                     App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallimage}");
                 }
                 
-                var userInfoResponse = await Http.GetJson<ApiArrayResponse<UserInfoResponse>>($"https://users.roblox.com/v1/users/{userId}");
+                var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{userId}");
                 if (userInfoResponse is null || !userInfoResponse.Data.Any())
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
