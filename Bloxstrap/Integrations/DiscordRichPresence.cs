@@ -253,10 +253,12 @@ namespace Bloxstrap.Integrations
                 if (userInfoResponse is null || !userInfoResponse.Data.Any())
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
-                    return false;
+                } else {
+                    App.Logger.WriteLine(LOG_IDENT, "testpoint1");
+                    smallimagetext = userInfoResponse.Data.ToArray()[0].DisplayName + $"(@{userInfoResponse.Data.ToArray()[0].Username})"; //example: john doe (@johndoe)
+                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
                 }
-                smallimagetext = userInfoResponse.Data.ToArray()[0].DisplayName + $"(@{userInfoResponse.Data.ToArray()[0].Username})"; //example: john doe (@johndoe)
-                App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
+                App.Logger.WriteLine(LOG_IDENT, "testpoint2");
                 
             }
 
