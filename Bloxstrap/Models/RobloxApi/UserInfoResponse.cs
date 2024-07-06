@@ -9,18 +9,18 @@
         public string ProfileDescription { get; set; }
 
         [JsonPropertyName("created")]
-        public string JoinDate { get; set; };
+        public string JoinDate { get; set; }
 
         [JsonPropertyName("isBanned")]
-        public bool IsBanned { get; set; };
+        public bool IsBanned { get; set; }
 
         [JsonPropertyName("hasVerifiedBadge")]
-        public bool HasVerifiedBadge { get; set; };
+        public bool HasVerifiedBadge { get; set; }
 
         [JsonPropertyName("name")]
-        public string Username { get; set; };
+        public string Username { get; set; }
 
         [JsonPropertyName("displayName")]
-        public string DisplayName { get; set; };
+        public string DisplayName { get; set; }
     }
 }
