@@ -6,21 +6,21 @@
     public class UserInfoResponse
     {
         [JsonPropertyName("description")]
-        public string ProfileDescription { get; set; }
+        public string ProfileDescription { get; set; } = null!;
 
         [JsonPropertyName("created")]
-        public string JoinDate { get; set; }
+        public string JoinDate { get; set; } = null!;
 
         [JsonPropertyName("isBanned")]
-        public bool IsBanned { get; set; }
+        public bool IsBanned { get; set; } = null!;
 
         [JsonPropertyName("hasVerifiedBadge")]
-        public bool HasVerifiedBadge { get; set; }
+        public bool HasVerifiedBadge { get; set; } = null!;
 
         [JsonPropertyName("name")]
-        public string Username { get; set; }
+        public string Username { get; set; } = null!;
 
         [JsonPropertyName("displayName")]
-        public string DisplayName { get; set; }
+        public string DisplayName { get; set; } = null!;
     }
 }
