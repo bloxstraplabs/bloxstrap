@@ -248,8 +248,9 @@ namespace Bloxstrap.Integrations
                     smallimage = userPfpResponse.Data.ToArray()[0].ImageUrl;
                     App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallimage}");
                 }
-
+                
                 var userInfoResponse = await Http.GetJson<ApiArrayResponse<UserInfoResponse>>($"https://users.roblox.com/v1/users/{userId}");
+                App.Logger.WriteLine(LOG_IDENT, "userinforesponse is not blocking thread.");
                 if (userInfoResponse is null || !userInfoResponse.Data.Any())
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
