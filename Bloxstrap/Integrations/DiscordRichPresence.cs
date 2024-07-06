@@ -235,8 +235,7 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, $"Got Universe thumbnail as {icon}");
             }
 
-            //right now this is configured in a way so that it will only show your avatar and username if you have chosen to allow people to join you from their profile.
-            if (!App.Settings.Prop.HideRPCButtons)
+            if (App.Settings.Prop.AccountShownOnProfile)
             {
                 var userPfpResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={userId}&size=180x180&format=Png&isCircular=false"); //we can remove '-headshot' from the url if we want a full avatar picture
                 if (userPfpResponse is null || !userPfpResponse.Data.Any())
