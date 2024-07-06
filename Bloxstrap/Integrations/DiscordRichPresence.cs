@@ -250,7 +250,7 @@ namespace Bloxstrap.Integrations
                 }
                 
                 var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{userId}");
-                if (userInfoResponse is null || !userInfoResponse.Any())
+                if (userInfoResponse is null || !userInfoResponse.Username)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
                 } else {
