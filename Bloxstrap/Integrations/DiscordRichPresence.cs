@@ -254,12 +254,9 @@ namespace Bloxstrap.Integrations
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
                 } else {
-                    App.Logger.WriteLine(LOG_IDENT, "testpoint1");
-                    smallimagetext = userInfoResponse.DisplayName + $"(@{userInfoResponse.Username})"; //example: john doe (@johndoe)
+                    smallimagetext = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
                     App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
                 }
-                App.Logger.WriteLine(LOG_IDENT, "testpoint2");
-                
             }
 
             
