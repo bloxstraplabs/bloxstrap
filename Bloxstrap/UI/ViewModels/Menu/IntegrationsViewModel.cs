@@ -106,14 +106,14 @@ namespace Bloxstrap.UI.ViewModels.Menu
 
         public bool DiscordActivityJoinEnabled
         {
-            get => !App.Settings.Prop.AccountShownOnProfile;
-            set => App.Settings.Prop.AccountShownOnProfile = !value;
+            get => !App.Settings.Prop.HideRPCButtons;
+            set => App.Settings.Prop.HideRPCButtons = !value;
         }
 
         public bool DiscordAccountOnProfile
         {
-            get => !App.Settings.Prop.HideRPCButtons;
-            set => App.Settings.Prop.HideRPCButtons = !value;
+            get => !App.Settings.Prop.AccountShownOnProfile;
+            set => App.Settings.Prop.AccountShownOnProfile = !value;
         }
 
         public bool DisableAppPatchEnabled
