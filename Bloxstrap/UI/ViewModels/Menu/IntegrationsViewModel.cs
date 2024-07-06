@@ -113,7 +113,7 @@ namespace Bloxstrap.UI.ViewModels.Menu
         public bool DiscordAccountOnProfile
         {
             get => !App.Settings.Prop.AccountShownOnProfile;
-            set => App.Settings.Prop.AccountShownOnProfile = !value;
+            set => App.Settings.Prop.AccountShownOnProfile = value;
         }
 
         public bool DisableAppPatchEnabled
