@@ -250,16 +250,13 @@ namespace Bloxstrap.Integrations
                 }
                 
                 var userInfoResponse = await Http.GetJson<ApiArrayResponse<UserInfoResponse>>($"https://users.roblox.com/v1/users/{userId}");
-                App.Logger.WriteLine(LOG_IDENT, "userinforesponse is not blocking thread.");
                 if (userInfoResponse is null || !userInfoResponse.Data.Any())
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
+                    return false;
                 }
-                else
-                {
-                    smallimagetext = userInfoResponse.Data.ToArray()[0].DisplayName + " (@{userInfoResponse.Data.ToArray()[0].Username})"; //example: john doe (@johndoe)
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
-                }
+                smallimagetext = userInfoResponse.Data.ToArray()[0].DisplayName + $"(@{userInfoResponse.Data.ToArray()[0].Username})"; //example: john doe (@johndoe)
+                App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
                 
             }
 
