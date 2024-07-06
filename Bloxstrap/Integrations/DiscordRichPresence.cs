@@ -190,8 +190,8 @@ namespace Bloxstrap.Integrations
             }
 
             string icon = "roblox";
-            string smallimagetext = "Roblox";
-            string smallimage = "roblox";
+            string smallImageText = "Roblox";
+            string smallImage = "roblox";
             
             long placeId = _activityWatcher.ActivityPlaceId;
             string userId = _activityWatcher.ActivityUserId;
@@ -253,7 +253,8 @@ namespace Bloxstrap.Integrations
                 if (userInfoResponse is null)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
-                } else {
+                } else
+                {
                     smallimagetext = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
                     App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallimagetext}");
                 }
