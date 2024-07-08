@@ -18,7 +18,7 @@ namespace Bloxstrap
             { "ar-SA", "العربية" },
             { "bg-BG", "Български" },
             { "bn-BD", "বাংলা" },
-            { "bs-BA", "Босански" },
+            { "bs", "Босански" },
             // { "cs", "Čeština" },
             { "de-DE", "Deutsch" },
             // { "dk", "Dansk" },
