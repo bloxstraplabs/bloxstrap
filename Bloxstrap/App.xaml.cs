@@ -145,6 +145,12 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
+                if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
+                {
+                    Settings.Prop.Locale = "nil";
+                    Settings.Save();
+                }
+
                 Locale.Set(Settings.Prop.Locale);
             }
 
