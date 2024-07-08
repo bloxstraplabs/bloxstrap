@@ -1,4 +1,4 @@
-import glob, shutil
+import glob, shutil, re
 
 exports = input("Path of folder of exported Crowdin files: ")
 dest = input("Destination resources folder: ")
@@ -6,9 +6,6 @@ dest = input("Destination resources folder: ")
 for filename in glob.glob(f"{exports}\\**\\*.*", recursive=True):
 	print(f"Copying {filename}")
 
-	suffix = ""
+	localeCode = re.search("\\\\([a-zA-Z\\-]+)\\\\Strings.", filename).group(1)
 
-	if filename.endswith("Strings.bs-BA.resx"):
-		suffix = "\\Strings.bs.resx"
-	
-	shutil.copy(filename, dest + suffix)
+	shutil.copy(filename, dest + f"\\Strings.{localeCode}.resx")
