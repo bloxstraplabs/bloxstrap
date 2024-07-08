@@ -56,7 +56,8 @@
                 HorizontalAlignment="Center"
                 FontSize="18"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                Text="{Binding Message, Mode=OneWay}" />
+                Text="{Binding Message, Mode=OneWay}"
+                TextWrapping="Wrap" />
 
             <ProgressBar
                 Grid.Row="2"
