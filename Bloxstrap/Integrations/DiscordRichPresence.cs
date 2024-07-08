@@ -1,4 +1,4 @@
-﻿using DiscordRPC;
+using DiscordRPC;
 
 namespace Bloxstrap.Integrations
 {
@@ -252,7 +252,8 @@ namespace Bloxstrap.Integrations
                 if (userInfoResponse is null)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
-                } else
+                } 
+                else
                 {
                     smallImageText = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
                     App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallImageText}");
