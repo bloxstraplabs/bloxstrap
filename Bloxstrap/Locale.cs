@@ -59,6 +59,7 @@ namespace Bloxstrap
             
             languages.AddRange(SupportedLocales.Values.Take(3));
             languages.AddRange(SupportedLocales.Values.Where(x => !languages.Contains(x)).OrderBy(x => x));
+            languages[0] = Strings.Common_SystemDefault; // set again for any locale changes
 
             return languages;
         }
