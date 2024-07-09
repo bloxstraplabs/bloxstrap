@@ -683,7 +683,7 @@ Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden
     <value>Kare hızı limiti (FPS)</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
+    <value>[Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUI'leri gizleme özelliğini etkinleştir</value>
