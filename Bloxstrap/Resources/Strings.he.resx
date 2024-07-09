@@ -1,0 +1,1021 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActivityTracker.LeftGame" xml:space="preserve">
+    <value>עזב/ה את המשחק</value>
+  </data>
+  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
+    <value>חיפוש נכשל</value>
+  </data>
+  <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
+    <value>הייתה בעיה בעדכון של Bloxstrap לגרסא {0}. בבקשה עדכן את זה ידנית על ידי הורדת והרצת הגרסה האחרונה בעמוד הגיטהאב.</value>
+  </data>
+  <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
+    <value>רובלוקס פועל ברקע, ולהפעיל אותו שוב יסגור את זה. האם אתה בטוח שאתה רוצה להמשיך להריץ את ההפעלה?</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
+    <value>ייתכן שיש משהו שמונע מBloxstrap להתחבר לרשת. בבקשה בדוק ונסה שוב.</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
+    <value>ייתכן שRoblox בנפילה כרגע. בדוק ב-status.roblox.com עבור מידע נוסף. בבקשה נסה שוב מאוחר יותר.</value>
+  </data>
+  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
+    <value>Bloxstrap קרס בניסיון להתחבר לשלושה שרתי הורדה שונים של Roblox, אשר מעיד על חיבור גרוע לרשת - בבקשה נסה שוב מאוחר יותר.</value>
+  </data>
+  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
+    <value>הייתה בעיה בהפעלת חבילת האמוג׳י {0} בגלל בעיית חיבור לרשת. בכדי לנסות שוב, בבקשה שנה את ההגדרה מחדש בBloxstrap Menu.</value>
+  </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>אתה חייב קודם להתקין את Bloxstrap לפני המחיקה.</value>
+  </data>
+  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
+    <value>רובלוקס עכשיו סיימו לגלגל את העדכון החדש של המשחק, בעדכון הזה יש תמיכה ב64 ביט ואנטי צ'יט חדש בשם Hyperion. ו-ReShade לא עובד בעדכון כתוצאה מכך, לכן זה בוטל ונמחק מ-Bloxstrap. הגדרות הReShade שלך עדיין יישמרו, ותוכל לאתר אותם על ידי פתיחת התיקייה שבה Bloxstrap מותקן, לנווט לתיקיית הIntegrations, ואתה יכול גם לבחור למחוק אותם אם אתה רוצה.</value>
+  </data>
+  <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
+    <value>ל-Bloxstrap אין מספיק שטח אחסון על מנת להוריד ולהתקין את Roblox. בבקשה פנה קצת מקום ונסה שוב.</value>
+  </data>
+  <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
+    <value>מפעיל מודים לרובלוקס...</value>
+  </data>
+  <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
+    <value>מגדיר את ה-{product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
+    <value>מתחבר ל-Roblox...</value>
+  </data>
+  <data name="Bootstrapper.Status.Installing" xml:space="preserve">
+    <value>מתקין את ה-{product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
+    <value>מתקין WebView2, אנא המתן...</value>
+  </data>
+  <data name="Bootstrapper.Status.Starting" xml:space="preserve">
+    <value>מתחיל את ה-{product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
+    <value>מסיר את Bloxstrap...</value>
+  </data>
+  <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
+    <value>מעדכן את ה-{product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>משיג את הגרסה העדכנית של Bloxstrap...</value>
+  </data>
+  <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
+    <value>מחכה לחלונות אחרים...</value>
+  </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>תצוגה מקדימה של סגנון - לחץ על כפתור ה-X בפינה הימנית העליונה כדי לסגור</value>
+    <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>תצוגה מקדימה של סגנון - לחץ על ביטול כדי לסגור</value>
+    <comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
+  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
+    <value>Bloxstrap הותקן בהצלחה</value>
+  </data>
+  <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
+    <value>Bloxstrap הוסר בהצלחה</value>
+  </data>
+  <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
+    <value>Roblox פועל כעת, אך יש לסגור אותו לפני הסרת ההתקנה של Bloxstrap. האם תרצה לסגור את רובלוקס עכשיו?</value>
+  </data>
+  <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
+    <value>Roblox דורש שימוש ברכיבי Windows Media Foundation. נראה שהם אינם נמצאים על המחשב, כנראה בגלל שאתה משתמש במהדורת N של Windows. אנא התקן אותם, ולאחר מכן הפעל את Roblox.</value>
+  </data>
+  <data name="Common.AddSingle" xml:space="preserve">
+    <value>הוסף חדש</value>
+  </data>
+  <data name="Common.Browse" xml:space="preserve">
+    <value>לדפדף</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>ביטול</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>סגירה</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>למחוק</value>
+  </data>
+  <data name="Common.DiscordRichPresence" xml:space="preserve">
+    <value>Discord Rich Presence</value>
+  </data>
+  <data name="Common.Help" xml:space="preserve">
+    <value>עזרה</value>
+  </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>ייבוא JSON</value>
+  </data>
+  <data name="Common.LocateLogFile" xml:space="preserve">
+    <value>אתר את קובץ הלוג</value>
+  </data>
+  <data name="Common.Miscellaneous" xml:space="preserve">
+    <value>שונות</value>
+  </data>
+  <data name="Common.Name" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="Common.New" xml:space="preserve">
+    <value>חדש</value>
+  </data>
+  <data name="Common.No" xml:space="preserve">
+    <value>לא</value>
+  </data>
+  <data name="Common.OK" xml:space="preserve">
+    <value>בסדר</value>
+  </data>
+  <data name="Common.Presets" xml:space="preserve">
+    <value>הגדרות מוכנות מראש</value>
+  </data>
+  <data name="Common.Reset" xml:space="preserve">
+    <value>לאתחל</value>
+  </data>
+  <data name="Common.Value" xml:space="preserve">
+    <value>ערך</value>
+  </data>
+  <data name="Common.Warning" xml:space="preserve">
+    <value>אזהרה</value>
+  </data>
+  <data name="Common.Yes" xml:space="preserve">
+    <value>כן</value>
+  </data>
+  <data name="ContextMenu.CloseRoblox" xml:space="preserve">
+    <value>סגור את רובלוקס</value>
+  </data>
+  <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
+    <value>האם אתה בטוח שאתה רוצה לסגור את רובלוקס? זה יגרום לתהליך להסתיים בכוח.</value>
+  </data>
+  <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
+    <value>העתק קישור מחוזק</value>
+  </data>
+  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
+    <value>פתח קובץ לוג</value>
+  </data>
+  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
+    <value>ראה את פרטי השרת</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
+    <value>העתק את מזהה השרת</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
+    <value>מזהה שרת</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
+    <value>טוען, אנא המתן...</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
+    <value>מיקום</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
+    <value>ממוקם ב {0} 
+לחץ עבור מידע נוסף</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
+    <value>מחובר לשרת {0}</value>
+    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  </data>
+  <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
+    <value>מידע על השרת</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>סוג</value>
+  </data>
+  <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
+    <value>הוסף FFlag</value>
+  </data>
+  <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
+    <value>מידע נוסף:</value>
+  </data>
+  <data name="Dialog.Connectivity.Title" xml:space="preserve">
+    <value>בעיית חיבור</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
+    <value>Bloxstrap לא מצליח להתחבר לרובלוקס</value>
+  </data>
+  <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
+    <value>העתקת תוכן לוג</value>
+  </data>
+  <data name="Dialog.Exception.Info.1" xml:space="preserve">
+    <value>הייתה בעיה בזמן הרצת Bloxstrap</value>
+  </data>
+  <data name="Dialog.Exception.Info.2" xml:space="preserve">
+    <value>בדוק את ה[Bloxstrap Wiki]({0}) קודם כל כדי לראות אם כבר יש תיקון לבעיה הזאת.
+אם לא, אז בבקשה תדווח על זה דרך ה[Github issue]({1}) עם העתק של קובץ הלוג שנוצר.</value>
+  </data>
+  <data name="Dialog.Exception.Title" xml:space="preserve">
+    <value>תקלת Bloxstrap</value>
+  </data>
+  <data name="Common.Custom" xml:space="preserve">
+    <value>מותאם אישית</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
+    <value>2015 מוקדם</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
+    <value>2015 מאוחר</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
+    <value>Byfron מזויף (2023)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
+    <value>Bloxstrap (קלאסי)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
+    <value>Bloxstrap (שקוף)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
+    <value>ישן (2008 - 2011)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
+    <value>ישן (2011 - 2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
+    <value>Roblox (~2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
+    <value>וויסטה (2008 - 2011)</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (מצוייר)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (אנגולרי)</value>
+  </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>חתולמוג'י</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>רגיל (טוויטר)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>ווינדוס 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>ווינדוס 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>ווינדוס 8</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
+    <value>2015 (גרסה 1)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
+    <value>2022 (גרסה 2)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
+    <value>2023 (גרסה 4)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
+    <value>נבחר על ידי המשחק</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
+    <value>עתיד (שלב 3)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
+    <value>מפת צללים (שלב 2)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
+    <value>Voxel (שלב 1)</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
+    <value>Direct3D 10</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
+    <value>Direct3D 11</value>
+  </data>
+  <data name="Enums.ServerType.Private" xml:space="preserve">
+    <value>פרטי</value>
+  </data>
+  <data name="Enums.ServerType.Public" xml:space="preserve">
+    <value>ציבורי</value>
+  </data>
+  <data name="Enums.ServerType.Reserved" xml:space="preserve">
+    <value>מבוטח</value>
+  </data>
+  <data name="Enums.Theme.Dark" xml:space="preserve">
+    <value>חשוך</value>
+  </data>
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>מואר</value>
+  </data>
+  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
+    <value>Bloxstrap מצא שינוי באות הדיסק, ושינה את ההתקנה מדיסק {0} לדיסק {1}.
+
+למרות ש-Bloxstrap עדיין יעבוד, זה מומלץ שתשנה את אות הדיסק בחזרה לאות הדיסק המקורית שהייתה לפני כן מאחר וייתכן שתוכנות נוספות ייחוו תקלות דומות.</value>
+  </data>
+  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
+    <value>Bloxstrap הותקן במקור בדיסק {0} אבל הוא נראה כלא קיים יותר. האם תרצה להמשיך ולהתקין את Bloxstrap מחדש?</value>
+  </data>
+  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
+    <value>נראה ש-Bloxstrap לא הותקן נכון. האם הוא היה אמור להיות מותקן ב-{0}?</value>
+  </data>
+  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
+    <value>ראה מה חדש בגרסה זו</value>
+  </data>
+  <data name="InstallChecker.Updated" xml:space="preserve">
+    <value>Bloxstrap עודכן לגרסה {0}</value>
+  </data>
+  <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
+    <value>הגרסה של Bloxstrap שהרגע פתחת שונה מהגרסה המותקנת.
+האם אתה רוצה לעדכן את הגרסה המותקנת?</value>
+  </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>תורמים</value>
+  </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>קוד</value>
+  </data>
+  <data name="Menu.About.Contributors.Description" xml:space="preserve">
+    <value>אלה האנשים אשר תרמו ל-Bloxstrap להגיע לאיפה שהוא נמצא עכשיו.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>רעיונות לפיצ'רים</value>
+  </data>
+  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
+    <value>תודות מיוחדות</value>
+  </data>
+  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
+    <value>תרגומים</value>
+  </data>
+  <data name="Menu.About.Description" xml:space="preserve">
+    <value>תוכנה חלופית בשביל Roblox עם תכונות נוספות.</value>
+  </data>
+  <data name="Menu.About.DiscordServer" xml:space="preserve">
+    <value>שרת דיסקורד</value>
+  </data>
+  <data name="Menu.About.GithubRepository" xml:space="preserve">
+    <value>גיטהאב</value>
+  </data>
+  <data name="Menu.About.HelpInformation" xml:space="preserve">
+    <value>עזרה ומידע</value>
+  </data>
+  <data name="Menu.About.Licenses" xml:space="preserve">
+    <value>רשיונות</value>
+  </data>
+  <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
+    <value>BSD 2-Clause License</value>
+  </data>
+  <data name="Menu.About.Licenses.MIT" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="Menu.About.ReportIssue" xml:space="preserve">
+    <value>דווח על בעיה או תקלה</value>
+  </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>על התוכנה</value>
+  </data>
+  <data name="Menu.About.Version" xml:space="preserve">
+    <value>גרסה {0}</value>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>כל הקבצים</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>אנא שים לב שלא כל השינויים יחלו מיד עד שתסגור לחלוטין את כל החלונות הפתוחים של Roblox.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>Bloxstrap כבר רץ</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>אתה יכול לגרום לזה להיראות שונה, ישן, או אפילו כמו ברירת המחדל ב-Roblox.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>תוכנה</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
+    <value>שינוי אפשרויות התאמה אישית שונות.</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
+    <value>התאמה אישית</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
+    <value>האייקון צריך להיות קובץ ico. עם מימדים שונים בין 16 פיקסלים עד 128 פיקסלים . שנה את הגדרת האייקון ל'מותאם אישית' בכדי להשתמש בו.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>אייקון מותאם אישית</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
+    <value>הטקסט שמוצג ככותרת של התוכנה.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>כותרת</value>
+  </data>
+  <data name="Menu.Appearance.Description" xml:space="preserve">
+    <value>הגדר איך Bloxstrap אמור להראות.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>ערכת נושא גלובלית</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
+    <value>בחר באיזה אייקון זה אמור להשתמש.</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
+    <value>אייקון</value>
+  </data>
+  <data name="Menu.Appearance.Preview" xml:space="preserve">
+    <value>תצוגה מקדימה</value>
+  </data>
+  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+    <value>בחר איך זה אמור להראות. ערכת נושא "חשוך" לא תעבוד על מיושן/וויסטה.</value>
+  </data>
+  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
+    <value>סגנון</value>
+  </data>
+  <data name="Menu.Appearance.Title" xml:space="preserve">
+    <value>מראה</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+    <value>Bloxstrap יבדוק ויתעדכן בעצמו כשמריצים את Roblox.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+    <value>עדכן אוטומטית את Bloxstrap</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+    <value>מנע את סגירת המשחק הפועל שלך מהפעלה בטעות של אחד אחר.</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>שאל לגבי אישור כאשר אתה מריץ עוד חלון של Roblox</value>
+  </data>
+  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
+    <value>Bloxstrap ישים אייקון על שולחן העבודה שמריץ את Roblox בפעם הבאה שזה רץ.</value>
+  </data>
+  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
+    <value>צור אייקון על השולחן עבודה</value>
+  </data>
+  <data name="Menu.Behaviour.Description" xml:space="preserve">
+    <value>הגדר מה Bloxstrap אמור לעשות כשהוא מופעל.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+    <value>Roblox יותקן מחדש בפעם הבאה שיופעל.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+    <value>התקן מחדש את Roblox בכוח</value>
+  </data>
+  <data name="Menu.Behaviour.Title" xml:space="preserve">
+    <value>התנהגות</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
+    <value>הוסף חדש</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
+    <value>כבר יש הגדרה ל-FFlag בשם הזה.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
+    <value>חזור</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
+    <value>שימוש בצורה לא נכונה עלול להוביל לחוסר יציבות או דברים לא צפויים לקרות.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
+    <value>השתמש בזהירות.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
+    <value>חלק מה-FFlag-ים שאתה מנסה להכניס כבר מצורפים. האם אתה רוצה לשנות את הערכים שלהם עם הערכים החדשים שהכנסת?
+
+יש {0} ערכים מתנגשים:
+{1}</value>
+  </data>
+  <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
+    <value>מחק את הבחירה</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
+    <value>נהל את ה-FFlag-ים שלך. לחץ פעמיים על הטור בכדי לערוך.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>לייצא JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
+    <value>הערך ל'{0}' לא תקין מכיוון שהשם יכול להכיל רק אותיות, מספרים וקווים תחתונים</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
+    <value>ה-JSON שהכנסת לא נראה חוקי. אנא בדוק שנית ונסה שוב.
+
+מידע נוסף:
+{0}</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
+    <value>הערך ל'{0}' לא תקין מאחר והשם חייב להתחיל עם FFlag, DFInt וכו'</value>
+  </data>
+  <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
+    <value>הועתק ללוח.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
+    <value>נראה שאתה מנסה לייבא הגדרה גדולה. אתה אמור לייבא רק הגדרות שאתה מבין בצורה מלאה לחלוטין. אל תייבא הגדרות מאנשים אחרים באופן עיוור. אם אתה תמשיך, ייתכן שתיתקל בבעיות יציבות ובשינויים לא צפויים.
+
+אתה בטוח שאתה רוצה להמשיך?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
+    <value>חיפוש</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
+    <value>הצג FFlag-ים מוגדרים מראש</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
+    <value>עורך FFlag-ים</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
+    <value>חזור אחורה</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
+    <value>אני יודע/ת מה אני עושה</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
+    <value>האם אתה יודע מה אתה עושה?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
+    <value>ה-FFlag-ים עוצמתיים ביותר, ונוצרו לשימוש רק על ידי המתכנתים של Roblox. למרות שהם יכולים להיות מאוד שימושיים, שינויים ידניים שלהם עלולים לגרום לבעיות רציניות עם יציבות ותפקוד. אל תשתמש בעורך אם אתה לא יודע מה אתה עושה!
+
+אל תשתמש בזה בכדי לייבא "רשימות FFlag-ים" גדולים על ידי אנשים שמבטיחים שהמשחק ירוץ מהר יותר או משהו כזה. הם עלולים לגרום לבעיות אשר נכתבו למעלה, והם יגרמו לך בעיות מאחר ואתה לא יודע לחלוטין מה הם משנים. אם עמדת לעשות את זה, חזור אחורה.</value>
+  </data>
+  <data name="Menu.FastFlags.Description" xml:space="preserve">
+    <value>שלוט בכמה דברים ספציפיים אשר משנים את המנוע של Roblox ואת שאר ההגדרות שלך.</value>
+  </data>
+  <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
+    <value>נהל את ה"FFlag-ים" שלך. השתמש בזהירות.</value>
+    <comment>Title is Menu.FastFlagEditor.Title</comment>
+  </data>
+  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
+    <value>למד עוד על ה-FFlag-ים, מה ההגדרות הקבועות מראש עושות, ואיך להשתמש בהם.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
+    <value>מאפשר לך להגדיר 21 רמות גרפיקה שונות במקום 10.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
+    <value>השתמש במד שינוי גרפיקה חלופי מתקדם</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
+    <value>שימוש ב-Direct3D באמצעות Alt+Enter [רק עבור מסך מלא]({0}) מופעל כברירת מחדל.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>הגרסא המועדפת עלייך כאשר אתה לוחץ ESC</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
+    <value>רובלוקס מוריד את הגדרות הרנדור שלך בהתאם לאיך שהמסך שלך מוגדר ב-Windows.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
+    <value>שמירת איכות עם שינויי מידת תצוגה</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>בחר 0 עבור הגדרות ברירת מחדל אם אתה רוצה להשתמש בביטול הגבלת הפריימים לשנייה הבנוי של רובלוקס.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>הגבלת קצב פריימים</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>מופעל עם [דרכי קיצור במקלדת]({0}). עובד רק אם אתם נמצאים ב[קבוצה של Bloxstrap]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>הפעל את היכולת להסתיר את ממשק המשתמש</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>האחד שנבחר יופעל בכפייה על כל המשחקים. [שים לב, ייתכנו בעיות תאורה!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>הגדרות תאורה מעודפות</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>טכנולגיית עיבוד</value>
+  </data>
+  <data name="Menu.FastFlags.Title" xml:space="preserve">
+    <value>FFlag-ים</value>
+  </data>
+  <data name="Menu.FontFiles" xml:space="preserve">
+    <value>קבצי גופן</value>
+  </data>
+  <data name="Menu.IconFiles" xml:space="preserve">
+    <value>קבצי אייקון</value>
+  </data>
+  <data name="Menu.Install" xml:space="preserve">
+    <value>התקן</value>
+  </data>
+  <data name="Menu.Installation.Description" xml:space="preserve">
+    <value>הגדר איך רובלוקס/Bloxstrap מותקן.</value>
+  </data>
+  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
+    <value>בחר היכן להתקין את Bloxstrap.</value>
+  </data>
+  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
+    <value>מיקום ההתקנה</value>
+  </data>
+  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
+    <value>המיקום שבו Bloxstrap מותקן כרגע.</value>
+  </data>
+  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
+    <value>פתיחת מיקום ההתקנה</value>
+  </data>
+  <data name="Menu.Installation.Title" xml:space="preserve">
+    <value>התקנה</value>
+  </data>
+  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
+    <value>הנה מדריך לאיך להסיר את Bloxstrap.</value>
+  </data>
+  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
+    <value>מחפש להסיר?</value>
+  </data>
+  <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
+    <value>Bloxstrap לא יכול להיות מותקן כאן. אנא בחר מיקום אחר, או שפשוט תחזור להשתמש במיקום ברירת המחדל על ידי לחיצה על כפתור השחזור.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
+    <value>התיקיה שבחרת להתקין בה את Bloxstrap כבר קיימת ואינה ריקה. מומלץ מאוד להתקין את Bloxstrap בתיקייה עצמאית משלה.
+
+מומלץ לשנות למיקום הבא:
+{0}
+
+האם תרצה לשנות את ההתקנה לתיקיה המומלצת?
+אם תבחר ב-"לא", האזהרה תתעלם וההתקנה תימשך.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
+    <value>אתה חייב להגדיר מיקום התקנה</value>
+  </data>
+  <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
+    <value>ל- Bloxstrap אין גישת כתיבה למיקום ההתקנה שבחרתם. אנא בחר במיקום אחר.</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
+    <value>מעקב פעילות</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
+    <value>נותן את האפשרות לכולם להיכנס לשרת שבו אתה נמצא דרך כפתור בפרופיל של הדיסקורד שלך.</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
+    <value>הפעל פעילות כניסה</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
+    <value>מיקום האפליקציה</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
+    <value>לדוגמה, C:\Windows\System32\cmd.exe</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
+    <value>סגירה אוטומטית כש-Roblox נסגר</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
+    <value>פה, אתה יכול לפתוח תוכנות נוספות עם ההרצה של Roblox בצורה אוטומטית.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>הוספת הוראות הפעלה</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
+    <value>לדוגמא /k echo Roblox is running!</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
+    <value>אינטגרציה חדשה</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
+    <value>אין בחירת אינטגרציה, בבקשה בחר באינטגרציה מסוימת או תוסיף אחת חדשה</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
+    <value>אינטגרציה מותאמת אישית</value>
+  </data>
+  <data name="Menu.Integrations.Description" xml:space="preserve">
+    <value>הגדר פונקציונליות נוספת שתהיה לצד Roblox.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
+    <value>רובלוקס ייסגר לחלוטין מתי שאתה עוזב את המשחק במקום להחזיר אותך בחזרה לתוכנה.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
+    <value>לא לצאת מהתוכנה של המשחק</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
+    <value>אפשר ל-Bloxstrap לזהות באיזה משחק ב-Roblox אתה משחק. תכונות מסויימות עלולות לדרוש את זה.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
+    <value>הפעל מעקב פעילות</value>
+  </data>
+  <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
+    <value>התכונה הזאת דורשת ממעקב הפעילות להיות פעיל ומתוכנת דיסקורד להיות מותקנת ופועלת.</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>משחק הרובלוקס שבו שאתה משחק יוצג בפרופיל הדיסקורד שלך. [לא עובד?]({0})</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>הצג פעילות משחק</value>
+  </data>
+  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
+    <value>כאשר אתה נכנס למשחק, אתה תקבל התראה על היכן השרת שלך נמצא. לא יציג במסך מלא.</value>
+  </data>
+  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
+    <value>צפה במיקום השרת כאשר אתה נכנס למשחק</value>
+  </data>
+  <data name="Menu.Integrations.Title" xml:space="preserve">
+    <value>אינטגרציות</value>
+  </data>
+  <data name="Menu.Mods.Description" xml:space="preserve">
+    <value>נהל והפעל מודים ל-Roblox.</value>
+  </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>צפה במידע לגבי ניהול ויצירת מודים.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
+    <value>בחר גופן...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
+    <value>גודל הגופן ניתן לשינוי בכרטיסיית הFFlag-ים.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>הקובץ שבחרת לא נראה כקובץ גופן תקין.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
+    <value>הסר גופן פעיל</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
+    <value>השתמש בגופן מותאם אישית</value>
+  </data>
+  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
+    <value>תכונת ווינדוס אשר עשויה לפגוע בביצועים במצב מסך מלא.</value>
+  </data>
+  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
+    <value>כבה מיטוב מסך מלא</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
+    <value>נהל מודים מותאמים אישית עבור Roblox כאן.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
+    <value>Bloxstrap חייב קודם להיות מותקן.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>פתח את תיקיית המודים</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
+    <value>בחר באיזה סוג אימוג'י רובלוקס צריך להשתמש.</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>הגדרת אימוג'י מועדפת</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
+    <value>בחר בין שני סמנים קלאסים של רובלוקס עבור העכבר.</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
+    <value>סמן עכבר</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
+    <value>החזר בחזרה את הרקע של עורך האווטארים אשר היה בשימוש ברובלוקס ב2020.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
+    <value>השתמש ברקע הישן של עורך האווטארים</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
+    <value>ניסיון להחזיר כמה שאפשר את הצלילים הישנים של השחקן אשר היו בשימוש ב2014.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
+    <value>דמה את צלילי השחקן הישנים</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
+    <value>החזר את צליל ה-"oof" הקלאסי כאשר מתים.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
+    <value>השתמש בצליל המוות הישן</value>
+  </data>
+  <data name="Menu.Mods.Title" xml:space="preserve">
+    <value>מודים</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>לחץ בשביל לקבל עוד מידע על האפשרות הזאת.</value>
+  </data>
+  <data name="Menu.PreInstall.Description" xml:space="preserve">
+    <value>יש רק כמה דברים שצריך לדעת עליהם קודם.</value>
+  </data>
+  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
+    <value>לאחר שההתקנה הסתיימה, תיווצר לך אפליקציה חדשה בתפריט ההתחלה שנקראית Bloxstrap Menu. אם אי פעם תרצה לגשת אליה שוב כדי לשנות את ההגדרות שלך, או לגשת למקורות כמו ניהול FFlag-ים, תוכל למצוא את זה שם.</value>
+  </data>
+  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
+    <value>אם אתה אי פעם צריך עזרה או הדרכה במשהו, אל תשכח לבדוק את ה[ויקי]({0}). אם אתה עדיין צריך משהו, תפתח [תקלה]({1}) בגיטהאב, או כנסו ל[שרת הדיסקורד שלנו]({2}).</value>
+  </data>
+  <data name="Menu.PreInstall.Title" xml:space="preserve">
+    <value>לפני שאתה מתקין...</value>
+  </data>
+  <data name="Menu.Save" xml:space="preserve">
+    <value>שמור</value>
+  </data>
+  <data name="Menu.SettingsSaved.Message" xml:space="preserve">
+    <value>השינויים יתרחשו בפעם הבאה שתתחיל את Roblox.</value>
+  </data>
+  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
+    <value>ההגדרות נשמרו!</value>
+  </data>
+  <data name="Menu.Title" xml:space="preserve">
+    <value>Bloxstrap Menu</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
+    <value>בחר שפה מועדפת</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
+    <value>בחר שפה לפני המשכת ההתקנה.</value>
+  </data>
+  <data name="Menu.Appearance.Language.Title" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="Menu.Appearance.Language.Description" xml:space="preserve">
+    <value>הפעלה מחדש דרושה כדי שהשינויים ישפיעו.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+    <value>אפשר שימוש בשפות לא נתמכות של רובלוקס</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+    <value>חל רק על משחקים שמופעלים מהאתר של Roblox.</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+    <value>2023 (גרסה 4 + ממשק משתמש חדש)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
+    <value>רנדור וגרפיקה</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
+    <value>ממשק משתמש</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
+    <value>אפשר לBloxstrap לנהל FFlag-ים</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
+    <value>לבטל את זה ימנע מכל דבר שמוגדר פה לחול על Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
+    <value>איכות Anti-aliasing (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>בטל אפקטים לאחר עיבוד</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>בטל את שורת הכותרת במסך מלא</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
+    <value>מפסיק את הצגתו בכל פעם שאתה מזיז את העכבר לראש המסך.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
+    <value>הגדרות טקסטורה</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
+    <value>רמה 0 (הנמוך ביותר)</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
+    <value>רמה 1</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
+    <value>רמה 2</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
+    <value>רמה 3 (הגבוה ביותר)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>בטל צללים של שחקנים</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>גודל גופן</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>הערך שמוגדר כברירת מחדל הוא 1. שנה אם אתה משתמש בגופן מותאם אישית.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>בטל טקסטורות הרריות</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
+    <value>Bloxstrap לא מצליח להוריד את רובלוקס</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
+    <value>רובלוקס לא יכול לרדת כרגע. אנא קרא את דף העזרה הבא עבור מידע נוסף: {0}</value>
+  </data>
+  <data name="Common.ImportFromFile" xml:space="preserve">
+    <value>ייבא מקובץ</value>
+  </data>
+  <data name="FileTypes.JSONFiles" xml:space="preserve">
+    <value>קבצי JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
+    <value>הערך ל'{0}' לא תקין מאחר והערך צריך להיות בולאני ('True' או 'False')</value>
+    <comment>Do not translate 'True' and 'False', those must stay in English</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
+    <value>הערך ל'{0}' לא תקין מאחר והערך צריך להיות מספר</value>
+  </data>
+  <data name="Logger.NoWriteMode" xml:space="preserve">
+    <value>קובץ לוג לא יווצר בהדלקה הזאת בגלל שBloxstrap לא הצליח לכתוב בתיקייה ב{0}</value>
+  </data>
+  <data name="Common.Default" xml:space="preserve">
+    <value>ברירת מחדל</value>
+  </data>
+  <data name="Common.Automatic" xml:space="preserve">
+    <value>אוטומטי</value>
+  </data>
+  <data name="Common.SystemDefault" xml:space="preserve">
+    <value>ברירת המחדל של המערכת</value>
+  </data>
+</root>
