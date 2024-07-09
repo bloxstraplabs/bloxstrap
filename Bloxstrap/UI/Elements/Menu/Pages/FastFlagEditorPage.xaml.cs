@@ -234,13 +234,12 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 if (App.FastFlags.Prop.ContainsKey(pair.Key) && !overwriteConflicting)
                     continue;
 
-                // TODO - error message, i just had to hastily add this in
-                // as i'm currently testing 2.7.0 for release and all translations
-                // are already done
-                if (pair.Value is not string)
+                var val = pair.Value.ToString();
+
+                if (val is null)
                     continue;
 
-                if (!ValidateFlagEntry(pair.Key, (string)pair.Value))
+                if (!ValidateFlagEntry(pair.Key, val))
                     continue;
 
                 App.FastFlags.SetValue(pair.Key, pair.Value);
