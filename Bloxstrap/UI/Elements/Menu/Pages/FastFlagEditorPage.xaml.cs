@@ -264,7 +264,6 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             else if (!name.All(x => char.IsLetterOrDigit(x) || x == '_'))
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidCharacter;
             
-            // sorry
             if (name.EndsWith("_PlaceFilter") || name.EndsWith("_DataCenterFilter"))
                 errorMessage = !Validate_Filter(name, value) ? Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
             else if ((name.StartsWith("FInt") || name.StartsWith("DFInt")) && !Int32.TryParse(value, out _))
