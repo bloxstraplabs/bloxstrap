@@ -1021,4 +1021,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>System default</value>
   </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
+  </data>
 </root>
