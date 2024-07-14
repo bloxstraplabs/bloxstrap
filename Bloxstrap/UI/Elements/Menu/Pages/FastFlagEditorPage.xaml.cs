@@ -265,12 +265,11 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidCharacter;
             
             if (name.EndsWith("_PlaceFilter") || name.EndsWith("_DataCenterFilter"))
-                errorMessage = !Validate_Filter(name, value) ? Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
+                errorMessage = !ValidateFilter(name, value) ? Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
             else if ((name.StartsWith("FInt") || name.StartsWith("DFInt")) && !Int32.TryParse(value, out _))
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidNumberValue;
             else if ((name.StartsWith("FFlag") || name.StartsWith("DFFlag")) && lowerValue != "true" && lowerValue != "false")
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidBoolValue;
-
             
             if (!String.IsNullOrEmpty(errorMessage))
             { 
@@ -281,7 +280,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             return true;
         }
 
-        private bool Validate_Filter(string name, string value)
+        private bool ValidateFilter(string name, string value)
         {
             if(name.StartsWith("FFlag") || name.StartsWith("DFFlag"))
                 return _boolFilterPattern.IsMatch(value);
