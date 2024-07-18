@@ -19,9 +19,9 @@ body:
       options:
         - label: I have read the preliminary instructions, and I am certain that my problem has not already been addressed.
           required: true
-        - label: I am aware that Bloxstrap is not cheat software and I will receive any help if my issue is related to exploiting.
+        - label: I understand that Bloxstrap is not a cheat software and acknowledge that I will not receive assistance if my issue involves cheating.
           required: true
-        - label: My answer given in the checkbox above is a lie.
+        - label: My answer given in the checkboxes above is a lie.
   - type: textarea
     id: what-happened
     attributes:
