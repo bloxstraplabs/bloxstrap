@@ -1024,4 +1024,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
     <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
   </data>
+  <data name="ContextMenu.RobloxNotRunning" xml:space="preserve">
+    <value>Roblox is still launching. A log file will only be available once Roblox launches.</value>
+  </data>
 </root>
