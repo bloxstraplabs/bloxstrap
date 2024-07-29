@@ -19,6 +19,7 @@ body:
       options:
         - label: I have read the preliminary instructions, and I am certain that my problem has not already been addressed.
           required: true
+        - label: My answer given in the checkbox above is a lie.
   - type: textarea
     id: what-happened
     attributes:
