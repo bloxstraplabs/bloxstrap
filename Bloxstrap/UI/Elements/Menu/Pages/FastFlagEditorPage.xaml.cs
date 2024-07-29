@@ -22,8 +22,14 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
         private readonly List<string> _validPrefixes = new()
         {
-            "FFlag", "DFFlag", "SFFlag", "FInt", "DFInt", "FString", "DFString", "FLog", "DFlog"
+            "FFlag", "DFFlag", "SFFlag", "FInt", "DFInt", "FString", "DFString", "FLog", "DFLog"
         };
+
+        // values must match the entire string to avoid cases where half the string
+        // matches but the filter would still be invalid
+        private readonly Regex _boolFilterPattern = new("(?:true|false)(;[\\d]{1,})+$");
+        private readonly Regex _intFilterPattern = new("([\\d]{1,})?(;[\\d]{1,})+$");
+        private readonly Regex _stringFilterPattern = new("^[^;]*(;[\\d]{1,})+$");
 
         private bool _showPresets = false;
         private string _searchFilter = "";
@@ -253,22 +259,37 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
             string lowerValue = value.ToLowerInvariant();
             string errorMessage = "";
 
-            if (!_validPrefixes.Where(x => name.StartsWith(x)).Any())
+            if (!_validPrefixes.Any(name.StartsWith))
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPrefix;
             else if (!name.All(x => char.IsLetterOrDigit(x) || x == '_'))
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidCharacter;
+            
+            if (name.EndsWith("_PlaceFilter") || name.EndsWith("_DataCenterFilter"))
+                errorMessage = !ValidateFilter(name, value) ? Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
             else if ((name.StartsWith("FInt") || name.StartsWith("DFInt")) && !Int32.TryParse(value, out _))
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidNumberValue;
             else if ((name.StartsWith("FFlag") || name.StartsWith("DFFlag")) && lowerValue != "true" && lowerValue != "false")
                 errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidBoolValue;
-
+            
             if (!String.IsNullOrEmpty(errorMessage))
-            {
+            { 
                 Frontend.ShowMessageBox(String.Format(errorMessage, name), MessageBoxImage.Error);
                 return false;
             }
 
             return true;
+        }
+
+        private bool ValidateFilter(string name, string value)
+        {
+            if(name.StartsWith("FFlag") || name.StartsWith("DFFlag"))
+                return _boolFilterPattern.IsMatch(value);
+            if (name.StartsWith("FInt") || name.StartsWith("DFInt"))
+                return _intFilterPattern.IsMatch(value);
+            if (name.StartsWith("FString") || name.StartsWith("DFString") || name.StartsWith("FLog") || name.StartsWith("DFLog"))
+                return _stringFilterPattern.IsMatch(value);
+            
+            return false;
         }
 
         // refresh list on page load to synchronize with preset page
