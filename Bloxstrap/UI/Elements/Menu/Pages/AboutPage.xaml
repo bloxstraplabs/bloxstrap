@@ -143,9 +143,16 @@
                         </TextBlock>
                         <TextBlock Text="agent_phoenix" />
                         <TextBlock Text="avoidr" />
+                        <TextBlock Text="hcjohnsgd" />
+                        <TextBlock Text="hxmbt" />
+                        <TextBlock Text="kale123" />
+                        <TextBlock Text="Marvin_Chu" />
+                        <TextBlock Text="nzxt_xll" />
                         <TextBlock Text="Nlx095" />
                         <TextBlock Text="Ph1lwtf" />
                         <TextBlock Text="sxckqerz" />
+                        <TextBlock Text="TEAM_LILA" />
+                        <TextBlock Text="xDevoidx" />
 
                         <TextBlock Text="Español" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
@@ -356,8 +363,8 @@
                         <TextBlock Text="SomeRandomGuy175" />
                         <TextBlock Text="SonThanhVN" />
                         <TextBlock Text="teaanguyenn" />
-
                         <TextBlock Text="Veiiorra" />
+                        
                         <TextBlock Text="Türkçe" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -490,7 +497,7 @@
                         </TextBlock>
                         <TextBlock Text="._bonus_." />
                         <TextBlock Text="marc15772" />
-                        <TextBlock Text="punnavice" />
+                        <TextBlock Text="arthurwagon" />
                         <TextBlock Text="Sem1z" />
                         <TextBlock Text="xAom" />
 
@@ -560,6 +567,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[swatTurret](https://github.com/swatTurret)" />
                     <controls:MarkdownTextBlock MarkdownText="[fxeP1](https://github.com/fxeP1)" />
                     <controls:MarkdownTextBlock MarkdownText="[Redusofficial](https://github.com/Redusofficial)" />
+                    <controls:MarkdownTextBlock MarkdownText="[srthMD](https://github.com/srthMD)" />
                 </StackPanel>
             </controls:Expander>
 
