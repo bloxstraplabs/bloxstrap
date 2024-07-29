@@ -240,6 +240,9 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
                 if (App.FastFlags.Prop.ContainsKey(pair.Key) && !overwriteConflicting)
                     continue;
 
+                if (pair.Value is null)
+                    continue;
+
                 var val = pair.Value.ToString();
 
                 if (val is null)
