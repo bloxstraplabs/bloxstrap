@@ -44,7 +44,7 @@ namespace Bloxstrap
             { "sv-SE", "Svenska" },
             { "th", "ภาษาไทย" },
             { "tr", "Türkçe" },
-            { "uk", "Yкраїньска" },
+            { "uk", "Українська" },
             { "vi", "Tiếng Việt" },
             { "zh-CN", "中文 (简体)" },
             { "zh-HK", "中文 (廣東話)" },
