@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,255 +118,255 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>left game</value>
+    <value>ゲームから退出しました</value>
   </data>
   <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>lookup failed</value>
+    <value>判別に失敗しました</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
+    <value>Bloxstrap {0}への自動更新に失敗しました。Githubのページから手動で最新版をインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
+    <value>Robloxは現在実行中です。新しくゲームを開く場合、もとのゲームは終了します。本当に開きますか？</value>
   </data>
   <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
+    <value>何らかの原因でBloxstrapはインターネット接続を制限されています。確認の後、もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox may be down right now. See status.roblox.com for more information. Please try again later.</value>
+    <value>Robloxにサーバー障害が発生している可能性があります。 status.roblox.com より詳細を確認できます。時間をおいて再度お試しください。</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.</value>
+    <value>3つのRoblox配信サーバーへの接続がタイムアウトしました。インターネット接続が不安定な可能性があります。もう一度試してください。</value>
   </data>
   <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu.</value>
+    <value>ネットワークエラーが発生したため、"{0}" 絵文字を設定できませんでした。もう一度やり直すには、Bloxstrapから再度設定してください。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>You must first install Bloxstrap before uninstalling.</value>
+    <value>Bloxstrapをアンインストールする前に、インストールする必要があります。</value>
   </data>
   <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
+    <value>Hyperionアンチチートを搭載した64bit版Robloxが配信されました。その影響によりReShadeは利用不可能となったため、Bloxstrapの設定からは削除されました。
 
-Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.</value>
+ReShadeの設定ファイルは、Bloxstrapがインストールされたフォルダ中のIntergrationsフォルダに保存されています。削除はご自身の判断で行ってください。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
+    <value>容量が不足しているため、Robloxをインストールできません。容量を空けて再度お試しください。</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Applying Roblox modifications...</value>
+    <value>Modを適用中...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>Configuring {product}...</value>
+    <value>{product}を設定中...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Connecting to Roblox...</value>
+    <value>Robloxに接続中...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>Installing {product}...</value>
+    <value>{product}をインストール中...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>Installing WebView2, please wait...</value>
+    <value>WebView2をインストール中です。しばらくお待ち下さい...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>Starting {product}...</value>
+    <value>{product}を開始中...</value>
   </data>
   <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Uninstalling Bloxstrap...</value>
+    <value>Bloxstrapをアンインストール中...</value>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>Upgrading {product}...</value>
+    <value>{product}を更新中...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Getting the latest Bloxstrap...</value>
+    <value>Bloxstrapの最新版を取得しています...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>Waiting for other instances...</value>
+    <value>他のインスタンスを待機しています...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>Style preview - Click the X button at the top right to close</value>
+    <value>プレビュー中 - 右上の✕ボタンで閉じます</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>Style preview - Click Cancel to close</value>
+    <value>プレビュー中 - キャンセルで閉じます</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully installed</value>
+    <value>Bloxstrapがインストールされました。</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully uninstalled</value>
+    <value>Bloxstrapがアンインストールされました。</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?</value>
+    <value>BloxstrapをアンインストールするためにはRobloxを終了する必要があります。Robloxを終了しますか？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
+    <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションを利用している場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>Add single</value>
+    <value>FastFlagを追加</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Browse</value>
+    <value>参照</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>Close</value>
+    <value>閉じる</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>削除</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
     <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Help</value>
+    <value>ヘルプ</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>Import JSON</value>
+    <value>JSONをインポート</value>
   </data>
   <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Locate log file</value>
+    <value>ログファイルを開く</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Miscellaneous</value>
+    <value>その他</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>Name</value>
+    <value>名前</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>New</value>
+    <value>新規作成</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>No</value>
+    <value>いいえ</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>Presets</value>
+    <value>プリセット</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>リセット</value>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>Value</value>
+    <value>値</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>Warning</value>
+    <value>警告</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>はい</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Close Roblox</value>
+    <value>Robloxを終了する</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Are you sure you want to close Roblox? This will forcefully end the process.</value>
+    <value>Robloxを終了しますか？強制終了することになります。</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Copy invite deeplink</value>
+    <value>招待リンクをコピー</value>
   </data>
   <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Open log file</value>
+    <value>ログファイルを開く</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>See server details</value>
+    <value>サーバー情報を確認</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copy Instance ID</value>
+    <value>インスタンスIDをコピー</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>Instance ID</value>
+    <value>インスタンスID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Loading, please wait...</value>
+    <value>読み込み中です。しばらくお待ち下さい...</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Location</value>
+    <value>地域</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Located at {0}
-Click for more information</value>
+    <value>サーバー地域: {0}
+クリックして詳細を表示</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Connected to {0} server</value>
+    <value>{0}サーバーに接続しました</value>
     <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>Server information</value>
+    <value>サーバー情報</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>Type</value>
+    <value>種類</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Add Fast Flag</value>
+    <value>FastFlagを追加</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>More information:</value>
+    <value>詳細情報:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Connectivity error</value>
+    <value>接続エラー</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to Roblox</value>
+    <value>Robloxに接続できませんでした</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copy log contents</value>
+    <value>ログをコピー</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>An exception occurred while running Bloxstrap</value>
+    <value>Bloxstrapの実行中に例外が発生しました</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+    <value>最初に[Bloxstrap Wiki]({0})で解決策がないか確認してください。
 
-If not, then please report this exception through a [GitHub issue]({1}) along with a copy of the log file that was created.</value>
+解決策が見つからない場合は、作成されたログファイルとともに[GitHub issue]({1})またはDiscordで報告してください。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Exception</value>
+    <value>例外エラー</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>カスタム</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Early 2015</value>
+    <value>2015初期</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Late 2015</value>
+    <value>2015後期</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Fake Byfron (2023)</value>
+    <value>ﾆｾByfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>Bloxstrap (クラシック)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>Bloxstrap (透明)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>Legacy (2008 - 2011)</value>
+    <value>レガシー (2008 ~ 2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>Legacy (2011 - 2014)</value>
+    <value>レガシー (2011 ~ 2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Roblox (~2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>Vista (2008 - 2011)</value>
+    <value>Vista (2008 ~ 2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartoony)</value>
+    <value>2006 (コミカル)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angular)</value>
+    <value>2013 (カクカク)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>Default (Twemoji)</value>
+    <value>標準 (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -378,25 +378,25 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
     <value>Windows 8</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
-    <value>2015 (V1)</value>
+    <value>2015 (Ver. 1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2022 (Ver. 2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
-    <value>2023 (V4)</value>
+    <value>2023 (Ver. 4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Chosen by game</value>
+    <value>ゲームが選択する</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Phase 3)</value>
+    <value>Future (レベル3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Phase 2)</value>
+    <value>Shadow Map (レベル2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Phase 1)</value>
+    <value>Voxel (レベル1)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -405,73 +405,73 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Private</value>
+    <value>プライベート</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Public</value>
+    <value>公開</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Reserved</value>
+    <value>予約済み</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>ダーク</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Light</value>
+    <value>ライト</value>
   </data>
   <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
+    <value>ドライブ文字が変更されたため、インストール先を{0}ドライブから{1}ドライブへ変更しました。
 
-While Bloxstrap will continue to work, it's recommended that you change the drive letter back to its original value as other installed applications can experience similar issues.</value>
+Bloxstrapは引き続き動作しますが、ほかのアプリケーションに問題が発生する可能性があるため、元に戻すことを推奨します。</value>
   </data>
   <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap was originally installed to the {0} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?</value>
+    <value>Bloxstrapがインストールされていた{0}ドライブが見つかりませんでした。再度インストールしますか？</value>
   </data>
   <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>It appears as if Bloxstrap hasn't been properly installed. Is it supposed to be installed at {0}?</value>
+    <value>Bloxstrapが正しくインストールされていません。{0}ドライブにインストールしましたか？</value>
   </data>
   <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>See what's new in this version</value>
+    <value>更新情報を確認</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap has been upgraded to v{0}</value>
+    <value>BloxstrapはVer. {0}に更新されました。</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
-Would you like to upgrade your currently installed version?</value>
+    <value>起動したBloxstrapのバージョンは、現在インストールされているバージョンと異なります。
+現在インストールされているバージョンを更新しますか？</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributors</value>
+    <value>貢献者</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Code</value>
+    <value>コード</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+    <value>Bloxstrapの開発に貢献し、今の姿を作り上げた人々です。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Feature Ideas</value>
+    <value>機能アイデア</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>Special Thanks</value>
+    <value>スペシャルサンクス</value>
   </data>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Translations</value>
+    <value>翻訳</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>An alternative bootstrapper for Roblox with a bunch of extra features.</value>
+    <value>便利機能の詰まったRoblox用カスタムランチャー</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Discord server</value>
+    <value>Discordサーバー</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>GitHub repository</value>
+    <value>GitHubリポジトリ</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Help and Information</value>
+    <value>ヘルプ&amp;インフォメーション</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>Licenses</value>
+    <value>ライセンス</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
     <value>BSD 2-Clause License</value>
@@ -480,557 +480,551 @@ Would you like to upgrade your currently installed version?</value>
     <value>MIT License</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Report an issue</value>
+    <value>問題を報告する</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>About</value>
+    <value>情報</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>Version {0}</value>
+    <value>Ver. {0}</value>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>All files</value>
+    <value>すべてのファイル</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
+    <value>現在実行中のRobloxが終了するまで、すべての設定は適用されません。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap is already running</value>
+    <value>Bloxstrapはすでに実行中です</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>You can make it look different, retro, or even just like Roblox.</value>
+    <value>見た目を変えてレトロにしたり、Roblox風にしたりできます。</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>Bootstrapper</value>
+    <value>カスタムランチャー</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configure other miscellaneous customisable options.</value>
+    <value>その他の設定を変更できます。</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Customisation</value>
+    <value>カスタマイズ</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Must be a multi-size .ico file with sizes 16px to 128px. Set Icon as 'Custom' to use it.</value>
+    <value>16px~128pxのマルチサイズ.ico形式を指定できます。(アイコンを"カスタム"にすることで使用できます)</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Custom Icon</value>
+    <value>カスタムアイコン</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>The text that shows as the title of the bootstrapper.</value>
+    <value>カスタムランチャーのタイトルを設定できます。</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap should look.</value>
+    <value>Bloxstrapの見た目を変更できます。</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Global Theme</value>
+    <value>全体のテーマ</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Choose what icon it should use.</value>
+    <value>アイコンを指定できます。</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Icon</value>
+    <value>アイコン</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>Preview</value>
+    <value>プレビュー</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Choose how it should look. Dark theme does not apply to Legacy/Vista.</value>
+    <value>見た目を変えることができます。"レガシー"と"Vista"はダークモードに対応していません。</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>Style</value>
+    <value>スタイル</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>Appearance</value>
+    <value>見た目</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
+    <value>Roblox起動時にBloxstrapの更新がある場合は自動的に行います。</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatically update Bloxstrap</value>
+    <value>Bloxstrapを自動的に更新する</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>Prevent against closures of your existing game from accidentally launching another one.</value>
+    <value>新しく別のゲームを起動した際に、既存のゲームが終了するのを防ぎます。</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>Prompt to confirm when launching another Roblox instance</value>
+    <value>新しくゲームを開く際、実行中のゲームがある場合は確認する</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches.</value>
+    <value>Robloxの次回起動時にRobloxのデスクトップアイコンを追加します。</value>
   </data>
   <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Create desktop icon</value>
+    <value>デスクトップアイコンを作成</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configure what Bloxstrap should do when launching.</value>
+    <value>Bloxstrapの起動時の動作を設定できます。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox will be installed fresh on next launch.</value>
+    <value>Robloxを次回起動時に再インストールします。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Force Roblox reinstallation</value>
+    <value>Robloxの強制再インストール</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Behaviour</value>
+    <value>動作</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>Add new</value>
+    <value>追加</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>An entry for this flag name already exists.</value>
+    <value>このFlagはすでに追加されています。</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>Back</value>
+    <value>戻る</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>Misusing this can lead to instability or unexpected things happening.</value>
+    <value>使用方法を誤ると不安定になったり、予期せぬ事態につながることがあります。</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>Use with caution.</value>
+    <value>注意して使用してください。</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>Some of the flags you are attempting to import already have set values. Would you like to overwrite their current values with the ones defined in the import?
+    <value>インポートしたFlagはすでに追加されています。インポートしたFlagの値で上書きしますか？
 
-There are {0} conflicting flag definitions:
+重複しているFlagは以下の{0}個あります。
 {1}</value>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>Delete selected</value>
+    <value>選択内容を削除</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Manage your own Fast Flags. Double click a column to edit.</value>
+    <value>FastFlagを管理できます。ダブルクリックで編集できます。</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>Export JSON</value>
+    <value>JSONをエクスポート</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the name can only contain letters, numbers, and underscores</value>
+    <value>このFlag名「{0}」は無効です。Flag名には文字や数字、アンダーバーのみが含まれます。</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>The JSON you've entered does not appear to be valid. Please double check it and try again.
+    <value>入力したJSONは正しくありません。確認ののち、再度お試しください。
 
-More information:
+詳細:
 {0}</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the name must start with FFlag, DFInt, etc</value>
+    <value>このFlag名「{0}」は無効です。Flag名は"FFlag"や"DFInt"などから始まる必要があります。</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>Copied to clipboard.</value>
+    <value>クリップボードにコピーしました。</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>You appear to be importing a very large configuration. You should only be importing configurations that you fully understand. Do NOT blindly paste in configurations made by other people. If you continue, you will very likely end up with stability issues and encounter unexpected changes.
+    <value>多くの設定が含まれるFlag設定をインポートしようとしています。内容を理解している場合のみ行ってください。内容を理解せずに他人が配布したものをインポートすることは"絶対に"やめてください。
+続行する場合、動作が不安定になったり、予期していないことに繋がる可能性があります。
 
-Are you sure you want to continue?</value>
+本当に続行しますか？</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>Search</value>
+    <value>検索</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>Show preset flags</value>
+    <value>プリセットを表示</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Fast Flag Editor</value>
+    <value>FastFlagエディタ</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Go back</value>
+    <value>戻る</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>I know what I'm doing</value>
+    <value>この機能の危険性を理解しています</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Do you know what you are doing?</value>
+    <value>この機能の利用には危険性を伴います。</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flags are extremely powerful, being that they are intended to only be used by Roblox engineers. While they can be very useful, manually configuring them can cause serious issues with stability and functionality. Do NOT use the editor if you are unsure of what you are doing.
+    <value>FastFlagの編集は非常に危険です。本来、Robloxのエンジニアのみが行います。 便利な機能ですが、使い方を誤ると
+動作が不安定になったり、機能が破損するなどの深刻な問題が発生することがあります。 
+心配な場合は絶対に行わないでください。
 
-Do NOT use this to import large "flag lists" made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware of what they are changing. If you were about to do that, GO BACK.</value>
+また、"Flag一覧" (英語で"flag lists") などの他人が配布しているFlag設定を絶対に使用しないでください。
+「Robloxが軽くなる」などを謳って配布されていることがありますが、前述の通り深刻な問題が発生したり、
+設定の内容を理解していないために問題が発生することがあります。
+もしそのような行為を行おうとしていた場合は、"今すぐ"この画面を閉じてください。</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Control how specific Roblox engine parameters and features are configured.</value>
+    <value>Robloxエンジンのパラメーターや機能を変更できます。</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Manage your own Fast Flags. Use with caution.</value>
+    <value>FastFlagを管理できます。この機能の使用は危険が伴います。</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Learn more about Fast Flags, what these presets do, and how to use them.</value>
+    <value>FastFlagについて</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Allows you to configure 21 different quality levels instead of 10.</value>
+    <value>画質設定の細かさを従来の10から21に変更します。</value>
   </data>
   <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use advanced graphics quality selector</value>
+    <value>画質設定を細かくする</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
+    <value>Alt+EnterでDirect3Dの[排他的フルスクリーン]({0})に変更できるようにする設定はデフォルトで有効です。</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferred escape menu version</value>
+    <value>Robloxメニュー画面を変更</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox reduces your rendering quality depending on how your display is scaled in Windows.</value>
+    <value>RobloxはWindowsのスケール設定に基づき画面解像度を下げることがあります。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>Preserve rendering quality with display scaling</value>
+    <value>ディスプレイのスケール設定時に解像度を維持する</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Set to 0 for defaults if you want to use Roblox's native framerate unlocker.</value>
+    <value>0に設定することでRoblox標準のフレームレート開放機能を利用できます。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate limit</value>
+    <value>フレームレート上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled with [keyboard shortcuts]({0}). Only works if you're in the [Bloxstrap group]({1}).</value>
+    <value>[ショートカットキー]({0})で切り替えることができます。[Bloxstrapグループ]({1})に参加している場合のみ有効です。</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Enable ability to hide GUIs</value>
+    <value>GUIを非表示にする機能を有効にする</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0})</value>
+    <value>すべてのゲームで強制的に設定されます。[照明の描画に問題が発生する可能性があります。]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferred lighting technology</value>
+    <value>Lighting technologyを選択</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>Rendering mode</value>
+    <value>レンダラーの変更</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flags</value>
+    <value>FastFlag</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>Font files</value>
+    <value>フォントファイル</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>Icon files</value>
+    <value>アイコンファイル</value>
   </data>
   <data name="Menu.Install" xml:space="preserve">
-    <value>Install</value>
+    <value>インストール</value>
   </data>
   <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap/Roblox is installed.</value>
+    <value>BloxstrapやRobloxのインストール方法を設定できます。</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Choose where Bloxstrap should be installed to.</value>
+    <value>Bloxstrapのインストール場所を設定できます。</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Install Location</value>
+    <value>インストール場所</value>
   </data>
   <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Where Bloxstrap is currently installed to.</value>
+    <value>現在のBloxstrapのインストール場所を開きます。</value>
   </data>
   <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Open Installation Folder</value>
+    <value>インストールフォルダを開く</value>
   </data>
   <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Installation</value>
+    <value>インストール方法</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Here's a guide on how to uninstall Bloxstrap.</value>
+    <value>Bloxstrapのアンインストール方法を確認できます。</value>
   </data>
   <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Looking to uninstall?</value>
+    <value>アンインストール方法について</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
+    <value>Bloxstrapをこの場所にインストールすることはできません。他の場所を選択するか、リセットボタンを押してデフォルトの場所に変更してください。</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>The folder you've chosen to install Bloxstrap to already exists and is NOT empty. It is strongly recommended for Bloxstrap to be installed to its own independent folder.
+    <value>選択したBloxstrapのインストール場所には中身が含まれています。独立したフォルダにインストールすることを強く推奨します。
 
-Changing to the following location is suggested:
+この場所に変更することをおすすめします。
 {0}
 
-Would you like to change to the suggested location?
-Selecting 'No' will ignore this warning and continue installation.</value>
+おすすめの場所に変更しますか？
+"いいえ"を選択するとこの警告を無視し、インストールが続行されます。</value>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>You must set an install location</value>
+    <value>インストール場所を指定する必要があります。</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap does not have write access to the install location you've selected. Please choose another location.</value>
+    <value>選択した場所の書き込み権限がありません。他の場所を選択してください。</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Activity tracking</value>
+    <value>プレイ中ゲームの追跡</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Allows for anybody to join the game you're currently in through your Discord profile.</value>
+    <value>他の人がDiscordプロファイルからゲームに参加することを許可します。</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Allow activity joining</value>
-  </data>
-  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Shows which Roblox account you are using on your Discord profile.</value>
-  </data>
-  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Show account on profile</value>
+    <value>プレイ中ゲームの参加</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Application Location</value>
+    <value>アプリケーションの場所</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>e.g. C:\Windows\System32\cmd.exe</value>
+    <value>例: C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Auto close when Roblox closes</value>
+    <value>Robloxが終了したらこのアプリも終了する</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>Here, you can have other programs launch with Roblox automatically.</value>
+    <value>Robloxと同時に自動的に起動するプログラムを設定できます。</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>Launch Arguments</value>
+    <value>起動時の引数</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>e.g. /k echo Roblox is running!</value>
+    <value>例: /k echo Robloxをプレイ中</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>New Integration</value>
+    <value>新しい連携</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>No integration selected, please select or add a new one</value>
+    <value>連携が選択されていません。選択または新規作成を行ってください。</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>Custom Integrations</value>
+    <value>カスタム連携</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configure additional functionality to go alongside Roblox.</value>
+    <value>Robloxと連携する機能を設定できます。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox will fully close when you leave a game instead of dropping you back into the app.</value>
+    <value>ゲーム退出時にデスクトップアプリが表示されないようにします。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>Don't exit to desktop app</value>
+    <value>デスクトップアプリを無効化</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this.</value>
+    <value>BloxstrapがRobloxでプレイ中のゲームを検出できるようにします。一部機能に必要です。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>Enable activity tracking</value>
+    <value>プレイ中ゲームの追跡</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running.</value>
+    <value>この機能はプレイ中ゲームの追跡が必要です。またDiscordアプリがインストールされており、起動している場合にのみ有効です。</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>The Roblox game you're playing will be shown on your Discord profile. [Not working?]({0})</value>
+    <value>Robloxでプレイ中のゲームをDiscordプロファイルに表示します。(動作しないときは[こちら]({0}))</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>Show game activity</value>
+    <value>プレイ中ゲームの表示</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>When you join a game, you'll be notified of where your server's located. Won't show in fullscreen.</value>
+    <value>ゲームに参加した際に、サーバーの地域が通知されます。全画面では表示されません。</value>
   </data>
   <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>See server location when joining a game</value>
+    <value>ゲーム参加時にサーバー地域を表示</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>Integrations</value>
+    <value>連携</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Manage and apply file mods to the Roblox game client.</value>
+    <value>RobloxクライアントのModを管理したり適用させることができます。</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>See info about managing and creating mods.</value>
+    <value>Modの管理と作成の詳細情報を確認できます。</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>Choose font...</value>
+    <value>フォントを選択...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Font size can be adjusted in the Fast Flags tab.</value>
+    <value>FastFlagタブでフォントサイズを調整できます。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>The file you have chosen does not appear to be a valid font file.</value>
+    <value>選択したファイルは有効なフォントファイルではありません。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>Remove applied font</value>
+    <value>フォントをもとに戻す</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Use custom font</value>
+    <value>カスタムフォントを使う</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>A Windows feature that may conflict with performance in full-screen.</value>
+    <value>全画面表示でパフォーマンスに悪影響を及ぼす可能性のあるWindowsの機能を無効化します。</value>
   </data>
   <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Disable fullscreen optimisations</value>
+    <value>全画面表示最適化を無効にする</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Manage custom Roblox mods here.</value>
+    <value>RobloxのModを管理できます。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap must first be installed.</value>
+    <value>最初にBloxstrapをインストールしてください。</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>Open Mods Folder</value>
+    <value>Modフォルダを開く</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Choose which type of emoji should Roblox use.</value>
+    <value>Robloxで使用する絵文字のデザインを変更できます。</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>Preferred emoji type</value>
+    <value>絵文字のデザインの変更</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>Choose between using two classic Roblox cursor styles.</value>
+    <value>2つのクラシックなRobloxカーソルから選択できます。</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>Mouse cursor</value>
+    <value>マウスカーソル</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Bring back the old avatar editor background used in the Roblox app prior to 2020.</value>
+    <value>アバター編集画面の背景を2020年以前に使用されていたものに変更します。</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>Use old avatar editor background</value>
+    <value>アバター編集画面の旧背景の使用</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>An attempt to roughly bring back the character sounds used prior to 2014.</value>
+    <value>2014年以前に使用されていたキャラクター効果音を再現します。</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>Emulate old character sounds</value>
+    <value>旧キャラクター効果音を再現</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bring back the classic 'oof' death sound.</value>
+    <value>古き良きOof(死亡時の効果音)に変更します。</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Use old death sound</value>
+    <value>古いOof音を使用</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>Mods</value>
+    <value>Mod</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Click for more information on this option.</value>
+    <value>クリックするとこの設定の詳細情報を確認できます。</value>
   </data>
   <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>There's just a few things you first should know about.</value>
+    <value>最初にお読みください。</value>
   </data>
   <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>After installation has finished, the Bloxstrap Menu will be registered as an application in the Start menu. If you ever need to access it again to re-adjust your settings, or access resources such as Fast Flag management, you can find it there.</value>
+    <value>インストール終了後、Bloxstrap Menuがスタートメニューに追加されます。設定やFastFlagの編集を行う場合はここからアクセスすることができます。</value>
   </data>
   <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>If you ever need help or guidance with anything, be sure to check the [Wiki]({0}). If you still need something, open an [issue]({1}) on GitHub, or join our [Discord server]({2}).</value>
+    <value>ヘルプやガイドが必要な場合は、[Wiki]({0})を確認してください。解決しない場合は、Githubで[issue]({1})を投稿したり、[公式Discordサーバー]({2})への参加をお願いします。</value>
   </data>
   <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Before you install...</value>
+    <value>インストールする前に</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>Changes will take effect the next time you launch Roblox.</value>
+    <value>Robloxの次回起動時に適用されます。</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>Settings saved!</value>
+    <value>設定が保存されました</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Menu</value>
+    <value>Bloxstrapメニュー</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>Choose preferred language</value>
+    <value>言語を選択</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Choose a language before continuing with installation.</value>
+    <value>インストールを開始する前に言語を選択してください。</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>Language</value>
+    <value>言語</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>A relaunch is required for changes to take effect.</value>
+    <value>次回起動時に適用されます。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Allow use of unsupported Roblox languages</value>
+    <value>Robloxで非対応の言語を使用する</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Only applies to games launched from the Roblox website.</value>
+    <value>RobloxのWebサイトから起動した場合のみ適用されます。</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (V4 + New UI)</value>
+    <value>2023 (Ver. 4+新UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>Rendering and Graphics</value>
+    <value>レンダリングとグラフィック</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>User Interface and Layout</value>
+    <value>UIとレイアウト</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Allow Bloxstrap to manage Fast Flags</value>
+    <value>FastFlagの編集を有効にする</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>Disabling this will prevent anything configured here from being applied to Roblox.</value>
+    <value>無効にするとここで行われた設定はRobloxに適用されなくなります。</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>Anti-aliasing quality (MSAA)</value>
+    <value>アンチエイリアス品質 (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Disable post-processing effects</value>
+    <value>ポストプロセスエフェクトを無効にする</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Disable full-screen titlebar</value>
+    <value>フルスクリーンでのタイトルバーを無効にする</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Stops it from showing whenever you move your mouse to the top of the screen.</value>
+    <value>画面上部にカーソルを動かした際に表示されなくなります。</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>Texture quality</value>
+    <value>テクスチャ品質</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>Level 0 (Lowest)</value>
+    <value>レベル0 (最低)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>Level 1</value>
+    <value>レベル1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>Level 2</value>
+    <value>レベル2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>Level 3 (Highest)</value>
+    <value>レベル3 (最高)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Disable player shadows</value>
+    <value>プレイヤーの影を非表示にする</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Font size</value>
+    <value>フォントサイズ</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Default value is 1. Adjust if you use a custom font.</value>
+    <value>デフォルトは1です。カスタムフォントを使用する際に設定してください。</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Disable terrain textures</value>
+    <value>地形テクスチャを無効にする</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap is unable to download Roblox</value>
+    <value>Robloxをダウンロードできませんでした</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
+    <value>現時点ではRobloxをダウンロードできません。こちらのヘルプ記事から詳細を確認してください。{0}</value>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>Import from file</value>
+    <value>ファイルをインポートする</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>JSON files</value>
+    <value>JSONファイル</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the value must be a boolean (either 'True' or 'False')</value>
+    <value>値が無効です。このFlag「{0}」の値は真偽値である必要があります。("True"または"False")</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the value must be a number</value>
+    <value>値が無効です。このFlag「{0}」の値は数字である必要があります。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>No log file will be written for this launch because Bloxstrap is unable to write to the folder at '{0}'</value>
+    <value>現在"{0}"フォルダに書き込むことができないため、ログファイルは保存されません。</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>Default</value>
+    <value>標準</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>Automatic</value>
+    <value>自動</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>System default</value>
-  </data>
-  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
-  </data>
-  <data name="ContextMenu.RobloxNotRunning" xml:space="preserve">
-    <value>Roblox is still launching. A log file will only be available once Roblox launches.</value>
+    <value>システム標準</value>
   </data>
 </root>

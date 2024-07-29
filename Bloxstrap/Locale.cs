@@ -16,39 +16,39 @@ namespace Bloxstrap
             { "en", "English" },
             { "en-US", "English (United States)" },
             { "ar", "العربية" },
-            { "bn", "বাংলা" },
-            { "bs", "Босански" },
             { "bg", "Български" },
-            { "zh-CN", "中文 (简体)" },
-            { "zh-HK", "中文 (廣東話)" },
-            { "zh-TW", "中文 (繁體)" },
-            { "cs", "Čeština" },
-            // { "dk", "Dansk" },
-            { "nl", "Nederlands" },
-            { "fl", "Filipino" },
-            { "fi", "Suomi" },
-            { "fr", "Français" },
+            { "bn", "বাংলা" },
+            { "bs", "Bosanski" },
+            // { "cs", "Čeština" },
             { "de", "Deutsch" },
+            // { "dk", "Dansk" },
+            { "es-ES", "Español" },
+            { "fi", "Suomi" },
+            { "fil", "Filipino" },
+            { "fr", "Français" },
             { "he", "עברית‎" },
+            { "hi", "Hindi (Latin)" },
             { "hr", "Hrvatski" },
-            // { "hi", "Hindi (Latin)" },
             { "hu", "Magyar" },
-            // { "id", "Bahasa Indonesia" },
-            // { "it", "Italiano" },
+            { "id", "Bahasa Indonesia" },
+            { "it", "Italiano" },
             { "ja", "日本語" },
             { "ko", "한국어" },
             { "lt", "Lietuvių" },
-            // { "no", "Bokmål" },
+            { "no", "Bokmål" },
+            // { "nl", "Nederlands" },
             { "pl", "Polski" },
             { "pt-BR", "Português (Brasil)" },
             { "ro", "Română" },
             { "ru", "Русский" },
-            { "es", "Español" },
             { "sv-SE", "Svenska" },
             { "th", "ภาษาไทย" },
             { "tr", "Türkçe" },
-            { "uk", "Yкраїньска" },
-            { "vi", "Tiếng Việt" }
+            { "uk", "Українська" },
+            { "vi", "Tiếng Việt" },
+            { "zh-CN", "中文 (简体)" },
+            { "zh-HK", "中文 (廣東話)" },
+            { "zh-TW", "中文 (繁體)" }
         };
 
         public static string GetIdentifierFromName(string language) => SupportedLocales.FirstOrDefault(x => x.Value == language).Key ?? "nil";
@@ -59,6 +59,7 @@ namespace Bloxstrap
             
             languages.AddRange(SupportedLocales.Values.Take(3));
             languages.AddRange(SupportedLocales.Values.Where(x => !languages.Contains(x)).OrderBy(x => x));
+            languages[0] = Strings.Common_SystemDefault; // set again for any locale changes
 
             return languages;
         }

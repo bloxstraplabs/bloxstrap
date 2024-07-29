@@ -558,6 +558,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox is still launching. A log file will only be available once Roblox launches..
+        /// </summary>
+        public static string ContextMenu_RobloxNotRunning {
+            get {
+                return ResourceManager.GetString("ContextMenu.RobloxNotRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to See server details.
         /// </summary>
         public static string ContextMenu_SeeServerDetails {
@@ -1700,6 +1709,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlagEditor_InvalidNumberValue {
             get {
                 return ResourceManager.GetString("Menu.FastFlagEditor.InvalidNumberValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the place filter is not formatted correctly..
+        /// </summary>
+        public static string Menu_FastFlagEditor_InvalidPlaceFilter {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.InvalidPlaceFilter", resourceCulture);
             }
         }
         
