@@ -768,6 +768,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+        ///
+        ///If not, then please report this exception to the maintainers of this fork. Do NOT report this to Bloxstrap&apos;s GitHub issues, as this is an unoffical build..
+        /// </summary>
+        public static string Dialog_Exception_Info_2_Alt {
+            get {
+                return ResourceManager.GetString("Dialog.Exception.Info.2.Alt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap Exception.
         /// </summary>
         public static string Dialog_Exception_Title {

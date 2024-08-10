@@ -1097,4 +1097,9 @@ Bloxstrap was installed at "{1}".</value>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through Bloxstrap Settings.</value>
   </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+
+If not, then please report this exception to the maintainers of this fork. Do NOT report this to Bloxstrap's GitHub issues, as this is an unoffical build.</value>
+  </data>
 </root>
