@@ -34,7 +34,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
+            <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0" IsEnabled="False">
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Installer_Welcome_Title}" PageType="{x:Type pages:WelcomePage}" Icon="ArrowCircleRight48" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Installer_Install_Title}" PageType="{x:Type pages:InstallPage}" Icon="ArrowCircleRight48" />
