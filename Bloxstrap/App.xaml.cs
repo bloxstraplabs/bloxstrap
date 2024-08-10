@@ -117,30 +117,43 @@ namespace Bloxstrap
             // installation check begins here
             using var uninstallKey = Registry.CurrentUser.OpenSubKey(UninstallKey);
             string? installLocation = null;
+            bool fixInstallLocation = false;
             
-            if (uninstallKey?.GetValue("InstallLocation") is string value && Directory.Exists(value))
-                installLocation = value;
+            if (uninstallKey?.GetValue("InstallLocation") is string value)
+            {
+                if (Directory.Exists(value))
+                {
+                    installLocation = value;
+                }
+                else
+                {
+                    // check if user profile folder has been renamed
+                    // honestly, i'll be expecting bugs from this
+                    var match = Regex.Match(value, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
+
+                    if (match.Success)
+                    {
+                        string newLocation = value.Replace(match.Value, Paths.UserProfile, StringComparison.InvariantCultureIgnoreCase);
+
+                        if (Directory.Exists(newLocation))
+                        {
+                            installLocation = newLocation;
+                            fixInstallLocation = true;
+                        }
+                    }
+                }
+            }
 
             // silently change install location if we detect a portable run
-            // this should also handle renaming of the user profile folder
             if (installLocation is null && Directory.GetParent(Paths.Process)?.FullName is string processDir)
             {
                 var files = Directory.GetFiles(processDir).Select(x => Path.GetFileName(x)).ToArray();
-                var installer = new Installer
-                {
-                    InstallLocation = processDir,
-                    IsImplicitInstall = true
-                };
 
-                // check if settings.json and state.json are the only files in the folder, and if we can write to it
-                if (files.Length <= 3
-                    && files.Contains("Settings.json")
-                    && files.Contains("State.json")
-                    && installer.CheckInstallLocation())
+                // check if settings.json and state.json are the only files in the folder
+                if (files.Length <= 3 && files.Contains("Settings.json") && files.Contains("State.json"))
                 {
-                    Logger.WriteLine(LOG_IDENT, $"Changing install location to '{processDir}'");
-                    installer.DoInstall();
                     installLocation = processDir;
+                    fixInstallLocation = true;
                 }
             }
 
@@ -151,6 +164,21 @@ namespace Bloxstrap
             }
             else
             {
+                if (fixInstallLocation)
+                {
+                    var installer = new Installer
+                    {
+                        InstallLocation = installLocation,
+                        IsImplicitInstall = true
+                    };
+
+                    if (installer.CheckInstallLocation())
+                    {
+                        Logger.WriteLine(LOG_IDENT, $"Changing install location to '{installLocation}'");
+                        installer.DoInstall();
+                    }
+                }
+
                 Paths.Initialize(installLocation);
 
                 // ensure executable is in the install directory
