@@ -37,12 +37,6 @@ namespace Bloxstrap
         {
             string LOG_IDENT = $"{LOG_IDENT_CLASS}::Save";
             
-            if (!App.ShouldSaveConfigs)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Save request ignored");
-                return;
-            }
-
             App.Logger.WriteLine(LOG_IDENT, $"Saving to {FileLocation}...");
 
             Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);

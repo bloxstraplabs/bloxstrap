@@ -9,9 +9,11 @@
     {
         ERROR_SUCCESS = 0,
         ERROR_INVALID_FUNCTION = 1,
+        ERROR_FILE_NOT_FOUND = 2,
+        
+        ERROR_CANCELLED = 1223,
         ERROR_INSTALL_USEREXIT = 1602,
         ERROR_INSTALL_FAILURE = 1603,
-        ERROR_CANCELLED = 1223,
 
         CO_E_APPNOTFOUND = -2147221003
     }

@@ -12,8 +12,11 @@ namespace Bloxstrap
 {
     public class LaunchSettings
     {
-        [LaunchFlag(new[] { "-preferences", "-menu" })]
-        public bool IsMenuLaunch { get; private set; } = false;
+        [LaunchFlag(new[] { "-preferences", "-menu", "-settings" })]
+        public bool IsMenuLaunch { get; set; } = false;
+
+        [LaunchFlag("-player")]
+        public bool IsRobloxLaunch { get; set; } = false;
 
         [LaunchFlag("-quiet")]
         public bool IsQuiet { get; private set; } = false;
