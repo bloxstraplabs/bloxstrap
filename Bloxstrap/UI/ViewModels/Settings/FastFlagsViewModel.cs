@@ -169,7 +169,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 if (value == TextureQuality.Default)
                 {
-                    App.FastFlags.SetPresetEnum("Rendering", "TextureQuality", null);
+                    App.FastFlags.SetPreset("Rendering.TextureQuality", null);
                 }
                 else
                 {
