@@ -169,6 +169,10 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
+                // we can only parse them now as settings need
+                // to be loaded first to know what our channel is
+                LaunchSettings.ParseRoblox();
+
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
                     Settings.Prop.Locale = "nil";

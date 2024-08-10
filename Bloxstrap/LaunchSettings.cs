@@ -15,7 +15,7 @@ namespace Bloxstrap
         [LaunchFlag(new[] { "-preferences", "-menu", "-settings" })]
         public bool IsMenuLaunch { get; set; } = false;
 
-        [LaunchFlag("-player")]
+        [LaunchFlag(new[] { "-player", "-studio" })]
         public bool IsRobloxLaunch { get; set; } = false;
 
         [LaunchFlag("-quiet")]
@@ -91,12 +91,15 @@ namespace Bloxstrap
 
             if (arg.StartsWith("roblox-player:"))
             {
+                IsRobloxLaunch = true;
+
                 RobloxLaunchArgs = ProtocolHandler.ParseUri(arg);
 
                 RobloxLaunchMode = LaunchMode.Player;
             }
             else if (arg.StartsWith("roblox:"))
             {
+                IsRobloxLaunch = true;
 
                 RobloxLaunchArgs = $"--app --deeplink {arg}";
 
