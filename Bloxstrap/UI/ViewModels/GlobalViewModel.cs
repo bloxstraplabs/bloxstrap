@@ -7,8 +7,6 @@ namespace Bloxstrap.UI.ViewModels
     {
         public static ICommand OpenWebpageCommand => new RelayCommand<string>(OpenWebpage);
 
-        public static bool IsNotFirstRun => !App.IsFirstRun;
-
         private static void OpenWebpage(string? location)
         {
             if (location is null)

@@ -8,7 +8,7 @@
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
-        Title="Bloxstrap"
+        Title="{x:Static resources:Strings.Installer_Title}"
         MinWidth="0"
         MinHeight="0"
         Width="380"
@@ -24,10 +24,10 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Installer_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
         <StackPanel Grid.Row="1" Margin="12">
-            <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Header}" FontSize="18" FontWeight="Medium" />
+            <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Header}" FontSize="20" FontWeight="SemiBold" />
             <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Subtext}" TextWrapping="Wrap" Margin="0,0,0,12" />
             <ComboBox ItemsSource="{Binding Languages, Mode=OneTime}" Text="{Binding SelectedLanguage, Mode=TwoWay}" />
         </StackPanel>

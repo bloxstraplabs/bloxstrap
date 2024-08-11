@@ -1,5 +1,6 @@
 ﻿namespace Bloxstrap
 {
+    // TODO: this is a mess and desperately needs refactoring
     public static class RobloxDeployment
     {
         public const string DefaultChannel = "LIVE";
@@ -52,7 +53,7 @@
             // this function serves double duty as the setup mirror enumerator, and as our connectivity check
             // since we're basically asking four different urls for the exact same thing, if all four fail, then it has to be a user-side problem
 
-            // this should be checked for in the installer, in the menu, and in the bootstrapper, as each of those have a dedicated spot they show in
+            // this should be checked for in the installer and in the bootstrapper
 
             // returns null for success
 
@@ -168,7 +169,7 @@
             {
                 var defaultClientVersion = await GetInfo(DefaultChannel);
 
-                if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == -1)
+                if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == VersionComparison.LessThan)
                     clientVersion.IsBehindDefaultChannel = true;
             }
 

@@ -35,7 +35,7 @@
             <StackPanel Grid.Column="1">
                 <TextBlock Text="{x:Static resources:Strings.Dialog_Exception_Info_1}" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <RichTextBox x:Name="ErrorRichTextBox" Padding="8" Margin="0,16,0,0" Block.LineHeight="2" FontFamily="Courier New" IsReadOnly="True" />
-                <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Dialog_Exception_Info_2}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki|https://github.com/pizzaboxer/bloxstrap/issues/new?template=bug_report.yaml'}" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <controls:MarkdownTextBlock x:Name="HelpMessageMDTextBlock" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
             </StackPanel>
         </Grid>
 

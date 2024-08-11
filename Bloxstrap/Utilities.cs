@@ -49,12 +49,12 @@ namespace Bloxstrap
         ///  0: version1 == version2 <br />
         ///  1: version1 &gt; version2
         /// </returns>
-        public static int CompareVersions(string versionStr1, string versionStr2)
+        public static VersionComparison CompareVersions(string versionStr1, string versionStr2)
         {
             var version1 = new Version(versionStr1.Replace("v", ""));
             var version2 = new Version(versionStr2.Replace("v", ""));
 
-            return version1.CompareTo(version2);
+            return (VersionComparison)version1.CompareTo(version2);
         }
 
         public static string GetRobloxVersion(bool studio)

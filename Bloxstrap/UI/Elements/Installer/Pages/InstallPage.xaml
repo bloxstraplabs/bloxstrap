@@ -1,0 +1,62 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Installer.Pages.InstallPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Installer.Pages"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InstallPage"
+      Scrollable="True"
+      Loaded="UiPage_Loaded">
+
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock FontSize="20" FontWeight="SemiBold" Text="{x:Static resources:Strings.Installer_Install_Location_Title}" TextWrapping="Wrap" />
+        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Installer_Install_Location_Text}" TextWrapping="Wrap" />
+
+        <ui:Card Margin="0,8,0,0" Padding="12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Margin="0,0,4,0" Text="{Binding InstallLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:Button Grid.Column="1" Margin="4,0,4,0" Height="35" Icon="Folder24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseInstallLocationCommand}" />
+                <ui:Button Grid.Column="2" Margin="4,0,0,0" Height="35" Icon="ArrowCounterclockwise24" Content="{x:Static resources:Strings.Common_Reset}" Command="{Binding ResetInstallLocationCommand}" />
+            </Grid>
+        </ui:Card>
+
+        <TextBlock Margin="0,8,0,0" FontSize="14" Text="{x:Static resources:Strings.Installer_Install_Location_DataFound}" Visibility="{Binding DataFoundMessageVisibility, Mode=OneWay}" TextWrapping="Wrap" />
+        <TextBlock FontSize="14" Text="{Binding ErrorMessage, Mode=OneWay}" Foreground="{DynamicResource SystemFillColorCriticalBrush}" TextWrapping="Wrap" Margin="0,4,0,0">
+            <TextBlock.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=Self},Path=Text}" Value="">
+                            <Setter Property="UIElement.Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <TextBlock FontSize="20" FontWeight="SemiBold" Text="{x:Static resources:Strings.Installer_Install_Shortcuts_Title}" TextWrapping="Wrap" Margin="0,16,0,0" />
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Installer_Install_Shortcuts_Desktop}">
+            <ui:ToggleSwitch IsChecked="{Binding CreateDesktopShortcuts, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Installer_Install_Shortcuts_StartMenu}">
+            <ui:ToggleSwitch IsChecked="{Binding CreateStartMenuShortcuts, Mode=TwoWay}" />
+        </controls:OptionControl>
+    </StackPanel>
+</ui:UiPage>

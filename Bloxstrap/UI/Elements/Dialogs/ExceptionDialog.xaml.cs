@@ -6,6 +6,8 @@ using System.Windows.Interop;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 
+using Bloxstrap.Resources;
+
 namespace Bloxstrap.UI.Elements.Dialogs
 {
     // hmm... do i use MVVM for this?
@@ -22,7 +24,14 @@ namespace Bloxstrap.UI.Elements.Dialogs
             AddException(exception);
 
             if (!App.Logger.Initialized)
-                LocateLogFileButton.Content = Bloxstrap.Resources.Strings.Dialog_Exception_CopyLogContents;
+                LocateLogFileButton.Content = Strings.Dialog_Exception_CopyLogContents;
+
+            string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, "https://github.com/pizzaboxer/bloxstrap/wiki", "https://github.com/pizzaboxer/bloxstrap/issues/new?template=bug_report.yaml");
+
+            if (String.IsNullOrEmpty(App.BuildMetadata.CommitHash))
+                helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, "https://github.com/pizzaboxer/bloxstrap/wiki");
+
+            HelpMessageMDTextBlock.MarkdownText = helpMessage;
 
             LocateLogFileButton.Click += delegate
             {
