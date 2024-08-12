@@ -5,6 +5,7 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 
 using Bloxstrap.Resources;
+using Bloxstrap.Models.SettingTasks;
 
 namespace Bloxstrap
 {
@@ -31,6 +32,8 @@ namespace Bloxstrap
         public static NotifyIconWrapper? NotifyIcon { get; set; }
 
         public static readonly Logger Logger = new();
+
+        public static readonly Dictionary<string, ISettingTask> PendingSettingTasks = new();
 
         public static readonly JsonManager<Settings> Settings = new();
 

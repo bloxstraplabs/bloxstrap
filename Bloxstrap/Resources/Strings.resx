@@ -1025,14 +1025,14 @@ This installation process will be quick and simple, and you will be able to conf
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
     <value>Existing data found. Your mods and settings will be restored.</value>
   </data>
-  <data name="Installer.Install.Shortcuts.Title" xml:space="preserve">
+  <data name="Common.Shortcuts" xml:space="preserve">
     <value>Shortcuts</value>
   </data>
-  <data name="Installer.Install.Shortcuts.Desktop" xml:space="preserve">
-    <value>Create Desktop shortcuts</value>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Desktop icon</value>
   </data>
-  <data name="Installer.Install.Shortcuts.StartMenu" xml:space="preserve">
-    <value>Create Start Menu shortcuts</value>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Start Menu icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
     <value>Bloxstrap has successfully been installed.
@@ -1095,11 +1095,29 @@ Bloxstrap was installed at "{1}".</value>
     <value>You currently do not have the WebView2 runtime installed. Some Roblox features will not work properly without it, such as the desktop app. Would you like to download it now?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through Bloxstrap Settings.</value>
+    <value>Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
 
 If not, then please report this exception to the maintainers of this fork. Do NOT report this to Bloxstrap's GitHub issues, as this is an unoffical build.</value>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Configure how Bloxstrap can be readily launched.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>These are the shortcuts that bring up the multi-choice launch menu.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Create shortcuts for quick access to specific functions. These will all be placed on the Desktop.</value>
   </data>
 </root>

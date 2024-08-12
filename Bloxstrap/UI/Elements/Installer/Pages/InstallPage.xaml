@@ -35,7 +35,7 @@
         </ui:Card>
 
         <TextBlock Margin="0,8,0,0" FontSize="14" Text="{x:Static resources:Strings.Installer_Install_Location_DataFound}" Visibility="{Binding DataFoundMessageVisibility, Mode=OneWay}" TextWrapping="Wrap" />
-        <TextBlock FontSize="14" Text="{Binding ErrorMessage, Mode=OneWay}" Foreground="{DynamicResource SystemFillColorCriticalBrush}" TextWrapping="Wrap" Margin="0,4,0,0">
+        <TextBlock Margin="0,8,0,0" FontSize="14" Text="{Binding ErrorMessage, Mode=OneWay}" Foreground="{DynamicResource SystemFillColorCriticalBrush}" TextWrapping="Wrap">
             <TextBlock.Style>
                 <Style>
                     <Style.Triggers>
@@ -47,15 +47,16 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <TextBlock FontSize="20" FontWeight="SemiBold" Text="{x:Static resources:Strings.Installer_Install_Shortcuts_Title}" TextWrapping="Wrap" Margin="0,16,0,0" />
+        <TextBlock FontSize="20" FontWeight="SemiBold" Text="{x:Static resources:Strings.Common_Shortcuts}" TextWrapping="Wrap" Margin="0,16,0,0" />
+        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Installer_Install_Shortcuts_Description}" TextWrapping="Wrap" />
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Installer_Install_Shortcuts_Desktop}">
+            Header="{x:Static resources:Strings.Common_Shortcuts_Desktop}">
             <ui:ToggleSwitch IsChecked="{Binding CreateDesktopShortcuts, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Installer_Install_Shortcuts_StartMenu}">
+            Header="{x:Static resources:Strings.Common_Shortcuts_StartMenu}">
             <ui:ToggleSwitch IsChecked="{Binding CreateStartMenuShortcuts, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>

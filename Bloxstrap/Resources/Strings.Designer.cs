@@ -513,6 +513,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shortcuts.
+        /// </summary>
+        public static string Common_Shortcuts {
+            get {
+                return ResourceManager.GetString("Common.Shortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desktop icon.
+        /// </summary>
+        public static string Common_Shortcuts_Desktop {
+            get {
+                return ResourceManager.GetString("Common.Shortcuts.Desktop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Menu icon.
+        /// </summary>
+        public static string Common_Shortcuts_StartMenu {
+            get {
+                return ResourceManager.GetString("Common.Shortcuts.StartMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to System default.
         /// </summary>
         public static string Common_SystemDefault {
@@ -685,7 +712,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through Bloxstrap Settings..
+        ///   Looks up a localized string similar to Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings..
         /// </summary>
         public static string Dialog_CannotCreateShortcuts {
             get {
@@ -1274,29 +1301,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Desktop shortcuts.
+        ///   Looks up a localized string similar to These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings..
         /// </summary>
-        public static string Installer_Install_Shortcuts_Desktop {
+        public static string Installer_Install_Shortcuts_Description {
             get {
-                return ResourceManager.GetString("Installer.Install.Shortcuts.Desktop", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create Start Menu shortcuts.
-        /// </summary>
-        public static string Installer_Install_Shortcuts_StartMenu {
-            get {
-                return ResourceManager.GetString("Installer.Install.Shortcuts.StartMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Shortcuts.
-        /// </summary>
-        public static string Installer_Install_Shortcuts_Title {
-            get {
-                return ResourceManager.GetString("Installer.Install.Shortcuts.Title", resourceCulture);
+                return ResourceManager.GetString("Installer.Install.Shortcuts.Description", resourceCulture);
             }
         }
         
@@ -2847,6 +2856,51 @@ namespace Bloxstrap.Resources {
         public static string Menu_SettingsSaved_Title {
             get {
                 return ResourceManager.GetString("Menu.SettingsSaved.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure how Bloxstrap can be readily launched..
+        /// </summary>
+        public static string Menu_Shortcuts_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create shortcuts for quick access to specific functions. These will all be placed on the Desktop..
+        /// </summary>
+        public static string Menu_Shortcuts_Function_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Function.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Function.
+        /// </summary>
+        public static string Menu_Shortcuts_Function_Title {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Function.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These are the shortcuts that bring up the multi-choice launch menu..
+        /// </summary>
+        public static string Menu_Shortcuts_General_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.General.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string Menu_Shortcuts_General_Title {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.General.Title", resourceCulture);
             }
         }
         

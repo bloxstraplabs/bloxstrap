@@ -16,6 +16,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
             App.State.Save();
             App.FastFlags.Save();
 
+            foreach (var task in App.PendingSettingTasks)
+                task.Value.Execute();
+
+            App.PendingSettingTasks.Clear();
+
             RequestSaveNoticeEvent?.Invoke(this, new EventArgs());
         }
     }
