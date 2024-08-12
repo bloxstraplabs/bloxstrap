@@ -5,6 +5,14 @@
         private string _oldPlayerVersionGuid = "";
         private string _oldStudioVersionGuid = "";
 
+        public IEnumerable<PriorityClasses> PriorityClassesList { get; } = Enum.GetValues(typeof(PriorityClasses)).Cast<PriorityClasses>();
+
+        public PriorityClasses ChoosePriorityClass
+        {
+            get => App.Settings.Prop.ChoosePriorityClass;
+            set => App.Settings.Prop.ChoosePriorityClass = value;
+        }
+
         public bool CreateDesktopIcon
         {
             get => App.Settings.Prop.CreateDesktopIcon;

@@ -2963,5 +2963,77 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Uninstaller.Uninstall", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Change the priority class Roblox uses..
+        /// </summary>
+        public static string Menu_Behaviour_ChangePriorityClass_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ChangePriorityClass.Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Set priority.
+        /// </summary>
+        public static string Menu_Behaviour_ChangePriorityClass_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.ChangePriorityClass.Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        public static string Enums_PriorityClasses_Idle {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.Idle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Below normal.
+        /// </summary>
+        public static string Enums_PriorityClasses_BelowNormal {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.BelowNormal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string Enums_PriorityClasses_Normal {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.Normal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Above normal.
+        /// </summary>
+        public static string Enums_PriorityClasses_AboveNormal {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.AboveNormal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string Enums_PriorityClasses_High {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.High", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Realtime.
+        /// </summary>
+        public static string Enums_PriorityClasses_RealTime {
+            get {
+                return ResourceManager.GetString("Enums.PriorityClasses.RealTime", resourceCulture);
+            }
+        }
     }
 }

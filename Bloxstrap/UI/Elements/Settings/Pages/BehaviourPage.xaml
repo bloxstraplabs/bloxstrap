@@ -17,6 +17,18 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Behaviour_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_ChangePriorityClass_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_ChangePriorityClass_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding PriorityClassesList, Mode=OneTime}" Text="{Binding ChoosePriorityClass, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_CreateDesktopIcon_Description}">

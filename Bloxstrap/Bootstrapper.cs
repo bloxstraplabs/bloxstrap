@@ -374,6 +374,27 @@ namespace Bloxstrap
                 }
             }
 
+            Process[] processes = Process.GetProcessesByName("RobloxPlayerBeta");
+#if STUDIO_FEATURES
+            if (_launchMode == LaunchMode.Studio)
+                processes = Process.GetProcessesByName("RobloxStudioBeta");
+#endif
+
+            ProcessPriorityClass[] PriorityThing = {
+                ProcessPriorityClass.Idle,
+                ProcessPriorityClass.BelowNormal,
+                ProcessPriorityClass.Normal,
+                ProcessPriorityClass.AboveNormal,
+                ProcessPriorityClass.High
+            };
+
+            foreach (Process proc in processes)
+            {
+                proc.PriorityClass = PriorityThing[(int)App.Settings.Prop.ChoosePriorityClass];
+
+                App.Logger.WriteLine(LOG_IDENT, $"Launching with priority '{proc.PriorityClass}'");
+            }
+
             // event fired, wait for 3 seconds then close
             await Task.Delay(3000);
             Dialog?.CloseBootstrapper();
