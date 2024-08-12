@@ -5,12 +5,6 @@
         private string _oldPlayerVersionGuid = "";
         private string _oldStudioVersionGuid = "";
 
-        public bool CreateDesktopIcon
-        {
-            get => App.Settings.Prop.CreateDesktopIcon;
-            set => App.Settings.Prop.CreateDesktopIcon = value;
-        }
-
         public bool UpdateCheckingEnabled
         {
             get => App.Settings.Prop.CheckForUpdates;

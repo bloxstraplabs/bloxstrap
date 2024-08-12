@@ -1791,24 +1791,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap will place an icon on the desktop that launches Roblox the next time it launches..
-        /// </summary>
-        public static string Menu_Behaviour_CreateDesktopIcon_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.CreateDesktopIcon.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create desktop icon.
-        /// </summary>
-        public static string Menu_Behaviour_CreateDesktopIcon_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.CreateDesktopIcon.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Configure what Bloxstrap should do when launching..
         /// </summary>
         public static string Menu_Behaviour_Description {

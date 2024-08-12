@@ -26,7 +26,7 @@ namespace Bloxstrap.Models.SettingTasks
 
             if (NewState)
                 Shortcut.Create(Paths.Application, ExeFlags, ShortcutPath);
-            else
+            else if (File.Exists(ShortcutPath))
                 File.Delete(ShortcutPath);
 
             OriginalState = NewState;
