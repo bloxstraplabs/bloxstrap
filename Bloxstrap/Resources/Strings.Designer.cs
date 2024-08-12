@@ -3026,14 +3026,5 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.PriorityClasses.High", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Realtime.
-        /// </summary>
-        public static string Enums_PriorityClasses_RealTime {
-            get {
-                return ResourceManager.GetString("Enums.PriorityClasses.RealTime", resourceCulture);
-            }
-        }
     }
 }

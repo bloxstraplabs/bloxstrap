@@ -1141,7 +1141,4 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="Enums.PriorityClasses.High" xml:space="preserve">
     <value>High</value>
   </data>
-  <data name="Enums.PriorityClasses.RealTime" xml:space="preserve">
-    <value>Realtime</value>
-  </data>
 </root>
