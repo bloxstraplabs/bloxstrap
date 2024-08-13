@@ -287,12 +287,11 @@ Your ReShade configuration files will still be saved, and you can locate them by
     <value>Location</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Located at {0}
+    <value>Location: {0}
 Click for more information</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Connected to {0} server</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Connected to public server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Server information</value>
@@ -1113,5 +1112,11 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
     <value>Create shortcuts for quick access to specific functions. These will all be placed on the Desktop.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Connected to private server</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Connected to reserved server</value>
   </data>
 </root>

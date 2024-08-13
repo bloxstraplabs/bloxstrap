@@ -666,7 +666,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Located at {0}
+        ///   Looks up a localized string similar to Location: {0}
         ///Click for more information.
         /// </summary>
         public static string ContextMenu_ServerInformation_Notification_Text {
@@ -676,11 +676,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connected to {0} server.
+        ///   Looks up a localized string similar to Connected to private server.
         /// </summary>
-        public static string ContextMenu_ServerInformation_Notification_Title {
+        public static string ContextMenu_ServerInformation_Notification_Title_Private {
             get {
-                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Title", resourceCulture);
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Title.Private", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected to public server.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Notification_Title_Public {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Title.Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connected to reserved server.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Notification_Title_Reserved {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.Title.Reserved", resourceCulture);
             }
         }
         
