@@ -1,0 +1,55 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.ShortcutsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Settings.Pages"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="ShortcutsPage"
+      Scrollable="True">
+
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_Shortcuts_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Title}" FontSize="20" FontWeight="Medium" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Description}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <controls:OptionControl Grid.Column="0" Margin="0,0,4,0" Header="{x:Static resources:Strings.Common_Shortcuts_Desktop}">
+                <ui:ToggleSwitch IsChecked="{Binding DesktopIcon, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Grid.Column="1" Margin="4,0,0,0" Header="{x:Static resources:Strings.Common_Shortcuts_StartMenu}">
+                <ui:ToggleSwitch IsChecked="{Binding StartMenuIcon, Mode=TwoWay}" />
+            </controls:OptionControl>
+        </Grid>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Description}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <controls:OptionControl Grid.Column="0" Margin="0,0,4,0" Header="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}">
+                <ui:ToggleSwitch IsChecked="{Binding PlayerIcon, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Grid.Column="1" Margin="4,0,0,0" Header="{x:Static resources:Strings.Menu_Title}">
+                <ui:ToggleSwitch IsChecked="{Binding SettingsIcon, Mode=TwoWay}" />
+            </controls:OptionControl>
+        </Grid>
+    </StackPanel>
+</ui:UiPage>

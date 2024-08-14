@@ -337,6 +337,16 @@ namespace Bloxstrap
 
                 App.NotifyIcon?.SetActivityWatcher(activityWatcher);
 
+                if (App.Settings.Prop.UseDisableAppPatch)
+                {
+                    activityWatcher.OnAppClose += (_, _) =>
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
+                        using var process = Process.GetProcessById(gameClientPid);
+                        process.CloseMainWindow();
+                    };
+                }
+
                 if (App.Settings.Prop.UseDiscordRichPresence)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Using Discord Rich Presence");

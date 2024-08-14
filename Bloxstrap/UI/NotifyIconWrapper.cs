@@ -87,9 +87,15 @@ namespace Bloxstrap.UI
         public async void OnGameJoin()
         {
             string serverLocation = await _activityWatcher!.GetServerLocation();
+            string title = _activityWatcher.ActivityServerType switch
+            {
+                ServerType.Public => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Public,
+                ServerType.Private => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Private,
+                ServerType.Reserved => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Reserved
+            };
 
             ShowAlert(
-                String.Format(Resources.Strings.ContextMenu_ServerInformation_Notification_Title, _activityWatcher.ActivityServerType.ToTranslatedString().ToLower()),
+                title,
                 String.Format(Resources.Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
                 10,
                 (_, _) => _menuContainer?.ShowServerInformationWindow()

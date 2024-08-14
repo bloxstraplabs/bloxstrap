@@ -29,6 +29,7 @@
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
+        public event EventHandler? OnAppClose;
         public event EventHandler<Message>? OnRPCMessage;
 
         private readonly Dictionary<string, string> GeolocationCache = new();
@@ -138,13 +139,8 @@
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine(LOG_IDENT, $"Read {_logEntriesRead} log entries");
 
-
-            if (App.Settings.Prop.UseDisableAppPatch && entry.Contains(GameLeavingEntry))
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
-                using var process = Process.GetProcessById(_gameClientPid);
-                process.CloseMainWindow();
-            }
+            if (entry.Contains(GameLeavingEntry))
+                OnAppClose?.Invoke(this, new EventArgs());
 
             if (ActivityUserId == "" && entry.Contains(GameJoinLoadTimeEntry))
             {

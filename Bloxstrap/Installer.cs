@@ -242,9 +242,21 @@ namespace Bloxstrap
             }
 #endif
 
+
+
             var cleanupSequence = new List<Action>
             {
-                () => File.Delete(DesktopShortcut),
+                () =>
+                {
+                    foreach (var file in Directory.GetFiles(Paths.Desktop).Where(x => x.EndsWith("lnk")))
+                    {
+                        var shortcut = ShellLink.Shortcut.ReadFromFile(file);
+
+                        if (shortcut.ExtraData.EnvironmentVariableDataBlock?.TargetUnicode == Paths.Application)
+                            File.Delete(file);
+                    }
+                },
+
                 () => File.Delete(StartMenuShortcut),
 
                 () => Directory.Delete(Paths.Versions, true),
