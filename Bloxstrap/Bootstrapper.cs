@@ -864,72 +864,6 @@ namespace Bloxstrap
             if (!Directory.Exists(Paths.Modifications))
                 Directory.CreateDirectory(Paths.Modifications);
 
-            // cursors
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2006, new Dictionary<string, string>
-            {
-                { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2006.ArrowCursor.png" },
-                { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png" }
-            });
-
-            await CheckModPreset(App.Settings.Prop.CursorType == CursorType.From2013, new Dictionary<string, string>
-            {
-                { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2013.ArrowCursor.png" },
-                { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2013.ArrowFarCursor.png" }
-            });
-
-            // character sounds
-            await CheckModPreset(App.Settings.Prop.UseOldDeathSound, @"content\sounds\ouch.ogg", "Sounds.OldDeath.ogg");
-
-            await CheckModPreset(App.Settings.Prop.UseOldCharacterSounds, new Dictionary<string, string>
-            {
-                { @"content\sounds\action_footsteps_plastic.mp3", "Sounds.OldWalk.mp3" },
-                { @"content\sounds\action_jump.mp3",              "Sounds.OldJump.mp3" },
-                { @"content\sounds\action_get_up.mp3",            "Sounds.OldGetUp.mp3" },
-                { @"content\sounds\action_falling.mp3",           "Sounds.Empty.mp3" },
-                { @"content\sounds\action_jump_land.mp3",         "Sounds.Empty.mp3" },
-                { @"content\sounds\action_swim.mp3",              "Sounds.Empty.mp3" },
-                { @"content\sounds\impact_water.mp3",             "Sounds.Empty.mp3" }
-            });
-
-            // Mobile.rbxl
-            await CheckModPreset(App.Settings.Prop.UseOldAvatarBackground, @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
-
-            // emoji presets are downloaded remotely from github due to how large they are
-            string contentFonts = Path.Combine(Paths.Modifications, "content\\fonts");
-            string emojiFontLocation = Path.Combine(contentFonts, "TwemojiMozilla.ttf");
-            string emojiFontHash = File.Exists(emojiFontLocation) ? MD5Hash.FromFile(emojiFontLocation) : "";
-
-            if (App.Settings.Prop.EmojiType == EmojiType.Default && EmojiTypeEx.Hashes.Values.Contains(emojiFontHash))
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Reverting to default emoji font");
-
-                File.Delete(emojiFontLocation);
-            }
-            else if (App.Settings.Prop.EmojiType != EmojiType.Default && emojiFontHash != App.Settings.Prop.EmojiType.GetHash())
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Configuring emoji font as {App.Settings.Prop.EmojiType}");
-                
-                if (emojiFontHash != "")
-                    File.Delete(emojiFontLocation);
-
-                Directory.CreateDirectory(contentFonts);
-
-                try
-                {
-                    var response = await App.HttpClient.GetAsync(App.Settings.Prop.EmojiType.GetUrl());
-                    response.EnsureSuccessStatusCode();
-                    await using var fileStream = new FileStream(emojiFontLocation, FileMode.CreateNew);
-                    await response.Content.CopyToAsync(fileStream);
-                }
-                catch (HttpRequestException ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to fetch emoji preset from Github");
-                    App.Logger.WriteException(LOG_IDENT, ex);
-                    Frontend.ShowMessageBox(string.Format(Strings.Bootstrapper_EmojiPresetFetchFailed, App.Settings.Prop.EmojiType), MessageBoxImage.Warning);
-                    App.Settings.Prop.EmojiType = EmojiType.Default;
-                }
-            }
-
             // check custom font mod
             // instead of replacing the fonts themselves, we'll just alter the font family manifests
 
@@ -1041,54 +975,6 @@ namespace Bloxstrap
             App.State.Save();
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
-        }
-
-        private static async Task CheckModPreset(bool condition, string location, string name)
-        {
-            string LOG_IDENT = $"Bootstrapper::CheckModPreset.{name}";
-
-            string fullLocation = Path.Combine(Paths.Modifications, location);
-            string fileHash = File.Exists(fullLocation) ? MD5Hash.FromFile(fullLocation) : "";
-
-            if (!condition && fileHash == "")
-                return;
-
-            byte[] embeddedData = string.IsNullOrEmpty(name) ? Array.Empty<byte>() : await Resource.Get(name);
-            string embeddedHash = MD5Hash.FromBytes(embeddedData);
-
-            if (!condition)
-            {
-                if (fileHash == embeddedHash)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting '{location}' as preset is disabled, and mod file matches preset");
-
-                    Filesystem.AssertReadOnly(fullLocation);
-                    File.Delete(fullLocation);
-                }
-                
-                return;
-            }
-
-            if (fileHash != embeddedHash)
-            {       
-                App.Logger.WriteLine(LOG_IDENT, $"Writing '{location}' as preset is enabled, and mod file does not exist or does not match preset");
-
-                Directory.CreateDirectory(Path.GetDirectoryName(fullLocation)!);
-
-                if (File.Exists(fullLocation))
-                {
-                    Filesystem.AssertReadOnly(fullLocation);
-                    File.Delete(fullLocation);
-                }
-
-                await File.WriteAllBytesAsync(fullLocation, embeddedData);
-            }
-        }
-
-        private static async Task CheckModPreset(bool condition, Dictionary<string, string> mapping)
-        {
-            foreach (var pair in mapping)
-                await CheckModPreset(condition, pair.Key, pair.Value);
         }
 
         private async Task DownloadPackage(Package package)

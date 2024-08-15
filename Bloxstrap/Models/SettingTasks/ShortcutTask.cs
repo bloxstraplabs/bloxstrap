@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bloxstrap.Models.SettingTasks.Base;
 
 namespace Bloxstrap.Models.SettingTasks
 {
-    public class ShortcutTask : BaseTask, ISettingTask
+    public class ShortcutTask : BoolBaseTask
     {
-        public string ExeFlags { get; set; } = "";
+        private string _shortcutPath;
+        
+        private string _exeFlags;
 
-        public string ShortcutPath { get; set; }
-
-        public ShortcutTask(string shortcutPath)
+        public ShortcutTask(string name, string lnkFolder, string lnkName, string exeFlags = "") : base("Shortcut", name)
         {
-            ShortcutPath = shortcutPath;
+            _shortcutPath = Path.Combine(lnkFolder, lnkName);
+            _exeFlags = exeFlags;
 
-            OriginalState = File.Exists(ShortcutPath);
+            OriginalState = File.Exists(_shortcutPath);
         }
 
         public override void Execute()
         {
-            if (NewState == OriginalState)
-                return;
-
             if (NewState)
-                Shortcut.Create(Paths.Application, ExeFlags, ShortcutPath);
-            else if (File.Exists(ShortcutPath))
-                File.Delete(ShortcutPath);
+                Shortcut.Create(Paths.Application, _exeFlags, _shortcutPath);
+            else if (File.Exists(_shortcutPath))
+                File.Delete(_shortcutPath);
 
             OriginalState = NewState;
         }

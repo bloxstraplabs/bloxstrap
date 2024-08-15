@@ -27,12 +27,7 @@ namespace Bloxstrap.Models
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration
-        public bool UseOldDeathSound { get; set; } = true;
-        public bool UseOldCharacterSounds { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
-        public bool UseOldAvatarBackground { get; set; } = false;
-        public CursorType CursorType { get; set; } = CursorType.Default;
-        public EmojiType EmojiType { get; set; } = EmojiType.Default;
         public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

@@ -599,7 +599,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[MaximumADHD](https://github.com/MaximumADHD)" />
                     <controls:MarkdownTextBlock MarkdownText="[Multako](https://www.roblox.com/users/2485612194/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[axstin](https://github.com/axstin)" />
-                    <controls:MarkdownTextBlock MarkdownText="[taskmanager](https://github.com/Manataraix)" />
+                    <controls:MarkdownTextBlock MarkdownText="[taskmanager](https://github.com/Mantaraix)" />
                     <controls:MarkdownTextBlock MarkdownText="[apprehensions](https://github.com/apprehensions)" />
                 </StackPanel>
             </controls:Expander>

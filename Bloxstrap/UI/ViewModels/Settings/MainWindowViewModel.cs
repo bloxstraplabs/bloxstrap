@@ -12,12 +12,22 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void SaveSettings()
         {
+            const string LOG_IDENT = "MainWindowViewModel::SaveSettings";
+
             App.Settings.Save();
             App.State.Save();
             App.FastFlags.Save();
 
-            foreach (var task in App.PendingSettingTasks)
-                task.Value.Execute();
+            foreach (var pair in App.PendingSettingTasks)
+            {
+                var task = pair.Value;
+
+                if (task.Changed)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Executing pending task '{task}'");
+                    task.Execute();
+                }
+            }
 
             App.PendingSettingTasks.Clear();
 

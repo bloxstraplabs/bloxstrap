@@ -6,9 +6,10 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Settings.Pages"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
-      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance dmodels:ShortcutsViewModel, IsDesignTimeCreatable=True}"
       d:DesignHeight="600" d:DesignWidth="800"
       Title="ShortcutsPage"
       Scrollable="True">
@@ -26,11 +27,11 @@
             </Grid.ColumnDefinitions>
 
             <controls:OptionControl Grid.Column="0" Margin="0,0,4,0" Header="{x:Static resources:Strings.Common_Shortcuts_Desktop}">
-                <ui:ToggleSwitch IsChecked="{Binding DesktopIcon, Mode=TwoWay}" />
+                <ui:ToggleSwitch IsChecked="{Binding DesktopIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl Grid.Column="1" Margin="4,0,0,0" Header="{x:Static resources:Strings.Common_Shortcuts_StartMenu}">
-                <ui:ToggleSwitch IsChecked="{Binding StartMenuIcon, Mode=TwoWay}" />
+                <ui:ToggleSwitch IsChecked="{Binding StartMenuIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
         </Grid>
 
@@ -44,11 +45,11 @@
             </Grid.ColumnDefinitions>
 
             <controls:OptionControl Grid.Column="0" Margin="0,0,4,0" Header="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}">
-                <ui:ToggleSwitch IsChecked="{Binding PlayerIcon, Mode=TwoWay}" />
+                <ui:ToggleSwitch IsChecked="{Binding PlayerIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
 
             <controls:OptionControl Grid.Column="1" Margin="4,0,0,0" Header="{x:Static resources:Strings.Menu_Title}">
-                <ui:ToggleSwitch IsChecked="{Binding SettingsIcon, Mode=TwoWay}" />
+                <ui:ToggleSwitch IsChecked="{Binding SettingsIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
         </Grid>
     </StackPanel>

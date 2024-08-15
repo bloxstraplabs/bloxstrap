@@ -2734,6 +2734,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The emoji mod could not be applied because of a network error during download.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Menu_Mods_Presets_EmojiType_Error {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Presets.EmojiType.Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preferred emoji type.
         /// </summary>
         public static string Menu_Mods_Presets_EmojiType_Title {

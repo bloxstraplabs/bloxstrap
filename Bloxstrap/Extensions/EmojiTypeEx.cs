@@ -2,15 +2,6 @@
 {
     static class EmojiTypeEx
     {
-        public static IReadOnlyCollection<EmojiType> Selections => new EmojiType[]
-        {
-            EmojiType.Default,
-            EmojiType.Catmoji,
-            EmojiType.Windows11,
-            EmojiType.Windows10,
-            EmojiType.Windows8
-        };
-
         public static IReadOnlyDictionary<EmojiType, string> Filenames => new Dictionary<EmojiType, string>
         {
             { EmojiType.Catmoji, "Catmoji.ttf" },
@@ -34,7 +25,7 @@
             if (emojiType == EmojiType.Default)
                 return "";
 
-            return $"https://github.com/bloxstraplabs/rbxcustom-fontemojis/releases/download/my-phone-is-78-percent/{Filenames[emojiType]}";
+            return $"https://github.com/bloxstraplabs/rbxcustom-fontemoji/releases/download/my-phone-is-78-percent/{Filenames[emojiType]}";
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Threading;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Resources;
-using Bloxstrap.Models.SettingTasks;
+using Bloxstrap.Models.SettingTasks.Base;
 
 namespace Bloxstrap
 {
@@ -29,11 +29,13 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
+        public static readonly MD5 MD5Provider = MD5.Create();
+
         public static NotifyIconWrapper? NotifyIcon { get; set; }
 
         public static readonly Logger Logger = new();
 
-        public static readonly Dictionary<string, ISettingTask> PendingSettingTasks = new();
+        public static readonly Dictionary<string, BaseTask> PendingSettingTasks = new();
 
         public static readonly JsonManager<Settings> Settings = new();
 

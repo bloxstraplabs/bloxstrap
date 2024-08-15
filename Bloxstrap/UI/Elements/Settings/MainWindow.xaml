@@ -91,7 +91,7 @@
                 </ItemsPanelTemplate>
             </StatusBar.ItemsPanel>
             <StatusBarItem Grid.Column="1" Padding="0,0,4,0">
-                <ui:Button Content="{x:Static resources:Strings.Menu_Save}" Appearance="Primary" Command="{Binding SaveSettingsCommand, Mode=OneWay}" IsEnabled="{Binding ConfirmButtonEnabled, Mode=OneWay}" />
+                <ui:Button Content="{x:Static resources:Strings.Menu_Save}" Appearance="Primary" Command="{Binding SaveSettingsCommand, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
                 <ui:Button Content="{x:Static resources:Strings.Common_Close}"  IsCancel="True" />
