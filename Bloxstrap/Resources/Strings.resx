@@ -1124,4 +1124,10 @@ If not, then please report this exception to the maintainers of this fork. Do NO
 
 {0}</value>
   </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Please wait for installation to finish.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Please wait for uninstallation to finish.</value>
+  </data>
 </root>

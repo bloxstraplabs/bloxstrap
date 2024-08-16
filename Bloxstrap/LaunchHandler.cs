@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 using Bloxstrap.UI.Elements.Dialogs;
-using Bloxstrap.Resources;
 
 using Microsoft.Win32;
 using Windows.Win32;
@@ -50,7 +44,13 @@ namespace Bloxstrap
 
         public static void LaunchInstaller()
         {
-            // TODO: detect duplicate launch, mutex maybe?
+            using var interlock = new InterProcessLock("Installer");
+
+            if (!interlock.IsAcquired)
+            {
+                Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Installer, MessageBoxImage.Stop);
+                return;
+            }
 
             if (App.LaunchSettings.IsUninstall)
             {
@@ -68,6 +68,8 @@ namespace Bloxstrap
 
                 installer.DoInstall();
 
+                interlock.Dispose();
+
                 ProcessLaunchArgs();
             }
             else
@@ -77,6 +79,8 @@ namespace Bloxstrap
                 var installer = new UI.Elements.Installer.MainWindow();
                 installer.ShowDialog();
 
+                interlock.Dispose();
+
                 ProcessNextAction(installer.CloseAction, !installer.Finished);
             }
             
@@ -84,6 +88,15 @@ namespace Bloxstrap
 
         public static void LaunchUninstaller()
         {
+            using var interlock = new InterProcessLock("Uninstaller");
+
+            if (!interlock.IsAcquired)
+            {
+                Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Uninstaller, MessageBoxImage.Stop);
+                return;
+            }
+
+
             bool confirmed = false;
             bool keepData = true;
 
@@ -112,20 +125,21 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchSettings";
 
-            // TODO: move to mutex (especially because multi language whatever)
+            using var interlock = new InterProcessLock("Settings");
 
-            Process? menuProcess = Utilities.GetProcessesSafe().Where(x => x.MainWindowTitle == Strings.Menu_Title).FirstOrDefault();
-
-            if (menuProcess is not null)
+            if (interlock.IsAcquired)
             {
-                var handle = menuProcess.MainWindowHandle;
-                App.Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window with handle {handle}");
-                PInvoke.SetForegroundWindow((HWND)handle);
+                bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
+                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).ShowDialog();
             }
             else
             {
-                bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1 && !App.LaunchSettings.IsQuiet;
-                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).ShowDialog();
+                App.Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window");
+             
+                var process = Utilities.GetProcessesSafe().Where(x => x.MainWindowTitle == Strings.Menu_Title).FirstOrDefault();
+
+                if (process is not null)
+                    PInvoke.SetForegroundWindow((HWND)process.MainWindowHandle);
             }
         }
 
