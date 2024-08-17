@@ -18,7 +18,6 @@ namespace Bloxstrap.UI.Elements.Settings
             DataContext = viewModel;
             
             InitializeComponent();
-            ApplyTheme();
 
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 

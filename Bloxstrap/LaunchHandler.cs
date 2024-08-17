@@ -96,7 +96,6 @@ namespace Bloxstrap
                 return;
             }
 
-
             bool confirmed = false;
             bool keepData = true;
 

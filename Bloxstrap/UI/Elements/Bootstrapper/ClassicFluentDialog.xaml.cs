@@ -78,7 +78,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         public ClassicFluentDialog()
         {
             InitializeComponent();
-            ApplyTheme();
 
             _viewModel = new ClassicFluentDialogViewModel(this);
             DataContext = _viewModel;

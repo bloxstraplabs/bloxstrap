@@ -88,7 +88,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         public FluentDialog(bool aero)
         {
             InitializeComponent();
-            ApplyTheme();
 
             _viewModel = new FluentDialogViewModel(this, aero);
             DataContext = _viewModel;

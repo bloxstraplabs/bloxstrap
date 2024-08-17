@@ -11,9 +11,14 @@ using Wpf.Ui.Mvvm.Services;
 
 namespace Bloxstrap.UI.Elements.Base
 {
-    public class WpfUiWindow : UiWindow
+    public abstract class WpfUiWindow : UiWindow
     {
         private readonly IThemeService _themeService = new ThemeService();
+
+        public WpfUiWindow()
+        {
+            ApplyTheme();
+        }
 
         public void ApplyTheme()
         {

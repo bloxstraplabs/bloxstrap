@@ -26,7 +26,6 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             DataContext = viewModel;
             InitializeComponent();
-            ApplyTheme();
 
             viewModel.CloseRequestEvent += (_, _) => Close();
         }

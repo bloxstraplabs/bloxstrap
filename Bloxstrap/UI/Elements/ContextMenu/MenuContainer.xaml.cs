@@ -31,7 +31,6 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler, int? processId)
         {
             InitializeComponent();
-            ApplyTheme();
 
             _activityWatcher = activityWatcher;
             _richPresenceHandler = richPresenceHandler;
