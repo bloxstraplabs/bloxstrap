@@ -5,6 +5,7 @@ using Microsoft.Win32;
 
 using Bloxstrap.Integrations;
 using Bloxstrap.Resources;
+using Bloxstrap.AppData;
 
 namespace Bloxstrap
 {
@@ -24,8 +25,9 @@ namespace Bloxstrap
 
         private bool FreshInstall => String.IsNullOrEmpty(_versionGuid);
 
-        private string _playerFileName => _launchMode == LaunchMode.Player ? "RobloxPlayerBeta.exe" : "RobloxStudioBeta.exe";
-        private string _playerLocation => Path.Combine(_versionFolder, _playerFileName);
+        private IAppData AppData;
+
+        private string _playerLocation => Path.Combine(_versionFolder, AppData.ExecutableName);
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private LaunchMode _launchMode = App.LaunchSettings.RobloxLaunchMode;
@@ -73,8 +75,6 @@ namespace Bloxstrap
         private int _packagesExtracted = 0;
         private bool _cancelFired = false;
 
-        private IReadOnlyDictionary<string, string> _packageDirectories;
-
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
@@ -85,19 +85,17 @@ namespace Bloxstrap
         {
             _installWebView2 = installWebView2;
 
-            _packageDirectories = _launchMode == LaunchMode.Player ? PackageMap.Player : PackageMap.Studio;
+            if (_launchMode == LaunchMode.Player)
+                AppData = new RobloxPlayerData();
+            else
+                AppData = new RobloxStudioData();
         }
 
         private void SetStatus(string message)
         {
             App.Logger.WriteLine("Bootstrapper::SetStatus", message);
 
-            string productName = "Roblox";
-
-            if (_launchMode != LaunchMode.Player)
-                productName = "Roblox Studio";
-
-            message = message.Replace("{product}", productName);
+            message = message.Replace("{product}", AppData.ProductName);
 
             if (Dialog is not null)
                 Dialog.Message = message;
@@ -229,9 +227,7 @@ namespace Bloxstrap
 
             string channel = "production";
 
-            string keyPath = _launchMode == LaunchMode.Player ? "RobloxPlayer" : "RobloxStudio";
-
-            using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{keyPath}\\Channel");
+            using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
             var match = Regex.Match(App.LaunchSettings.RobloxLaunchArgs, "channel:([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
@@ -246,11 +242,9 @@ namespace Bloxstrap
 
             ClientVersion clientVersion;
 
-            string binaryType = _launchMode == LaunchMode.Player ? "WindowsPlayer" : "WindowsStudio64";
-
             try
             {
-                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
+                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
             }
             catch (HttpResponseException ex)
             {
@@ -263,7 +257,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because HTTP {(int)ex.ResponseMessage.StatusCode}");
 
                 channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
+                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
             }
 
             if (clientVersion.IsBehindDefaultChannel)
@@ -271,7 +265,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because channel is behind production");
 
                 channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
+                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
             }
 
             key.SetValue("www.roblox.com", channel);
@@ -325,13 +319,13 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
 
-            string eventName = _launchMode == LaunchMode.Player ? "www.roblox.com/robloxStartedEvent" : "www.roblox.com/robloxQTStudioStartedEvent";
-            using (SystemEvent startEvent = new(eventName))
+            using (var startEvent = new SystemEvent(AppData.StartEvent))
             {
                 bool startEventFired = await startEvent.WaitForEvent();
 
                 startEvent.Close();
 
+                // TODO: this cannot silently exit like this
                 if (!startEventFired)
                     return;
             }
@@ -695,7 +689,7 @@ namespace Bloxstrap
                 // move old compatibility flags for the old location
                 using (RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"))
                 {
-                    string oldGameClientLocation = Path.Combine(oldVersionFolder, _playerFileName);
+                    string oldGameClientLocation = Path.Combine(oldVersionFolder, AppData.ExecutableName);
                     string? appFlags = (string?)appFlagsKey.GetValue(oldGameClientLocation);
 
                     if (appFlags is not null)
@@ -812,7 +806,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
             
-            if (Process.GetProcessesByName(_playerFileName[..^4]).Any())
+            if (Process.GetProcessesByName(AppData.ExecutableName[..^4]).Any())
             {
                 App.Logger.WriteLine(LOG_IDENT, "Roblox is running, aborting mod check");
                 return;
@@ -958,7 +952,7 @@ namespace Bloxstrap
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
 
-                var package = _packageDirectories.SingleOrDefault(x => x.Value != "" && fileLocation.StartsWith(x.Value));
+                var package = AppData.PackageDirectoryMap.SingleOrDefault(x => x.Value != "" && fileLocation.StartsWith(x.Value));
 
                 // package doesn't exist, likely mistakenly placed file
                 if (String.IsNullOrEmpty(package.Key))
@@ -1128,7 +1122,7 @@ namespace Bloxstrap
                 return Task.CompletedTask;
 
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
-            string packageFolder = Path.Combine(_versionFolder, _packageDirectories[package.Name]);
+            string packageFolder = Path.Combine(_versionFolder, AppData.PackageDirectoryMap[package.Name]);
 
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
@@ -1158,7 +1152,7 @@ namespace Bloxstrap
             if (entry is null)
                 return;
 
-            string extractionPath = Path.Combine(_versionFolder, _packageDirectories[package.Name], entry.FullName);
+            string extractionPath = Path.Combine(_versionFolder, AppData.PackageDirectoryMap[package.Name], entry.FullName);
             entry.ExtractToFile(extractionPath, true);
         }
 #endregion
