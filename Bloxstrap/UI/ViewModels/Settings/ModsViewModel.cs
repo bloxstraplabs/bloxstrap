@@ -5,13 +5,13 @@ using Microsoft.Win32;
 
 using CommunityToolkit.Mvvm.Input;
 
+using Bloxstrap.Models.SettingTasks;
+
 namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class ModsViewModel : NotifyPropertyChangedViewModel
     {
         private void OpenModsFolder() => Process.Start("explorer.exe", Paths.Modifications);
-
-        private bool _usingCustomFont => File.Exists(Paths.CustomFont);
 
         private readonly Dictionary<string, byte[]> FontHeaders = new()
         {
@@ -22,16 +22,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void ManageCustomFont()
         {
-            if (_usingCustomFont)
+            if (!String.IsNullOrEmpty(TextFontTask.NewState))
             {
-                Filesystem.AssertReadOnly(Paths.CustomFont);
-                File.Delete(Paths.CustomFont);
+                TextFontTask.NewState = "";
             }
             else
             {
                 var dialog = new OpenFileDialog
                 {
-                    Filter = $"{Resources.Strings.Menu_FontFiles}|*.ttf;*.otf;*.ttc"
+                    Filter = $"{Strings.Menu_FontFiles}|*.ttf;*.otf;*.ttc"
                 };
 
                 if (dialog.ShowDialog() != true)
@@ -41,13 +40,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 if (!FontHeaders.ContainsKey(type) || !File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(FontHeaders[type]))
                 {
-                    Frontend.ShowMessageBox(Resources.Strings.Menu_Mods_Misc_CustomFont_Invalid, MessageBoxImage.Error);
+                    Frontend.ShowMessageBox(Strings.Menu_Mods_Misc_CustomFont_Invalid, MessageBoxImage.Error);
                     return;
                 }
-                
-                Directory.CreateDirectory(Path.GetDirectoryName(Paths.CustomFont)!);
-                File.Copy(dialog.FileName, Paths.CustomFont);
-                Filesystem.AssertReadOnly(Paths.CustomFont);
+
+                TextFontTask.NewState = dialog.FileName;
             }
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
@@ -56,44 +53,48 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
-        public bool OldDeathSoundEnabled
-        {
-            get => App.Settings.Prop.UseOldDeathSound;
-            set => App.Settings.Prop.UseOldDeathSound = value;
-        }
+        public Visibility ChooseCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Collapsed : Visibility.Visible;
 
-        public bool OldCharacterSoundsEnabled
-        {
-            get => App.Settings.Prop.UseOldCharacterSounds;
-            set => App.Settings.Prop.UseOldCharacterSounds = value;
-        }
-
-        public IReadOnlyCollection<Enums.CursorType> CursorTypes => CursorTypeEx.Selections;
-
-        public Enums.CursorType SelectedCursorType
-        {
-            get => App.Settings.Prop.CursorType;
-            set => App.Settings.Prop.CursorType = value;
-        }
-
-        public bool OldAvatarBackground
-        {
-            get => App.Settings.Prop.UseOldAvatarBackground;
-            set => App.Settings.Prop.UseOldAvatarBackground = value;
-        }
-
-        public IReadOnlyCollection<EmojiType> EmojiTypes => EmojiTypeEx.Selections;
-
-        public EmojiType SelectedEmojiType
-        {
-            get => App.Settings.Prop.EmojiType;
-            set => App.Settings.Prop.EmojiType = value;
-        }
-
-        public Visibility ChooseCustomFontVisibility => _usingCustomFont ? Visibility.Collapsed : Visibility.Visible;
-        public Visibility DeleteCustomFontVisibility => _usingCustomFont ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
 
         public ICommand ManageCustomFontCommand => new RelayCommand(ManageCustomFont);
+
+        public ModPresetTask OldDeathSoundTask { get; } = new("OldDeathSound", @"content\sounds\ouch.ogg", "Sounds.OldDeath.ogg");
+
+        public ModPresetTask OldAvatarBackgroundTask { get; } = new("OldAvatarBackground", @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
+
+        public ModPresetTask OldCharacterSoundsTask { get; } = new("OldCharacterSounds", new()
+        {
+            { @"content\sounds\action_footsteps_plastic.mp3", "Sounds.OldWalk.mp3"  },
+            { @"content\sounds\action_jump.mp3",              "Sounds.OldJump.mp3"  },
+            { @"content\sounds\action_get_up.mp3",            "Sounds.OldGetUp.mp3" },
+            { @"content\sounds\action_falling.mp3",           "Sounds.Empty.mp3"    },
+            { @"content\sounds\action_jump_land.mp3",         "Sounds.Empty.mp3"    },
+            { @"content\sounds\action_swim.mp3",              "Sounds.Empty.mp3"    },
+            { @"content\sounds\impact_water.mp3",             "Sounds.Empty.mp3"    }
+        });
+
+        public EmojiModPresetTask EmojiFontTask { get; } = new();
+
+        public EnumModPresetTask<Enums.CursorType> CursorTypeTask { get; } = new("CursorType", new()
+        {
+            {
+                Enums.CursorType.From2006, new()
+                {
+                    { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2006.ArrowCursor.png"    },
+                    { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2006.ArrowFarCursor.png" }
+                }
+            },
+            {
+                Enums.CursorType.From2013, new()
+                {
+                    { @"content\textures\Cursors\KeyboardMouse\ArrowCursor.png",    "Cursor.From2013.ArrowCursor.png"    },
+                    { @"content\textures\Cursors\KeyboardMouse\ArrowFarCursor.png", "Cursor.From2013.ArrowFarCursor.png" }
+                }
+            }
+        });
+
+        public FontModPresetTask TextFontTask { get; } = new();
 
         public bool DisableFullscreenOptimizations
         {

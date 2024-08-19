@@ -2,15 +2,6 @@
 {
     static class EmojiTypeEx
     {
-        public static IReadOnlyCollection<EmojiType> Selections => new EmojiType[]
-        {
-            EmojiType.Default,
-            EmojiType.Catmoji,
-            EmojiType.Windows11,
-            EmojiType.Windows10,
-            EmojiType.Windows8
-        };
-
         public static IReadOnlyDictionary<EmojiType, string> Filenames => new Dictionary<EmojiType, string>
         {
             { EmojiType.Catmoji, "Catmoji.ttf" },

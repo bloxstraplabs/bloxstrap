@@ -1,9 +1,8 @@
 ﻿namespace Bloxstrap
 {
-    // TODO: this is a mess and desperately needs refactoring
     public static class RobloxDeployment
     {
-        public const string DefaultChannel = "LIVE";
+        public const string DefaultChannel = "production";
 
         public static string BaseUrl { get; private set; } = null!;
 
@@ -88,14 +87,11 @@
             return null;
         }
 
-        public static string GetLocation(string resource, string? channel = null)
+        public static string GetLocation(string resource, string channel = DefaultChannel)
         {
-            if (string.IsNullOrEmpty(channel))
-                channel = App.Settings.Prop.Channel;
-
             string location = BaseUrl;
 
-            if (channel.ToLowerInvariant() != DefaultChannel.ToLowerInvariant())
+            if (String.Compare(channel, DefaultChannel, StringComparison.InvariantCultureIgnoreCase) != 0)
             {
                 string channelName;
 
@@ -112,11 +108,11 @@
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(string channel, bool extraInformation = false, string binaryType = "WindowsPlayer")
+        public static async Task<ClientVersion> GetInfo(string channel, string binaryType = "WindowsPlayer")
         {
             const string LOG_IDENT = "RobloxDeployment::GetInfo";
 
-            App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel} (extraInformation={extraInformation})");
+            App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel}");
 
             string cacheKey = $"{channel}-{binaryType}";
             ClientVersion clientVersion;
@@ -128,7 +124,11 @@
             }
             else
             {
-                string path = $"/v2/client-version/{binaryType}/channel/{channel}";
+                string path = $"/v2/client-version/{binaryType}";
+
+                if (String.Compare(channel, DefaultChannel, StringComparison.InvariantCultureIgnoreCase) != 0)
+                    path = $"/v2/client-version/{binaryType}/channel/{channel}";
+
                 HttpResponseMessage deployInfoResponse;
 
                 try
@@ -171,24 +171,6 @@
 
                 if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == VersionComparison.LessThan)
                     clientVersion.IsBehindDefaultChannel = true;
-            }
-
-            // for preferences
-            if (extraInformation && clientVersion.Timestamp is null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Getting extra information...");
-
-                string manifestUrl = GetLocation($"/{clientVersion.VersionGuid}-rbxPkgManifest.txt", channel);
-
-                // get an approximate deploy time from rbxpkgmanifest's last modified date
-                HttpResponseMessage pkgResponse = await App.HttpClient.GetAsync(manifestUrl);
-
-                if (pkgResponse.Content.Headers.TryGetValues("last-modified", out var values))
-                {
-                    string lastModified = values.First();
-                    App.Logger.WriteLine(LOG_IDENT, $"{manifestUrl} - Last-Modified: {lastModified}");
-                    clientVersion.Timestamp = DateTime.Parse(lastModified).ToLocalTime();
-                }
             }
 
             ClientVersionCache[cacheKey] = clientVersion;

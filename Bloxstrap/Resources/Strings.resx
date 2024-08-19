@@ -1125,4 +1125,15 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
     <value>Connected to reserved server</value>
   </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>The emoji mod could not be applied because of a network error during download.
+
+{0}</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Please wait for installation to finish.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Please wait for uninstallation to finish.</value>
+  </data>
 </root>

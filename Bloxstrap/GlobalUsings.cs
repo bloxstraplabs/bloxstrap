@@ -22,5 +22,6 @@ global using Bloxstrap.Models.Attributes;
 global using Bloxstrap.Models.BloxstrapRPC;
 global using Bloxstrap.Models.RobloxApi;
 global using Bloxstrap.Models.Manifest;
+global using Bloxstrap.Resources;
 global using Bloxstrap.UI;
 global using Bloxstrap.Utility;

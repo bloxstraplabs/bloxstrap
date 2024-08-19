@@ -1,8 +1,4 @@
 ﻿using Bloxstrap.Enums.FlagPresets;
-using System.Windows.Forms;
-
-using Windows.Win32;
-using Windows.Win32.Graphics.Gdi;
 
 namespace Bloxstrap
 {

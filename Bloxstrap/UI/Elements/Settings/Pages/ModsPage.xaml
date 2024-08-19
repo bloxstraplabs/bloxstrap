@@ -7,7 +7,9 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
       mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance dmodels:ModsViewModel, IsDesignTimeCreatable=True}"
       d:DesignHeight="800" d:DesignWidth="800"
       Title="ModsPage"
       Scrollable="True">
@@ -42,13 +44,13 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundEnabled, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundTask.NewState, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Description}">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypes, Mode=OneTime}" Text="{Binding SelectedCursorType, Mode=TwoWay}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding CursorTypeTask.Selections, Mode=OneTime}" Text="{Binding CursorTypeTask.NewState, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
@@ -60,19 +62,19 @@
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_OldAvatarEditor_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding OldAvatarBackground, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding OldAvatarBackgroundTask.NewState, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_OldCharacterSounds_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsEnabled, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding OldCharacterSoundsTask.NewState, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Title}" 
             Description="{x:Static resources:Strings.Menu_Mods_Presets_EmojiType_Description}">
-            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="220" ItemsSource="{Binding EmojiTypes, Mode=OneTime}" Text="{Binding SelectedEmojiType, Mode=TwoWay}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="220" ItemsSource="{Binding EmojiFontTask.Selections, Mode=OneTime}" Text="{Binding EmojiFontTask.NewState, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />

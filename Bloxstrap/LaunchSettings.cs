@@ -12,182 +12,97 @@ namespace Bloxstrap
 {
     public class LaunchSettings
     {
-        [LaunchFlag(new[] { "-preferences", "-menu", "-settings" })]
-        public bool IsMenuLaunch { get; set; } = false;
+        public LaunchFlag MenuFlag      { get; } = new("preferences,menu,settings");
 
-        [LaunchFlag(new[] { "-player", "-studio" })]
-        public bool IsRobloxLaunch { get; set; } = false;
+        public LaunchFlag WatcherFlag   { get; } = new("watcher");
 
-        [LaunchFlag("-quiet")]
-        public bool IsQuiet { get; private set; } = false;
+        public LaunchFlag QuietFlag     { get; } = new("quiet");
 
-        [LaunchFlag("-uninstall")]
-        public bool IsUninstall { get; private set; } = false;
+        public LaunchFlag UninstallFlag { get; } = new("uninstall");
 
-        [LaunchFlag("-nolaunch")]
-        public bool IsNoLaunch { get; private set; } = false;
+        public LaunchFlag NoLaunchFlag  { get; } = new("nolaunch");
 
-        [LaunchFlag("-upgrade")]
-        public bool IsUpgrade { get; private set; } = false;
+        public LaunchFlag UpgradeFlag   { get; } = new("upgrade");
+        
+        public LaunchFlag PlayerFlag    { get; } = new("player");
+        
+        public LaunchFlag StudioFlag    { get; } = new("studio");
 
-        public LaunchMode RobloxLaunchMode { get; private set; } = LaunchMode.Player;
+        public LaunchMode RobloxLaunchMode { get; private set; } = LaunchMode.None;
 
-        public string RobloxLaunchArgs { get; private set; } = "--app";
+        public string RobloxLaunchArgs { get; private set; } = "";
 
         /// <summary>
         /// Original launch arguments
         /// </summary>
         public string[] Args { get; private set; }
 
-        private Dictionary<string, PropertyInfo>? _flagMap;
-
-        private string? _robloxArg;
-        
-        // pizzaboxer wanted this
-        private void ParseLaunchFlagProps()
-        {
-            _flagMap = new Dictionary<string, PropertyInfo>();
-
-            foreach (var prop in typeof(LaunchSettings).GetProperties())
-            {
-                var attr = prop.GetCustomAttribute<LaunchFlagAttribute>();
-
-                if (attr == null)
-                    continue;
-
-                if (!string.IsNullOrEmpty(attr.Name))
-                {
-                    _flagMap[attr.Name] = prop;
-                }
-                else
-                {
-                    foreach (var name in attr.Names!)
-                        _flagMap[name] = prop;
-                }
-            }
-        }
-        
-        private void ParseFlag(string arg)
-        {
-            const string LOG_IDENT = "LaunchSettings::ParseFlag";
-
-            arg = arg.ToLowerInvariant();
-
-            if (_flagMap!.ContainsKey(arg))
-            {
-                var prop = _flagMap[arg];
-                prop.SetValue(this, true);
-                App.Logger.WriteLine(LOG_IDENT, $"Started with {prop.Name} flag");
-            }
-        }
-
-        // private void ParseRoblox(string arg, ref int i)
-        public void ParseRoblox()
-        {
-            string? arg = _robloxArg;
-
-            if (arg is null)
-                return;
-
-            if (arg.StartsWith("roblox-player:"))
-            {
-                IsRobloxLaunch = true;
-
-                RobloxLaunchArgs = ProtocolHandler.ParseUri(arg);
-
-                RobloxLaunchMode = LaunchMode.Player;
-            }
-            else if (arg.StartsWith("roblox:"))
-            {
-                IsRobloxLaunch = true;
-
-                RobloxLaunchArgs = $"--app --deeplink {arg}";
-
-                RobloxLaunchMode = LaunchMode.Player;
-            }
-#if STUDIO_FEATURES
-            else if (arg.StartsWith("roblox-studio:"))
-            {
-                RobloxLaunchArgs = ProtocolHandler.ParseUri(arg);
-
-                if (!RobloxLaunchArgs.Contains("-startEvent"))
-                    RobloxLaunchArgs += " -startEvent www.roblox.com/robloxQTStudioStartedEvent";
-
-                RobloxLaunchMode = LaunchMode.Studio;
-            }
-            else if (arg.StartsWith("roblox-studio-auth:"))
-            {
-                RobloxLaunchArgs = HttpUtility.UrlDecode(arg);
-
-                RobloxLaunchMode = LaunchMode.StudioAuth;
-            }
-            else if (arg == "-ide")
-            {
-                RobloxLaunchMode = LaunchMode.Studio;
-
-                if (Args.Length >= 2)
-                {
-                    string pathArg = Args[i + 1];
-
-                    if (pathArg.StartsWith('-'))
-                        return; // likely a launch flag, ignore it.
-
-                    i++; // path arg
-                    RobloxLaunchArgs = $"-task EditFile -localPlaceFile \"{pathArg}\"";
-                }
-            }
-#endif
-        }
-
-        private void Parse()
-        {
-            const string LOG_IDENT = "LaunchSettings::Parse";
-
-            App.Logger.WriteLine(LOG_IDENT, "Parsing launch arguments");
-
-#if DEBUG
-            App.Logger.WriteLine(LOG_IDENT, $"Launch arguments: {string.Join(' ', Args)}");
-#endif
-
-            if (Args.Length == 0)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "No launch arguments to parse");
-                return;
-            }
-
-            int idx = 0;
-            string firstArg = Args[0];
-
-            // check & handle roblox arg
-            if (!firstArg.StartsWith('-') || firstArg == "-ide")
-            {
-                // ParseRoblox(firstArg, ref idx);
-                _robloxArg = firstArg;
-                idx++; // roblox arg
-            }
-
-            // check if there are any launch flags
-            if (idx > Args.Length - 1)
-                return;
-
-            App.Logger.WriteLine(LOG_IDENT, "Parsing launch flags");
-
-            // map out launch flags
-            ParseLaunchFlagProps();
-
-            // parse any launch flags
-            for (int i = idx; i < Args.Length; i++)
-                ParseFlag(Args[i]);
-
-            // cleanup flag map
-            _flagMap!.Clear();
-            _flagMap = null;
-        }
+        private Dictionary<string, LaunchFlag> _flagMap = new();
 
         public LaunchSettings(string[] args)
         {
+            const string LOG_IDENT = "LaunchSettings";
+
             Args = args;
-            Parse();
+
+            // build flag map
+            foreach (var prop in this.GetType().GetProperties())
+            {
+                if (prop.PropertyType != typeof(LaunchFlag))
+                    continue;
+
+                if (prop.GetValue(this) is not LaunchFlag flag)
+                    continue;
+
+                foreach (string identifier in flag.Identifiers.Split(','))
+                    _flagMap.Add(identifier, flag);
+            }
+
+            // parse
+            for (int i = 0; i < Args.Length; i++)
+            {
+                string arg = Args[i];
+
+                if (!arg.StartsWith('-'))
+                    continue;
+
+                string identifier = arg[1..];
+
+                if (_flagMap[identifier] is not LaunchFlag flag)
+                    continue;
+
+                flag.Active = true;
+
+                if (i < Args.Length - 1 && Args[i+1] is string nextArg && !nextArg.StartsWith('-'))
+                {
+                    flag.Data = nextArg;
+                    App.Logger.WriteLine(LOG_IDENT, $"Identifier '{identifier}' is active with data");
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Identifier '{identifier}' is active");
+                }
+            }
+
+            if (PlayerFlag.Active)
+                ParsePlayer(PlayerFlag.Data);
+            else if (StudioFlag.Active)
+                ParseStudio(StudioFlag.Data);
+        }
+
+        private void ParsePlayer(string? data)
+        {
+            RobloxLaunchMode = LaunchMode.Player;
+
+            if (!String.IsNullOrEmpty(data))
+                RobloxLaunchArgs = data;
+        }
+
+        private void ParseStudio(string? data)
+        {
+            RobloxLaunchMode = LaunchMode.Studio;
+
+            // TODO: do this later
         }
     }
 }

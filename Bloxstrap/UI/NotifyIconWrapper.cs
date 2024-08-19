@@ -89,14 +89,15 @@ namespace Bloxstrap.UI
             string serverLocation = await _activityWatcher!.GetServerLocation();
             string title = _activityWatcher.ActivityServerType switch
             {
-                ServerType.Public => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Public,
-                ServerType.Private => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Private,
-                ServerType.Reserved => Resources.Strings.ContextMenu_ServerInformation_Notification_Title_Reserved
+                ServerType.Public => Strings.ContextMenu_ServerInformation_Notification_Title_Public,
+                ServerType.Private => Strings.ContextMenu_ServerInformation_Notification_Title_Private,
+                ServerType.Reserved => Strings.ContextMenu_ServerInformation_Notification_Title_Reserved,
+                _ => ""
             };
 
             ShowAlert(
                 title,
-                String.Format(Resources.Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
+                String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
                 10,
                 (_, _) => _menuContainer?.ShowServerInformationWindow()
             );

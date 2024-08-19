@@ -62,7 +62,6 @@ namespace Bloxstrap.UI.Elements.Installer
 
             DataContext = _viewModel;
             InitializeComponent();
-            ApplyTheme();
 
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing installer");
 

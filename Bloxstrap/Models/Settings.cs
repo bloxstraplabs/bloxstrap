@@ -16,9 +16,6 @@ namespace Bloxstrap.Models
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
 
-        // channel configuration
-        public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
-
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;
@@ -28,12 +25,7 @@ namespace Bloxstrap.Models
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration
-        public bool UseOldDeathSound { get; set; } = true;
-        public bool UseOldCharacterSounds { get; set; } = false;
         public bool UseDisableAppPatch { get; set; } = false;
-        public bool UseOldAvatarBackground { get; set; } = false;
-        public CursorType CursorType { get; set; } = CursorType.Default;
-        public EmojiType EmojiType { get; set; } = EmojiType.Default;
         public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

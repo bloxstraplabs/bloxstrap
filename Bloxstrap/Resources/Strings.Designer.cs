@@ -730,6 +730,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please wait for installation to finish..
+        /// </summary>
+        public static string Dialog_AlreadyRunning_Installer {
+            get {
+                return ResourceManager.GetString("Dialog.AlreadyRunning.Installer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please wait for uninstallation to finish..
+        /// </summary>
+        public static string Dialog_AlreadyRunning_Uninstaller {
+            get {
+                return ResourceManager.GetString("Dialog.AlreadyRunning.Uninstaller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings..
         /// </summary>
         public static string Dialog_CannotCreateShortcuts {
@@ -2748,6 +2766,17 @@ namespace Bloxstrap.Resources {
         public static string Menu_Mods_Presets_EmojiType_Description {
             get {
                 return ResourceManager.GetString("Menu.Mods.Presets.EmojiType.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The emoji mod could not be applied because of a network error during download.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Menu_Mods_Presets_EmojiType_Error {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Presets.EmojiType.Error", resourceCulture);
             }
         }
         
