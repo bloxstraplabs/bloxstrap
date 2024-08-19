@@ -61,8 +61,8 @@ namespace Bloxstrap
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
             // studio can be implicitly registered when it's first launched manually
-            ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
-            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
+            ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
+            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
 
             // TODO: implicit installation needs to reregister studio
 
@@ -167,17 +167,15 @@ namespace Bloxstrap
             // prompt to shutdown roblox if its currently running
             if (processes.Any())
             {
-                if (!App.LaunchSettings.IsQuiet)
-                {
-                    MessageBoxResult result = Frontend.ShowMessageBox(
-                        Strings.Bootstrapper_Uninstall_RobloxRunning,
-                        MessageBoxImage.Information,
-                        MessageBoxButton.OKCancel
-                    );
+                var result = Frontend.ShowMessageBox(
+                    Strings.Bootstrapper_Uninstall_RobloxRunning,
+                    MessageBoxImage.Information,
+                    MessageBoxButton.OKCancel,
+                    MessageBoxResult.OK
+                );
 
-                    if (result != MessageBoxResult.OK)
-                        App.Terminate(ErrorCode.ERROR_CANCELLED);
-                }
+                if (result != MessageBoxResult.OK)
+                    App.Terminate(ErrorCode.ERROR_CANCELLED);
 
                 try
                 {
@@ -343,7 +341,7 @@ namespace Bloxstrap
                 return;
 
             // silently upgrade version if the command line flag is set or if we're launching from an auto update
-            if (!App.LaunchSettings.IsUpgrade && !isAutoUpgrade)
+            if (!App.LaunchSettings.UpgradeFlag.Active && !isAutoUpgrade)
             {
                 var result = Frontend.ShowMessageBox(
                     Strings.InstallChecker_VersionDifferentThanInstalled,
@@ -459,6 +457,9 @@ namespace Bloxstrap
                     }
 
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
+
+                    ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
+                    ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
                 }
 
                 App.Settings.Save();
@@ -469,7 +470,7 @@ namespace Bloxstrap
             {
                 Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Bloxstrap-v{currentVer}");
             }
-            else if (!App.LaunchSettings.IsQuiet)
+            else
             {
                 Frontend.ShowMessageBox(
                     string.Format(Strings.InstallChecker_Updated, currentVer),

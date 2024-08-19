@@ -27,8 +27,8 @@ namespace Bloxstrap
         private string _playerFileName => _launchMode == LaunchMode.Player ? "RobloxPlayerBeta.exe" : "RobloxStudioBeta.exe";
         private string _playerLocation => Path.Combine(_versionFolder, _playerFileName);
 
-        private string _launchCommandLine;
-        private LaunchMode _launchMode;
+        private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
+        private LaunchMode _launchMode = App.LaunchSettings.RobloxLaunchMode;
         private bool _installWebView2;
 
         private string _versionGuid
@@ -81,10 +81,8 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper(string launchCommandLine, LaunchMode launchMode, bool installWebView2)
+        public Bootstrapper(bool installWebView2)
         {
-            _launchCommandLine = launchCommandLine;
-            _launchMode = launchMode;
             _installWebView2 = installWebView2;
 
             _packageDirectories = _launchMode == LaunchMode.Player ? PackageMap.Player : PackageMap.Studio;
@@ -217,7 +215,7 @@ namespace Bloxstrap
 
             await mutex.ReleaseAsync();
 
-            if (!App.LaunchSettings.IsNoLaunch && !_cancelFired)
+            if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelFired)
                 await StartRoblox();
         }
 
@@ -225,31 +223,58 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::CheckLatestVersion";
 
+            // before we do anything, we need to query our channel
+            // if it's set in the launch uri, we need to use it and set the registry key for it
+            // else, check if the registry key for it exists, and use it
+
+            string channel = "production";
+
+            string keyPath = _launchMode == LaunchMode.Player ? "RobloxPlayer" : "RobloxStudio";
+
+            using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{keyPath}\\Channel");
+
+            var match = Regex.Match(App.LaunchSettings.RobloxLaunchArgs, "channel:([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+
+            if (match.Groups.Count == 2)
+            {
+                channel = match.Groups[1].Value.ToLowerInvariant();
+            }
+            else if (key.GetValue("www.roblox.com") is string value)
+            {
+                channel = value;
+            }
+
             ClientVersion clientVersion;
 
             string binaryType = _launchMode == LaunchMode.Player ? "WindowsPlayer" : "WindowsStudio64";
 
             try
             {
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
+                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
             }
             catch (HttpResponseException ex)
             {
-                if (ex.ResponseMessage.StatusCode is not HttpStatusCode.Unauthorized and not HttpStatusCode.Forbidden and not HttpStatusCode.NotFound)
+                if (ex.ResponseMessage.StatusCode 
+                    is not HttpStatusCode.Unauthorized 
+                    and not HttpStatusCode.Forbidden 
+                    and not HttpStatusCode.NotFound)
                     throw;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {RobloxDeployment.DefaultChannel} because HTTP {(int)ex.ResponseMessage.StatusCode}");
-                App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
+                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because HTTP {(int)ex.ResponseMessage.StatusCode}");
+
+                channel = RobloxDeployment.DefaultChannel;
+                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
             }
 
             if (clientVersion.IsBehindDefaultChannel)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Changed Roblox channel from {App.Settings.Prop.Channel} to {RobloxDeployment.DefaultChannel}");
+                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because channel is behind production");
 
-                App.Settings.Prop.Channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(App.Settings.Prop.Channel, binaryType: binaryType);
+                channel = RobloxDeployment.DefaultChannel;
+                clientVersion = await RobloxDeployment.GetInfo(channel, binaryType);
             }
+
+            key.SetValue("www.roblox.com", channel);
 
             _latestVersionGuid = clientVersion.VersionGuid;
             _versionFolder = Path.Combine(Paths.Versions, _latestVersionGuid);
@@ -262,28 +287,12 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
-            if (_launchMode != LaunchMode.StudioAuth)
+            if (App.Settings.Prop.ForceRobloxLanguage)
             {
-                _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
+                var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
 
-
-                if (_launchCommandLine.StartsWith("roblox-player:1"))
-                    _launchCommandLine += "+channel:";
-                else
-                    _launchCommandLine += " -channel ";
-
-                if (App.Settings.Prop.Channel.ToLowerInvariant() == RobloxDeployment.DefaultChannel.ToLowerInvariant())
-                    _launchCommandLine += "production";
-                else
-                    _launchCommandLine += App.Settings.Prop.Channel.ToLowerInvariant();
-
-                if (App.Settings.Prop.ForceRobloxLanguage)
-                {
-                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)");
-
-                    if (match.Groups.Count == 2)
-                        _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}");
-                }
+                if (match.Groups.Count == 2)
+                    _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
             }
 
             // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
@@ -479,8 +488,8 @@ namespace Bloxstrap
             // this doesn't go under register, so we check every launch
             // just in case the stock bootstrapper changes it back
 
-            ProtocolHandler.Register("roblox", "Roblox", Paths.Application);
-            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application);
+            ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
+            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
 #if STUDIO_FEATURES
             ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application);
             ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application);

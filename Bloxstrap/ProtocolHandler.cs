@@ -9,69 +9,9 @@ namespace Bloxstrap
     {
         private const string RobloxPlaceKey = "Roblox.Place";
 
-        public static string ParseUri(string protocol)
+        public static void Register(string key, string name, string handler, string handlerParam = "%1")
         {
-            var args = new Dictionary<string, string>();
-            bool channelArgPresent = false;
-
-            foreach (var parameter in protocol.Split('+'))
-            {
-                if (!parameter.Contains(':'))
-                    continue;
-
-                var kv = parameter.Split(':');
-                string key = kv[0];
-                string val = kv[1];
-
-                // we'll set this before launching because for some reason roblox just refuses to launch if its like a few minutes old so ???
-                if (key == "launchtime")
-                    val = "LAUNCHTIMEPLACEHOLDER";
-
-                if (key == "channel" && !String.IsNullOrEmpty(val))
-                {
-                    channelArgPresent = true;
-                    EnrollChannel(val);
-
-                    // we'll set the arg when launching
-                    continue;
-                }
-
-                args.Add(key, val);
-            }
-
-            if (!channelArgPresent)
-                EnrollChannel(RobloxDeployment.DefaultChannel);
-
-            var pairs = args.Select(x => x.Key + ":" + x.Value).ToArray();
-            return String.Join("+", pairs);
-        }
-
-        public static void ChangeChannel(string channel)
-        {
-            if (channel.ToLowerInvariant() == App.Settings.Prop.Channel.ToLowerInvariant())
-                return;
-
-            // don't change if roblox is already running
-            if (Process.GetProcessesByName("RobloxPlayerBeta").Any())
-            {
-                App.Logger.WriteLine("ProtocolHandler::ChangeChannel", $"Ignored channel change from {App.Settings.Prop.Channel} to {channel} because Roblox is already running");
-            }
-            else
-            {
-                App.Logger.WriteLine("ProtocolHandler::ChangeChannel", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {channel}");
-                App.Settings.Prop.Channel = channel;
-            }
-        }
-
-        public static void EnrollChannel(string channel)
-        {
-            ChangeChannel(channel);
-            App.State.Save();
-        }
-
-        public static void Register(string key, string name, string handler)
-        {
-            string handlerArgs = $"\"{handler}\" %1";
+            string handlerArgs = $"\"{handler}\" {handlerParam}";
             
             using var uriKey = Registry.CurrentUser.CreateSubKey($@"Software\Classes\{key}");
             using var uriIconKey = uriKey.CreateSubKey("DefaultIcon");

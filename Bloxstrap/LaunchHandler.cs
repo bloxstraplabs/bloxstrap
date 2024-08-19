@@ -32,13 +32,15 @@ namespace Bloxstrap
         {
             // this order is specific
 
-            if (App.LaunchSettings.IsUninstall)
+            if (App.LaunchSettings.UninstallFlag.Active)
                 LaunchUninstaller();
-            else if (App.LaunchSettings.IsMenuLaunch)
+            else if (App.LaunchSettings.MenuFlag.Active)
                 LaunchSettings();
-            else if (App.LaunchSettings.IsRobloxLaunch)
+            else if (App.LaunchSettings.WatcherFlag.Active)
+                LaunchWatcher();
+            else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
                 LaunchRoblox();
-            else if (!App.LaunchSettings.IsQuiet)
+            else if (!App.LaunchSettings.QuietFlag.Active)
                 LaunchMenu();
         }
 
@@ -52,14 +54,14 @@ namespace Bloxstrap
                 return;
             }
 
-            if (App.LaunchSettings.IsUninstall)
+            if (App.LaunchSettings.UninstallFlag.Active)
             {
                 Frontend.ShowMessageBox(Strings.Bootstrapper_FirstRunUninstall, MessageBoxImage.Error);
                 App.Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
                 return;
             }
 
-            if (App.LaunchSettings.IsQuiet)
+            if (App.LaunchSettings.QuietFlag.Active)
             {
                 var installer = new Installer();
 
@@ -99,7 +101,7 @@ namespace Bloxstrap
             bool confirmed = false;
             bool keepData = true;
 
-            if (App.LaunchSettings.IsQuiet)
+            if (App.LaunchSettings.QuietFlag.Active)
             {
                 confirmed = true;
             }
@@ -154,18 +156,18 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
 
-            bool installWebView2 = false;
 
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
                 Frontend.ShowMessageBox(Strings.Bootstrapper_WMFNotFound, MessageBoxImage.Error);
 
-                if (!App.LaunchSettings.IsQuiet)
+                if (!App.LaunchSettings.QuietFlag.Active)
                     Utilities.ShellExecute("https://support.microsoft.com/en-us/topic/media-feature-pack-list-for-windows-n-editions-c1c6fffa-d052-8338-7a79-a4bb980a700a");
 
                 App.Terminate(ErrorCode.ERROR_FILE_NOT_FOUND);
             }
 
+            bool installWebView2 = false;
             {
                 using var hklmKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
                 using var hkcuKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
@@ -193,10 +195,10 @@ namespace Bloxstrap
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            var bootstrapper = new Bootstrapper(App.LaunchSettings.RobloxLaunchArgs, App.LaunchSettings.RobloxLaunchMode, installWebView2);
+            var bootstrapper = new Bootstrapper(installWebView2);
             IBootstrapperDialog? dialog = null;
 
-            if (!App.LaunchSettings.IsQuiet)
+            if (!App.LaunchSettings.QuietFlag.Active)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
                 dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
@@ -232,12 +234,17 @@ namespace Bloxstrap
             // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them
             dialog?.ShowBootstrapper();
 
-            if (!App.LaunchSettings.IsNoLaunch && App.Settings.Prop.EnableActivityTracking)
+            if (!App.LaunchSettings.NoLaunchFlag.Active && App.Settings.Prop.EnableActivityTracking)
                 App.NotifyIcon?.InitializeContextMenu();
 
             App.Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
 
             bootstrapperTask.Wait();
+        }
+
+        public static void LaunchWatcher()
+        {
+
         }
     }
 }

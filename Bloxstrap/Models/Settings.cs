@@ -16,9 +16,6 @@ namespace Bloxstrap.Models
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
 
-        // channel configuration
-        public string Channel { get; set; } = RobloxDeployment.DefaultChannel;
-
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;

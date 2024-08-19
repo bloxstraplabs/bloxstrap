@@ -86,7 +86,7 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            if (!LaunchSettings.IsQuiet)
+            if (!LaunchSettings.QuietFlag.Active)
                 Frontend.ShowExceptionDialog(exception);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
@@ -190,7 +190,7 @@ namespace Bloxstrap
                 if (Paths.Process != Paths.Application && !File.Exists(Paths.Application))
                     File.Copy(Paths.Process, Paths.Application);
 
-                Logger.Initialize(LaunchSettings.IsUninstall);
+                Logger.Initialize(LaunchSettings.UninstallFlag.Active);
 
                 if (!Logger.Initialized && !Logger.NoWriteMode)
                 {
@@ -204,7 +204,7 @@ namespace Bloxstrap
 
                 // we can only parse them now as settings need
                 // to be loaded first to know what our channel is
-                LaunchSettings.ParseRoblox();
+                // LaunchSettings.ParseRoblox();
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
@@ -214,7 +214,7 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
-                if (!LaunchSettings.IsUninstall)
+                if (!LaunchSettings.UninstallFlag.Active)
                     Installer.HandleUpgrade();
 
                 LaunchHandler.ProcessLaunchArgs();

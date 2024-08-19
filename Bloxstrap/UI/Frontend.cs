@@ -14,10 +14,10 @@ namespace Bloxstrap.UI
         {
             App.Logger.WriteLine("Frontend::ShowMessageBox", message);
 
-            if (App.LaunchSettings.IsQuiet)
+            if (App.LaunchSettings.QuietFlag.Active)
                 return defaultResult;
 
-            if (!App.LaunchSettings.IsRobloxLaunch)
+            if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
                 return ShowFluentMessageBox(message, icon, buttons);
 
             switch (App.Settings.Prop.BootstrapperStyle)
