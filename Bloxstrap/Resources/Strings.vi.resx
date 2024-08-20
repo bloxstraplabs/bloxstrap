@@ -136,7 +136,7 @@
     <value>Máy chủ Roblox có thể đang gặp sự cố. Truy cập status.roblox.com để biết thêm thông tin. Xin vui lòng thử lại sau.</value>
   </data>
   <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap không thể kết nối tới Roblox và đã vượt quá thời gian chờ, cho thấy kết nối internet của bạn đang không ổn định. Vui lòng thử lại sau.</value>
+    <value>Bloxstrap không thể kết nối tới Roblox và đã vượt quá thời gian chờ, có thể kết nối internet của bạn đang không ổn định. Vui lòng thử lại sau.</value>
   </data>
   <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
     <value>Không thể áp dụng mod emoji có sẵn {0} vì có lỗi mạng. Để thử lại, hãy cài đặt lại lựa chọn trong Menu Bloxstrap.</value>
@@ -183,7 +183,7 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
     <value>Đang đợi các tiến trình khác...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>Đang xem trước thiết kế - Nhấn vào nút X ở trên góc phải để đóng</value>
+    <value>Đang xem trước thiết kế - Nhấn vào nút X ở góc phải để đóng</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
@@ -450,13 +450,13 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Đây là những người có đóng góp nổi bật cho Bloxstrap, giúp nó được như bây giờ.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Quyên góp ý tưởng</value>
+    <value>Đóng góp ý tưởng</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Lời cảm ơn sâu sắc</value>
   </data>
   <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Những bản dịch</value>
+    <value>BBản dịch</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Một chương trình khởi động phụ dành cho Roblox với các tính năng đa dạng.</value>
@@ -714,10 +714,10 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Chỉnh cách Bloxstrap/Roblox được cài đặt.</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Chọn nơi Bloxstrap sẽ được cài đặt.</value>
+    <value>Chọn vị trí cài đặt.</value>
   </data>
   <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Địa điểm cài đặt</value>
+    <value>Vị trítrí cài đặt</value>
   </data>
   <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
     <value>Nơi Bloxstrap đã được cài đặt.</value>
@@ -738,7 +738,7 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Bloxstrap không thể được cài đặt ở đây. Vui lòng chọn một vị trí khác, hoặc sử dụng vị trí mặc định bằng cách nhấp vào nút đặt lại.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Thư mục bạn chọn cài đặt Bloxstrap đã tồn tại và KHÔNG trống rỗng. Chúng tôi đặc biệt khuyến khích cài đặt Bloxstrap vào thư mục độc lập của riêng nó.
+    <value>Thư mục bạn chọn để cài đặt Bloxstrap đã tồn tại và KHÔNG trống. Chúng tôi đặc biệt khuyến khích cài đặt Bloxstrap vào thư mục độc lập của riêng nó.
 
 Đề xuất thay đổi sang vị trí như này:
 {0}
@@ -798,7 +798,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Không thoát ra màn hình chính của Roblox</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Cho phép Bloxstrap phát hiện bạn đang chơi trò Roblox gì. Một vài chức năng yêu cầu tính năng này.</value>
+    <value>Cho phép Bloxstrap xác định bạn đang chơi trò chơi Roblox gì. Một vài chức năng yêu cầu tính năng này.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Bật theo dõi hoạt động</value>
