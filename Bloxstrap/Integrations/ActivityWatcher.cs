@@ -302,16 +302,35 @@
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
                 if (ipInfo is null)
-                    return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                {
+                    var ip2LocationIO = await Http.GetJson<IP2LocationIOResponse>($"https://api.ip2location.io/?ip={ActivityMachineAddress}");
 
-                if (string.IsNullOrEmpty(ipInfo.Country))
-                    location = "?";
-                else if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
+                    if (ip2LocationIO is null)
+                    {
+                        return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                    }
+                    else
+                    {
+						if (string.IsNullOrEmpty(ip2LocationIO.Country))
+							location = "?";
+						else if (ip2LocationIO.City == ip2LocationIO.Region)
+							location = $"{ip2LocationIO.Region}, {ip2LocationIO.Country}";
+						else
+							location = $"{ip2LocationIO.City}, {ip2LocationIO.Region}, {ip2LocationIO.Country}";
+					}
+				}
                 else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+                {
+					if (string.IsNullOrEmpty(ipInfo.Country))
+						location = "?";
+					else if (ipInfo.City == ipInfo.Region)
+						location = $"{ipInfo.Region}, {ipInfo.Country}";
+					else
+						location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
-                if (!ActivityInGame)
+				}
+
+				if (!ActivityInGame)
                     return $"? ({Resources.Strings.ActivityTracker_LeftGame})";
 
                 GeolocationCache[ActivityMachineAddress] = location;
