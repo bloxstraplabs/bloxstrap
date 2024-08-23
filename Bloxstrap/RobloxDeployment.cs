@@ -18,23 +18,25 @@
             { "https://s3.amazonaws.com/setup.roblox.com", 4 }
         };
 
-        private static async Task<string?> TestConnection(string url, int priority)
+        private static async Task<string?> TestConnection(string url, int priority, CancellationToken token)
         {
             string LOG_IDENT = $"RobloxDeployment::TestConnection.{url}";
 
-            await Task.Delay(priority * 1000);
-
-            if (BaseUrl is not null)
-                return null;
+            await Task.Delay(priority * 1000, token);
 
             App.Logger.WriteLine(LOG_IDENT, "Connecting...");
 
             try
             {
-                var response = await App.HttpClient.GetAsync($"{url}/version");
+                var response = await App.HttpClient.GetAsync($"{url}/version", token);
                 
                 if (!response.IsSuccessStatusCode)
                     throw new HttpResponseException(response);
+            }
+            catch (TaskCanceledException)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Connectivity test cancelled.");
+                throw;
             }
             catch (Exception ex)
             {
@@ -59,8 +61,11 @@
             if (!String.IsNullOrEmpty(BaseUrl))
                 return null;
 
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            CancellationToken token = tokenSource.Token;
+
             var exceptions = new List<Exception>();
-            var tasks = (from entry in BaseUrls select TestConnection(entry.Key, entry.Value)).ToList();
+            var tasks = (from entry in BaseUrls select TestConnection(entry.Key, entry.Value, token)).ToList();
 
             App.Logger.WriteLine(LOG_IDENT, "Testing connectivity...");
 
@@ -78,6 +83,9 @@
                 BaseUrl = await finishedTask;
                 break;
             }
+
+            // stop other running connectivity tests
+            tokenSource.Cancel();
 
             if (String.IsNullOrEmpty(BaseUrl))
                 return exceptions[0];
