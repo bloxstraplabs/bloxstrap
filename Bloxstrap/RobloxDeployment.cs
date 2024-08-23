@@ -4,6 +4,8 @@
     {
         public const string DefaultChannel = "production";
 
+        private const string VersionStudioHash = "version-012732894899482c";
+
         public static string BaseUrl { get; private set; } = null!;
 
         private static readonly Dictionary<string, ClientVersion> ClientVersionCache = new();
@@ -28,10 +30,16 @@
 
             try
             {
-                var response = await App.HttpClient.GetAsync($"{url}/version", token);
+                var response = await App.HttpClient.GetAsync($"{url}/versionStudio", token);
                 
                 if (!response.IsSuccessStatusCode)
                     throw new HttpResponseException(response);
+
+                // versionStudio is the version hash for the last MFC studio to be deployed.
+                // the response body should always be "version-012732894899482c".
+                string content = await response.Content.ReadAsStringAsync(token);
+                if (content != VersionStudioHash)
+                    throw new Exception($"versionStudio response does not match (expected {VersionStudioHash}, got {content})");
             }
             catch (TaskCanceledException)
             {
