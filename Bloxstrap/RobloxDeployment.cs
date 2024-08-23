@@ -58,9 +58,6 @@
 
             // returns null for success
 
-            if (!String.IsNullOrEmpty(BaseUrl))
-                return null;
-
             CancellationTokenSource tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
 
