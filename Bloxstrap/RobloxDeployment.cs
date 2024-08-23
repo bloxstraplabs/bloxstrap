@@ -39,7 +39,7 @@
                 // the response body should always be "version-012732894899482c".
                 string content = await response.Content.ReadAsStringAsync(token);
                 if (content != VersionStudioHash)
-                    throw new Exception($"versionStudio response does not match (expected {VersionStudioHash}, got {content})");
+                    throw new Exception($"versionStudio response does not match (expected \"{VersionStudioHash}\", got \"{content}\")");
             }
             catch (TaskCanceledException)
             {
