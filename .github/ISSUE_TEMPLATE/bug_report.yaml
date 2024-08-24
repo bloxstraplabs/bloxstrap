@@ -11,6 +11,7 @@ body:
         - If your problem is with Roblox itself (i.e. it crashes or doesn't launch), [check to see if it happens without Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch). 
           - Please only open an issue if your problem happens only with Bloxstrap, and state clearly that this is the case, as anything else is out of my control.
         - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
+        - Also, please ensure you are using the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest). Your report will be null and void if you are not.
         - If more clarification on the issue is needed, and you don't respond after a month, then your issue will be closed as stale.
   - type: checkboxes
     id: terms
@@ -19,7 +20,11 @@ body:
       options:
         - label: I have read the preliminary instructions, and I am certain that my problem has not already been addressed.
           required: true
-        - label: My answer given in the checkbox above is a lie.
+        - label: I have thoroughly looked through the available Wiki articles and could not find a solution to my problem.
+          required: true
+        - label: I am using the latest version of Bloxstrap.
+          required: true
+        - label: I did not answer truthfully to all the above checkboxes.
   - type: textarea
     id: what-happened
     attributes:
