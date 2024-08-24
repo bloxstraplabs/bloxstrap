@@ -25,6 +25,10 @@ Bloxstrap is only supported for PCs running Windows.
 **Q: Can using this get me banned?**
 
 **A:** No, it shouldn't. Bloxstrap doesn't interact with the Roblox client in the same way that exploits do. [Read more about that here.](https://github.com/pizzaboxer/bloxstrap/wiki/Why-it's-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap)
+
+**Q: Why was multi-instance launching removed?**
+
+**A:** It was removed starting with v2.6.0 for the [reasons stated here](https://github.com/pizzaboxer/bloxstrap/wiki/Plans-to-remove-multi%E2%80%90instance-launching-from-Bloxstrap). It may be added back in the future when there are less issues with doing so.
  
  ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
