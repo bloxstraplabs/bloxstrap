@@ -4,6 +4,8 @@
     {
         public const string DefaultChannel = "production";
 
+        private const string VersionStudioHash = "version-012732894899482c";
+
         public static string BaseUrl { get; private set; } = null!;
 
         private static readonly Dictionary<string, ClientVersion> ClientVersionCache = new();
@@ -18,23 +20,31 @@
             { "https://s3.amazonaws.com/setup.roblox.com", 4 }
         };
 
-        private static async Task<string?> TestConnection(string url, int priority)
+        private static async Task<string?> TestConnection(string url, int priority, CancellationToken token)
         {
             string LOG_IDENT = $"RobloxDeployment::TestConnection.{url}";
 
-            await Task.Delay(priority * 1000);
-
-            if (BaseUrl is not null)
-                return null;
+            await Task.Delay(priority * 1000, token);
 
             App.Logger.WriteLine(LOG_IDENT, "Connecting...");
 
             try
             {
-                var response = await App.HttpClient.GetAsync($"{url}/version");
+                var response = await App.HttpClient.GetAsync($"{url}/versionStudio", token);
                 
                 if (!response.IsSuccessStatusCode)
                     throw new HttpResponseException(response);
+
+                // versionStudio is the version hash for the last MFC studio to be deployed.
+                // the response body should always be "version-012732894899482c".
+                string content = await response.Content.ReadAsStringAsync(token);
+                if (content != VersionStudioHash)
+                    throw new Exception($"versionStudio response does not match (expected \"{VersionStudioHash}\", got \"{content}\")");
+            }
+            catch (TaskCanceledException)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Connectivity test cancelled.");
+                throw;
             }
             catch (Exception ex)
             {
@@ -56,11 +66,11 @@
 
             // returns null for success
 
-            if (!String.IsNullOrEmpty(BaseUrl))
-                return null;
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            CancellationToken token = tokenSource.Token;
 
             var exceptions = new List<Exception>();
-            var tasks = (from entry in BaseUrls select TestConnection(entry.Key, entry.Value)).ToList();
+            var tasks = (from entry in BaseUrls select TestConnection(entry.Key, entry.Value, token)).ToList();
 
             App.Logger.WriteLine(LOG_IDENT, "Testing connectivity...");
 
@@ -78,6 +88,9 @@
                 BaseUrl = await finishedTask;
                 break;
             }
+
+            // stop other running connectivity tests
+            tokenSource.Cancel();
 
             if (String.IsNullOrEmpty(BaseUrl))
                 return exceptions[0];
