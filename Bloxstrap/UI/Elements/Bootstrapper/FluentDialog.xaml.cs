@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Shell;
 using System.Windows.Threading;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
@@ -69,6 +70,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             {
                 _viewModel.ProgressValue = value;
                 _viewModel.OnPropertyChanged(nameof(_viewModel.ProgressValue));
+            }
+        }
+
+        public TaskbarItemProgressState TaskbarProgressState
+        {
+            get => _viewModel.TaskbarProgressState;
+            set
+            {
+                _viewModel.TaskbarProgressState = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressState));
+            }
+        }
+
+        public double TaskbarProgressValue
+        {
+            get => _viewModel.TaskbarProgressValue;
+            set
+            {
+                _viewModel.TaskbarProgressValue = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressValue));
             }
         }
 

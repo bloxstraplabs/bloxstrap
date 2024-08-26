@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Windows.Shell;
 
 using Bloxstrap.UI.Utility;
 
@@ -15,6 +16,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
         protected virtual int _progressMaximum { get; set; }
+        protected virtual TaskbarItemProgressState _taskbarProgressState { get; set; }
+        protected virtual double _taskbarProgressValue { get; set; }
         protected virtual bool _cancelEnabled { get; set; }
 
         public string Message
@@ -62,6 +65,30 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
                     Invoke(() => _progressValue = value);
                 else
                     _progressValue = value;
+            }
+        }
+
+        public TaskbarItemProgressState TaskbarProgressState
+        {
+            get => _taskbarProgressState;
+            set
+            {
+                if (InvokeRequired)
+                    Invoke(() => _taskbarProgressState = value);
+                else
+                    _taskbarProgressState = value;
+            }
+        }
+
+        public double TaskbarProgressValue
+        {
+            get => _taskbarProgressValue;
+            set
+            {
+                if (InvokeRequired)
+                    Invoke(() => _taskbarProgressValue = value);
+                else
+                    _taskbarProgressValue = value;
             }
         }
 

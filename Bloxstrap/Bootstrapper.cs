@@ -6,6 +6,7 @@ using Microsoft.Win32;
 using Bloxstrap.Integrations;
 using Bloxstrap.Resources;
 using Bloxstrap.AppData;
+using System.Windows.Shell;
 
 namespace Bloxstrap
 {
@@ -13,6 +14,7 @@ namespace Bloxstrap
     {
         #region Properties
         private const int ProgressBarMaximum = 10000;
+        private const double TaskbarProgressMaximum = 1; // this can not be changed. keep it at 1.
       
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
@@ -71,6 +73,7 @@ namespace Bloxstrap
 
         private bool _isInstalling = false;
         private double _progressIncrement;
+        private double _taskbarProgressIncrement;
         private long _totalDownloadedBytes = 0;
         private int _packagesExtracted = 0;
         private bool _cancelFired = false;
@@ -106,6 +109,7 @@ namespace Bloxstrap
             if (Dialog is null)
                 return;
 
+            // UI progress
             int progressValue = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
 
             // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
@@ -113,6 +117,12 @@ namespace Bloxstrap
             progressValue = Math.Clamp(progressValue, 0, ProgressBarMaximum);
 
             Dialog.ProgressValue = progressValue;
+
+            // taskbar progress
+            double taskbarProgressValue = _taskbarProgressIncrement * _totalDownloadedBytes;
+            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, TaskbarProgressMaximum);
+
+            Dialog.TaskbarProgressValue = taskbarProgressValue;
         }
         
         public async Task Run()
@@ -614,11 +624,14 @@ namespace Bloxstrap
             {
                 Dialog.CancelEnabled = true;
                 Dialog.ProgressStyle = ProgressBarStyle.Continuous;
+                Dialog.TaskbarProgressState = TaskbarItemProgressState.Normal;
 
                 Dialog.ProgressMaximum = ProgressBarMaximum;
 
                 // compute total bytes to download
-                _progressIncrement = (double)ProgressBarMaximum / _versionPackageManifest.Sum(package => package.PackedSize);
+                int totalSize = _versionPackageManifest.Sum(package => package.PackedSize);
+                _progressIncrement = (double)ProgressBarMaximum / totalSize;
+                _taskbarProgressIncrement = (double)TaskbarProgressMaximum / totalSize;
             }
 
             foreach (Package package in _versionPackageManifest)
@@ -647,6 +660,7 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
+                Dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
                 SetStatus(Strings.Bootstrapper_Status_Configuring);
             }
 

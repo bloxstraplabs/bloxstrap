@@ -12,6 +12,11 @@
         AllowsTransparency="True"
         Background="Transparent"
         Closing="Window_Closing">
+
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="{Binding Path=TaskbarProgressState}" ProgressValue="{Binding Path=TaskbarProgressValue}" />
+    </Window.TaskbarItemInfo>
+
     <Border CornerRadius="10" BorderBrush="#33393B3D" Background="{Binding Background}" BorderThickness="{Binding DialogBorder}">
         <Grid>
             <Image Source="{Binding ByfronLogoLocation}" RenderOptions.BitmapScalingMode="HighQuality" Width="114" Height="108" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="17,13,0,0" />
