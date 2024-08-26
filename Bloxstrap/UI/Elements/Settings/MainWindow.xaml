@@ -60,7 +60,7 @@
                     <ui:NavigationItem Content="" PageType="{x:Type pages:FastFlagEditorWarningPage}" Tag="fastflageditorwarning" Visibility="Collapsed" x:Name="EditorWarningNavItem" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" Margin="0,0,0,12" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>
 

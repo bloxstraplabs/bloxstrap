@@ -1,14 +1,18 @@
 ﻿using System.Windows.Input;
-
+using Bloxstrap.UI.Elements.About;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
+        public ICommand OpenAboutCommand => new RelayCommand(OpenAbout);
+        
         public ICommand SaveSettingsCommand => new RelayCommand(SaveSettings);
 
         public EventHandler? RequestSaveNoticeEvent;
+
+        private void OpenAbout() => new MainWindow().ShowDialog();
 
         private void SaveSettings()
         {

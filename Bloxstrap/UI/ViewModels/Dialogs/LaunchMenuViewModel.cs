@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.Resources;
+using Bloxstrap.UI.Elements.About;
 
 namespace Bloxstrap.UI.ViewModels.Installer
 {
@@ -14,10 +14,14 @@ namespace Bloxstrap.UI.ViewModels.Installer
 
         public ICommand LaunchRobloxCommand => new RelayCommand(LaunchRoblox);
 
+        public ICommand LaunchAboutCommand => new RelayCommand(LaunchAbout);
+
         public event EventHandler<NextAction>? CloseWindowRequest;
 
         private void LaunchSettings() => CloseWindowRequest?.Invoke(this, NextAction.LaunchSettings);
 
         private void LaunchRoblox() => CloseWindowRequest?.Invoke(this, NextAction.LaunchRoblox);
+
+        private void LaunchAbout() => new MainWindow().Show();
     }
 }

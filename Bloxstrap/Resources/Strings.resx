@@ -1130,4 +1130,13 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Please wait for uninstallation to finish.</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Translators</value>
+  </data>
 </root>
