@@ -10,7 +10,7 @@
 [![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
 [![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
 
-Bloxstrap is a third-party replacement for the standard Roblox bootstrapper, providing additional useful features and improvements such as hassle-free Discord Rich Presence and easy content file replacement.
+Bloxstrap is a third-party replacement for the standard Roblox bootstrapper, providing additional useful features and improvements.
 
 Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/pizzaboxer/bloxstrap/issues).
  
@@ -29,6 +29,13 @@ Bloxstrap is only supported for PCs running Windows.
 **Q: Why was multi-instance launching removed?**
 
 **A:** It was removed starting with v2.6.0 for the [reasons stated here](https://github.com/pizzaboxer/bloxstrap/wiki/Plans-to-remove-multi%E2%80%90instance-launching-from-Bloxstrap). It may be added back in the future when there are less issues with doing so.
+
+## Features
+
+- Hassle-free Discord Rich Presence to let your friends know what you're playing at a glance
+- Simple support for modding of content files for customizability (death sound, mouse cursor, etc)
+- See where your server is geographically located (courtesy of [ipinfo.io](https://ipinfo.io))
+- Ability to configure graphics fidelity and UI experience
  
  ## Installing
 Download the [latest release of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
