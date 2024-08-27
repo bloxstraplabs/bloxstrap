@@ -31,6 +31,10 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
+        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
+
+        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+
         public static readonly MD5 MD5Provider = MD5.Create();
 
         public static NotifyIconWrapper? NotifyIcon { get; set; }
@@ -105,10 +109,10 @@ namespace Bloxstrap
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
-            if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
-                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
-            else
+            if (IsActionBuild)
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
+            else
+                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
 
             Logger.WriteLine(LOG_IDENT, $"Loaded from {Paths.Process}");
 
