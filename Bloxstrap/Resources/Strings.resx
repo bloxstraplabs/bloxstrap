@@ -1139,4 +1139,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="About.Translators.Title" xml:space="preserve">
     <value>Translators</value>
   </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>You have unsaved changes. Are you sure you want to close without saving?</value>
+  </data>
 </root>

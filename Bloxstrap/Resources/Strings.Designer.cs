@@ -2970,6 +2970,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have unsaved changes. Are you sure you want to close without saving?.
+        /// </summary>
+        public static string Menu_UnsavedChanges {
+            get {
+                return ResourceManager.GetString("Menu.UnsavedChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to They&apos;ll be kept where Bloxstrap was installed, and will automatically be restored on a reinstall..
         /// </summary>
         public static string Uninstaller_KeepData_Description {

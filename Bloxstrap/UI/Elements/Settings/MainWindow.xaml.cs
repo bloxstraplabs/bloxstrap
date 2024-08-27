@@ -1,6 +1,10 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Controls;
+
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
+
 using Bloxstrap.UI.ViewModels.Settings;
 
 namespace Bloxstrap.UI.Elements.Settings
@@ -22,7 +26,7 @@ namespace Bloxstrap.UI.Elements.Settings
             App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
 
 #if DEBUG // easier access
-            EditorWarningNavItem.Visibility = System.Windows.Visibility.Visible;
+            EditorWarningNavItem.Visibility = Visibility.Visible;
 #endif
 
             if (showAlreadyRunningWarning)
@@ -50,5 +54,16 @@ namespace Bloxstrap.UI.Elements.Settings
         public void CloseWindow() => Close();
 
         #endregion INavigationWindow methods
+
+        private void WpfUiWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (App.FastFlags.Changed || App.PendingSettingTasks.Any())
+            {
+                var result = Frontend.ShowMessageBox(Strings.Menu_UnsavedChanges, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+                if (result != MessageBoxResult.Yes)
+                    e.Cancel = true;
+            }
+        }
     }
 }

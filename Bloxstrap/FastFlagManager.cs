@@ -6,6 +6,8 @@ namespace Bloxstrap
     {
         public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
 
+        public bool Changed => !OriginalProp.SequenceEqual(Prop);
+
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
             { "Network.Log", "FLogNetwork" },
@@ -231,11 +233,17 @@ namespace Bloxstrap
                 Prop[pair.Key] = pair.Value.ToString()!;
 
             base.Save();
+
+            // clone the dictionary
+            OriginalProp = new(Prop);
         }
 
         public override void Load()
         {
             base.Load();
+
+            // clone the dictionary
+            OriginalProp = new(Prop);
 
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
