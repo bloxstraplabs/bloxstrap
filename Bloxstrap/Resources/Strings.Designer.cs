@@ -1277,6 +1277,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The version of Bloxstrap you&apos;ve launched is older than the version you currently have installed.
+        ///Issues may occur and your settings may be altered. A reinstall is recommended.
+        ///Are you sure you want to continue?.
+        /// </summary>
+        public static string InstallChecker_VersionLessThanInstalled {
+            get {
+                return ResourceManager.GetString("InstallChecker.VersionLessThanInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Will drop you into the desktop app once everything&apos;s done.
         /// </summary>
         public static string Installer_Completion_Launch_Description {

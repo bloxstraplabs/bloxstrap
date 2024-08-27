@@ -1142,4 +1142,9 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="Menu.UnsavedChanges" xml:space="preserve">
     <value>You have unsaved changes. Are you sure you want to close without saving?</value>
   </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>The version of Bloxstrap you've launched is older than the version you currently have installed.
+Issues may occur and your settings may be altered. A reinstall is recommended.
+Are you sure you want to continue?</value>
+  </data>
 </root>

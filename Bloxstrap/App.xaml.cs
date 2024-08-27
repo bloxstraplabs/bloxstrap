@@ -220,8 +220,10 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
+#if !DEBUG
                 if (!LaunchSettings.UninstallFlag.Active)
                     Installer.HandleUpgrade();
+#endif
 
                 LaunchHandler.ProcessLaunchArgs();
             }
