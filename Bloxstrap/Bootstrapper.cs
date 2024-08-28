@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Integrations;
-using Bloxstrap.Resources;
 using Bloxstrap.AppData;
 
 namespace Bloxstrap
@@ -289,9 +287,6 @@ namespace Bloxstrap
                     _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
             }
 
-            // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
-            bool shouldWait = false;
-
             var startInfo = new ProcessStartInfo()
             {
                 FileName = _playerLocation,
@@ -308,19 +303,16 @@ namespace Bloxstrap
 
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
-            using (Process gameClient = Process.Start(startInfo)!)
+            using (var gameClient = Process.Start(startInfo)!)
             {
                 gameClientPid = gameClient.Id;
             }
-
-            List<Process?> autocloseProcesses = new();
-            ActivityWatcher? activityWatcher = null;
-            DiscordRichPresence? richPresence = null;
 
             App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
 
             using (var startEvent = new SystemEvent(AppData.StartEvent))
             {
+                // TODO: get rid of this
                 bool startEventFired = await startEvent.WaitForEvent();
 
                 startEvent.Close();
@@ -330,40 +322,14 @@ namespace Bloxstrap
                     return;
             }
 
-            if (App.Settings.Prop.EnableActivityTracking && _launchMode == LaunchMode.Player)
-              App.NotifyIcon?.SetProcessId(gameClientPid);
-
-            if (App.Settings.Prop.EnableActivityTracking)
-            {
-                activityWatcher = new(gameClientPid);
-                shouldWait = true;
-
-                App.NotifyIcon?.SetActivityWatcher(activityWatcher);
-
-                if (App.Settings.Prop.UseDisableAppPatch)
-                {
-                    activityWatcher.OnAppClose += (_, _) =>
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
-                        using var process = Process.GetProcessById(gameClientPid);
-                        process.CloseMainWindow();
-                    };
-                }
-
-                if (App.Settings.Prop.UseDiscordRichPresence)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Using Discord Rich Presence");
-                    richPresence = new(activityWatcher);
-
-                    App.NotifyIcon?.SetRichPresenceHandler(richPresence);
-                }
-            }
+            var autoclosePids = new List<int>();
 
             // launch custom integrations now
-            foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
+            foreach (var integration in App.Settings.Prop.CustomIntegrations)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
 
+                int pid = 0;
                 try
                 {
                     var process = Process.Start(new ProcessStartInfo
@@ -372,48 +338,34 @@ namespace Bloxstrap
                         Arguments = integration.LaunchArgs.Replace("\r\n", " "),
                         WorkingDirectory = Path.GetDirectoryName(integration.Location),
                         UseShellExecute = true
-                    });
+                    })!;
 
-                    if (integration.AutoClose)
-                    {
-                        shouldWait = true;
-                        autocloseProcesses.Add(process);
-                    }
+                    pid = process.Id;
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Failed to launch integration '{integration.Name}'!");
                     App.Logger.WriteLine(LOG_IDENT, $"{ex.Message}");
                 }
+
+                if (integration.AutoClose && pid != 0)
+                    autoclosePids.Add(pid);
+            }
+
+            using (var proclock = new InterProcessLock("Watcher"))
+            {
+                string args = gameClientPid.ToString();
+
+                if (autoclosePids.Any())
+                    args += $";{String.Join(',', autoclosePids)}";
+
+                if (proclock.IsAcquired)
+                    Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
 
             // event fired, wait for 3 seconds then close
             await Task.Delay(3000);
             Dialog?.CloseBootstrapper();
-
-            // keep bloxstrap open in the background if needed
-            if (!shouldWait)
-                return;
-
-            activityWatcher?.StartWatcher();
-
-            App.Logger.WriteLine(LOG_IDENT, "Waiting for Roblox to close");
-
-            while (Utilities.GetProcessesSafe().Any(x => x.Id == gameClientPid))
-                await Task.Delay(1000);
-
-            App.Logger.WriteLine(LOG_IDENT, $"Roblox has exited");
-
-            richPresence?.Dispose();
-
-            foreach (var process in autocloseProcesses)
-            {
-                if (process is null || process.HasExited)
-                    continue;
-
-                App.Logger.WriteLine(LOG_IDENT, $"Autoclosing process '{process.ProcessName}' (PID {process.Id})");
-                process.Kill();
-            }
         }
 
         public void CancelInstall()

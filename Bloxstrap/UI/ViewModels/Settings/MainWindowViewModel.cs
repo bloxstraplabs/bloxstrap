@@ -9,10 +9,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand OpenAboutCommand => new RelayCommand(OpenAbout);
         
         public ICommand SaveSettingsCommand => new RelayCommand(SaveSettings);
+        
+        public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
 
         public EventHandler? RequestSaveNoticeEvent;
+        
+        public EventHandler? RequestCloseWindowEvent;
 
         private void OpenAbout() => new MainWindow().ShowDialog();
+
+        private void CloseWindow() => RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
 
         private void SaveSettings()
         {
@@ -35,7 +41,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             App.PendingSettingTasks.Clear();
 
-            RequestSaveNoticeEvent?.Invoke(this, new EventArgs());
+            RequestSaveNoticeEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Bloxstrap.Integrations;
+using Bloxstrap.UI.Elements.About;
 using Bloxstrap.UI.Elements.ContextMenu;
 
 namespace Bloxstrap.UI
@@ -10,17 +11,20 @@ namespace Bloxstrap.UI
         private bool _disposing = false;
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
-        private MenuContainer? _menuContainer;
         
-        private ActivityWatcher? _activityWatcher;
-        private DiscordRichPresence? _richPresenceHandler;
-        private int? _processId;
+        private readonly MenuContainer _menuContainer;
+        
+        private readonly Watcher _watcher;
+
+        private ActivityWatcher? _activityWatcher => _watcher.ActivityWatcher;
 
         EventHandler? _alertClickHandler;
 
-        public NotifyIconWrapper()
+        public NotifyIconWrapper(Watcher watcher)
         {
             App.Logger.WriteLine("NotifyIconWrapper::NotifyIconWrapper", "Initializing notification area icon");
+
+            _watcher = watcher;
 
             _notifyIcon = new()
             {
@@ -30,52 +34,18 @@ namespace Bloxstrap.UI
             };
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
-        }
 
-        #region Handler registers
-        public void SetRichPresenceHandler(DiscordRichPresence richPresenceHandler)
-        {
-            if (_richPresenceHandler is not null)
-                return;
-
-            _richPresenceHandler = richPresenceHandler;
-        }
-
-        public void SetActivityWatcher(ActivityWatcher activityWatcher)
-        {
             if (_activityWatcher is not null)
-                return;
+                _activityWatcher.OnGameJoin += OnGameJoin;
 
-            _activityWatcher = activityWatcher;
-
-            if (App.Settings.Prop.ShowServerDetails)
-                _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
+            _menuContainer = new(_watcher);
+            _menuContainer.Show();
         }
-
-        public void SetProcessId(int processId)
-        {
-            if (_processId is not null)
-                return;
-
-            _processId = processId;
-        }
-        #endregion
 
         #region Context menu
-        public void InitializeContextMenu()
-        {
-            if (_menuContainer is not null || _disposing)
-                return;
-
-            App.Logger.WriteLine("NotifyIconWrapper::InitializeContextMenu", "Initializing context menu");
-
-            _menuContainer = new(_activityWatcher, _richPresenceHandler, _processId);
-            _menuContainer.ShowDialog();
-        }
-
         public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (e.Button != System.Windows.Forms.MouseButtons.Right || _menuContainer is null)
+            if (e.Button != System.Windows.Forms.MouseButtons.Right)
                 return;
 
             _menuContainer.Activate();
@@ -84,9 +54,12 @@ namespace Bloxstrap.UI
         #endregion
 
         #region Activity handlers
-        public async void OnGameJoin()
+        public async void OnGameJoin(object? sender, EventArgs e)
         {
-            string serverLocation = await _activityWatcher!.GetServerLocation();
+            if (_activityWatcher is null)
+                return;
+            
+            string serverLocation = await _activityWatcher.GetServerLocation();
             string title = _activityWatcher.ActivityServerType switch
             {
                 ServerType.Public => Strings.ContextMenu_ServerInformation_Notification_Title_Public,
@@ -99,7 +72,7 @@ namespace Bloxstrap.UI
                 title,
                 String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
                 10,
-                (_, _) => _menuContainer?.ShowServerInformationWindow()
+                (_, _) => _menuContainer.ShowServerInformationWindow()
             );
         }
         #endregion
@@ -151,9 +124,8 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine("NotifyIconWrapper::Dispose", "Disposing NotifyIcon");
 
-            _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
-            _notifyIcon?.Dispose();
-
+            _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
+            _notifyIcon.Dispose();
 
             GC.SuppressFinalize(this);
         }

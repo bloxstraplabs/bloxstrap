@@ -28,7 +28,7 @@ namespace Bloxstrap
         
         public LaunchFlag StudioFlag    { get; } = new("studio");
 
-        public LaunchMode RobloxLaunchMode { get; private set; } = LaunchMode.None;
+        public LaunchMode RobloxLaunchMode { get; set; } = LaunchMode.None;
 
         public string RobloxLaunchArgs { get; private set; } = "";
 

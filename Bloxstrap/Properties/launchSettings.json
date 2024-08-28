@@ -26,6 +26,10 @@
     "Bloxstrap (Studio Launch)": {
       "commandName": "Project",
       "commandLineArgs": "-studio"
+    },
+    "Bloxstrap (Watcher)": {
+      "commandName": "Project",
+      "commandLineArgs": "-watcher"
     }
   }
 }

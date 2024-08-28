@@ -22,6 +22,6 @@ namespace Bloxstrap.UI.ViewModels.Installer
 
         private void LaunchRoblox() => CloseWindowRequest?.Invoke(this, NextAction.LaunchRoblox);
 
-        private void LaunchAbout() => new MainWindow().Show();
+        private void LaunchAbout() => new MainWindow().ShowDialog();
     }
 }

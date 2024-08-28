@@ -8,6 +8,7 @@ using Microsoft.Win32;
 using Bloxstrap.Models.SettingTasks.Base;
 using Bloxstrap.UI.Elements.About.Pages;
 using Bloxstrap.UI.Elements.About;
+using System;
 
 namespace Bloxstrap
 {
@@ -37,8 +38,6 @@ namespace Bloxstrap
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
-        public static NotifyIconWrapper? NotifyIcon { get; set; }
-
         public static readonly Logger Logger = new();
 
         public static readonly Dictionary<string, BaseTask> PendingSettingTasks = new();
@@ -55,19 +54,23 @@ namespace Bloxstrap
             )
         );
 
-#if RELEASE
         private static bool _showingExceptionDialog = false;
-#endif
+        
+        private static bool _terminating = false;
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
+            if (_terminating)
+                return;
+
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
-            NotifyIcon?.Dispose();
+            Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
+            // Environment.Exit(exitCodeNum);
 
-            Environment.Exit(exitCodeNum);
+            _terminating = true;
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -79,24 +82,28 @@ namespace Bloxstrap
             FinalizeExceptionHandling(e.Exception);
         }
 
-        public static void FinalizeExceptionHandling(Exception exception, bool log = true)
+        public static void FinalizeExceptionHandling(AggregateException ex)
+        {
+            foreach (var innerEx in ex.InnerExceptions)
+                Logger.WriteException("App::FinalizeExceptionHandling", innerEx);
+
+            FinalizeExceptionHandling(ex.GetBaseException(), false);
+        }
+
+        public static void FinalizeExceptionHandling(Exception ex, bool log = true)
         {
             if (log)
-                Logger.WriteException("App::FinalizeExceptionHandling", exception);
+                Logger.WriteException("App::FinalizeExceptionHandling", ex);
 
-#if DEBUG
-            throw exception;
-#else
             if (_showingExceptionDialog)
                 return;
 
             _showingExceptionDialog = true;
 
             if (!LaunchSettings.QuietFlag.Active)
-                Frontend.ShowExceptionDialog(exception);
+                Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
-#endif
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -208,10 +215,6 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
-                // we can only parse them now as settings need
-                // to be loaded first to know what our channel is
-                // LaunchSettings.ParseRoblox();
-
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
                     Settings.Prop.Locale = "nil";
@@ -228,7 +231,7 @@ namespace Bloxstrap
                 LaunchHandler.ProcessLaunchArgs();
             }
 
-            Terminate();
+            // you must *explicitly* call terminate when everything is done, it won't be called implicitly
         }
     }
 }

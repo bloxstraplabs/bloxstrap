@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 
-using Bloxstrap.UI.Elements.Dialogs;
-
 using Microsoft.Win32;
 using Windows.Win32;
 using Windows.Win32.Foundation;
+
+using Bloxstrap.UI.Elements.Dialogs;
 
 namespace Bloxstrap
 {
@@ -19,6 +19,7 @@ namespace Bloxstrap
                     break;
 
                 case NextAction.LaunchRoblox:
+                    App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
                     LaunchRoblox();
                     break;
 
@@ -85,7 +86,7 @@ namespace Bloxstrap
 
                 ProcessNextAction(installer.CloseAction, !installer.Finished);
             }
-            
+
         }
 
         public static void LaunchUninstaller()
@@ -120,6 +121,8 @@ namespace Bloxstrap
             Installer.DoUninstall(keepData);
 
             Frontend.ShowMessageBox(Strings.Bootstrapper_SuccessfullyUninstalled, MessageBoxImage.Information);
+
+            App.Terminate();
         }
 
         public static void LaunchSettings()
@@ -131,12 +134,12 @@ namespace Bloxstrap
             if (interlock.IsAcquired)
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
-                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).ShowDialog();
+                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).Show();
             }
             else
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window");
-             
+
                 var process = Utilities.GetProcessesSafe().Where(x => x.MainWindowTitle == Strings.Menu_Title).FirstOrDefault();
 
                 if (process is not null)
@@ -155,7 +158,6 @@ namespace Bloxstrap
         public static void LaunchRoblox()
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
-
 
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
@@ -191,8 +193,6 @@ namespace Bloxstrap
                 }
             }
 
-            App.NotifyIcon = new();
-
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
             var bootstrapper = new Bootstrapper(installWebView2);
@@ -206,45 +206,53 @@ namespace Bloxstrap
                 dialog.Bootstrapper = bootstrapper;
             }
 
-            Task bootstrapperTask = Task.Run(async () => await bootstrapper.Run()).ContinueWith(t =>
+            Task.Run(bootstrapper.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 
-                // notifyicon is blocking main thread, must be disposed here
-                App.NotifyIcon?.Dispose();
-
                 if (t.IsFaulted)
+                {
                     App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
 
-                if (t.Exception is null)
-                    return;
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception, false);
+                }
 
-                App.Logger.WriteException(LOG_IDENT, t.Exception);
-
-                Exception exception = t.Exception;
-
-#if !DEBUG
-                if (t.Exception.GetType().ToString() == "System.AggregateException")
-                    exception = t.Exception.InnerException!;
-#endif
-
-                App.FinalizeExceptionHandling(exception, false);
+                App.Terminate();
             });
 
-            // this ordering is very important as all wpf windows are shown as modal dialogs, mess it up and you'll end up blocking input to one of them
             dialog?.ShowBootstrapper();
-
-            if (!App.LaunchSettings.NoLaunchFlag.Active && App.Settings.Prop.EnableActivityTracking)
-                App.NotifyIcon?.InitializeContextMenu();
-
-            App.Logger.WriteLine(LOG_IDENT, "Waiting for bootstrapper task to finish");
-
-            bootstrapperTask.Wait();
         }
 
         public static void LaunchWatcher()
         {
+            const string LOG_IDENT = "LaunchHandler::LaunchWatcher";
 
+            // this whole topology is a bit confusing, bear with me:
+            // main thread: strictly UI only, handles showing of the notification area icon, context menu, server details dialog
+            // - server information task: queries server location, invoked if either the explorer notification is shown or the server details dialog is opened
+            // - discord rpc thread: handles rpc connection with discord
+            //    - discord rich presence tasks: handles querying and displaying of game information, invoked on activity watcher events
+            // - watcher task: runs activity watcher + waiting for roblox to close, terminates when it has
+
+            var watcher = new Watcher();
+
+            Task.Run(watcher.Run).ContinueWith(t => 
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Watcher task has finished");
+
+                watcher.Dispose();
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the watcher");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
         }
     }
 }

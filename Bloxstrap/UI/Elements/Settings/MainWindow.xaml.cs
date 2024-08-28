@@ -17,7 +17,9 @@ namespace Bloxstrap.UI.Elements.Settings
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();
+
             viewModel.RequestSaveNoticeEvent += (_, _) => SettingsSavedSnackbar.Show();
+            viewModel.RequestCloseWindowEvent += (_, _) => Close();
 
             DataContext = viewModel;
             
@@ -64,6 +66,9 @@ namespace Bloxstrap.UI.Elements.Settings
                 if (result != MessageBoxResult.Yes)
                     e.Cancel = true;
             }
+
+            if (!e.Cancel)
+                App.Terminate();
         }
     }
 }

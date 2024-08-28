@@ -94,7 +94,7 @@
                 <ui:Button Content="{x:Static resources:Strings.Menu_Save}" Appearance="Primary" Command="{Binding SaveSettingsCommand, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
-                <ui:Button Content="{x:Static resources:Strings.Common_Close}" IsCancel="True" />
+                <ui:Button Content="{x:Static resources:Strings.Common_Close}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
     </Grid>
