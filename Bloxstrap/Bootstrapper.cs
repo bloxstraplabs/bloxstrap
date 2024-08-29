@@ -212,7 +212,9 @@ namespace Bloxstrap
             await mutex.ReleaseAsync();
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelFired)
-                await StartRoblox();
+                StartRoblox();
+
+            Dialog?.CloseBootstrapper();
         }
 
         private async Task CheckLatestVersion()
@@ -273,7 +275,7 @@ namespace Bloxstrap
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
         }
 
-        private async Task StartRoblox()
+        private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
@@ -287,6 +289,12 @@ namespace Bloxstrap
                     _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
             }
 
+            // needed for the start event to fire
+            if (!String.IsNullOrEmpty(_launchCommandLine))
+                _launchCommandLine += " ";
+
+            _launchCommandLine += "-isInstallerLaunch";
+
             var startInfo = new ProcessStartInfo()
             {
                 FileName = _playerLocation,
@@ -297,9 +305,10 @@ namespace Bloxstrap
             if (_launchMode == LaunchMode.StudioAuth)
             {
                 Process.Start(startInfo);
-                Dialog?.CloseBootstrapper();
                 return;
             }
+
+            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, "www.roblox.com/robloxStartedEvent");
 
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
@@ -308,19 +317,15 @@ namespace Bloxstrap
                 gameClientPid = gameClient.Id;
             }
 
-            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
+            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
 
-            using (var startEvent = new SystemEvent(AppData.StartEvent))
+            if (!startEvent.WaitOne(TimeSpan.FromSeconds(10)))
             {
-                // TODO: get rid of this
-                bool startEventFired = await startEvent.WaitForEvent();
-
-                startEvent.Close();
-
-                // TODO: this cannot silently exit like this
-                if (!startEventFired)
-                    return;
+                Frontend.ShowPlayerErrorDialog();
+                return;
             }
+
+            App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
 
             var autoclosePids = new List<int>();
 
@@ -352,20 +357,17 @@ namespace Bloxstrap
                     autoclosePids.Add(pid);
             }
 
-            using (var proclock = new InterProcessLock("Watcher"))
+            
+            string args = gameClientPid.ToString();
+
+            if (autoclosePids.Any())
+                args += $";{String.Join(',', autoclosePids)}";
+
+            using (var ipl = new InterProcessLock("Watcher"))
             {
-                string args = gameClientPid.ToString();
-
-                if (autoclosePids.Any())
-                    args += $";{String.Join(',', autoclosePids)}";
-
-                if (proclock.IsAcquired)
+                if (ipl.IsAcquired)
                     Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
-
-            // event fired, wait for 3 seconds then close
-            await Task.Delay(3000);
-            Dialog?.CloseBootstrapper();
         }
 
         public void CancelInstall()

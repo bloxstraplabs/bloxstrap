@@ -887,6 +887,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox has crashed..
+        /// </summary>
+        public static string Dialog_PlayerError_Crash {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.Crash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox failed to launch..
+        /// </summary>
+        public static string Dialog_PlayerError_FailedLaunch {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.FailedLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please read the following help information, which will open in your web browser when you close this dialog..
+        /// </summary>
+        public static string Dialog_PlayerError_HelpInformation {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.HelpInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Early 2015.
         /// </summary>
         public static string Enums_BootstrapperIcon_IconEarly2015 {

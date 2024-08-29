@@ -1144,4 +1144,13 @@ If not, then please report this exception to the maintainers of this fork. Do NO
 Issues may occur and your settings may be altered. A reinstall is recommended.
 Are you sure you want to continue?</value>
   </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox failed to launch.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox has crashed.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Please read the following help information, which will open in your web browser when you close this dialog.</value>
+  </data>
 </root>
