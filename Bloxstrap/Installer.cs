@@ -340,6 +340,18 @@ namespace Bloxstrap
             if (MD5Hash.FromFile(Paths.Process) == MD5Hash.FromFile(Paths.Application))
                 return;
 
+            if (currentVer is not null && existingVer is not null && Utilities.CompareVersions(currentVer, existingVer) == VersionComparison.LessThan)
+            {
+                var result = Frontend.ShowMessageBox(
+                    Strings.InstallChecker_VersionLessThanInstalled,
+                    MessageBoxImage.Question,
+                    MessageBoxButton.YesNo
+                );
+
+                if (result != MessageBoxResult.Yes)
+                    return;
+            }
+
             // silently upgrade version if the command line flag is set or if we're launching from an auto update
             if (!App.LaunchSettings.UpgradeFlag.Active && !isAutoUpgrade)
             {
@@ -465,6 +477,9 @@ namespace Bloxstrap
                 App.Settings.Save();
                 App.FastFlags.Save();
             }
+
+            if (currentVer is null)
+                return;
 
             if (isAutoUpgrade)
             {

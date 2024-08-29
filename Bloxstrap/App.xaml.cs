@@ -6,6 +6,9 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 
 using Bloxstrap.Models.SettingTasks.Base;
+using Bloxstrap.UI.Elements.About.Pages;
+using Bloxstrap.UI.Elements.About;
+using System;
 
 namespace Bloxstrap
 {
@@ -29,9 +32,11 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
-        public static readonly MD5 MD5Provider = MD5.Create();
+        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
-        public static NotifyIconWrapper? NotifyIcon { get; set; }
+        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+
+        public static readonly MD5 MD5Provider = MD5.Create();
 
         public static readonly Logger Logger = new();
 
@@ -49,19 +54,23 @@ namespace Bloxstrap
             )
         );
 
-#if RELEASE
         private static bool _showingExceptionDialog = false;
-#endif
+        
+        private static bool _terminating = false;
 
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
+            if (_terminating)
+                return;
+
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
-            NotifyIcon?.Dispose();
+            Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
+            // Environment.Exit(exitCodeNum);
 
-            Environment.Exit(exitCodeNum);
+            _terminating = true;
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -73,24 +82,28 @@ namespace Bloxstrap
             FinalizeExceptionHandling(e.Exception);
         }
 
-        public static void FinalizeExceptionHandling(Exception exception, bool log = true)
+        public static void FinalizeExceptionHandling(AggregateException ex)
+        {
+            foreach (var innerEx in ex.InnerExceptions)
+                Logger.WriteException("App::FinalizeExceptionHandling", innerEx);
+
+            FinalizeExceptionHandling(ex.GetBaseException(), false);
+        }
+
+        public static void FinalizeExceptionHandling(Exception ex, bool log = true)
         {
             if (log)
-                Logger.WriteException("App::FinalizeExceptionHandling", exception);
+                Logger.WriteException("App::FinalizeExceptionHandling", ex);
 
-#if DEBUG
-            throw exception;
-#else
             if (_showingExceptionDialog)
                 return;
 
             _showingExceptionDialog = true;
 
             if (!LaunchSettings.QuietFlag.Active)
-                Frontend.ShowExceptionDialog(exception);
+                Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
-#endif
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -103,10 +116,10 @@ namespace Bloxstrap
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
-            if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
-                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
-            else
+            if (IsActionBuild)
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
+            else
+                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
 
             Logger.WriteLine(LOG_IDENT, $"Loaded from {Paths.Process}");
 
@@ -202,10 +215,6 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
-                // we can only parse them now as settings need
-                // to be loaded first to know what our channel is
-                // LaunchSettings.ParseRoblox();
-
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
                     Settings.Prop.Locale = "nil";
@@ -214,13 +223,15 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
+#if !DEBUG
                 if (!LaunchSettings.UninstallFlag.Active)
                     Installer.HandleUpgrade();
+#endif
 
                 LaunchHandler.ProcessLaunchArgs();
             }
 
-            Terminate();
+            // you must *explicitly* call terminate when everything is done, it won't be called implicitly
         }
     }
 }

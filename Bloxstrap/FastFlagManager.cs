@@ -6,6 +6,8 @@ namespace Bloxstrap
     {
         public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
 
+        public bool Changed => !OriginalProp.SequenceEqual(Prop);
+
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
             { "Network.Log", "FLogNetwork" },
@@ -28,9 +30,6 @@ namespace Bloxstrap
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
-            { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
-            { "Rendering.Mode.Vulkan.Fix", "FFlagRenderVulkanFixMinimizeWindow" },
-            { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
 
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
@@ -63,10 +62,8 @@ namespace Bloxstrap
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
         {
             { RenderingMode.Default, "None" },
-            // { RenderingMode.Vulkan, "Vulkan" },
             { RenderingMode.D3D11, "D3D11" },
             { RenderingMode.D3D10, "D3D10" },
-            // { RenderingMode.OpenGL, "OpenGL" }
         };
 
         public static IReadOnlyDictionary<LightingMode, string> LightingModes => new Dictionary<LightingMode, string>
@@ -228,14 +225,6 @@ namespace Bloxstrap
             return mapping.First().Key;
         }
 
-        public void CheckManualFullscreenPreset()
-        {
-            if (GetPreset("Rendering.Mode.Vulkan") == "True" || GetPreset("Rendering.Mode.OpenGL") == "True")
-                SetPreset("Rendering.ManualFullscreen", null);
-            else
-                SetPreset("Rendering.ManualFullscreen", "False");
-        }
-
         public override void Save()
         {
             // convert all flag values to strings before saving
@@ -244,13 +233,17 @@ namespace Bloxstrap
                 Prop[pair.Key] = pair.Value.ToString()!;
 
             base.Save();
+
+            // clone the dictionary
+            OriginalProp = new(Prop);
         }
 
         public override void Load()
         {
             base.Load();
 
-            CheckManualFullscreenPreset();
+            // clone the dictionary
+            OriginalProp = new(Prop);
 
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")

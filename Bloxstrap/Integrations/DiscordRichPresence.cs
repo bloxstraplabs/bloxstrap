@@ -198,6 +198,8 @@ namespace Bloxstrap.Integrations
             
             App.Logger.WriteLine(LOG_IDENT, $"Setting presence for Place ID {placeId}");
 
+            // TODO: move this to its own function under the activity watcher?
+            // TODO: show error if information cannot be queried instead of silently failing
             var universeIdResponse = await Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{placeId}/universe");
             if (universeIdResponse is null)
             {
@@ -312,6 +314,7 @@ namespace Bloxstrap.Integrations
             // this is used for configuration from BloxstrapRPC
             _currentPresenceCopy = _currentPresence.Clone();
 
+            // TODO: use queue for stashing messages
             if (_stashedRPCMessage is not null)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Found stashed RPC message, invoking presence set command now");

@@ -12,7 +12,7 @@
         Title="Bloxstrap"
         MinWidth="0"
         MinHeight="0"
-        Width="320"
+        Width="580"
         SizeToContent="Height"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
@@ -24,31 +24,61 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
-        <StackPanel Grid.Row="1" Margin="12">
-            <TextBlock FontSize="24" Text="{x:Static resources:Strings.LaunchMenu_Title}" HorizontalAlignment="Center" Margin="0,0,0,16" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <ui:CardAction Icon="ArrowRight12" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}" />
+            <Grid Grid.Column="0" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,32">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Width="64" Height="64" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="Bloxstrap" FontSize="24" />
+                        <TextBlock Text="{Binding Version, Mode=OneTime}" VerticalAlignment="Bottom" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+                    <ui:Hyperlink Icon="QuestionCircle48" Content="About Bloxstrap" Margin="0,0,0,8" Command="{Binding LaunchAboutCommand, Mode=OneTime}" />
+                    <ui:Hyperlink Icon="WindowNew16" Content="Support us on Ko-fi!" NavigateUri="https://ko-fi.com/boxerpizza" />
                 </StackPanel>
-            </ui:CardAction>
+            </Grid>
 
-            <ui:CardAction Margin="0,8,0,0" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_ConfigureSettings}" />
-                </StackPanel>
-            </ui:CardAction>
+            <StackPanel Grid.Column="1" Margin="16">
+                <ui:CardAction Icon="ArrowRight12" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}" />
+                    </StackPanel>
+                </ui:CardAction>
 
-            <ui:CardAction Margin="0,8,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/">
-                <StackPanel>
-                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
-                    <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                </StackPanel>
-            </ui:CardAction>
+                <ui:CardAction Margin="0,8,0,0" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_ConfigureSettings}" />
+                    </StackPanel>
+                </ui:CardAction>
 
-            <TextBlock Margin="0,16,0,0" FontSize="12" Text="{Binding Version, Mode=OneTime}"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-        </StackPanel>
+                <Border Margin="16" />
+
+                <ui:CardAction Margin="0,8,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/">
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </ui:CardAction>
+            </StackPanel>
+        </Grid>
     </Grid>
 </base:WpfUiWindow>

@@ -22,31 +22,27 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     {
         // i wouldve gladly done this as mvvm but turns out that data binding just does not work with menuitems for some reason so idk this sucks
 
-        private readonly ActivityWatcher? _activityWatcher;
-        private readonly DiscordRichPresence? _richPresenceHandler;
+        private readonly Watcher _watcher;
+
+        private ActivityWatcher? _activityWatcher => _watcher.ActivityWatcher;
 
         private ServerInformation? _serverInformationWindow;
-        private int? _processId;
 
-        public MenuContainer(ActivityWatcher? activityWatcher, DiscordRichPresence? richPresenceHandler, int? processId)
+        public MenuContainer(Watcher watcher)
         {
             InitializeComponent();
 
-            _activityWatcher = activityWatcher;
-            _richPresenceHandler = richPresenceHandler;
-            _processId = processId;
+            _watcher = watcher;
 
             if (_activityWatcher is not null)
             {
+                _activityWatcher.OnLogOpen += ActivityWatcher_OnLogOpen;
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
                 _activityWatcher.OnGameLeave += ActivityWatcher_OnGameLeave;
             }
 
-            if (_richPresenceHandler is not null)
+            if (_watcher.RichPresence is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
-
-            if (_processId is not null)
-                CloseRobloxMenuItem.Visibility = Visibility.Visible;
 
             VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }
@@ -55,7 +51,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             if (_serverInformationWindow is null)
             {
-                _serverInformationWindow = new ServerInformation(_activityWatcher!);
+                _serverInformationWindow = new ServerInformation(_watcher);
                 _serverInformationWindow.Closed += (_, _) => _serverInformationWindow = null;
             }
 
@@ -65,17 +61,23 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             _serverInformationWindow.Activate();
         }
 
-        private void ActivityWatcher_OnGameJoin(object? sender, EventArgs e)
+        public void ActivityWatcher_OnLogOpen(object? sender, EventArgs e) => 
+            Dispatcher.Invoke(() => LogTracerMenuItem.Visibility = Visibility.Visible);
+
+        public void ActivityWatcher_OnGameJoin(object? sender, EventArgs e)
         {
+            if (_activityWatcher is null)
+                return;
+
             Dispatcher.Invoke(() => {
-                if (_activityWatcher?.ActivityServerType == ServerType.Public)
+                if (_activityWatcher.ActivityServerType == ServerType.Public)
                     InviteDeeplinkMenuItem.Visibility = Visibility.Visible;
 
                 ServerDetailsMenuItem.Visibility = Visibility.Visible;
             });
         }
 
-        private void ActivityWatcher_OnGameLeave(object? sender, EventArgs e)
+        public void ActivityWatcher_OnGameLeave(object? sender, EventArgs e)
         {
             Dispatcher.Invoke(() => {
                 InviteDeeplinkMenuItem.Visibility = Visibility.Collapsed;
@@ -100,7 +102,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
 
-        private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _richPresenceHandler?.SetVisibility(((MenuItem)sender).IsChecked);
+        private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.RichPresence?.SetVisibility(((MenuItem)sender).IsChecked);
 
         private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject($"roblox://experiences/start?placeId={_activityWatcher?.ActivityPlaceId}&gameInstanceId={_activityWatcher?.ActivityJobId}");
 
@@ -110,13 +112,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             string? location = _activityWatcher?.LogLocation;
 
-            if (location is null)
-            {
-                Frontend.ShowMessageBox(Strings.ContextMenu_RobloxNotRunning, MessageBoxImage.Information);
-                return;
-            }
-
-            Utilities.ShellExecute(location);
+            if (location is not null)
+                Utilities.ShellExecute(location);
         }
 
         private void CloseRobloxMenuItem_Click(object sender, RoutedEventArgs e)
@@ -130,9 +127,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             if (result != MessageBoxResult.Yes)
                 return;
 
-            using Process process = Process.GetProcessById((int)_processId!);
-            process.Kill();
-            process.Close();
+            _watcher.KillRobloxProcess();
         }
     }
 }

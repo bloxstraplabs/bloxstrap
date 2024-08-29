@@ -23,12 +23,16 @@
 
             set
             {
-                App.PendingSettingTasks[Name] = this;
                 _newState = value;
+
+                if (Changed)
+                    App.PendingSettingTasks[Name] = this;
+                else
+                    App.PendingSettingTasks.Remove(Name);
             }
         }
 
-        public override bool Changed => !NewState.Equals(OriginalState);
+        public override bool Changed => !_newState.Equals(OriginalState);
 
         public IEnumerable<T> Selections { get; private set; } 
             = Enum.GetValues(typeof(T)).Cast<T>().OrderBy(x =>

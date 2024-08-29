@@ -1,12 +1,10 @@
 ﻿using System.Media;
+using System.Web;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Interop;
 
 using Windows.Win32;
 using Windows.Win32.Foundation;
-
-using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
@@ -26,19 +24,29 @@ namespace Bloxstrap.UI.Elements.Dialogs
             if (!App.Logger.Initialized)
                 LocateLogFileButton.Content = Strings.Dialog_Exception_CopyLogContents;
 
-            string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, "https://github.com/pizzaboxer/bloxstrap/wiki", "https://github.com/pizzaboxer/bloxstrap/issues/new?template=bug_report.yaml");
+            string repoUrl = $"https://github.com/{App.ProjectRepository}";
+            string wikiUrl = $"{repoUrl}/wiki";
 
-            if (String.IsNullOrEmpty(App.BuildMetadata.CommitHash))
-                helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, "https://github.com/pizzaboxer/bloxstrap/wiki");
+            string issueUrl = String.Format(
+                "{0}/issues/new?template=bug_report.yaml&title={1}&log={2}",
+                repoUrl,
+                HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}"),
+                HttpUtility.UrlEncode(String.Join('\n', App.Logger.History))
+            );
+
+            string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
+
+            if (!App.IsActionBuild && !App.BuildMetadata.Machine.Contains("pizzaboxer", StringComparison.Ordinal))
+                helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
 
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
 
             LocateLogFileButton.Click += delegate
             {
-                if (App.Logger.Initialized)
-                    Process.Start("explorer.exe", $"/select,\"{App.Logger.FileLocation}\"");
+                if (App.Logger.Initialized && !String.IsNullOrEmpty(App.Logger.FileLocation))
+                    Utilities.ShellExecute(App.Logger.FileLocation);
                 else
-                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.Backlog));
+                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.History));
             };
 
             CloseButton.Click += delegate

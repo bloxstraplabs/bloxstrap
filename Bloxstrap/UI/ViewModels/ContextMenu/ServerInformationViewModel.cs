@@ -7,20 +7,23 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 {
     internal class ServerInformationViewModel : NotifyPropertyChangedViewModel
     {
-        private readonly Window _window;
         private readonly ActivityWatcher _activityWatcher;
 
         public string InstanceId => _activityWatcher.ActivityJobId;
-        public string ServerType => Resources.Strings.ResourceManager.GetStringSafe($"Enums.ServerType.{_activityWatcher.ActivityServerType}");
-        public string ServerLocation { get; private set; } = Resources.Strings.ContextMenu_ServerInformation_Loading;
+
+        public string ServerType => Strings.ResourceManager.GetStringSafe($"Enums.ServerType.{_activityWatcher.ActivityServerType}");
+
+        public string ServerLocation { get; private set; } = Strings.ContextMenu_ServerInformation_Loading;
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
-        public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
 
-        public ServerInformationViewModel(Window window, ActivityWatcher activityWatcher)
+        public ICommand CloseWindowCommand => new RelayCommand(RequestClose);
+
+        public EventHandler? RequestCloseEvent;
+
+        public ServerInformationViewModel(Watcher watcher)
         {
-            _window = window;
-            _activityWatcher = activityWatcher;
+            _activityWatcher = watcher.ActivityWatcher!;
 
             Task.Run(async () =>
             {
@@ -30,5 +33,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         }
 
         private void CopyInstanceId() => Clipboard.SetDataObject(InstanceId);
+
+        private void RequestClose() => RequestCloseEvent?.Invoke(this, EventArgs.Empty);
     }
 }

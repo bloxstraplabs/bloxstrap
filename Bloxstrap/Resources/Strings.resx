@@ -226,8 +226,8 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Import JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Locate log file</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
@@ -267,9 +267,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
-  </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Open log file</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
     <value>See server details</value>
@@ -1135,5 +1132,22 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Please wait for uninstallation to finish.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Translators</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>You have unsaved changes. Are you sure you want to close without saving?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>The version of Bloxstrap you've launched is older than the version you currently have installed.
+Issues may occur and your settings may be altered. A reinstall is recommended.
+Are you sure you want to continue?</value>
   </data>
 </root>

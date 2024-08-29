@@ -21,7 +21,6 @@
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern = @"\[BloxstrapRPC\] (.*)";
 
-        private int _gameClientPid;
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
         private bool _reservedTeleportMarker = false;
@@ -29,6 +28,7 @@
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
+        public event EventHandler? OnLogOpen;
         public event EventHandler? OnAppClose;
         public event EventHandler<Message>? OnRPCMessage;
 
@@ -50,14 +50,9 @@
 
         public bool IsDisposed = false;
 
-        public ActivityWatcher(int gameClientPid)
+        public async void Start()
         {
-            _gameClientPid = gameClientPid;
-        }
-
-        public async void StartWatcher()
-        {
-            const string LOG_IDENT = "ActivityWatcher::StartWatcher";
+            const string LOG_IDENT = "ActivityWatcher::Start";
 
             // okay, here's the process:
             //
@@ -87,23 +82,26 @@
             {
                 logFileInfo = new DirectoryInfo(logDirectory)
                     .GetFiles()
-                    .Where(x => x.CreationTime <= DateTime.Now)
+                    .Where(x => x.Name.Contains("Player", StringComparison.OrdinalIgnoreCase) && x.CreationTime <= DateTime.Now)
                     .OrderByDescending(x => x.CreationTime)
                     .First();
 
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
 
+                // TODO: report failure after 10 seconds of no log file
                 App.Logger.WriteLine(LOG_IDENT, $"Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
                 await Task.Delay(1000);
             }
+
+            OnLogOpen?.Invoke(this, EventArgs.Empty);
 
             LogLocation = logFileInfo.FullName;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             App.Logger.WriteLine(LOG_IDENT, $"Opened {LogLocation}");
 
-            AutoResetEvent logUpdatedEvent = new(false);
-            FileSystemWatcher logWatcher = new()
+            var logUpdatedEvent = new AutoResetEvent(false);
+            var logWatcher = new FileSystemWatcher()
             {
                 Path = logDirectory,
                 Filter = Path.GetFileName(logFileInfo.FullName),
@@ -111,7 +109,7 @@
             };
             logWatcher.Changed += (s, e) => logUpdatedEvent.Set();
 
-            using StreamReader sr = new(logFileStream);
+            using var sr = new StreamReader(logFileStream);
 
             while (!IsDisposed)
             {
@@ -120,13 +118,13 @@
                 if (log is null)
                     logUpdatedEvent.WaitOne(250);
                 else
-                    ExamineLogEntry(log);
+                    ReadLogEntry(log);
             }
         }
 
-        private void ExamineLogEntry(string entry)
+        private void ReadLogEntry(string entry)
         {
-            const string LOG_IDENT = "ActivityWatcher::ExamineLogEntry";
+            const string LOG_IDENT = "ActivityWatcher::ReadLogEntry";
 
             OnLogEntry?.Invoke(this, entry);
 
@@ -319,7 +317,7 @@
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
                 if (ipInfo is null)
-                    return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                    return $"? ({Strings.ActivityTracker_LookupFailed})";
 
                 if (string.IsNullOrEmpty(ipInfo.Country))
                     location = "?";
@@ -329,7 +327,7 @@
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
                 if (!ActivityInGame)
-                    return $"? ({Resources.Strings.ActivityTracker_LeftGame})";
+                    return $"? ({Strings.ActivityTracker_LeftGame})";
 
                 GeolocationCache[ActivityMachineAddress] = location;
 
@@ -340,7 +338,7 @@
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {ActivityMachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                return $"? ({Strings.ActivityTracker_LookupFailed})";
             }
         }
 
