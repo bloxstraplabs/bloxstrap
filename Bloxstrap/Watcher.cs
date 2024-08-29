@@ -1,6 +1,4 @@
 ﻿using Bloxstrap.Integrations;
-using System.CodeDom;
-using System.Security.Permissions;
 
 namespace Bloxstrap
 {
@@ -54,7 +52,7 @@ namespace Bloxstrap
 
                 if (split.Length >= 2)
                 {
-                    foreach (string strPid in split[0].Split(';'))
+                    foreach (string strPid in split[1].Split(','))
                     {
                         if (int.TryParse(strPid, out int pid) && pid != 0)
                             _autoclosePids.Add(pid);
@@ -86,38 +84,33 @@ namespace Bloxstrap
             _notifyIcon = new(this);
         }
 
-        public void KillRobloxProcess() => KillProcess(_gameClientPid);
+        public void KillRobloxProcess() => CloseProcess(_gameClientPid, true);
 
-        public void KillProcess(int pid)
+        public void CloseProcess(int pid, bool force = false)
         {
-            using var process = Process.GetProcessById(pid);
-            
-            App.Logger.WriteLine("Watcher::KillProcess", $"Killing process '{process.ProcessName}' (PID {process.Id})");
-
-            if (process.HasExited)
+            const string LOG_IDENT = "Watcher::CloseProcess";
+            try
             {
-                App.Logger.WriteLine("Watcher::KillProcess", $"PID {process.Id} has already exited");
-                return;
+                using var process = Process.GetProcessById(pid);
+
+                App.Logger.WriteLine(LOG_IDENT, $"Killing process '{process.ProcessName}' (pid={pid}, force={force})");
+
+                if (process.HasExited)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"PID {pid} has already exited");
+                    return;
+                }
+
+                if (force)
+                    process.Kill();
+                else
+                    process.CloseMainWindow();
             }
-
-            process.Kill();
-            process.Close();
-        }
-
-        public void CloseProcess(int pid)
-        {
-            using var process = Process.GetProcessById(pid);
-
-            App.Logger.WriteLine("Watcher::CloseProcess", $"Closing process '{process.ProcessName}' (PID {process.Id})");
-
-            if (process.HasExited)
+            catch (Exception ex)
             {
-                App.Logger.WriteLine("Watcher::CloseProcess", $"PID {process.Id} has already exited");
-                return;
+                App.Logger.WriteLine(LOG_IDENT, $"PID {pid} could not be closed");
+                App.Logger.WriteException(LOG_IDENT, ex);
             }
-
-            process.CloseMainWindow();
-            process.Close();
         }
 
         public async Task Run()

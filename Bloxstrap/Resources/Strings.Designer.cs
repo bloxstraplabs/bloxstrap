@@ -2529,15 +2529,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to e.g. C:\Windows\System32\cmd.exe.
-        /// </summary>
-        public static string Menu_Integrations_Custom_AppLocation_Placeholder {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.Custom.AppLocation.Placeholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Auto close when Roblox closes.
         /// </summary>
         public static string Menu_Integrations_Custom_AutoClose {
@@ -2565,7 +2556,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to e.g. /k echo Roblox is running!.
+        ///   Looks up a localized string similar to Roblox is running!.
         /// </summary>
         public static string Menu_Integrations_Custom_LaunchArgs_Placeholder {
             get {
