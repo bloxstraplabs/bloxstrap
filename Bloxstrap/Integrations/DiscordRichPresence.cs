@@ -9,7 +9,7 @@ namespace Bloxstrap.Integrations
         
         private DiscordRPC.RichPresence? _currentPresence;
         private DiscordRPC.RichPresence? _currentPresenceCopy;
-        private Message? _stashedRPCMessage;
+        private Queue<Message> _messageQueue = new();
 
         private bool _visible = true;
         private long _currentUniverseId;
@@ -17,7 +17,7 @@ namespace Bloxstrap.Integrations
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
-            const string LOG_IDENT = "DiscordRichPresence::DiscordRichPresence";
+            const string LOG_IDENT = "DiscordRichPresence";
 
             _activityWatcher = activityWatcher;
 
@@ -47,7 +47,7 @@ namespace Bloxstrap.Integrations
             _rpcClient.Initialize();
         }
 
-        public void ProcessRPCMessage(Message message)
+        public void ProcessRPCMessage(Message message, bool implicitUpdate = true)
         {
             const string LOG_IDENT = "DiscordRichPresence::ProcessRPCMessage";
 
@@ -56,14 +56,8 @@ namespace Bloxstrap.Integrations
 
             if (_currentPresence is null || _currentPresenceCopy is null)
             {
-                if (_activityWatcher.ActivityInGame)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Presence is not yet set, but is currently in game, stashing presence set request");
-                    _stashedRPCMessage = message;
-                    return;
-                }
-
-                App.Logger.WriteLine(LOG_IDENT, "Presence is not set, aborting");
+                App.Logger.WriteLine(LOG_IDENT, "Presence is not set, enqueuing message");
+                _messageQueue.Enqueue(message);
                 return;
             }
 
@@ -159,7 +153,8 @@ namespace Bloxstrap.Integrations
                 }
             }
 
-            UpdatePresence();
+            if (implicitUpdate)
+                UpdatePresence();
         }
 
         public void SetVisibility(bool visible)
@@ -183,7 +178,7 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
 
                 _currentPresence = _currentPresenceCopy =  null;
-                _stashedRPCMessage = null;
+                _messageQueue.Clear();
 
                 UpdatePresence();
                 return true;
@@ -284,17 +279,13 @@ namespace Bloxstrap.Integrations
             // this is used for configuration from BloxstrapRPC
             _currentPresenceCopy = _currentPresence.Clone();
 
-            // TODO: use queue for stashing messages
-            if (_stashedRPCMessage is not null)
+            if (_messageQueue.Any())
             {
-                App.Logger.WriteLine(LOG_IDENT, "Found stashed RPC message, invoking presence set command now");
-                ProcessRPCMessage(_stashedRPCMessage);
-                _stashedRPCMessage = null;
+                App.Logger.WriteLine(LOG_IDENT, "Processing queued messages");
+                ProcessRPCMessage(_messageQueue.Dequeue(), false);
             }
-            else
-            {
-                UpdatePresence();
-            }
+            
+            UpdatePresence();
 
             return true;
         }

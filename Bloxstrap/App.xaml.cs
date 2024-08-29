@@ -6,9 +6,6 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 
 using Bloxstrap.Models.SettingTasks.Base;
-using Bloxstrap.UI.Elements.About.Pages;
-using Bloxstrap.UI.Elements.About;
-using System;
 
 namespace Bloxstrap
 {
