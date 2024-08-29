@@ -226,8 +226,8 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Import JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Locate log file</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
@@ -267,9 +267,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
-  </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Open log file</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
     <value>See server details</value>

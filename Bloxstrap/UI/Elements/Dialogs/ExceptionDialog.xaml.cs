@@ -28,10 +28,10 @@ namespace Bloxstrap.UI.Elements.Dialogs
             string wikiUrl = $"{repoUrl}/wiki";
 
             string issueUrl = String.Format(
-                "{0}/issues/new?template=bug_report.yaml&title={1}&what-happened={2}",
+                "{0}/issues/new?template=bug_report.yaml&title={1}&log={2}",
                 repoUrl,
                 HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}"),
-                HttpUtility.UrlEncode($"Log:\n```\n{String.Join('\n', App.Logger.History)}\n```")
+                HttpUtility.UrlEncode(String.Join('\n', App.Logger.History))
             );
 
             string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
@@ -43,8 +43,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             LocateLogFileButton.Click += delegate
             {
-                if (App.Logger.Initialized)
-                    Process.Start("explorer.exe", $"/select,\"{App.Logger.FileLocation}\"");
+                if (App.Logger.Initialized && !String.IsNullOrEmpty(App.Logger.FileLocation))
+                    Utilities.ShellExecute(App.Logger.FileLocation);
                 else
                     Clipboard.SetDataObject(String.Join("\r\n", App.Logger.History));
             };

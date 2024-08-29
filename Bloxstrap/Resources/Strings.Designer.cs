@@ -450,15 +450,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate log file.
-        /// </summary>
-        public static string Common_LocateLogFile {
-            get {
-                return ResourceManager.GetString("Common.LocateLogFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Miscellaneous.
         /// </summary>
         public static string Common_Miscellaneous {
@@ -518,6 +509,15 @@ namespace Bloxstrap.Resources {
         public static string Common_OK {
             get {
                 return ResourceManager.GetString("Common.OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open log file.
+        /// </summary>
+        public static string Common_OpenLogFile {
+            get {
+                return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
             }
         }
         
@@ -626,15 +626,6 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_CopyDeeplinkInvite {
             get {
                 return ResourceManager.GetString("ContextMenu.CopyDeeplinkInvite", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Open log file.
-        /// </summary>
-        public static string ContextMenu_OpenLogFile {
-            get {
-                return ResourceManager.GetString("ContextMenu.OpenLogFile", resourceCulture);
             }
         }
         

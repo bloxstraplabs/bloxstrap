@@ -32,3 +32,10 @@ body:
       description: Provide a comprehensive description of the problem you're facing. Don't forget to attach any additional resources you may have, such as log files and screenshots.
     validations:
       required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Bloxstrap Log
+      description: If you're getting a Bloxstrap Exception error, upload your log file here. Otherwise, just leave it empty.
+      value: "N/A"
+      render: text
