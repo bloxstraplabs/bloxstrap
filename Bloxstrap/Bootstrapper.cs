@@ -328,18 +328,25 @@ namespace Bloxstrap
                 return;
             }
 
-            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent);
-
-            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
-            using (var gameClient = Process.Start(startInfo)!)
+            bool startEventSignalled;
+
+            using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
             {
-                gameClientPid = gameClient.Id;
+                startEvent.Reset();
+
+                // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
+                using (var process = Process.Start(startInfo)!)
+                {
+                    gameClientPid = process.Id;
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
+
+                startEventSignalled = startEvent.WaitOne(TimeSpan.FromSeconds(10));
             }
 
-            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
-
-            if (!startEvent.WaitOne(TimeSpan.FromSeconds(10)))
+            if (!startEventSignalled)
             {
                 Frontend.ShowPlayerErrorDialog();
                 return;
