@@ -9,7 +9,7 @@ namespace Bloxstrap.Integrations
         
         private DiscordRPC.RichPresence? _currentPresence;
         private DiscordRPC.RichPresence? _currentPresenceCopy;
-        private Message? _stashedRPCMessage;
+        private Queue<Message> _messageQueue = new();
 
         private bool _visible = true;
         private long _currentUniverseId;
@@ -17,7 +17,7 @@ namespace Bloxstrap.Integrations
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
-            const string LOG_IDENT = "DiscordRichPresence::DiscordRichPresence";
+            const string LOG_IDENT = "DiscordRichPresence";
 
             _activityWatcher = activityWatcher;
 
@@ -47,119 +47,126 @@ namespace Bloxstrap.Integrations
             _rpcClient.Initialize();
         }
 
-        public void ProcessRPCMessage(Message message)
+        public void ProcessRPCMessage(Message message, bool implicitUpdate = true)
         {
             const string LOG_IDENT = "DiscordRichPresence::ProcessRPCMessage";
 
-            if (message.Command != "SetRichPresence")
+            if (message.Command != "SetRichPresence" && message.Command != "SetLaunchData")
                 return;
 
             if (_currentPresence is null || _currentPresenceCopy is null)
             {
-                if (_activityWatcher.ActivityInGame)
+                App.Logger.WriteLine(LOG_IDENT, "Presence is not set, enqueuing message");
+                _messageQueue.Enqueue(message);
+                return;
+            }
+
+            // a lot of repeated code here, could this somehow be cleaned up?
+
+            if (message.Command == "SetLaunchData")
+            {
+                var buttonQuery = _currentPresence.Buttons.Where(x => x.Label == "Join server");
+
+                if (!buttonQuery.Any())
+                    return;
+
+                buttonQuery.First().Url = _activityWatcher.GetActivityDeeplink();
+            }
+            else if (message.Command == "SetRichPresence")
+            {
+                Models.BloxstrapRPC.RichPresence? presenceData;
+
+                try
                 {
-                    App.Logger.WriteLine(LOG_IDENT, "Presence is not yet set, but is currently in game, stashing presence set request");
-                    _stashedRPCMessage = message;
+                    presenceData = message.Data.Deserialize<Models.BloxstrapRPC.RichPresence>();
+                }
+                catch (Exception)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
                     return;
                 }
 
-                App.Logger.WriteLine(LOG_IDENT, "Presence is not set, aborting");
-                return;
-            }
-
-            Models.BloxstrapRPC.RichPresence? presenceData;
-            
-            // a lot of repeated code here, could this somehow be cleaned up?
-
-            try
-            {
-                presenceData = message.Data.Deserialize<Models.BloxstrapRPC.RichPresence>();
-            }
-            catch (Exception)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
-                return;
-            }
-
-            if (presenceData is null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
-                return;
-            }
-
-            if (presenceData.Details is not null)
-            {
-                if (presenceData.Details.Length > 128)
-                    App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
-                else if (presenceData.Details == "<reset>")
-                    _currentPresence.Details = _currentPresenceCopy.Details;
-                else
-                    _currentPresence.Details = presenceData.Details;
-            }
-
-            if (presenceData.State is not null)
-            {
-                if (presenceData.State.Length > 128)
-                    App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
-                else if (presenceData.State == "<reset>")
-                    _currentPresence.State = _currentPresenceCopy.State;
-                else
-                    _currentPresence.State = presenceData.State;
-            }
-
-            if (presenceData.TimestampStart == 0)
-                _currentPresence.Timestamps.Start = null;
-            else if (presenceData.TimestampStart is not null)
-                _currentPresence.Timestamps.StartUnixMilliseconds = presenceData.TimestampStart * 1000;
-
-            if (presenceData.TimestampEnd == 0)
-                _currentPresence.Timestamps.End = null;
-            else if (presenceData.TimestampEnd is not null)
-                _currentPresence.Timestamps.EndUnixMilliseconds = presenceData.TimestampEnd * 1000;
-
-            if (presenceData.SmallImage is not null)
-            {
-                if (presenceData.SmallImage.Clear)
+                if (presenceData is null)
                 {
-                    _currentPresence.Assets.SmallImageKey = "";
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
+                    return;
                 }
-                else if (presenceData.SmallImage.Reset)
-                {
-                    _currentPresence.Assets.SmallImageText = _currentPresenceCopy.Assets.SmallImageText;
-                    _currentPresence.Assets.SmallImageKey = _currentPresenceCopy.Assets.SmallImageKey;
-                }
-                else
-                {
-                    if (presenceData.SmallImage.AssetId is not null)
-                        _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.SmallImage.AssetId}";
 
-                    if (presenceData.SmallImage.HoverText is not null)
-                        _currentPresence.Assets.SmallImageText = presenceData.SmallImage.HoverText;
+                if (presenceData.Details is not null)
+                {
+                    if (presenceData.Details.Length > 128)
+                        App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
+                    else if (presenceData.Details == "<reset>")
+                        _currentPresence.Details = _currentPresenceCopy.Details;
+                    else
+                        _currentPresence.Details = presenceData.Details;
                 }
-            }
 
-            if (presenceData.LargeImage is not null)
-            {
-                if (presenceData.LargeImage.Clear)
+                if (presenceData.State is not null)
                 {
-                    _currentPresence.Assets.LargeImageKey = "";
+                    if (presenceData.State.Length > 128)
+                        App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
+                    else if (presenceData.State == "<reset>")
+                        _currentPresence.State = _currentPresenceCopy.State;
+                    else
+                        _currentPresence.State = presenceData.State;
                 }
-                else if (presenceData.LargeImage.Reset)
-                {
-                    _currentPresence.Assets.LargeImageText = _currentPresenceCopy.Assets.LargeImageText;
-                    _currentPresence.Assets.LargeImageKey = _currentPresenceCopy.Assets.LargeImageKey;
-                }
-                else
-                {
-                    if (presenceData.LargeImage.AssetId is not null)
-                        _currentPresence.Assets.LargeImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.LargeImage.AssetId}";
 
-                    if (presenceData.LargeImage.HoverText is not null)
-                        _currentPresence.Assets.LargeImageText = presenceData.LargeImage.HoverText;
+                if (presenceData.TimestampStart == 0)
+                    _currentPresence.Timestamps.Start = null;
+                else if (presenceData.TimestampStart is not null)
+                    _currentPresence.Timestamps.StartUnixMilliseconds = presenceData.TimestampStart * 1000;
+
+                if (presenceData.TimestampEnd == 0)
+                    _currentPresence.Timestamps.End = null;
+                else if (presenceData.TimestampEnd is not null)
+                    _currentPresence.Timestamps.EndUnixMilliseconds = presenceData.TimestampEnd * 1000;
+
+                if (presenceData.SmallImage is not null)
+                {
+                    if (presenceData.SmallImage.Clear)
+                    {
+                        _currentPresence.Assets.SmallImageKey = "";
+                    }
+                    else if (presenceData.SmallImage.Reset)
+                    {
+                        _currentPresence.Assets.SmallImageText = _currentPresenceCopy.Assets.SmallImageText;
+                        _currentPresence.Assets.SmallImageKey = _currentPresenceCopy.Assets.SmallImageKey;
+                    }
+                    else
+                    {
+                        if (presenceData.SmallImage.AssetId is not null)
+                            _currentPresence.Assets.SmallImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.SmallImage.AssetId}";
+
+                        if (presenceData.SmallImage.HoverText is not null)
+                            _currentPresence.Assets.SmallImageText = presenceData.SmallImage.HoverText;
+                    }
+                }
+
+                if (presenceData.LargeImage is not null)
+                {
+                    if (presenceData.LargeImage.Clear)
+                    {
+                        _currentPresence.Assets.LargeImageKey = "";
+                    }
+                    else if (presenceData.LargeImage.Reset)
+                    {
+                        _currentPresence.Assets.LargeImageText = _currentPresenceCopy.Assets.LargeImageText;
+                        _currentPresence.Assets.LargeImageKey = _currentPresenceCopy.Assets.LargeImageKey;
+                    }
+                    else
+                    {
+                        if (presenceData.LargeImage.AssetId is not null)
+                            _currentPresence.Assets.LargeImageKey = $"https://assetdelivery.roblox.com/v1/asset/?id={presenceData.LargeImage.AssetId}";
+
+                        if (presenceData.LargeImage.HoverText is not null)
+                            _currentPresence.Assets.LargeImageText = presenceData.LargeImage.HoverText;
+                    }
                 }
             }
 
-            UpdatePresence();
+            if (implicitUpdate)
+                UpdatePresence();
         }
 
         public void SetVisibility(bool visible)
@@ -183,7 +190,7 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
 
                 _currentPresence = _currentPresenceCopy =  null;
-                _stashedRPCMessage = null;
+                _messageQueue.Clear();
 
                 UpdatePresence();
                 return true;
@@ -314,17 +321,13 @@ namespace Bloxstrap.Integrations
             // this is used for configuration from BloxstrapRPC
             _currentPresenceCopy = _currentPresence.Clone();
 
-            // TODO: use queue for stashing messages
-            if (_stashedRPCMessage is not null)
+            if (_messageQueue.Any())
             {
-                App.Logger.WriteLine(LOG_IDENT, "Found stashed RPC message, invoking presence set command now");
-                ProcessRPCMessage(_stashedRPCMessage);
-                _stashedRPCMessage = null;
+                App.Logger.WriteLine(LOG_IDENT, "Processing queued messages");
+                ProcessRPCMessage(_messageQueue.Dequeue(), false);
             }
-            else
-            {
-                UpdatePresence();
-            }
+            
+            UpdatePresence();
 
             return true;
         }

@@ -28,6 +28,8 @@ namespace Bloxstrap
         
         public LaunchFlag StudioFlag    { get; } = new("studio");
 
+        public bool BypassUpdateCheck => UninstallFlag.Active || WatcherFlag.Active;
+
         public LaunchMode RobloxLaunchMode { get; set; } = LaunchMode.None;
 
         public string RobloxLaunchArgs { get; private set; } = "";
@@ -37,7 +39,7 @@ namespace Bloxstrap
         /// </summary>
         public string[] Args { get; private set; }
 
-        private Dictionary<string, LaunchFlag> _flagMap = new();
+        private readonly Dictionary<string, LaunchFlag> _flagMap = new();
 
         public LaunchSettings(string[] args)
         {
@@ -68,7 +70,7 @@ namespace Bloxstrap
 
                 string identifier = arg[1..];
 
-                if (_flagMap[identifier] is not LaunchFlag flag)
+                if (!_flagMap.TryGetValue(identifier, out LaunchFlag? flag) || flag is null)
                     continue;
 
                 flag.Active = true;

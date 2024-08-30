@@ -1,9 +1,4 @@
-﻿using System.DirectoryServices;
-using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
-using System.Windows;
-using System.Windows.Media.Animation;
-using Bloxstrap.Resources;
+﻿using System.Windows;
 using Microsoft.Win32;
 
 namespace Bloxstrap
@@ -50,12 +45,13 @@ namespace Bloxstrap
 
                 uninstallKey.SetValue("InstallLocation", Paths.Base);
                 uninstallKey.SetValue("NoRepair", 1);
-                uninstallKey.SetValue("Publisher", "pizzaboxer");
+                uninstallKey.SetValue("Publisher", App.ProjectOwner);
                 uninstallKey.SetValue("ModifyPath", $"\"{Paths.Application}\" -settings");
                 uninstallKey.SetValue("QuietUninstallString", $"\"{Paths.Application}\" -uninstall -quiet");
                 uninstallKey.SetValue("UninstallString", $"\"{Paths.Application}\" -uninstall");
-                uninstallKey.SetValue("URLInfoAbout", $"https://github.com/{App.ProjectRepository}");
-                uninstallKey.SetValue("URLUpdateInfo", $"https://github.com/{App.ProjectRepository}/releases/latest");
+                uninstallKey.SetValue("HelpLink", App.ProjectHelpLink);
+                uninstallKey.SetValue("URLInfoAbout", App.ProjectSupportLink);
+                uninstallKey.SetValue("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
@@ -331,8 +327,9 @@ namespace Bloxstrap
                 return;
 
             // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
-            // TODO: 2.8.0 will download them to <Temp>/Bloxstrap/Updates
-            bool isAutoUpgrade = Paths.Process.StartsWith(Path.Combine(Paths.Base, "Updates")) || Paths.Process.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"));
+            bool isAutoUpgrade = App.LaunchSettings.UpgradeFlag.Active
+                || Paths.Process.StartsWith(Path.Combine(Paths.Base, "Updates"))
+                || Paths.Process.StartsWith(Paths.Temp);
 
             var existingVer = FileVersionInfo.GetVersionInfo(Paths.Application).ProductVersion;
             var currentVer = FileVersionInfo.GetVersionInfo(Paths.Process).ProductVersion;
@@ -353,7 +350,7 @@ namespace Bloxstrap
             }
 
             // silently upgrade version if the command line flag is set or if we're launching from an auto update
-            if (!App.LaunchSettings.UpgradeFlag.Active && !isAutoUpgrade)
+            if (!isAutoUpgrade)
             {
                 var result = Frontend.ShowMessageBox(
                     Strings.InstallChecker_VersionDifferentThanInstalled,
@@ -365,41 +362,38 @@ namespace Bloxstrap
                     return;
             }
 
+            App.Logger.WriteLine(LOG_IDENT, "Doing upgrade");
+
             Filesystem.AssertReadOnly(Paths.Application);
 
-            // TODO: make this use a mutex somehow
-            // yes, this is EXTREMELY hacky, but the updater process that launched the
-            // new version may still be open and so we have to wait for it to close
-            int attempts = 0;
-            while (attempts < 10)
+            using (var ipl = new InterProcessLock("AutoUpdater", TimeSpan.FromSeconds(5)))
             {
-                attempts++;
-
-                try
+                if (!ipl.IsAcquired)
                 {
-                    File.Delete(Paths.Application);
-                    break;
-                }
-                catch (Exception)
-                {
-                    if (attempts == 1)
-                        App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
-
-                    Thread.Sleep(500);
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not obtain singleton mutex)");
+                    return;
                 }
             }
 
-            if (attempts == 10)
+            try
             {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 5 seconds)");
+                File.Copy(Paths.Process, Paths.Application, true);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not replace executable)");
+                App.Logger.WriteException(LOG_IDENT, ex);
                 return;
             }
-
-            File.Copy(Paths.Process, Paths.Application);
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
                 uninstallKey.SetValue("DisplayVersion", App.Version);
+
+                uninstallKey.SetValue("Publisher", App.ProjectOwner);
+                uninstallKey.SetValue("HelpLink", App.ProjectHelpLink);
+                uninstallKey.SetValue("URLInfoAbout", App.ProjectSupportLink);
+                uninstallKey.SetValue("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // update migrations

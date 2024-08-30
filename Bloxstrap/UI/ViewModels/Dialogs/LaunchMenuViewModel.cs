@@ -5,7 +5,6 @@ using Bloxstrap.UI.Elements.About;
 
 namespace Bloxstrap.UI.ViewModels.Installer
 {
-    // TODO: have it so it shows "Launch Roblox"/"Install and Launch Roblox" depending on state of /App/ folder
     public class LaunchMenuViewModel
     {
         public string Version => string.Format(Strings.Menu_About_Version, App.Version);

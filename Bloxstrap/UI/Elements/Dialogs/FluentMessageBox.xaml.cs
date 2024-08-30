@@ -41,7 +41,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
                 case MessageBoxImage.Warning:
                     iconFilename = "Warning";
-                    sound = SystemSounds.Asterisk;
+                    sound = SystemSounds.Exclamation;
                     break;
 
                 case MessageBoxImage.Information:
