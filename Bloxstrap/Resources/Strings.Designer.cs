@@ -106,7 +106,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page..
+        ///   Looks up a localized string similar to Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
         /// </summary>
         public static string Bootstrapper_AutoUpdateFailed {
             get {

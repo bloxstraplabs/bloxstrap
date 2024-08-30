@@ -124,7 +124,7 @@
     <value>lookup failed</value>
   </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap was unable to auto-update to {0}. Please update it manually by downloading and running the latest release from the GitHub page.</value>
+    <value>Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
