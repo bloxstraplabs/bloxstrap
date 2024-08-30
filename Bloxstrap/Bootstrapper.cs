@@ -281,19 +281,21 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
-            if (App.Settings.Prop.ForceRobloxLanguage)
+            if (_launchMode == LaunchMode.Player)
             {
-                var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+                if (App.Settings.Prop.ForceRobloxLanguage)
+                {
+                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
 
-                if (match.Groups.Count == 2)
-                    _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
+                    if (match.Groups.Count == 2)
+                        _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
+                }
+
+                if (!String.IsNullOrEmpty(_launchCommandLine))
+                    _launchCommandLine += " ";
+
+                _launchCommandLine += "-isInstallerLaunch";
             }
-
-            // needed for the start event to fire
-            if (!String.IsNullOrEmpty(_launchCommandLine))
-                _launchCommandLine += " ";
-
-            _launchCommandLine += "-isInstallerLaunch";
 
             var startInfo = new ProcessStartInfo()
             {
@@ -308,7 +310,7 @@ namespace Bloxstrap
                 return;
             }
 
-            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, "www.roblox.com/robloxStartedEvent");
+            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent);
 
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
@@ -357,7 +359,6 @@ namespace Bloxstrap
                     autoclosePids.Add(pid);
             }
 
-            
             string args = gameClientPid.ToString();
 
             if (autoclosePids.Any())

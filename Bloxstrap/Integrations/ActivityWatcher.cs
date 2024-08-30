@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Integrations
+﻿using System.Web;
+
+namespace Bloxstrap.Integrations
 {
     public class ActivityWatcher : IDisposable
     {
@@ -43,6 +45,7 @@
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
+        public string ActivityLaunchData = "";
         public ServerType ActivityServerType = ServerType.Public;
 
         public bool IsDisposed = false;
@@ -117,6 +120,16 @@
                 else
                     ReadLogEntry(log);
             }
+        }
+
+        public string GetActivityDeeplink()
+        {
+            string deeplink = $"roblox://experiences/start?placeId={ActivityPlaceId}&gameInstanceId={ActivityJobId}";
+
+            if (!String.IsNullOrEmpty(ActivityLaunchData))
+                deeplink += "&launchData=" + HttpUtility.UrlEncode(ActivityLaunchData);
+
+            return deeplink;
         }
 
         private void ReadLogEntry(string entry)
@@ -222,6 +235,7 @@
                     ActivityMachineAddress = "";
                     ActivityMachineUDMUX = false;
                     ActivityIsTeleport = false;
+                    ActivityLaunchData = "";
                     ActivityServerType = ServerType.Public;
 
                     OnGameLeave?.Invoke(this, new EventArgs());
@@ -278,6 +292,35 @@
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (Command is empty)");
                         return;
+                    }
+
+                    if (message.Command == "SetLaunchData")
+                    {
+                        string? data;
+
+                        try
+                        {
+                            data = message.Data.Deserialize<string>();
+                        }
+                        catch (Exception)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
+                            return;
+                        }
+
+                        if (data is null)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
+                            return;
+                        }
+
+                        if (data.Length > 200)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Data cannot be longer than 200 characters");
+                            return;
+                        }
+
+                        ActivityLaunchData = data;
                     }
 
                     OnRPCMessage?.Invoke(this, message);
