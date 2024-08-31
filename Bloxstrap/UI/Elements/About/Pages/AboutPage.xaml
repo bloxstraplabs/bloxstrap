@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:enums="clr-namespace:Bloxstrap.Enums"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.About"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
@@ -11,7 +13,13 @@
       d:DesignHeight="1500" d:DesignWidth="800"
       Title="AboutPage"
       Scrollable="True">
+    <!--d:DataContext="{d:DesignInstance dmodels:AboutViewModel, IsDesignTimeCreatable=True}"-->
+
     <StackPanel Margin="0,0,14,14">
+        <StackPanel.Resources>
+            <FrameworkElement x:Key="ProxyElement" DataContext="{Binding}"/>
+        </StackPanel.Resources>
+
         <Grid Margin="0,0,0,24" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -72,6 +80,85 @@
                 <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,0,0,4" VerticalAlignment="Bottom" Text="{Binding BuildMetadata.CommitRef, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Visibility="{Binding BuildCommitVisibility, Mode=OneTime}" />
             </Grid>
         </StackPanel>
+
+        <TextBlock Text="{x:Static resources:Strings.About_Supporters_Title}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
+        <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.About_Supporters_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://ko-fi.com/boxerpizza'}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        <Grid Margin="0,8,0,0">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SupportersLoadedState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Unknown}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ui:ProgressRing Grid.Column="0" IsIndeterminate="True" />
+            <TextBlock Grid.Column="1" Margin="16,0,0,0" Text="{x:Static resources:Strings.Common_Loading}" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Margin="0,8,0,0">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SupportersLoadedState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Failed}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </Grid.Style>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="pack://application:,,,/Resources/MessageBox/Error.png" Width="60" Height="60" RenderOptions.BitmapScalingMode="HighQuality" />
+            <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="{x:Static resources:Strings.Common_NetworkError}" />
+                <TextBlock Text="{Binding SupportersLoadError, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+        <ListView ItemsSource="{Binding Supporters, Mode=OneWay}" Margin="0,8,0,0" ScrollViewer.CanContentScroll="False">
+            <ListView.Style>
+                <Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListView}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SupportersLoadedState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Successful}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Style>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ui:Card Padding="8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Ellipse Grid.Column="0" Height="32" Width="32" VerticalAlignment="Center">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Image, IsAsync=True}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <TextBlock Grid.Column="1" Margin="8,0,2,0" VerticalAlignment="Center" Text="{Binding Name}" />
+                        </Grid>
+                    </ui:Card>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="{Binding SupporterColumns}" Margin="-4" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
 
         <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors}" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
         <TextBlock Text="{x:Static resources:Strings.Menu_About_Contributors_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

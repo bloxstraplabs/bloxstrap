@@ -70,6 +70,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!.
+        /// </summary>
+        public static string About_Supporters_Description {
+            get {
+                return ResourceManager.GetString("About.Supporters.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supporters.
+        /// </summary>
+        public static string About_Supporters_Title {
+            get {
+                return ResourceManager.GetString("About.Supporters.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About Bloxstrap.
         /// </summary>
         public static string About_Title {
@@ -450,6 +468,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading, please wait....
+        /// </summary>
+        public static string Common_Loading {
+            get {
+                return ResourceManager.GetString("Common.Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Miscellaneous.
         /// </summary>
         public static string Common_Miscellaneous {
@@ -482,6 +509,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Navigation_Next {
             get {
                 return ResourceManager.GetString("Common.Navigation.Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not load data because of a network error..
+        /// </summary>
+        public static string Common_NetworkError {
+            get {
+                return ResourceManager.GetString("Common.NetworkError", resourceCulture);
             }
         }
         
