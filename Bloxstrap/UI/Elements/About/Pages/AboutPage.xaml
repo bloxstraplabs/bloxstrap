@@ -122,7 +122,7 @@
                 <TextBlock Text="{Binding SupportersLoadError, Mode=OneWay}" />
             </StackPanel>
         </Grid>
-        <ListView ItemsSource="{Binding Supporters, Mode=OneWay}" Margin="0,8,0,0" ScrollViewer.CanContentScroll="False">
+        <ListView ItemsSource="{Binding Supporters, Mode=OneWay}" Margin="0,8,0,0" ScrollViewer.CanContentScroll="False" IsEnabled="False">
             <ListView.Style>
                 <Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListView}}">
                     <Style.Triggers>

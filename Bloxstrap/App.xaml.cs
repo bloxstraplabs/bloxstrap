@@ -17,7 +17,7 @@ namespace Bloxstrap
         public const string ProjectName = "Bloxstrap";
         public const string ProjectOwner = "pizzaboxer";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
-        public const string ProjectDownloadLink = "https://bloxstrap.pizzaboxer.xyz";
+        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
         public const string ProjectHelpLink = "https://github.com/pizzaboxer/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/pizzaboxer/bloxstrap/issues/new";
 
