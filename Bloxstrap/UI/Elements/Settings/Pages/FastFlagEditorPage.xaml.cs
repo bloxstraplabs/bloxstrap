@@ -307,12 +307,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            int index = e.Row.GetIndex();
-            FastFlag entry = _fastFlagList[index];
-            
-            var textbox = e.EditingElement as TextBox;
+            if (e.Row.DataContext is not FastFlag entry)
+                return;
 
-            if (textbox is null)
+            if (e.EditingElement is not TextBox textbox)
                 return;
 
             switch (e.Column.Header)

@@ -89,7 +89,6 @@ namespace Bloxstrap.Integrations
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
 
-                // TODO: report failure after 10 seconds of no log file
                 App.Logger.WriteLine(LOG_IDENT, $"Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
                 await Task.Delay(1000);
             }
