@@ -32,11 +32,11 @@ namespace Bloxstrap.UI.Converters
                         return attribute.StaticName;
 
                     if (attribute.FromTranslation is not null)
-                        return Resources.Strings.ResourceManager.GetStringSafe(attribute.FromTranslation);
+                        return Strings.ResourceManager.GetStringSafe(attribute.FromTranslation);
                 }
             }
 
-            return Resources.Strings.ResourceManager.GetStringSafe(String.Format(
+            return Strings.ResourceManager.GetStringSafe(String.Format(
                 "{0}.{1}",
                 typeName.Substring(typeName.IndexOf('.', StringComparison.Ordinal) + 1),
                 stringVal

@@ -5,7 +5,7 @@
     {
         // formatting is done here instead of in xaml, it's just a bit easier
         public string MainText => String.Format(
-            Resources.Strings.Installer_Welcome_MainText,
+            Strings.Installer_Welcome_MainText,
             "[github.com/pizzaboxer/bloxstrap](https://github.com/pizzaboxer/bloxstrap)",
             "[bloxstraplabs.com](https://bloxstraplabs.com)"
         );
