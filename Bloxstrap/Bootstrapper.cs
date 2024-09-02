@@ -389,8 +389,10 @@ namespace Bloxstrap
             if (autoclosePids.Any())
                 args += $";{String.Join(',', autoclosePids)}";
 
-            using (var ipl = new InterProcessLock("Watcher"))
+            if (App.Settings.Prop.EnableActivityTracking || autoclosePids.Any())
             {
+                using var ipl = new InterProcessLock("Watcher");
+
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
