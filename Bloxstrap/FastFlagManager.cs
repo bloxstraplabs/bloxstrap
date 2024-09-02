@@ -4,6 +4,10 @@ namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
+        public override string ClassName => nameof(FastFlagManager);
+
+        public override string LOG_IDENT_CLASS => ClassName;
+        
         public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
@@ -238,9 +242,9 @@ namespace Bloxstrap
             OriginalProp = new(Prop);
         }
 
-        public override void Load()
+        public override void Load(bool alertFailure = true)
         {
-            base.Load();
+            base.Load(alertFailure);
 
             // clone the dictionary
             OriginalProp = new(Prop);
@@ -249,6 +253,7 @@ namespace Bloxstrap
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
 
+            // TODO - this should be moved to the installer update logic
             string? val = GetPreset("UI.Menu.Style.EnableV4.1");
             if (GetPreset("UI.Menu.Style.EnableV4.2") != val)
                 SetPreset("UI.Menu.Style.EnableV4.2", val);

@@ -214,7 +214,6 @@ namespace Bloxstrap
             if (_installWebView2)
                 await InstallWebView2();
 
-            App.FastFlags.Save();
             await ApplyModifications();
 
             // TODO: move this to install/upgrade flow
@@ -224,7 +223,6 @@ namespace Bloxstrap
             CheckInstall();
 
             // at this point we've finished updating our configs
-            App.Settings.Save();
             App.State.Save();
 
             await mutex.ReleaseAsync();
@@ -777,6 +775,8 @@ namespace Bloxstrap
 
         public static void MigrateIntegrations()
         {
+            // TODO: move this to the installer logic
+
             // v2.2.0 - remove rbxfpsunlocker
             string rbxfpsunlocker = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
 

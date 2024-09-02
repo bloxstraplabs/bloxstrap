@@ -32,11 +32,11 @@ namespace Bloxstrap.UI.ViewModels.Installer
                 }
 
                 installer.InstallLocation = value;
-                CheckExistingData();
+                OnPropertyChanged(nameof(DataFoundMessageVisibility));
             }
         }
 
-        public Visibility DataFoundMessageVisibility { get; set; } = Visibility.Collapsed;
+        public Visibility DataFoundMessageVisibility => installer.ExistingDataPresent ? Visibility.Visible : Visibility.Collapsed;
 
         public string ErrorMessage => installer.InstallLocationError;
 
@@ -61,7 +61,6 @@ namespace Bloxstrap.UI.ViewModels.Installer
         public InstallViewModel()
         {
             _originalInstallLocation = installer.InstallLocation;
-            CheckExistingData();
         }
 
         public bool DoInstall()
@@ -77,16 +76,6 @@ namespace Bloxstrap.UI.ViewModels.Installer
             installer.DoInstall();
 
             return true;
-        }
-
-        public void CheckExistingData()
-        {
-            if (File.Exists(Path.Combine(InstallLocation, "Settings.json")))
-                DataFoundMessageVisibility = Visibility.Visible;
-            else
-                DataFoundMessageVisibility = Visibility.Collapsed;
-
-            OnPropertyChanged(nameof(DataFoundMessageVisibility));
         }
 
         private void BrowseInstallLocation()

@@ -11,6 +11,8 @@ namespace Bloxstrap
 
         public string InstallLocation = Path.Combine(Paths.LocalAppData, "Bloxstrap");
 
+        public bool ExistingDataPresent => File.Exists(Path.Combine(InstallLocation, "Settings.json"));
+
         public bool CreateDesktopShortcuts = true;
 
         public bool CreateStartMenuShortcuts = true;
@@ -21,6 +23,10 @@ namespace Bloxstrap
 
         public void DoInstall()
         {
+            const string LOG_IDENT = "Installer::DoInstall";
+
+            App.Logger.WriteLine(LOG_IDENT, "Beginning installation");
+
             // should've been created earlier from the write test anyway
             Directory.CreateDirectory(InstallLocation);
 
@@ -69,9 +75,11 @@ namespace Bloxstrap
                 Shortcut.Create(Paths.Application, "", StartMenuShortcut);
 
             // existing configuration persisting from an earlier install
-            App.Settings.Load();
-            App.State.Load();
-            App.FastFlags.Load();
+            App.Settings.Load(false);
+            App.State.Load(false);
+            App.FastFlags.Load(false);
+
+            App.Logger.WriteLine(LOG_IDENT, "Installation finished");
         }
 
         private bool ValidateLocation()

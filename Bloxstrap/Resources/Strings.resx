@@ -1162,4 +1162,10 @@ Are you sure you want to continue?</value>
   <data name="About.Supporters.Description" xml:space="preserve">
     <value>These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!</value>
   </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Your Settings could not be loaded. They have been reset to the default configuration.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Your Fast Flags could not be loaded. They have been reset to the default configuration.</value>
+  </data>
 </root>
