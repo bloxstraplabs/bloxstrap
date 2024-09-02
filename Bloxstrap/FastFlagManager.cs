@@ -52,7 +52,7 @@ namespace Bloxstrap
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
             
-            { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
+            { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
             { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
             { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
@@ -103,7 +103,7 @@ namespace Bloxstrap
                 InGameMenuVersion.Default,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", null },
+                    { "V2Rollout", null },
                     { "EnableV4", null },
                     { "EnableV4Chrome", null },
                     { "ABTest", null }
@@ -114,7 +114,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V1,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -125,7 +125,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V2,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "False" },
+                    { "V2Rollout", "100" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -136,7 +136,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V4,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -147,7 +147,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V4Chrome,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "True" },
                     { "ABTest", "False" }

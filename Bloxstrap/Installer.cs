@@ -514,6 +514,18 @@ namespace Bloxstrap
 
                     ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
                     ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
+
+                    string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
+
+                    if (oldV2Val is not null)
+                    {
+                        if (oldV2Val == "True")
+                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "0");
+                        else
+                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
+
+                        App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
+                    }
                 }
 
                 App.Settings.Save();
