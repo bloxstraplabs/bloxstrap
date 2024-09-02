@@ -209,8 +209,6 @@ namespace Bloxstrap
             if (_latestVersionGuid != _versionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
 
-            MigrateIntegrations();
-
             if (_installWebView2)
                 await InstallWebView2();
 
@@ -771,34 +769,6 @@ namespace Bloxstrap
             await Process.Start(startInfo)!.WaitForExitAsync();
 
             App.Logger.WriteLine(LOG_IDENT, "Finished installing runtime");
-        }
-
-        public static void MigrateIntegrations()
-        {
-            // TODO: move this to the installer logic
-
-            // v2.2.0 - remove rbxfpsunlocker
-            string rbxfpsunlocker = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
-
-            if (Directory.Exists(rbxfpsunlocker))
-                Directory.Delete(rbxfpsunlocker, true);
-
-            // v2.3.0 - remove reshade
-            string injectorLocation = Path.Combine(Paths.Modifications, "dxgi.dll");
-            string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
-
-            if (File.Exists(injectorLocation))
-            {
-                Frontend.ShowMessageBox(
-                    Strings.Bootstrapper_HyperionUpdateInfo,
-                    MessageBoxImage.Warning
-                );
-
-                File.Delete(injectorLocation);
-            }
-
-            if (File.Exists(configLocation))
-                File.Delete(configLocation);
         }
 
         private async Task ApplyModifications()

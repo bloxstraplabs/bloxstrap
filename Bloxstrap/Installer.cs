@@ -408,6 +408,41 @@ namespace Bloxstrap
 
             if (existingVer is not null)
             {
+                if (Utilities.CompareVersions(existingVer, "2.2.0") == VersionComparison.LessThan)
+                {
+                    string path = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
+
+                    try
+                    {
+                        if (Directory.Exists(path))
+                            Directory.Delete(path, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+
+                if (Utilities.CompareVersions(existingVer, "2.3.0") == VersionComparison.LessThan)
+                {
+                    string injectorLocation = Path.Combine(Paths.Modifications, "dxgi.dll");
+                    string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
+
+                    if (File.Exists(injectorLocation))
+                    {
+                        Frontend.ShowMessageBox(
+                            Strings.Bootstrapper_HyperionUpdateInfo,
+                            MessageBoxImage.Warning
+                        );
+
+                        File.Delete(injectorLocation);
+                    }
+
+                    if (File.Exists(configLocation))
+                        File.Delete(configLocation);
+                }
+
+
                 if (Utilities.CompareVersions(existingVer, "2.5.0") == VersionComparison.LessThan)
                 {
                     App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
@@ -420,6 +455,13 @@ namespace Bloxstrap
 
                     if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
                         App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
+                }
+
+                if (Utilities.CompareVersions(existingVer, "2.5.3") == VersionComparison.LessThan)
+                {
+                    string? val = App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.1");
+                    if (App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.2") != val)
+                        App.FastFlags.SetPreset("UI.Menu.Style.EnableV4.2", val);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
@@ -443,9 +485,7 @@ namespace Bloxstrap
 
                     _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
                     if (x == 0)
-                    {
                         App.FastFlags.SetPreset("Rendering.Framerate", null);
-                    }
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)

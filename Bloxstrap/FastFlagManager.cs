@@ -252,11 +252,6 @@ namespace Bloxstrap
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
-
-            // TODO - this should be moved to the installer update logic
-            string? val = GetPreset("UI.Menu.Style.EnableV4.1");
-            if (GetPreset("UI.Menu.Style.EnableV4.2") != val)
-                SetPreset("UI.Menu.Style.EnableV4.2", val);
         }
     }
 }
