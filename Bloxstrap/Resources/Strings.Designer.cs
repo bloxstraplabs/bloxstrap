@@ -666,20 +666,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rejoin.
+        /// </summary>
+        public static string ContextMenu_GameHistory_Rejoin {
+            get {
+                return ResourceManager.GetString("ContextMenu.GameHistory.Rejoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game history.
+        /// </summary>
+        public static string ContextMenu_GameHistory_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.GameHistory.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox is still launching. A log file will only be available once Roblox launches..
         /// </summary>
         public static string ContextMenu_RobloxNotRunning {
             get {
                 return ResourceManager.GetString("ContextMenu.RobloxNotRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See server details.
-        /// </summary>
-        public static string ContextMenu_SeeServerDetails {
-            get {
-                return ResourceManager.GetString("ContextMenu.SeeServerDetails", resourceCulture);
             }
         }
         

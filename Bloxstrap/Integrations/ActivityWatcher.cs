@@ -9,6 +9,7 @@ namespace Bloxstrap.Integrations
         private const string GameJoiningEntry = "[FLog::Output] ! Joining game";
         private const string GameJoiningPrivateServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::joinGamePostPrivateServer";
         private const string GameJoiningReservedServerEntry = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToReservedServer";
+        private const string GameJoiningUniverseEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
         private const string GameJoiningUDMUXEntry = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry = "[FLog::Network] Time to disconnect replication data:";
@@ -17,6 +18,7 @@ namespace Bloxstrap.Integrations
         private const string GameLeavingEntry = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
 
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
+        private const string GameJoiningUniversePattern = @"universeid:([0-9]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern = @"\[BloxstrapRPC\] (.*)";
@@ -39,14 +41,18 @@ namespace Bloxstrap.Integrations
 
         // these are values to use assuming the player isn't currently in a game
         // hmm... do i move this to a model?
+        public DateTime ActivityTimeJoined;
         public bool ActivityInGame = false;
         public long ActivityPlaceId = 0;
+        public long ActivityUniverseId = 0;
         public string ActivityJobId = "";
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
         public string ActivityLaunchData = "";
         public ServerType ActivityServerType = ServerType.Public;
+
+        public List<ActivityHistoryEntry> ActivityHistory = new();
 
         public bool IsDisposed = false;
 
@@ -131,6 +137,7 @@ namespace Bloxstrap.Integrations
             return deeplink;
         }
 
+        // TODO: i need to double check how this handles failed game joins (connection error, invalid permissions, etc)
         private void ReadLogEntry(string entry)
         {
             const string LOG_IDENT = "ActivityWatcher::ReadLogEntry";
@@ -151,6 +158,8 @@ namespace Bloxstrap.Integrations
 
             if (!ActivityInGame && ActivityPlaceId == 0)
             {
+                // We are not in a game, nor are in the process of joining one
+
                 if (entry.Contains(GameJoiningPrivateServerEntry))
                 {
                     // we only expect to be joining a private server if we're not already in a game
@@ -189,13 +198,28 @@ namespace Bloxstrap.Integrations
             }
             else if (!ActivityInGame && ActivityPlaceId != 0)
             {
-                if (entry.Contains(GameJoiningUDMUXEntry))
+                // We are not confirmed to be in a game, but we are in the process of joining one
+
+                if (entry.Contains(GameJoiningUniverseEntry))
+                {
+                    var match = Regex.Match(entry, GameJoiningUniversePattern);
+
+                    if (match.Groups.Count != 2)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join universe entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        return;
+                    }
+
+                    ActivityUniverseId = long.Parse(match.Groups[1].Value);
+                }
+                else if (entry.Contains(GameJoiningUDMUXEntry))
                 {
                     Match match = Regex.Match(entry, GameJoiningUDMUXPattern);
 
                     if (match.Groups.Count != 3 || match.Groups[2].Value != ActivityMachineAddress)
                     {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join UDMUX entry");
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join UDMUX entry");
                         App.Logger.WriteLine(LOG_IDENT, entry);
                         return;
                     }
@@ -219,17 +243,35 @@ namespace Bloxstrap.Integrations
                     App.Logger.WriteLine(LOG_IDENT, $"Joined Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
                     ActivityInGame = true;
+                    ActivityTimeJoined = DateTime.Now;
+
                     OnGameJoin?.Invoke(this, new EventArgs());
                 }
             }
             else if (ActivityInGame && ActivityPlaceId != 0)
             {
+                // We are confirmed to be in a game
+
                 if (entry.Contains(GameDisconnectedEntry))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({ActivityPlaceId}/{ActivityJobId}/{ActivityMachineAddress})");
 
+                    // TODO: should this be including launchdata?
+                    if (ActivityServerType != ServerType.Reserved)
+                    {
+                        ActivityHistory.Insert(0, new ActivityHistoryEntry
+                        {
+                            PlaceId = ActivityPlaceId,
+                            UniverseId = ActivityUniverseId,
+                            JobId = ActivityJobId,
+                            TimeJoined = ActivityTimeJoined,
+                            TimeLeft = DateTime.Now
+                        });
+                    }
+
                     ActivityInGame = false;
                     ActivityPlaceId = 0;
+                    ActivityUniverseId = 0;
                     ActivityJobId = "";
                     ActivityMachineAddress = "";
                     ActivityMachineUDMUX = false;

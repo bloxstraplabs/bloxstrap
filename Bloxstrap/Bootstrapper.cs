@@ -327,6 +327,7 @@ namespace Bloxstrap
             int gameClientPid;
             bool startEventSignalled;
 
+            // TODO: figure out why this is causing roblox to block for some users
             using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
             {
                 startEvent.Reset();
@@ -387,7 +388,7 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.EnableActivityTracking || autoclosePids.Any())
             {
-                using var ipl = new InterProcessLock("Watcher");
+                using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, $"-watcher \"{args}\"");

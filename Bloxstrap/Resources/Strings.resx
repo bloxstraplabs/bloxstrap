@@ -268,9 +268,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>See server details</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Copy Instance ID</value>
   </data>
@@ -1167,5 +1164,11 @@ Are you sure you want to continue?</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
     <value>Your Fast Flags could not be loaded. They have been reset to the default configuration.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Game history</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Rejoin</value>
   </data>
 </root>

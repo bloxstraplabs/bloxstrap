@@ -215,7 +215,7 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
 
                     if (t.Exception is not null)
-                        App.FinalizeExceptionHandling(t.Exception, false);
+                        App.FinalizeExceptionHandling(t.Exception);
                 }
 
                 App.Terminate();
