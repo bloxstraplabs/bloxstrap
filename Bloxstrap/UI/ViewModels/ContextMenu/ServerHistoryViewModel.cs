@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Data;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Bloxstrap.Integrations;
 using CommunityToolkit.Mvvm.Input;
 
@@ -10,7 +8,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
     {
         private readonly ActivityWatcher _activityWatcher;
 
-        public List<ActivityHistoryEntry>? ActivityHistory { get; private set; }
+        public List<ActivityData>? GameHistory { get; private set; }
 
         public ICommand CloseWindowCommand => new RelayCommand(RequestClose);
         
@@ -27,32 +25,45 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         private async void LoadData()
         {
-            var entries = _activityWatcher.ActivityHistory.Where(x => !x.DetailsLoaded);
+            var entries = _activityWatcher.History.Where(x => x.UniverseDetails is null);
 
             if (entries.Any())
             {
+                // TODO: this will duplicate universe ids
                 string universeIds = String.Join(',', entries.Select(x => x.UniverseId));
 
-                var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeIds}");
-
-                if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
-                    return;
-
-                var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeIds}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
-
-                if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
+                if (!await UniverseDetails.FetchBulk(universeIds))
                     return;
 
                 foreach (var entry in entries)
+                    entry.UniverseDetails = UniverseDetails.LoadFromCache(entry.UniverseId);
+            }
+
+            GameHistory = new(_activityWatcher.History);
+
+            var consolidatedJobIds = new List<ActivityData>();
+
+            // consolidate activity entries from in-universe teleports
+            // the time left of the latest activity gets moved to the root activity
+            // the job id of the latest public server activity gets moved to the root activity
+            foreach (var entry in _activityWatcher.History)
+            {
+                if (entry.RootActivity is not null)
                 {
-                    entry.GameName = gameDetailResponse.Data.Where(x => x.Id == entry.UniverseId).Select(x => x.Name).First();
-                    entry.GameThumbnail = universeThumbnailResponse.Data.Where(x => x.TargetId == entry.UniverseId).Select(x => x.ImageUrl).First();
-                    entry.DetailsLoaded = true;
+                    if (entry.RootActivity.TimeLeft < entry.TimeLeft)
+                        entry.RootActivity.TimeLeft = entry.TimeLeft;
+
+                    if (entry.ServerType == ServerType.Public && !consolidatedJobIds.Contains(entry))
+                    {
+                        entry.RootActivity.JobId = entry.JobId;
+                        consolidatedJobIds.Add(entry);
+                    }
+
+                    GameHistory.Remove(entry);
                 }
             }
 
-            ActivityHistory = new(_activityWatcher.ActivityHistory);
-            OnPropertyChanged(nameof(ActivityHistory));
+            OnPropertyChanged(nameof(GameHistory));
         }
 
         private void RequestClose() => RequestCloseEvent?.Invoke(this, EventArgs.Empty);

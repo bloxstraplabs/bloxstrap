@@ -21,17 +21,20 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="{x:Static resources:Strings.ContextMenu_GameHistory_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
-        <Border Grid.Row="1">
+        <TextBlock Grid.Row="1" Margin="16,8,16,0" Text="{x:Static resources:Strings.ContextMenu_GameHistory_Description}" TextWrapping="Wrap" />
+
+        <Border Grid.Row="2">
             <Border.Style>
                 <Style TargetType="Border">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ActivityHistory, Mode=OneWay}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding GameHistory, Mode=OneWay}" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Visible" />
                         </DataTrigger>
                     </Style.Triggers>
@@ -42,11 +45,11 @@
             <ui:ProgressRing Grid.Row="1" IsIndeterminate="True" />
         </Border>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding ActivityHistory, Mode=OneWay}" Margin="8">
+        <ListView Grid.Row="2" ItemsSource="{Binding GameHistory, Mode=OneWay}" Margin="8">
             <ListView.Style>
                 <Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListView}}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding ActivityHistory, Mode=OneWay}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding GameHistory, Mode=OneWay}" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                     </Style.Triggers>
@@ -65,14 +68,15 @@
 
                             <Border Grid.Column="0" Width="84" Height="84" CornerRadius="4">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding GameThumbnail, IsAsync=True}" />
+                                    <ImageBrush ImageSource="{Binding UniverseDetails.Thumbnail.ImageUrl, IsAsync=True}" />
                                 </Border.Background>
                             </Border>
 
                             <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding GameName}" FontSize="18" FontWeight="Medium" />
-                                <TextBlock Text="{Binding TimeJoinedFriendly}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                                <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_GameHistory_Rejoin}" Command="{Binding RejoinServerCommand}" Appearance="Success" Icon="Play28" IconFilled="True" />
+                                <TextBlock Text="{Binding UniverseDetails.Data.Name}" FontSize="18" FontWeight="Medium" />
+                                <TextBlock Text="{Binding GameHistoryDescription}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_GameHistory_Rejoin}" Command="{Binding RejoinServerCommand}" 
+                                           Appearance="Success" Foreground="White" IconForeground="White" Icon="Play28" IconFilled="True" />
                             </StackPanel>
                         </Grid>
                     </ui:Card>
@@ -80,7 +84,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+        <Border Grid.Row="3" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button Margin="12,0,0,0" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" IsCancel="True" />
             </StackPanel>

@@ -9,9 +9,9 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
     {
         private readonly ActivityWatcher _activityWatcher;
 
-        public string InstanceId => _activityWatcher.ActivityJobId;
+        public string InstanceId => _activityWatcher.Data.JobId;
 
-        public string ServerType => Strings.ResourceManager.GetStringSafe($"Enums.ServerType.{_activityWatcher.ActivityServerType}");
+        public string ServerType => _activityWatcher.Data.ServerType.ToTranslatedString();
 
         public string ServerLocation { get; private set; } = Strings.ContextMenu_ServerInformation_Loading;
 

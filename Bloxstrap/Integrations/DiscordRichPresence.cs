@@ -12,8 +12,6 @@ namespace Bloxstrap.Integrations
         private Queue<Message> _messageQueue = new();
 
         private bool _visible = true;
-        private long _currentUniverseId;
-        private DateTime? _timeStartedUniverse;
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
@@ -70,7 +68,7 @@ namespace Bloxstrap.Integrations
                 if (!buttonQuery.Any())
                     return;
 
-                buttonQuery.First().Url = _activityWatcher.GetActivityDeeplink();
+                buttonQuery.First().Url = _activityWatcher.Data.GetInviteDeeplink();
             }
             else if (message.Command == "SetRichPresence")
             {
@@ -185,7 +183,7 @@ namespace Bloxstrap.Integrations
         {
             const string LOG_IDENT = "DiscordRichPresence::SetCurrentGame";
             
-            if (!_activityWatcher.ActivityInGame)
+            if (!_activityWatcher.InGame)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
 
@@ -197,50 +195,42 @@ namespace Bloxstrap.Integrations
             }
 
             string icon = "roblox";
-            long placeId = _activityWatcher.ActivityPlaceId;
+
+            var activity = _activityWatcher.Data;
+            long placeId = activity.PlaceId;
 
             App.Logger.WriteLine(LOG_IDENT, $"Setting presence for Place ID {placeId}");
 
-            // TODO: move this to its own function under the activity watcher?
-            // TODO: show error if information cannot be queried instead of silently failing
-
-            long universeId = _activityWatcher.ActivityUniverseId;
-
             // preserve time spent playing if we're teleporting between places in the same universe
-            if (_timeStartedUniverse is null || !_activityWatcher.ActivityIsTeleport || universeId != _currentUniverseId)
-                _timeStartedUniverse = DateTime.UtcNow;
+            var timeStarted = activity.TimeJoined;
 
-            _currentUniverseId = universeId;
+            if (activity.RootActivity is not null)
+                timeStarted = activity.RootActivity.TimeJoined;
 
-            var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={universeId}");
-            if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
+            if (activity.UniverseDetails is null)
             {
-                App.Logger.WriteLine(LOG_IDENT, "Could not get Universe info!");
+                await UniverseDetails.FetchSingle(activity.UniverseId);
+                activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
+            }
+
+            var universeDetails = activity.UniverseDetails;
+
+            if (universeDetails is null)
+            {
+                Frontend.ShowMessageBox(Strings.ActivityTracker_RichPresenceLoadFailed, System.Windows.MessageBoxImage.Warning);
                 return false;
             }
 
-            GameDetailResponse universeDetails = gameDetailResponse.Data.ToArray()[0];
-            App.Logger.WriteLine(LOG_IDENT, "Got Universe details");
-
-            var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={universeId}&returnPolicy=PlaceHolder&size=512x512&format=Png&isCircular=false");
-            if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Could not get Universe thumbnail info!");
-            }
-            else
-            {
-                icon = universeThumbnailResponse.Data.ToArray()[0].ImageUrl;
-                App.Logger.WriteLine(LOG_IDENT, $"Got Universe thumbnail as {icon}");
-            }
+            icon = universeDetails.Thumbnail.ImageUrl;
 
             List<Button> buttons = new();
 
-            if (!App.Settings.Prop.HideRPCButtons && _activityWatcher.ActivityServerType == ServerType.Public)
+            if (!App.Settings.Prop.HideRPCButtons && activity.ServerType == ServerType.Public)
             {
                 buttons.Add(new Button
                 {
                     Label = "Join server",
-                    Url = _activityWatcher.GetActivityDeeplink()
+                    Url = activity.GetInviteDeeplink()
                 });
             }
 
@@ -250,32 +240,34 @@ namespace Bloxstrap.Integrations
                 Url = $"https://www.roblox.com/games/{placeId}"
             });
 
-            if (!_activityWatcher.ActivityInGame || placeId != _activityWatcher.ActivityPlaceId)
+            if (!_activityWatcher.InGame || placeId != activity.PlaceId)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Aborting presence set because game activity has changed");
                 return false;
             }
 
-            string status = _activityWatcher.ActivityServerType switch
+            string status = _activityWatcher.Data.ServerType switch
             {
                 ServerType.Private => "In a private server",
                 ServerType.Reserved => "In a reserved server",
-                _ => $"by {universeDetails.Creator.Name}" + (universeDetails.Creator.HasVerifiedBadge ? " ☑️" : ""),
+                _ => $"by {universeDetails.Data.Creator.Name}" + (universeDetails.Data.Creator.HasVerifiedBadge ? " ☑️" : ""),
             };
 
-            if (universeDetails.Name.Length < 2)
-                universeDetails.Name = $"{universeDetails.Name}\x2800\x2800\x2800";
+            string universeName = universeDetails.Data.Name;
+
+            if (universeName.Length < 2)
+                universeName = $"{universeName}\x2800\x2800\x2800";
 
             _currentPresence = new DiscordRPC.RichPresence
             {
-                Details = $"Playing {universeDetails.Name}",
+                Details = $"Playing {universeName}",
                 State = status,
-                Timestamps = new Timestamps { Start = _timeStartedUniverse },
+                Timestamps = new Timestamps { Start = timeStarted.ToUniversalTime() },
                 Buttons = buttons.ToArray(),
                 Assets = new Assets
                 {
                     LargeImageKey = icon,
-                    LargeImageText = universeDetails.Name,
+                    LargeImageText = universeName,
                     SmallImageKey = "roblox",
                     SmallImageText = "Roblox"
                 }

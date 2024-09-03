@@ -398,13 +398,13 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Private</value>
+    <value>Private server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Public</value>
+    <value>Public server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Reserved</value>
+    <value>Reserved server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Dark</value>
@@ -1170,5 +1170,11 @@ Are you sure you want to continue?</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
     <value>Rejoin</value>
+  </data>
+  <data name="ActivityTracker.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Your current game will not show on your Discord presence because an error occurred when loading the game information.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Game history is only recorded for your current Roblox session. Games will appear here as you leave them or teleport within them.</value>
   </data>
 </root>
