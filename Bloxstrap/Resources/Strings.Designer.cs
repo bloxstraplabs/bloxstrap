@@ -106,29 +106,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to left game.
+        ///   Looks up a localized string similar to Failed to query server location..
         /// </summary>
-        public static string ActivityTracker_LeftGame {
+        public static string ActivityWatcher_LocationQueryFailed {
             get {
-                return ResourceManager.GetString("ActivityTracker.LeftGame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to lookup failed.
-        /// </summary>
-        public static string ActivityTracker_LookupFailed {
-            get {
-                return ResourceManager.GetString("ActivityTracker.LookupFailed", resourceCulture);
+                return ResourceManager.GetString("ActivityWatcher.LocationQueryFailed", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Your current game will not show on your Discord presence because an error occurred when loading the game information..
         /// </summary>
-        public static string ActivityTracker_RichPresenceLoadFailed {
+        public static string ActivityWatcher_RichPresenceLoadFailed {
             get {
-                return ResourceManager.GetString("ActivityTracker.RichPresenceLoadFailed", resourceCulture);
+                return ResourceManager.GetString("ActivityWatcher.RichPresenceLoadFailed", resourceCulture);
             }
         }
         

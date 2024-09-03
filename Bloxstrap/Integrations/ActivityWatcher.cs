@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Integrations
+﻿using System.Windows;
+
+namespace Bloxstrap.Integrations
 {
     public class ActivityWatcher : IDisposable
     {
@@ -372,20 +374,18 @@
                 string location = "";
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{Data.MachineAddress}/json");
 
-                if (ipInfo is null)
-                    return $"? ({Strings.ActivityTracker_LookupFailed})";
+                if (String.IsNullOrEmpty(ipInfo.City))
+                    throw new InvalidHTTPResponseException("Reported city was blank");
 
-                if (string.IsNullOrEmpty(ipInfo.Country))
-                    location = "?";
-                else if (ipInfo.City == ipInfo.Region)
+                if (ipInfo.City == ipInfo.Region)
                     location = $"{ipInfo.Region}, {ipInfo.Country}";
                 else
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
-                if (!InGame)
-                    return $"? ({Strings.ActivityTracker_LeftGame})";
-
                 GeolocationCache[Data.MachineAddress] = location;
+
+                if (!InGame)
+                    return "";
 
                 return location;
             }
@@ -394,7 +394,9 @@
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {Data.MachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                return $"? ({Strings.ActivityTracker_LookupFailed})";
+                Frontend.ShowMessageBox($"{Strings.ActivityWatcher_LocationQueryFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
+
+                return "?";
             }
         }
 
