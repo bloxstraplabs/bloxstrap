@@ -268,9 +268,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>See server details</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Copy Instance ID</value>
   </data>
@@ -999,7 +996,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
     <value>Thank you for downloading Bloxstrap. 
 
-You should have gotten it from either {0} or {1}. Those are the only official websites to get it from.
+You should have downloaded it from either {0} or {1}. Those are the only official websites to get it from. It is your responsibility to ensure you download from an official source.
 
 This installation process will be quick and simple, and you will be able to configure any of Bloxstrap's settings after installation.</value>
   </data>
@@ -1155,5 +1152,29 @@ Are you sure you want to continue?</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Please read the following help information, which will open in your web browser when you close this dialog.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Could not load data because of a network error.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Loading, please wait...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Supporters</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Your Settings could not be loaded. They have been reset to the default configuration.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Your Fast Flags could not be loaded. They have been reset to the default configuration.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Game history</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Rejoin</value>
   </data>
 </root>

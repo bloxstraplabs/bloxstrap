@@ -207,15 +207,8 @@ namespace Bloxstrap.Integrations
 
             // TODO: move this to its own function under the activity watcher?
             // TODO: show error if information cannot be queried instead of silently failing
-            var universeIdResponse = await Http.GetJson<UniverseIdResponse>($"https://apis.roblox.com/universes/v1/places/{placeId}/universe");
-            if (universeIdResponse is null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Could not get Universe ID!");
-                return false;
-            }
 
-            long universeId = universeIdResponse.UniverseId;
-            App.Logger.WriteLine(LOG_IDENT, $"Got Universe ID as {universeId}");
+            long universeId = _activityWatcher.ActivityUniverseId;
 
             // preserve time spent playing if we're teleporting between places in the same universe
             if (_timeStartedUniverse is null || !_activityWatcher.ActivityIsTeleport || universeId != _currentUniverseId)
@@ -277,7 +270,7 @@ namespace Bloxstrap.Integrations
                 buttons.Add(new Button
                 {
                     Label = "Join server",
-                    Url = $"roblox://experiences/start?placeId={placeId}&gameInstanceId={_activityWatcher.ActivityJobId}"
+                    Url = _activityWatcher.GetActivityDeeplink()
                 });
             }
 

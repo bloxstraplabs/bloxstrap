@@ -4,6 +4,10 @@ namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
+        public override string ClassName => nameof(FastFlagManager);
+
+        public override string LOG_IDENT_CLASS => ClassName;
+        
         public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
@@ -48,7 +52,7 @@ namespace Bloxstrap
             { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
             
-            { "UI.Menu.Style.DisableV2", "FFlagDisableNewIGMinDUA" },
+            { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
             { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
             { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
@@ -99,7 +103,7 @@ namespace Bloxstrap
                 InGameMenuVersion.Default,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", null },
+                    { "V2Rollout", null },
                     { "EnableV4", null },
                     { "EnableV4Chrome", null },
                     { "ABTest", null }
@@ -110,7 +114,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V1,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -121,7 +125,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V2,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "False" },
+                    { "V2Rollout", "100" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -132,7 +136,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V4,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "False" },
                     { "ABTest", "False" }
@@ -143,7 +147,7 @@ namespace Bloxstrap
                 InGameMenuVersion.V4Chrome,
                 new Dictionary<string, string?>
                 {
-                    { "DisableV2", "True" },
+                    { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "True" },
                     { "ABTest", "False" }
@@ -238,9 +242,9 @@ namespace Bloxstrap
             OriginalProp = new(Prop);
         }
 
-        public override void Load()
+        public override void Load(bool alertFailure = true)
         {
-            base.Load();
+            base.Load(alertFailure);
 
             // clone the dictionary
             OriginalProp = new(Prop);
@@ -248,10 +252,6 @@ namespace Bloxstrap
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
-
-            string? val = GetPreset("UI.Menu.Style.EnableV4.1");
-            if (GetPreset("UI.Menu.Style.EnableV4.2") != val)
-                SetPreset("UI.Menu.Style.EnableV4.2", val);
         }
     }
 }

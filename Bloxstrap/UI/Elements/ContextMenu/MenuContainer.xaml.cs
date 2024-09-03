@@ -80,6 +80,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         public void ActivityWatcher_OnGameLeave(object? sender, EventArgs e)
         {
             Dispatcher.Invoke(() => {
+                JoinLastServerMenuItem.Visibility = Visibility.Visible;
                 InviteDeeplinkMenuItem.Visibility = Visibility.Collapsed;
                 ServerDetailsMenuItem.Visibility = Visibility.Collapsed;
 
@@ -128,6 +129,14 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             _watcher.KillRobloxProcess();
+        }
+
+        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (_activityWatcher is null)
+                throw new ArgumentNullException(nameof(_activityWatcher));
+
+            new ServerHistory(_activityWatcher).ShowDialog();
         }
     }
 }

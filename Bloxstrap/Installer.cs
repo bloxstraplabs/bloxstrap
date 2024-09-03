@@ -11,6 +11,8 @@ namespace Bloxstrap
 
         public string InstallLocation = Path.Combine(Paths.LocalAppData, "Bloxstrap");
 
+        public bool ExistingDataPresent => File.Exists(Path.Combine(InstallLocation, "Settings.json"));
+
         public bool CreateDesktopShortcuts = true;
 
         public bool CreateStartMenuShortcuts = true;
@@ -21,6 +23,10 @@ namespace Bloxstrap
 
         public void DoInstall()
         {
+            const string LOG_IDENT = "Installer::DoInstall";
+
+            App.Logger.WriteLine(LOG_IDENT, "Beginning installation");
+
             // should've been created earlier from the write test anyway
             Directory.CreateDirectory(InstallLocation);
 
@@ -69,9 +75,11 @@ namespace Bloxstrap
                 Shortcut.Create(Paths.Application, "", StartMenuShortcut);
 
             // existing configuration persisting from an earlier install
-            App.Settings.Load();
-            App.State.Load();
-            App.FastFlags.Load();
+            App.Settings.Load(false);
+            App.State.Load(false);
+            App.FastFlags.Load(false);
+
+            App.Logger.WriteLine(LOG_IDENT, "Installation finished");
         }
 
         private bool ValidateLocation()
@@ -400,6 +408,41 @@ namespace Bloxstrap
 
             if (existingVer is not null)
             {
+                if (Utilities.CompareVersions(existingVer, "2.2.0") == VersionComparison.LessThan)
+                {
+                    string path = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
+
+                    try
+                    {
+                        if (Directory.Exists(path))
+                            Directory.Delete(path, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+
+                if (Utilities.CompareVersions(existingVer, "2.3.0") == VersionComparison.LessThan)
+                {
+                    string injectorLocation = Path.Combine(Paths.Modifications, "dxgi.dll");
+                    string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
+
+                    if (File.Exists(injectorLocation))
+                    {
+                        Frontend.ShowMessageBox(
+                            Strings.Bootstrapper_HyperionUpdateInfo,
+                            MessageBoxImage.Warning
+                        );
+
+                        File.Delete(injectorLocation);
+                    }
+
+                    if (File.Exists(configLocation))
+                        File.Delete(configLocation);
+                }
+
+
                 if (Utilities.CompareVersions(existingVer, "2.5.0") == VersionComparison.LessThan)
                 {
                     App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
@@ -412,6 +455,13 @@ namespace Bloxstrap
 
                     if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
                         App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
+                }
+
+                if (Utilities.CompareVersions(existingVer, "2.5.3") == VersionComparison.LessThan)
+                {
+                    string? val = App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.1");
+                    if (App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.2") != val)
+                        App.FastFlags.SetPreset("UI.Menu.Style.EnableV4.2", val);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
@@ -435,9 +485,7 @@ namespace Bloxstrap
 
                     _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
                     if (x == 0)
-                    {
                         App.FastFlags.SetPreset("Rendering.Framerate", null);
-                    }
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)
@@ -466,6 +514,18 @@ namespace Bloxstrap
 
                     ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
                     ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
+
+                    string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
+
+                    if (oldV2Val is not null)
+                    {
+                        if (oldV2Val == "True")
+                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "0");
+                        else
+                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
+
+                        App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
+                    }
                 }
 
                 App.Settings.Save();

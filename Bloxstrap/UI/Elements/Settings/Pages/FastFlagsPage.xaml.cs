@@ -31,6 +31,8 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             DataContext = new FastFlagsViewModel(this);
         }
 
-        private void ValidateInt32(object sender, TextCompositionEventArgs e) => e.Handled = !Int32.TryParse(e.Text, out int _);
+        private void ValidateInt32(object sender, TextCompositionEventArgs e) => e.Handled = e.Text != "-" && !Int32.TryParse(e.Text, out int _);
+        
+        private void ValidateUInt32(object sender, TextCompositionEventArgs e) => e.Handled = !UInt32.TryParse(e.Text, out uint _);
     }
 }

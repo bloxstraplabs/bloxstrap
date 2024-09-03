@@ -31,13 +31,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             for (int i = 10; i > 0; i--)
             {
-                ContinueButtonText = $"({i}) {Resources.Strings.Menu_FastFlagEditor_Warning_Continue}";
+                ContinueButtonText = $"({i}) {Strings.Menu_FastFlagEditor_Warning_Continue}";
                 OnPropertyChanged(nameof(ContinueButtonText));
 
                 await Task.Delay(1000);
             }
 
-            ContinueButtonText = Resources.Strings.Menu_FastFlagEditor_Warning_Continue;
+            ContinueButtonText = Strings.Menu_FastFlagEditor_Warning_Continue;
             OnPropertyChanged(nameof(ContinueButtonText));
 
             CanContinue = true;

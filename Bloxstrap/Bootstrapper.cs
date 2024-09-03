@@ -209,12 +209,9 @@ namespace Bloxstrap
             if (_latestVersionGuid != _versionGuid || !File.Exists(_playerLocation))
                 await InstallLatestVersion();
 
-            MigrateIntegrations();
-
             if (_installWebView2)
                 await InstallWebView2();
 
-            App.FastFlags.Save();
             await ApplyModifications();
 
             // TODO: move this to install/upgrade flow
@@ -224,7 +221,6 @@ namespace Bloxstrap
             CheckInstall();
 
             // at this point we've finished updating our configs
-            App.Settings.Save();
             App.State.Save();
 
             await mutex.ReleaseAsync();
@@ -328,18 +324,26 @@ namespace Bloxstrap
                 return;
             }
 
-            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent);
-
-            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
-            using (var gameClient = Process.Start(startInfo)!)
+            bool startEventSignalled;
+
+            // TODO: figure out why this is causing roblox to block for some users
+            using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
             {
-                gameClientPid = gameClient.Id;
+                startEvent.Reset();
+
+                // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
+                using (var process = Process.Start(startInfo)!)
+                {
+                    gameClientPid = process.Id;
+                }
+
+                App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
+
+                startEventSignalled = startEvent.WaitOne(TimeSpan.FromSeconds(10));
             }
 
-            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
-
-            if (!startEvent.WaitOne(TimeSpan.FromSeconds(10)))
+            if (!startEventSignalled)
             {
                 Frontend.ShowPlayerErrorDialog();
                 return;
@@ -382,8 +386,10 @@ namespace Bloxstrap
             if (autoclosePids.Any())
                 args += $";{String.Join(',', autoclosePids)}";
 
-            using (var ipl = new InterProcessLock("Watcher"))
+            if (App.Settings.Prop.EnableActivityTracking || autoclosePids.Any())
             {
+                using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
+
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
@@ -764,32 +770,6 @@ namespace Bloxstrap
             await Process.Start(startInfo)!.WaitForExitAsync();
 
             App.Logger.WriteLine(LOG_IDENT, "Finished installing runtime");
-        }
-
-        public static void MigrateIntegrations()
-        {
-            // v2.2.0 - remove rbxfpsunlocker
-            string rbxfpsunlocker = Path.Combine(Paths.Integrations, "rbxfpsunlocker");
-
-            if (Directory.Exists(rbxfpsunlocker))
-                Directory.Delete(rbxfpsunlocker, true);
-
-            // v2.3.0 - remove reshade
-            string injectorLocation = Path.Combine(Paths.Modifications, "dxgi.dll");
-            string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
-
-            if (File.Exists(injectorLocation))
-            {
-                Frontend.ShowMessageBox(
-                    Strings.Bootstrapper_HyperionUpdateInfo,
-                    MessageBoxImage.Warning
-                );
-
-                File.Delete(injectorLocation);
-            }
-
-            if (File.Exists(configLocation))
-                File.Delete(configLocation);
         }
 
         private async Task ApplyModifications()

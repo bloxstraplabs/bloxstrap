@@ -17,7 +17,15 @@ namespace Bloxstrap.Utility
         public InterProcessLock(string name, TimeSpan timeout)
         {
             Mutex = new Mutex(false, "Bloxstrap-" + name);
-            IsAcquired = Mutex.WaitOne(timeout);
+
+            try
+            {
+                IsAcquired = Mutex.WaitOne(timeout);
+            }
+            catch (AbandonedMutexException)
+            {
+                IsAcquired = true;
+            }
         }
 
         public void Dispose()

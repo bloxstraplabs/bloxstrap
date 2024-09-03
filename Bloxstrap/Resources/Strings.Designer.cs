@@ -70,6 +70,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!.
+        /// </summary>
+        public static string About_Supporters_Description {
+            get {
+                return ResourceManager.GetString("About.Supporters.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supporters.
+        /// </summary>
+        public static string About_Supporters_Title {
+            get {
+                return ResourceManager.GetString("About.Supporters.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About Bloxstrap.
         /// </summary>
         public static string About_Title {
@@ -450,6 +468,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading, please wait....
+        /// </summary>
+        public static string Common_Loading {
+            get {
+                return ResourceManager.GetString("Common.Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Miscellaneous.
         /// </summary>
         public static string Common_Miscellaneous {
@@ -482,6 +509,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Navigation_Next {
             get {
                 return ResourceManager.GetString("Common.Navigation.Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not load data because of a network error..
+        /// </summary>
+        public static string Common_NetworkError {
+            get {
+                return ResourceManager.GetString("Common.NetworkError", resourceCulture);
             }
         }
         
@@ -630,20 +666,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rejoin.
+        /// </summary>
+        public static string ContextMenu_GameHistory_Rejoin {
+            get {
+                return ResourceManager.GetString("ContextMenu.GameHistory.Rejoin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game history.
+        /// </summary>
+        public static string ContextMenu_GameHistory_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.GameHistory.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox is still launching. A log file will only be available once Roblox launches..
         /// </summary>
         public static string ContextMenu_RobloxNotRunning {
             get {
                 return ResourceManager.GetString("ContextMenu.RobloxNotRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See server details.
-        /// </summary>
-        public static string ContextMenu_SeeServerDetails {
-            get {
-                return ResourceManager.GetString("ContextMenu.SeeServerDetails", resourceCulture);
             }
         }
         
@@ -1422,7 +1467,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Thank you for downloading Bloxstrap. 
         ///
-        ///You should have gotten it from either {0} or {1}. Those are the only official websites to get it from.
+        ///You should have downloaded it from either {0} or {1}. Those are the only official websites to get it from. It is your responsibility to ensure you download from an official source.
         ///
         ///This installation process will be quick and simple, and you will be able to configure any of Bloxstrap&apos;s settings after installation..
         /// </summary>
@@ -1456,6 +1501,24 @@ namespace Bloxstrap.Resources {
         public static string Installer_Welcome_UpdateNotice {
             get {
                 return ResourceManager.GetString("Installer.Welcome.UpdateNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Fast Flags could not be loaded. They have been reset to the default configuration..
+        /// </summary>
+        public static string JsonManager_FastFlagsLoadFailed {
+            get {
+                return ResourceManager.GetString("JsonManager.FastFlagsLoadFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Settings could not be loaded. They have been reset to the default configuration..
+        /// </summary>
+        public static string JsonManager_SettingsLoadFailed {
+            get {
+                return ResourceManager.GetString("JsonManager.SettingsLoadFailed", resourceCulture);
             }
         }
         
