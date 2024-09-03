@@ -61,7 +61,7 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="JoinLastServerMenuItem"  Visibility="Collapsed" Click="JoinLastServerMenuItem_Click">
+            <MenuItem Click="JoinLastServerMenuItem_Click">
                 <MenuItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>

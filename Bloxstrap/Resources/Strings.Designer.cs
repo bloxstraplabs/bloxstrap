@@ -124,6 +124,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your current game will not show on your Discord presence because an error occurred when loading the game information..
+        /// </summary>
+        public static string ActivityTracker_RichPresenceLoadFailed {
+            get {
+                return ResourceManager.GetString("ActivityTracker.RichPresenceLoadFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
         /// </summary>
         public static string Bootstrapper_AutoUpdateFailed {
@@ -662,6 +671,15 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_CopyDeeplinkInvite {
             get {
                 return ResourceManager.GetString("ContextMenu.CopyDeeplinkInvite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game history is only recorded for your current Roblox session. Games will appear here as you leave them or teleport within them..
+        /// </summary>
+        public static string ContextMenu_GameHistory_Description {
+            get {
+                return ResourceManager.GetString("ContextMenu.GameHistory.Description", resourceCulture);
             }
         }
         
@@ -1229,7 +1247,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Private.
+        ///   Looks up a localized string similar to Private server.
         /// </summary>
         public static string Enums_ServerType_Private {
             get {
@@ -1238,7 +1256,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Public.
+        ///   Looks up a localized string similar to Public server.
         /// </summary>
         public static string Enums_ServerType_Public {
             get {
@@ -1247,7 +1265,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reserved.
+        ///   Looks up a localized string similar to Reserved server.
         /// </summary>
         public static string Enums_ServerType_Reserved {
             get {
