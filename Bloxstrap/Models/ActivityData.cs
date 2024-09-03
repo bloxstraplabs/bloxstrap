@@ -44,11 +44,6 @@ namespace Bloxstrap.Models
 
         public DateTime? TimeLeft { get; set; }
 
-        /// <summary>
-        /// This gets set to true if this activity is from a same-universe teleport, whether public or reserved
-        /// </summary>
-        public bool IsRetainedUniverse { get; set; } = false;
-
         // everything below here is optional strictly for bloxstraprpc, discord rich presence, or game history
 
         /// <summary>

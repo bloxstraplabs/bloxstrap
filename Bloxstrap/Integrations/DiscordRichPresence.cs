@@ -6,10 +6,10 @@ namespace Bloxstrap.Integrations
     {
         private readonly DiscordRpcClient _rpcClient = new("1005469189907173486");
         private readonly ActivityWatcher _activityWatcher;
-        
+        private readonly Queue<Message> _messageQueue = new();
+
         private DiscordRPC.RichPresence? _currentPresence;
-        private DiscordRPC.RichPresence? _currentPresenceCopy;
-        private Queue<Message> _messageQueue = new();
+        private DiscordRPC.RichPresence? _originalPresence;
 
         private bool _visible = true;
 
@@ -52,7 +52,7 @@ namespace Bloxstrap.Integrations
             if (message.Command != "SetRichPresence" && message.Command != "SetLaunchData")
                 return;
 
-            if (_currentPresence is null || _currentPresenceCopy is null)
+            if (_currentPresence is null || _originalPresence is null)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Presence is not set, enqueuing message");
                 _messageQueue.Enqueue(message);
@@ -63,12 +63,7 @@ namespace Bloxstrap.Integrations
 
             if (message.Command == "SetLaunchData")
             {
-                var buttonQuery = _currentPresence.Buttons.Where(x => x.Label == "Join server");
-
-                if (!buttonQuery.Any())
-                    return;
-
-                buttonQuery.First().Url = _activityWatcher.Data.GetInviteDeeplink();
+                _currentPresence.Buttons = GetButtons();
             }
             else if (message.Command == "SetRichPresence")
             {
@@ -95,7 +90,7 @@ namespace Bloxstrap.Integrations
                     if (presenceData.Details.Length > 128)
                         App.Logger.WriteLine(LOG_IDENT, $"Details cannot be longer than 128 characters");
                     else if (presenceData.Details == "<reset>")
-                        _currentPresence.Details = _currentPresenceCopy.Details;
+                        _currentPresence.Details = _originalPresence.Details;
                     else
                         _currentPresence.Details = presenceData.Details;
                 }
@@ -105,7 +100,7 @@ namespace Bloxstrap.Integrations
                     if (presenceData.State.Length > 128)
                         App.Logger.WriteLine(LOG_IDENT, $"State cannot be longer than 128 characters");
                     else if (presenceData.State == "<reset>")
-                        _currentPresence.State = _currentPresenceCopy.State;
+                        _currentPresence.State = _originalPresence.State;
                     else
                         _currentPresence.State = presenceData.State;
                 }
@@ -128,8 +123,8 @@ namespace Bloxstrap.Integrations
                     }
                     else if (presenceData.SmallImage.Reset)
                     {
-                        _currentPresence.Assets.SmallImageText = _currentPresenceCopy.Assets.SmallImageText;
-                        _currentPresence.Assets.SmallImageKey = _currentPresenceCopy.Assets.SmallImageKey;
+                        _currentPresence.Assets.SmallImageText = _originalPresence.Assets.SmallImageText;
+                        _currentPresence.Assets.SmallImageKey = _originalPresence.Assets.SmallImageKey;
                     }
                     else
                     {
@@ -149,8 +144,8 @@ namespace Bloxstrap.Integrations
                     }
                     else if (presenceData.LargeImage.Reset)
                     {
-                        _currentPresence.Assets.LargeImageText = _currentPresenceCopy.Assets.LargeImageText;
-                        _currentPresence.Assets.LargeImageKey = _currentPresenceCopy.Assets.LargeImageKey;
+                        _currentPresence.Assets.LargeImageText = _originalPresence.Assets.LargeImageText;
+                        _currentPresence.Assets.LargeImageKey = _originalPresence.Assets.LargeImageKey;
                     }
                     else
                     {
@@ -187,7 +182,7 @@ namespace Bloxstrap.Integrations
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
 
-                _currentPresence = _currentPresenceCopy =  null;
+                _currentPresence = _originalPresence =  null;
                 _messageQueue.Clear();
 
                 UpdatePresence();
@@ -223,23 +218,6 @@ namespace Bloxstrap.Integrations
 
             icon = universeDetails.Thumbnail.ImageUrl;
 
-            List<Button> buttons = new();
-
-            if (!App.Settings.Prop.HideRPCButtons && activity.ServerType == ServerType.Public)
-            {
-                buttons.Add(new Button
-                {
-                    Label = "Join server",
-                    Url = activity.GetInviteDeeplink()
-                });
-            }
-
-            buttons.Add(new Button
-            {
-                Label = "See game page",
-                Url = $"https://www.roblox.com/games/{placeId}"
-            });
-
             if (!_activityWatcher.InGame || placeId != activity.PlaceId)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Aborting presence set because game activity has changed");
@@ -263,7 +241,7 @@ namespace Bloxstrap.Integrations
                 Details = $"Playing {universeName}",
                 State = status,
                 Timestamps = new Timestamps { Start = timeStarted.ToUniversalTime() },
-                Buttons = buttons.ToArray(),
+                Buttons = GetButtons(),
                 Assets = new Assets
                 {
                     LargeImageKey = icon,
@@ -274,7 +252,7 @@ namespace Bloxstrap.Integrations
             };
 
             // this is used for configuration from BloxstrapRPC
-            _currentPresenceCopy = _currentPresence.Clone();
+            _originalPresence = _currentPresence.Clone();
 
             if (_messageQueue.Any())
             {
@@ -285,6 +263,40 @@ namespace Bloxstrap.Integrations
             UpdatePresence();
 
             return true;
+        }
+
+        public Button[] GetButtons()
+        {
+            var buttons = new List<Button>();
+
+            var data = _activityWatcher.Data;
+
+            if (!App.Settings.Prop.HideRPCButtons)
+            {
+                bool show = false;
+
+                if (data.ServerType == ServerType.Public)
+                    show = true;
+                else if (data.ServerType == ServerType.Reserved && !String.IsNullOrEmpty(data.RPCLaunchData))
+                    show = true;
+
+                if (show)
+                {
+                    buttons.Add(new Button
+                    {
+                        Label = "Join server",
+                        Url = data.GetInviteDeeplink()
+                    });
+                }
+            }
+
+            buttons.Add(new Button
+            {
+                Label = "See game page",
+                Url = $"https://www.roblox.com/games/{data.PlaceId}"
+            });
+
+            return buttons.ToArray();
         }
 
         public void UpdatePresence()
