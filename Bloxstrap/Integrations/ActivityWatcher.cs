@@ -148,21 +148,6 @@
             {
                 // We are not in a game, nor are in the process of joining one
                 
-                //gameJoinLoadTime is written to the log file regardless of the server being private or not
-                if (entry.Contains(GameJoinLoadTimeEntry))
-                {
-                    Match match = Regex.Match(entry, GameJoinLoadTimeEntryPattern);
-
-                    if (match.Groups.Count != 2)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join load time entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
-                        return;                
-                    }
-
-                    Data.UserId = match.Groups[1].Value;
-                }
-                
                 if (entry.Contains(GameJoiningPrivateServerEntry))
                 {
                     // we only expect to be joining a private server if we're not already in a game
@@ -214,6 +199,21 @@
             else if (!InGame && Data.PlaceId != 0)
             {
                 // We are not confirmed to be in a game, but we are in the process of joining one
+
+                if (entry.Contains(GameJoinLoadTimeEntry))
+                {
+                    Match match = Regex.Match(entry, GameJoinLoadTimeEntryPattern);
+
+                    if (match.Groups.Count != 2)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join load time entry");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        return;                
+                    }
+
+                    Data.UserId = match.Groups[1].Value;
+                    App.Logger.WriteLine(LOG_IDENT, $"Got userid as " + Data.UserId);
+                }
 
                 if (entry.Contains(GameJoiningUniverseEntry))
                 {
