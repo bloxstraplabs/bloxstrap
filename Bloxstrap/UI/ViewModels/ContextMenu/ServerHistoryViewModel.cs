@@ -10,6 +10,10 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public List<ActivityData>? GameHistory { get; private set; }
 
+        public GenericTriState LoadState { get; private set; } = GenericTriState.Unknown;
+
+        public string Error { get; private set; } = String.Empty;
+
         public ICommand CloseWindowCommand => new RelayCommand(RequestClose);
         
         public EventHandler? RequestCloseEvent;
@@ -25,6 +29,9 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         private async void LoadData()
         {
+            LoadState = GenericTriState.Unknown;
+            OnPropertyChanged(nameof(LoadState));
+
             var entries = _activityWatcher.History.Where(x => x.UniverseDetails is null);
 
             if (entries.Any())
@@ -32,8 +39,22 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
                 // TODO: this will duplicate universe ids
                 string universeIds = String.Join(',', entries.Select(x => x.UniverseId));
 
-                if (!await UniverseDetails.FetchBulk(universeIds))
+                try
+                {
+                    await UniverseDetails.FetchBulk(universeIds);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteException("ServerHistoryViewModel::LoadData", ex);
+                    
+                    Error = ex.Message;
+                    OnPropertyChanged(nameof(Error));
+
+                    LoadState = GenericTriState.Failed;
+                    OnPropertyChanged(nameof(LoadState));
+
                     return;
+                }
 
                 foreach (var entry in entries)
                     entry.UniverseDetails = UniverseDetails.LoadFromCache(entry.UniverseId);
@@ -64,6 +85,9 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
             }
 
             OnPropertyChanged(nameof(GameHistory));
+
+            LoadState = GenericTriState.Successful;
+            OnPropertyChanged(nameof(LoadState));
         }
 
         private void RequestClose() => RequestCloseEvent?.Invoke(this, EventArgs.Empty);

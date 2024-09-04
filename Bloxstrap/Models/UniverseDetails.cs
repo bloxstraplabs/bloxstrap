@@ -21,17 +21,19 @@
             return null;
         }
 
-        public static Task<bool> FetchSingle(long id) => FetchBulk(id.ToString());
+        public static Task FetchSingle(long id) => FetchBulk(id.ToString());
 
-        public static async Task<bool> FetchBulk(string ids)
+        public static async Task FetchBulk(string ids)
         {
             var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={ids}");
-            if (gameDetailResponse is null || !gameDetailResponse.Data.Any())
-                return false;
+
+            if (!gameDetailResponse.Data.Any())
+                throw new InvalidHTTPResponseException("Roblox API for Game Details returned invalid data");
 
             var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
-            if (universeThumbnailResponse is null || !universeThumbnailResponse.Data.Any())
-                return false;
+
+            if (!universeThumbnailResponse.Data.Any())
+                throw new InvalidHTTPResponseException("Roblox API for Game Thumbnails returned invalid data");
 
             foreach (string strId in ids.Split(','))
             {
@@ -43,8 +45,6 @@
                     Thumbnail = universeThumbnailResponse.Data.Where(x => x.TargetId == id).First(),
                 });
             }
-
-            return true;
         }
     }
 }
