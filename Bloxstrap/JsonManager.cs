@@ -46,7 +46,7 @@ namespace Bloxstrap
                         message = Strings.JsonManager_FastFlagsLoadFailed;
 
                     if (!String.IsNullOrEmpty(message))
-                        Frontend.ShowMessageBox($"{message}\n\n{ex.GetType()}: {ex.Message}", System.Windows.MessageBoxImage.Warning);
+                        Frontend.ShowMessageBox($"{message}\n\n{ex.Message}", System.Windows.MessageBoxImage.Warning);
                 }
 
                 Save();

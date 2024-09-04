@@ -60,6 +60,10 @@ namespace Bloxstrap.UI
                 return;
             
             string serverLocation = await _activityWatcher.GetServerLocation();
+
+            if (string.IsNullOrEmpty(serverLocation))
+                return;
+
             string title = _activityWatcher.Data.ServerType switch
             {
                 ServerType.Public => Strings.ContextMenu_ServerInformation_Notification_Title_Public,

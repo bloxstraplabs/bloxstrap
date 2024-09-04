@@ -1,3 +1,4 @@
+using System.Windows;
 using DiscordRPC;
 
 namespace Bloxstrap.Integrations
@@ -207,17 +208,21 @@ namespace Bloxstrap.Integrations
 
             if (activity.UniverseDetails is null)
             {
-                await UniverseDetails.FetchSingle(activity.UniverseId);
+                try
+                {
+                    await UniverseDetails.FetchSingle(activity.UniverseId);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                    Frontend.ShowMessageBox($"{Strings.ActivityWatcher_RichPresenceLoadFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
+                    return false;
+                }
+
                 activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
             }
 
-            var universeDetails = activity.UniverseDetails;
-
-            if (universeDetails is null)
-            {
-                Frontend.ShowMessageBox(Strings.ActivityTracker_RichPresenceLoadFailed, System.Windows.MessageBoxImage.Warning);
-                return false;
-            }
+            var universeDetails = activity.UniverseDetails!;
 
             icon = universeDetails.Thumbnail.ImageUrl;
 

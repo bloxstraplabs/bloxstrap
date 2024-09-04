@@ -2,22 +2,22 @@
 {
     internal static class Http
     {
-        public static async Task<T?> GetJson<T>(string url)
+        /// <summary>
+        /// Gets and deserializes a JSON API response to the specified object
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="url"></param>
+        /// <exception cref="HttpRequestException"></exception>
+        /// <exception cref="JsonException"></exception>
+        public static async Task<T> GetJson<T>(string url)
         {
-            string LOG_IDENT = $"Http::GetJson<{typeof(T).Name}>";
+            var request = await App.HttpClient.GetAsync(url);
 
-            string json = await App.HttpClient.GetStringAsync(url);
+            request.EnsureSuccessStatusCode();
 
-            try
-            {
-                return JsonSerializer.Deserialize<T>(json);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Failed to deserialize JSON for {url}!");
-                App.Logger.WriteException(LOG_IDENT, ex);
-                return default;
-            }
+            string json = await request.Content.ReadAsStringAsync();
+            
+            return JsonSerializer.Deserialize<T>(json)!;
         }
     }
 }

@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>left game</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>lookup failed</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
     <value>Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
   </data>
@@ -1177,10 +1171,13 @@ Are you sure you want to continue?</value>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
     <value>Rejoin</value>
   </data>
-  <data name="ActivityTracker.RichPresenceLoadFailed" xml:space="preserve">
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
     <value>Your current game will not show on your Discord presence because an error occurred when loading the game information.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
     <value>Game history is only recorded for your current Roblox session. Games will appear here as you leave them or teleport within them.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Failed to query server location.</value>
   </data>
 </root>

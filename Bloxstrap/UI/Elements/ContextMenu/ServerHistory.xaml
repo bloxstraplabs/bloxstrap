@@ -8,6 +8,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.ContextMenu"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        xmlns:enums="clr-namespace:Bloxstrap.Enums"
         d:DataContext="{d:DesignInstance Type=models:ServerHistoryViewModel}"
         mc:Ignorable="d"
         Title="{x:Static resources:Strings.ContextMenu_GameHistory_Title}"
@@ -30,11 +31,24 @@
 
         <TextBlock Grid.Row="1" Margin="16,8,16,0" Text="{x:Static resources:Strings.ContextMenu_GameHistory_Description}" TextWrapping="Wrap" />
 
+        <TextBlock Grid.Row="2" Margin="16,8,16,0" Text="{Binding Error, Mode=OneWay}" TextWrapping="Wrap">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding LoadState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Failed}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
         <Border Grid.Row="2">
             <Border.Style>
                 <Style TargetType="Border">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding GameHistory, Mode=OneWay}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding LoadState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Unknown}">
                             <Setter Property="Visibility" Value="Visible" />
                         </DataTrigger>
                     </Style.Triggers>
@@ -49,11 +63,11 @@
             <ListView.Style>
                 <Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListView}}">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding GameHistory, Mode=OneWay}" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" />
+                        <DataTrigger Binding="{Binding LoadState, Mode=OneWay}" Value="{x:Static enums:GenericTriState.Successful}">
+                            <Setter Property="Visibility" Value="Visible" />
                         </DataTrigger>
                     </Style.Triggers>
-                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Visibility" Value="Collapsed" />
                 </Style>
             </ListView.Style>
             <ListView.ItemTemplate>
