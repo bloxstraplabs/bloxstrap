@@ -1,6 +1,5 @@
 ﻿namespace Bloxstrap.UI.ViewModels.Installer
 {
-    // TODO: administrator check?
     public class WelcomeViewModel : NotifyPropertyChangedViewModel
     {
         // formatting is done here instead of in xaml, it's just a bit easier

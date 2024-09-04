@@ -125,7 +125,6 @@ namespace Bloxstrap.Integrations
             }
         }
 
-        // TODO: i need to double check how this handles failed game joins (connection error, invalid permissions, etc)
         private void ReadLogEntry(string entry)
         {
             const string LOG_IDENT = "ActivityWatcher::ReadLogEntry";
@@ -142,7 +141,17 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, $"Read {_logEntriesRead} log entries");
 
             if (entry.Contains(GameLeavingEntry))
-                OnAppClose?.Invoke(this, new EventArgs());
+            {
+                App.Logger.WriteLine(LOG_IDENT, "User is back into the desktop app");
+                
+                OnAppClose?.Invoke(this, EventArgs.Empty);
+
+                if (Data.PlaceId != 0 && !InGame)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "User appears to be leaving from a cancelled/errored join");
+                    Data = new();
+                }
+            }
 
             if (!InGame && Data.PlaceId == 0)
             {

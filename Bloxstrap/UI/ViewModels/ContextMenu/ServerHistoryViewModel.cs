@@ -36,8 +36,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
             if (entries.Any())
             {
-                // TODO: this will duplicate universe ids
-                string universeIds = String.Join(',', entries.Select(x => x.UniverseId));
+                string universeIds = String.Join(',', entries.GroupBy(x => x.UniverseId).Select(x => x.First()));
 
                 try
                 {
