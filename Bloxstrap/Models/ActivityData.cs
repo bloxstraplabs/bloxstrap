@@ -36,6 +36,8 @@ namespace Bloxstrap.Models
         
         public string MachineAddress { get; set; } = String.Empty;
 
+        public string UserId { get; set; } = String.Empty;
+
         public bool IsTeleport { get; set; } = false;
         
         public ServerType ServerType { get; set; } = ServerType.Public;

@@ -160,7 +160,7 @@
                         return;                
                     }
 
-                    Data.ActivityUserId = match.Groups[1].Value;
+                    Data.UserId = match.Groups[1].Value;
                 }
                 
                 if (entry.Contains(GameJoiningPrivateServerEntry))

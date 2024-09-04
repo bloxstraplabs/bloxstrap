@@ -223,7 +223,7 @@ namespace Bloxstrap.Integrations
 
             if (App.Settings.Prop.AccountShownOnProfile)
             {
-                var userPfpResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={activity.userId}&size=180x180&format=Png&isCircular=false"); //we can remove '-headshot' from the url if we want a full avatar picture
+                var userPfpResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={activity.UserId}&size=180x180&format=Png&isCircular=false"); //we can remove '-headshot' from the url if we want a full avatar picture
                 if (userPfpResponse is null || !userPfpResponse.Data.Any())
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user thumbnail info!");
@@ -234,7 +234,7 @@ namespace Bloxstrap.Integrations
                     App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallImage}");
                 }
                 
-                var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{activity.userId}");
+                var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{activity.UserId}");
                 if (userInfoResponse is null)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
@@ -273,7 +273,7 @@ namespace Bloxstrap.Integrations
                 Assets = new Assets
                 {
                     LargeImageKey = icon,
-                    LargeImageText = universeDetails.Name,
+                    LargeImageText = universeDetails.Data.Name,
                     SmallImageKey = smallImage,
                     SmallImageText = smallImageText
                 }
