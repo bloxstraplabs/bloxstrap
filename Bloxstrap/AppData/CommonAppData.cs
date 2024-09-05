@@ -39,7 +39,16 @@ namespace Bloxstrap.AppData
             { "extracontent-places.zip",       @"ExtraContent\places\" },
         };
 
+        public virtual string FinalDirectory { get; } = null!;
+
+        public string StagingDirectory => $"{FinalDirectory}.staging";
+        
+        public virtual string ExecutableName { get; } = null!;
+
+        public string ExecutablePath => Path.Combine(FinalDirectory, ExecutableName);
+        
         public virtual IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
+
 
         public CommonAppData()
         {

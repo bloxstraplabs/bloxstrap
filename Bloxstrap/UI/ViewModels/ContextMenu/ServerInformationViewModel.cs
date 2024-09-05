@@ -19,8 +19,6 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
 
-        public EventHandler? RequestCloseEvent;
-
         public ServerInformationViewModel(Watcher watcher)
         {
             _activityWatcher = watcher.ActivityWatcher!;

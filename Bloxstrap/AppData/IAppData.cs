@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.AppData
+﻿namespace Bloxstrap.AppData
 {
     internal interface IAppData
     {
@@ -17,6 +11,14 @@ namespace Bloxstrap.AppData
         string ExecutableName { get; }
 
         string StartEvent { get; }
+
+        string FinalDirectory { get; }
+
+        string StagingDirectory { get; }
+
+        string ExecutablePath { get; }
+
+        AppState State { get; }
 
         IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
     }

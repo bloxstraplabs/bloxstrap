@@ -22,6 +22,7 @@
         public static string Integrations { get; private set; } = "";
         public static string Versions { get; private set; } = "";
         public static string Modifications { get; private set; } = "";
+        public static string Roblox { get; private set; } = "";
 
         public static string Application { get; private set; } = "";
 
@@ -37,6 +38,7 @@
             Integrations = Path.Combine(Base, "Integrations");
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
+            Roblox = Path.Combine(Base, "Roblox");
 
             Application = Path.Combine(Base, $"{App.ProjectName}.exe");
         }

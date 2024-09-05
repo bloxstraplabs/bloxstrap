@@ -137,7 +137,7 @@ namespace Bloxstrap.Models
 
         private void RejoinServer()
         {
-            string playerPath = Path.Combine(Paths.Versions, App.State.Prop.PlayerVersionGuid, "RobloxPlayerBeta.exe");
+            string playerPath = Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe");
             
             Process.Start(playerPath, GetInviteDeeplink(false));
         }
