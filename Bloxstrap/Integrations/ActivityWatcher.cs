@@ -30,7 +30,7 @@ namespace Bloxstrap.Integrations
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
         private bool _reservedTeleportMarker = false;
-        
+
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
@@ -74,40 +74,56 @@ namespace Bloxstrap.Integrations
             if (!Directory.Exists(logDirectory))
                 return;
 
-            FileInfo logFileInfo;
-
             // we need to make sure we're fetching the absolute latest log file
             // if roblox doesn't start quickly enough, we can wind up fetching the previous log file
             // good rule of thumb is to find a log file that was created in the last 15 seconds or so
 
             App.Logger.WriteLine(LOG_IDENT, "Opening Roblox log file...");
 
-            while (true)
+            string logPath = "";
+
+            // check if log file was created before the tracker launched
+            FileInfo logFileInfo = new DirectoryInfo(logDirectory)
+                .GetFiles()
+                .Where(x => x.Name.Contains("Player", StringComparison.OrdinalIgnoreCase) && x.CreationTime <= DateTime.Now)
+                .OrderByDescending(x => x.CreationTime)
+                .First();
+
+            // is 15s too much?
+            if (logFileInfo.CreationTime.AddSeconds(15) < DateTime.Now)
             {
-                logFileInfo = new DirectoryInfo(logDirectory)
-                    .GetFiles()
-                    .Where(x => x.Name.Contains("Player", StringComparison.OrdinalIgnoreCase) && x.CreationTime <= DateTime.Now)
-                    .OrderByDescending(x => x.CreationTime)
-                    .First();
+                // wait for the log file
+                using (FileSystemWatcher watcher = new FileSystemWatcher())
+                using (AutoResetEvent waitEvent = new AutoResetEvent(false))
+                {
+                    watcher.Path = logDirectory;
+                    watcher.Created += (s, e) => logPath = e.FullPath; waitEvent.Set();
+                    watcher.EnableRaisingEvents = true;
 
-                if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
-                    break;
+                    App.Logger.WriteLine(LOG_IDENT, "Waiting for log file.");
 
-                App.Logger.WriteLine(LOG_IDENT, $"Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
-                await Task.Delay(1000);
+                    waitEvent.WaitOne();
+                }
             }
+            else
+            {
+                logPath = logFileInfo.FullName;
+                App.Logger.WriteLine(LOG_IDENT, "Found recent log file.");
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, $"Got log file: {Path.GetFileName(logPath)}");
 
             OnLogOpen?.Invoke(this, EventArgs.Empty);
 
-            LogLocation = logFileInfo.FullName;
-            FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            App.Logger.WriteLine(LOG_IDENT, $"Opened {LogLocation}");
+            LogLocation = logPath;
+            FileStream logFileStream = File.Open(logPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            App.Logger.WriteLine(LOG_IDENT, $"Opened {logPath}");
 
             var logUpdatedEvent = new AutoResetEvent(false);
             var logWatcher = new FileSystemWatcher()
             {
                 Path = logDirectory,
-                Filter = Path.GetFileName(logFileInfo.FullName),
+                Filter = Path.GetFileName(logPath),
                 EnableRaisingEvents = true
             };
             logWatcher.Changed += (s, e) => logUpdatedEvent.Set();
