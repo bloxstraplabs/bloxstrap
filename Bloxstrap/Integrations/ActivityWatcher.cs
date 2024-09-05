@@ -226,7 +226,7 @@ namespace Bloxstrap.Integrations
                     {
                         var lastActivity = History.First();
 
-                        if (lastActivity is not null && Data.UniverseId == lastActivity.UniverseId && Data.IsTeleport)
+                        if (Data.UniverseId == lastActivity.UniverseId && Data.IsTeleport)
                             Data.RootActivity = lastActivity.RootActivity ?? lastActivity;
                     }
                 }

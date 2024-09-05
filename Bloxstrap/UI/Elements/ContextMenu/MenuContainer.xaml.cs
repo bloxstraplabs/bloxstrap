@@ -28,6 +28,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private ServerInformation? _serverInformationWindow;
 
+        private ServerHistory? _gameHistoryWindow;
+
         public MenuContainer(Watcher watcher)
         {
             InitializeComponent();
@@ -51,14 +53,14 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             if (_serverInformationWindow is null)
             {
-                _serverInformationWindow = new ServerInformation(_watcher);
+                _serverInformationWindow = new(_watcher);
                 _serverInformationWindow.Closed += (_, _) => _serverInformationWindow = null;
             }
 
             if (!_serverInformationWindow.IsVisible)
-                _serverInformationWindow.Show();
-
-            _serverInformationWindow.Activate();
+                _serverInformationWindow.ShowDialog();
+            else
+                _serverInformationWindow.Activate();
         }
 
         public void ActivityWatcher_OnLogOpen(object? sender, EventArgs e) => 
@@ -135,7 +137,16 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             if (_activityWatcher is null)
                 throw new ArgumentNullException(nameof(_activityWatcher));
 
-            new ServerHistory(_activityWatcher).ShowDialog();
+            if (_gameHistoryWindow is null)
+            {
+                _gameHistoryWindow = new(_activityWatcher);
+                _gameHistoryWindow.Closed += (_, _) => _gameHistoryWindow = null;
+            }
+
+            if (!_gameHistoryWindow.IsVisible)
+                _gameHistoryWindow.ShowDialog();
+            else
+                _gameHistoryWindow.Activate();
         }
     }
 }

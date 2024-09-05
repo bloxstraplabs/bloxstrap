@@ -494,7 +494,7 @@ namespace Bloxstrap
                     string oldStartPath = Path.Combine(Paths.WindowsStartMenu, "Bloxstrap");
 
                     if (File.Exists(oldDesktopPath))
-                        File.Move(oldDesktopPath, DesktopShortcut);
+                        File.Move(oldDesktopPath, DesktopShortcut, true);
 
                     if (Directory.Exists(oldStartPath))
                     {
