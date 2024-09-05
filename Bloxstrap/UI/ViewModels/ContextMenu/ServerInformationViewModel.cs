@@ -13,11 +13,11 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public string ServerType => _activityWatcher.Data.ServerType.ToTranslatedString();
 
-        public string ServerLocation { get; private set; } = Strings.ContextMenu_ServerInformation_Loading;
+        public string ServerLocation { get; private set; } = Strings.Common_Loading;
+
+        public Visibility ServerLocationVisibility => App.Settings.Prop.ShowServerDetails ? Visibility.Visible : Visibility.Collapsed;
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
-
-        public ICommand CloseWindowCommand => new RelayCommand(RequestClose);
 
         public EventHandler? RequestCloseEvent;
 
@@ -25,15 +25,16 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
         {
             _activityWatcher = watcher.ActivityWatcher!;
 
-            Task.Run(async () =>
-            {
-                ServerLocation = await _activityWatcher.GetServerLocation();
-                OnPropertyChanged(nameof(ServerLocation));
-            });
+            if (ServerLocationVisibility == Visibility.Visible)
+                QueryServerLocation();
+        }
+
+        public async void QueryServerLocation()
+        {
+            ServerLocation = await _activityWatcher.Data.QueryServerLocation();
+            OnPropertyChanged(nameof(ServerLocation));
         }
 
         private void CopyInstanceId() => Clipboard.SetDataObject(InstanceId);
-
-        private void RequestClose() => RequestCloseEvent?.Invoke(this, EventArgs.Empty);
     }
 }

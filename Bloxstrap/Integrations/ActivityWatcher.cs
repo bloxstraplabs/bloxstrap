@@ -190,6 +190,9 @@ namespace Bloxstrap.Integrations
                     Data.JobId = match.Groups[1].Value;
                     Data.MachineAddress = match.Groups[3].Value;
 
+                    if (App.Settings.Prop.ShowServerDetails && Data.MachineAddressValid)
+                        _ = Data.QueryServerLocation();
+
                     if (_teleportMarker)
                     {
                         Data.IsTeleport = true;
@@ -202,7 +205,7 @@ namespace Bloxstrap.Integrations
                         _reservedTeleportMarker = false;
                     }
 
-                    App.Logger.WriteLine(LOG_IDENT, $"Joining Game ({Data.PlaceId}/{Data.JobId}/{Data.MachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Joining Game ({Data})");
                 }
             }
             else if (!InGame && Data.PlaceId != 0)
@@ -243,7 +246,10 @@ namespace Bloxstrap.Integrations
 
                     Data.MachineAddress = match.Groups[1].Value;
 
-                    App.Logger.WriteLine(LOG_IDENT, $"Server is UDMUX protected ({Data.PlaceId}/{Data.JobId}/{Data.MachineAddress})");
+                    if (App.Settings.Prop.ShowServerDetails)
+                        _ = Data.QueryServerLocation();
+
+                    App.Logger.WriteLine(LOG_IDENT, $"Server is UDMUX protected ({Data})");
                 }
                 else if (entry.Contains(GameJoinedEntry))
                 {
@@ -256,7 +262,7 @@ namespace Bloxstrap.Integrations
                         return;
                     }
 
-                    App.Logger.WriteLine(LOG_IDENT, $"Joined Game ({Data.PlaceId}/{Data.JobId}/{Data.MachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Joined Game ({Data})");
 
                     InGame = true;
                     Data.TimeJoined = DateTime.Now;
@@ -270,7 +276,7 @@ namespace Bloxstrap.Integrations
 
                 if (entry.Contains(GameDisconnectedEntry))
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({Data.PlaceId}/{Data.JobId}/{Data.MachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({Data})");
 
                     Data.TimeLeft = DateTime.Now;
                     History.Insert(0, Data);
@@ -283,7 +289,7 @@ namespace Bloxstrap.Integrations
                 }
                 else if (entry.Contains(GameTeleportingEntry))
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data.PlaceId}/{Data.JobId}/{Data.MachineAddress})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data})");
                     _teleportMarker = true;
                 }
                 else if (_teleportMarker && entry.Contains(GameJoiningReservedServerEntry))
@@ -368,44 +374,6 @@ namespace Bloxstrap.Integrations
 
                     LastRPCRequest = DateTime.Now;
                 }
-            }
-        }
-
-        public async Task<string> GetServerLocation()
-        {
-            const string LOG_IDENT = "ActivityWatcher::GetServerLocation";
-
-            if (GeolocationCache.ContainsKey(Data.MachineAddress))
-                return GeolocationCache[Data.MachineAddress];
-
-            try
-            {
-                string location = "";
-                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{Data.MachineAddress}/json");
-
-                if (String.IsNullOrEmpty(ipInfo.City))
-                    throw new InvalidHTTPResponseException("Reported city was blank");
-
-                if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
-                else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
-
-                GeolocationCache[Data.MachineAddress] = location;
-
-                if (!InGame)
-                    return "";
-
-                return location;
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {Data.MachineAddress}");
-                App.Logger.WriteException(LOG_IDENT, ex);
-
-                Frontend.ShowMessageBox($"{Strings.ActivityWatcher_LocationQueryFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
-
-                return "?";
             }
         }
 

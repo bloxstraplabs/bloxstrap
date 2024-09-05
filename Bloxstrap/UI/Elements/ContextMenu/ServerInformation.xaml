@@ -46,14 +46,14 @@
             <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_InstanceId}" />
             <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding InstanceId, Mode=OneWay}" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_Location}" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ServerLocation, Mode=OneWay}" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,12" VerticalAlignment="Center" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_Location}" Visibility="{Binding ServerLocationVisibility, Mode=OneTime}" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ServerLocation, Mode=OneWay}" Visibility="{Binding ServerLocationVisibility, Mode=OneTime}" />
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button MinWidth="100" Content="{x:Static resources:Strings.ContextMenu_ServerInformation_CopyInstanceId}" Command="{Binding CopyInstanceIdCommand, Mode=OneTime}" />
-                <Button Margin="12,0,0,0" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Command="{Binding CloseWindowCommand, Mode=OneTime}" />
+                <Button Margin="12,0,0,0" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" IsCancel="True" />
             </StackPanel>
         </Border>
     </Grid>

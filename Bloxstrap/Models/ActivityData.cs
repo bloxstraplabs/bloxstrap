@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Windows;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -35,6 +36,8 @@ namespace Bloxstrap.Models
         public string AccessCode { get; set; } = String.Empty;
         
         public string MachineAddress { get; set; } = String.Empty;
+
+        public bool MachineAddressValid => !String.IsNullOrEmpty(MachineAddress) && !MachineAddress.StartsWith("10.");
 
         public bool IsTeleport { get; set; } = false;
         
@@ -82,6 +85,55 @@ namespace Bloxstrap.Models
 
             return deeplink;
         }
+
+        public async Task<string> QueryServerLocation()
+        {
+            const string LOG_IDENT = "ActivityData::QueryServerLocation";
+
+            if (!MachineAddressValid)
+                throw new InvalidOperationException($"Machine address is invalid ({MachineAddress})");
+
+            if (GlobalCache.PendingTasks.TryGetValue(MachineAddress, out Task? task))
+                await task;
+
+            if (GlobalCache.ServerLocation.TryGetValue(MachineAddress, out string? location))
+                return location;
+
+            try
+            {
+                location = "";
+                var ipInfoTask = Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
+
+                GlobalCache.PendingTasks.Add(MachineAddress, ipInfoTask);
+
+                var ipInfo = await ipInfoTask;
+
+                GlobalCache.PendingTasks.Remove(MachineAddress);
+
+                if (String.IsNullOrEmpty(ipInfo.City))
+                    throw new InvalidHTTPResponseException("Reported city was blank");
+
+                if (ipInfo.City == ipInfo.Region)
+                    location = $"{ipInfo.Region}, {ipInfo.Country}";
+                else
+                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+
+                GlobalCache.ServerLocation[MachineAddress] = location;
+
+                return location;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress}");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                Frontend.ShowMessageBox($"{Strings.ActivityWatcher_LocationQueryFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
+
+                return "?";
+            }
+        }
+
+        public override string ToString() => $"{PlaceId}/{JobId}";
 
         private void RejoinServer()
         {

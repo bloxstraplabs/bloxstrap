@@ -720,15 +720,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loading, please wait....
-        /// </summary>
-        public static string ContextMenu_ServerInformation_Loading {
-            get {
-                return ResourceManager.GetString("ContextMenu.ServerInformation.Loading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
         public static string ContextMenu_ServerInformation_Location {
@@ -2709,7 +2700,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running..
+        ///   Looks up a localized string similar to When in-game, you&apos;ll be able to see where your server is located via [ipinfo.io]({0})..
+        /// </summary>
+        public static string Menu_Integrations_QueryServerLocation_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.QueryServerLocation.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Query server location.
+        /// </summary>
+        public static string Menu_Integrations_QueryServerLocation_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.QueryServerLocation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running. [Find out more]({0})..
         /// </summary>
         public static string Menu_Integrations_RequiresActivityTracking {
             get {
@@ -2732,24 +2741,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_ShowGameActivity_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.ShowGameActivity.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When you join a game, you&apos;ll be notified of where your server&apos;s located. Won&apos;t show in fullscreen..
-        /// </summary>
-        public static string Menu_Integrations_ShowServerDetails_Description {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.ShowServerDetails.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See server location when joining a game.
-        /// </summary>
-        public static string Menu_Integrations_ShowServerDetails_Title {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.ShowServerDetails.Title", resourceCulture);
             }
         }
         
