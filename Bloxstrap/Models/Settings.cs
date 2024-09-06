@@ -25,6 +25,5 @@ namespace Bloxstrap.Models
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
-        public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

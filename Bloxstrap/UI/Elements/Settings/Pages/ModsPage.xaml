@@ -93,13 +93,5 @@
                 <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Remove}" Appearance="Danger" Command="{Binding ManageCustomFontCommand}" Visibility="{Binding DeleteCustomFontVisibility, Mode=OneWay}" />
             </StackPanel>
         </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Title}" 
-            Description="{x:Static resources:Strings.Menu_Mods_Misc_DisableFullscreenOptimisations_Description}"
-            HelpLink="https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/"
-            x:Name="FullscreenOptimizationsToggle">
-            <ui:ToggleSwitch IsChecked="{Binding DisableFullscreenOptimizations, Mode=TwoWay}" />
-        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

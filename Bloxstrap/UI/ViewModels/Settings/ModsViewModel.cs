@@ -95,11 +95,5 @@ namespace Bloxstrap.UI.ViewModels.Settings
         });
 
         public FontModPresetTask TextFontTask { get; } = new();
-
-        public bool DisableFullscreenOptimizations
-        {
-            get => App.Settings.Prop.DisableFullscreenOptimizations;
-            set => App.Settings.Prop.DisableFullscreenOptimizations = value;
-        }
     }
 }
