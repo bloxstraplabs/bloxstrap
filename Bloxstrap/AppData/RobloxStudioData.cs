@@ -12,7 +12,7 @@
 
         public string StartEvent => "www.roblox.com/robloxStudioStartedEvent";
 
-        public override string FinalDirectory => Path.Combine(Paths.Roblox, "Studio");
+        public override string Directory => Path.Combine(Paths.Roblox, "Studio");
         
         public AppState State => App.State.Prop.Studio;
 

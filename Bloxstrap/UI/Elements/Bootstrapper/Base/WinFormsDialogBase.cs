@@ -108,7 +108,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         public void Dialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!_isClosing)
-                Bootstrapper?.CancelInstall();
+                Bootstrapper?.Cancel();
         }
         #endregion
 

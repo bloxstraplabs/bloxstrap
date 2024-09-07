@@ -18,7 +18,7 @@ namespace Bloxstrap.AppData
 
         public string StartEvent => "www.roblox.com/robloxStartedEvent";
 
-        public override string FinalDirectory => Path.Combine(Paths.Roblox, "Player");
+        public override string Directory => Path.Combine(Paths.Roblox, "Player");
 
         public AppState State => App.State.Prop.Player;
 

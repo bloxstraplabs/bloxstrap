@@ -47,6 +47,9 @@ namespace Bloxstrap
         private double _progressIncrement;
         private long _totalDownloadedBytes = 0;
 
+        private bool _mustUpgrade => File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
+        private bool _skipUpgrade = false;
+
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
@@ -162,8 +165,8 @@ namespace Bloxstrap
             await GetLatestVersionInfo();
 
             // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
-            if (!File.Exists(AppData.ExecutablePath) || AppData.State.VersionGuid != _latestVersionGuid)
-                await InstallLatestVersion();
+            if (!_skipUpgrade && (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade))
+                await UpgradeRoblox();
 
             //await ApplyModifications();
 
@@ -284,7 +287,7 @@ namespace Bloxstrap
             {
                 FileName = AppData.ExecutablePath,
                 Arguments = _launchCommandLine,
-                WorkingDirectory = AppData.FinalDirectory
+                WorkingDirectory = AppData.Directory
             };
 
             if (_launchMode == LaunchMode.StudioAuth)
@@ -362,14 +365,17 @@ namespace Bloxstrap
             {
                 using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
+                // TODO: look into if this needs to be launched *before* roblox starts
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
         }
 
-        public void CancelInstall()
+        // TODO: the bootstrapper dialogs call this function directly.
+        // this should probably be behind an event invocation.
+        public void Cancel()
         {
-            const string LOG_IDENT = "Bootstrapper::CancelInstall";
+            const string LOG_IDENT = "Bootstrapper::Cancel";
 
             if (!_isInstalling)
             {
@@ -381,20 +387,23 @@ namespace Bloxstrap
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
-            App.Logger.WriteLine(LOG_IDENT, "Cancelling install...");
+            App.Logger.WriteLine(LOG_IDENT, "Cancelling launch...");
 
             _cancelTokenSource.Cancel();
 
-            try
+            if (_isInstalling)
             {
-                // clean up install
-                if (Directory.Exists(AppData.StagingDirectory))
-                    Directory.Delete(AppData.StagingDirectory, true);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Could not fully clean up installation!");
-                App.Logger.WriteException(LOG_IDENT, ex);
+                try
+                {
+                    // clean up install
+                    if (Directory.Exists(AppData.Directory))
+                        Directory.Delete(AppData.Directory, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Could not fully clean up installation!");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
             }
 
             Dialog?.CloseBootstrapper();
@@ -509,22 +518,46 @@ namespace Bloxstrap
 #endregion
 
         #region Roblox Install
-        private async Task InstallLatestVersion()
+        private async Task UpgradeRoblox()
         {
-            const string LOG_IDENT = "Bootstrapper::InstallLatestVersion";
+            const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
             
-            _isInstalling = true;
-
             SetStatus(FreshInstall ? Strings.Bootstrapper_Status_Installing : Strings.Bootstrapper_Status_Upgrading);
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
             Directory.CreateDirectory(Paths.Roblox);
 
-            if (Directory.Exists(AppData.StagingDirectory))
-                Directory.Delete(AppData.StagingDirectory, true);
+            if (Directory.Exists(AppData.Directory))
+            {
+                try
+                {
+                    // gross hack to see if roblox is still running
+                    // i don't want to rely on mutexes because they can change, and will false flag for
+                    // running installations that are not by bloxstrap
+                    File.Delete(AppData.ExecutablePath);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Could not delete executable/folder, Roblox may still be running. Aborting update.");
+                    App.Logger.WriteException(LOG_IDENT, ex);
 
-            Directory.CreateDirectory(AppData.StagingDirectory);
+                    Directory.Delete(AppData.Directory);
+
+                    return;
+                }
+
+                Directory.Delete(AppData.Directory, true);
+            }
+
+            _isInstalling = true;
+
+            Directory.CreateDirectory(AppData.Directory);
+
+            // installer lock, it should only be present while roblox is in the process of upgrading
+            // if it's present while we're launching, then it's an unfinished install and must be reinstalled
+            var lockFile = new FileInfo(AppData.LockFilePath);
+            lockFile.Create().Dispose();
 
             // package manifest states packed size and uncompressed size in exact bytes
             // packed size only matters if we don't already have the package cached on disk
@@ -564,8 +597,7 @@ namespace Bloxstrap
                 if (package.Name == "WebView2RuntimeInstaller.zip")
                     continue;
 
-                // extract the package immediately after download asynchronously
-                // discard is just used to suppress the warning
+                // extract the package async immediately after download
                 extractionTasks.Add(Task.Run(() => ExtractPackage(package), _cancelTokenSource.Token));
             }
 
@@ -586,11 +618,13 @@ namespace Bloxstrap
             await Task.WhenAll(extractionTasks);
             
             App.Logger.WriteLine(LOG_IDENT, "Writing AppSettings.xml...");
-            await File.WriteAllTextAsync(Path.Combine(AppData.StagingDirectory, "AppSettings.xml"), AppSettings);
+            await File.WriteAllTextAsync(Path.Combine(AppData.Directory, "AppSettings.xml"), AppSettings);
 
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
+            // only prompt on fresh install, since we don't want to be prompting them for every single launch
+            // TODO: state entry?
             if (FreshInstall)
             {
                 using var hklmKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
@@ -612,7 +646,7 @@ namespace Bloxstrap
                             return;
                         }
 
-                        string baseDirectory = Path.Combine(AppData.StagingDirectory, AppData.PackageDirectoryMap[package.Name]);
+                        string baseDirectory = Path.Combine(AppData.Directory, AppData.PackageDirectoryMap[package.Name]);
 
                         ExtractPackage(package);
 
@@ -681,36 +715,12 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
+            App.State.Save();
+
+            lockFile.Delete();
+
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
-
-            if (Directory.Exists(AppData.FinalDirectory))
-            {
-                try
-                {
-                    // gross hack to see if roblox is still running
-                    // i don't want to rely on mutexes because they can change, and will false flag for
-                    // running installations that are not by bloxstrap
-                    File.Delete(AppData.ExecutablePath);
-
-                    Directory.Delete(AppData.FinalDirectory, true);
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not delete executable/folder, Roblox may still be running. Aborting update.");
-                    App.Logger.WriteException(LOG_IDENT, ex);
-
-                    Directory.Delete(AppData.StagingDirectory);
-
-                    _isInstalling = false;
-
-                    return;
-                }
-            }
-
-            Directory.Move(AppData.StagingDirectory, AppData.FinalDirectory);
-
-            App.State.Save();
 
             _isInstalling = false;
         }
@@ -996,7 +1006,7 @@ namespace Bloxstrap
             const string LOG_IDENT = "Bootstrapper::ExtractPackage";
 
             string packageLocation = Path.Combine(Paths.Downloads, package.Signature);
-            string packageFolder = Path.Combine(AppData.StagingDirectory, AppData.PackageDirectoryMap[package.Name]);
+            string packageFolder = Path.Combine(AppData.Directory, AppData.PackageDirectoryMap[package.Name]);
 
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 

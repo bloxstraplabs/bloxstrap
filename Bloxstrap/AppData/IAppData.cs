@@ -12,9 +12,9 @@
 
         string StartEvent { get; }
 
-        string FinalDirectory { get; }
+        string Directory { get; }
 
-        string StagingDirectory { get; }
+        string LockFilePath { get; }
 
         string ExecutablePath { get; }
 
