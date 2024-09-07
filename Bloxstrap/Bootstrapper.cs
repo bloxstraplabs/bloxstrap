@@ -34,9 +34,9 @@ namespace Bloxstrap
 
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private IAppData AppData;
+        private readonly IAppData AppData;
 
-        private bool FreshInstall => String.IsNullOrEmpty(AppData.State.VersionGuid);
+        private bool FreshInstall => !File.Exists(AppData.ExecutablePath) || String.IsNullOrEmpty(AppData.State.VersionGuid);
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private LaunchMode _launchMode = App.LaunchSettings.RobloxLaunchMode;
@@ -559,10 +559,14 @@ namespace Bloxstrap
             var lockFile = new FileInfo(AppData.LockFilePath);
             lockFile.Create().Dispose();
 
+            var cachedPackageHashes = Directory.GetFiles(Paths.Downloads).Select(x => Path.GetFileName(x));
+
             // package manifest states packed size and uncompressed size in exact bytes
+            int totalSizeRequired = 0;
+
             // packed size only matters if we don't already have the package cached on disk
-            var cachedPackages = Directory.GetFiles(Paths.Downloads);
-            int totalSizeRequired = _versionPackageManifest.Where(x => !cachedPackages.Contains(x.Signature)).Sum(x => x.PackedSize) + _versionPackageManifest.Sum(x => x.Size);
+            totalSizeRequired += _versionPackageManifest.Where(x => !cachedPackageHashes.Contains(x.Signature)).Sum(x => x.PackedSize);
+            totalSizeRequired += _versionPackageManifest.Sum(x => x.Size);
             
             if (Filesystem.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
@@ -682,19 +686,19 @@ namespace Bloxstrap
             allPackageHashes.AddRange(App.State.Prop.Player.PackageHashes.Values);
             allPackageHashes.AddRange(App.State.Prop.Studio.PackageHashes.Values);
 
-            foreach (string filename in cachedPackages)
+            foreach (string hash in cachedPackageHashes)
             {
-                if (!allPackageHashes.Contains(filename))
+                if (!allPackageHashes.Contains(hash))
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {filename}");
+                    App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
                         
                     try
                     {
-                        File.Delete(filename);
+                        File.Delete(Path.Combine(Paths.Downloads, hash));
                     }
                     catch (Exception ex)
                     {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {filename}!");
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
                         App.Logger.WriteException(LOG_IDENT, ex);
                     }
                 }
@@ -702,7 +706,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Registering approximate program size...");
 
-            int distributionSize = _versionPackageManifest.Sum(x => x.Size + x.PackedSize) / 1000;
+            int distributionSize = _versionPackageManifest.Sum(x => x.Size + x.PackedSize) / 1024;
 
             AppData.State.Size = distributionSize;
 
