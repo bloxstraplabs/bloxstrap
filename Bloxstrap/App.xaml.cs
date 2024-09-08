@@ -101,8 +101,7 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            if (!LaunchSettings.QuietFlag.Active)
-                Frontend.ShowExceptionDialog(ex);
+            Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
         }

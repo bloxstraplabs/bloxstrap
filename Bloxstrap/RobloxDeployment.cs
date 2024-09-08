@@ -33,8 +33,7 @@
             {
                 var response = await App.HttpClient.GetAsync($"{url}/versionStudio", token);
                 
-                if (!response.IsSuccessStatusCode)
-                    throw new HttpResponseException(response);
+                response.EnsureSuccessStatusCode();
 
                 // versionStudio is the version hash for the last MFC studio to be deployed.
                 // the response body should always be "version-012732894899482c".
@@ -151,14 +150,14 @@
 
                 try
                 {
-                    clientVersion = await Http.GetJson<ClientVersion>($"https://clientsettingscdn.roblox.com/{path}");
+                    clientVersion = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + path);
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Failed to contact clientsettingscdn! Falling back to clientsettings...");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    clientVersion = await Http.GetJson<ClientVersion>($"https://clientsettings.roblox.com/{path}");
+                    clientVersion = await Http.GetJson<ClientVersion>("https://clientsettings.roblox.com" + path);
                 }
 
                 // check if channel is behind LIVE

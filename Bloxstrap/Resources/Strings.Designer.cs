@@ -142,33 +142,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It&apos;s possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again..
-        /// </summary>
-        public static string Bootstrapper_Connectivity_Preventing {
-            get {
-                return ResourceManager.GetString("Bootstrapper.Connectivity.Preventing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Roblox may be down right now. See status.roblox.com for more information. Please try again later..
-        /// </summary>
-        public static string Bootstrapper_Connectivity_RobloxDown {
-            get {
-                return ResourceManager.GetString("Bootstrapper.Connectivity.RobloxDown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later..
-        /// </summary>
-        public static string Bootstrapper_Connectivity_TimedOut {
-            get {
-                return ResourceManager.GetString("Bootstrapper.Connectivity.TimedOut", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu..
         /// </summary>
         public static string Bootstrapper_EmojiPresetFetchFailed {
@@ -829,6 +802,60 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something is likely preventing Bloxstrap from connecting to the internet..
+        /// </summary>
+        public static string Dialog_Connectivity_Preventing {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.Preventing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox may be down right now. See {0} for more information..
+        /// </summary>
+        public static string Dialog_Connectivity_RobloxDown {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.RobloxDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue..
+        /// </summary>
+        public static string Dialog_Connectivity_RobloxUpgradeNeeded {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.RobloxUpgradeNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied..
+        /// </summary>
+        public static string Dialog_Connectivity_RobloxUpgradeSkip {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.RobloxUpgradeSkip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} may be down right now..
+        /// </summary>
+        public static string Dialog_Connectivity_ServiceDown {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.ServiceDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The connection timed out, which could indicate a poor internet connection or a firewall block..
+        /// </summary>
+        public static string Dialog_Connectivity_TimedOut {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.TimedOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connectivity error.
         /// </summary>
         public static string Dialog_Connectivity_Title {
@@ -838,7 +865,16 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is unable to connect to Roblox.
+        ///   Looks up a localized string similar to Please try again later..
+        /// </summary>
+        public static string Dialog_Connectivity_TryAgainLater {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.TryAgainLater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap is unable to connect to {0}.
         /// </summary>
         public static string Dialog_Connectivity_UnableToConnect {
             get {

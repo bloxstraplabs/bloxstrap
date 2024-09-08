@@ -49,17 +49,23 @@ namespace Bloxstrap.UI
 
         public static void ShowExceptionDialog(Exception exception)
         {
+            if (App.LaunchSettings.QuietFlag.Active)
+                return;
+
             Application.Current.Dispatcher.Invoke(() =>
             {
                 new ExceptionDialog(exception).ShowDialog();
             });
         }
 
-        public static void ShowConnectivityDialog(string title, string description, Exception exception)
+        public static void ShowConnectivityDialog(string title, string description, MessageBoxImage image, Exception exception)
         {
+            if (App.LaunchSettings.QuietFlag.Active)
+                return;
+
             Application.Current.Dispatcher.Invoke(() =>
             {
-                new ConnectivityDialog(title, description, exception).ShowDialog();
+                new ConnectivityDialog(title, description, image, exception).ShowDialog();
             });
         }
 

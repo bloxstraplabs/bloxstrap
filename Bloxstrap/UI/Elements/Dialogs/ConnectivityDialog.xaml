@@ -12,6 +12,7 @@
         Width="480"
         MinHeight="0"
         SizeToContent="Height"
+        Title="{x:Static resources:Strings.Dialog_Connectivity_Title}"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
         WindowStartupLocation="CenterScreen">
@@ -29,7 +30,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
+            <Image x:Name="IconImage" Grid.Column="0" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
             <StackPanel Grid.Column="1">
                 <TextBlock x:Name="TitleTextBlock" Text="? is unable to connect to ?" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <controls:MarkdownTextBlock x:Name="DescriptionTextBlock" MarkdownText="?" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />

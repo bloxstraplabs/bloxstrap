@@ -123,14 +123,14 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Something is likely preventing Bloxstrap from connecting to the internet.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox may be down right now. See status.roblox.com for more information. Please try again later.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>The connection timed out, which could indicate a poor internet connection or a firewall block.</value>
   </data>
   <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
     <value>Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu.</value>
@@ -294,7 +294,7 @@ Click for more information</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to Roblox</value>
+    <value>Bloxstrap is unable to connect to {0}</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Copy log contents</value>
@@ -1170,5 +1170,17 @@ Are you sure you want to continue?</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>Failed to query server location.</value>
+  </data>
+  <data name="Dialog.Connectivity.ServiceDown" xml:space="preserve">
+    <value>{0} may be down right now.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Please try again later.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
   </data>
 </root>
