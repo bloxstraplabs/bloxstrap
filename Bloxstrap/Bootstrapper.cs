@@ -36,8 +36,6 @@ namespace Bloxstrap
 
         private readonly IAppData AppData;
 
-        private bool FreshInstall => !File.Exists(AppData.ExecutablePath) || String.IsNullOrEmpty(AppData.State.VersionGuid);
-
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private LaunchMode _launchMode = App.LaunchSettings.RobloxLaunchMode;
         private string _latestVersionGuid = null!;
@@ -47,7 +45,7 @@ namespace Bloxstrap
         private double _progressIncrement;
         private long _totalDownloadedBytes = 0;
 
-        private bool _mustUpgrade => File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         public IBootstrapperDialog? Dialog = null;
@@ -164,12 +162,16 @@ namespace Bloxstrap
             // TODO: handle exception and update skip
             await GetLatestVersionInfo();
 
-            // install/update roblox if we're running for the first time, needs updating, or the player location doesn't exist
-            if (!_noConnection && (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade))
-                await UpgradeRoblox();
-
             if (!_noConnection)
+            {
+                if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                    await UpgradeRoblox();
+
+                // we require deployment details for applying modifications for a worst case scenario,
+                // where we'd need to restore files from a package that isn't present on disk and needs to be redownloaded
                 await ApplyModifications();
+            }
+
 
             // check if launch uri is set to our bootstrapper
             // this doesn't go under register, so we check every launch
@@ -522,8 +524,11 @@ namespace Bloxstrap
         private async Task UpgradeRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
-            
-            SetStatus(FreshInstall ? Strings.Bootstrapper_Status_Installing : Strings.Bootstrapper_Status_Upgrading);
+
+            if (String.IsNullOrEmpty(AppData.State.VersionGuid))
+                SetStatus(Strings.Bootstrapper_Status_Installing);
+            else
+                SetStatus(Strings.Bootstrapper_Status_Upgrading);
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
@@ -628,18 +633,25 @@ namespace Bloxstrap
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
-            // only prompt on fresh install, since we don't want to be prompting them for every single launch
-            // TODO: state entry?
-            if (FreshInstall)
+            if (App.State.Prop.PromptWebView2Install)
             {
                 using var hklmKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
                 using var hkcuKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
 
-                if (hklmKey is null && hkcuKey is null)
+                if (hklmKey is not null || hkcuKey is not null)
+                {
+                    // reset prompt state if the user has it installed
+                    App.State.Prop.PromptWebView2Install = true;
+                }   
+                else
                 {
                     var result = Frontend.ShowMessageBox(Strings.Bootstrapper_WebView2NotFound, MessageBoxImage.Warning, MessageBoxButton.YesNo, MessageBoxResult.Yes);
 
-                    if (result == MessageBoxResult.Yes)
+                    if (result != MessageBoxResult.Yes)
+                    {
+                        App.State.Prop.PromptWebView2Install = false;
+                    }
+                    else
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Installing WebView2 runtime...");
 
