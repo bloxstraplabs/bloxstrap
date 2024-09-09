@@ -2,12 +2,6 @@
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.Resources;
-
-using Microsoft.Win32;
-using Wpf.Ui.Mvvm.Interfaces;
-using System.ComponentModel;
-
 namespace Bloxstrap.UI.ViewModels.Installer
 {
     public class InstallViewModel : NotifyPropertyChangedViewModel

@@ -1177,4 +1177,9 @@ Are you sure you want to continue?</value>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
     <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
   </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
+
+Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
+  </data>
 </root>

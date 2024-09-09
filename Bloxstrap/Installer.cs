@@ -35,7 +35,19 @@ namespace Bloxstrap
             if (!IsImplicitInstall)
             {
                 Filesystem.AssertReadOnly(Paths.Application);
-                File.Copy(Paths.Process, Paths.Application, true);
+
+                try
+                {
+                    File.Copy(Paths.Process, Paths.Application, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Could not overwrite executable");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+
+                    Frontend.ShowMessageBox(Strings.Installer_Install_CannotOverwrite, MessageBoxImage.Error);
+                    App.Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
+                }
             }
 
             // TODO: registry access checks, i'll need to look back on issues to see what the error looks like
@@ -259,8 +271,10 @@ namespace Bloxstrap
 
                 () => File.Delete(StartMenuShortcut),
 
-                () => Directory.Delete(Paths.Versions, true),
                 () => Directory.Delete(Paths.Downloads, true),
+                () => Directory.Delete(Paths.Roblox, true),
+
+                () => File.Delete(App.State.FileLocation)
             };
 
             if (!keepData)
@@ -270,8 +284,7 @@ namespace Bloxstrap
                     () => Directory.Delete(Paths.Modifications, true),
                     () => Directory.Delete(Paths.Logs, true),
 
-                    () => File.Delete(App.Settings.FileLocation),
-                    () => File.Delete(App.State.FileLocation), // TODO: maybe this should always be deleted? not sure yet
+                    () => File.Delete(App.Settings.FileLocation)
                 });
             }
 
@@ -525,6 +538,8 @@ namespace Bloxstrap
                     }
 
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
+
+                    Directory.Delete(Path.Combine(Paths.Base, "Versions"));
                 }
 
                 App.Settings.Save();

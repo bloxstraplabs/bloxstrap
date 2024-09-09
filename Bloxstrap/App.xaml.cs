@@ -57,21 +57,13 @@ namespace Bloxstrap
 
         private static bool _showingExceptionDialog = false;
         
-        private static bool _terminating = false;
-
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
-            if (_terminating)
-                return;
-
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
-            Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
-            // Environment.Exit(exitCodeNum);
-
-            _terminating = true;
+            Environment.Exit(exitCodeNum);
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -109,6 +101,7 @@ namespace Bloxstrap
         public static async Task<GithubRelease?> GetLatestRelease()
         {
             const string LOG_IDENT = "App::GetLatestRelease";
+
             try
             {
                 var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
