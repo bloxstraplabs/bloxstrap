@@ -162,11 +162,12 @@ namespace Bloxstrap
             const string LOG_IDENT = "Installer::DoUninstall";
 
             var processes = new List<Process>();
-            processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
+            
+            if (!String.IsNullOrEmpty(App.State.Prop.Player.VersionGuid))
+                processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-#if STUDIO_FEATURES
-            processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
-#endif
+            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+                processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
             if (processes.Any())
@@ -179,7 +180,10 @@ namespace Bloxstrap
                 );
 
                 if (result != MessageBoxResult.OK)
+                {
                     App.Terminate(ErrorCode.ERROR_CANCELLED);
+                    return;
+                }
 
                 try
                 {

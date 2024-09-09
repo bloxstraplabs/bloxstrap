@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-using Microsoft.Win32;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 
@@ -43,6 +42,8 @@ namespace Bloxstrap
                 LaunchRoblox();
             else if (!App.LaunchSettings.QuietFlag.Active)
                 LaunchMenu();
+            else
+                App.Terminate();
         }
 
         public static void LaunchInstaller()
@@ -52,6 +53,7 @@ namespace Bloxstrap
             if (!interlock.IsAcquired)
             {
                 Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Installer, MessageBoxImage.Stop);
+                App.Terminate();
                 return;
             }
 
@@ -96,6 +98,7 @@ namespace Bloxstrap
             if (!interlock.IsAcquired)
             {
                 Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Uninstaller, MessageBoxImage.Stop);
+                App.Terminate();
                 return;
             }
 
@@ -116,7 +119,10 @@ namespace Bloxstrap
             }
 
             if (!confirmed)
+            {
+                App.Terminate();
                 return;
+            }
 
             Installer.DoUninstall(keepData);
 

@@ -32,7 +32,7 @@
             </Grid.ColumnDefinitions>
             <Image x:Name="IconImage" Grid.Column="0" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png" />
             <StackPanel Grid.Column="1">
-                <TextBlock x:Name="TitleTextBlock" Text="? is unable to connect to ?" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+                <TextBlock x:Name="TitleTextBlock" Text="? is unable to connect to ?" FontSize="18" Foreground="{DynamicResource TextFillColorPrimaryBrush}" TextWrapping="Wrap" />
                 <controls:MarkdownTextBlock x:Name="DescriptionTextBlock" MarkdownText="?" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <TextBlock Text="{x:Static resources:Strings.Dialog_Connectivity_MoreInfo}" Margin="0,16,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
                 <RichTextBox x:Name="ErrorRichTextBox" Padding="8" Margin="0,8,0,0" Block.LineHeight="2" FontFamily="Courier New" IsReadOnly="True" />
