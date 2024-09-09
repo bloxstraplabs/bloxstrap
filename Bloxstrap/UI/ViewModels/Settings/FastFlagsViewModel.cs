@@ -96,12 +96,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
         }
 
-        public bool AlternateGraphicsSelectorEnabled
-        {
-            get => App.FastFlags.GetPreset("UI.Menu.GraphicsSlider") == "True";
-            set => App.FastFlags.SetPreset("UI.Menu.GraphicsSlider", value ? "True" : null);
-        }
-
         public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
 
         public InGameMenuVersion SelectedIGMenuVersion

@@ -637,12 +637,6 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Learn more about Fast Flags, what these presets do, and how to use them.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Allows you to configure 21 different quality levels instead of 10.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use advanced graphics quality selector</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
   </data>

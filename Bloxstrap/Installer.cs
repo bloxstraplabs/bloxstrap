@@ -519,6 +519,8 @@ namespace Bloxstrap
 
                         App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     }
+
+                    App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
                 }
 
                 App.Settings.Save();

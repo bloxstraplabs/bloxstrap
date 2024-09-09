@@ -2307,24 +2307,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allows you to configure 21 different quality levels instead of 10..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_AltGraphicsSelector_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.AltGraphicsSelector.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use advanced graphics quality selector.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_AltGraphicsSelector_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.AltGraphicsSelector.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Rendering and Graphics.
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_Rendering {
