@@ -63,10 +63,7 @@ namespace Bloxstrap
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
             // studio can be implicitly registered when it's first launched manually
-            ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
-            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
-
-            // TODO: implicit installation needs to reregister studio
+            WindowsRegistry.RegisterPlayer();
 
             if (CreateDesktopShortcuts)
                 Shortcut.Create(Paths.Application, "", DesktopShortcut);
@@ -78,6 +75,9 @@ namespace Bloxstrap
             App.Settings.Load(false);
             App.State.Load(false);
             App.FastFlags.Load(false);
+
+            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+                WindowsRegistry.RegisterStudio();
 
             App.Logger.WriteLine(LOG_IDENT, "Installation finished");
         }
@@ -207,44 +207,38 @@ namespace Bloxstrap
             {
                 playerStillInstalled = false;
 
-                ProtocolHandler.Unregister("roblox");
-                ProtocolHandler.Unregister("roblox-player");
+                WindowsRegistry.Unregister("roblox");
+                WindowsRegistry.Unregister("roblox-player");
             }
             else
             {
-                // revert launch uri handler to stock bootstrapper
                 string playerPath = Path.Combine((string)playerFolder, "RobloxPlayerBeta.exe");
 
-                ProtocolHandler.Register("roblox", "Roblox", playerPath);
-                ProtocolHandler.Register("roblox-player", "Roblox", playerPath);
+                WindowsRegistry.RegisterPlayer(playerPath, "%1");
             }
 
-            using RegistryKey? studioBootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
-            if (studioBootstrapperKey is null)
+            using var studioKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
+            var studioFolder = studioKey?.GetValue("InstallLocation");
+
+            if (studioKey is null || studioFolder is not string)
             {
                 studioStillInstalled = false;
 
-#if STUDIO_FEATURES
-                ProtocolHandler.Unregister("roblox-studio");
-                ProtocolHandler.Unregister("roblox-studio-auth");
+                WindowsRegistry.Unregister("roblox-studio");
+                WindowsRegistry.Unregister("roblox-studio-auth");
 
-                ProtocolHandler.Unregister("Roblox.Place");
-                ProtocolHandler.Unregister(".rbxl");
-                ProtocolHandler.Unregister(".rbxlx");
-#endif
+                WindowsRegistry.Unregister("Roblox.Place");
+                WindowsRegistry.Unregister(".rbxl");
+                WindowsRegistry.Unregister(".rbxlx");
             }
-#if STUDIO_FEATURES
             else
             {
-                string studioLocation = (string?)studioBootstrapperKey.GetValue("InstallLocation") + "RobloxStudioBeta.exe"; // points to studio exe instead of bootstrapper
-                ProtocolHandler.Register("roblox-studio", "Roblox", studioLocation);
-                ProtocolHandler.Register("roblox-studio-auth", "Roblox", studioLocation);
+                string studioPath = Path.Combine((string)studioFolder, "RobloxStudioBeta.exe");
+                string studioLauncherPath = Path.Combine((string)studioFolder, "RobloxStudioLauncherBeta.exe");
 
-                ProtocolHandler.RegisterRobloxPlace(studioLocation);
+                WindowsRegistry.RegisterStudioProtocol(studioPath, "%1");
+                WindowsRegistry.RegisterStudioFileClass(studioPath, "-ide \"%1\"");
             }
-#endif
-
-
 
             var cleanupSequence = new List<Action>
             {
@@ -512,8 +506,7 @@ namespace Bloxstrap
 
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
 
-                    ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
-                    ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
+                    WindowsRegistry.RegisterPlayer();
 
                     string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
 

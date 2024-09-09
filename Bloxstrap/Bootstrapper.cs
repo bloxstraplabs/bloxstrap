@@ -193,27 +193,12 @@ namespace Bloxstrap
                 await ApplyModifications();
             }
 
-            // check if launch uri is set to our bootstrapper
-            // this doesn't go under register, so we check every launch
-            // just in case the stock bootstrapper changes it back
+            // check registry entries for every launch, just in case the stock bootstrapper changes it back
 
             if (IsStudioLaunch)
-            {
-#if STUDIO_FEATURES
-                ProtocolHandler.Register("roblox-studio", "Roblox", Paths.Application);
-                ProtocolHandler.Register("roblox-studio-auth", "Roblox", Paths.Application);
-
-                ProtocolHandler.RegisterRobloxPlace(Paths.Application);
-                ProtocolHandler.RegisterExtension(".rbxl");
-                ProtocolHandler.RegisterExtension(".rbxlx");
-#endif
-            }
+                WindowsRegistry.RegisterStudio();
             else
-            {
-                // TODO: there needs to be better helper functions for these
-                ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
-                ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
-            }
+                WindowsRegistry.RegisterPlayer();
 
             await mutex.ReleaseAsync();
 
