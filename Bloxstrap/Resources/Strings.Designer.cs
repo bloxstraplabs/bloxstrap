@@ -106,7 +106,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to query server location..
+        ///   Looks up a localized string similar to The server location could not be queried. You may be joining games too quickly..
         /// </summary>
         public static string ActivityWatcher_LocationQueryFailed {
             get {
@@ -509,6 +509,15 @@ namespace Bloxstrap.Resources {
         public static string Common_No {
             get {
                 return ResourceManager.GetString("Common.No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not available.
+        /// </summary>
+        public static string Common_NotAvailable {
+            get {
+                return ResourceManager.GetString("Common.NotAvailable", resourceCulture);
             }
         }
         
@@ -2891,9 +2900,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The emoji mod could not be applied because of a network error during download.
-        ///
-        ///{0}.
+        ///   Looks up a localized string similar to The emoji mod can not be applied at this time..
         /// </summary>
         public static string Menu_Mods_Presets_EmojiType_Error {
             get {

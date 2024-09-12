@@ -118,10 +118,6 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Running bootstrapper");
 
-            // connectivity check
-
-            App.Logger.WriteLine(LOG_IDENT, "Performing connectivity check...");
-
             SetStatus(Strings.Bootstrapper_Status_Connecting);
 
             var connectionResult = await RobloxDeployment.InitializeConnectivity();
@@ -129,9 +125,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
 
             if (connectionResult is not null)
-            {
                 HandleConnectionError(connectionResult);
-            }
             
 #if !DEBUG || DEBUG_UPDATER
             if (App.Settings.Prop.CheckForUpdates && !App.LaunchSettings.UpgradeFlag.Active)

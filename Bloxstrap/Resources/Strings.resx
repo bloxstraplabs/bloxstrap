@@ -1096,9 +1096,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <value>Connected to reserved server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>The emoji mod could not be applied because of a network error during download.
-
-{0}</value>
+    <value>The emoji mod can not be applied at this time.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
     <value>Please wait for installation to finish.</value>
@@ -1163,7 +1161,7 @@ Are you sure you want to continue?</value>
     <value>Game history is only recorded for your current Roblox session. Games will appear here as you leave them or teleport within them.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>Failed to query server location.</value>
+    <value>The server location could not be queried. You may be joining games too quickly.</value>
   </data>
   <data name="Dialog.Connectivity.ServiceDown" xml:space="preserve">
     <value>{0} may be down right now.</value>
@@ -1181,5 +1179,8 @@ Are you sure you want to continue?</value>
     <value>Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
 
 Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Not available</value>
   </data>
 </root>

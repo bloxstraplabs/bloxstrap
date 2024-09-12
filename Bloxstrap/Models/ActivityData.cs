@@ -71,6 +71,8 @@ namespace Bloxstrap.Models
 
         public ICommand RejoinServerCommand => new RelayCommand(RejoinServer);
 
+        private SemaphoreSlim serverQuerySemaphore = new(1, 1);
+
         public string GetInviteDeeplink(bool launchData = true)
         {
             string deeplink = $"roblox://experiences/start?placeId={PlaceId}";
@@ -86,29 +88,24 @@ namespace Bloxstrap.Models
             return deeplink;
         }
 
-        public async Task<string> QueryServerLocation()
+        public async Task<string?> QueryServerLocation()
         {
             const string LOG_IDENT = "ActivityData::QueryServerLocation";
 
             if (!MachineAddressValid)
                 throw new InvalidOperationException($"Machine address is invalid ({MachineAddress})");
 
-            if (GlobalCache.PendingTasks.TryGetValue(MachineAddress, out Task? task))
-                await task;
+            await serverQuerySemaphore.WaitAsync();
 
             if (GlobalCache.ServerLocation.TryGetValue(MachineAddress, out string? location))
+            {
+                serverQuerySemaphore.Release();
                 return location;
+            }
 
             try
             {
-                location = "";
-                var ipInfoTask = Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
-
-                GlobalCache.PendingTasks.Add(MachineAddress, ipInfoTask);
-
-                var ipInfo = await ipInfoTask;
-
-                GlobalCache.PendingTasks.Remove(MachineAddress);
+                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
 
                 if (String.IsNullOrEmpty(ipInfo.City))
                     throw new InvalidHTTPResponseException("Reported city was blank");
@@ -119,18 +116,25 @@ namespace Bloxstrap.Models
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
                 GlobalCache.ServerLocation[MachineAddress] = location;
-
-                return location;
+                serverQuerySemaphore.Release();
             }
             catch (Exception ex)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                Frontend.ShowMessageBox($"{Strings.ActivityWatcher_LocationQueryFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
+                GlobalCache.ServerLocation[MachineAddress] = location;
+                serverQuerySemaphore.Release();
 
-                return "?";
+                Frontend.ShowConnectivityDialog(
+                    String.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"), 
+                    Strings.ActivityWatcher_LocationQueryFailed, 
+                    MessageBoxImage.Warning, 
+                    ex
+                );
             }
+
+            return location;
         }
 
         public override string ToString() => $"{PlaceId}/{JobId}";
