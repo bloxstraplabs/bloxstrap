@@ -394,15 +394,30 @@ namespace Bloxstrap
                 }
             }
 
-            try
+            // prior to 2.8.0, auto-updating was handled with this... bruteforce method
+            // now it's handled with the system mutex you see above, but we need to keep this logic for <2.8.0 versions
+            for (int i = 1; i <= 10; i++)
             {
-                File.Copy(Paths.Process, Paths.Application, true);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not replace executable)");
-                App.Logger.WriteException(LOG_IDENT, ex);
-                return;
+                try
+                {
+                    File.Copy(Paths.Process, Paths.Application, true);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    if (i == 1)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
+                    }
+                    else if (i == 10)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 10 tries/5 seconds)");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                        return;
+                    }
+
+                    Thread.Sleep(500);
+                }
             }
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
