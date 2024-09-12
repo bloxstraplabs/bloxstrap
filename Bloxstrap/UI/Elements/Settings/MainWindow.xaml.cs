@@ -14,6 +14,8 @@ namespace Bloxstrap.UI.Elements.Settings
     /// </summary>
     public partial class MainWindow : INavigationWindow
     {
+        private Models.WindowState _state => App.State.Prop.SettingsWindow;
+
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();
@@ -33,6 +35,30 @@ namespace Bloxstrap.UI.Elements.Settings
 
             if (showAlreadyRunningWarning)
                 ShowAlreadyRunningSnackbar();
+
+            LoadState();
+        }
+
+        public void LoadState()
+        {
+            if (_state.Left > SystemParameters.VirtualScreenWidth)
+                _state.Left = 0;
+
+            if (_state.Top > SystemParameters.VirtualScreenHeight)
+                _state.Top = 0;
+
+            if (_state.Width > 0)
+                this.Width = _state.Width;
+
+            if (_state.Height > 0)
+                this.Height = _state.Height;
+
+            if (_state.Left > 0 && _state.Top > 0)
+            {
+                this.WindowStartupLocation = WindowStartupLocation.Manual;
+                this.Left = _state.Left;
+                this.Top = _state.Top;
+            }
         }
 
         private async void ShowAlreadyRunningSnackbar()
@@ -66,6 +92,14 @@ namespace Bloxstrap.UI.Elements.Settings
                 if (result != MessageBoxResult.Yes)
                     e.Cancel = true;
             }
+            
+            _state.Width = this.Width;
+            _state.Height = this.Height;
+
+            _state.Top = this.Top;
+            _state.Left = this.Left;
+
+            App.State.Save();
 
             if (!e.Cancel)
                 App.Terminate();

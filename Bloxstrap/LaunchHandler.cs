@@ -140,7 +140,9 @@ namespace Bloxstrap
             if (interlock.IsAcquired)
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
-                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).Show();
+
+                var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
+                window.Show();
             }
             else
             {
