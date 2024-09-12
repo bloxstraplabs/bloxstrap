@@ -1183,4 +1183,13 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Not available</value>
   </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Manage compatibility settings</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Configure application parameters such as DPI scaling behaviour and [fullscreen optimizations]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option.</value>
+  </data>
 </root>

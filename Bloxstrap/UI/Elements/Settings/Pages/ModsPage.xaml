@@ -25,16 +25,25 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
             <ui:CardAction Grid.Row="0" Grid.Column="0" x:Name="OpenModFolderCardAction" Margin="0,0,4,0" Icon="Folder24" Command="{Binding OpenModsFolderCommand}">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Title}" TextWrapping="Wrap" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_OpenModsFolder_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
                 </StackPanel>
             </ui:CardAction>
+            
             <ui:CardAction Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/wiki/Adding-custom-mods">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Help}" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Mods_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
+            </ui:CardAction>
+
+            <ui:CardAction Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Icon="WindowWrench24" Command="{Binding OpenCompatSettingsCommand}">
+                <StackPanel>
+                    <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Mods_Misc_CompatibilitySettings_Title}" TextWrapping="Wrap" />
+                    <controls:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Source={x:Static resources:Strings.Menu_Mods_Misc_CompatibilitySettings_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://devblogs.microsoft.com/directx/demystifying-full-screen-optimizations/'}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
                 </StackPanel>
             </ui:CardAction>
         </Grid>

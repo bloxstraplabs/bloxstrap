@@ -558,6 +558,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option..
+        /// </summary>
+        public static string Common_RobloxNotInstalled {
+            get {
+                return ResourceManager.GetString("Common.RobloxNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shortcuts.
         /// </summary>
         public static string Common_Shortcuts {
@@ -2806,6 +2815,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Mods_Help_Description {
             get {
                 return ResourceManager.GetString("Menu.Mods.Help.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure application parameters such as DPI scaling behaviour and [fullscreen optimizations]({0})..
+        /// </summary>
+        public static string Menu_Mods_Misc_CompatibilitySettings_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CompatibilitySettings.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage compatibility settings.
+        /// </summary>
+        public static string Menu_Mods_Misc_CompatibilitySettings_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.Misc.CompatibilitySettings.Title", resourceCulture);
             }
         }
         

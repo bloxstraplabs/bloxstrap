@@ -3,9 +3,14 @@ using System.Windows.Input;
 
 using Microsoft.Win32;
 
+using Windows.Win32;
+using Windows.Win32.UI.Shell;
+using Windows.Win32.Foundation;
+
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Models.SettingTasks;
+using Bloxstrap.AppData;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -59,6 +64,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand ManageCustomFontCommand => new RelayCommand(ManageCustomFont);
 
+        public ICommand OpenCompatSettingsCommand => new RelayCommand(OpenCompatSettings);
+
         public ModPresetTask OldDeathSoundTask { get; } = new("OldDeathSound", @"content\sounds\ouch.ogg", "Sounds.OldDeath.ogg");
 
         public ModPresetTask OldAvatarBackgroundTask { get; } = new("OldAvatarBackground", @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
@@ -95,5 +102,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
         });
 
         public FontModPresetTask TextFontTask { get; } = new();
+
+        private void OpenCompatSettings()
+        {
+            string path = new RobloxPlayerData().ExecutablePath;
+
+            if (File.Exists(path))
+               PInvoke.SHObjectProperties(HWND.Null, SHOP_TYPE.SHOP_FILEPATH, path, "Compatibility");
+            else
+                Frontend.ShowMessageBox(Strings.Common_RobloxNotInstalled, MessageBoxImage.Error);
+
+        }
     }
 }

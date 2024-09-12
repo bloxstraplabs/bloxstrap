@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-using Bloxstrap.Resources;
-
 using Microsoft.Win32;
 
 using CommunityToolkit.Mvvm.Input;
@@ -12,7 +10,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class IntegrationsViewModel : NotifyPropertyChangedViewModel
     {
         public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
+
         public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
+
         public ICommand BrowseIntegrationLocationCommand => new RelayCommand(BrowseIntegrationLocation);
 
         private void AddIntegration()
