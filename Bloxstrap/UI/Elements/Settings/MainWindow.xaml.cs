@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.Elements.Settings
     /// </summary>
     public partial class MainWindow : INavigationWindow
     {
-        private Models.WindowState _state => App.State.Prop.SettingsWindow;
+        private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
         public MainWindow(bool showAlreadyRunningWarning)
         {

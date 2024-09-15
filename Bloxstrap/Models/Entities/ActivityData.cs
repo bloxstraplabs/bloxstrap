@@ -1,10 +1,10 @@
 ﻿using System.Web;
 using System.Windows;
 using System.Windows.Input;
-
+using Bloxstrap.Models.APIs;
 using CommunityToolkit.Mvvm.Input;
 
-namespace Bloxstrap.Models
+namespace Bloxstrap.Models.Entities
 {
     public class ActivityData
     {
@@ -16,7 +16,7 @@ namespace Bloxstrap.Models
         /// </summary>
         public ActivityData? RootActivity;
 
-        public long UniverseId 
+        public long UniverseId
         {
             get => _universeId;
             set
@@ -28,19 +28,19 @@ namespace Bloxstrap.Models
 
         public long PlaceId { get; set; } = 0;
 
-        public string JobId { get; set; } = String.Empty;
+        public string JobId { get; set; } = string.Empty;
 
         /// <summary>
         /// This will be empty unless the server joined is a private server
         /// </summary>
-        public string AccessCode { get; set; } = String.Empty;
-        
-        public string MachineAddress { get; set; } = String.Empty;
+        public string AccessCode { get; set; } = string.Empty;
 
-        public bool MachineAddressValid => !String.IsNullOrEmpty(MachineAddress) && !MachineAddress.StartsWith("10.");
+        public string MachineAddress { get; set; } = string.Empty;
+
+        public bool MachineAddressValid => !string.IsNullOrEmpty(MachineAddress) && !MachineAddress.StartsWith("10.");
 
         public bool IsTeleport { get; set; } = false;
-        
+
         public ServerType ServerType { get; set; } = ServerType.Public;
 
         public DateTime TimeJoined { get; set; }
@@ -52,15 +52,15 @@ namespace Bloxstrap.Models
         /// <summary>
         /// This is intended only for other people to use, i.e. context menu invite link, rich presence joining
         /// </summary>
-        public string RPCLaunchData { get; set; } = String.Empty;
+        public string RPCLaunchData { get; set; } = string.Empty;
 
         public UniverseDetails? UniverseDetails { get; set; }
-        
+
         public string GameHistoryDescription
         {
             get
             {
-                string desc = String.Format("{0} • {1} - {2}", UniverseDetails?.Data.Creator.Name, TimeJoined.ToString("h:mm tt"), TimeLeft?.ToString("h:mm tt"));
+                string desc = string.Format("{0} • {1} - {2}", UniverseDetails?.Data.Creator.Name, TimeJoined.ToString("h:mm tt"), TimeLeft?.ToString("h:mm tt"));
 
                 if (ServerType != ServerType.Public)
                     desc += " • " + ServerType.ToTranslatedString();
@@ -82,7 +82,7 @@ namespace Bloxstrap.Models
             else
                 deeplink += "&gameInstanceId=" + JobId;
 
-            if (launchData && !String.IsNullOrEmpty(RPCLaunchData))
+            if (launchData && !string.IsNullOrEmpty(RPCLaunchData))
                 deeplink += "&launchData=" + HttpUtility.UrlEncode(RPCLaunchData);
 
             return deeplink;
@@ -107,7 +107,7 @@ namespace Bloxstrap.Models
             {
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
 
-                if (String.IsNullOrEmpty(ipInfo.City))
+                if (string.IsNullOrEmpty(ipInfo.City))
                     throw new InvalidHTTPResponseException("Reported city was blank");
 
                 if (ipInfo.City == ipInfo.Region)
@@ -127,9 +127,9 @@ namespace Bloxstrap.Models
                 serverQuerySemaphore.Release();
 
                 Frontend.ShowConnectivityDialog(
-                    String.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"), 
-                    Strings.ActivityWatcher_LocationQueryFailed, 
-                    MessageBoxImage.Warning, 
+                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
+                    Strings.ActivityWatcher_LocationQueryFailed,
+                    MessageBoxImage.Warning,
                     ex
                 );
             }
@@ -142,7 +142,7 @@ namespace Bloxstrap.Models
         private void RejoinServer()
         {
             string playerPath = Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe");
-            
+
             Process.Start(playerPath, GetInviteDeeplink(false));
         }
     }

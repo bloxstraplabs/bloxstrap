@@ -1,8 +1,8 @@
-﻿namespace Bloxstrap.Models
+﻿namespace Bloxstrap.Models.Persistable
 {
     public class AppState
     {
-        public string VersionGuid { get; set; } = String.Empty;
+        public string VersionGuid { get; set; } = string.Empty;
 
         public Dictionary<string, string> PackageHashes { get; set; } = new();
 
