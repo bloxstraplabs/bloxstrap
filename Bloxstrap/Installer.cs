@@ -104,6 +104,10 @@ namespace Bloxstrap
             if (InstallLocation.StartsWith("\\\\"))
                 return false;
 
+            if (InstallLocation.StartsWith(Path.GetTempPath(), StringComparison.InvariantCultureIgnoreCase)
+                || InstallLocation.Contains("\\Temp\\", StringComparison.InvariantCultureIgnoreCase))
+                return false;
+
             // prevent from installing to a onedrive folder
             if (InstallLocation.Contains("OneDrive", StringComparison.InvariantCultureIgnoreCase))
                 return false;
