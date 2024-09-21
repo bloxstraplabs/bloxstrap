@@ -108,7 +108,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             string path = new RobloxPlayerData().ExecutablePath;
 
             if (File.Exists(path))
-               PInvoke.SHObjectProperties(HWND.Null, SHOP_TYPE.SHOP_FILEPATH, path, "Compatibility");
+                PInvoke.SHObjectProperties(HWND.Null, SHOP_TYPE.SHOP_FILEPATH, path, "Compatibility");
             else
                 Frontend.ShowMessageBox(Strings.Common_RobloxNotInstalled, MessageBoxImage.Error);
 
