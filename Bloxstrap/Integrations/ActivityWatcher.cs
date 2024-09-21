@@ -17,9 +17,9 @@
         private const string GameDisconnectedEntry           = "[FLog::Network] Time to disconnect replication data:";
         private const string GameTeleportingEntry            = "[FLog::SingleSurfaceApp] initiateTeleport";
         private const string GameLeavingEntry                = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
-        private const string GameJoinLoadTimeEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
+        private const string GameJoinLoadTimeEntry           = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
 
-        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)";
+        private const string GameJoinLoadTimeEntryPattern    = ", userid:([0-9]+)";
         private const string GameJoiningEntryPattern         = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningPrivateServerPattern = @"""accessCode"":""([0-9a-f\-]{36})""";
         private const string GameJoiningUniversePattern      = @"universeid:([0-9]+)";
@@ -217,13 +217,15 @@
 
                     if (match.Groups.Count != 2)
                     {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join load time entry");
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join load time entry");
                         App.Logger.WriteLine(LOG_IDENT, entry);
                         return;                
                     }
 
-                    Data.UserId = match.Groups[1].Value;
-                    App.Logger.WriteLine(LOG_IDENT, $"Got userid as " + Data.UserId);
+                    UInt64.TryParse(match.Groups[1].Value, out ulong result);
+
+                    Data.UserId = result;
+                    App.Logger.WriteLine(LOG_IDENT, $"Got userid as {Data.UserId}");
                 }
 
                 if (entry.Contains(GameJoiningUniverseEntry))

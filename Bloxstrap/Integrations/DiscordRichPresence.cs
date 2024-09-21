@@ -1,4 +1,5 @@
 using System.Windows;
+using Bloxstrap.Models.RobloxApi;
 using DiscordRPC;
 
 namespace Bloxstrap.Integrations
@@ -235,7 +236,7 @@ namespace Bloxstrap.Integrations
                 }
                 else
                 {
-                    smallImage = userPfpResponse.Data.ToArray()[0].ImageUrl;
+                    smallImage = userPfpResponse.Data.First().ImageUrl;
                     App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallImage}");
                 }
                 

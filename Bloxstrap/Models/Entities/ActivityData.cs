@@ -35,7 +35,7 @@ namespace Bloxstrap.Models.Entities
         /// </summary>
         public string AccessCode { get; set; } = string.Empty;
         
-        public string UserId { get; set; } = String.Empty;
+        public ulong UserId { get; set; } = 0;
 
         public string MachineAddress { get; set; } = string.Empty;
 
