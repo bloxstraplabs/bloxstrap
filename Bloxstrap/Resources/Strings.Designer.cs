@@ -171,6 +171,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to save {0}: {1}.
+        /// </summary>
+        public static string Bootstrapper_JsonManagerSaveFailed {
+            get {
+                return ResourceManager.GetString("Bootstrapper.JsonManagerSaveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again..
         /// </summary>
         public static string Bootstrapper_NotEnoughSpace {
@@ -1517,6 +1526,15 @@ namespace Bloxstrap.Resources {
         public static string Installer_Install_Title {
             get {
                 return ResourceManager.GetString("Installer.Install.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to cancel the installation?.
+        /// </summary>
+        public static string Installer_ShouldCancel {
+            get {
+                return ResourceManager.GetString("Installer.ShouldCancel", resourceCulture);
             }
         }
         

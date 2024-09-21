@@ -1192,4 +1192,10 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
     <value>Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option.</value>
   </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Are you sure you want to cancel the installation?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Failed to save {0}: {1}</value>
+  </data>
 </root>

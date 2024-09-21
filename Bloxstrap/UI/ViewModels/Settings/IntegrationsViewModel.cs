@@ -57,6 +57,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             if (dialog.ShowDialog() != true)
                 return;
 
+            SelectedCustomIntegration.Name = dialog.SafeFileName;
             SelectedCustomIntegration.Location = dialog.FileName;
             OnPropertyChanged(nameof(SelectedCustomIntegration));
         }

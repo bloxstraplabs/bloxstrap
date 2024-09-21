@@ -753,8 +753,7 @@ namespace Bloxstrap
 
             List<string> modFolderFiles = new();
 
-            if (!Directory.Exists(Paths.Modifications))
-                Directory.CreateDirectory(Paths.Modifications);
+            Directory.CreateDirectory(Paths.Modifications);
 
             // check custom font mod
             // instead of replacing the fonts themselves, we'll just alter the font family manifests

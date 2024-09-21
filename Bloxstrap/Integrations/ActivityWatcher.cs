@@ -36,7 +36,6 @@
         public event EventHandler? OnAppClose;
         public event EventHandler<Message>? OnRPCMessage;
 
-        private readonly Dictionary<string, string> GeolocationCache = new();
         private DateTime LastRPCRequest;
 
         public string LogLocation = null!;
