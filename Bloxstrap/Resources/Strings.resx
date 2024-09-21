@@ -1204,4 +1204,9 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
     <value>Failed to save {0}: {1}</value>
   </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>The chosen bootstrapper icon could not be loaded.
+
+{0}</value>
+  </data>
 </root>

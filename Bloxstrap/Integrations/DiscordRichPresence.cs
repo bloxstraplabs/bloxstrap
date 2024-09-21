@@ -272,7 +272,7 @@ namespace Bloxstrap.Integrations
 
             _currentPresence = new DiscordRPC.RichPresence
             {
-                Details = $"Playing {universeName}",
+                Details = universeName,
                 State = status,
                 Timestamps = new Timestamps { Start = timeStarted.ToUniversalTime() },
                 Buttons = GetButtons(),
