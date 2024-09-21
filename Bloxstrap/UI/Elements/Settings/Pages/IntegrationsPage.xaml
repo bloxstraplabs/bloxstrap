@@ -89,7 +89,7 @@
                     </Style>
                 </StackPanel.Style>
                 <TextBlock Text="{x:Static resources:Strings.Common_Name}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <ui:TextBox Margin="0,4,0,0" Text="{Binding SelectedCustomIntegration.Name}" />
+                <ui:TextBox Margin="0,4,0,0" Text="{Binding SelectedCustomIntegration.Name, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_AppLocation}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <Grid Margin="0,4,0,0">
                     <Grid.ColumnDefinitions>

@@ -17,20 +17,7 @@ namespace Bloxstrap.UI
             if (App.LaunchSettings.QuietFlag.Active)
                 return defaultResult;
 
-            if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
-                return ShowFluentMessageBox(message, icon, buttons);
-
-            switch (App.Settings.Prop.BootstrapperStyle)
-            {
-                case BootstrapperStyle.FluentDialog:
-                case BootstrapperStyle.ClassicFluentDialog:
-                case BootstrapperStyle.FluentAeroDialog:
-                case BootstrapperStyle.ByfronDialog:
-                    return ShowFluentMessageBox(message, icon, buttons);
-
-                default:
-                    return MessageBox.Show(message, App.ProjectName, buttons, icon);
-            }
+            return ShowFluentMessageBox(message, icon, buttons);
         }
 
         public static void ShowPlayerErrorDialog(bool crash = false)
