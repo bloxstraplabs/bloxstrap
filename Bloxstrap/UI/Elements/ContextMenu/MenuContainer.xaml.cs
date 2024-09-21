@@ -2,16 +2,11 @@
 using System.Windows.Controls;
 using System.Windows.Interop;
 
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Services;
-
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
 
 using Bloxstrap.Integrations;
-using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.Elements.ContextMenu
 {
@@ -45,6 +40,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
             if (_watcher.RichPresence is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
+
+            if (!App.Settings.Prop.UseDisableAppPatch)
+                GameHistoryMenuItem.Visibility = Visibility.Visible;
 
             VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }

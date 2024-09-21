@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-using Microsoft.Win32;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 
@@ -43,6 +42,8 @@ namespace Bloxstrap
                 LaunchRoblox();
             else if (!App.LaunchSettings.QuietFlag.Active)
                 LaunchMenu();
+            else
+                App.Terminate();
         }
 
         public static void LaunchInstaller()
@@ -52,6 +53,7 @@ namespace Bloxstrap
             if (!interlock.IsAcquired)
             {
                 Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Installer, MessageBoxImage.Stop);
+                App.Terminate();
                 return;
             }
 
@@ -96,6 +98,7 @@ namespace Bloxstrap
             if (!interlock.IsAcquired)
             {
                 Frontend.ShowMessageBox(Strings.Dialog_AlreadyRunning_Uninstaller, MessageBoxImage.Stop);
+                App.Terminate();
                 return;
             }
 
@@ -116,7 +119,10 @@ namespace Bloxstrap
             }
 
             if (!confirmed)
+            {
+                App.Terminate();
                 return;
+            }
 
             Installer.DoUninstall(keepData);
 
@@ -134,7 +140,9 @@ namespace Bloxstrap
             if (interlock.IsAcquired)
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
-                new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning).Show();
+
+                var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
+                window.Show();
             }
             else
             {
@@ -169,15 +177,6 @@ namespace Bloxstrap
                 App.Terminate(ErrorCode.ERROR_FILE_NOT_FOUND);
             }
 
-            bool installWebView2 = false;
-            {
-                using var hklmKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
-                using var hkcuKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}");
-
-                if (hklmKey is null && hkcuKey is null)
-                    installWebView2 = Frontend.ShowMessageBox(Strings.Bootstrapper_WebView2NotFound, MessageBoxImage.Warning, MessageBoxButton.YesNo, MessageBoxResult.Yes) == MessageBoxResult.Yes;
-            }
-
             if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
             {
                 // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
@@ -195,7 +194,7 @@ namespace Bloxstrap
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            var bootstrapper = new Bootstrapper(installWebView2);
+            var bootstrapper = new Bootstrapper();
             IBootstrapperDialog? dialog = null;
 
             if (!App.LaunchSettings.QuietFlag.Active)

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Bloxstrap.Models
+namespace Bloxstrap.Models.Persistable
 {
     public class Settings
     {
@@ -26,6 +26,5 @@ namespace Bloxstrap.Models
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
-        public bool DisableFullscreenOptimizations { get; set; } = false;
     }
 }

@@ -57,21 +57,13 @@ namespace Bloxstrap
 
         private static bool _showingExceptionDialog = false;
         
-        private static bool _terminating = false;
-
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
-            if (_terminating)
-                return;
-
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
 
-            Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
-            // Environment.Exit(exitCodeNum);
-
-            _terminating = true;
+            Environment.Exit(exitCodeNum);
         }
 
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -101,8 +93,7 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            if (!LaunchSettings.QuietFlag.Active)
-                Frontend.ShowExceptionDialog(ex);
+            Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
         }
@@ -110,6 +101,7 @@ namespace Bloxstrap
         public static async Task<GithubRelease?> GetLatestRelease()
         {
             const string LOG_IDENT = "App::GetLatestRelease";
+
             try
             {
                 var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
@@ -199,6 +191,26 @@ namespace Bloxstrap
                 }
             }
 
+            if (fixInstallLocation && installLocation is not null)
+            {
+                var installer = new Installer
+                {
+                    InstallLocation = installLocation,
+                    IsImplicitInstall = true
+                };
+
+                if (installer.CheckInstallLocation())
+                {
+                    Logger.WriteLine(LOG_IDENT, $"Changing install location to '{installLocation}'");
+                    installer.DoInstall();
+                }
+                else
+                {
+                    // force reinstall
+                    installLocation = null;
+                }
+            }
+
             if (installLocation is null)
             {
                 Logger.Initialize(true);
@@ -206,21 +218,6 @@ namespace Bloxstrap
             }
             else
             {
-                if (fixInstallLocation)
-                {
-                    var installer = new Installer
-                    {
-                        InstallLocation = installLocation,
-                        IsImplicitInstall = true
-                    };
-
-                    if (installer.CheckInstallLocation())
-                    {
-                        Logger.WriteLine(LOG_IDENT, $"Changing install location to '{installLocation}'");
-                        installer.DoInstall();
-                    }
-                }
-
                 Paths.Initialize(installLocation);
 
                 // ensure executable is in the install directory
@@ -247,10 +244,8 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
-#if !DEBUG
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
-#endif
 
                 LaunchHandler.ProcessLaunchArgs();
             }

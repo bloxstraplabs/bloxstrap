@@ -8,9 +8,9 @@ namespace Bloxstrap.Models.Manifest
 {
     public class PackageManifest : List<Package>
     {
-        private PackageManifest(string data)
+        public PackageManifest(string data)
         {
-            using StringReader reader = new StringReader(data);
+            using var reader = new StringReader(data);
             string? version = reader.ReadLine();
 
             if (version != "v0")
@@ -45,14 +45,6 @@ namespace Bloxstrap.Models.Manifest
                     Size = size
                 });
             }
-        }
-
-        public static async Task<PackageManifest> Get(string versionGuid)
-        {
-            string pkgManifestUrl = RobloxDeployment.GetLocation($"/{versionGuid}-rbxPkgManifest.txt");
-            var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
-
-            return new PackageManifest(pkgManifestData);
         }
     }
 }

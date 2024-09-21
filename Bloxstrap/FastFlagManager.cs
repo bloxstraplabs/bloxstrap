@@ -49,7 +49,6 @@ namespace Bloxstrap
             { "UI.FlagState", "FStringDebugShowFlagState" },
 #endif
 
-            { "UI.Menu.GraphicsSlider", "FFlagFixGraphicsQuality" },
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
             
             { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
@@ -62,7 +61,6 @@ namespace Bloxstrap
             { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" }
         };
 
-        // only one missing here is Metal because lol
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
         {
             { RenderingMode.Default, "None" },

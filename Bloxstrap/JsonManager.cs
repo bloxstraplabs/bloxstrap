@@ -60,7 +60,21 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Saving to {FileLocation}...");
 
             Directory.CreateDirectory(Path.GetDirectoryName(FileLocation)!);
-            File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
+
+            try
+            {
+                File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
+            }
+            catch (IOException ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to save");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                string errorMessage = string.Format(Resources.Strings.Bootstrapper_JsonManagerSaveFailed, ClassName, ex.Message);
+                Frontend.ShowMessageBox(errorMessage, System.Windows.MessageBoxImage.Warning);
+
+                return;
+            }
 
             App.Logger.WriteLine(LOG_IDENT, "Save complete!");
         }

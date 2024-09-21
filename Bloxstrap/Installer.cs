@@ -35,7 +35,19 @@ namespace Bloxstrap
             if (!IsImplicitInstall)
             {
                 Filesystem.AssertReadOnly(Paths.Application);
-                File.Copy(Paths.Process, Paths.Application, true);
+
+                try
+                {
+                    File.Copy(Paths.Process, Paths.Application, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Could not overwrite executable");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+
+                    Frontend.ShowMessageBox(Strings.Installer_Install_CannotOverwrite, MessageBoxImage.Error);
+                    App.Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
+                }
             }
 
             // TODO: registry access checks, i'll need to look back on issues to see what the error looks like
@@ -63,10 +75,7 @@ namespace Bloxstrap
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
             // studio can be implicitly registered when it's first launched manually
-            ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
-            ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
-
-            // TODO: implicit installation needs to reregister studio
+            WindowsRegistry.RegisterPlayer();
 
             if (CreateDesktopShortcuts)
                 Shortcut.Create(Paths.Application, "", DesktopShortcut);
@@ -79,6 +88,9 @@ namespace Bloxstrap
             App.State.Load(false);
             App.FastFlags.Load(false);
 
+            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+                WindowsRegistry.RegisterStudio();
+
             App.Logger.WriteLine(LOG_IDENT, "Installation finished");
         }
 
@@ -90,6 +102,10 @@ namespace Bloxstrap
 
             // unc path, just to be safe
             if (InstallLocation.StartsWith("\\\\"))
+                return false;
+
+            if (InstallLocation.StartsWith(Path.GetTempPath(), StringComparison.InvariantCultureIgnoreCase)
+                || InstallLocation.Contains("\\Temp\\", StringComparison.InvariantCultureIgnoreCase))
                 return false;
 
             // prevent from installing to a onedrive folder
@@ -162,11 +178,12 @@ namespace Bloxstrap
             const string LOG_IDENT = "Installer::DoUninstall";
 
             var processes = new List<Process>();
-            processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
+            
+            if (!String.IsNullOrEmpty(App.State.Prop.Player.VersionGuid))
+                processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-#if STUDIO_FEATURES
-            processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
-#endif
+            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+                processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
             if (processes.Any())
@@ -179,7 +196,10 @@ namespace Bloxstrap
                 );
 
                 if (result != MessageBoxResult.OK)
+                {
                     App.Terminate(ErrorCode.ERROR_CANCELLED);
+                    return;
+                }
 
                 try
                 {
@@ -207,44 +227,38 @@ namespace Bloxstrap
             {
                 playerStillInstalled = false;
 
-                ProtocolHandler.Unregister("roblox");
-                ProtocolHandler.Unregister("roblox-player");
+                WindowsRegistry.Unregister("roblox");
+                WindowsRegistry.Unregister("roblox-player");
             }
             else
             {
-                // revert launch uri handler to stock bootstrapper
                 string playerPath = Path.Combine((string)playerFolder, "RobloxPlayerBeta.exe");
 
-                ProtocolHandler.Register("roblox", "Roblox", playerPath);
-                ProtocolHandler.Register("roblox-player", "Roblox", playerPath);
+                WindowsRegistry.RegisterPlayer(playerPath, "%1");
             }
 
-            using RegistryKey? studioBootstrapperKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
-            if (studioBootstrapperKey is null)
+            using var studioKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\roblox-studio");
+            var studioFolder = studioKey?.GetValue("InstallLocation");
+
+            if (studioKey is null || studioFolder is not string)
             {
                 studioStillInstalled = false;
 
-#if STUDIO_FEATURES
-                ProtocolHandler.Unregister("roblox-studio");
-                ProtocolHandler.Unregister("roblox-studio-auth");
+                WindowsRegistry.Unregister("roblox-studio");
+                WindowsRegistry.Unregister("roblox-studio-auth");
 
-                ProtocolHandler.Unregister("Roblox.Place");
-                ProtocolHandler.Unregister(".rbxl");
-                ProtocolHandler.Unregister(".rbxlx");
-#endif
+                WindowsRegistry.Unregister("Roblox.Place");
+                WindowsRegistry.Unregister(".rbxl");
+                WindowsRegistry.Unregister(".rbxlx");
             }
-#if STUDIO_FEATURES
             else
             {
-                string studioLocation = (string?)studioBootstrapperKey.GetValue("InstallLocation") + "RobloxStudioBeta.exe"; // points to studio exe instead of bootstrapper
-                ProtocolHandler.Register("roblox-studio", "Roblox", studioLocation);
-                ProtocolHandler.Register("roblox-studio-auth", "Roblox", studioLocation);
+                string studioPath = Path.Combine((string)studioFolder, "RobloxStudioBeta.exe");
+                string studioLauncherPath = Path.Combine((string)studioFolder, "RobloxStudioLauncherBeta.exe");
 
-                ProtocolHandler.RegisterRobloxPlace(studioLocation);
+                WindowsRegistry.RegisterStudioProtocol(studioPath, "%1");
+                WindowsRegistry.RegisterStudioFileClass(studioPath, "-ide \"%1\"");
             }
-#endif
-
-
 
             var cleanupSequence = new List<Action>
             {
@@ -261,8 +275,10 @@ namespace Bloxstrap
 
                 () => File.Delete(StartMenuShortcut),
 
-                () => Directory.Delete(Paths.Versions, true),
                 () => Directory.Delete(Paths.Downloads, true),
+                () => Directory.Delete(Paths.Roblox, true),
+
+                () => File.Delete(App.State.FileLocation)
             };
 
             if (!keepData)
@@ -272,8 +288,7 @@ namespace Bloxstrap
                     () => Directory.Delete(Paths.Modifications, true),
                     () => Directory.Delete(Paths.Logs, true),
 
-                    () => File.Delete(App.Settings.FileLocation),
-                    () => File.Delete(App.State.FileLocation), // TODO: maybe this should always be deleted? not sure yet
+                    () => File.Delete(App.Settings.FileLocation)
                 });
             }
 
@@ -383,15 +398,30 @@ namespace Bloxstrap
                 }
             }
 
-            try
+            // prior to 2.8.0, auto-updating was handled with this... bruteforce method
+            // now it's handled with the system mutex you see above, but we need to keep this logic for <2.8.0 versions
+            for (int i = 1; i <= 10; i++)
             {
-                File.Copy(Paths.Process, Paths.Application, true);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not replace executable)");
-                App.Logger.WriteException(LOG_IDENT, ex);
-                return;
+                try
+                {
+                    File.Copy(Paths.Process, Paths.Application, true);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    if (i == 1)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Waiting for write permissions to update version");
+                    }
+                    else if (i == 10)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 10 tries/5 seconds)");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                        return;
+                    }
+
+                    Thread.Sleep(500);
+                }
             }
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
@@ -512,8 +542,7 @@ namespace Bloxstrap
 
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
 
-                    ProtocolHandler.Register("roblox", "Roblox", Paths.Application, "-player \"%1\"");
-                    ProtocolHandler.Register("roblox-player", "Roblox", Paths.Application, "-player \"%1\"");
+                    WindowsRegistry.RegisterPlayer();
 
                     string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
 
@@ -526,6 +555,10 @@ namespace Bloxstrap
 
                         App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     }
+
+                    App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
+
+                    Directory.Delete(Path.Combine(Paths.Base, "Versions"));
                 }
 
                 App.Settings.Save();

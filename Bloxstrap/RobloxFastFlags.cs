@@ -52,16 +52,7 @@ namespace Bloxstrap
 
                 string rawResponse = await response.Content.ReadAsStringAsync();
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    App.Logger.WriteLine(logIndent,
-                        "Failed to fetch client settings!\r\n" +
-                        $"\tStatus code: {response.StatusCode}\r\n" +
-                        $"\tResponse: {rawResponse}"
-                    );
-
-                    throw new HttpResponseException(response);
-                }
+                response.EnsureSuccessStatusCode();
 
                 var clientSettings = JsonSerializer.Deserialize<ClientFlagSettings>(rawResponse);
 

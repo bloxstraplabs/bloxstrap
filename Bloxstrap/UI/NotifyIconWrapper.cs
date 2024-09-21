@@ -59,7 +59,7 @@ namespace Bloxstrap.UI
             if (_activityWatcher is null)
                 return;
             
-            string serverLocation = await _activityWatcher.Data.QueryServerLocation();
+            string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
 
             if (string.IsNullOrEmpty(serverLocation))
                 return;

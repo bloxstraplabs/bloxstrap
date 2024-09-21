@@ -35,7 +35,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
         private void CancelInstall()
         {
-            _dialog.Bootstrapper?.CancelInstall();
+            _dialog.Bootstrapper?.Cancel();
             _dialog.CloseBootstrapper();
         }
     }

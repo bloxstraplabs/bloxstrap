@@ -123,14 +123,14 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>It's possible that something is preventing Bloxstrap from connecting to the internet. Please check and try again.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Something is likely preventing Bloxstrap from connecting to the internet.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox may be down right now. See status.roblox.com for more information. Please try again later.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap timed out when trying to connect to three different Roblox deployment mirrors, indicating a poor internet connection. Please try again later.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>The connection timed out, which could indicate a poor internet connection or a firewall block.</value>
   </data>
   <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
     <value>Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu.</value>
@@ -294,7 +294,7 @@ Click for more information</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to Roblox</value>
+    <value>Bloxstrap is unable to connect to {0}</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Copy log contents</value>
@@ -636,12 +636,6 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
     <value>Learn more about Fast Flags, what these presets do, and how to use them.</value>
     <comment>Title is Common.Help</comment>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Allows you to configure 21 different quality levels instead of 10.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Use advanced graphics quality selector</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
@@ -1108,9 +1102,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <value>Connected to reserved server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>The emoji mod could not be applied because of a network error during download.
-
-{0}</value>
+    <value>The emoji mod can not be applied at this time.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
     <value>Please wait for installation to finish.</value>
@@ -1175,6 +1167,41 @@ Are you sure you want to continue?</value>
     <value>Game history is only recorded for your current Roblox session. Games will appear here as you leave them or teleport within them.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>Failed to query server location.</value>
+    <value>The server location could not be queried. You may be joining games too quickly.</value>
+  </data>
+  <data name="Dialog.Connectivity.ServiceDown" xml:space="preserve">
+    <value>{0} may be down right now.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Please try again later.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
+
+Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Not available</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Manage compatibility settings</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Configure application parameters such as DPI scaling behaviour and [fullscreen optimizations]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Are you sure you want to cancel the installation?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Failed to save {0}: {1}</value>
   </data>
 </root>

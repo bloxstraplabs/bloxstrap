@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Bloxstrap.Integrations
+﻿namespace Bloxstrap.Integrations
 {
     public class ActivityWatcher : IDisposable
     {
@@ -40,7 +38,6 @@ namespace Bloxstrap.Integrations
         public event EventHandler? OnAppClose;
         public event EventHandler<Message>? OnRPCMessage;
 
-        private readonly Dictionary<string, string> GeolocationCache = new();
         private DateTime LastRPCRequest;
 
         public string LogLocation = null!;

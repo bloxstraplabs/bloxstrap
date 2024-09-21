@@ -19,8 +19,6 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
 
-        public EventHandler? RequestCloseEvent;
-
         public ServerInformationViewModel(Watcher watcher)
         {
             _activityWatcher = watcher.ActivityWatcher!;
@@ -31,7 +29,13 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public async void QueryServerLocation()
         {
-            ServerLocation = await _activityWatcher.Data.QueryServerLocation();
+            string? location = await _activityWatcher.Data.QueryServerLocation();
+
+            if (String.IsNullOrEmpty(location))
+                ServerLocation = Strings.Common_NotAvailable;
+            else
+                ServerLocation = location;
+
             OnPropertyChanged(nameof(ServerLocation));
         }
 
