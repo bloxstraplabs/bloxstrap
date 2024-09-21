@@ -7,6 +7,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
 {
     public class WinFormsDialogBase : Form, IBootstrapperDialog
     {
+        public const int TaskbarProgressMaximum = 100;
+
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
         private bool _isClosing;
@@ -73,10 +75,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             get => _taskbarProgressState;
             set
             {
-                if (InvokeRequired)
-                    Invoke(() => _taskbarProgressState = value);
-                else
-                    _taskbarProgressState = value;
+                _taskbarProgressState = value;
+                TaskbarProgress.SetProgressState(Process.GetCurrentProcess().MainWindowHandle, value);
             }
         }
 
@@ -85,10 +85,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             get => _taskbarProgressValue;
             set
             {
-                if (InvokeRequired)
-                    Invoke(() => _taskbarProgressValue = value);
-                else
-                    _taskbarProgressValue = value;
+                _taskbarProgressValue = value;
+                TaskbarProgress.SetProgressValue(Process.GetCurrentProcess().MainWindowHandle, (int)value, TaskbarProgressMaximum);
             }
         }
 

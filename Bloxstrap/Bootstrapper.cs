@@ -7,6 +7,7 @@ using Bloxstrap.Integrations;
 using Bloxstrap.Resources;
 using Bloxstrap.AppData;
 using System.Windows.Shell;
+using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 namespace Bloxstrap
 {
@@ -14,8 +15,10 @@ namespace Bloxstrap
     {
         #region Properties
         private const int ProgressBarMaximum = 10000;
-        private const double TaskbarProgressMaximum = 1; // this can not be changed. keep it at 1.
-      
+
+        private const double TaskbarProgressMaximumWpf = 1; // this can not be changed. keep it at 1.
+        private const int TaskbarProgressMaximumWinForms = WinFormsDialogBase.TaskbarProgressMaximum;
+
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
             "<Settings>\r\n" +
@@ -74,6 +77,7 @@ namespace Bloxstrap
         private bool _isInstalling = false;
         private double _progressIncrement;
         private double _taskbarProgressIncrement;
+        private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
         private int _packagesExtracted = 0;
         private bool _cancelFired = false;
@@ -120,7 +124,7 @@ namespace Bloxstrap
 
             // taskbar progress
             double taskbarProgressValue = _taskbarProgressIncrement * _totalDownloadedBytes;
-            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, TaskbarProgressMaximum);
+            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, _taskbarProgressMaximum);
 
             Dialog.TaskbarProgressValue = taskbarProgressValue;
         }
@@ -631,7 +635,13 @@ namespace Bloxstrap
                 // compute total bytes to download
                 int totalSize = _versionPackageManifest.Sum(package => package.PackedSize);
                 _progressIncrement = (double)ProgressBarMaximum / totalSize;
-                _taskbarProgressIncrement = (double)TaskbarProgressMaximum / totalSize;
+
+                if (Dialog is WinFormsDialogBase)
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWinForms;
+                else
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWpf;
+
+                _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalSize;
             }
 
             foreach (Package package in _versionPackageManifest)
