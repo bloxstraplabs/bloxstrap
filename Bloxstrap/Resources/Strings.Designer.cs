@@ -1521,6 +1521,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to cancel the installation?.
+        /// </summary>
+        public static string Installer_ShouldCancel {
+            get {
+                return ResourceManager.GetString("Installer.ShouldCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap Installer.
         /// </summary>
         public static string Installer_Title {

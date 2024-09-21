@@ -9,6 +9,7 @@ using Bloxstrap.UI.Elements.Installer.Pages;
 using Bloxstrap.UI.Elements.Base;
 using System.Windows.Media.Animation;
 using System.Reflection.Metadata.Ecma335;
+using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.Elements.Installer
 {
@@ -102,7 +103,7 @@ namespace Bloxstrap.UI.Elements.Installer
             if (Finished)
                 return;
 
-            var result = Frontend.ShowMessageBox("Are you sure you want to cancel the installation?", MessageBoxImage.Warning, MessageBoxButton.YesNo);
+            var result = Frontend.ShowMessageBox(Strings.Installer_ShouldCancel, MessageBoxImage.Warning, MessageBoxButton.YesNo);
 
             if (result != MessageBoxResult.Yes)
                 e.Cancel = true;
