@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace Bloxstrap
 {
@@ -80,6 +82,18 @@ namespace Bloxstrap
                 App.Logger.WriteException(LOG_IDENT, ex);
                 return Array.Empty<Process>(); // can we retry?
             }
+        }
+
+        private static BitmapSource? _emptyBitmap;
+        public static BitmapSource GetEmptyBitmap()
+        {
+            return _emptyBitmap ??= CreateEmptyBitmap();
+        }
+
+        // https://stackoverflow.com/a/50316845
+        public static BitmapSource CreateEmptyBitmap()
+        {
+            return BitmapSource.Create(1, 1, 1, 1, PixelFormats.BlackWhite, null, new byte[] { 0 }, 1);
         }
     }
 }
