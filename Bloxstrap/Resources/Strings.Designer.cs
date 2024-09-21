@@ -977,6 +977,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The chosen bootstrapper icon could not be loaded.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Dialog_IconLoadFailed {
+            get {
+                return ResourceManager.GetString("Dialog.IconLoadFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose preferred language.
         /// </summary>
         public static string Dialog_LanguageSelector_Header {
