@@ -603,15 +603,15 @@ namespace Bloxstrap
                 Dialog.ProgressMaximum = ProgressBarMaximum;
 
                 // compute total bytes to download
-                int totalSize = _versionPackageManifest.Sum(package => package.PackedSize);
-                _progressIncrement = (double)ProgressBarMaximum / totalSize;
+                int totalPackedSize = _versionPackageManifest.Sum(package => package.PackedSize);
+                _progressIncrement = (double)ProgressBarMaximum / totalPackedSize;
 
                 if (Dialog is WinFormsDialogBase)
                     _taskbarProgressMaximum = (double)TaskbarProgressMaximumWinForms;
                 else
                     _taskbarProgressMaximum = (double)TaskbarProgressMaximumWpf;
 
-                _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalSize;
+                _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
             }
 
             var extractionTasks = new List<Task>();
