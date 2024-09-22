@@ -22,9 +22,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
     /// </summary>
     public partial class ServerInformation
     {
-        public ServerInformation(ActivityWatcher activityWatcher)
+        public ServerInformation(Watcher watcher)
         {
-            DataContext = new ServerInformationViewModel(this, activityWatcher);
+            DataContext = new ServerInformationViewModel(watcher);
             InitializeComponent();
         }
     }

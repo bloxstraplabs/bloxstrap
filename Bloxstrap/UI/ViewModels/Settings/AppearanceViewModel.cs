@@ -23,9 +23,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
 
             if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
-                dialog.Message = Resources.Strings.Bootstrapper_StylePreview_ImageCancel;
+                dialog.Message = Strings.Bootstrapper_StylePreview_ImageCancel;
             else
-                dialog.Message = Resources.Strings.Bootstrapper_StylePreview_TextCancel;
+                dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
@@ -35,7 +35,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             var dialog = new OpenFileDialog
             {
-                Filter = $"{Resources.Strings.Menu_IconFiles}|*.ico"
+                Filter = $"{Strings.Menu_IconFiles}|*.ico"
             };
 
             if (dialog.ShowDialog() != true)

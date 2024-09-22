@@ -1,4 +1,5 @@
 ﻿using Bloxstrap.Integrations;
+using Bloxstrap.UI.Elements.About;
 using Bloxstrap.UI.Elements.ContextMenu;
 
 namespace Bloxstrap.UI
@@ -10,19 +11,22 @@ namespace Bloxstrap.UI
         private bool _disposing = false;
 
         private readonly System.Windows.Forms.NotifyIcon _notifyIcon;
-        private MenuContainer? _menuContainer;
         
-        private ActivityWatcher? _activityWatcher;
-        private DiscordRichPresence? _richPresenceHandler;
-        private int? _processId;
+        private readonly MenuContainer _menuContainer;
+        
+        private readonly Watcher _watcher;
+
+        private ActivityWatcher? _activityWatcher => _watcher.ActivityWatcher;
 
         EventHandler? _alertClickHandler;
 
-        public NotifyIconWrapper()
+        public NotifyIconWrapper(Watcher watcher)
         {
             App.Logger.WriteLine("NotifyIconWrapper::NotifyIconWrapper", "Initializing notification area icon");
 
-            _notifyIcon = new()
+            _watcher = watcher;
+
+            _notifyIcon = new(new System.ComponentModel.Container())
             {
                 Icon = Properties.Resources.IconBloxstrap,
                 Text = App.ProjectName,
@@ -30,52 +34,18 @@ namespace Bloxstrap.UI
             };
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
+
+            if (_activityWatcher is not null && App.Settings.Prop.ShowServerDetails)
+                _activityWatcher.OnGameJoin += OnGameJoin;
+
+            _menuContainer = new(_watcher);
+            _menuContainer.Show();
         }
-
-        #region Handler registers
-        public void SetRichPresenceHandler(DiscordRichPresence richPresenceHandler)
-        {
-            if (_richPresenceHandler is not null)
-                return;
-
-            _richPresenceHandler = richPresenceHandler;
-        }
-
-        public void SetActivityWatcher(ActivityWatcher activityWatcher)
-        {
-            if (_activityWatcher is not null)
-                return;
-
-            _activityWatcher = activityWatcher;
-
-            if (App.Settings.Prop.ShowServerDetails)
-                _activityWatcher.OnGameJoin += (_, _) => Task.Run(OnGameJoin);
-        }
-
-        public void SetProcessId(int processId)
-        {
-            if (_processId is not null)
-                return;
-
-            _processId = processId;
-        }
-        #endregion
 
         #region Context menu
-        public void InitializeContextMenu()
-        {
-            if (_menuContainer is not null || _disposing)
-                return;
-
-            App.Logger.WriteLine("NotifyIconWrapper::InitializeContextMenu", "Initializing context menu");
-
-            _menuContainer = new(_activityWatcher, _richPresenceHandler, _processId);
-            _menuContainer.ShowDialog();
-        }
-
         public void MouseClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (e.Button != System.Windows.Forms.MouseButtons.Right || _menuContainer is null)
+            if (e.Button != System.Windows.Forms.MouseButtons.Right)
                 return;
 
             _menuContainer.Activate();
@@ -84,10 +54,17 @@ namespace Bloxstrap.UI
         #endregion
 
         #region Activity handlers
-        public async void OnGameJoin()
+        public async void OnGameJoin(object? sender, EventArgs e)
         {
-            string serverLocation = await _activityWatcher!.GetServerLocation();
-            string title = _activityWatcher.ActivityServerType switch
+            if (_activityWatcher is null)
+                return;
+            
+            string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
+
+            if (string.IsNullOrEmpty(serverLocation))
+                return;
+
+            string title = _activityWatcher.Data.ServerType switch
             {
                 ServerType.Public => Strings.ContextMenu_ServerInformation_Notification_Title_Public,
                 ServerType.Private => Strings.ContextMenu_ServerInformation_Notification_Title_Private,
@@ -99,11 +76,12 @@ namespace Bloxstrap.UI
                 title,
                 String.Format(Strings.ContextMenu_ServerInformation_Notification_Text, serverLocation),
                 10,
-                (_, _) => _menuContainer?.ShowServerInformationWindow()
+                (_, _) => _menuContainer.ShowServerInformationWindow()
             );
         }
         #endregion
 
+        // we may need to create our own handler for this, because this sorta sucks
         public void ShowAlert(string caption, string message, int duration, EventHandler? clickHandler)
         {
             string id = Guid.NewGuid().ToString()[..8];
@@ -151,9 +129,8 @@ namespace Bloxstrap.UI
 
             App.Logger.WriteLine("NotifyIconWrapper::Dispose", "Disposing NotifyIcon");
 
-            _menuContainer?.Dispatcher.Invoke(_menuContainer.Close);
-            _notifyIcon?.Dispose();
-
+            _menuContainer.Dispatcher.Invoke(_menuContainer.Close);
+            _notifyIcon.Dispose();
 
             GC.SuppressFinalize(this);
         }

@@ -137,7 +137,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
             else
             {
-                Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_AlreadyExists, MessageBoxImage.Information);
+                Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_AlreadyExists, MessageBoxImage.Information);
 
                 bool refresh = false;
 
@@ -175,7 +175,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 json = '{' + json;
 
             if (!json.EndsWith('}'))
-                json += '}';
+            {
+                int lastIndex = json.LastIndexOf('}');
+
+                if (lastIndex == -1)
+                    json += '}';
+                else
+                    json = json.Substring(0, lastIndex+1);
+            }
 
             try
             {
@@ -193,7 +200,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             catch (Exception ex)
             {
                 Frontend.ShowMessageBox(                    
-                    String.Format(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidJSON, ex.Message),
+                    String.Format(Strings.Menu_FastFlagEditor_InvalidJSON, ex.Message),
                     MessageBoxImage.Error
                 );
 
@@ -205,7 +212,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             if (list.Count > 16)
             {
                 var result = Frontend.ShowMessageBox(
-                    Bloxstrap.Resources.Strings.Menu_FastFlagEditor_LargeConfig, 
+                    Strings.Menu_FastFlagEditor_LargeConfig, 
                     MessageBoxImage.Warning,
                     MessageBoxButton.YesNo
                 );
@@ -222,7 +229,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 int count = conflictingFlags.Count();
 
                 string message = String.Format(
-                    Bloxstrap.Resources.Strings.Menu_FastFlagEditor_ConflictingImport,
+                    Strings.Menu_FastFlagEditor_ConflictingImport,
                     count,
                     String.Join(", ", conflictingFlags.Take(25))
                 );
@@ -263,16 +270,16 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             string errorMessage = "";
 
             if (!_validPrefixes.Any(name.StartsWith))
-                errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPrefix;
+                errorMessage = Strings.Menu_FastFlagEditor_InvalidPrefix;
             else if (!name.All(x => char.IsLetterOrDigit(x) || x == '_'))
-                errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidCharacter;
+                errorMessage = Strings.Menu_FastFlagEditor_InvalidCharacter;
             
             if (name.EndsWith("_PlaceFilter") || name.EndsWith("_DataCenterFilter"))
-                errorMessage = !ValidateFilter(name, value) ? Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
+                errorMessage = !ValidateFilter(name, value) ? Strings.Menu_FastFlagEditor_InvalidPlaceFilter : ""; 
             else if ((name.StartsWith("FInt") || name.StartsWith("DFInt")) && !Int32.TryParse(value, out _))
-                errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidNumberValue;
+                errorMessage = Strings.Menu_FastFlagEditor_InvalidNumberValue;
             else if ((name.StartsWith("FFlag") || name.StartsWith("DFFlag")) && lowerValue != "true" && lowerValue != "false")
-                errorMessage = Bloxstrap.Resources.Strings.Menu_FastFlagEditor_InvalidBoolValue;
+                errorMessage = Strings.Menu_FastFlagEditor_InvalidBoolValue;
             
             if (!String.IsNullOrEmpty(errorMessage))
             { 
@@ -300,12 +307,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            int index = e.Row.GetIndex();
-            FastFlag entry = _fastFlagList[index];
-            
-            var textbox = e.EditingElement as TextBox;
+            if (e.Row.DataContext is not FastFlag entry)
+                return;
 
-            if (textbox is null)
+            if (e.EditingElement is not TextBox textbox)
                 return;
 
             switch (e.Column.Header)
@@ -319,7 +324,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                     if (App.FastFlags.GetValue(newName) is not null)
                     {
-                        Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_AlreadyExists, MessageBoxImage.Information);
+                        Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_AlreadyExists, MessageBoxImage.Information);
                         e.Cancel = true;
                         textbox.Text = oldName;
                         return;
@@ -387,7 +392,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
             Clipboard.SetDataObject(json);
-            Frontend.ShowMessageBox(Bloxstrap.Resources.Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
+            Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)

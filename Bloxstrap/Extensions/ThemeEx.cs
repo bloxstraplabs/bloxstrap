@@ -9,15 +9,10 @@ namespace Bloxstrap.Extensions
             if (dialogTheme != Theme.Default)
                 return dialogTheme;
 
-            RegistryKey? key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
+            using var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
 
-            if (key is not null)
-            {
-                var value = key.GetValue("AppsUseLightTheme");
-
-                if (value is not null && (int)value == 0)
-                    return Theme.Dark;
-            }
+            if (key?.GetValue("AppsUseLightTheme") is int value && value == 0)
+                return Theme.Dark;
 
             return Theme.Light;
         }

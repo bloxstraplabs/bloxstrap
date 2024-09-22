@@ -1,23 +1,23 @@
 ﻿using System.Security.Cryptography;
 using System.Windows.Markup;
 
-namespace Bloxstrap.Models
+namespace Bloxstrap.Models.Entities
 {
     public class ModPresetFileData
     {
         public string FilePath { get; private set; }
 
         public string FullFilePath => Path.Combine(Paths.Modifications, FilePath);
-        
+
         public FileStream FileStream => File.OpenRead(FullFilePath);
 
         public string ResourceIdentifier { get; private set; }
-        
+
         public Stream ResourceStream => Resource.GetStream(ResourceIdentifier);
 
         public byte[] ResourceHash { get; private set; }
 
-        public ModPresetFileData(string contentPath, string resource) 
+        public ModPresetFileData(string contentPath, string resource)
         {
             FilePath = contentPath;
             ResourceIdentifier = resource;

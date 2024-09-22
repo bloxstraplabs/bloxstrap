@@ -1,6 +1,6 @@
-﻿using Bloxstrap.UI.ViewModels.Settings;
+﻿using Bloxstrap.UI.ViewModels.About;
 
-namespace Bloxstrap.UI.Elements.Settings.Pages
+namespace Bloxstrap.UI.Elements.About.Pages
 {
     /// <summary>
     /// Interaction logic for AboutPage.xaml

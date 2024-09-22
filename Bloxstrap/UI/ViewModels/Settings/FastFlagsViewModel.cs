@@ -87,23 +87,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public RenderingMode SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set
-            {
-                App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
-                App.FastFlags.CheckManualFullscreenPreset();
-            }
+            set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
         }
 
         public bool FixDisplayScaling
         {
             get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
             set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
-        }
-
-        public bool AlternateGraphicsSelectorEnabled
-        {
-            get => App.FastFlags.GetPreset("UI.Menu.GraphicsSlider") == "True";
-            set => App.FastFlags.SetPreset("UI.Menu.GraphicsSlider", value ? "True" : null);
         }
 
         public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;

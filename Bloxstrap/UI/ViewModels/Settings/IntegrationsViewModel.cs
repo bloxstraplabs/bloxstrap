@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-using Bloxstrap.Resources;
-
 using Microsoft.Win32;
 
 using CommunityToolkit.Mvvm.Input;
@@ -12,14 +10,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class IntegrationsViewModel : NotifyPropertyChangedViewModel
     {
         public ICommand AddIntegrationCommand => new RelayCommand(AddIntegration);
+
         public ICommand DeleteIntegrationCommand => new RelayCommand(DeleteIntegration);
+
         public ICommand BrowseIntegrationLocationCommand => new RelayCommand(BrowseIntegrationLocation);
 
         private void AddIntegration()
         {
             CustomIntegrations.Add(new CustomIntegration()
             {
-                Name = Resources.Strings.Menu_Integrations_Custom_NewIntegration
+                Name = Strings.Menu_Integrations_Custom_NewIntegration
             });
 
             SelectedCustomIntegrationIndex = CustomIntegrations.Count - 1;
@@ -57,6 +57,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             if (dialog.ShowDialog() != true)
                 return;
 
+            SelectedCustomIntegration.Name = dialog.SafeFileName;
             SelectedCustomIntegration.Location = dialog.FileName;
             OnPropertyChanged(nameof(SelectedCustomIntegration));
         }

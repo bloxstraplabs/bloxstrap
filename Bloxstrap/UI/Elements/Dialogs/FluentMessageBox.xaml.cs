@@ -41,7 +41,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
                 case MessageBoxImage.Warning:
                     iconFilename = "Warning";
-                    sound = SystemSounds.Asterisk;
+                    sound = SystemSounds.Exclamation;
                     break;
 
                 case MessageBoxImage.Information:
@@ -121,13 +121,13 @@ namespace Bloxstrap.UI.Elements.Dialogs
             switch (result)
             {
                 case MessageBoxResult.OK:
-                    return Bloxstrap.Resources.Strings.Common_OK;
+                    return Strings.Common_OK;
                 case MessageBoxResult.Cancel:
-                    return Bloxstrap.Resources.Strings.Common_Cancel;
+                    return Strings.Common_Cancel;
                 case MessageBoxResult.Yes:
-                    return Bloxstrap.Resources.Strings.Common_Yes;
+                    return Strings.Common_Yes;
                 case MessageBoxResult.No:
-                    return Bloxstrap.Resources.Strings.Common_No;
+                    return Strings.Common_No;
                 default:
                     Debug.Assert(false);
                     return result.ToString();

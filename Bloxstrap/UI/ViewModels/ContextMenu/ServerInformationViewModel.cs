@@ -7,26 +7,36 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 {
     internal class ServerInformationViewModel : NotifyPropertyChangedViewModel
     {
-        private readonly Window _window;
         private readonly ActivityWatcher _activityWatcher;
 
-        public string InstanceId => _activityWatcher.ActivityJobId;
-        public string ServerType => Resources.Strings.ResourceManager.GetStringSafe($"Enums.ServerType.{_activityWatcher.ActivityServerType}");
-        public string ServerLocation { get; private set; } = Resources.Strings.ContextMenu_ServerInformation_Loading;
+        public string InstanceId => _activityWatcher.Data.JobId;
+
+        public string ServerType => _activityWatcher.Data.ServerType.ToTranslatedString();
+
+        public string ServerLocation { get; private set; } = Strings.Common_Loading;
+
+        public Visibility ServerLocationVisibility => App.Settings.Prop.ShowServerDetails ? Visibility.Visible : Visibility.Collapsed;
 
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
-        public ICommand CloseWindowCommand => new RelayCommand(_window.Close);
 
-        public ServerInformationViewModel(Window window, ActivityWatcher activityWatcher)
+        public ServerInformationViewModel(Watcher watcher)
         {
-            _window = window;
-            _activityWatcher = activityWatcher;
+            _activityWatcher = watcher.ActivityWatcher!;
 
-            Task.Run(async () =>
-            {
-                ServerLocation = await _activityWatcher.GetServerLocation();
-                OnPropertyChanged(nameof(ServerLocation));
-            });
+            if (ServerLocationVisibility == Visibility.Visible)
+                QueryServerLocation();
+        }
+
+        public async void QueryServerLocation()
+        {
+            string? location = await _activityWatcher.Data.QueryServerLocation();
+
+            if (String.IsNullOrEmpty(location))
+                ServerLocation = Strings.Common_NotAvailable;
+            else
+                ServerLocation = location;
+
+            OnPropertyChanged(nameof(ServerLocation));
         }
 
         private void CopyInstanceId() => Clipboard.SetDataObject(InstanceId);

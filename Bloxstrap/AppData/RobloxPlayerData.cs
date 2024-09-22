@@ -8,15 +8,19 @@ namespace Bloxstrap.AppData
 {
     public class RobloxPlayerData : CommonAppData, IAppData
     {
-        public string ProductName { get; } = "Roblox";
+        public string ProductName => "Roblox";
 
-        public string BinaryType { get; } = "WindowsPlayer";
+        public string BinaryType => "WindowsPlayer";
 
-        public string RegistryName { get; } = "RobloxPlayer";
+        public string RegistryName => "RobloxPlayer";
 
-        public string ExecutableName { get; } = "RobloxPlayerBeta.exe";
+        public override string ExecutableName => "RobloxPlayerBeta.exe";
 
-        public string StartEvent { get; } = "www.roblox.com/robloxStartedEvent";
+        public string StartEvent => "www.roblox.com/robloxStartedEvent";
+
+        public override string Directory => Path.Combine(Paths.Roblox, "Player");
+
+        public AppState State => App.State.Prop.Player;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

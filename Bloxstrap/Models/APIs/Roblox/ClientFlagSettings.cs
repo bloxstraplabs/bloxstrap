@@ -1,4 +1,4 @@
-﻿namespace Bloxstrap.Models
+﻿namespace Bloxstrap.Models.APIs.Roblox
 {
     public class ClientFlagSettings
     {

@@ -15,7 +15,11 @@ namespace Bloxstrap
     public partial class App : Application
     {
         public const string ProjectName = "Bloxstrap";
+        public const string ProjectOwner = "pizzaboxer";
         public const string ProjectRepository = "pizzaboxer/bloxstrap";
+        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
+        public const string ProjectHelpLink = "https://github.com/pizzaboxer/bloxstrap/wiki";
+        public const string ProjectSupportLink = "https://github.com/pizzaboxer/bloxstrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
@@ -29,9 +33,11 @@ namespace Bloxstrap
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
 
-        public static readonly MD5 MD5Provider = MD5.Create();
+        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
-        public static NotifyIconWrapper? NotifyIcon { get; set; }
+        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+
+        public static readonly MD5 MD5Provider = MD5.Create();
 
         public static readonly Logger Logger = new();
 
@@ -49,17 +55,13 @@ namespace Bloxstrap
             )
         );
 
-#if RELEASE
         private static bool _showingExceptionDialog = false;
-#endif
-
+        
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
 
             Logger.WriteLine("App::Terminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
-
-            NotifyIcon?.Dispose();
 
             Environment.Exit(exitCodeNum);
         }
@@ -73,24 +75,51 @@ namespace Bloxstrap
             FinalizeExceptionHandling(e.Exception);
         }
 
-        public static void FinalizeExceptionHandling(Exception exception, bool log = true)
+        public static void FinalizeExceptionHandling(AggregateException ex)
+        {
+            foreach (var innerEx in ex.InnerExceptions)
+                Logger.WriteException("App::FinalizeExceptionHandling", innerEx);
+
+            FinalizeExceptionHandling(ex.GetBaseException(), false);
+        }
+
+        public static void FinalizeExceptionHandling(Exception ex, bool log = true)
         {
             if (log)
-                Logger.WriteException("App::FinalizeExceptionHandling", exception);
+                Logger.WriteException("App::FinalizeExceptionHandling", ex);
 
-#if DEBUG
-            throw exception;
-#else
             if (_showingExceptionDialog)
                 return;
 
             _showingExceptionDialog = true;
 
-            if (!LaunchSettings.QuietFlag.Active)
-                Frontend.ShowExceptionDialog(exception);
+            Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
-#endif
+        }
+
+        public static async Task<GithubRelease?> GetLatestRelease()
+        {
+            const string LOG_IDENT = "App::GetLatestRelease";
+
+            try
+            {
+                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
+
+                if (releaseInfo is null || releaseInfo.Assets is null)
+                {
+                    Logger.WriteLine(LOG_IDENT, "Encountered invalid data");
+                    return null;
+                }
+
+                return releaseInfo;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteException(LOG_IDENT, ex);
+            }
+
+            return null;
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -103,10 +132,10 @@ namespace Bloxstrap
 
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
-            if (String.IsNullOrEmpty(BuildMetadata.CommitHash))
-                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
-            else
+            if (IsActionBuild)
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
+            else
+                Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from {BuildMetadata.Machine}");
 
             Logger.WriteLine(LOG_IDENT, $"Loaded from {Paths.Process}");
 
@@ -162,6 +191,26 @@ namespace Bloxstrap
                 }
             }
 
+            if (fixInstallLocation && installLocation is not null)
+            {
+                var installer = new Installer
+                {
+                    InstallLocation = installLocation,
+                    IsImplicitInstall = true
+                };
+
+                if (installer.CheckInstallLocation())
+                {
+                    Logger.WriteLine(LOG_IDENT, $"Changing install location to '{installLocation}'");
+                    installer.DoInstall();
+                }
+                else
+                {
+                    // force reinstall
+                    installLocation = null;
+                }
+            }
+
             if (installLocation is null)
             {
                 Logger.Initialize(true);
@@ -169,21 +218,6 @@ namespace Bloxstrap
             }
             else
             {
-                if (fixInstallLocation)
-                {
-                    var installer = new Installer
-                    {
-                        InstallLocation = installLocation,
-                        IsImplicitInstall = true
-                    };
-
-                    if (installer.CheckInstallLocation())
-                    {
-                        Logger.WriteLine(LOG_IDENT, $"Changing install location to '{installLocation}'");
-                        installer.DoInstall();
-                    }
-                }
-
                 Paths.Initialize(installLocation);
 
                 // ensure executable is in the install directory
@@ -202,10 +236,6 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
-                // we can only parse them now as settings need
-                // to be loaded first to know what our channel is
-                // LaunchSettings.ParseRoblox();
-
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
                     Settings.Prop.Locale = "nil";
@@ -214,13 +244,13 @@ namespace Bloxstrap
 
                 Locale.Set(Settings.Prop.Locale);
 
-                if (!LaunchSettings.UninstallFlag.Active)
+                if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
 
                 LaunchHandler.ProcessLaunchArgs();
             }
 
-            Terminate();
+            // you must *explicitly* call terminate when everything is done, it won't be called implicitly
         }
     }
 }

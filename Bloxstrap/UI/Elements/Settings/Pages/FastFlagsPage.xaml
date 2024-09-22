@@ -86,7 +86,7 @@
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Title}" 
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FPSLimit_Description}" 
             HelpLink="https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags#framerate-limit">
-            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateLimit, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
         </controls:OptionControl>
 
         <controls:OptionControl 
@@ -165,12 +165,6 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Title}" 
-            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_AltGraphicsSelector_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding AlternateGraphicsSelectorEnabled, Mode=TwoWay}" />
-        </controls:OptionControl>
-        
         <ui:CardAction Margin="0,24,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
             <StackPanel>
                 <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />

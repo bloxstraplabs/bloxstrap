@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.AppData
+﻿namespace Bloxstrap.AppData
 {
     public class RobloxStudioData : CommonAppData, IAppData
     {
-        public string ProductName { get; } = "Roblox Studio";
+        public string ProductName => "Roblox Studio";
 
-        public string BinaryType { get; } = "WindowsStudio64";
+        public string BinaryType => "WindowsStudio64";
 
-        public string RegistryName { get; } = "RobloxStudio";
+        public string RegistryName => "RobloxStudio";
 
-        public string ExecutableName { get; } = "RobloxStudioBeta.exe";
+        public override string ExecutableName => "RobloxStudioBeta.exe";
 
-        public string StartEvent { get; } = "www.roblox.com/robloxStudioStartedEvent";
+        public string StartEvent => "www.roblox.com/robloxStudioStartedEvent";
+
+        public override string Directory => Path.Combine(Paths.Roblox, "Studio");
+        
+        public AppState State => App.State.Prop.Studio;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

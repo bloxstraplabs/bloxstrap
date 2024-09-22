@@ -123,7 +123,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private void UiWindow_Closing(object sender, CancelEventArgs e)
         {
             if (!_isClosing)
-                Bootstrapper?.CancelInstall();
+                Bootstrapper?.Cancel();
         }
 
         #region IBootstrapperDialog Methods

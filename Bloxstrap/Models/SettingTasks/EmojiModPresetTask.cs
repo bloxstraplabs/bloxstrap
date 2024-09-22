@@ -52,9 +52,12 @@ namespace Bloxstrap.Models.SettingTasks
                 {
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    Frontend.ShowMessageBox(
-                        String.Format(Strings.Menu_Mods_Presets_EmojiType_Error, ex.Message),
-                        MessageBoxImage.Warning);
+                    Frontend.ShowConnectivityDialog(
+                        String.Format(Strings.Dialog_Connectivity_UnableToConnect, "GitHub"),
+                        $"{Strings.Menu_Mods_Presets_EmojiType_Error}\n\n{Strings.Dialog_Connectivity_TryAgainLater}",
+                        MessageBoxImage.Warning,
+                        ex
+                    );
                 }
             }
             else if (query is not null && query.Any())

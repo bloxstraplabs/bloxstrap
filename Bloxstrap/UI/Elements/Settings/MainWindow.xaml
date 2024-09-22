@@ -15,7 +15,8 @@
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"
              WindowBackdropType="Mica"
-             WindowStartupLocation="CenterScreen">
+             WindowStartupLocation="CenterScreen"
+             Closing="WpfUiWindow_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -60,7 +61,7 @@
                     <ui:NavigationItem Content="" PageType="{x:Type pages:FastFlagEditorWarningPage}" Tag="fastflageditorwarning" Visibility="Collapsed" x:Name="EditorWarningNavItem" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" Margin="0,0,0,12" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>
 
@@ -93,7 +94,7 @@
                 <ui:Button Content="{x:Static resources:Strings.Menu_Save}" Appearance="Primary" Command="{Binding SaveSettingsCommand, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,0,0">
-                <ui:Button Content="{x:Static resources:Strings.Common_Close}"  IsCancel="True" />
+                <ui:Button Content="{x:Static resources:Strings.Common_Close}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>
     </Grid>

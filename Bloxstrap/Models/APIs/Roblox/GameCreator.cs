@@ -1,4 +1,4 @@
-﻿namespace Bloxstrap.Models.RobloxApi
+﻿namespace Bloxstrap.Models.APIs.Roblox
 {
     /// <summary>
     /// Roblox.Games.Api.Models.Response.GameCreator
