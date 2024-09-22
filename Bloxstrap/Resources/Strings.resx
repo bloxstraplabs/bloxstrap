@@ -138,11 +138,6 @@
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Bloxstrap before uninstalling.</value>
   </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
-
-Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.</value>
-  </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
   </data>
