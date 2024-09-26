@@ -70,6 +70,7 @@ namespace Bloxstrap
             { "Qml.zip",                         @"Qml\" },
             { "StudioFonts.zip",                 @"StudioFonts\" },
             { "redist.zip",                      @"" },
+            { "RibbonConfig.zip",                @"RibbonConfig\" }
         };
 
         private static Dictionary<string, string> CombineDictionaries(IReadOnlyDictionary<string, string> d1, IReadOnlyDictionary<string, string> d2)
