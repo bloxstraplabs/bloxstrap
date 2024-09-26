@@ -21,7 +21,7 @@
             { "RobloxStudio.zip",                @"" },
             { "redist.zip",                      @"" },
             { "LibrariesQt5.zip",                @"" },
-            
+
             { "content-studio_svg_textures.zip", @"content\studio_svg_textures\"},
             { "content-qt_translations.zip",     @"content\qt_translations\" },
             { "content-api-docs.zip",            @"content\api_docs\" },
@@ -34,7 +34,8 @@
             { "ApplicationConfig.zip",           @"ApplicationConfig\" },
             { "Plugins.zip",                     @"Plugins\" },
             { "Qml.zip",                         @"Qml\" },
-            { "StudioFonts.zip",                 @"StudioFonts\" }
+            { "StudioFonts.zip",                 @"StudioFonts\" },
+            { "RibbonConfig.zip",                @"RibbonConfig.zip\" }
         };
     }
 }
