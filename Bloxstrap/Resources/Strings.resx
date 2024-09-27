@@ -138,11 +138,6 @@
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Bloxstrap before uninstalling.</value>
   </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
-
-Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want.</value>
-  </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
   </data>
@@ -1208,5 +1203,20 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>The chosen bootstrapper icon could not be loaded.
 
 {0}</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Extract Roblox icons to folder</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder.</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>One-off</value>
   </data>
 </root>

@@ -22,6 +22,8 @@ namespace Bloxstrap
 
         public LaunchFlag NoLaunchFlag  { get; } = new("nolaunch");
 
+        public LaunchFlag NoGPUFlag     { get; } = new("nogpu");
+
         public LaunchFlag UpgradeFlag   { get; } = new("upgrade");
         
         public LaunchFlag PlayerFlag    { get; } = new("player");

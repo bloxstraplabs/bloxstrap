@@ -79,6 +79,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly.
+        /// </summary>
+        public static string About_Supporters_Monthly {
+            get {
+                return ResourceManager.GetString("About.Supporters.Monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One-off.
+        /// </summary>
+        public static string About_Supporters_OneOff {
+            get {
+                return ResourceManager.GetString("About.Supporters.OneOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supporters.
         /// </summary>
         public static string About_Supporters_Title {
@@ -156,17 +174,6 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_FirstRunUninstall {
             get {
                 return ResourceManager.GetString("Bootstrapper.FirstRunUninstall", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
-        ///
-        ///Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want..
-        /// </summary>
-        public static string Bootstrapper_HyperionUpdateInfo {
-            get {
-                return ResourceManager.GetString("Bootstrapper.HyperionUpdateInfo", resourceCulture);
             }
         }
         
@@ -1029,6 +1036,15 @@ namespace Bloxstrap.Resources {
         public static string Dialog_PlayerError_HelpInformation {
             get {
                 return ResourceManager.GetString("Dialog.PlayerError.HelpInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn&apos;t anything that would restrict Bloxstrap&apos;s operation..
+        /// </summary>
+        public static string Dialog_RegistryWriteError {
+            get {
+                return ResourceManager.GetString("Dialog.RegistryWriteError", resourceCulture);
             }
         }
         
@@ -3114,6 +3130,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Shortcuts_Description {
             get {
                 return ResourceManager.GetString("Menu.Shortcuts.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder..
+        /// </summary>
+        public static string Menu_Shortcuts_ExtractIcons_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.ExtractIcons.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extract Roblox icons to folder.
+        /// </summary>
+        public static string Menu_Shortcuts_ExtractIcons_Title {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.ExtractIcons.Title", resourceCulture);
             }
         }
         

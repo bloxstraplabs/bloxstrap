@@ -66,6 +66,15 @@ namespace Bloxstrap
             Environment.Exit(exitCodeNum);
         }
 
+        public static void SoftTerminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
+        {
+            int exitCodeNum = (int)exitCode;
+
+            Logger.WriteLine("App::SoftTerminate", $"Terminating with exit code {exitCodeNum} ({exitCode})");
+
+            Current.Dispatcher.Invoke(() => Current.Shutdown(exitCodeNum));
+        }
+
         void GlobalExceptionHandler(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             e.Handled = true;

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Windows;
+using System.Windows.Interop;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Contracts;
@@ -24,6 +20,17 @@ namespace Bloxstrap.UI.Elements.Base
         {
             _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
             _themeService.SetSystemAccent();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            if (App.Settings.Prop.WPFSoftwareRender || App.LaunchSettings.NoGPUFlag.Active)
+            {
+                if (PresentationSource.FromVisual(this) is HwndSource hwndSource)
+                    hwndSource.CompositionTarget.RenderMode = RenderMode.SoftwareOnly;
+            }
+
+            base.OnSourceInitialized(e);
         }
     }
 }

@@ -17,6 +17,13 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_Shortcuts_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Shortcuts_ExtractIcons_Title}" 
+            Description="{x:Static resources:Strings.Menu_Shortcuts_ExtractIcons_Description}" 
+            Margin="0,0,0,16">
+            <ui:ToggleSwitch IsChecked="{Binding ExtractIconsTask.NewState, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Title}" FontSize="20" FontWeight="Medium" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Description}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 

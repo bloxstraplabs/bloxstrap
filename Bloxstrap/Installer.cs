@@ -53,23 +53,23 @@ namespace Bloxstrap
             // TODO: registry access checks, i'll need to look back on issues to see what the error looks like
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
-                uninstallKey.SetValue("DisplayIcon", $"{Paths.Application},0");
-                uninstallKey.SetValue("DisplayName", App.ProjectName);
+                uninstallKey.SetValueSafe("DisplayIcon", $"{Paths.Application},0");
+                uninstallKey.SetValueSafe("DisplayName", App.ProjectName);
 
-                uninstallKey.SetValue("DisplayVersion", App.Version);
+                uninstallKey.SetValueSafe("DisplayVersion", App.Version);
 
                 if (uninstallKey.GetValue("InstallDate") is null)
-                    uninstallKey.SetValue("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
+                    uninstallKey.SetValueSafe("InstallDate", DateTime.Now.ToString("yyyyMMdd"));
 
-                uninstallKey.SetValue("InstallLocation", Paths.Base);
-                uninstallKey.SetValue("NoRepair", 1);
-                uninstallKey.SetValue("Publisher", App.ProjectOwner);
-                uninstallKey.SetValue("ModifyPath", $"\"{Paths.Application}\" -settings");
-                uninstallKey.SetValue("QuietUninstallString", $"\"{Paths.Application}\" -uninstall -quiet");
-                uninstallKey.SetValue("UninstallString", $"\"{Paths.Application}\" -uninstall");
-                uninstallKey.SetValue("HelpLink", App.ProjectHelpLink);
-                uninstallKey.SetValue("URLInfoAbout", App.ProjectSupportLink);
-                uninstallKey.SetValue("URLUpdateInfo", App.ProjectDownloadLink);
+                uninstallKey.SetValueSafe("InstallLocation", Paths.Base);
+                uninstallKey.SetValueSafe("NoRepair", 1);
+                uninstallKey.SetValueSafe("Publisher", App.ProjectOwner);
+                uninstallKey.SetValueSafe("ModifyPath", $"\"{Paths.Application}\" -settings");
+                uninstallKey.SetValueSafe("QuietUninstallString", $"\"{Paths.Application}\" -uninstall -quiet");
+                uninstallKey.SetValueSafe("UninstallString", $"\"{Paths.Application}\" -uninstall");
+                uninstallKey.SetValueSafe("HelpLink", App.ProjectHelpLink);
+                uninstallKey.SetValueSafe("URLInfoAbout", App.ProjectSupportLink);
+                uninstallKey.SetValueSafe("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
@@ -426,12 +426,12 @@ namespace Bloxstrap
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
-                uninstallKey.SetValue("DisplayVersion", App.Version);
+                uninstallKey.SetValueSafe("DisplayVersion", App.Version);
 
-                uninstallKey.SetValue("Publisher", App.ProjectOwner);
-                uninstallKey.SetValue("HelpLink", App.ProjectHelpLink);
-                uninstallKey.SetValue("URLInfoAbout", App.ProjectSupportLink);
-                uninstallKey.SetValue("URLUpdateInfo", App.ProjectDownloadLink);
+                uninstallKey.SetValueSafe("Publisher", App.ProjectOwner);
+                uninstallKey.SetValueSafe("HelpLink", App.ProjectHelpLink);
+                uninstallKey.SetValueSafe("URLInfoAbout", App.ProjectSupportLink);
+                uninstallKey.SetValueSafe("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // update migrations
@@ -459,14 +459,7 @@ namespace Bloxstrap
                     string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
 
                     if (File.Exists(injectorLocation))
-                    {
-                        Frontend.ShowMessageBox(
-                            Strings.Bootstrapper_HyperionUpdateInfo,
-                            MessageBoxImage.Warning
-                        );
-
                         File.Delete(injectorLocation);
-                    }
 
                     if (File.Exists(configLocation))
                         File.Delete(configLocation);

@@ -1,11 +1,9 @@
-﻿using Bloxstrap.Models.SettingTasks.Base;
-
-namespace Bloxstrap.Models.SettingTasks
+﻿namespace Bloxstrap.Models.SettingTasks
 {
     public class ShortcutTask : BoolBaseTask
     {
         private string _shortcutPath;
-        
+
         private string _exeFlags;
 
         public ShortcutTask(string name, string lnkFolder, string lnkName, string exeFlags = "") : base("Shortcut", name)
