@@ -160,17 +160,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox has now finished rolling out the new game client update, featuring 64-bit support and the Hyperion anticheat. ReShade does not work with this update, and so it has now been disabled and removed from Bloxstrap.
-        ///
-        ///Your ReShade configuration files will still be saved, and you can locate them by opening the folder where Bloxstrap is installed to, and navigating to the Integrations folder. You can choose to delete these if you want..
-        /// </summary>
-        public static string Bootstrapper_HyperionUpdateInfo {
-            get {
-                return ResourceManager.GetString("Bootstrapper.HyperionUpdateInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Failed to save {0}: {1}.
         /// </summary>
         public static string Bootstrapper_JsonManagerSaveFailed {

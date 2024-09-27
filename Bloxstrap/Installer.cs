@@ -459,14 +459,7 @@ namespace Bloxstrap
                     string configLocation = Path.Combine(Paths.Modifications, "ReShade.ini");
 
                     if (File.Exists(injectorLocation))
-                    {
-                        Frontend.ShowMessageBox(
-                            Strings.Bootstrapper_HyperionUpdateInfo,
-                            MessageBoxImage.Warning
-                        );
-
                         File.Delete(injectorLocation);
-                    }
 
                     if (File.Exists(configLocation))
                         File.Delete(configLocation);
