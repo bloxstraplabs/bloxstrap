@@ -35,7 +35,7 @@
             { "Plugins.zip",                     @"Plugins\" },
             { "Qml.zip",                         @"Qml\" },
             { "StudioFonts.zip",                 @"StudioFonts\" },
-            { "RibbonConfig.zip",                @"RibbonConfig.zip\" }
+            { "RibbonConfig.zip",                @"RibbonConfig\" }
         };
     }
 }
