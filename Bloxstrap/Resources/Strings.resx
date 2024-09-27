@@ -1204,4 +1204,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
     <value>To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder.</value>
   </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
+  </data>
 </root>

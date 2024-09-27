@@ -16,14 +16,14 @@ namespace Bloxstrap.Utility
 
             if (uriKey.GetValue("") is null)
             {
-                uriKey.SetValue("", $"URL: {name} Protocol");
-                uriKey.SetValue("URL Protocol", "");
+                uriKey.SetValueSafe("", $"URL: {name} Protocol");
+                uriKey.SetValueSafe("URL Protocol", "");
             }
 
             if (uriCommandKey.GetValue("") as string != handlerArgs)
             {
-                uriIconKey.SetValue("", handler);
-                uriCommandKey.SetValue("", handlerArgs);
+                uriIconKey.SetValueSafe("", handler);
+                uriCommandKey.SetValueSafe("", handlerArgs);
             }
         }
 
@@ -85,16 +85,16 @@ namespace Bloxstrap.Utility
             using RegistryKey uriCommandKey = uriOpenKey.CreateSubKey(@"command");
 
             if (uriKey.GetValue("") as string != keyValue)
-                uriKey.SetValue("", keyValue);
+                uriKey.SetValueSafe("", keyValue);
 
             if (uriCommandKey.GetValue("") as string != handlerArgs)
-                uriCommandKey.SetValue("", handlerArgs);
+                uriCommandKey.SetValueSafe("", handlerArgs);
 
             if (uriOpenKey.GetValue("") as string != "Open")
-                uriOpenKey.SetValue("", "Open");
+                uriOpenKey.SetValueSafe("", "Open");
 
             if (uriIconKey.GetValue("") as string != iconValue)
-                uriIconKey.SetValue("", iconValue);
+                uriIconKey.SetValueSafe("", iconValue);
         }
 
         public static void RegisterStudioFileType(string key)
@@ -103,7 +103,7 @@ namespace Bloxstrap.Utility
             uriKey.CreateSubKey(RobloxPlaceKey + @"\ShellNew");
 
             if (uriKey.GetValue("") as string != RobloxPlaceKey)
-                uriKey.SetValue("", RobloxPlaceKey);
+                uriKey.SetValueSafe("", RobloxPlaceKey);
         }
 
         public static void Unregister(string key)

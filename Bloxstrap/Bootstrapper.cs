@@ -252,7 +252,7 @@ namespace Bloxstrap
                 clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
             }
 
-            key.SetValue("www.roblox.com", channel);
+            key.SetValueSafe("www.roblox.com", channel);
 
             _latestVersionGuid = clientVersion.VersionGuid;
 
@@ -724,7 +724,7 @@ namespace Bloxstrap
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
-                uninstallKey.SetValue("EstimatedSize", totalSize);
+                uninstallKey.SetValueSafe("EstimatedSize", totalSize);
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");

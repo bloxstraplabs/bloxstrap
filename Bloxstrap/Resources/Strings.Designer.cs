@@ -1022,6 +1022,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn&apos;t anything that would restrict Bloxstrap&apos;s operation..
+        /// </summary>
+        public static string Dialog_RegistryWriteError {
+            get {
+                return ResourceManager.GetString("Dialog.RegistryWriteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Early 2015.
         /// </summary>
         public static string Enums_BootstrapperIcon_IconEarly2015 {
