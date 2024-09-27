@@ -950,6 +950,9 @@ namespace Bloxstrap
 
             const int maxTries = 5;
 
+            bool statIsRetrying = false;
+            bool statIsHttp = false;
+
             App.Logger.WriteLine(LOG_IDENT, "Downloading...");
 
             var buffer = new byte[4096];
@@ -1002,8 +1005,12 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
+                    statIsRetrying = true;
+
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
+                        _ = App.HttpClient.GetAsync($"http://bloxstraplabs.com/metrics/post?key=packageDownloadState&value=httpFail");
+
                         Frontend.ShowConnectivityDialog(
                             Strings.Dialog_Connectivity_UnableToDownload,
                             String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, "[https://github.com/pizzaboxer/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox](https://github.com/pizzaboxer/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox)"),
@@ -1029,8 +1036,15 @@ namespace Bloxstrap
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
                         packageUrl = packageUrl.Replace("https://", "http://");
+                        statIsHttp = true;
                     }
                 }
+            }
+
+            if (statIsRetrying)
+            {
+                string stat = statIsHttp ? "httpSuccess" : "retrySuccess";
+                _ = App.HttpClient.GetAsync($"http://bloxstraplabs.com/metrics/post?key=packageDownloadState&value={stat}");
             }
         }
 
