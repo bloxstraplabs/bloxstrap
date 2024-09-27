@@ -41,5 +41,7 @@ namespace Bloxstrap.Models.SettingTasks.Base
         public override bool Changed => _newState != OriginalState;
 
         public BoolBaseTask(string prefix, string name) : base(prefix, name) { }
+
+        public BoolBaseTask(string name) : base(name) { }
     }
 }

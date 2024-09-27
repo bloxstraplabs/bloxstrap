@@ -3089,6 +3089,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder..
+        /// </summary>
+        public static string Menu_Shortcuts_ExtractIcons_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.ExtractIcons.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extract Roblox icons to folder.
+        /// </summary>
+        public static string Menu_Shortcuts_ExtractIcons_Title {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.ExtractIcons.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create shortcuts for quick access to specific functions. These will all be placed on the Desktop..
         /// </summary>
         public static string Menu_Shortcuts_Function_Description {

@@ -13,7 +13,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
-
+    
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
@@ -27,6 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Icon2008.ico" />
+    <EmbeddedResource Include="Resources\Icon2011.ico" />
+    <EmbeddedResource Include="Resources\Icon2017.ico" />
+    <EmbeddedResource Include="Resources\Icon2019.ico" />
+    <EmbeddedResource Include="Resources\Icon2022.ico" />
+    <EmbeddedResource Include="Resources\IconBloxstrap.ico" />
+    <EmbeddedResource Include="Resources\IconEarly2015.ico" />
+    <EmbeddedResource Include="Resources\IconLate2015.ico" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />

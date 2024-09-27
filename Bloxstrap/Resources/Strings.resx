@@ -1198,4 +1198,10 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
 
 {0}</value>
   </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Extract Roblox icons to folder</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder.</value>
+  </data>
 </root>
