@@ -102,7 +102,7 @@ namespace Bloxstrap.UI.Elements.Settings
             App.State.Save();
 
             if (!e.Cancel)
-                App.Terminate();
+                App.SoftTerminate();
         }
     }
 }
