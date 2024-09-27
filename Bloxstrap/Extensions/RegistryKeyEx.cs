@@ -14,7 +14,7 @@ namespace Bloxstrap.Extensions
             catch (UnauthorizedAccessException)
             {
                 Frontend.ShowMessageBox(Strings.Dialog_RegistryWriteError, System.Windows.MessageBoxImage.Error);
-                App.Terminate();
+                App.Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
             }
         }
     }

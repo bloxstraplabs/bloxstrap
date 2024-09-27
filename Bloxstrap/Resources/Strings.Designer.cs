@@ -79,6 +79,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly.
+        /// </summary>
+        public static string About_Supporters_Monthly {
+            get {
+                return ResourceManager.GetString("About.Supporters.Monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One-off.
+        /// </summary>
+        public static string About_Supporters_OneOff {
+            get {
+                return ResourceManager.GetString("About.Supporters.OneOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supporters.
         /// </summary>
         public static string About_Supporters_Title {

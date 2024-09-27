@@ -2,10 +2,10 @@
 {
     public class SupporterData
     {
-        [JsonPropertyName("columns")]
-        public int Columns { get; set; }
+        [JsonPropertyName("monthly")]
+        public SupporterGroup Monthly { get; set; } = new();
 
-        [JsonPropertyName("supporters")]
-        public List<Supporter> Supporters { get; set; } = null!;
+        [JsonPropertyName("oneoff")]
+        public SupporterGroup OneOff { get; set; } = new();
     }
 }

@@ -1207,4 +1207,10 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
   </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>One-off</value>
+  </data>
 </root>
