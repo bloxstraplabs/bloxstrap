@@ -16,6 +16,9 @@ using System.Windows.Forms;
 
 using Microsoft.Win32;
 
+using ICSharpCode.SharpZipLib.Zip;
+using ICSharpCode.SharpZipLib.Core;
+
 using Bloxstrap.AppData;
 
 namespace Bloxstrap
@@ -1048,6 +1051,12 @@ namespace Bloxstrap
             }
         }
 
+        private void OnFastZipProcessFile(object sender, ScanEventArgs e)
+        {
+            // stop extracting if cancellation requested
+            e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
+        }
+
         private void ExtractPackage(Package package, List<string>? files = null)
         {
             const string LOG_IDENT = "Bootstrapper::ExtractPackage";
@@ -1068,7 +1077,10 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
-            var fastZip = new ICSharpCode.SharpZipLib.Zip.FastZip();
+            var events = new FastZipEvents();
+            events.ProcessFile += OnFastZipProcessFile;
+
+            var fastZip = new FastZip(events);
             fastZip.ExtractZip(package.DownloadPath, packageFolder, fileFilter);
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished extracting {package.Name}");
