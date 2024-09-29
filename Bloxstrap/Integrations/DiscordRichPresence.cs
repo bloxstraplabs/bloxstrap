@@ -227,29 +227,12 @@ namespace Bloxstrap.Integrations
 
             icon = universeDetails.Thumbnail.ImageUrl;
 
-            if (App.Settings.Prop.AccountShownOnProfile)
+            if (App.Settings.Prop.ShowAccountOnRichPresence)
             {
-                var userPfpResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={activity.UserId}&size=180x180&format=Png&isCircular=false"); //we can remove '-headshot' from the url if we want a full avatar picture
-                if (userPfpResponse is null || !userPfpResponse.Data.Any())
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not get user thumbnail info!");
-                }
-                else
-                {
-                    smallImage = userPfpResponse.Data.First().ImageUrl;
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user thumbnail as {smallImage}");
-                }
-                
-                var userInfoResponse = await Http.GetJson<UserInfoResponse>($"https://users.roblox.com/v1/users/{activity.UserId}");
-                if (userInfoResponse is null)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not get user info!");
-                } 
-                else
-                {
-                    smallImageText = userInfoResponse.DisplayName + $" (@{userInfoResponse.Username})"; //example: john doe (@johndoe)
-                    App.Logger.WriteLine(LOG_IDENT, $"Got user info as {smallImageText}");
-                }
+                var userDetails = await UserDetails.Fetch(activity.UserId);
+
+                smallImage = userDetails.Thumbnail.ImageUrl;
+                smallImageText = $"Playing on {userDetails.Data.DisplayName} (@{userDetails.Data.Name})"; // i.e. "axell (@Axelan_se)"
             }
 
             if (!_activityWatcher.InGame || placeId != activity.PlaceId)

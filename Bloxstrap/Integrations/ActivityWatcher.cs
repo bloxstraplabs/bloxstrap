@@ -222,7 +222,7 @@
                         return;                
                     }
 
-                    if (!UInt64.TryParse(match.Groups[1].Value, out ulong result))
+                    if (!Int64.TryParse(match.Groups[1].Value, out long result))
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to parse userid from game join load time entry");
                         App.Logger.WriteLine(LOG_IDENT, match.Groups[1].Value);

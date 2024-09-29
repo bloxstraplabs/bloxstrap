@@ -1,7 +1,8 @@
-﻿using Bloxstrap.Models.APIs.Roblox;
-
-namespace Bloxstrap.Models.Entities
+﻿namespace Bloxstrap.Models.Entities
 {
+    /// <summary>
+    /// Explicit loading. Load from cache before and after a fetch.
+    /// </summary>
     public class UniverseDetails
     {
         private static List<UniverseDetails> _cache { get; set; } = new();

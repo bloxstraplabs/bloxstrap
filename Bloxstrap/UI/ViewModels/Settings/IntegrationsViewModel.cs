@@ -115,8 +115,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool DiscordAccountOnProfile
         {
-            get => App.Settings.Prop.AccountShownOnProfile;
-            set => App.Settings.Prop.AccountShownOnProfile = value;
+            get => App.Settings.Prop.ShowAccountOnRichPresence;
+            set => App.Settings.Prop.ShowAccountOnRichPresence = value;
         }
 
         public bool DisableAppPatchEnabled

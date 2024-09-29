@@ -2664,24 +2664,6 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Integrations.AllowActivityJoining.Description", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Show account on profile.
-        /// </summary>
-        public static string Menu_Integrations_ShowAccountOnProfile_Title {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Title", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Shows what Roblox account your using on your Discord profile.
-        /// </summary>
-        public static string Menu_Integrations_ShowAccountOnProfile_Description {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Description", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to Allow activity joining.
@@ -2833,6 +2815,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_RequiresActivityTracking {
             get {
                 return ResourceManager.GetString("Menu.Integrations.RequiresActivityTracking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows the Roblox account you&apos;re playing with on your Discord profile..
+        /// </summary>
+        public static string Menu_Integrations_ShowAccountOnProfile_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Roblox account.
+        /// </summary>
+        public static string Menu_Integrations_ShowAccountOnProfile_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Title", resourceCulture);
             }
         }
         
