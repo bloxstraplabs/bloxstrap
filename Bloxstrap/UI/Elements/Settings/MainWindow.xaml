@@ -51,16 +51,17 @@
             <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="Settings24" Tag="behaviour" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
 
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
                     <ui:NavigationItem Content="" PageType="{x:Type pages:FastFlagEditorWarningPage}" Tag="fastflageditorwarning" Visibility="Collapsed" x:Name="EditorWarningNavItem" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
+                    <ui:NavigationItem Content="Bloxstrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="shortcuts" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>

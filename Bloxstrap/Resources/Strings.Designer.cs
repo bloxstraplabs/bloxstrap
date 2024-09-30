@@ -2056,7 +2056,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure what Bloxstrap should do when launching..
+        ///   Looks up a localized string similar to Configure what Bloxstrap should do when launching Roblox..
         /// </summary>
         public static string Menu_Behaviour_Description {
             get {
@@ -2101,11 +2101,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Behaviour.
+        ///   Looks up a localized string similar to Bootstrapper.
         /// </summary>
         public static string Menu_Behaviour_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure options related to Bloxstrap&apos;s behaviour itself..
+        /// </summary>
+        public static string Menu_Bloxstrap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Description", resourceCulture);
             }
         }
         
