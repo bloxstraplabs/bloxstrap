@@ -358,6 +358,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analytics.
+        /// </summary>
+        public static string Common_Analytics {
+            get {
+                return ResourceManager.GetString("Common.Analytics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatic.
         /// </summary>
         public static string Common_Automatic {
@@ -1481,9 +1490,9 @@ namespace Bloxstrap.Resources {
         ///
         ///Roblox has not yet been installed, that will happen when you launch it with Bloxstrap for the first time. However, before you do that, you may want to configure Bloxstrap&apos;s settings first.
         ///
-        ///Also, to keep Bloxstrap registered as the website launch handler, avoid using the &quot;Roblox Player&quot; shortcut to launch Roblox. If you don&apos;t see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
+        ///Also, avoid using the &quot;Roblox Player&quot; shortcut to launch Roblox, as Bloxstrap won&apos;t launch with Roblox. If you don&apos;t see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
         ///
-        ///What would y [rest of string was truncated]&quot;;.
+        ///What would you like to do?.
         /// </summary>
         public static string Installer_Completion_Text {
             get {
@@ -2106,6 +2115,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All data sent is completely anonymous. To understand what data we use and how, see our [privacy policy]({0})..
+        /// </summary>
+        public static string Menu_Bloxstrap_Analytics_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Analytics.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable sending of analytics.
+        /// </summary>
+        public static string Menu_Bloxstrap_Analytics_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Analytics.Title", resourceCulture);
             }
         }
         

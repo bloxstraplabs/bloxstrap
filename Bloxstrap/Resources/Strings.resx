@@ -1009,7 +1009,7 @@ This installation process will be quick and simple, and you will be able to conf
 
 Roblox has not yet been installed, that will happen when you launch it with Bloxstrap for the first time. However, before you do that, you may want to configure Bloxstrap's settings first.
 
-Also, to keep Bloxstrap registered as the website launch handler, avoid using the "Roblox Player" shortcut to launch Roblox. If you don't see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
+Also, avoid using the "Roblox Player" shortcut to launch Roblox, as Bloxstrap won't launch with Roblox. If you don't see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
 
 What would you like to do?</value>
   </data>
@@ -1221,5 +1221,14 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
     <value>Configure options related to Bloxstrap's behaviour itself.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Enable sending of analytics</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>All data sent is completely anonymous. To understand what data we use and how, see our [privacy policy]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analytics</value>
   </data>
 </root>

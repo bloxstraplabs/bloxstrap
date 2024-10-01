@@ -40,16 +40,18 @@
             <ui:Button Grid.Column="2" Icon="ArrowDownload16" Content="Download" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/pizzaboxer/bloxstrap/releases/latest" />
         </Grid>
 
-        <TextBlock Margin="0,24,0,0" FontSize="14" Text="{x:Static resources:Strings.Installer_Welcome_NextToContinue}" TextWrapping="Wrap">
-            <TextBlock.Style>
-                <Style TargetType="TextBlock">
+        <StackPanel>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding CanContinue, Mode=OneWay}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </TextBlock.Style>
-        </TextBlock>
+            </StackPanel.Style>
+
+            <TextBlock Margin="0,24,0,0" FontSize="14" Text="{x:Static resources:Strings.Installer_Welcome_NextToContinue}" TextWrapping="Wrap" />
+        </StackPanel>
     </StackPanel>
 </ui:UiPage>

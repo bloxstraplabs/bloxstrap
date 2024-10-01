@@ -59,5 +59,13 @@
             Header="{x:Static resources:Strings.Common_Shortcuts_StartMenu}">
             <ui:ToggleSwitch IsChecked="{Binding CreateStartMenuShortcuts, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <TextBlock FontSize="20" FontWeight="SemiBold" Text="{x:Static resources:Strings.Common_Analytics}" TextWrapping="Wrap" Margin="0,16,0,0" />
+        <controls:MarkdownTextBlock FontSize="14" MarkdownText="{Binding Source={x:Static resources:Strings.Menu_Bloxstrap_Analytics_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/pizzaboxer/bloxstrap/wiki/Privacy-Policy#analytical-functionality'}" TextWrapping="Wrap" />
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Bloxstrap_Analytics_Title}">
+            <ui:ToggleSwitch IsChecked="{Binding AnalyticsEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

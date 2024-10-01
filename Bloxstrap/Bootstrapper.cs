@@ -1009,7 +1009,8 @@ namespace Bloxstrap
 
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
-                        _ = App.HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key=packageDownloadState&value=httpFail");
+                        if (App.Settings.Prop.EnableAnalytics)
+                            _ = App.HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key=packageDownloadState&value=httpFail");
 
                         Frontend.ShowConnectivityDialog(
                             Strings.Dialog_Connectivity_UnableToDownload,
@@ -1041,7 +1042,7 @@ namespace Bloxstrap
                 }
             }
 
-            if (statIsRetrying)
+            if (statIsRetrying && App.Settings.Prop.EnableAnalytics)
             {
                 string stat = statIsHttp ? "httpSuccess" : "retrySuccess";
                 _ = App.HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key=packageDownloadState&value={stat}");
