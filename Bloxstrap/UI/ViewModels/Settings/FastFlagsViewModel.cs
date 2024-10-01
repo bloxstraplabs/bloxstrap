@@ -1,38 +1,24 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-
-using Wpf.Ui.Mvvm.Contracts;
 
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.UI.Elements.Settings.Pages;
 using Bloxstrap.Enums.FlagPresets;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class FastFlagsViewModel : NotifyPropertyChangedViewModel
     {
-        private readonly Page _page;
+        private Dictionary<string, object>? _preResetFlags;
 
-        public FastFlagsViewModel(Page page) 
-        { 
-            _page = page;
-        }
+        public event EventHandler? RequestPageReloadEvent;
+        
+        public event EventHandler? OpenFlagEditorEvent;
 
-        private void OpenFastFlagEditor()
-        {
-            if (Window.GetWindow(_page) is INavigationWindow window)
-            {
-                if (App.State.Prop.ShowFFlagEditorWarning)
-                    window.Navigate(typeof(FastFlagEditorWarningPage));
-                else
-                    window.Navigate(typeof(FastFlagEditorPage));
-            }
-        }
+        private void OpenFastFlagEditor() => OpenFlagEditorEvent?.Invoke(this, EventArgs.Empty);
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
-
+        
 #if DEBUG
         public Visibility ShowDebugFlags => Visibility.Visible;
 #else
@@ -191,6 +177,28 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.FastFlags.GetPreset("Rendering.TerrainTextureQuality") == "0";
             set => App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
+        }
+
+
+        public bool ResetConfiguration
+        {
+            get => _preResetFlags is not null;
+
+            set
+            {
+                if (value)
+                {
+                    _preResetFlags = new(App.FastFlags.Prop);
+                    App.FastFlags.Prop.Clear();
+                }
+                else
+                {
+                    App.FastFlags.Prop = _preResetFlags!;
+                    _preResetFlags = null;
+                }
+
+                RequestPageReloadEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

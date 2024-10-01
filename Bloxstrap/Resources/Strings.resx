@@ -1231,4 +1231,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analytics</value>
   </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Reset everything to defaults</value>
+  </data>
 </root>

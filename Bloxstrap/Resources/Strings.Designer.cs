@@ -2615,6 +2615,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset everything to defaults.
+        /// </summary>
+        public static string Menu_FastFlags_Reset_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Reset.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fast Flags.
         /// </summary>
         public static string Menu_FastFlags_Title {

@@ -165,7 +165,13 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <ui:CardAction Margin="0,24,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
+        <controls:OptionControl 
+            Margin="0,24,0,0"
+            Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
+            <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <ui:CardAction Margin="0,8,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
             <StackPanel>
                 <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
                 <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
