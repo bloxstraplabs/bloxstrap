@@ -159,6 +159,8 @@ namespace Bloxstrap
             }
 
             Logger.WriteLine(LOG_IDENT, $"Loaded from {Paths.Process}");
+            Logger.WriteLine(LOG_IDENT, $"Temp path is {Paths.Temp}");
+            Logger.WriteLine(LOG_IDENT, $"WindowsStartMenu path is {Paths.WindowsStartMenu}");
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
