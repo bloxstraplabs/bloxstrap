@@ -70,23 +70,27 @@
                     <Setter Property="Visibility" Value="Collapsed" />
                 </Style>
             </ListView.Style>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource {x:Type ListViewItem}}">
+                    <Setter Property="Focusable" Value="False" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ui:Card Padding="12">
+                    <ui:Card Padding="0">
                         <Grid VerticalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Border Grid.Column="0" Width="84" Height="84" CornerRadius="4">
+                            <Border Grid.Column="0" Width="107" Height="107" CornerRadius="4">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding UniverseDetails.Thumbnail.ImageUrl, IsAsync=True}" />
                                 </Border.Background>
                             </Border>
 
-                            <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                            <StackPanel Grid.Column="1" Margin="16,12,12,12" VerticalAlignment="Center">
                                 <TextBlock Text="{Binding UniverseDetails.Data.Name}" FontSize="18" FontWeight="Medium" />
                                 <TextBlock Text="{Binding GameHistoryDescription}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                                 <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_GameHistory_Rejoin}" Command="{Binding RejoinServerCommand}" 
@@ -97,11 +101,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Border Grid.Row="3" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
-            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button Margin="12,0,0,0" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" IsCancel="True" />
-            </StackPanel>
-        </Border>
     </Grid>
 </base:WpfUiWindow>
