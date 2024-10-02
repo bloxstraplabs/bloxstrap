@@ -127,6 +127,12 @@
                     <controls:MarkdownTextBlock MarkdownText="[ShadowCodeX](https://github.com/ShadowCodeX-debug)" />
                     <controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
                     <controls:MarkdownTextBlock MarkdownText="[AskaLangly](https://github.com/AskaLangly)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Encythe](https://github.com/Encythe)" />
+                    <controls:MarkdownTextBlock MarkdownText="[hugo9655](https://github.com/hugo9655)" />
+                    <controls:MarkdownTextBlock MarkdownText="[CubesterYT](https://github.com/CubesterYT)" />
+                    <controls:MarkdownTextBlock MarkdownText="[TheRealSpriteMan1337](https://github.com/TheRealSpriteMan1337)" />
+                    <controls:MarkdownTextBlock MarkdownText="[ms-gitblox](https://github.com/ms-gitblox)" />
+                    <controls:MarkdownTextBlock MarkdownText="[ Luximoz](https://github.com/ Luximoz)" />
                 </StackPanel>
             </controls:Expander>
 
