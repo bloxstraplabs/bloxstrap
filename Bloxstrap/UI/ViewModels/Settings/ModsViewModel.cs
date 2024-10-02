@@ -43,7 +43,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 string type = dialog.FileName.Substring(dialog.FileName.Length-3, 3).ToLowerInvariant();
 
-                if (!FontHeaders.ContainsKey(type) || !File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(FontHeaders[type]))
+                if (!FontHeaders.ContainsKey(type) 
+                    || !FontHeaders.Any(x => File.ReadAllBytes(dialog.FileName).Take(4).SequenceEqual(x.Value)))
                 {
                     Frontend.ShowMessageBox(Strings.Menu_Mods_Misc_CustomFont_Invalid, MessageBoxImage.Error);
                     return;
