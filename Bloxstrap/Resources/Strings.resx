@@ -1234,4 +1234,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
     <value>Reset everything to defaults</value>
   </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Report exception</value>
+  </data>
 </root>

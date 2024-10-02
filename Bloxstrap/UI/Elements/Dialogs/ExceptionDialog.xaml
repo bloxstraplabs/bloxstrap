@@ -41,7 +41,8 @@
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button x:Name="LocateLogFileButton" Content="{x:Static resources:Strings.Common_OpenLogFile}" />
+                <Button x:Name="ReportExceptionButton" Content="{x:Static resources:Strings.Dialog_Exception_Report}" />
+                <Button x:Name="LocateLogFileButton" Content="{x:Static resources:Strings.Common_OpenLogFile}" Margin="12,0,0,0" />
                 <Button x:Name="CloseButton" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Margin="12,0,0,0" />
             </StackPanel>
         </Border>

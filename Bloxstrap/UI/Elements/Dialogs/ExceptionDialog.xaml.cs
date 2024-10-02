@@ -40,6 +40,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
 
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
+            ReportExceptionButton.Click += (_, _) => Utilities.ShellExecute(issueUrl);
 
             LocateLogFileButton.Click += delegate
             {

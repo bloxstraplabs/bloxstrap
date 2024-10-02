@@ -984,6 +984,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report exception.
+        /// </summary>
+        public static string Dialog_Exception_Report {
+            get {
+                return ResourceManager.GetString("Dialog.Exception.Report", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap Exception.
         /// </summary>
         public static string Dialog_Exception_Title {
