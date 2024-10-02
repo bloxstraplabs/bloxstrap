@@ -36,13 +36,13 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 _activityWatcher.OnLogOpen += ActivityWatcher_OnLogOpen;
                 _activityWatcher.OnGameJoin += ActivityWatcher_OnGameJoin;
                 _activityWatcher.OnGameLeave += ActivityWatcher_OnGameLeave;
+
+                if (!App.Settings.Prop.UseDisableAppPatch)
+                    GameHistoryMenuItem.Visibility = Visibility.Visible;
             }
 
             if (_watcher.RichPresence is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
-
-            if (!App.Settings.Prop.UseDisableAppPatch)
-                GameHistoryMenuItem.Visibility = Visibility.Visible;
 
             VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }

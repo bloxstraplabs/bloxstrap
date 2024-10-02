@@ -1237,4 +1237,14 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   <data name="Dialog.Exception.Report" xml:space="preserve">
     <value>Report exception</value>
   </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Test mode</value>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Test mode makes it easier to iteratively test how your settings affect Roblox. 
+
+While enabled, it will automatically launch Roblox after closing Settings, and reopen Settings after closing Roblox, in a cycle until you disable it.
+
+Would you like to enable test mode?</value>
+  </data>
 </root>

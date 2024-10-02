@@ -10,9 +10,9 @@
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
       d:DesignHeight="1500" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance dmodels:AboutViewModel, IsDesignTimeCreatable=True}"
       Title="AboutPage"
       Scrollable="True">
-    <!--d:DataContext="{d:DesignInstance dmodels:AboutViewModel, IsDesignTimeCreatable=True}"-->
 
     <StackPanel Margin="0,0,14,14">
         <StackPanel.Resources>
@@ -126,6 +126,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[toyoda165](https://www.roblox.com/users/923416649/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[ShadowCodeX](https://github.com/ShadowCodeX-debug)" />
                     <controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
+                    <controls:MarkdownTextBlock MarkdownText="[AskaLangly](https://github.com/AskaLangly)" />
                 </StackPanel>
             </controls:Expander>
 

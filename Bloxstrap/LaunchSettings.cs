@@ -21,6 +21,8 @@ namespace Bloxstrap
         public LaunchFlag UninstallFlag { get; } = new("uninstall");
 
         public LaunchFlag NoLaunchFlag  { get; } = new("nolaunch");
+        
+        public LaunchFlag TestModeFlag  { get; } = new("testmode");
 
         public LaunchFlag NoGPUFlag     { get; } = new("nogpu");
 

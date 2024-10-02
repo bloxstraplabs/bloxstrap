@@ -18,8 +18,7 @@ namespace Bloxstrap
                     break;
 
                 case NextAction.LaunchRoblox:
-                    App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
-                    LaunchRoblox();
+                    LaunchRoblox(LaunchMode.Player);
                     break;
 
                 default:
@@ -39,7 +38,7 @@ namespace Bloxstrap
             else if (App.LaunchSettings.WatcherFlag.Active)
                 LaunchWatcher();
             else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
-                LaunchRoblox();
+                LaunchRoblox(App.LaunchSettings.RobloxLaunchMode);
             else if (!App.LaunchSettings.QuietFlag.Active)
                 LaunchMenu();
             else
@@ -163,9 +162,12 @@ namespace Bloxstrap
             ProcessNextAction(dialog.CloseAction);
         }
 
-        public static void LaunchRoblox()
+        public static void LaunchRoblox(LaunchMode launchMode)
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
+
+            if (launchMode == LaunchMode.None)
+                throw new InvalidOperationException("No Roblox launch mode set");
 
             if (!File.Exists(Path.Combine(Paths.System, "mfplat.dll")))
             {
@@ -194,7 +196,7 @@ namespace Bloxstrap
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            var bootstrapper = new Bootstrapper();
+            var bootstrapper = new Bootstrapper(launchMode);
             IBootstrapperDialog? dialog = null;
 
             if (!App.LaunchSettings.QuietFlag.Active)

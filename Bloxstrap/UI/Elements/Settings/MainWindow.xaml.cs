@@ -100,8 +100,13 @@ namespace Bloxstrap.UI.Elements.Settings
             _state.Left = this.Left;
 
             App.State.Save();
+        }
 
-            if (!e.Cancel)
+        private void WpfUiWindow_Closed(object sender, EventArgs e)
+        {
+            if (App.LaunchSettings.TestModeFlag.Active)
+                LaunchHandler.LaunchRoblox(LaunchMode.Player);
+            else
                 App.SoftTerminate();
         }
     }

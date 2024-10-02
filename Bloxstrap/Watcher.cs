@@ -69,7 +69,7 @@ namespace Bloxstrap
 
                 if (App.Settings.Prop.UseDisableAppPatch)
                 {
-                    ActivityWatcher.OnAppClose += (_, _) =>
+                    ActivityWatcher.OnAppClose += delegate
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
                         using var process = Process.GetProcessById(_gameClientPid);
@@ -125,6 +125,9 @@ namespace Bloxstrap
 
             foreach (int pid in _autoclosePids)
                 CloseProcess(pid);
+
+            if (App.LaunchSettings.TestModeFlag.Active)
+                Process.Start(Paths.Process, "-settings -testmode");
         }
 
         public void Dispose()

@@ -3242,6 +3242,28 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Test mode.
+        /// </summary>
+        public static string Menu_TestMode {
+            get {
+                return ResourceManager.GetString("Menu.TestMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test mode makes it easier to iteratively test how your settings affect Roblox. 
+        ///
+        ///While enabled, it will automatically launch Roblox after closing Settings, and reopen Settings after closing Roblox, in a cycle until you disable it.
+        ///
+        ///Would you like to enable test mode?.
+        /// </summary>
+        public static string Menu_TestMode_Prompt {
+            get {
+                return ResourceManager.GetString("Menu.TestMode.Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap Settings.
         /// </summary>
         public static string Menu_Title {

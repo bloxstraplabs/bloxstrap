@@ -38,9 +38,9 @@ namespace Bloxstrap
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
         private readonly IAppData AppData;
+        private readonly LaunchMode _launchMode;
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
-        private LaunchMode _launchMode = App.LaunchSettings.RobloxLaunchMode;
         private string _latestVersionGuid = null!;
         private PackageManifest _versionPackageManifest = null!;
 
@@ -59,8 +59,10 @@ namespace Bloxstrap
         #endregion
 
         #region Core
-        public Bootstrapper()
+        public Bootstrapper(LaunchMode launchMode)
         {
+            _launchMode = launchMode;
+
             // this is now always enabled as of v2.8.0
             if (Dialog is not null)
                 Dialog.CancelEnabled = true;
@@ -382,18 +384,23 @@ namespace Bloxstrap
                     autoclosePids.Add(pid);
             }
 
-            string args = _appPid.ToString();
+            string argPids = _appPid.ToString();
 
             if (autoclosePids.Any())
-                args += $";{String.Join(',', autoclosePids)}";
+                argPids += $";{String.Join(',', autoclosePids)}";
 
-            if (App.Settings.Prop.EnableActivityTracking || autoclosePids.Any())
+            if (App.Settings.Prop.EnableActivityTracking || App.LaunchSettings.TestModeFlag.Active || autoclosePids.Any())
             {
                 using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
+                string args = $"-watcher \"{argPids}\"";
+
+                if (App.LaunchSettings.TestModeFlag.Active)
+                    args += " -testmode";
+
                 // TODO: look into if this needs to be launched *before* roblox starts
                 if (ipl.IsAcquired)
-                    Process.Start(Paths.Process, $"-watcher \"{args}\"");
+                    Process.Start(Paths.Process, args);
             }
         }
 
