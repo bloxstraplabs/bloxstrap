@@ -547,9 +547,16 @@ namespace Bloxstrap
                     if (oldV2Val is not null)
                     {
                         if (oldV2Val == "True")
+                        {
                             App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "0");
+
+                            if (App.FastFlags.GetValue("UI.Menu.Style.EnableV4.1") == "False")
+                                App.FastFlags.SetPreset("UI.Menu.Style.ReportButtonCutOff", "False");
+                        }
                         else
+                        {
                             App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
+                        }
 
                         App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     }

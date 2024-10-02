@@ -55,6 +55,8 @@ namespace Bloxstrap
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
             { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
             { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
+            { "UI.Menu.Style.ReportButtonCutOff", "FFlagFixReportButtonCutOff" },
+
 
             { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
             { "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
@@ -104,7 +106,8 @@ namespace Bloxstrap
                     { "V2Rollout", null },
                     { "EnableV4", null },
                     { "EnableV4Chrome", null },
-                    { "ABTest", null }
+                    { "ABTest", null },
+                    { "ReportButtonCutOff", null }
                 }
             },
 
@@ -115,7 +118,8 @@ namespace Bloxstrap
                     { "V2Rollout", "0" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
+                    { "ABTest", "False" },
+                    { "ReportButtonCutOff", "False" }
                 }
             },
 
@@ -126,7 +130,8 @@ namespace Bloxstrap
                     { "V2Rollout", "100" },
                     { "EnableV4", "False" },
                     { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
+                    { "ABTest", "False" },
+                    { "ReportButtonCutOff", null }
                 }
             },
 
@@ -137,7 +142,8 @@ namespace Bloxstrap
                     { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
+                    { "ABTest", "False" },
+                    { "ReportButtonCutOff", null }
                 }
             },
 
@@ -148,7 +154,8 @@ namespace Bloxstrap
                     { "V2Rollout", "0" },
                     { "EnableV4", "True" },
                     { "EnableV4Chrome", "True" },
-                    { "ABTest", "False" }
+                    { "ABTest", "False" },
+                    { "ReportButtonCutOff", null }
                 }
             }
         };
