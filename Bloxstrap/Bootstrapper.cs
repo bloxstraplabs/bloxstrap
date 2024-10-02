@@ -245,6 +245,9 @@ namespace Bloxstrap
                 channel = value;
             }
 
+            if (channel != "production")
+                App.SendStat("robloxChannel", channel);
+
             ClientVersion clientVersion;
 
             try
@@ -1055,8 +1058,7 @@ namespace Bloxstrap
 
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
-                        if (App.Settings.Prop.EnableAnalytics)
-                            _ = App.HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key=packageDownloadState&value=httpFail");
+                        App.SendStat("packageDownloadState", "httpFail");
 
                         Frontend.ShowConnectivityDialog(
                             Strings.Dialog_Connectivity_UnableToDownload,
@@ -1088,11 +1090,8 @@ namespace Bloxstrap
                 }
             }
 
-            if (statIsRetrying && App.Settings.Prop.EnableAnalytics)
-            {
-                string stat = statIsHttp ? "httpSuccess" : "retrySuccess";
-                _ = App.HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key=packageDownloadState&value={stat}");
-            }
+            if (statIsRetrying)
+                App.SendStat("packageDownloadState", statIsHttp ? "httpSuccess" : "retrySuccess");
         }
 
         private void ExtractPackage(Package package, List<string>? files = null)

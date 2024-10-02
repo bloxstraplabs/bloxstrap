@@ -131,6 +131,21 @@ namespace Bloxstrap
             return null;
         }
 
+        public static async void SendStat(string key, string value)
+        {
+            if (!Settings.Prop.EnableAnalytics)
+                return;
+
+            try
+            {
+                await HttpClient.GetAsync($"https://bloxstrapabs.com/metrics/post?key={key}&value={value}");
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteException("App::SendStat", ex);
+            }
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";

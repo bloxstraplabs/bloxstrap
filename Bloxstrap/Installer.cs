@@ -92,6 +92,9 @@ namespace Bloxstrap
                 WindowsRegistry.RegisterStudio();
 
             App.Logger.WriteLine(LOG_IDENT, "Installation finished");
+
+            if (!IsImplicitInstall)
+                App.SendStat("installAction", "install");
         }
 
         private bool ValidateLocation()
@@ -340,6 +343,8 @@ namespace Bloxstrap
                     WindowStyle = ProcessWindowStyle.Hidden
                 });
             }
+
+            App.SendStat("installAction", "uninstall");
         }
 
         public static void HandleUpgrade()
@@ -560,6 +565,8 @@ namespace Bloxstrap
 
             if (currentVer is null)
                 return;
+
+            App.SendStat("installAction", "upgrade");
 
             if (isAutoUpgrade)
             {
