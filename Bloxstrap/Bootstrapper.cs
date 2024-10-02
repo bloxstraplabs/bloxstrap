@@ -401,14 +401,11 @@ namespace Bloxstrap
                 if (App.LaunchSettings.TestModeFlag.Active)
                     args += " -testmode";
 
-                // TODO: look into if this needs to be launched *before* roblox starts
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, args);
             }
         }
 
-        // TODO: the bootstrapper dialogs call this function directly.
-        // this should probably be behind an event invocation.
         public void Cancel()
         {
             const string LOG_IDENT = "Bootstrapper::Cancel";
@@ -660,10 +657,6 @@ namespace Bloxstrap
 
             if (Dialog is not null)
             {
-                // allow progress bar to 100% before continuing (purely ux reasons lol)
-                // TODO: come up with a better way of handling this that is non-blocking
-                await Task.Delay(1000);
-
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
                 SetStatus(Strings.Bootstrapper_Status_Configuring);
             }
@@ -993,9 +986,6 @@ namespace Bloxstrap
 
             if (File.Exists(package.DownloadPath))
                 return;
-
-            // TODO: telemetry for this. chances are that this is completely unnecessary and that it can be removed.
-            // but, we need to ensure this doesn't work before we can do that.
 
             const int maxTries = 5;
 

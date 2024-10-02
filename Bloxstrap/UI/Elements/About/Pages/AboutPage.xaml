@@ -132,7 +132,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[CubesterYT](https://github.com/CubesterYT)" />
                     <controls:MarkdownTextBlock MarkdownText="[TheRealSpriteMan1337](https://github.com/TheRealSpriteMan1337)" />
                     <controls:MarkdownTextBlock MarkdownText="[ms-gitblox](https://github.com/ms-gitblox)" />
-                    <controls:MarkdownTextBlock MarkdownText="[ Luximoz](https://github.com/ Luximoz)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Luximoz](https://github.com/Luximoz)" />
                 </StackPanel>
             </controls:Expander>
 
