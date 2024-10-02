@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Installer"
         mc:Ignorable="d"
         Title="{x:Static resources:Strings.Installer_Title}"
-        Height="540" Width="840"
+        Height="540" Width="840" MinWidth="840"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
         WindowBackdropType="Mica"

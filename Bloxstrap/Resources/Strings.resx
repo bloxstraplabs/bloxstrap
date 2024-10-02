@@ -1226,7 +1226,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>Enable sending of analytics</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>All data sent is completely anonymous. To understand what data we use and how, see our [privacy policy]({0}).</value>
+    <value>It's anonymous and nothing evil, promise. For insight on what we collect and why, see our [privacy policy]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analytics</value>

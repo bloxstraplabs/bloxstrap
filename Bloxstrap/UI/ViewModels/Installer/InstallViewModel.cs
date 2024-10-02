@@ -48,8 +48,8 @@ namespace Bloxstrap.UI.ViewModels.Installer
 
         public bool AnalyticsEnabled
         {
-            get => App.Settings.Prop.EnableAnalytics;
-            set => App.Settings.Prop.EnableAnalytics = value;
+            get => installer.EnableAnalytics;
+            set => installer.EnableAnalytics = value;
         }
 
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);

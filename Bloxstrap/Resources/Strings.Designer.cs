@@ -2128,7 +2128,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All data sent is completely anonymous. To understand what data we use and how, see our [privacy policy]({0})..
+        ///   Looks up a localized string similar to It&apos;s anonymous and nothing evil, promise. For insight on what we collect and why, see our [privacy policy]({0})..
         /// </summary>
         public static string Menu_Bloxstrap_Analytics_Description {
             get {

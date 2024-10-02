@@ -138,7 +138,7 @@ namespace Bloxstrap
 
             try
             {
-                await HttpClient.GetAsync($"https://bloxstrapabs.com/metrics/post?key={key}&value={value}");
+                await HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key={key}&value={value}");
             }
             catch (Exception ex)
             {

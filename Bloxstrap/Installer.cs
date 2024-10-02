@@ -17,6 +17,8 @@ namespace Bloxstrap
 
         public bool CreateStartMenuShortcuts = true;
 
+        public bool EnableAnalytics = true;
+
         public bool IsImplicitInstall = false;
 
         public string InstallLocationError { get; set; } = "";
@@ -88,8 +90,12 @@ namespace Bloxstrap
             App.State.Load(false);
             App.FastFlags.Load(false);
 
+            App.Settings.Prop.EnableAnalytics = EnableAnalytics;
+
             if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
                 WindowsRegistry.RegisterStudio();
+
+            App.Settings.Save();
 
             App.Logger.WriteLine(LOG_IDENT, "Installation finished");
 
