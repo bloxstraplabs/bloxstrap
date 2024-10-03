@@ -17,6 +17,8 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 
 using Bloxstrap.AppData;
+using System.Windows.Shell;
+using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
 
@@ -26,7 +28,10 @@ namespace Bloxstrap
     {
         #region Properties
         private const int ProgressBarMaximum = 10000;
-      
+
+        private const double TaskbarProgressMaximumWpf = 1; // this can not be changed. keep it at 1.
+        private const int TaskbarProgressMaximumWinForms = WinFormsDialogBase.TaskbarProgressMaximum;
+
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
             "<Settings>\r\n" +
@@ -46,6 +51,8 @@ namespace Bloxstrap
 
         private bool _isInstalling = false;
         private double _progressIncrement;
+        private double _taskbarProgressIncrement;
+        private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
 
         private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
@@ -91,6 +98,7 @@ namespace Bloxstrap
             if (Dialog is null)
                 return;
 
+            // UI progress
             int progressValue = (int)Math.Floor(_progressIncrement * _totalDownloadedBytes);
 
             // bugcheck: if we're restoring a file from a package, it'll incorrectly increment the progress beyond 100
@@ -98,6 +106,12 @@ namespace Bloxstrap
             progressValue = Math.Clamp(progressValue, 0, ProgressBarMaximum);
 
             Dialog.ProgressValue = progressValue;
+
+            // taskbar progress
+            double taskbarProgressValue = _taskbarProgressIncrement * _totalDownloadedBytes;
+            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, _taskbarProgressMaximum);
+
+            Dialog.TaskbarProgressValue = taskbarProgressValue;
         }
 
         private void HandleConnectionError(Exception exception)
@@ -627,11 +641,20 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Continuous;
+                Dialog.TaskbarProgressState = TaskbarItemProgressState.Normal;
 
                 Dialog.ProgressMaximum = ProgressBarMaximum;
 
                 // compute total bytes to download
-                _progressIncrement = (double)ProgressBarMaximum / _versionPackageManifest.Sum(package => package.PackedSize);
+                int totalPackedSize = _versionPackageManifest.Sum(package => package.PackedSize);
+                _progressIncrement = (double)ProgressBarMaximum / totalPackedSize;
+
+                if (Dialog is WinFormsDialogBase)
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWinForms;
+                else
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWpf;
+
+                _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
             }
 
             var extractionTasks = new List<Task>();
@@ -658,6 +681,7 @@ namespace Bloxstrap
             if (Dialog is not null)
             {
                 Dialog.ProgressStyle = ProgressBarStyle.Marquee;
+                Dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
                 SetStatus(Strings.Bootstrapper_Status_Configuring);
             }
 

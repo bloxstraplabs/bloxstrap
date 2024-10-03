@@ -1,9 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
-
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Mvvm.Contracts;
-using Wpf.Ui.Mvvm.Services;
+using System.Windows.Shell;
 
 using Bloxstrap.UI.ViewModels.Bootstrapper;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
@@ -59,6 +56,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             {
                 _viewModel.ProgressValue = value;
                 _viewModel.OnPropertyChanged(nameof(_viewModel.ProgressValue));
+            }
+        }
+
+        public TaskbarItemProgressState TaskbarProgressState
+        {
+            get => _viewModel.TaskbarProgressState;
+            set
+            {
+                _viewModel.TaskbarProgressState = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressState));
+            }
+        }
+
+        public double TaskbarProgressValue
+        {
+            get => _viewModel.TaskbarProgressValue;
+            set
+            {
+                _viewModel.TaskbarProgressValue = value;
+                _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressValue));
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Windows.Shell;
 
 using Bloxstrap.UI.Utility;
 
@@ -6,6 +7,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
 {
     public class WinFormsDialogBase : Form, IBootstrapperDialog
     {
+        public const int TaskbarProgressMaximum = 100;
+
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
         private bool _isClosing;
@@ -15,6 +18,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         protected virtual ProgressBarStyle _progressStyle { get; set; }
         protected virtual int _progressValue { get; set; }
         protected virtual int _progressMaximum { get; set; }
+        protected virtual TaskbarItemProgressState _taskbarProgressState { get; set; }
+        protected virtual double _taskbarProgressValue { get; set; }
         protected virtual bool _cancelEnabled { get; set; }
 
         public string Message
@@ -62,6 +67,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
                     Invoke(() => _progressValue = value);
                 else
                     _progressValue = value;
+            }
+        }
+
+        public TaskbarItemProgressState TaskbarProgressState
+        {
+            get => _taskbarProgressState;
+            set
+            {
+                _taskbarProgressState = value;
+                TaskbarProgress.SetProgressState(Process.GetCurrentProcess().MainWindowHandle, value);
+            }
+        }
+
+        public double TaskbarProgressValue
+        {
+            get => _taskbarProgressValue;
+            set
+            {
+                _taskbarProgressValue = value;
+                TaskbarProgress.SetProgressValue(Process.GetCurrentProcess().MainWindowHandle, (int)value, TaskbarProgressMaximum);
             }
         }
 

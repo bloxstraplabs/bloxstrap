@@ -22,6 +22,10 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="{Binding Path=TaskbarProgressState}" ProgressValue="{Binding Path=TaskbarProgressValue}" />
+    </Window.TaskbarItemInfo>
+
     <!--  Background is for Aero theme only  -->
     <Grid Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}">
         <!--  Allow for drag  -->
