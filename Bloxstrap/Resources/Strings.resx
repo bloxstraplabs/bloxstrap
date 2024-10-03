@@ -132,9 +132,6 @@
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>The connection timed out, which could indicate a poor internet connection or a firewall block.</value>
   </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu.</value>
-  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Bloxstrap before uninstalling.</value>
   </data>
@@ -158,9 +155,7 @@
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Starting {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Uninstalling Bloxstrap...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Upgrading {product}...</value>
@@ -178,9 +173,6 @@
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Style preview - Click Cancel to close</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully installed</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap has successfully uninstalled</value>
@@ -238,6 +230,7 @@
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Reset</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Value</value>
@@ -290,6 +283,7 @@ Click for more information</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
     <value>Bloxstrap is unable to connect to {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Copy log contents</value>
@@ -398,20 +392,6 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Light</value>
   </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
-
-While Bloxstrap will continue to work, it's recommended that you change the drive letter back to its original value as other installed applications can experience similar issues.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap was originally installed to the {0} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>It appears as if Bloxstrap hasn't been properly installed. Is it supposed to be installed at {0}?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>See what's new in this version</value>
-  </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap has been upgraded to v{0}</value>
   </data>
@@ -433,9 +413,6 @@ Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Special Thanks</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Translations</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>An alternative bootstrapper for Roblox with a bunch of extra features.</value>
@@ -466,6 +443,7 @@ Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Version {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>All files</value>
@@ -568,6 +546,7 @@ Would you like to upgrade your currently installed version?</value>
 
 There are {0} conflicting flag definitions:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Delete selected</value>
@@ -586,6 +565,7 @@ There are {0} conflicting flag definitions:
 
 More information:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>The entry for '{0}' is not valid as the name must start with FFlag, DFInt, etc</value>
@@ -685,6 +665,7 @@ Changing to the following location is suggested:
 
 Would you like to change to the suggested location?
 Selecting 'No' will ignore this warning and continue installation.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>You must set an install location</value>
@@ -785,12 +766,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Use custom font</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>A Windows feature that may conflict with performance in full-screen.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Disable fullscreen optimisations</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Manage custom Roblox mods here.</value>
@@ -923,6 +898,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Import from file</value>
@@ -952,9 +928,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
     <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
   </data>
-  <data name="ContextMenu.RobloxNotRunning" xml:space="preserve">
-    <value>Roblox is still launching. A log file will only be available once Roblox launches.</value>
-  </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Bloxstrap Installer</value>
   </data>
@@ -979,6 +952,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
 You should have downloaded it from either {0} or {1}. Those are the only official websites to get it from. It is your responsibility to ensure you download from an official source.
 
 This installation process will be quick and simple, and you will be able to configure any of Bloxstrap's settings after installation.</value>
+    <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Please click 'Next' to continue.</value>
@@ -1046,9 +1020,6 @@ Bloxstrap was installed at "{1}".</value>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
   </data>
-  <data name="LaunchMenu.Title" xml:space="preserve">
-    <value>What do you want to do?</value>
-  </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
     <value>Launch Roblox</value>
   </data>
@@ -1110,6 +1081,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
     <value>Translators</value>
@@ -1164,9 +1136,6 @@ Are you sure you want to continue?</value>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
     <value>The server location could not be queried. You may be joining games too quickly.</value>
   </data>
-  <data name="Dialog.Connectivity.ServiceDown" xml:space="preserve">
-    <value>{0} may be down right now.</value>
-  </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
     <value>Please try again later.</value>
   </data>
@@ -1203,6 +1172,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>The chosen bootstrapper icon could not be loaded.
 
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>Extract Roblox icons to folder</value>
@@ -1239,6 +1209,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Test mode</value>
+    <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
     <value>Test mode makes it easier to iteratively test how your settings affect Roblox. 
@@ -1246,5 +1217,8 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
 While enabled, it will automatically launch Roblox after closing Settings, and reopen Settings after closing Roblox, in a cycle until you disable it.
 
 Would you like to enable test mode?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>All of Bloxstrap's translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Bloxstrap. A massive thank you to everyone here!</value>
   </data>
 </root>

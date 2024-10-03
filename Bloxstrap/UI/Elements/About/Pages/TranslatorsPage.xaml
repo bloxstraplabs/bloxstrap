@@ -12,8 +12,10 @@
       Title="AboutPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.About_Translators_Title}" FontWeight="Medium" FontSize="24" Margin="0,0,0,16" />
-        <Grid>
+        <TextBlock Text="{x:Static resources:Strings.About_Translators_Title}" FontWeight="Medium" FontSize="24" />
+        <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.About_Translators_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://crowdin.com/project/bloxstrap'}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+
+        <Grid Margin="0,16,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

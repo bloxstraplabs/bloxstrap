@@ -115,6 +115,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All of Bloxstrap&apos;s translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Bloxstrap. A massive thank you to everyone here!.
+        /// </summary>
+        public static string About_Translators_Description {
+            get {
+                return ResourceManager.GetString("About.Translators.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translators.
         /// </summary>
         public static string About_Translators_Title {
@@ -156,15 +165,6 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_ConfirmLaunch {
             get {
                 return ResourceManager.GetString("Bootstrapper.ConfirmLaunch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Could not apply the {0} emoji mod preset because of a network error. To try again, please reconfigure the option in the Bloxstrap Menu..
-        /// </summary>
-        public static string Bootstrapper_EmojiPresetFetchFailed {
-            get {
-                return ResourceManager.GetString("Bootstrapper.EmojiPresetFetchFailed", resourceCulture);
             }
         }
         
@@ -250,15 +250,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uninstalling Bloxstrap....
-        /// </summary>
-        public static string Bootstrapper_Status_Uninstalling {
-            get {
-                return ResourceManager.GetString("Bootstrapper.Status.Uninstalling", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Upgrading {product}....
         /// </summary>
         public static string Bootstrapper_Status_Upgrading {
@@ -300,15 +291,6 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_StylePreview_TextCancel {
             get {
                 return ResourceManager.GetString("Bootstrapper.StylePreview.TextCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has successfully installed.
-        /// </summary>
-        public static string Bootstrapper_SuccessfullyInstalled {
-            get {
-                return ResourceManager.GetString("Bootstrapper.SuccessfullyInstalled", resourceCulture);
             }
         }
         
@@ -709,15 +691,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox is still launching. A log file will only be available once Roblox launches..
-        /// </summary>
-        public static string ContextMenu_RobloxNotRunning {
-            get {
-                return ResourceManager.GetString("ContextMenu.RobloxNotRunning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Copy Instance ID.
         /// </summary>
         public static string ContextMenu_ServerInformation_CopyInstanceId {
@@ -877,15 +850,6 @@ namespace Bloxstrap.Resources {
         public static string Dialog_Connectivity_RobloxUpgradeSkip {
             get {
                 return ResourceManager.GetString("Dialog.Connectivity.RobloxUpgradeSkip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} may be down right now..
-        /// </summary>
-        public static string Dialog_Connectivity_ServiceDown {
-            get {
-                return ResourceManager.GetString("Dialog.Connectivity.ServiceDown", resourceCulture);
             }
         }
         
@@ -1391,44 +1355,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has detected a drive letter change and has reconfigured its install location from the {0} drive to the {1} drive.
-        ///
-        ///While Bloxstrap will continue to work, it&apos;s recommended that you change the drive letter back to its original value as other installed applications can experience similar issues..
-        /// </summary>
-        public static string InstallChecker_DriveLetterChangeDetected {
-            get {
-                return ResourceManager.GetString("InstallChecker.DriveLetterChangeDetected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap was originally installed to the {0} drive, but it appears to no longer be present. Would you like to continue and carry out a fresh install?.
-        /// </summary>
-        public static string InstallChecker_InstallDriveMissing {
-            get {
-                return ResourceManager.GetString("InstallChecker.InstallDriveMissing", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It appears as if Bloxstrap hasn&apos;t been properly installed. Is it supposed to be installed at {0}?.
-        /// </summary>
-        public static string InstallChecker_NotInstalledProperly {
-            get {
-                return ResourceManager.GetString("InstallChecker.NotInstalledProperly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See what&apos;s new in this version.
-        /// </summary>
-        public static string InstallChecker_SeeWhatsNew {
-            get {
-                return ResourceManager.GetString("InstallChecker.SeeWhatsNew", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap has been upgraded to v{0}.
         /// </summary>
         public static string InstallChecker_Updated {
@@ -1669,15 +1595,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What do you want to do?.
-        /// </summary>
-        public static string LaunchMenu_Title {
-            get {
-                return ResourceManager.GetString("LaunchMenu.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to See the Wiki for help.
         /// </summary>
         public static string LaunchMenu_Wiki_Description {
@@ -1746,15 +1663,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_About_Contributors_SpecialThanks {
             get {
                 return ResourceManager.GetString("Menu.About.Contributors.SpecialThanks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Translations.
-        /// </summary>
-        public static string Menu_About_Contributors_Translations {
-            get {
-                return ResourceManager.GetString("Menu.About.Contributors.Translations", resourceCulture);
             }
         }
         
@@ -2995,24 +2903,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Mods_Misc_CustomFont_Title {
             get {
                 return ResourceManager.GetString("Menu.Mods.Misc.CustomFont.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A Windows feature that may conflict with performance in full-screen..
-        /// </summary>
-        public static string Menu_Mods_Misc_DisableFullscreenOptimisations_Description {
-            get {
-                return ResourceManager.GetString("Menu.Mods.Misc.DisableFullscreenOptimisations.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disable fullscreen optimisations.
-        /// </summary>
-        public static string Menu_Mods_Misc_DisableFullscreenOptimisations_Title {
-            get {
-                return ResourceManager.GetString("Menu.Mods.Misc.DisableFullscreenOptimisations.Title", resourceCulture);
             }
         }
         
