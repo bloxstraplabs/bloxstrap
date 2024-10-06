@@ -646,7 +646,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Rendering mode</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Engine settings</value>
+    <value>Engine Settings</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Font files</value>
