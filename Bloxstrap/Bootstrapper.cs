@@ -604,9 +604,6 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not delete executable/folder, Roblox may still be running. Aborting update.");
                     App.Logger.WriteException(LOG_IDENT, ex);
-
-                    Directory.Delete(AppData.Directory);
-
                     return;
                 }
 

@@ -572,7 +572,7 @@ namespace Bloxstrap
 
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
 
-                    Directory.Delete(Path.Combine(Paths.Base, "Versions"));
+                    Directory.Delete(Path.Combine(Paths.Base, "Versions"), true);
                 }
 
                 App.Settings.Save();
