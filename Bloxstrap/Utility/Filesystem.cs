@@ -13,7 +13,7 @@ namespace Bloxstrap.Utility
         {
             foreach (var drive in DriveInfo.GetDrives())
             {
-                // https://github.com/pizzaboxer/bloxstrap/issues/1648#issuecomment-2192571030
+                // https://github.com/bloxstraplabs/bloxstrap/issues/1648#issuecomment-2192571030
                 if (path.ToUpperInvariant().StartsWith(drive.Name))
                     return drive.AvailableFreeSpace;
             }
