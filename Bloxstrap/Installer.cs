@@ -564,6 +564,9 @@ namespace Bloxstrap
                             App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
                         }
 
+                        if (App.FastFlags.GetPreset("UI.Menu.Style.ABTest.1") is not null)
+                            App.FastFlags.SetPreset("UI.Menu.Style.ABTest", "False");
+
                         App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     }
 

@@ -60,7 +60,8 @@ namespace Bloxstrap
 
             { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
             { "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
-            { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" }
+            { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" },
+            { "UI.Menu.Style.ABTest.4", "FFlagEnableInGameMenuChromeABTest4" }
         };
 
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
