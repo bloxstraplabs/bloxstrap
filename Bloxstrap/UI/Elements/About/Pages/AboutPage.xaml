@@ -143,6 +143,8 @@
                     <controls:MarkdownTextBlock MarkdownText="[axstin](https://github.com/axstin)" />
                     <controls:MarkdownTextBlock MarkdownText="[Mantaraix](https://github.com/Mantaraix)" />
                     <controls:MarkdownTextBlock MarkdownText="[apprehensions](https://github.com/apprehensions)" />
+                    <controls:MarkdownTextBlock MarkdownText="[axellse](https://github.com/axellse)" />
+                    <controls:MarkdownTextBlock MarkdownText="[BlueOutside](https://github.com/BlueOutside)" />
                 </StackPanel>
             </controls:Expander>
         </Grid>
