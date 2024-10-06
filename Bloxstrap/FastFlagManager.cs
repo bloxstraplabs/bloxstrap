@@ -16,15 +16,6 @@ namespace Bloxstrap
         {
             { "Network.Log", "FLogNetwork" },
 
-#if DEBUG
-            { "HTTP.Log", "DFLogHttpTraceLight" },
-
-            { "HTTP.Proxy.Enable", "DFFlagDebugEnableHttpProxy" },
-            { "HTTP.Proxy.Address.1", "DFStringDebugPlayerHttpProxyUrl" },
-            { "HTTP.Proxy.Address.2", "DFStringHttpCurlProxyHostAndPort" },
-            { "HTTP.Proxy.Address.3", "DFStringHttpCurlProxyHostAndPortForExternalUrl" },
-#endif
-
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
@@ -45,9 +36,6 @@ namespace Bloxstrap
 
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
             { "UI.FontSize", "FIntFontSizePadding" },
-#if DEBUG
-            { "UI.FlagState", "FStringDebugShowFlagState" },
-#endif
 
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
             

@@ -21,34 +21,6 @@
                 <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Help_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
             </StackPanel>
         </ui:CardAction>
-        
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
-            Description="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <StackPanel Visibility="{Binding ShowDebugFlags, Mode=OneTime}">
-            <TextBlock Text="Debug" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-
-            <controls:OptionControl 
-                Header="HTTP request logging" 
-                Description="Enables logging of HTTP requests (DFLogHttpTraceLight=12).">
-                <ui:ToggleSwitch IsChecked="{Binding HttpRequestLogging, Mode=TwoWay}" />
-            </controls:OptionControl>
-
-            <controls:OptionControl 
-                Header="HTTP proxy address" 
-                Description="Set blank if not using a proxy. Don't forget to add cacert.pem as a mod.">
-                <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding HttpRequestProxy, Mode=TwoWay}" />
-            </controls:OptionControl>
-
-            <controls:OptionControl 
-                Header="Flag state overlay" 
-                Description="Show values of specified flags during runtime. Each flag is comma separated.">
-                <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding StateOverlayFlags, Mode=TwoWay}" />
-            </controls:OptionControl>
-        </StackPanel>
 
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 

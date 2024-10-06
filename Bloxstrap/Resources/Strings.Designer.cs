@@ -2541,7 +2541,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fast Flags.
+        ///   Looks up a localized string similar to Engine settings.
         /// </summary>
         public static string Menu_FastFlags_Title {
             get {
