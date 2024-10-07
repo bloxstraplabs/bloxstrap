@@ -1184,7 +1184,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2022 (V2).
+        ///   Looks up a localized string similar to 2020 (V2).
         /// </summary>
         public static string Enums_FlagPresets_InGameMenuVersion_V2 {
             get {
