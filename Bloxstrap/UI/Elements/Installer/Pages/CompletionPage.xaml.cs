@@ -28,7 +28,7 @@ namespace Bloxstrap.UI.Elements.Installer.Pages
         {
             if (Window.GetWindow(this) is MainWindow window)
             {
-                window.SetNextButtonText("Next");
+                window.SetNextButtonText(Strings.Common_Navigation_Next);
                 window.SetButtonEnabled("back", false);
             }
         }

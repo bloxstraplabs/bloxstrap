@@ -25,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Installer.Pages
         private void UiPage_Loaded(object sender, RoutedEventArgs e)
         {
             if (Window.GetWindow(this) is MainWindow window)
-                window.SetNextButtonText("Next");
+                window.SetNextButtonText(Strings.Common_Navigation_Next);
 
             _viewModel.DoChecks();
         }

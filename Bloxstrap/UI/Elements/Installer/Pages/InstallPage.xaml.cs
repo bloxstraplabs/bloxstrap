@@ -29,7 +29,7 @@ namespace Bloxstrap.UI.Elements.Installer.Pages
         {
             if (Window.GetWindow(this) is MainWindow window)
             {
-                window.SetNextButtonText("Install");
+                window.SetNextButtonText(Strings.Common_Navigation_Install);
                 window.NextPageCallback += NextPageCallback;
             }
         }

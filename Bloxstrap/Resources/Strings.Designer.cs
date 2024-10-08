@@ -484,6 +484,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Install.
+        /// </summary>
+        public static string Common_Navigation_Install {
+            get {
+                return ResourceManager.GetString("Common.Navigation.Install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Common_Navigation_Next {
