@@ -48,7 +48,6 @@
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
             <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
-            <TextBlock Text="hmmmm" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
             <Grid Column="0" Margin="0,8,0,0">
                 <Grid.RowDefinitions>

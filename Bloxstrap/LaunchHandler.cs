@@ -78,6 +78,10 @@ namespace Bloxstrap
             }
             else
             {
+#if QA_BUILD
+                Frontend.ShowMessageBox("You are running a QA build of Bloxstrap. The red window border indicates that this is a QA build.", MessageBoxImage.Information);
+#endif
+
                 new LanguageSelectorDialog().ShowDialog();
 
                 var installer = new UI.Elements.Installer.MainWindow();

@@ -5,11 +5,11 @@ namespace Bloxstrap
 {
     internal class Installer
     {
-        private static string DesktopShortcut => Path.Combine(Paths.Desktop, "Bloxstrap.lnk");
+        private static string DesktopShortcut => Path.Combine(Paths.Desktop, $"{App.ProjectName}.lnk");
 
-        private static string StartMenuShortcut => Path.Combine(Paths.WindowsStartMenu, "Bloxstrap.lnk");
+        private static string StartMenuShortcut => Path.Combine(Paths.WindowsStartMenu, $"{App.ProjectName}.lnk");
 
-        public string InstallLocation = Path.Combine(Paths.LocalAppData, "Bloxstrap");
+        public string InstallLocation = Path.Combine(Paths.LocalAppData, App.ProjectName);
 
         public bool ExistingDataPresent => File.Exists(Path.Combine(InstallLocation, "Settings.json"));
 
@@ -52,7 +52,6 @@ namespace Bloxstrap
                 }
             }
 
-            // TODO: registry access checks, i'll need to look back on issues to see what the error looks like
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
                 uninstallKey.SetValueSafe("DisplayIcon", $"{Paths.Application},0");

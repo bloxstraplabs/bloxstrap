@@ -20,6 +20,11 @@ namespace Bloxstrap.UI.Elements.Base
         {
             _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
             _themeService.SetSystemAccent();
+
+#if QA_BUILD
+            this.BorderBrush = System.Windows.Media.Brushes.Red;
+            this.BorderThickness = new Thickness(4);
+#endif
         }
 
         protected override void OnSourceInitialized(EventArgs e)
