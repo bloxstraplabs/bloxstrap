@@ -1225,4 +1225,8 @@ Would you like to enable test mode?</value>
     <value>Install</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Support us on Ko-fi!</value>
+    <comment>Call-to-action button</comment>
+  </data>
 </root>

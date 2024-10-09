@@ -1595,6 +1595,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Support us on Ko-fi!.
+        /// </summary>
+        public static string LaunchMenu_Donate {
+            get {
+                return ResourceManager.GetString("LaunchMenu.Donate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Launch Roblox.
         /// </summary>
         public static string LaunchMenu_LaunchRoblox {
