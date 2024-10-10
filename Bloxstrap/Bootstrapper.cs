@@ -70,10 +70,6 @@ namespace Bloxstrap
         {
             _launchMode = launchMode;
 
-            // this is now always enabled as of v2.8.0
-            if (Dialog is not null)
-                Dialog.CancelEnabled = true;
-
             // https://github.com/icsharpcode/SharpZipLib/blob/master/src/ICSharpCode.SharpZipLib/Zip/FastZip.cs/#L669-L680
             // exceptions don't get thrown if we define events without actually binding to the failure events. probably a bug. ¯\_(ツ)_/¯
             _fastZipEvents.FileFailure += (_, e) => throw e.Exception;
@@ -148,6 +144,10 @@ namespace Bloxstrap
             const string LOG_IDENT = "Bootstrapper::Run";
 
             App.Logger.WriteLine(LOG_IDENT, "Running bootstrapper");
+
+            // this is now always enabled as of v2.8.0
+            if (Dialog is not null)
+                Dialog.CancelEnabled = true;
 
             SetStatus(Strings.Bootstrapper_Status_Connecting);
 
