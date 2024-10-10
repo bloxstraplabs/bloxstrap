@@ -285,6 +285,7 @@ namespace Bloxstrap
 
                 () => Directory.Delete(Paths.Downloads, true),
                 () => Directory.Delete(Paths.Roblox, true),
+                () => Directory.Delete(Paths.Icons, true),
 
                 () => File.Delete(App.State.FileLocation)
             };
@@ -300,13 +301,7 @@ namespace Bloxstrap
                 });
             }
 
-            bool deleteFolder = false;
-
-            if (Directory.Exists(Paths.Base))
-            {
-                var folderFiles = Directory.GetFiles(Paths.Base);
-                deleteFolder = folderFiles.Length == 1 && folderFiles.First().EndsWith(".exe", StringComparison.InvariantCultureIgnoreCase);
-            }
+            bool deleteFolder = Directory.GetFiles(Paths.Base).Length <= 3;
 
             if (deleteFolder)
                 cleanupSequence.Add(() => Directory.Delete(Paths.Base, true));
