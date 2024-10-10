@@ -24,6 +24,9 @@ namespace Bloxstrap.UI.Elements.Dialogs
         {
             InitializeComponent();
 
+            Title = App.ProjectName;
+            RootTitleBar.Title = Title;
+
             string? iconFilename = null;
             SystemSound? sound = null;
 

@@ -8,6 +8,8 @@ namespace Bloxstrap
 
         public static bool RightToLeft { get; private set; } = false;
 
+        private static readonly List<string> _rtlLocales = new() { "ar", "he", "fa" };
+
         public static readonly Dictionary<string, string> SupportedLocales = new()
         {
             { "nil", Strings.Common_SystemDefault },
@@ -17,10 +19,18 @@ namespace Bloxstrap
             { "bg", "Български" },
             { "bn", "বাংলা" },
             { "bs", "Bosanski" },
+#if QA_BUILD
             // { "cs", "Čeština" },
+#endif
             { "de", "Deutsch" },
+#if QA_BUILD
             // { "dk", "Dansk" },
+#endif
             { "es-ES", "Español" },
+#if QA_BUILD
+            { "el", "Ελληνικά" },
+            { "fa", "فارسی" },
+#endif
             { "fi", "Suomi" },
             { "fil", "Filipino" },
             { "fr", "Français" },
@@ -33,8 +43,11 @@ namespace Bloxstrap
             { "ja", "日本語" },
             { "ko", "한국어" },
             { "lt", "Lietuvių" },
+            { "ms", "Baso Kelate" },
             { "no", "Bokmål" },
-            // { "nl", "Nederlands" },
+#if QA_BUILD
+            { "nl", "Nederlands" },
+#endif
             { "pl", "Polski" },
             { "pt-BR", "Português (Brasil)" },
             { "ro", "Română" },
@@ -79,7 +92,7 @@ namespace Bloxstrap
                 Thread.CurrentThread.CurrentUICulture = CurrentCulture;
             }
 
-            RightToLeft = CurrentCulture.Name.StartsWith("ar") || CurrentCulture.Name.StartsWith("he");
+            RightToLeft = _rtlLocales.Any(CurrentCulture.Name.StartsWith);
         }
 
         public static void Initialize()
