@@ -145,11 +145,13 @@ namespace Bloxstrap
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
 
                 var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
-                window.Show();
+
+                // typically we'd use Show(), but we need to block to ensure IPL stays in scope
+                window.ShowDialog();
             }
             else
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Found an already existing menu window");
+                App.Logger.WriteLine(LOG_IDENT, "Found an already existing menu window");
 
                 var process = Utilities.GetProcessesSafe().Where(x => x.MainWindowTitle == Strings.Menu_Title).FirstOrDefault();
 
