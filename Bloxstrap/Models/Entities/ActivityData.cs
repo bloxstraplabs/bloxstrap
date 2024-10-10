@@ -62,7 +62,13 @@ namespace Bloxstrap.Models.Entities
         {
             get
             {
-                string desc = string.Format("{0} • {1} - {2}", UniverseDetails?.Data.Creator.Name, TimeJoined.ToString("h:mm tt"), TimeLeft?.ToString("h:mm tt"));
+                string desc = string.Format(
+                    "{0} • {1} {2} {3}", 
+                    UniverseDetails?.Data.Creator.Name,
+                    TimeJoined.ToString("t"), 
+                    Locale.CurrentCulture.Name.StartsWith("ja") ? '~' : '-',
+                    TimeLeft?.ToString("t")
+                );
 
                 if (ServerType != ServerType.Public)
                     desc += " • " + ServerType.ToTranslatedString();
