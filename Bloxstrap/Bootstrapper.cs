@@ -356,16 +356,11 @@ namespace Bloxstrap
 
                 App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {_appPid}), waiting for start event");
 
-                startEventSignalled = startEvent.WaitOne(TimeSpan.FromSeconds(30));
+                startEventSignalled = startEvent.WaitOne(TimeSpan.FromSeconds(5));
             }
 
-            if (!startEventSignalled)
-            {
-                Frontend.ShowPlayerErrorDialog();
-                return;
-            }
-
-            App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
+            if (startEventSignalled)
+                App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
 
             if (IsStudioLaunch)
                 return;
