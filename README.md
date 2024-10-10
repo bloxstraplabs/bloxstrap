@@ -5,16 +5,21 @@
 > The only official places to download Bloxstrap are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com). Any other websites offering downloads or claiming to be us are not controlled by us.
 
 <p align="center">
-<img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="500">
-<img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="500">
+    <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="420">
+    <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="420">
 </p>
 
-[![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds)](https://github.com/pizzaboxer/bloxstrap/actions)
-[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/pizzaboxer/bloxstrap/releases)
-[![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb)](https://github.com/pizzaboxer/bloxstrap/releases/latest)
-[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
-[![lol](https://img.shields.io/badge/mom%20made-pizza%20rolls-orange)](https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif)
+<p align="center">
+    <a href="https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pizzaboxer/bloxstrap" alt="License"></a>
+    <a href="https://github.com/pizzaboxer/bloxstrap/actions"><img src="https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds" alt="GitHub Workflow Status"></a>
+    <a href="https://crowdin.com/project/bloxstrap"><img src="https://badges.crowdin.net/bloxstrap/localized.svg" alt="Crowdin"></a>
+    <a href="https://github.com/pizzaboxer/bloxstrap/releases"><img src="https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe" alt="Downloads"></a>
+    <a href="https://github.com/pizzaboxer/bloxstrap/releases/latest"><img src="https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb" alt="Version"></a>
+    <a href="https://discord.gg/nKjV3mGq6R"><img src="https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff" alt="Discord"></a>
+    <a href="https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif"><img src="https://img.shields.io/badge/mom%20made-pizza%20rolls-orange" alt="lol"></a>
+</p>
+
+----
 
 Bloxstrap is a third-party replacement for the standard Roblox bootstrapper, providing additional useful features and improvements.
 
