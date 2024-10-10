@@ -1,27 +1,28 @@
 ﻿using System.Reflection;
-using System.Windows.Markup;
 
 namespace Bloxstrap.Models.SettingTasks
 {
     public class ExtractIconsTask : BoolBaseTask
     {
+        private string _path => Path.Combine(Paths.Base, Strings.Paths_Icons);
+
         public ExtractIconsTask() : base("ExtractIcons")
         {
-            OriginalState = Directory.Exists(Paths.Icons);
+            OriginalState = Directory.Exists(_path);
         }
 
         public override void Execute()
         {
             if (NewState)
             {
-                Directory.CreateDirectory(Paths.Icons);
+                Directory.CreateDirectory(_path);
 
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceNames = assembly.GetManifestResourceNames().Where(x => x.EndsWith(".ico"));
 
                 foreach (string name in resourceNames)
                 {
-                    string path = Path.Combine(Paths.Icons, name.Replace("Bloxstrap.Resources.", ""));
+                    string path = Path.Combine(_path, name.Replace("Bloxstrap.Resources.", ""));
                     var stream = assembly.GetManifestResourceStream(name)!;
 
                     using var memoryStream = new MemoryStream();
@@ -31,9 +32,9 @@ namespace Bloxstrap.Models.SettingTasks
                     File.WriteAllBytes(path, memoryStream.ToArray());
                 }
             }
-            else if (Directory.Exists(Paths.Icons))
+            else if (Directory.Exists(_path))
             {
-                Directory.Delete(Paths.Icons, true);
+                Directory.Delete(_path, true);
             }
 
             OriginalState = NewState;

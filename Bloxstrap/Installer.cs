@@ -285,7 +285,6 @@ namespace Bloxstrap
 
                 () => Directory.Delete(Paths.Downloads, true),
                 () => Directory.Delete(Paths.Roblox, true),
-                () => Directory.Delete(Paths.Icons, true),
 
                 () => File.Delete(App.State.FileLocation)
             };
