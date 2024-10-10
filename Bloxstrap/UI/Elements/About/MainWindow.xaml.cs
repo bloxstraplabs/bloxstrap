@@ -13,7 +13,10 @@ namespace Bloxstrap.UI.Elements.About
         {
             InitializeComponent();
 
-            App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
+            App.Logger.WriteLine("MainWindow", "Initializing about window");
+
+            if (Locale.CurrentCulture.Name.StartsWith("tr"))
+                TranslatorsText.FontSize = 9;
         }
 
         #region INavigationWindow methods

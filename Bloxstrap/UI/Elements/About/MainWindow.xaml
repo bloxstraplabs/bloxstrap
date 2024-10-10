@@ -38,7 +38,9 @@
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" Margin="0,0,0,12" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.About_Supporters_Title}" PageType="{x:Type pages:SupportersPage}" Icon="Heart24" Tag="translators" Margin="0,0,0,12" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.About_Translators_Title}" PageType="{x:Type pages:TranslatorsPage}" Icon="Translate24" Tag="translators" Margin="0,0,0,12" />
+                    <ui:NavigationItem PageType="{x:Type pages:TranslatorsPage}" Icon="Translate24" Tag="translators" Margin="0,0,0,12">
+                        <TextBlock x:Name="TranslatorsText" Text="{x:Static resources:Strings.About_Translators_Title}" FontSize="10" />
+                    </ui:NavigationItem>
                     <ui:NavigationItem Content="{x:Static resources:Strings.About_Licenses_Title}" PageType="{x:Type pages:LicensesPage}" Icon="Code24" Tag="licenses" Margin="0,0,0,12" />
                 </ui:NavigationStore.Items>
             </ui:NavigationStore>

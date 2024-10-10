@@ -27,7 +27,7 @@ namespace Bloxstrap.UI.Elements.Settings
             
             InitializeComponent();
 
-            App.Logger.WriteLine("MainWindow::MainWindow", "Initializing menu");
+            App.Logger.WriteLine("MainWindow", "Initializing settings window");
 
 #if DEBUG // easier access
             EditorWarningNavItem.Visibility = Visibility.Visible;
