@@ -52,8 +52,8 @@
                 </Grid>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-                    <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Margin="0,0,0,8" Command="{Binding LaunchAboutCommand, Mode=OneTime}" />
-                    <ui:Hyperlink Icon="Heart48" Content="{x:Static resources:Strings.LaunchMenu_Donate}" NavigateUri="https://ko-fi.com/boxerpizza" />
+                    <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Margin="0,0,0,8" Command="{Binding LaunchAboutCommand, Mode=OneTime}" HorizontalAlignment="Center" />
+                    <ui:Hyperlink Icon="Heart48" Content="{x:Static resources:Strings.LaunchMenu_Donate}" NavigateUri="https://ko-fi.com/boxerpizza" HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>
 
