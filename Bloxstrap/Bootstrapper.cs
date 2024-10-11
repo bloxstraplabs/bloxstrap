@@ -13,11 +13,12 @@
 
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Shell;
 
 using Microsoft.Win32;
 
 using Bloxstrap.AppData;
-using System.Windows.Shell;
+using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
@@ -77,6 +78,7 @@ namespace Bloxstrap
             _fastZipEvents.ProcessFile += (_, e) => e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
 
             AppData = IsStudioLaunch ? new RobloxStudioData() : new RobloxPlayerData();
+            Deployment.BinaryType = AppData.BinaryType;
         }
 
         private void SetStatus(string message)
@@ -151,7 +153,7 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Connecting);
 
-            var connectionResult = await RobloxDeployment.InitializeConnectivity();
+            var connectionResult = await Deployment.InitializeConnectivity();
 
             App.Logger.WriteLine(LOG_IDENT, "Connectivity check finished");
 
@@ -244,29 +246,29 @@ namespace Bloxstrap
             // if it's set in the launch uri, we need to use it and set the registry key for it
             // else, check if the registry key for it exists, and use it
 
-            string channel = "production";
-
             using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
             var match = Regex.Match(App.LaunchSettings.RobloxLaunchArgs, "channel:([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
             if (match.Groups.Count == 2)
             {
-                channel = match.Groups[1].Value.ToLowerInvariant();
+                Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
             }
             else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
             {
-                channel = value;
+                Deployment.Channel = value.ToLowerInvariant();
             }
 
-            if (channel != "production")
-                App.SendStat("robloxChannel", channel);
+            App.Logger.WriteLine(LOG_IDENT, "Got channel as " + (String.IsNullOrEmpty(Deployment.Channel) ? Deployment.DefaultChannel : Deployment.Channel));
+
+            if (Deployment.Channel != "production")
+                App.SendStat("robloxChannel", Deployment.Channel);
 
             ClientVersion clientVersion;
 
             try
             {
-                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
+                clientVersion = await Deployment.GetInfo();
             }
             catch (HttpRequestException ex)
             {
@@ -275,25 +277,25 @@ namespace Bloxstrap
                     and not HttpStatusCode.NotFound)
                     throw;
 
-                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because HTTP {(int)ex.StatusCode}");
+                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because HTTP {(int)ex.StatusCode}");
 
-                channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
+                Deployment.Channel = Deployment.DefaultChannel;
+                clientVersion = await Deployment.GetInfo();
             }
 
             if (clientVersion.IsBehindDefaultChannel)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {channel} to {RobloxDeployment.DefaultChannel} because channel is behind production");
+                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because channel is behind production");
 
-                channel = RobloxDeployment.DefaultChannel;
-                clientVersion = await RobloxDeployment.GetInfo(channel, AppData.BinaryType);
+                Deployment.Channel = Deployment.DefaultChannel;
+                clientVersion = await Deployment.GetInfo();
             }
 
-            key.SetValueSafe("www.roblox.com", channel);
+            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
             _latestVersionGuid = clientVersion.VersionGuid;
 
-            string pkgManifestUrl = RobloxDeployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
+            string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             _versionPackageManifest = new(pkgManifestData);
@@ -962,7 +964,7 @@ namespace Bloxstrap
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
-            string packageUrl = RobloxDeployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
+            string packageUrl = Deployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
             string robloxPackageLocation = Path.Combine(Paths.LocalAppData, "Roblox", "Downloads", package.Signature);
 
             if (File.Exists(package.DownloadPath))

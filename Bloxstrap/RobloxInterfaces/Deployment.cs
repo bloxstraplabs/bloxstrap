@@ -1,13 +1,19 @@
-﻿namespace Bloxstrap
+﻿namespace Bloxstrap.RobloxInterfaces
 {
-    public static class RobloxDeployment
+    public static class Deployment
     {
         public const string DefaultChannel = "production";
-
+        
         private const string VersionStudioHash = "version-012732894899482c";
 
-        public static string BaseUrl { get; private set; } = null!;
+        public static string Channel = DefaultChannel;
 
+        public static string BinaryType = "WindowsPlayer";
+
+        public static bool IsDefaultChannel => String.Compare(Channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
+        
+        public static string BaseUrl { get; private set; } = null!;
+        
         private static readonly Dictionary<string, ClientVersion> ClientVersionCache = new();
 
         // a list of roblox deployment locations that we check for, in case one of them don't work
@@ -23,7 +29,7 @@
 
         private static async Task<string?> TestConnection(string url, int priority, CancellationToken token)
         {
-            string LOG_IDENT = $"RobloxDeployment::TestConnection<{url}>";
+            string LOG_IDENT = $"Deployment::TestConnection<{url}>";
 
             await Task.Delay(priority * 1000, token);
 
@@ -32,7 +38,7 @@
             try
             {
                 var response = await App.HttpClient.GetAsync($"{url}/versionStudio", token);
-                
+
                 response.EnsureSuccessStatusCode();
 
                 // versionStudio is the version hash for the last MFC studio to be deployed.
@@ -56,16 +62,14 @@
             return url;
         }
 
+        /// <summary>
+        /// This function serves double duty as the setup mirror enumerator, and as our connectivity check.
+        /// Returns null for success.
+        /// </summary>
+        /// <returns></returns>
         public static async Task<Exception?> InitializeConnectivity()
         {
-            const string LOG_IDENT = "RobloxDeployment::InitializeConnectivity";
-
-            // this function serves double duty as the setup mirror enumerator, and as our connectivity check
-            // since we're basically asking four different urls for the exact same thing, if all four fail, then it has to be a user-side problem
-
-            // this should be checked for in the installer and in the bootstrapper
-
-            // returns null for success
+            const string LOG_IDENT = "Deployment::InitializeConnectivity";
 
             var tokenSource = new CancellationTokenSource();
 
@@ -74,25 +78,22 @@
 
             App.Logger.WriteLine(LOG_IDENT, "Testing connectivity...");
 
-            while (tasks.Any())
+            while (tasks.Any() && String.IsNullOrEmpty(BaseUrl))
             {
                 var finishedTask = await Task.WhenAny(tasks);
 
-                if (finishedTask.IsFaulted)
-                {
-                    tasks.Remove(finishedTask);
-                    exceptions.Add(finishedTask.Exception!.InnerException!);
-                    continue;
-                }
+                tasks.Remove(finishedTask);
 
-                BaseUrl = await finishedTask;
-                break;
+                if (finishedTask.IsFaulted)
+                    exceptions.Add(finishedTask.Exception!.InnerException!);
+                else
+                    BaseUrl = finishedTask.Result;
             }
 
             // stop other running connectivity tests
             tokenSource.Cancel();
 
-            if (String.IsNullOrEmpty(BaseUrl))
+            if (string.IsNullOrEmpty(BaseUrl))
                 return exceptions[0];
 
             App.Logger.WriteLine(LOG_IDENT, $"Got {BaseUrl} as the optimal base URL");
@@ -100,18 +101,18 @@
             return null;
         }
 
-        public static string GetLocation(string resource, string channel = DefaultChannel)
+        public static string GetLocation(string resource)
         {
             string location = BaseUrl;
 
-            if (String.Compare(channel, DefaultChannel, StringComparison.InvariantCultureIgnoreCase) != 0)
+            if (!IsDefaultChannel)
             {
                 string channelName;
 
-                if (RobloxFastFlags.GetSettings(nameof(RobloxFastFlags.PCClientBootstrapper), channel).Get<bool>("FFlagReplaceChannelNameForDownload"))
+                if (ApplicationSettings.GetSettings(nameof(ApplicationSettings.PCClientBootstrapper), Channel).Get<bool>("FFlagReplaceChannelNameForDownload"))
                     channelName = "common";
                 else
-                    channelName = channel.ToLowerInvariant();
+                    channelName = Channel.ToLowerInvariant();
 
                 location += $"/channel/{channelName}";
             }
@@ -121,16 +122,18 @@
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(string channel, string binaryType = "WindowsPlayer")
+        public static async Task<ClientVersion> GetInfo(string? channel = null)
         {
-            const string LOG_IDENT = "RobloxDeployment::GetInfo";
+            const string LOG_IDENT = "Deployment::GetInfo";
+
+            if (String.IsNullOrEmpty(channel))
+                channel = Channel;
+
+            bool isDefaultChannel = String.Compare(channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
 
             App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel}");
 
-            if (String.IsNullOrEmpty(channel))
-                channel = DefaultChannel;
-
-            string cacheKey = $"{channel}-{binaryType}";
+            string cacheKey = $"{channel}-{BinaryType}";
 
             ClientVersion clientVersion;
 
@@ -141,12 +144,10 @@
             }
             else
             {
-                bool isDefaultChannel = String.Compare(channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
-
-                string path = $"/v2/client-version/{binaryType}";
+                string path = $"/v2/client-version/{BinaryType}";
 
                 if (!isDefaultChannel)
-                    path = $"/v2/client-version/{binaryType}/channel/{channel}";
+                    path = $"/v2/client-version/{BinaryType}/channel/{channel}";
 
                 try
                 {

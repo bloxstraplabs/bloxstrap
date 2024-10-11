@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel;
 
-namespace Bloxstrap
+namespace Bloxstrap.RobloxInterfaces
 {
-    public class RobloxFastFlags
+    // i am 100% sure there is a much, MUCH better way to handle this
+    // matt wrote this so this is effectively a black box to me right now
+    // i'll likely refactor this at some point
+    public class ApplicationSettings
     {
         private string _applicationName;
         private string _channelName;
@@ -12,7 +15,7 @@ namespace Bloxstrap
 
         private SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
 
-        private RobloxFastFlags(string applicationName, string channelName)
+        private ApplicationSettings(string applicationName, string channelName)
         {
             _applicationName = applicationName;
             _channelName = channelName;
@@ -29,11 +32,11 @@ namespace Bloxstrap
                 if (_initialised)
                     return;
 
-                string logIndent = $"RobloxFastFlags::Fetch.{_applicationName}.{_channelName}";
+                string logIndent = $"ApplicationSettings::Fetch.{_applicationName}.{_channelName}";
                 App.Logger.WriteLine(logIndent, "Fetching fast flags");
 
                 string path = $"/v2/settings/application/{_applicationName}";
-                if (_channelName != RobloxDeployment.DefaultChannel.ToLowerInvariant())
+                if (_channelName != Deployment.DefaultChannel.ToLowerInvariant())
                     path += $"/bucket/{_channelName}";
 
                 HttpResponseMessage response;
@@ -100,12 +103,13 @@ namespace Bloxstrap
         }
 
         // _cache[applicationName][channelName]
-        private static Dictionary<string, Dictionary<string, RobloxFastFlags>> _cache = new();
+        private static Dictionary<string, Dictionary<string, ApplicationSettings>> _cache = new();
 
-        public static RobloxFastFlags PCDesktopClient { get; } = GetSettings("PCDesktopClient");
-        public static RobloxFastFlags PCClientBootstrapper { get; } = GetSettings("PCClientBootstrapper");
+        public static ApplicationSettings PCDesktopClient => GetSettings("PCDesktopClient");
 
-        public static RobloxFastFlags GetSettings(string applicationName, string channelName = RobloxDeployment.DefaultChannel, bool shouldCache = true)
+        public static ApplicationSettings PCClientBootstrapper => GetSettings("PCClientBootstrapper");
+
+        public static ApplicationSettings GetSettings(string applicationName, string channelName = Deployment.DefaultChannel, bool shouldCache = true)
         {
             channelName = channelName.ToLowerInvariant();
 
@@ -114,7 +118,7 @@ namespace Bloxstrap
                 if (_cache.ContainsKey(applicationName) && _cache[applicationName].ContainsKey(channelName))
                     return _cache[applicationName][channelName];
 
-                var flags = new RobloxFastFlags(applicationName, channelName);
+                var flags = new ApplicationSettings(applicationName, channelName);
 
                 if (shouldCache)
                 {
