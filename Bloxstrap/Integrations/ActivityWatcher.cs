@@ -9,20 +9,18 @@
         // they only get printed depending on their configured FLog level, which could change at any time
         // while levels being changed is fairly rare, please limit the number of varying number of FLog types you have to use, if possible
 
+        private const string GameTeleportingEntry            = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToPlace";
         private const string GameJoiningPrivateServerEntry   = "[FLog::GameJoinUtil] GameJoinUtil::joinGamePostPrivateServer";
         private const string GameJoiningReservedServerEntry  = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToReservedServer";
         private const string GameJoiningUniverseEntry        = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
         private const string GameJoiningUDMUXEntry           = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry                 = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry           = "[FLog::Network] Time to disconnect replication data:";
-        private const string GameTeleportingEntry            = "[FLog::SingleSurfaceApp] initiateTeleport";
         private const string GameLeavingEntry                = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
-        private const string GameJoinLoadTimeEntry           = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
 
-        private const string GameJoinLoadTimeEntryPattern    = ", userid:([0-9]+)";
         private const string GameJoiningEntryPattern         = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningPrivateServerPattern = @"""accessCode"":""([0-9a-f\-]{36})""";
-        private const string GameJoiningUniversePattern      = @"universeid:([0-9]+)";
+        private const string GameJoiningUniversePattern      = @"universeid:([0-9]+).*userid:([0-9]+)";
         private const string GameJoiningUDMUXPattern         = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern          = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern         = @"\[BloxstrapRPC\] (.*)";
@@ -211,40 +209,19 @@
             {
                 // We are not confirmed to be in a game, but we are in the process of joining one
 
-                if (entry.Contains(GameJoinLoadTimeEntry))
-                {
-                    Match match = Regex.Match(entry, GameJoinLoadTimeEntryPattern);
-
-                    if (match.Groups.Count != 2)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join load time entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
-                        return;                
-                    }
-
-                    if (!Int64.TryParse(match.Groups[1].Value, out long result))
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Failed to parse userid from game join load time entry");
-                        App.Logger.WriteLine(LOG_IDENT, match.Groups[1].Value);
-                        return;
-                    }
-
-                    Data.UserId = result;
-                    App.Logger.WriteLine(LOG_IDENT, $"Got userid as {Data.UserId}");
-                }
-
                 if (entry.Contains(GameJoiningUniverseEntry))
                 {
                     var match = Regex.Match(entry, GameJoiningUniversePattern);
 
-                    if (match.Groups.Count != 2)
+                    if (match.Groups.Count != 3)
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join universe entry");
                         App.Logger.WriteLine(LOG_IDENT, entry);
                         return;
                     }
 
-                    Data.UniverseId = long.Parse(match.Groups[1].Value);
+                    Data.UniverseId = Int64.Parse(match.Groups[1].Value);
+                    Data.UserId = Int64.Parse(match.Groups[2].Value);
 
                     if (History.Any())
                     {
@@ -312,9 +289,9 @@
                     App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data})");
                     _teleportMarker = true;
                 }
-                else if (_teleportMarker && entry.Contains(GameJoiningReservedServerEntry))
+                else if (entry.Contains(GameJoiningReservedServerEntry))
                 {
-                    // we only expect to be joining a reserved server if we're teleporting to one from a game
+                    _teleportMarker = true;
                     _reservedTeleportMarker = true;
                 }
                 else if (entry.Contains(GameMessageEntry))
