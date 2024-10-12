@@ -1530,7 +1530,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Thank you for downloading Bloxstrap. 
         ///
-        ///You should have downloaded it from either {0} or {1}. Those are the only official websites to get it from. It is your responsibility to ensure you download from an official source.
+        ///The only official websites to download Bloxstrap from are {0} and {1}, so please verify that you got it from an official source.
         ///
         ///This installation process will be quick and simple, and you will be able to configure any of Bloxstrap&apos;s settings after installation..
         /// </summary>

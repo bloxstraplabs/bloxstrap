@@ -937,6 +937,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
     <value>Install</value>
+    <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
     <value>Completion</value>
@@ -950,7 +951,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
     <value>Thank you for downloading Bloxstrap. 
 
-You should have downloaded it from either {0} or {1}. Those are the only official websites to get it from. It is your responsibility to ensure you download from an official source.
+The only official websites to download Bloxstrap from are {0} and {1}, so please verify that you got it from an official source.
 
 This installation process will be quick and simple, and you will be able to configure any of Bloxstrap's settings after installation.</value>
     <comment>{0} and {1} are URLs</comment>
@@ -1043,6 +1044,7 @@ Bloxstrap was installed at "{1}".</value>
     <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
 
 If not, then please report this exception to the maintainers of this fork. Do NOT report this to Bloxstrap's GitHub issues, as this is an unoffical build.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings.</value>
