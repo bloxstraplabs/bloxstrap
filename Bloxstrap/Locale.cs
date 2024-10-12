@@ -24,7 +24,7 @@ namespace Bloxstrap
 #endif
             { "de", "Deutsch" },
 #if QA_BUILD
-            // { "dk", "Dansk" },
+            { "dk", "Dansk" },
 #endif
             { "es-ES", "Español" },
 #if QA_BUILD
