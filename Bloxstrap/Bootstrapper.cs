@@ -59,6 +59,8 @@ namespace Bloxstrap
         private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
+        private AsyncMutex? _mutex;
+
         private int _appPid = 0;
 
         public IBootstrapperDialog? Dialog = null;
@@ -191,6 +193,8 @@ namespace Bloxstrap
             await using var mutex = new AsyncMutex(false, "Bloxstrap-Bootstrapper");
             await mutex.AcquireAsync(_cancelTokenSource.Token);
 
+            _mutex = mutex;
+
             // reload our configs since they've likely changed by now
             if (mutexExists)
             {
@@ -230,10 +234,13 @@ namespace Bloxstrap
             else
                 WindowsRegistry.RegisterPlayer();
 
-            await mutex.ReleaseAsync();
+            if (_launchMode != LaunchMode.Player)
+                await mutex.ReleaseAsync();
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelTokenSource.IsCancellationRequested)
                 StartRoblox();
+
+            await mutex.ReleaseAsync();
 
             Dialog?.CloseBootstrapper();
         }
@@ -336,12 +343,27 @@ namespace Bloxstrap
                 return;
             }
 
-            bool startEventSignalled;
+            string? logFileName = null;
 
-            // TODO: figure out why this is causing roblox to block for some users
             using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
             {
                 startEvent.Reset();
+                
+                var logWatcher = new FileSystemWatcher()
+                {
+                    Path = Path.Combine(Paths.LocalAppData, "Roblox\\logs"),
+                    Filter = "*.log",
+                    EnableRaisingEvents = true
+                };
+
+                var logCreatedEvent = new AutoResetEvent(false);
+
+                logWatcher.Created += (_, e) =>
+                {
+                    logWatcher.EnableRaisingEvents = false;
+                    logFileName = e.FullPath;
+                    logCreatedEvent.Set();
+                };
 
                 // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
                 try
@@ -358,11 +380,26 @@ namespace Bloxstrap
 
                 App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {_appPid}), waiting for start event");
 
-                startEventSignalled = startEvent.WaitOne(TimeSpan.FromSeconds(5));
-            }
+                if (startEvent.WaitOne(TimeSpan.FromSeconds(5)))
+                    App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
+                else
+                   App.Logger.WriteLine(LOG_IDENT, "Start event not signalled, implying successful launch");
 
-            if (startEventSignalled)
-                App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
+                logCreatedEvent.WaitOne(TimeSpan.FromSeconds(5));
+
+                if (String.IsNullOrEmpty(logFileName))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
+                    Frontend.ShowPlayerErrorDialog();
+                    return;
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Got log file as {logFileName}");
+                }
+
+                _mutex?.ReleaseAsync();
+            }
 
             if (IsStudioLaunch)
                 return;
@@ -391,23 +428,27 @@ namespace Bloxstrap
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Failed to launch integration '{integration.Name}'!");
-                    App.Logger.WriteLine(LOG_IDENT, $"{ex.Message}");
+                    App.Logger.WriteLine(LOG_IDENT, ex.Message);
                 }
 
                 if (integration.AutoClose && pid != 0)
                     autoclosePids.Add(pid);
             }
 
-            string argPids = _appPid.ToString();
-
-            if (autoclosePids.Any())
-                argPids += $";{String.Join(',', autoclosePids)}";
-
             if (App.Settings.Prop.EnableActivityTracking || App.LaunchSettings.TestModeFlag.Active || autoclosePids.Any())
             {
                 using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
-                string args = $"-watcher \"{argPids}\"";
+                var watcherData = new WatcherData 
+                { 
+                    ProcessId = _appPid, 
+                    LogFile = logFileName, 
+                    AutoclosePids = autoclosePids
+                };
+
+                string watcherDataArg = Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(watcherData)));
+
+                string args = $"-watcher \"{watcherDataArg}\"";
 
                 if (App.LaunchSettings.TestModeFlag.Active)
                     args += " -testmode";

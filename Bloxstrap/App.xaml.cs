@@ -5,8 +5,6 @@ using System.Windows.Threading;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Models.SettingTasks.Base;
-
 namespace Bloxstrap
 {
     /// <summary>

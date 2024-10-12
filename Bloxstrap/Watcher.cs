@@ -1,15 +1,14 @@
 ﻿using Bloxstrap.Integrations;
+using Bloxstrap.Models;
 
 namespace Bloxstrap
 {
     public class Watcher : IDisposable
     {
-        private int _gameClientPid = 0;
-
         private readonly InterProcessLock _lock = new("Watcher");
 
-        private readonly List<int> _autoclosePids = new();
-
+        private readonly WatcherData? _watcherData;
+        
         private readonly NotifyIconWrapper? _notifyIcon;
 
         public readonly ActivityWatcher? ActivityWatcher;
@@ -26,53 +25,37 @@ namespace Bloxstrap
                 return;
             }
 
-            string? watcherData = App.LaunchSettings.WatcherFlag.Data;
+            string? watcherDataArg = App.LaunchSettings.WatcherFlag.Data;
 
 #if DEBUG
-            if (String.IsNullOrEmpty(watcherData))
+            if (String.IsNullOrEmpty(watcherDataArg))
             {
                 string path = Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe");
                 using var gameClientProcess = Process.Start(path);
-                _gameClientPid = gameClientProcess.Id;
+
+                _watcherData = new() { ProcessId = gameClientProcess.Id };
             }
 #else
-            if (String.IsNullOrEmpty(watcherData))
+            if (String.IsNullOrEmpty(watcherDataArg))
                 throw new Exception("Watcher data not specified");
 #endif
 
-            if (!String.IsNullOrEmpty(watcherData) && _gameClientPid == 0)
-            {
-                var split = watcherData.Split(';');
+            if (!String.IsNullOrEmpty(watcherDataArg))
+                _watcherData = JsonSerializer.Deserialize<WatcherData>(Encoding.UTF8.GetString(Convert.FromBase64String(watcherDataArg)));
 
-                if (split.Length == 0)
-                    _ = int.TryParse(watcherData, out _gameClientPid);
-
-                if (split.Length >= 1)
-                    _ = int.TryParse(split[0], out _gameClientPid);
-
-                if (split.Length >= 2)
-                {
-                    foreach (string strPid in split[1].Split(','))
-                    {
-                        if (int.TryParse(strPid, out int pid) && pid != 0)
-                            _autoclosePids.Add(pid);
-                    }
-                }
-            }
-
-            if (_gameClientPid == 0)
+            if (_watcherData is null)
                 throw new Exception("Watcher data is invalid");
 
             if (App.Settings.Prop.EnableActivityTracking)
             {
-                ActivityWatcher = new();
+                ActivityWatcher = new(_watcherData.LogFile);
 
                 if (App.Settings.Prop.UseDisableAppPatch)
                 {
                     ActivityWatcher.OnAppClose += delegate
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
-                        using var process = Process.GetProcessById(_gameClientPid);
+                        using var process = Process.GetProcessById(_watcherData.ProcessId);
                         process.CloseMainWindow();
                     };
                 }
@@ -84,11 +67,12 @@ namespace Bloxstrap
             _notifyIcon = new(this);
         }
 
-        public void KillRobloxProcess() => CloseProcess(_gameClientPid, true);
+        public void KillRobloxProcess() => CloseProcess(_watcherData!.ProcessId, true);
 
         public void CloseProcess(int pid, bool force = false)
         {
             const string LOG_IDENT = "Watcher::CloseProcess";
+
             try
             {
                 using var process = Process.GetProcessById(pid);
@@ -115,16 +99,19 @@ namespace Bloxstrap
 
         public async Task Run()
         {
-            if (!_lock.IsAcquired)
+            if (!_lock.IsAcquired || _watcherData is null)
                 return;
 
             ActivityWatcher?.Start();
 
-            while (Utilities.GetProcessesSafe().Any(x => x.Id == _gameClientPid))
+            while (Utilities.GetProcessesSafe().Any(x => x.Id == _watcherData.ProcessId))
                 await Task.Delay(1000);
 
-            foreach (int pid in _autoclosePids)
-                CloseProcess(pid);
+            if (_watcherData.AutoclosePids is not null)
+            {
+                foreach (int pid in _watcherData.AutoclosePids)
+                    CloseProcess(pid);
+            }
 
             if (App.LaunchSettings.TestModeFlag.Active)
                 Process.Start(Paths.Process, "-settings -testmode");

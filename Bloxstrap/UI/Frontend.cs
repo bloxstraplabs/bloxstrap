@@ -2,9 +2,6 @@
 
 using Bloxstrap.UI.Elements.Bootstrapper;
 using Bloxstrap.UI.Elements.Dialogs;
-using Bloxstrap.UI.Elements.Settings;
-using Bloxstrap.UI.Elements.Installer;
-using System.Drawing;
 
 namespace Bloxstrap.UI
 {
@@ -31,7 +28,8 @@ namespace Bloxstrap.UI
                 topLine = Strings.Dialog_PlayerError_Crash;
 
             ShowMessageBox($"{topLine}\n\n{Strings.Dialog_PlayerError_HelpInformation}", MessageBoxImage.Error);
-            Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch");
+
+            // Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch");
         }
 
         public static void ShowExceptionDialog(Exception exception)
