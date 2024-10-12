@@ -43,7 +43,7 @@ namespace Bloxstrap
             { "ja", "日本語" },
             { "ko", "한국어" },
             { "lt", "Lietuvių" },
-            { "ms", "Baso Kelate" },
+            { "ms", "Malay" },
             { "no", "Bokmål" },
 #if QA_BUILD
             { "nl", "Nederlands" },
