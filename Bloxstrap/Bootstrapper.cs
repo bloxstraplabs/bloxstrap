@@ -348,10 +348,15 @@ namespace Bloxstrap
             using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
             {
                 startEvent.Reset();
-                
+
+                string rbxLogDir = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
+
+                if (!Directory.Exists(rbxLogDir))
+                    Directory.CreateDirectory(rbxLogDir);
+
                 var logWatcher = new FileSystemWatcher()
                 {
-                    Path = Path.Combine(Paths.LocalAppData, "Roblox\\logs"),
+                    Path = rbxLogDir,
                     Filter = "*.log",
                     EnableRaisingEvents = true
                 };

@@ -36,7 +36,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
             if (entries.Any())
             {
-                string universeIds = String.Join(',', entries.GroupBy(x => x.UniverseId).Select(x => x.First()));
+                string universeIds = String.Join(',', entries.Select(x => x.UniverseId).Distinct());
 
                 try
                 {
