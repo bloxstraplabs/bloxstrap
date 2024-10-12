@@ -5,9 +5,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        > [!IMPORTANT]
-        > Do not open an issue if you're getting a "Deserialised application settings is null!" error. This issue is caused by a server error on Roblox's end. 
-        > Wait for the problem to be resolved, and do not report an issue for it.
         ### **Preliminary instructions**
         - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
           - If it isn't, please confirm which pages that you read that were relevant to your issue.
