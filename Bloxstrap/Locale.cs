@@ -20,11 +20,11 @@ namespace Bloxstrap
             { "bn", "বাংলা" },
             { "bs", "Bosanski" },
 #if QA_BUILD
-            // { "cs", "Čeština" },
+            { "cs", "Čeština" },
 #endif
             { "de", "Deutsch" },
 #if QA_BUILD
-            // { "dk", "Dansk" },
+            { "dk", "Dansk" },
 #endif
             { "es-ES", "Español" },
 #if QA_BUILD
