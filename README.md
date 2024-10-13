@@ -70,7 +70,7 @@ Bloxstrap uses the [WPF UI](https://github.com/lepoco/wpfui) library for the use
 
 
 [shield-repo-license]:  https://img.shields.io/github/license/pizzaboxer/bloxstrap
-[shield-repo-workflow]: https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci.yml?branch=main&label=builds
+[shield-repo-workflow]: https://img.shields.io/github/actions/workflow/status/pizzaboxer/bloxstrap/ci-release.yml?branch=main&label=builds
 [shield-repo-releases]: https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe
 [shield-repo-latest]:   https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb
 
