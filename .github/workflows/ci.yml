@@ -28,6 +28,7 @@ jobs:
       run: dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c ${{ matrix.configuration }} --self-contained false .\Bloxstrap\Bloxstrap.csproj
 
     - name: Upload Artifact
+      id: upload-artifact-${{ matrix.configuration }}
       uses: actions/upload-artifact@v4
       with:
         name: Bloxstrap (${{ matrix.configuration }})
@@ -40,15 +41,21 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
 
     steps:
-      - name: Download x64 release artifact
-        uses: actions/download-artifact@v4
+      - name: Sign and download release artifact
+        uses: signpath/github-action-submit-signing-request@v1
         with:
-          name: Bloxstrap (Release)
-          path: x64
+          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
+          organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
+          project-slug: 'bloxstrap'
+          signing-policy-slug: 'release-signing'
+          artifact-configuration-slug: 'github-ci'
+          github-artifact-id: '${{ steps.upload-artifact-Release.outputs.artifact-id }}'
+          wait-for-completion: true
+          output-artifact-directory: 'release'
 
       - name: Rename binaries
         run: |
-          mv x64/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
+          mv release/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
 
       - name: Release
         uses: softprops/action-gh-release@v2
