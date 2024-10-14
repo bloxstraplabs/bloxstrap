@@ -675,7 +675,7 @@ Vybrání 'Ne' bude ignorovat toto varování a pokračuje instalací.</value>
     <value>Bloxstrap nemá přístup k zápisu do vybraného instalačního umístění. Zvolte prosím jiné umístění.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Sledováí aktivity</value>
+    <value>Sledování aktivity</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
     <value>Umožňuje komukoli připojit se ke hře, ve které se právě nacházíte, prostřednictvím vašeho profilu Discord.</value>
