@@ -787,7 +787,7 @@ Vybrání 'Ne' bude ignorovat toto varování a pokračuje instalací.</value>
     <value>Kurzor</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Vraťte staré pozadí editoru používané v aplikaci Roblox před rokem 2020.</value>
+    <value>Vratí staré pozadí editoru používané v aplikaci Roblox před rokem 2020.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
     <value>Použít staré pozadí editoru avatoru</value>
