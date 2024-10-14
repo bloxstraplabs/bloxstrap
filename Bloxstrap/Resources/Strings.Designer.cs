@@ -3096,7 +3096,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To use for your shortcuts, right-click it, open properties, change icon, browse, and pick from the Icons folder..
+        ///   Looks up a localized string similar to Allows you to use Bloxstrap&apos;s range of Roblox icons for your shortcuts. [See how.]({0}).
         /// </summary>
         public static string Menu_Shortcuts_ExtractIcons_Description {
             get {
