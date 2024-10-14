@@ -12,7 +12,7 @@
              d:DataContext="{d:DesignInstance dmodels:MainWindowViewModel, IsDesignTimeCreatable=True}"
              Title="{x:Static resources:Strings.Menu_Title}"
              MinWidth="960"
-             Width="980"
+             Width="1000"
              Height="580"
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"

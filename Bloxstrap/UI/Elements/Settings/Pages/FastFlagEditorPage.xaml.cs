@@ -27,9 +27,9 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         // values must match the entire string to avoid cases where half the string
         // matches but the filter would still be invalid
-        private readonly Regex _boolFilterPattern = new("(?:true|false)(;[\\d]{1,})+$");
-        private readonly Regex _intFilterPattern = new("([\\d]{1,})?(;[\\d]{1,})+$");
-        private readonly Regex _stringFilterPattern = new("^[^;]*(;[\\d]{1,})+$");
+        private readonly Regex _boolFilterPattern = new("^(?:true|false)(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
+        private readonly Regex _intFilterPattern = new("^([\\d]{1,})?(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
+        private readonly Regex _stringFilterPattern = new("^[^;]*(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
 
         private bool _showPresets = false;
         private string _searchFilter = "";
