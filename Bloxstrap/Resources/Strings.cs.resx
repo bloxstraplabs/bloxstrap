@@ -957,7 +957,7 @@ Tento proces instalace bude rychlý a jednoduchý, a po instalaci, budete moci n
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>Prosím zkliknite tlačítku 'Další' pro pokračování.</value>
+    <value>Prosím zkliknite tlačítko 'Další' pro pokračování.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
     <value>Snažíte se nainstalovat verzi {0} Bloxstrapu, ale nejnovější verze je {1}. Chtěli by jste ji stáhnout?</value>
@@ -966,7 +966,7 @@ Tento proces instalace bude rychlý a jednoduchý, a po instalaci, budete moci n
     <value>Vyberte kam nainstalovat Bloxstrap</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Do této cesty se také nainstaluje Roblox. Pokud dáváte přednost instalaci všech her na samostatnout jednotku, změnte ji. V opačném případě je doporucěno, ponechat tuto cestu tak, jak je.</value>
+    <value>Do této cesty se také nainstaluje Roblox. Pokud instalujete všech hry na jinou jednotku, změnte ji. V opačném případě je doporucěno, ponechat tuto cestu tak, jak je.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
     <value>Existentí data nalezena. Vaše módy a nastavení budou obnovena.</value>
