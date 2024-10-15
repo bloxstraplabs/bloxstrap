@@ -1,8 +1,6 @@
 ﻿using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.Resources;
-
 namespace Bloxstrap.UI.ViewModels.Installer
 {
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
@@ -12,6 +10,8 @@ namespace Bloxstrap.UI.ViewModels.Installer
         public bool BackButtonEnabled { get; private set; } = false;
 
         public bool NextButtonEnabled { get; private set; } = false;
+
+        public int ButtonWidth { get; } = Locale.CurrentCulture.Name.StartsWith("bg") ? 112 : 96;
 
         public ICommand BackPageCommand => new RelayCommand(BackPage);
         
