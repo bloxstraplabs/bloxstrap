@@ -356,7 +356,10 @@ namespace Bloxstrap
             // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
             bool isAutoUpgrade = App.LaunchSettings.UpgradeFlag.Active
                 || Paths.Process.StartsWith(Path.Combine(Paths.Base, "Updates"))
-                || Paths.Process.StartsWith(Paths.Temp);
+                || Paths.Process.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"))
+                || Paths.Process.StartsWith(Paths.TempUpdates);
+
+            isAutoUpgrade = true;
 
             var existingVer = FileVersionInfo.GetVersionInfo(Paths.Application).ProductVersion;
             var currentVer = FileVersionInfo.GetVersionInfo(Paths.Process).ProductVersion;
@@ -517,6 +520,22 @@ namespace Bloxstrap
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)
                 {
+                    if (isAutoUpgrade)
+                    {
+                        Frontend.ShowMessageBox(String.Join(',', App.LaunchSettings.Args.Length));
+
+                        if (App.LaunchSettings.Args.Length == 0)
+                            App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
+
+                        string? query = App.LaunchSettings.Args.FirstOrDefault(x => x.Contains("roblox"));
+
+                        if (query is not null)
+                        {
+                            App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
+                            App.LaunchSettings.RobloxLaunchArgs = query;
+                        }
+                    }
+
                     string oldDesktopPath = Path.Combine(Paths.Desktop, "Play Roblox.lnk");
                     string oldStartPath = Path.Combine(Paths.WindowsStartMenu, "Bloxstrap");
 
@@ -565,7 +584,14 @@ namespace Bloxstrap
 
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
 
-                    Directory.Delete(Path.Combine(Paths.Base, "Versions"), true);
+                    try
+                    {
+                        Directory.Delete(Path.Combine(Paths.Base, "Versions"), true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
                 }
 
                 App.Settings.Save();

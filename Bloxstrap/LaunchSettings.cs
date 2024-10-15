@@ -40,7 +40,7 @@ namespace Bloxstrap
 
         public LaunchMode RobloxLaunchMode { get; set; } = LaunchMode.None;
 
-        public string RobloxLaunchArgs { get; private set; } = "";
+        public string RobloxLaunchArgs { get; set; } = "";
 
         /// <summary>
         /// Original launch arguments
