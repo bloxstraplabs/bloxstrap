@@ -19,7 +19,6 @@
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {
             { "RobloxStudio.zip",                @"" },
-            { "redist.zip",                      @"" },
             { "LibrariesQt5.zip",                @"" },
 
             { "content-studio_svg_textures.zip", @"content\studio_svg_textures\"},
