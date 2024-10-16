@@ -1,6 +1,3 @@
-> [!IMPORTANT]
-> [6th October 2024 ‐ Upcoming changes to Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/6th-October-2024-%E2%80%90-Upcoming-changes-to-Bloxstrap)
-
 > [!CAUTION]
 > The only official places to download Bloxstrap are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com). Any other websites offering downloads or claiming to be us are not controlled by us.
 
