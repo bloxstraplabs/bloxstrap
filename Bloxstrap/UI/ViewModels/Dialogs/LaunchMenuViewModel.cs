@@ -10,7 +10,7 @@ namespace Bloxstrap.UI.ViewModels.Installer
     {
         public string Version => string.Format(Strings.Menu_About_Version, App.Version);
 
-        public Visibility ShowRobloxStudioOption => App.IsStudioVisible ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility RobloxStudioOptionVisibility => App.IsStudioVisible ? Visibility.Visible : Visibility.Collapsed;
 
         public ICommand LaunchSettingsCommand => new RelayCommand(LaunchSettings);
 

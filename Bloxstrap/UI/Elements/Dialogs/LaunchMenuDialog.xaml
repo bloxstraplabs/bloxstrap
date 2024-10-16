@@ -64,7 +64,7 @@
                     </StackPanel>
                 </ui:CardAction>
 
-                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
+                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Visibility="{Binding RobloxStudioOptionVisibility, Mode=OneTime}" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
                     </StackPanel>
