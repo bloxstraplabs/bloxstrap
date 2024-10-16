@@ -1181,7 +1181,7 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Išskleisti „Roblox“ piktogramas į aplanką</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Leidžia naudoti "Bloxstrap" "Roblox" piktogramų asortimentą savo nuorodoms. [Žr., kaip.]({0})</value>
+    <value>Leidžia naudoti „Bloxstrap“ „Roblox“ piktogramų asortimentą savo nuorodoms. [Žiūrėti, kaip.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>„Bloxstrap“ negali įrašyti į „Windows“ registrą. Greičiausiai trukdo antivirusinė programa ir sukelia problemų. Patikrinkite, ar nėra nieko, kas ribotų „Bloxstrap“ veikimą.</value>

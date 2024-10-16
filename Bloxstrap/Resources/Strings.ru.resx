@@ -133,7 +133,7 @@
     <value>Время ожидания соединения истекло, что может указывать на плохое интернет-соединение или блокировку брандмауэра.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Вам нужно сначала установить Bloxstrap прежде чем его удалить.</value>
+    <value>Вы не можете удалить Bloxstrap, если он не установлен.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Недостаточно свободного места на диске для загрузки и установки Roblox. Пожалуйста, освободите место на диске и повторите попытку.</value>
@@ -536,11 +536,11 @@
     <value>Назад</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>Использование не по назначению может привести к нестабильности или непредвиденным последствиям.</value>
+    <value>Использование не по назначению может привести к нестабильности игры.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>Используйте с осторожностью.</value>
+    <value>Внимание!</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
     <value>Некоторые флаги, которые Вы пытаетесь импортировать, уже имеют заданные значения. Хотите перезаписать их текущие значения с указанными в импорте?
@@ -936,7 +936,7 @@
     <value>Добро пожаловать</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>Установить</value>
+    <value>Установка</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">

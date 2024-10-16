@@ -949,6 +949,14 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Common.Navigation.Next" xml:space="preserve">
     <value>Tiếp theo</value>
   </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Cảm ơn bạn đã tải xuống Bloxstrap.
+
+Các trang web chính thức duy nhất để tải Bloxstrap là {0} và {1}, vì vậy hãy đảm bảo rằng bạn đã tải từ nguồn chính thức.
+
+Quá trình cài đặt này sẽ nhanh chóng và đơn giản, và sau khi cài đặt, bạn sẽ có thể cấu hình bất kỳ cài đặt nào của Bloxstrap.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Bấm 'Tiếp' để tiếp tục.</value>
   </data>
@@ -1173,6 +1181,9 @@ Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc th�
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>Trích xuất biểu tượng Roblox vào thư mục</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Cho phép bạn sử dụng các biểu tượng Roblox có sẵn trong Bloxstrap cho các phím tắt của bạn. [Xem cách.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap không thể ghi vào Registry của Windows. Có thể một phần mềm diệt virus đang can thiệp và gây ra vấn đề. Vui lòng kiểm tra để đảm bảo không có gì làm ảnh hưởng Bloxstrap.</value>

@@ -734,6 +734,9 @@ Selectarea „Nu” va ignora acest avertisment și va continua instalarea.</val
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Jocul Roblox pe care îl joci va fi afișat pe profilul tău de Discord. [Nu funcționează?]({0})</value>
   </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>Afișează activitatea jocului</value>
+  </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
     <value>Când ești în joc, vei putea vedea unde se află serverul tău prin [ipinfo.io]({0}).</value>
   </data>
@@ -746,11 +749,18 @@ Selectarea „Nu” va ignora acest avertisment și va continua instalarea.</val
   <data name="Menu.Mods.Description" xml:space="preserve">
     <value>Gestionați și aplicați modificări la clientul jocului Roblox.</value>
   </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>Vezi informații despre utilizarea și crearea de mod-uri.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Alege un font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
     <value>Dimensiunea fontului poate fi ajustată în tab-ul Fast Flags.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>Fișierul ales nu pare să fie un fișier font valid.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
     <value>Șterge fontul aplicat</value>
@@ -1169,6 +1179,9 @@ Vă rugăm să ștergeți manual Bloxstrap.exe din locația de instalare sau să
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>Extrage pictogramele Roblox în dosar</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Vă permite să utilizați pictogramele Roblox din Bloxstrap pentru scurtăturile dvs. [Vezi cum.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap nu poate scrie în Registrul Windows. Un antivirus probabil interferă și cauzează probleme. Vă rugăm să verificați pentru a vă asigura că nu există nimic care să restricționeze funcționarea Bloxstrap.</value>

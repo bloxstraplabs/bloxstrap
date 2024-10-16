@@ -1182,7 +1182,7 @@ Por favor, exclua manualmente o arquivo Bloxstrap.exe do local de instalação o
     <value>Extrair ícones do Roblox para a pasta</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Permite que você use a gama de ícones do Roblox do Bloxstrap para seus atalhos. [Veja como.]({0})</value>
+    <value>Permite que você use a variação de ícones Roblox do Bloxstrap para seus atalhos. [Veja como.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap não conseguiu escrever no registro do Windows. Um antivírus provavelmente está interferindo e causando problemas. Por favor, verifique se não há nada que restrinja a operação do Bloxstrap.</value>

@@ -204,6 +204,9 @@
   <data name="Common.Help" xml:space="preserve">
     <value>帮助</value>
   </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>导入 JSON</value>
+  </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
     <value>打开日志文件</value>
   </data>
@@ -254,7 +257,7 @@
     <value>服务器 Job ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>地区</value>
+    <value>地点</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
     <value>位于 {0}
@@ -264,7 +267,10 @@
     <value>已连接至 公共 服务器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>此服务器信息</value>
+    <value>服务器信息</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>类型</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>添加 Fast Flag</value>
@@ -332,6 +338,9 @@
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>默认 (Twemoji)</value>
+  </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
   </data>
@@ -390,6 +399,9 @@
     <value>您启动的 Bloxstrap 版本与您当前已安装的版本并不一致。
 您是否要更新当前已安装的版本？</value>
   </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
     <value>代码贡献者</value>
   </data>
@@ -426,9 +438,15 @@
   <data name="Menu.About.ReportIssue" xml:space="preserve">
     <value>报告 Bug</value>
   </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>关于</value>
+  </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>版本 {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>所有文件</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
     <value>请注意；在您关闭所有 Roblox 程序之前，并非所有更改都会立即生效。</value>
@@ -451,8 +469,14 @@
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
     <value>图标大小必须为 16 至 128 像素的 .ico 文件；将图标类型设置为 “自定义” 后方可投入使用。</value>
   </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>自定义图标</value>
+  </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
     <value>此文本将作为启动器的标题显示。</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
     <value>您可以在这里更改 Bloxstrap 的部分 UI。</value>
@@ -531,6 +555,9 @@
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
     <value>您可以在这里管理属于您自己独一无二的 Fast Flags；双击任意一列来进行编辑。</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>导出 JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
     <value>您输入的内容 “{0}” 无效；其内容只能包含字母、数字和下划线。</value>
@@ -675,6 +702,9 @@
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
     <value>在这里，您可以让其他程序与 Roblox 一起启动。</value>
   </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>启动参数</value>
+  </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
     <value>Roblox 正在运行！</value>
   </data>
@@ -708,6 +738,9 @@
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>启用此选项将会使您正在游玩的 Roblox 游戏显示在您的 Discord 个人资料上。[不起作用？]({0})</value>
   </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>显示游戏活动</value>
+  </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
     <value>当您加入游戏时，您将会收到当前服务器具体信息的通知；通知将不会在 “全屏独占” 时显示。
 （由 [ipinfo.io]({0}) 提供技术支持）</value>
@@ -731,6 +764,9 @@
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
     <value>字体大小可在 “Fast Flags” 选项卡中进行调整。</value>
   </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>您当前选择的文件似乎不是有效的字体文件。</value>
+  </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
     <value>移除已应用的字体</value>
   </data>
@@ -740,8 +776,14 @@
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>您可以在这里自定义 Roblox 的模组。</value>
   </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>打开模组文件夹</value>
+  </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
     <value>选择要应用到 Roblox 的表情符号类型。</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>首选表情符号类型</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
     <value>在两种经典的 Roblox 指针样式之间进行选择。</value>
@@ -778,6 +820,9 @@
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
     <value>更改将会在下次启动 Roblox 时生效。</value>
+  </data>
+  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
+    <value>设置已保存！</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
     <value>Bloxstrap 设置</value>
@@ -1148,7 +1193,8 @@ Bloxstrap 的安装路径是：
     <value>提取 Roblox 图标至 Bloxstrap 安装目录</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>允许您使用 Bloxstrap的 Roblox 快捷图标的范围。[看看如何使用。]({0})</value>
+    <value>启用此选项后将会在 Bloxstrap 安装根目录上创建一个名为 “已提取的图标” 的文件夹。
+（此选项允许您获取 Roblox 图标文件以便快捷应用于快捷方式）[如何应用？]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap 目前无法写入 Windows 注册表；可能是杀毒软件的干扰导致了问题。请检查以确保没有任何东西会限制 Bloxstrap 的运行。</value>
