@@ -522,8 +522,6 @@ namespace Bloxstrap
                 {
                     if (isAutoUpgrade)
                     {
-                        Frontend.ShowMessageBox(String.Join(',', App.LaunchSettings.Args.Length));
-
                         if (App.LaunchSettings.Args.Length == 0)
                             App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
 
