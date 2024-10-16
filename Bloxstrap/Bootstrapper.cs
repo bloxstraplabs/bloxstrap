@@ -116,7 +116,12 @@ namespace Bloxstrap
 
         private void HandleConnectionError(Exception exception)
         {
+            const string LOG_IDENT = "Bootstrapper::HandleConnectionError";
+
             _noConnection = true;
+
+            App.Logger.WriteLine(LOG_IDENT, "Connectivity check failed");
+            App.Logger.WriteException(LOG_IDENT, exception);
 
             string message = Strings.Dialog_Connectivity_Preventing;
 
