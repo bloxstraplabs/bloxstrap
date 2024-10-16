@@ -64,6 +64,12 @@
                     </StackPanel>
                 </ui:CardAction>
 
+                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
+                    </StackPanel>
+                </ui:CardAction>
+
                 <ui:CardAction Margin="0,8,0,0" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_ConfigureSettings}" />
