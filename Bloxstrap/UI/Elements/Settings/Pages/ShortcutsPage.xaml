@@ -49,14 +49,31 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+                <!-- https://stackoverflow.com/a/51967350 -->
+                <ColumnDefinition>
+                    <ColumnDefinition.Style>
+                        <Style TargetType="ColumnDefinition">
+                        <Setter Property="Width" Value="*" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsStudioOptionVisible}" Value="False">
+                                <Setter Property="Width" Value="0" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ColumnDefinition.Style>
+                </ColumnDefinition>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <controls:OptionControl Grid.Column="0" Margin="0,0,4,0" Header="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}">
+            <controls:OptionControl Grid.Column="0" Margin="0,0,2,0" Header="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}">
                 <ui:ToggleSwitch IsChecked="{Binding PlayerIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
 
-            <controls:OptionControl Grid.Column="1" Margin="4,0,0,0" Header="{x:Static resources:Strings.Menu_Title}">
+            <controls:OptionControl Grid.Column="1" Margin="2,0,2,0" Header="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}">
+                <ui:ToggleSwitch IsChecked="{Binding StudioIconTask.NewState, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Grid.Column="2" Margin="2,0,0,0" Header="{x:Static resources:Strings.Menu_Title}">
                 <ui:ToggleSwitch IsChecked="{Binding SettingsIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
         </Grid>
