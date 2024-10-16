@@ -117,38 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>已离开游戏</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>获取失败</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap 未能自动更新至版本 {0}；请从官方 GitHub 页面上手动下载其更新并使用最新发布的版本。</value>
+    <value>Bloxstrap 目前无法自动更新至 v{0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Bloxstrap。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 当前正在运行中，打开另一个 Roblox 进程后将会关闭它；您确定要继续启动吗？</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Bloxstrap 可能暂时无法访问到互联网；请检查网络连接后再试一次。</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>某些东西可能正在阻止 Bloxstrap 连接至互联网。</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox 的土豆服务器现在可能已经被煮熟了。请访问 status.roblox.com 以便了解具体信息；请稍后再试……？</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox 的服务器目前可能已经熟透了；请参阅 {0} 来了解更多信息。</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap 在尝试连接到三个不同的 Roblox 镜像站点时超时；表明互联网连接较差。请稍后再试。</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>由于网络错误，无法应用 “{0}” 表情符号模组预设；如需重试，请在 Bloxstrap 菜单中重新配置该选项。</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>连接超时；可能表明当前网络连接不畅或被防火墙阻止。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>你必须先安装 Bloxstrap 后才能卸载。(难不成你想卸载安装包？)</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox 现已推出全新的游戏客户端更新，此更新具有 64 位支持和 Hyperion 反作弊功能。
-但是 ReShade 与此次更新并不兼容；因此，Bloxstrap 现已禁用并移除了该功能。
-
-您的 ReShade 配置文件仍会被保存，您可以通过打开 Bloxstrap 的安装目录、浏览 “Integrations” 文件夹来找到它们；如果需要，您还可以选择删除这些内容。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>当前所使用的磁盘空间不足以下载和安装 Roblox；请释放一些磁盘空间后再重试。</value>
@@ -166,13 +151,11 @@
     <value>正在安装 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>正在安装 WebView2；请耐心等待...</value>
+    <value>正在安装 “WebView2”；请耐心等待...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>正在启动 {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>正在卸载 Bloxstrap...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>正在更新 {product}...</value>
@@ -190,9 +173,6 @@
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>样式预览 - 单击 “取消” 来关闭</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap 已成功安装</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap 已成功卸载</value>
@@ -224,11 +204,8 @@
   <data name="Common.Help" xml:space="preserve">
     <value>帮助</value>
   </data>
-  <data name="Common.ImportJson" xml:space="preserve">
-    <value>导入 JSON</value>
-  </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>定位日志文件</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>打开日志文件</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>其它</value>
@@ -250,6 +227,7 @@
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>重置</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>值</value>
@@ -269,37 +247,24 @@
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>复制邀请链接</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>打开日志文件</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>显示服务器详细信息</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>复制服务器 Job ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>服务器 Job ID</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>加载中，请稍候...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>地区</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>位于 {0} 地区
+    <value>位于 {0}
 单击此窗口以了解更多详细信息</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>已连接至 {0} 服务器</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>已连接至 公共 服务器</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>此服务器信息</value>
-  </data>
-  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>类型</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
     <value>添加 Fast Flag</value>
@@ -311,7 +276,8 @@
     <value>连接错误</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap 无法连接至 Roblox</value>
+    <value>Bloxstrap 无法连接至 {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>复制日志内容</value>
@@ -366,9 +332,6 @@
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
-  <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>默认 (Twemoji)</value>
-  </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
   </data>
@@ -382,7 +345,7 @@
     <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
@@ -406,13 +369,13 @@
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>私人</value>
+    <value>私人服务器</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>公共</value>
+    <value>公共服务器</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>预留</value>
+    <value>预留服务器</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>深色</value>
@@ -420,29 +383,12 @@
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>浅色</value>
   </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap 检测到磁盘号更改，并将其安装位置从 “{0}” 磁盘重新配置为 “{1}” 磁盘。
-
-虽然 Bloxstrap 将继续工作，但建议您将磁盘号更改回其原始值；因为其他已安装的应用程序可能会遇到类似的问题。</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap 最初安装在 “{0}” 磁盘上，但其文件似乎已丢失；是否要继续并执行全新安装？</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Bloxstrap 似乎没有正确安装到你的电脑上；它是否应该被安装在 “{0}”？</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>来看看我们为这个版本中新增了什么</value>
-  </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap 现已更新至 v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
     <value>您启动的 Bloxstrap 版本与您当前已安装的版本并不一致。
 您是否要更新当前已安装的版本？</value>
-  </data>
-  <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
     <value>代码贡献者</value>
@@ -455,9 +401,6 @@
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>特别鸣谢</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>翻译贡献者</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>一款专门为 Roblox 所设计且具有许多额外功能的第三方启动器。</value>
@@ -483,17 +426,12 @@
   <data name="Menu.About.ReportIssue" xml:space="preserve">
     <value>报告 Bug</value>
   </data>
-  <data name="Menu.About.Title" xml:space="preserve">
-    <value>关于</value>
-  </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>版本 {0}</value>
-  </data>
-  <data name="Menu.AllFiles" xml:space="preserve">
-    <value>全部文件</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>请注意，在您关闭所有 Roblox 程序之前；并非所有更改都会立即生效。</value>
+    <value>请注意；在您关闭所有 Roblox 程序之前，并非所有更改都会立即生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
     <value>Bloxstrap 已经在运行中</value>
@@ -513,14 +451,8 @@
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
     <value>图标大小必须为 16 至 128 像素的 .ico 文件；将图标类型设置为 “自定义” 后方可投入使用。</value>
   </data>
-  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>自定义图标</value>
-  </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
     <value>此文本将作为启动器的标题显示。</value>
-  </data>
-  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
     <value>您可以在这里更改 Bloxstrap 的部分 UI。</value>
@@ -558,23 +490,18 @@
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>在启动另一个 Roblox 进程时提示确认信息</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap 将会在桌面上创建一个快捷方式，以便于快捷启动 Roblox。</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>创建桌面快捷方式</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
     <value>您可以在这里配置 Bloxstrap 在启动时应执行的操作。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox 将会在下次启动时进行全新安装。</value>
+    <value>启用此选项后 Roblox 将会在下次启动时进行全新安装。
+（此选项将会在首次安装时强制启用；若完成安装此选项则会自动禁用）</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>强制重新安装 Roblox</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>启动选项</value>
+    <value>启动器</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>添加新的</value>
@@ -587,6 +514,7 @@
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>滥用此功能可能会导致不稳定或意料之外的事情。</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>请谨慎使用。</value>
@@ -596,6 +524,7 @@
 
 有 {0} 个 Flags 定义相互冲突：
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>删除所选内容</value>
@@ -603,20 +532,18 @@
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
     <value>您可以在这里管理属于您自己独一无二的 Fast Flags；双击任意一列来进行编辑。</value>
   </data>
-  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>导出 JSON</value>
-  </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能包含字母、数字和下划线</value>
+    <value>您输入的内容 “{0}” 无效；其内容只能包含字母、数字和下划线。</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
     <value>您输入的 JSON 似乎无效；请仔细检查后并重试。
 
 关于更多信息：
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容必须以 “FFlag”、“DFInt” 等开头才能生效</value>
+    <value>您输入的内容 “{0}” 无效；其内容必须以 “FFlag”、“DFInt” 等开头才能生效。</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
     <value>已复制到剪贴板。</value>
@@ -645,11 +572,11 @@
     <value>你知道您在做什么吗？</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flags 是专业且有用的，它们通常仅供 Roblox 工程师来使用，而不是非专业人士。虽然它们很有用，但手动配置它们可能会导致严重的稳定性和功能问题。如果你不知道这是干什么用的，那就最好别用 Fast Flags。
+    <value>Fast Flags 是专业且有用的，它们通常仅供 Roblox 工程师来使用；而不是非专业人士。虽然它们很有用，但手动配置它们可能会导致严重的稳定性和功能问题。如果你不知道这是干什么用的，那就最好别用 Fast Flags。
 
-因此，在你不知道相关知识前，请不要导入其他人制作的 Fast Flags；比如说提高游戏性能或类似功能的 Fast Flags 配置，它们会让你徒增烦恼。如果你正打算这么干的话，就此打住吧。
+因此，在你不知道相关知识之前，请不要导入其他人制作的 Fast Flags；例如提高游戏性能或类似功能的 Fast Flags 配置，它们会让你徒增烦恼。如果你正打算这么干的话，就此打住吧。
 
-（注：Fast Flags 是这样的，Roblox 只需要随时更新就可以了，而你要考虑的可就多了。）</value>
+（注：Fast Flags 是这样的，Roblox 只需要随时更新就可以了；而你要考虑的可就多了。）</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>您可以在这里配置 Roblox 引擎的特定参数和功能。</value>
@@ -661,12 +588,6 @@
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
     <value>进一步了解 Fast Flags 的更多信息、这些预设值的作用以及如何使用它们。</value>
     <comment>Title is Common.Help</comment>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>启用此选项将会允许您使用 21 个画质等级而非是 10 个。</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>使用更精细的图形质量选择器</value>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>使用 “Alt+Enter” 快捷键以进入 Direct3D [全屏独占]({0}) 已默认启用。</value>
@@ -703,40 +624,13 @@
     <value>渲染模式</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flags</value>
+    <value>FFlags</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>字体文件</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>图标文件</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>安装</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>您可以在这里更改 Bloxstrap/Roblox 的安装状态。</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>请选择 Bloxstrap 的安装位置。</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>安装位置</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>此处是 Bloxstrap 当前安装到的位置。</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>打开安装目录</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>安装和卸载</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>这里有关于如何卸载 Bloxstrap 的指南。</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>打算卸载 Bloxstrap？</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrap 无法在此处安装；请选择在其他位置安装，或点击 “重置” 按钮来使用其默认安装路径。</value>
@@ -749,6 +643,7 @@
 
 是否更改为建议的位置？
 选择 “否” 将忽略此警告并继续安装。</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>您必须选择一个安装位置</value>
@@ -765,11 +660,14 @@
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>允许外部方式加入游戏</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>启用此选项将会在您的 Discord 个人资料上显示您当前正在使用的 Roblox 帐户。</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>显示 Roblox 帐户</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>应用路径</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>例如：“C:\Windows\System32\cmd.exe”</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>当 Roblox 关闭时自动关闭其进程</value>
@@ -777,11 +675,8 @@
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
     <value>在这里，您可以让其他程序与 Roblox 一起启动。</value>
   </data>
-  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>启动参数</value>
-  </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>例如：“/k echo Roblox 正在运行中！”</value>
+    <value>Roblox 正在运行！</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>新附属程序</value>
@@ -808,19 +703,17 @@
     <value>启用游戏跟踪</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>此功能需要启用 “启用游戏跟踪” 选项；并且 Discord 桌面应用程序也需要安装到你的电脑上并运行。</value>
+    <value>此功能需要启用 “启用游戏跟踪” 选项；并且 Discord 桌面应用程序也需要安装到你的电脑上并运行。[了解更多]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>启用此选项将会使您正在游玩的 Roblox 游戏显示在您的 Discord 个人资料上。[不起作用？]({0})</value>
   </data>
-  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>显示游戏活动</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>当您加入游戏时，您将会收到当前服务器具体信息的通知；通知将不会在 “全屏独占” 时显示。
+（由 [ipinfo.io]({0}) 提供技术支持）</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>当您加入游戏时，您将会收到服务器所在地区的通知；通知不会在全屏独占时显示。</value>
-  </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>加入游戏时显示服务器所处的地区</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>允许接收服务器具体信息通知</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>附属功能</value>
@@ -829,17 +722,14 @@
     <value>您可以在这里管理其模组的文件并将其应用到 Roblox 游戏客户端。</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>查看关于如何管理和创建模组的指南。</value>
+    <value>查阅关于如何管理和创建模组的指南。</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>选择字体文件...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>字体大小可在 “Fast Flags” 选项卡中调整。</value>
-  </data>
-  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>您选择的文件似乎不是有效的字体文件。</value>
+    <value>字体大小可在 “Fast Flags” 选项卡中进行调整。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
     <value>移除已应用的字体</value>
@@ -847,26 +737,11 @@
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>使用自定义字体</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>Windows 的一项功能，可能会与全屏状态下的性能产生冲突。</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>禁用全屏优化</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>您可以在这里自定义 Roblox 的模组。</value>
   </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap 需要先被完全安装到你的电脑后才能打开模组文件夹。</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>打开模组文件夹</value>
-  </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
     <value>选择要应用到 Roblox 的表情符号类型。</value>
-  </data>
-  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>首选表情符号类型</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
     <value>在两种经典的 Roblox 指针样式之间进行选择。</value>
@@ -887,7 +762,7 @@
     <value>模拟旧的 Roblox 人物音效</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>启用此选项将会把 Roblox 当前的死亡音效还原为旧版的死亡音效 "Oof!"</value>
+    <value>启用此选项将会把 Roblox 当前的死亡音效还原为旧版的死亡音效。“Oof!”</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
     <value>使用旧的 Roblox 死亡音效</value>
@@ -898,29 +773,14 @@
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>点击以获取有关此选项的更多信息。</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>首先你应该了解这些事情。</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>安装完成后，“Bloxstrap 菜单” 将会在 “开始” 菜单中注册成为一个应用程序；您可以在那里访问它以重新调整其设置和管理 Fast Flags。</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>如果您需要任何帮助或指导，请务必查看 [Wiki]({0})；如果您仍需要某些内容，请在 GitHub 上创建 [Issue]({1})，或加入我们的 [Discord 服务器]({2})。</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>在安装之前...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>保存</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
     <value>更改将会在下次启动 Roblox 时生效。</value>
   </data>
-  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>设置已保存！</value>
-  </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 菜单</value>
+    <value>Bloxstrap 设置</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>选择启动器应用的语言</value>
@@ -938,7 +798,7 @@
     <value>允许使用 Roblox 官方不支持的语言</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>启用此选项后必须从 Roblox 网页端启动游戏才能生效。</value>
+    <value>启用此选项后必须从 Roblox 网页端 启动游戏才能生效。</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + 最新 UI)</value>
@@ -989,7 +849,7 @@
     <value>字体大小</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>默认数值为 “1”；用于调整自定义字体的大小。</value>
+    <value>默认数值为 “1”；如果您使用自定义字体，请进行调整以获取最佳适配性。</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
     <value>禁用地形材质</value>
@@ -999,6 +859,7 @@
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox 目前无法下载，请阅读此页面以获取详细信息：{0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>从文件导入</value>
@@ -1007,11 +868,11 @@
     <value>JSON 文件</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能为布尔值 (“True” 或 “False”)</value>
+    <value>您输入的内容 “{0}” 无效；其内容只能为布尔值。(“True” 或 “False”)</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能为数字才能生效</value>
+    <value>您输入的内容 “{0}” 无效；其内容只能为数字才能生效。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>由于 Bloxstrap 无法写入 “{0}” 文件夹；因此本次启动不会写入任何日志文件。</value>
@@ -1024,5 +885,324 @@
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>系统默认</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>您输入的内容 “{0}” 无效；因为游戏过滤器的格式不正确。</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap 安装程序</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>安装 Bloxstrap</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>感谢您下载 Bloxstrap。
+
+! 获取 Bloxstrap 的 唯一 官方网站 是 {0} 和 {1}；因此请确保启动器是从 官方渠道 获取的 !
+（注：一般只有使用真正意义上的 注入器 作弊才会导致封号 (Bloxstrap 只是在 外部 修改 并未在游戏内修改任何内容)）
+
+安装过程简单明了；安装完成后，您将可以对 Bloxstrap 的任何设置进行配置。</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>请点击 “下一步” 以继续。</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>您正在尝试安装 Bloxstrap v{0}；目前最新版本是 Bloxstrap v{1}。
+您想下载最新版本吗？</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>选择安装位置</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox 本体也将安装至此路径。
+如果您有分类整理电脑的习惯，请更改此项；否则，建议您保持原样。</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>发现数据残留；您的模组和设置将被恢复。</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>快捷方式</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>桌面图标</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>“开始”菜单图标</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap 目前已成功安装到你的电脑上。
+
+但是 Roblox 尚未安装；这将会在您首次使用 Bloxstrap 启动 Roblox 时发生。
+不过，在此之前；您可能会想先调整 Bloxstrap 的设置。
+
+此外，请避免 使用默认 Roblox 启动器 “Roblox Player” 快捷方式 来启动 Roblox；因为 Bloxstrap 不会与 Roblox 一起启动。
+如果您尝试从 网页端 启动 Roblox 时并未显示 Bloxstrap，只需用 Bloxstrap 启动一次 Roblox 即可解决。
+
+您想要做什么？</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>更改 Bloxstrap 的设置</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>利用启动器提供的所有功能进行调整。</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>安装并启动 Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>一切就绪后，您将会跳转到 Roblox 桌面客户端。</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>卸载 Bloxstrap</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>卸载后，Bloxstrap 将会从系统中移除；并自动重新配置 Roblox 原版启动器。
+
+如果您卸载重装的原因是 Roblox 的问题，请先阅读 [此帮助页]({0})。
+
+卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Bloxstrap 时残留的文件。
+
+Bloxstrap 的安装路径是：
+“{1}”</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>保留我的 Bloxstrap 设置 和 Roblox 模组 (Mods)</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>它们将会保存在 Bloxstrap 安装的位置；重新安装时则会自动恢复。</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>启动 Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>更改设置</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>出现问题？</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>查阅 Wiki 以获取帮助。</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>您目前尚未安装 “WebView2 Runtime”。没有它，某些 Roblox 功能将无法正常运行；例如 Roblox 桌面客户端。
+您想现在下载它吗？</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap 目前无法在 桌面 和 “开始”菜单 创建快捷方式；请尝试稍后通过设置手动创建快捷方式。</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>请先在 [Bloxstrap Wiki]({0}) 检索这个问题是否已被修复。
+
+如果没有，请向此 社区分支 的维护者报告这个问题。切勿将此异常向 Bloxstrap 官方 GitHub Issues 报告；因为这是一个非官方版本。</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>这些是调出 “多选启动菜单” 的通用快捷方式；稍后可以在设置中创建特定功能的快捷方式。</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>您可以在这里配置 Bloxstrap 的快捷启动方式。</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>通用类</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>这些是调出 “多选启动菜单” 的快捷方式。</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>功能类</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>您可以在这里创建快速访问特定功能的快捷方式；它们将会放置在桌面上。</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>已连接至 私人 服务器</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>已连接至 预留 服务器</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>目前无法应用 “表情符号” 模组。</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>请等待安装完成。</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>请等待卸载完成。</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>关于 Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>许可证</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>翻译贡献者</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>您有未保存的更改；您确定要在不保存的情况下关闭吗？</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>您启动的 Bloxstrap 版本早于您当前安装的版本。
+可能会出现问题，您的设置也可能被更改；建议重新安装。
+您确定要继续吗？</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox 启动失败。</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox 已崩溃。</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>请阅读以下帮助信息；当您关闭此窗口时，这些信息将会在您的网页浏览器中打开。</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>由于网络错误，数据无法加载。</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>正在加载，请稍后...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>赞助者</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>这些目前是通过 [Ko-fi]({0}) 来支持 Bloxstrap 的赞助者；在此衷心感谢协助 Bloxstrap 发展的赞助者们！</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>由于无法加载您的设置；因此它们已被重置为默认值。</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>由于您配置的 Fast Flags 无法被加载；因此它们已被重置为默认值。</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>游戏历史</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>重新加入</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>由于加载游戏信息时发生错误；您当前的游戏状态将不会在您的 Discord 活动状态 上显示。</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>仅记录您当前 Roblox 会话的游戏历史记录；关于游戏的具体信息将会在您离开游戏或传送至其他游戏时出现在此处。并非所有服务器都可以重新加入。</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>可能由于您加入游戏的频次太频繁了；因此无法获取到您当前所处服务器的具体地点。</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>请稍后再试。</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>此次启动将不会检查 Roblox 更新，对模组的更改也将不会被应用。</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>由于 Roblox 需要安装或更新，Bloxstrap 目前无法继续执行。</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap 此前已安装到此位置，且安装文件仍然存在；但安装程序无法覆盖旧的可执行文件。
+
+请从安装位置 手动删除 “Bloxstrap.exe” 或尝试 重新启动系统，最后再重试安装 Bloxstrap。</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>暂不可用</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>管理兼容性设置</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>您可以在这里配置应用程序参数；例如 “DPI 缩放行为”，以及 “[全屏优化]({0})”。</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox 尚未安装；在尝试使用此选项之前，请至少使用 Bloxstrap 启动一次 Roblox。</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>您确定要取消安装吗？</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>无法保存 {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>当前选中的启动器图标无法被加载。
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>提取 Roblox 图标至 Bloxstrap 安装目录</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>允许您使用 Bloxstrap的 Roblox 快捷图标的范围。[看看如何使用。]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap 目前无法写入 Windows 注册表；可能是杀毒软件的干扰导致了问题。请检查以确保没有任何东西会限制 Bloxstrap 的运行。</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>月度捐赠者</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>单次捐赠者</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>您可以在这里配置 Bloxstrap 本身行为相关的选项。</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>允许发送分析数据</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Bloxstrap 承诺所有收集的数据都是匿名无害的。若要了解我们为什么而收集；请参阅我们的 [隐私政策]({0})。</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>分析数据</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>重置所有设置为默认值</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>报告异常</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>测试模式</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>“测试模式” 是一种可以更方便地反复测试 Bloxstrap 特定设置对 Roblox 造成影响的功能。
+（例如微调 设置/FFlags 后可以更方便地调试具体参数对 Roblox 造成的影响）
+
+启用后，它将会在每次关闭设置后自动启动 Roblox；而关闭 Roblox 则会重新打开设置。
+如此循环，直到您禁用为止。
+
+您想启用 “测试模式” 吗？</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Bloxstrap 的所有翻译都是由 [Crowdin]({0}) 来众包；在这里列出的每一个人都是慷慨地自愿贡献自己的时间和精力来帮助 本地化 Bloxstrap 的人。因此向每一个人的贡献表示衷心的感谢！</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>安装</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>在 Ko-fi 上赞助我们！</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>已提取的图标 (Icons)</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

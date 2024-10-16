@@ -117,37 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>poistui pelistä</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>etsiminen epäonnistui</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap ei voinut päivittää automaattisesti versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla uusin versio GitHub-sivulta.</value>
+    <value>Bloxstrap ei pystynyt automaattisesti päivittämään versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla ja suorittamalla sen verkkosivulta.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox on tällä hetkellä käynnissä, ja toisen instanssin käynnistäminen tulee sulkemaan aiemman. Oletko varma, että haluat jatkaa?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Voi olla, että jotain estää Bloxstrapin yhdistämästä nettiin. Tarkista ja yritä uudelleen.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Jokin todennäköisesti estää Bloxstrapia yhdistämästä internetiin.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox-palvelimet saattavat olla alhaalla tällä hetkellä. Katso lisätietoja osoitteesta status.roblox.com. Yritä myöhemmin uudelleen.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox saattaa olla tällä hetkellä alhaalla. Katso {0} saadaksesi lisätietoja.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrapin yhteyden muodostaminen kolmeen eri Robloxin palvelinpeiliin aikakatkaistiin, joka viittaa heikkoon nettiyhteyteen. Yritä myöhemmin uudelleen.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>{0} emojimodin esiasetusta ei voitu asettaa nettiongelman takia. Yritä uudelleen muuttamalla asetusta Bloxstrap-valikossa.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>Yhteys aikakatkaistiin, mikä voisi merkitä huonoa internetyhteyttä tai palomuurin estoa.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Sinun pitää asentaa Bloxstrap ennen poistamista.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox on viimeistellyt uuden peli-clientin, joka sisältää 64-bitti -tuen ja Hyperion-huijauseston. ReShade ei toimi tämän päivityksen kanssa, joten se on nyt kytketty pois päältä ja poistettu Bloxstrapista.
-
-Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaamalla kansion, johon Bloxstrap on asennettu, ja siirtymällä "Integrations"-kansioon. Voit halutessasi poistaa nämä tiedostot.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrapilla ei ole tarpeeksi levytilaa ladatakseen ja asentaakseen Robloxin. Vapauta levytilaa ja yritä uudelleen.</value>
@@ -169,9 +155,7 @@ Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaa
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Käynnistetään {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Poistetaan Bloxstrap...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Päivitetään {product}...</value>
@@ -189,9 +173,6 @@ Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaa
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Tyylin esikatselu - klikkaa 'Peru'-nappia sulkeaksesi</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap asennettiin onnistuneesti</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap poistettiin onnistuneesti</value>
@@ -226,8 +207,8 @@ Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaa
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Tuo JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Etsi lokitiedosto</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Avaa lokitiedosto</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Muut</value>
@@ -249,6 +230,7 @@ Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaa
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Nollaa</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Arvo</value>
@@ -268,31 +250,21 @@ Sinun ReShade-konfiguraatiotiedostot säilyvät edelleen. Voit löytää ne avaa
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Kopioi kutsun deeplink</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Avaa lokitiedosto</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Katso palvelimen yksityiskohdat</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Kopioi instanssin ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>Instanssin ID</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Ladataan, odota hetki...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Sijainti</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Olet palvelimella {0}
+    <value>Sijainti: {0}
 Klikkaa saadaksesi lisätietoja</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Yhdistetty palvelimeen {0}</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Yhdistetty julkiseen palvelimeen</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Palvelimen tiedot</value>
@@ -310,7 +282,8 @@ Klikkaa saadaksesi lisätietoja</value>
     <value>Yhteysvirhe</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap ei voi yhdistää Robloxiin</value>
+    <value>Bloxstrap ei voi yhdistää kohteeseen {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopioi lokin sisältö</value>
@@ -381,7 +354,7 @@ Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1
     <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
@@ -405,33 +378,19 @@ Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Yksityinen</value>
+    <value>Yksityinen palvelin</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Julkinen</value>
+    <value>Julkinen palvelin</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Varattu</value>
+    <value>Varattu palvelin</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Tumma</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Vaalea</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap on havainnut levykirjaimen muutoksen, ja on määrittänyt asennussijaintinsa uudelleen {0}-asemalta {1}-asemalle.
-
-Vaikka Bloxstrap jatkaa toimimisen, on suositeltua että muutat levykirjaimen takaisin alkuperäiseen kirjaimeen jottei toiset sovellukset koe samanlaisia ongelmia.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap oli alun perin asennettu {0}-asemalle, mutta sitä ei näytä enää olevan. Haluatko jatkaa ja suorittaa uuden asennuksen?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Näyttää siltä, että Bloxstrapia ei ole asennettu oikein. Kuuluuko sen olla asennettuna osoitteeseen {0}?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Näe, mitä uutta tässä versiossa on</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap on päivitetty versioon v{0}</value>
@@ -454,9 +413,6 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Erityiset kiitokset</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Käännökset</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Vaihtoehtoinen käynnistysohjelma Robloxille, jossa on paljon lisäominaisuuksia.</value>
@@ -487,6 +443,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Versio {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Kaikki tiedostot</value>
@@ -557,14 +514,8 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Kysy varmistusta ennen kuin käynnistät toisen Roblox-instanssin</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap lisää Robloxin käynnistävän kuvakkeen työpöydälle, kun se käynnistyy ensi kerralla.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Luo työpöytäkuvake</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Määritä, mitä Bloxstrapin pitäisi tehdä käynnistyessään.</value>
+    <value>Määritä, mitä Bloxstrapin pitäisi tehdä käynnistäessään Robloxin.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox asennetaan uudelleen seuraavan käynnistyksen yhteydessä.</value>
@@ -573,7 +524,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Pakota Robloxin uudelleenasennus</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Käyttäytyminen</value>
+    <value>Käynnistysohjelma</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Lisää uusi</value>
@@ -586,6 +537,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Tämän väärinkäyttö saattaa johtaa epävakauteen tai odottamattomien asioiden tapahtumiseen.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Käytä varovaisuudella.</value>
@@ -595,6 +547,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
 
 Löytyi {0} ristiriitaista flag-määritystä:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Poista valitut</value>
@@ -613,6 +566,7 @@ Löytyi {0} ristiriitaista flag-määritystä:
 
 Lisätietoa:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>Merkintä flagille '{0}' ei kelpaa, koska nimen alussa täytyy olla FFlag, DFInt, jne.</value>
@@ -659,12 +613,6 @@ Haluatko varmasti jatkaa?</value>
     <value>Opi lisää Fast Flageista, mitä nämä esiasetukset tekevät, ja miten käyttää niitä.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Antaa sinun konfiguroida 21 eri laadun tasoa 10 sijaan.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Käytä edistynyttä grafiikanlaatusäädintä</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D:n [koko näytön tila]({0}) pikanäppäimellä Alt+Enter on päällä oletuksena.</value>
   </data>
@@ -699,40 +647,13 @@ Haluatko varmasti jatkaa?</value>
     <value>Renderöintitila</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flags</value>
+    <value>Pelimoottorin asetukset</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Fonttitiedostot</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Kuvaketiedostot</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Asenna</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Määrittele, miten Bloxstrap/Roblox on asennettu.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Valitse, minne Bloxstrapin kuuluu olla asennettuna.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Asennuksen sijainti</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Minne Bloxstrap on tällä hetkellä asennettu.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Avaa latauskansio</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Asennus</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Tässä on opas Bloxstrapin poistamiseen.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Yritätkö poistaa sovelluksen?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrapia ei voi asentaa tänne. Valitse toinen kansio, tai käytä oletuskansiota painamalla 'nollaa' nappia.</value>
@@ -745,6 +666,7 @@ Vaihtaminen tähän kansioon on suositeltua:
 
 Haluatko vaihtaa suositeltuun kansioon?
 Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Sinun täytyy asettaa asennussijainti</value>
@@ -761,11 +683,14 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Salli liittyminen aktiviteetin kautta</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Näyttää Roblox-tilin, jolla pelaat Discord-profiilissasi.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Näytä Roblox-tili</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Sovelluksen sijainti</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>esim. C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Sulje automaattisesti, kun Roblox sulkeutuu</value>
@@ -777,7 +702,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Käynnistysargumentit</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>esim. /k echo Roblox on käynnissä!</value>
+    <value>Roblox on käynnissä!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Uusi integraatio</value>
@@ -804,7 +729,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Ota käyttöön toiminnan seuranta</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Tämä ominaisuus vaatii, että aktiivisuusseuranta on päällä ja että Discord-työpöytäsovellus on asennettu ja käynnissä.</value>
+    <value>Tämä ominaisuus vaatii, että aktiivisuusseuranta on päällä ja että Discord-työpöytäsovellus on asennettu ja käynnissä. [Katso lisää]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Pelaamasi Roblox-peli tullaan näyttämään Discord-profiilillasi. [Eikö toimi?]({0})</value>
@@ -812,11 +737,11 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Näytä pelitoiminta</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>Kun liityt peliin, sinulle ilmoitetaan missä palvelin sijaitsee. Ei näy koko näytön tilassa.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Kun olet pelissä, voit nähdä, missä palvelimesi on [ipinfo.io]({0}):n avulla.</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>Näe palvelimen sijainti, kun liityt peliin</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Hae palvelimen sijainti</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integraatiot</value>
@@ -843,17 +768,8 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Käytä mukautettua fonttia</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>Windows-ominaisuus, joka voi olla ristiriidassa suorituskyvyn kanssa koko näytön tilassa.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Ota koko näytön tilan optimisaatiot pois käytöstä</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Hallitse mukautettuja Roblox-modeja täällä.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrapin pitää ensin olla asennettu.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Avaa modikansio</value>
@@ -894,18 +810,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Paina saadaksesi lisätietoja tästä valinnasta.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>On vain muutama asia, mitkä sinun pitäisi ensin tietää.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>Kun asennus on valmis, Bloxstrap-valikko rekisteröidään sovelluksena aloitusvalikossa. Jos tarvitset sitä uudelleen muokkaamaan asetuksiasi, tai päästäksesi resursseihin kuten Fast Flagien hallintaan, löydät sen sieltä.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Jos ikinä tarvitset apua tai opastusta missä tahansa, käy katsomassa [wiki]({0}). Jos silti tarvitset jotain, aukaise [issue]({1}) GitHubissa, tai liity meidän [Discord-palvelimelle]({2}).</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Ennen kuin asennat...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Tallenna</value>
   </data>
@@ -916,7 +820,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Asetukset tallennettu!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap-valikko</value>
+    <value>Bloxstrapin asetukset</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Valitse tahdottu kieli</value>
@@ -995,6 +899,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Robloxia ei voi ladata tällä hetkellä. Ole hyvä ja lue seuraava ohjesivu saadaksesi lisätietoja: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Tuo tiedostosta</value>
@@ -1020,5 +925,315 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Järjestelmän oletus</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Merkintä flagille '{0}' ei ole kelvollinen, koska pelisuodatin ei ole muotoiltu oikein.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrapin asennusohjelma</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Tervetuloa</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Asenna</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Viimeistely</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Takaisin</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Seuraava</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Kiitos, että latasit Bloxstrapin.
+
+Ainoat viralliset sivustot, joista Bloxstrapin voi ladata, ovat {0} ja {1}, joten tarkista, että latasit sen virallisesta lähteestä.
+
+Tämä asennusprosessi tulee olemaan nopea ja yksinkertainen, ja voit konfiguroida kaikkia Bloxstrapin asetuksia asennuksen jälkeen.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Klikkaa 'Seuraava' jatkaaksesi.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Yrität asentaa Bloxstrapin versiota {0}, mutta viimeisin versio on {1}. Haluaisitko ladata sen?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Valitse, mihin asennetaan</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Myös Roblox asennetaan tähän polkuun. Muuta tätä, jos mieluummin asennat kaikki pelisi erilliselle asemalle. Muuten on suositeltavaa, että jätät tämän sellaisenaan.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Olemassa olevaa dataa löytyi. Modisi ja asetuksesi palautetaan.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Pikakuvakkeet</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Työpöydän kuvake</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Käynnistysvalikon kuvake</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap asennettiin onnistuneesti.
+
+Roblox ei ole vielä asennettu, se tapahtuu vasta, kun käynnistät sen Bloxstrapin avulla ensimmäisen kerran. Kuitenkin ennen kuin teet näin, saattaisit tahtoa määrittää Bloxstrapin asetukset ensin.
+
+Muuten, vältä käyttämästä "Roblox Player" -pikakuvaketta käynnistääksesi Robloxin, koska Bloxstrap ei silloin käynnisty Robloxin mukana. Jos et näe Bloxstrapin ilmestyvän käynnistäessä pelin verkkosivustolta, käynnistä Roblox Bloxstrapin avulla työpöydältä kerran korjataksesi sen.
+
+Mitä tahtoisit tehdä?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Määritä Bloxstrapin asetukset</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Säädä sen tarjoamia ominaisuuksia</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Asenna ja käynnistä Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Pudottaa sinut työpöytäsovellukseen, kun kaikki on valmista</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Poista Bloxstrapin asennus</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Asennuksen poistaminen poistaa Bloxstrapin järjestelmästäsi ja automaattisesti uudelleenmäärittää Robloxin vakiokäynnistysohjelman, jos se on vielä asennettuna.
+
+Jos poistat asennuksen tai asennat uudelleen, koska koet ongelmia Robloxin kanssa, lue [tämä tukisivu]({0}) ensin.
+
+Poistoprosessi ei saata pystyä siivoamaan itsensä täysin, joten sinun täytyy mahdollisesti siivota jäljelle jääneet tiedostot Bloxstrapin asennussijainnista.
+
+Bloxstrap asennettiin polkuun "{1}".</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Säilytä asetukseni ja modini</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Ne pidetään siellä, missä Bloxstrap asennettiin ja palautetaan uudelleenasennuksen yhteydessä.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Poista asennus</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Käynnistä Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Muokkaa asetuksia</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Koetko ongelmia?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Tarkista wiki saadaksesi apua</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Sinulla ei tällä hetkellä ole WebView2-ajoympäristöä asennettuna. Jotkin Robloxin ominaisuudet, kuten työpöytäohjelma, eivät toimi ilman sitä. Haluaisitko ladata sen nyt?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap ei pystynyt luomaan pikakuvakkeita työpöydälle ja aloitusvalikkoon. Yritä luoda ne myöhemmin asetuksista.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Tarkista [Bloxstrapin wiki]({0}) ensin nähdäksesi, onko tämä ongelma jo ratkaistu korjauksella.
+
+Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. ÄLÄ raportoi tätä Bloxstrapin GitHub-issueihin, koska tämä on epävirallinen koontiversio.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Nämä ovat yleisiä pikakuvakkeita, jotka tuovat esiin monivalintaisen käynnistysvalikon. Pikakuvakkeet tietyille toiminnoille voidaan luoda myöhemmin asetuksista.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Määritä, miten Bloxstrap voidaan käynnistää helposti.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Yleinen</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Nämä ovat pikakuvakkeet, jotka tuovat esiin monivalintavalikon.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Toiminto</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Luo pikakuvakkeita käyttääksesi tiettyjä toimintoja nopeasti. Nämä kaikki asetetaan työpöydälle.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Yhdistetty yksityiseen palvelimeen</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Yhdistetty varattuun palvelimeen</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Emoji-modia ei voida ottaa käyttöön tällä hetkellä.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Odota, että asennus on valmis.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Odota, että asennuksen poisto on valmis.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Tietoja Bloxstrapista</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Lisenssit</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Kääntäjät</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Sinulla on tallentamattomia muutoksia. Oletko varma, että tahdot sulkea tallentamatta?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Käynnistämäsi Bloxstrap-versio on vanhempi kuin versio, joka sinulla on tällä hetkenä asennettuna.
+Ongelmia voi esiintyä ja asetuksesi saattavat muuttua. Uudelleenasennus on suositeltavaa.
+Oletko varma, että tahdot jatkaa?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox ei onnistunut käynnistymään.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox on kaatunut.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Ole hyvä ja lue seuraava aputieto, joka avautuu selaimeesi, kun suljet tämän dialogin.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Dataa ei voitu ladata verkkovirheen vuoksi.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Ladataan, odota hetki...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Tukijat</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Nämä ovat ihmiset, ketkä tukevat Bloxstrapia tällä hetkellä [Ko-fi]({0}):n kautta. Suuret kiitokset kaikille, ketkä ovat tässä!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Asetuksiasi ei voitu ladata. Ne on palatutettu oletuksiin.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Fast Flagisi ei voitu ladata. Ne on palautettu oletuksiin.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Pelihistoria</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Liity uudelleen</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Tämänhetkinen pelisi ei näy Discord-profiilissasi, koska pelin tietoja ladattaessa tapahtui virhe.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Pelihistoria tallennetaan ainoastaan nykyiselle Roblox-istunnollesi. Pelit ilmestyvät tänne, kun lähdet niistä tai teleporttaat niiden sisällä. Kaikki palvelimet eivät ole uudelleenliityttäviä.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Palvelimen sijaintia ei voitu hakea. Saatat liittyä peleihin liian nopeasti.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Yritä myöhemmin uudelleen.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Tänä käynnistyksenä Robloxin päivityksiä ei tarkisteta, eivätkä muutokset modeihin astu voimaan.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Koska Roblox on asennettava tai päivitettävä, Bloxstrap ei voi jatkaa.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap on asennettu tähän sijaintiin ennen ja on edelleen läsnä, mutta asennusohjelma ei voi korvata vanhaa ohjelmaa.
+
+Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnistä järjestelmäsi uudelleen ja yritä sitten asentaa uudelleen.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Ei saatavilla</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Hallitse yhteensopivuusasetuksia</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Määritä sovellusparametreja, kuten DPI-skaalauksen käyttäytymistä ja [koko näytön tilan optimointeja]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Robloxia ei ole vielä asennettu. Käynnistä Roblox Bloxstrapilla ainakin kerran ennen kuin yrität käyttää tätä asetusta.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Oletko varma, että haluat peruuttaa asennuksen?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Ei voitu tallentaa {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Valittua käynnistysohjelman kuvaketta ei voitu ladata.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Vie Roblox-kuvakkeet kansioon</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Antaa sinun käyttää Bloxstrapin Roblox-ikonien valikoimaa pikakuvakkeissasi. [Katso, miten.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap ei pysty kirjoittamaan Windowsin rekisteriin. Antivirusohjelma todennäköisesti häiritsee ja aiheuttaa ongelmia. Ole hyvä ja tarkista, ettei ole mitään, joka rajoittaisi Bloxstrapin toimintaa.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Kuukausittainen</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Kertamaksu</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Määritä Bloxstrapin käyttäytymiseen liittyviä asetuksia.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Ota analytiikan lähetys käyttöön</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Se on anonyymiä eikä mitään pahaa, lupaamme. Lisätietoja siitä, mitä me keräämme ja miksi löytyy [yksityisyyskäytännöstämme]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analytiikka</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Palauta kaikki oletuksiin</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Raportoi poikkeus</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Testaustila</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Testaustila tekee helpommaksi testata, miten asetuksesi vaikuttavat Robloxiin.
+
+Kun se on päällä, se käynnistää Robloxin automaattisesti, kun suljet asetukset ja avaa asetukset kun suljet Robloxin, jatkuvassa kierteessä kunnes otat sen pois käytöstä.
+
+Haluaisitko ottaa testaustilan käyttöön?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Kaikki Bloxstrapin käännökset joukkoistetaan [Crowdinin]({0}) kautta. Täällä listatut henkilöt ovat anteliaasti ja vapaaehtoisesti tarjonneet aikaansa ja vaivaansa auttaakseen Bloxstrapin lokalisoinnissa. Suuret kiitokset kaikille täällä oleville!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Asentaa</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Tue meitä Ko-fi:ssa!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Kuvakkeet</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

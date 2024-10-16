@@ -117,37 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>izašao iz igrice</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>neuspješna pretraga</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nije uspeo da se automatski ažurira na {0}. Molimo vas da ga ručno ažurirate preuzimanjem i pokretanjem najnovijeg izdanja sa GitHub stranice.</value>
+    <value>Bloxstrap se nije uspio automatski ažurirati na verziju {0}. Molimo ažurirajte ju ručno tako da je preuzmete i pokrenete sa web-stranice.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox je trenutno pokrenut, pokretanjem novog primera će ga ugasiti. Da li si siguran da želiš da nastaviš sa pokretanjem?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Postoji mogućnost da nešto ometa Bloxstrap da se poveže na internet. Molimo vas da provjerite i pokušate ponovno.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Nešto vjerojatno prekida Bloxstrap od spajanja na internet.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox možda trenutno ne radi sada. Pogledajte status.roblox.com za više informacija. Molimo, pokušajte ponovno kasnije.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox trenutno možda ne radi. Pogledajte {0} za više informacija.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrapu je isteklo vreme pokušavajući da se poveže na tri različita Roblox ogledala za implementaciju, naznačujući lošu internetsku vezu. Molimo, pokušajte ponovno kasnije.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Nije moguće primijeniti {0} unaprijed postavljenu modifikaciju emotikona zbog mrežne greške. Da li bi ste mogli da pokušate ponovno, molimo vas da rekonfigurišite opciju u Bloxstrap Meniju.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>Veza je istekla, što može naznačiti lošu internetsku vezu ili blokadu vatrozida.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Vi morate prvo instalirati Bloxstrap pre deinstaliranja.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox je sada dovršio s izbacivanjem novog ažuriranja klijenta igre, koje sadrži 64-bitnu podršku i Hyperion Anticheat. ReShade ne radi nakon ovog ažuriranja, stoga je onemogućen i uklonjen s Bloxstrapa.
-
-Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete ih pronaći otvarnjem mape u kojoj je Bloxstrap instaliran, i zatim otvarajući mapu "Integrations". Možete ukloniti ove datoteke ako želite.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap nema dovoljno prostora na disku kako bi preuzeo i instalirao Roblox. Molimo, oslobodite nešto prostora pa zatim pokušajte ponovno.</value>
@@ -169,9 +155,7 @@ Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete 
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Pokretanje {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Deinstaliranje Bloxstrapa...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Nadogradnja {product}...</value>
@@ -189,9 +173,6 @@ Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete 
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Pretpregled stila - Kliknite Poništiti da biste zatvorili</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap je uspješno instaliran</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap je uspješno deinstaliran</value>
@@ -226,8 +207,8 @@ Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete 
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Uvezi JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Pronađi log datoteku</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Otvori log datoteku</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Razno</value>
@@ -249,6 +230,7 @@ Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete 
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Resetiraj</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Vrijednost</value>
@@ -268,31 +250,21 @@ Vaše konfiguracijske datoteke ReShade-a će i dalje biti spremljene, a možete 
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Kopiraj invite deeplink</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Otvori log datoteku</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Pogledaj detalje servera</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Kopiraj ID slučaja</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>ID Slučaja</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Učitavanje, molimo pričekajte...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Lokacija</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Locirano na {0}
+    <value>Lokacija: {0}
 Kliknite za više informacija</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Povezano na {0} server</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Spojen na javan server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Informacije servera</value>
@@ -310,7 +282,8 @@ Kliknite za više informacija</value>
     <value>Greška sa povezivanjem</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap se ne može povezati na Roblox</value>
+    <value>Bloxstrap se ne može povezati na {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopiranje aktivnosti</value>
@@ -381,7 +354,7 @@ Ako nije, molimo prijavite ovu iznimku preko [GitHub issue]({1}) zajedno sa kopi
     <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
@@ -405,33 +378,19 @@ Ako nije, molimo prijavite ovu iznimku preko [GitHub issue]({1}) zajedno sa kopi
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Privatno</value>
+    <value>Privatan server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Javno</value>
+    <value>Javan server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Rezervirano</value>
+    <value>Rezervirani server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Tamno</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Svjetlo</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap je detektirao promjenu slova pogona i rekonfigurirao svoju lokaciju instalacije s pogona {0} na pogon {1}.
-
-Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slovo pogona nazad na svoju originalnu vrijednost jer ostale instalirane aplikacije mogu iskusiti slične probleme.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap je originalno instaliran na Disk {0}, ali izgleda da više nije prisutan. Želite li nastaviti i izvršiti svježu instalaciju?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Izgleda kao da se Bloxstrap nije pravilno instalirao. Treba li biti instaliran na {0}?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Pogledaj što je novo u ovoj verziji</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap je nadograđen na v{0}</value>
@@ -453,9 +412,6 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Posebno Hvala</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Prijevodi</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Alternativni bootstrapper za Roblox s nekoliko dodatnih dodataka.</value>
@@ -486,6 +442,7 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Verzija {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Sve datoteke</value>
@@ -556,14 +513,8 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Upit za potvrdu otvaranja novog Roblox primera</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap će postaviti ikonicu na vašu radnu površinu koja će pokrenuti Roblox.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Napravi ikonu na radnoj površini</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Namestiti šta Bloxstrap da uradi kad se upali.</value>
+    <value>Konfigurirajte što da Bloxstrap napravi kada pokreće Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox će se reinstalirati nakon sljedećeg pokretanja.</value>
@@ -572,7 +523,7 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
     <value>Prisilna reinstalacija Roblox-a</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Ponašanje</value>
+    <value>Pokretač</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Dodaj novo</value>
@@ -585,6 +536,7 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Kriva upotreba ovoga može dovesti do nestabilnosti ili nepredviđenih događaja.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Koristiti uz oprez.</value>
@@ -595,6 +547,7 @@ Iako će Bloxstrap nastaviti funkcionirati, preporučljivo je da promijenite slo
 Postoji {0} konfliktnih definicija zastava:
 
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Obriši izabrano</value>
@@ -613,6 +566,7 @@ Postoji {0} konfliktnih definicija zastava:
 
 Više informacija:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>Unos za '{0}' ne važi jer ime mora započeti s FFlag, DFInt, itd</value>
@@ -659,12 +613,6 @@ NE koristite ovo da biste uvozili velike 'liste zastavica' koje su napravili dru
     <value>Saznajte više o Fast Flagovima, što ove postavke rade i kako ih koristiti.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Dozvoljava vam da konfigurirate 21 različitih razina kvalitete umjesto 10.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Koristi napredni selektor za kvalitetu grafika</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) koristeći Alt+Enter je uključeno prema zadanim postavkama.</value>
   </data>
@@ -699,40 +647,13 @@ NE koristite ovo da biste uvozili velike 'liste zastavica' koje su napravili dru
     <value>Vrsta rendera</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Brze Zastave (Fast Flags)</value>
+    <value>Postavke Motora</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Font datoteke</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Datoteke ikona</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Instaliraj</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Konfiguriraj kako je Bloxstrap/Roblox instaliran.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Odaberi gdje će Bloxstrap biti instaliran.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Lokacija instalacije</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Gdje Bloxstrap je trenutno instaliran.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Otvori instalacijsku mapu</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Instalacija</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Ovdje je vodič o deinstalaciji Bloxstrapa.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Želite li deinstalirati?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrap ne može biti instaliran ovdje. Molimo, odaberite drugu lokaciju, ili koristite zadanu lokaciju tako da kliknete gumb za resetiranje.</value>
@@ -743,6 +664,7 @@ NE koristite ovo da biste uvozili velike 'liste zastavica' koje su napravili dru
 Promjena na iduću lokaciju je preporučena: {0}
 
 Želite li promjeniti na preporučenu lokaciju? Odabirom "Ne" ćete ignorirati ovo upozorenje i nastaviti instalaciju.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Morate postaviti lokaciju instalacije</value>
@@ -759,11 +681,14 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Dopusti pridruživanje aktivnosti</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Pokazuje Roblox profil kojim igrate na Vašem Discord profilu.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Pokaži Roblox profil</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Lokacija aplikacije</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>npr. C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Automatski zatvori kada se Roblox zatvori</value>
@@ -775,7 +700,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Argumenti pri pokretanju</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>npr. /k echo Roblox se pokrenuo!</value>
+    <value>Roblox se pokreće!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Nova integracija</value>
@@ -802,7 +727,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Odobrite praćenje aktivnosti</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Ova značajka zahtjeva da praćenje aktivnosti bude uključeno i da je Discord desktop aplikacija instalirana i upaljena.</value>
+    <value>Ova značajka zahtjeva da praćenje aktivnosti bude uključeno i da je Discord desktop aplikacija instalirana i upaljena. [Saznajte više]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Roblox igra koju igrate će biti prikazana na vašem Discord profilu. [Ne radi?]({0})</value>
@@ -810,11 +735,11 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Prikažite aktivnost u igrici</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>Kada se pridružite u igru, biti ćete obaviješteni o lokaciji servera. Neće se prikazati u prikazu preko cijelog zaslona.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Kada u igri, moći ćete vidjeti gdje je Vaš server sa [ipinfo.io]({0}).</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>Prikaz Server lokacije kad udjete u igricu</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Upit lokacije servera</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integracije</value>
@@ -841,17 +766,8 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Koristi prilagođen font</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>Windows opcija koja može biti u sukobu s preformansom u Full-screen režimom.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Onemogući Full-screen optimizacije</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Upravljanje prilagodjenih Roblox modova.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap mora biti instaliran prvo.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Otvori Mods folder</value>
@@ -892,18 +808,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Kliknite za više informacija o ovoj opciji.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>Postoje par stvari o kojima biste prvo trebali znati.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>Nakon što instalacija završi, Bloxstrap Meni će biti registrirani kao aplikacija u Start meniju. Ako mu ikad trebate pristupiti da promijenite svoje postavke, ili da pristupite resursima kao upravljanje Fast Flag-ovima, možete da pronaći tamo.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Ako ti bude trebala pomoć ili upustvo za nešto, proveri [Wiki]({0}). Ako ti idalje bude trebalo nešto, otvori [issue]({1}) na GitHabu, ili se pridruži našem [Discord Server]({2}).</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Pre nego što instalirate...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Sačuvaj</value>
   </data>
@@ -914,7 +818,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Podešavanja Sačuvana!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Meni</value>
+    <value>Bloxstrap postavke</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Odaberi preferirani jezik</value>
@@ -993,6 +897,7 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox se trenutno ne može preuzeti. Molimo pročitajte sljedeću stranicu za pomoć za više informacija: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Uvezi iz datoteke</value>
@@ -1018,5 +923,315 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Sistemski zadano</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Unos za '{0}' nije valjan jer filter mjesta nije formatiran pravilno.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Instalator Bloxstrapa</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Dobrodošli</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Instaliraj</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Završenost</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Natrag</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Dalje</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Hvala što ste preuzeli Bloxstrap.
+
+Jedine službene web-stranice za preuzimanje Bloxstrapa su {0} i {1}, molimo Vas da provjerite jeste li ga preuzeli sa službenog izvora.
+
+Proces instalacije će biti brz i jednostavan, i moći ćete konfigurirati bilo koje Bloxstrap postavke nakon instalacije.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Molimo kliknite 'Dalje' da biste nastavili.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Pokušavate instalirati verziju {0} Bloxstrapa, ali najnovija dostupna verzija je {1}. Želite li ju preuzeti?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Odaberite gdje želite instalirati</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox će se isto instalirati na ovo mjesto. Promijenite ovo ako želite instalirati sve Vaše igre na drukčiji disk. Inače je preporučeno da ovo ostavite kako je sad.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Postojeći podaci pronađeni. Vaše modifikacije i postavke će biti vraćene.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Prečaci</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Desktop ikona</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Start Meni ikona</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap se je uspješno instalirao.
+
+Roblox još nije bio instaliran, to će se dogoditi kada ga pokrenete s Bloxstrapom prvi put. Ali, prije nego li to napravite, možda biste htjeli prvo konfigurirati Bloxstrap postavke.
+
+Isto tako, izbjegnite koristiti "Roblox Player" prečac za pokretanje Roblox-a, jer se Bloxstrap neće pokrenuti s Roblox-om. Ako ne vidite Bloxstrap kako se pojavljuje kada pokrećete s web-stranice, samo pokrenite Roblox sa Bloxstrapom jedan put s desktopa da biste to popravili.
+
+Što biste htjeli napraviti?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Konfigurirajte Bloxstrap postavke</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Igrajte se sa svim značajkama koje Vam nudi</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Instaliraj i pokreni Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Prebacit će Vas u desktop aplikaciju kad je sve gotovo</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Deinstaliraj Bloxstrap</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Deinstaliranje će maknuti Bloxstrap s Vašeg sustava, i automatski rekonfigurirati zadani Roblox pokretač ako je još dalje instaliran.
+
+Ako deinstalirate ili reinstalirate zato što imate poteškoće s Roblox-om, prvo pročitajte [ovu stranicu za pomoć]({0}).
+
+Proces deinstalacije se možda neće moći počistiti do kraja sam sa sobom, pa ćete možda trebati ručno počistiti bilo koje preostale datoteke gdje je Bloxstrap bio instaliran.
+
+Bloxstrap je bio instaliran na "{1}".</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Zadrži moje postavke i modifikacije</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Biti će zadržani na mjestu gdje je Bloxstrap bio instaliran, i bit će automatski vraćeni na reinstalaciji.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Deinstaliraj</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Pokreni Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Konfiguriraj postavke</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Imate li poteškoće?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Pogledajte Wiki za pomoć</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Trenutno nemate WebView2 runtime instaliran. Neke Roblox-ove značajke neće raditi ispravno bez toga, poput desktop aplikacije. Želite li to sada preuzeti?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap nije mogao kreirati prečace za Desktop i Start Meni. Pokušajte ih kreirati kasnije preko postavki.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Prvo pogledajte [Bloxstrap Wiki]({0}) kako biste vidjeli je li ovaj problem već bio adresiran s popravkom.
+
+Ako nije, onda molimo prijavite ovu iznimku održavateljima ovog fork-a. NEMOJTE ovo prijaviti na Bloxstrapove GitHub probleme, jer ovo nije službena inačica.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Ovo su opći prečaci koji pokažu izbornik za pokretanje s više izbora. Prečaci za specifične funkcije mogu biti kreirane kasnije u postavkama.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Konfigurirajte kako Bloxstrap može biti spremno pokrenut.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Općenito</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Ovo su prečaci koji pokažu izbornik za pokretanje s više izbora.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Funkcija</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Kreirajte prečace za brzi pristup specifičnim funkcijama. Ovi prečaci će se pojaviti na Desktopu.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Spojen na privatan server</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Spojen na rezerviran server</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Modifikacija za emotikon se trenutno ne može primijeniti.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Molimo čekajte da instalacija dovrši.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Molimo pričekajte da deinstalacija dovrši.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>O Bloxstrapu</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licence</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Prevoditelji</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Imate promjene koje niste spremili. Jeste li sigurni da želite zatvoriti bez spremanja?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Verzija Bloxstrapa koju ste pokrenuli je starija od verzije koju trenutno imate instaliranu.
+Problemi se mogu pojaviti i postavke će se možda promijeniti. Reinstalacija je preporučena.
+Jeste li sigurni da želite nastaviti?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox se nije uspio pokrenuti.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox se je srušio.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Molimo pročitajte iduće informacije o pomoći, koje će se otvoriti u Vašem web-pregledniku kad zatvorite ovaj dijalog.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Nije moguće učitati podatke zbog greške s mrežom.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Učitavanje, molimo pričekajte...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Podržavatelji</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Ovo su ljudi koji trenutno podržavaju Bloxstrap preko [Ko-fi]({0}). Veliko hvala svima ovdje!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Vaše postavke se nisu mogle učitati. Resetirale su se na zadanu konfiguraciju.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Vaši Fast Flags se nisu mogli učitati. Bili su resetirani na zadanu konfiguraciju.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Povijest igara</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Ponovno se pridružite</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Vaša trenutna igra se neće pokazati na Vašoj Discord prisutnosti zato što se dogodila greška kada su se učitavale informacije o igri.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Povijest igara je snimljena samo za Vašu trenutnu Roblox sesiju. Igre će se pojaviti ovdje kada izađete iz njih ili se teleportirate unutar njih. Ne može se ponovno pridružiti u sve servere.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Lokacija servera nije mogla biti upitana. Možda se pridružujete u igre prebrzo.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Molimo pokušajte ponovno kasnije.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Za ovaj pokret, Roblox se neće provjeriti za nadogradnje i promjene modifikacijama se neće primijeniti.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Bloxstrap ne može nastaviti zato što Roblox treba biti instaliran ili nadograđen.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap se je prije instalirao na ovu lokaciju i još dalje je prisutan, ali instalator ne može prebrisati staru izvršnu datoteku.
+
+Molimo ručno izbrišite Bloxstrap.exe iz lokacije instalacije ili pokušajte ponovno pokrenuti Vaš sustav, i onda ponovno probajte instalirati nakon.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Nije dostupno</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Upravljajte postavkama kompatibilnosti</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Konfigurirajte parametre aplikacije kao što je ponašanje DPI skaliranja i [optimizacije cijelog zaslona]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox još nije bio instaliran. Molimo pokrenite Roblox koristeći Bloxstrap barem jednom prije pokušavanja korištenja ove opcije.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Jeste li sigurni da želite prekinuti instalaciju?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Nije uspjelo spremanje {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Odabrana ikona pokretača se ne može učitati.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Izdvojite Roblox ikone u mapu</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Dopušta Vam da koristite Bloxstrapov raspon Roblox ikona za Vaše prečace. [Pogledajte kako.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap ne može pisati u Windows Registar. Antivirus se vjerojatno miješa i proizvodi poteškoće. Molimo provjerite postoji li išta što bi moglo ograničiti Bloxstrapove operacije.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Mjesečno</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Jednokratno</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Konfigurirajte postavke vezane za samo Bloxstrapovo ponašanje.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Uključi slanje analitike</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Anonimno je i nije ništa zlo, obećajemo. Za uvid u ono što pokupljamo i zašto, pogledajte našu [politiku privatnosti]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analitika</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Resetira sve na zadane postavke</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Prijavi iznimku</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Testni mod</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Testni mod olakšava iterativno testiranje kako Vaše postavke utječu na Roblox.
+
+Kada uključen, automatski će pokrenuti Roblox nakon zatvaranja postavki, i ponovno otvoriti postavke nakon zatvaranja Roblox-a, u krugu sve dok ga ne isključite.
+
+Želite li uključiti testni mod?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Svi Bloxstrapovi prijevodi su crowdsourcani preko [Crowdin-a]({0}). Svi navedeni ovdje su ljudi koji su velikodušno volontirali svoje vrijeme i trud kako bi pomogli lokalizirati Bloxstrap. Veliko hvala svima ovdje!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Instaliraj</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Podržite nas na Ko-fi!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Ikone</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

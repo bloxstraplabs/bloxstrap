@@ -53,8 +53,8 @@ namespace Bloxstrap
             { "lt", "Lietuvių" },
             { "ms", "Malay" },
 #if QA_BUILD
-            { "no", "Bokmål" },
             { "nl", "Nederlands" },
+            { "no", "Bokmål" },
 #endif
             { "pl", "Polski" },
             { "pt-BR", "Português (Brasil)" },

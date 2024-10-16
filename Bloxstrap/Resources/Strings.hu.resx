@@ -117,37 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>játékból kilépett</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>keresés sikertelen</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>A Bloxstrap nem tudott automatikusan frissíteni a {0} verzióra. Kérjük frissítse önmaga a legújabb verzió letöltésével és futtatásával a GitHub oldalról.</value>
+    <value>A Bloxstrap nem tudott automatikusan frissülni a {0} verzióra. Kérjük frissítse manuálisan úgy, hogy letölti és futtatja a webhelyről.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>A Roblox jelenleg fut, és egy másik példány elindítása bezárja azt. Biztos, hogy folytatni akarod az indítást?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Lehetséges, hogy valami megakadályozza, hogy a Bloxstrap az internethez kapcsolódjon. Kérjük ellenőrizze és próbálja újra.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Valami valószínűleg megakadályozza, hogy a Bloxstrap csatlakozzon az internethez.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Lehetséges, hogy roblox szerverei leálltak. Lásd a status.roblox.com weboldalt további információért. Kérjük próbálja újra később.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>A Roblox jelenleg nem elérhető. További információkért lásd {0}.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>A Bloxstrap nem válaszolt, amikor három különböző Roblox telepítési tükörhöz próbált csatlakozni, ami rossz internetkapcsolatra utal. Kérjük, próbálja meg később újra.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Hálózati hiba miatt a {0} emoji módosítás alkalmazása sikertelen. Az újbóli próbálkozáshoz kérjük állítsa be újra a beállítást a Bloxstrap menüben.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>A kapcsolat megszakadt, ami rossz internetkapcsolatra vagy tűzfalblokkolásra utalhat.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Először telepítenie kell Bloxstrap-et az eltávolítás előtt.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>A Roblox mostanra befejezte az új játékkliens-frissítés kiadását, amely 64 bites támogatást és a Hyperion anti-csalást tartalmazza. A ReShade már nem fog működni ezzel a frissítéssel, ezért mostantól letiltották és eltávolították a Bloxstrap-ből.
-
-A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalálhatja őket, ha megnyitja a mappát ahová Bloxstrap telepítve van és az Integrációk mappájába navigál. Ha akarja, törölheti ezeket.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>A Bloxstrap-nek nincsen elég tárhelye a Roblox telepítéséhez. Kérjük, szabadítson fel lemezterületet, és próbálja újra.</value>
@@ -169,9 +155,7 @@ A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalál
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>{product} elindítása...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Bloxstrap eltávolítása...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} frissítése...</value>
@@ -189,9 +173,6 @@ A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalál
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Stílus előnézet - Kattintson a "Mégse" gombra a bezáráshoz</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>A Bloxstrap sikeresen települt</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>A Bloxstrap sikeresen eltávolításra került</value>
@@ -226,8 +207,8 @@ A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalál
   <data name="Common.ImportJson" xml:space="preserve">
     <value>JSON importálása</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Naplófájl keresése</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Naplófájl megnyitása</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Egyéb</value>
@@ -249,6 +230,7 @@ A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalál
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Visszaállítás</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Érték</value>
@@ -268,31 +250,21 @@ A ReShade konfigurációs fájljai továbbra is el lesznek mentve, és megtalál
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Deeplink meghívó másolása</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Naplófájl megnyitása</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Lásd a szerver részleteit</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Instance ID másolása</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>Instance azonosító</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Betöltés, kérjük várjon...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Hely</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Itt helyeszkedik el: {0}
-Kattintson ide további információért</value>
+    <value>Helyszín: {0}
+Kattintson további információért</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Csatlakozás a {0} szerverhez</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Csatlakozva egy nyilvános szerverhez</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Szerver információ</value>
@@ -310,7 +282,8 @@ Kattintson ide további információért</value>
     <value>Csatlakozási hiba</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>A Bloxstrap nem tudott a Roblox-hoz kapcsolódni</value>
+    <value>A Bloxstrap nem tudott kapcsolódni a {0}-hoz/hez/höz</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Napló tartalmának másolása</value>
@@ -381,7 +354,7 @@ Ha nem, kérjük, hogy jelentse ezt egy [GitHub problémaként]({1}) a Bloxstrap
     <value>2015 (1. verzió)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (2. verzió)</value>
+    <value>2020 (2. verzió)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (4. verzió)</value>
@@ -405,33 +378,19 @@ Ha nem, kérjük, hogy jelentse ezt egy [GitHub problémaként]({1}) a Bloxstrap
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Privát</value>
+    <value>Privát szerver</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Publikus</value>
+    <value>Nyilvános szerver</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Fenntartott</value>
+    <value>Fenntartott szerver</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Sötét</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Világos</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>A Bloxstrap a meghajtó betűjelének változását észlelte, és átkonfigurálta a telepítési helyet a(z) {0} meghajtóról a(z) {1} meghajtóra.
-
-A Bloxstrap ezután is működni fog, de ajánljuk a meghajtó betűjelének visszaállítását az eredetire, mivel a többi telepített alkalmazásai hasonló problémákat tapasztalhatnak.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>A Bloxstrap eredetileg a(z) {0} meghajtóra volt telepítve, de úgy tűnik, hogy már nincs jelen. Szeretné folytatni és új telepítést végezni?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Úgy tűnik, mintha a Bloxstrap nem lett megfelelően telepítve. A(z) {0} helyre kéne települnie?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Nézze meg, mi újság ebben a verzióban</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>A Bloxstrap frissítve lett v{0}-ra/re</value>
@@ -454,9 +413,6 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Különleges Köszönet</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Fordítók</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Egy alternatív indító a Roblox-hoz csomó extra funkcióval.</value>
@@ -487,6 +443,7 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Verzió {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Összes fálj</value>
@@ -557,14 +514,8 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Kérdezzen rá, amikor egy másik Roblox feladatot indítok el</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>A Bloxstrap egy ikont helyez el az asztalon, amely a következő indításkor elindítja a Robloxot.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Asztali ikon létrehozása</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Állítsa be, hogy a mit csináljon a Bloxstrap az indításkor.</value>
+    <value>Annak beállítása, hogy a Bloxstrap mit tegyen a Roblox indításakor.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>A Roblox a következő induláskor frissen lesz telepítve.</value>
@@ -573,7 +524,7 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
     <value>Roblox kényszerített újratelepítése</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Viselkedés</value>
+    <value>Indító</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Új hozzáadása</value>
@@ -586,6 +537,7 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Ennek helytelen használata instabilitáshoz vagy váratlan dolgok bekövetkezéséhez vezethet.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Óvatosan használja.</value>
@@ -595,6 +547,7 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
 
 {0} ellentmondásos flag definíció van:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Kijelölt(ek) törlése</value>
@@ -613,6 +566,7 @@ Szeretné frissíteni a jelenleg telepített verzióját?</value>
 
 További információ:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>A(z) '{0}' nem érvényes, mivel a nevek csak FFlag, DFInt, stb-vel kezdődhetnek</value>
@@ -657,12 +611,6 @@ Biztosan folytatja?</value>
     <value>Tudjon meg többet a Fast Flags-ről, az előbeállítások funkcióiról és használatukról.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Lehetővé teszi, hogy 10 helyett 21 különböző minőségi szintet konfiguráljon.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>A fejlett grafikai minőségválasztó használata</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>A Direct3D [kizárólagos teljes képernyő]({0}) az Alt+Enter billentyűkombináció használatával alapértelmezés szerint engedélyezve van.</value>
   </data>
@@ -697,40 +645,13 @@ Biztosan folytatja?</value>
     <value>Renderelési mód</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flags</value>
+    <value>Motor beállítások</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Betűtípus fájlok</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Ikon fájlok</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Telepítés</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>A Bloxstrap/Roblox telepítésének beállítása.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Válassza ki, hogy a Bloxstrap hova legyen telepítve.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Telepítési hely</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Ahol a Bloxstrap jelenleg telepítve van.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Telepítési mappa megnyitása</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Telepítési hely</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Itt egy útmutató a Bloxstrap eltávolításához.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Szeretnéd eltávolítani?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>A Bloxstrap nem telepíthető ide. Kérjük, válasszon másik helyet, vagy térjen vissza az alapértelmezett helyre a visszaállítás gombra kattintva.</value>
@@ -743,6 +664,7 @@ A következő helyre történő váltás javasolt:
 
 Szeretne a javasolt helyre váltani?
 A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folytatja a telepítést.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Először be kell állítania egy telepítési helyet</value>
@@ -759,11 +681,14 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Tevékenységi csatlakozás engedélyezése</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Megjeleníti a Roblox-fiókot, amellyel a Discord-profilodon játszol.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Megjeleníti a Roblox-fiókot, amellyel a Discord-profilodon játszol</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Alkalmazás helye</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>pl. C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Automatikus bezárás a Roblox bezárásakor</value>
@@ -775,7 +700,7 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
     <value>Indítási érvek</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>pl. /k echo A Roblox elindult!</value>
+    <value>A Roblox elindult!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Új integráció</value>
@@ -802,7 +727,7 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
     <value>Aktivitáskövetés engedélyezése</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Ez a funkció szükségelteti a 'tevékenység nyomon követése' beállítás bekapcsolását és a Discord alkalmazás letöltését és futtatását.</value>
+    <value>Ehhez a funkcióhoz engedélyezni kell az aktivitáskövetést, valamint telepíteni és futtatni kell a Discord asztali alkalmazást. [Tudjon meg többet]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Az ön által játszott Roblox játék megjelenik Discord profilján. [Nem működik?]({0})</value>
@@ -810,11 +735,11 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Játékaktivitás megjelenítése</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>Amikor csatlakozol egy játékhoz, értesítést kapsz arról, hogy hol található a szervered. Teljes képernyőn nem jelenik meg.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>A játékban az [ipinfo.io]({0}) segítségével láthatod, hogy hol található a szervered.</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>A szerver helyének megtekintése játékhoz való csatlakozáskor</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Szerver helyének megtekintése</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integrációk</value>
@@ -841,17 +766,8 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Saját betűtípus használata</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>A Windows egy olyan funkciója, amely teljes képernyőn konfliktusba kerülhet a teljesítménnyel.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Teljes képernyős optimalizálás kikapcsolása</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Egyéni Roblox modok kezelése itt.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>A Bloxstrap-et először telepíteni kell.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Mods mappa megnyitása</value>
@@ -892,18 +808,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Kattintson ide további információkért erről a lehetőségről.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>Csak néhány dolgot kell először tudnod.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>A telepítés befejezése után a Bloxstrap Menü alkalmazásként lesz regisztrálva a Start menüben. Ha újra használni akarja pl. a beállításai kezeléséhez, vagy a Fast Flag-ek beállításához, ott meg fogja találni.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Ha bármikor segítségre vagy útmutatásra van szükséged, mindenképpen nézz be a [Wiki]({0}) oldalunkra. Ha még mindig szükséged van valamire, nyiss egy [problémát]-t({1}) a GitHubon, vagy csatlakozz a [Discord szerverünkhöz]({2}).</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>A telepítés előtt...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Mentés</value>
   </data>
@@ -914,7 +818,7 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
     <value>Beállítások mentve!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap menü</value>
+    <value>Bloxstrap beállítások</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Kívánt nyelv kiválasztása</value>
@@ -993,6 +897,7 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>A Roblox-ot nem lehet most letölteni. Kérjük, olvassa el a sugóoldalt további információért: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Importálás fájlból</value>
@@ -1018,5 +923,315 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Rendszer alapértelmezett</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>A '{0}' sor érvénytelen, mivel a place filter nem megfelelően van formázva.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap telepítő</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Üdvözöljük</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Telepítés</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Teljesítés</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Vissza</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Következő</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Köszönjük a Bloxstrap letöltését. 
+
+A Bloxstrap letöltéséhez csak a(z) {0} és a(z) {1} hivatalos oldal áll rendelkezésre, ezért kérjük ellenőrizd, hogy hivatalos forrásból származik-e a letöltés.
+
+A telepítési folyamat gyors és egyszerű lesz, és a telepítés után a Bloxstrap bármelyik beállítását konfigurálhatja.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>A folytatáshoz kattintson a 'Tovább' gombra.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>A Bloxstrap {0} verzióját próbálja telepíteni, de a legújabb elérhető verzió {1}. Szeretné letölteni?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Válassza ki, hogy hova telepítse</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>A Roblox is erre az útvonalra lesz telepítve. Módosítsa ezt, ha az összes játékot külön meghajtóra szeretné telepíteni. Egyébként ajánlott, hogy ezt a beállítást hagyja meg.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Meglévő adatok észlelve. A modok és a beállítások visszaállításra kerülnek.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Gyorsparancsok</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Asztali ikon</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Start menü ikon</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>A Bloxstrap sikeresen telepítve.
+
+A Roblox még nem lett telepítve, ez akkor fog megtörténni, amikor először indítod el a Bloxstrap segítségével. Mielőtt azonban ezt megtennéd, érdemes először a Bloxstrap beállításait konfigurálni.
+
+Továbbá kerülje a „Roblox Player” parancsikon használatát a Roblox elindításához, mivel a Bloxstrap nem fog elindulni a Roblox-szal együtt. Ha a weboldalról való indításkor nem jelenik meg a Bloxstrap, egyszerűen indítsd el a Robloxot a Bloxstrap segítségével egyszer az asztalról, hogy a probléma megoldódjon.
+
+Mit szeretnél tenni?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>A Bloxstrap beállításainak konfigurálása</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Trükközzön az összes funkcióval, amit kínál</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Telepítse és indítsa el a Robloxot</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Az asztali alkalmazásba kerülsz, amint minden készen van</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Bloxstrap eltávolítása</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Az eltávolítás eltávolítja a Bloxstrap-et a rendszerből, és automatikusan átállítja az alapértelmezett Roblox indítóprogramot, ha az még telepítve van.
+
+Ha azért távolítod el vagy telepíted újra, mert problémáid vannak a Roblox-al, először olvasd el [ezt a súgóoldalt]({0}).
+
+Előfordulhat, hogy az eltávolítási folyamat nem képes teljesen kitakarítani magát, ezért előfordulhat, hogy kézzel kell kitakarítani a megmaradt fájlokat, ahová a Bloxstrap telepítve volt.
+
+A Bloxstrap telepítése a „{1}” helyre történt.</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Tartsa meg a beállításaimat és modjaimat</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Ezek ott maradnak, ahová a Bloxstrap telepítve volt, és automatikusan visszaállnak egy újratelepítéskor.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Eltávolítás</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Roblox elindítása</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Beállítások konfigurálása</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Problémája van?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Segítségért lásd a Wiki-t</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Jelenleg nincs telepítve a WebView2 runtime. Egyes Roblox funkciók nem fognak megfelelően működni nélküle, például az asztali alkalmazás. Szeretnéd most letölteni?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>A Bloxstrap nem tudott parancsikonokat létrehozni az Asztal és a Start menü számára. Próbálja meg később létrehozni őket a beállításokon keresztül.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Nézd meg először a [Bloxstrap Wiki]({0}) oldalát, hátha már találtak megoldást erre a problémára.
+
+Ha nem, akkor kérjük, jelentse ezt a kivételt a fork karbantartóinak. NE jelentse ezt a Bloxstrap GitHub issue-jeiben, mivel ez egy nem hivatalos build.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Ezek általános parancsikonok, amelyek egy több választási lehetőséget tartalmazó indítási menüt hoznak létre. Az egyes funkciókhoz tartozó parancsikonok később a beállításokban hozhatók létre.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Annak beállítása, hogy a Bloxstrap könnyen elindítható legyen.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Általános</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Ezekkel a parancsikonokkal jelenik meg a többválasztós indítási menü.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Funkció</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Hozzon létre parancsikonokat az egyes funkciók gyors eléréséhez. Ezek mind az Asztalon kerülnek elhelyezésre.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Csatlakozva egy privát szerverhez</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Csatlakozás zárt szerverhez</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Az emoji mod jelenleg nem alkalmazható.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Kérjük, várjon a telepítés befejezéséig.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Kérjük, várjon, amíg az eltávolítás befejeződik.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>A Bloxstrapről</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licencek</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Fordítók</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>El nem mentett módosításai vannak. Biztos, hogy mentés nélkül akarja bezárni?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>A Bloxstrap elindított verziója régebbi, mint a jelenleg telepített verzió.
+Problémák léphetnek fel, és a beállításai megváltozhatnak. Ajánlott az újratelepítés.
+Biztos, hogy folytatni szeretné?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>A Roblox nem tudott elindulni.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>A Roblox összeomlott.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Kérjük, olvassa el a következő súgót, amely az ablak bezárásakor megnyílik a böngészőben.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Hálózati hiba miatt nem sikerült betölteni az adatokat.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Betöltés, kis türelmet...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Támogatók</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Ezek azok az emberek, akik jelenleg a [Ko-fi]({0})-n keresztül támogatják a Bloxstrap-et. Hatalmas köszönet mindenkinek!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>A beállítások nem tölthetők be. Az alapértelmezett konfigurációra lettek visszaállítva.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>A Fast Flageket nem lehetett betölteni. Az alapértelmezett konfigurációra lettek visszaállítva.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Játék előzmények</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Újra csatlakozás</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Az aktuális játékod nem jelenik meg a Discord-profilodban, mert hiba történt a játékinformációk betöltésekor.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>A játékelőzmények csak az aktuális Roblox-munkamenetre vonatkozóan kerülnek rögzítésre. A játékok akkor jelennek meg itt, amikor elhagyod őket, vagy teleportálsz bennük. Nem minden szerverhez lehet majd újra csatlakozni.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>A szerver helyét nem lehetett lekérni. Lehet, hogy túl gyorsan csatlakozik a játékokhoz.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Kérjük, próbálja meg később újra.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>A mostani induláskor a Roblox nem lesz ellenőrizve frissítések szempontjából, és a modok módosításai nem lesznek alkalmazva.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Mivel a Robloxot telepíteni vagy frissíteni kell, a Bloxstrap nem tud folytatódni.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>A Bloxstrap már korábban is települt erre a helyre, és még mindig jelen van, azonban a telepítő nem tudja felülírni a régi futtatható fájlt. 
+
+Kérjük, manuálisan törölje a Bloxstrap.exe fájlt a telepítési helyről, vagy próbálja meg újraindítani a rendszert, majd ezt követően próbálja meg újra a telepítést.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Nem elérhető</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Kompatibilitás beállítások kezelése</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Az alkalmazás paramétereinek konfigurálása, például a DPI-skálázási viselkedés és a [teljes képernyős optimalizálás]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>A Roblox még nem lett telepítve. Kérjük, legalább egyszer indítsa el a Robloxot a Bloxstrap segítségével, mielőtt megpróbálná használni ezt az opciót.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Biztos, hogy le akarja állítani a telepítést?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Nem sikerült menteni {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>A kiválasztott indító ikon nem tudott betöltődni.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Roblox ikonok átmásolása mappába</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Lehetővé teszi, hogy a Bloxstrap Roblox ikonok választékát használd a parancsikonokhoz. [Lásd hogyan.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>A Bloxstrap nem tud írni a Windows Registry-be. Valószínűleg egy vírusirtó zavarja és problémákat okoz. Kérjük, ellenőrizze, hogy nincs-e valami, ami korlátozná a Bloxstrap működését.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Havi</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Egyszeri</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>A Bloxstrap viselkedésével kapcsolatos beállítások konfigurálása.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Az analitika küldésének engedélyezése</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Névtelen és semmi rossz, ígérjük. Ha többet szeretne megtudni arról, hogy mit és miért gyűjtünk, olvassa el az [adatvédelmi szabályzatunkat]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analitika</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Minden visszaállítása alapértelmezettbe</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Kivétel bejelentése</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Teszt mód</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>A tesztmód megkönnyíti a beállítások Robloxra gyakorolt hatásának iteratív tesztelését. 
+
+Amíg engedélyezve van, a beállítások bezárása után automatikusan elindítja a Robloxot, és a Roblox bezárása után újra megnyitja a beállításokat, egy ciklusban, amíg le nem tiltod.
+
+Szeretné engedélyezni a teszt üzemmódot?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>A Bloxstrap összes fordítása a [Crowdin]({0}) segítségével készül. Mindenki, aki itt szerepel, olyan ember, aki nagylelkűen önkéntes munkát végzett, hogy segítsen a Bloxstrap lokalizálásában. Hatalmas köszönet mindenkinek!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Telepítés</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Támogass minket a Ko-fi-n!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Ikonok</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

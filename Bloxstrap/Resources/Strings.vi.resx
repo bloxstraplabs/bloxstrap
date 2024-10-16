@@ -117,37 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>đã thoát trò chơi</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>Tìm kiếm thất bại</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap không thể tự động cập nhật lên {0}. Xin hãy cập nhật thủ công bằng cách tải về và chạy phiên bản mới nhất từ trang GitHub.</value>
+    <value>Bloxstrap không thể tự động cập nhật lên phiên bản {0}. Hãy cập nhật thủ công bằng cách tải và chạy phần mềm từ trang chủ.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Tiến trình Roblox hiện tại đang chạy, và việc khởi động tiến trình Roblox khác sẽ đóng nó. Bạn có chắc chắn muốn tiếp tục khởi động không?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Có khả năng điều gì đó đã ngăn chặn Bloxstrap kết nối với internet. Hãy kiểm tra và thử lại.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Có gì đó đang ngăn chặn Bloxstrap kết nối đến Internet.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Máy chủ Roblox có thể đang gặp sự cố. Truy cập status.roblox.com để biết thêm thông tin. Xin vui lòng thử lại sau.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox có thể đang có vấn đề. Xem {0} để có thêm thông tin.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap không thể kết nối tới Roblox và đã vượt quá thời gian chờ, cho thấy kết nối internet của bạn đang không ổn định. Vui lòng thử lại sau.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Không thể áp dụng mod emoji có sẵn {0} vì có lỗi mạng. Để thử lại, hãy cài đặt lại lựa chọn trong Menu Bloxstrap.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>Kết nối đã bị gián đoạn, có thể là bởi kết nối mạng không ổn định hoặc là đã bị chặn bởi tường lửa.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Bạn phải cài đặt Bloxstrap trước khi gỡ cài đặt nó.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox đã hoàn tất phát hành bản cập nhật mới, hỗ trợ 64-bit và tính năng chống gian lận Hyperion. ReShade không thể hoạt động trong bản cập nhật này, vì vậy nó đã bị vô hiệu hóa và xóa khỏi Bloxstrap.
-
-Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có thể tìm thấy chúng bằng cách mở thư mục nơi Bloxstrap được cài đặt và tìm đến thư mục "Integrations". Bạn có thể xóa những tệp này nếu muốn.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap không có đủ dung lượng ổ cứng để tải và cài đặt Roblox. Hãy giải phóng dung lượng và thử lại.</value>
@@ -169,9 +155,7 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Đang khởi động {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Đang gỡ cài đặt Bloxstrap...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Đang cập nhật {product}...</value>
@@ -189,9 +173,6 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Xem trước thiết kế - Bấm Hủy để đóng</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap đã được cài đặt thành công</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap đã được gỡ cài đặt thành công</value>
@@ -226,8 +207,8 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Nhập JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Xác định vị trí tệp log</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Mở tệp log</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Khác</value>
@@ -249,6 +230,7 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Cài đặt lại</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Giá trị</value>
@@ -268,31 +250,21 @@ Các tệp cấu hình ReShade của bạn vẫn sẽ được lưu, bạn có t
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Sao chép liên kết lời mời trực tiếp</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Mở tệp log</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Xem thông tin về máy chủ</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Sao chép ID máy chủ</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>ID máy chủ</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Đang tải, xin vui lòng chờ...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Vị trí</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Đặt tại {0}
+    <value>Được đặt tại: {0}
 Bấm để biết thêm thông tin</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Đã kết nối đến máy chủ {0}</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Đã kết nối đến máy chủ công khai</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Thông tin máy chủ</value>
@@ -310,7 +282,8 @@ Bấm để biết thêm thông tin</value>
     <value>Lỗi kết nối</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap không thể kết nối tới Roblox</value>
+    <value>Bloxstrap không thể kết nối tới {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Sao chép dữ liệu log</value>
@@ -381,10 +354,10 @@ Nếu chưa, xin hay báo cáo lỗi này qua [GitHub issue]({1}) với bản co
     <value>2015 (Phiên bản 1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (Phiên bản 2)</value>
+    <value>2020 (Phiên bản 2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
-    <value>2023 (Phiển bản 4)</value>
+    <value>2023 (Phiên bản 4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
     <value>Được chọn bởi trò chơi</value>
@@ -405,33 +378,19 @@ Nếu chưa, xin hay báo cáo lỗi này qua [GitHub issue]({1}) với bản co
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Riêng tư</value>
+    <value>Máy chủ riêng</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Công khai </value>
+    <value>Máy chủ công khai</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Dự trữ</value>
+    <value>Máy chủ dự phòng</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Tối</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Sáng</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap đã phát hiện sự thay đổi ký tự ổ đĩa và đã chỉnh lại vị trí cài đặt từ ổ {0} đến ổ {1}
-
-Bloxstrap vẫn sẽ tiếp tục hoạt động, bạn nên đổi kí tự ổ đĩa về lúc ban đầu vì các ứng dụng khác cũng có thể sẽ gặp vấn đề tương tự.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap ban đầu được cài đặt vào ổ {0}, nhưng có vẻ như nó không còn tồn tại nữa. Bạn có muốn tiếp tục và thực hiện một cài đặt mới không?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Có vẻ như Bloxstrap chưa được cài đặt đúng cách. Bạn đã cài đặt nó ở ổ {0} phải không?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Xem những gì mới ở phiên bản này</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap đã được cập nhật lên phiên bản v{0}</value>
@@ -454,9 +413,6 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Lời cảm ơn sâu sắc</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Những bản dịch</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Một chương trình khởi động phụ dành cho Roblox với các tính năng đa dạng.</value>
@@ -487,6 +443,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Phiên bản {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Tất cả các tệp</value>
@@ -557,14 +514,8 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Hiển thị thông báo xác nhận khi mở một tiến trình Roblox khác</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap sẽ đặt một biểu tượng trên màn hình chính vào lần khởi động Roblox tiếp theo.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Tạo biểu tượng trên màn hình chính</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Tùy chỉnh Bloxstrap sẽ làm gì khi khởi động.</value>
+    <value>Tùy chỉnh Bloxstrap sẽ làm gì khi khởi động Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox sẽ cài đặt lại vào lần khởi động tiếp theo.</value>
@@ -573,7 +524,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Bắt buộc cài đặt lại Roblox</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Cách hoạt động</value>
+    <value>Trình khởi động</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Thêm mới</value>
@@ -586,6 +537,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Sử dụng sai cách có thể dẫn đến mất ổn định hay những điều không mong muốn.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Sử dụng một cách cẩn thận.</value>
@@ -595,6 +547,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
 
 Có {0} Flag đang xung đột:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Xoá</value>
@@ -613,6 +566,7 @@ Có {0} Flag đang xung đột:
 
 Thông tin thêm:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>Flag '{0}' không hợp lệ vì tên phải bắt đầu với FFlag, DFInt, v. v</value>
@@ -659,12 +613,6 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Tìm hiểu thêm về Fast Flag, tác dụng của các cài đặt này và cách sử dụng chúng.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Cho phép bạn chỉnh sửa 21 mức độ chất lượng hình ảnh khác nhau thay vì 10.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Sử dụng bản chọn lựa chất lượng hình ảnh nâng cao</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [toàn màn hình]({0}) bằng Alt+Enter đã được bật theo mặc định.</value>
   </data>
@@ -699,40 +647,13 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Chế độ kết xuất</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flag</value>
+    <value>Cài đặt Engine</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Các tệp phông chữ</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Các tệp biểu tượng</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Cài đặt</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Chỉnh cách Bloxstrap/Roblox được cài đặt.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Chọn nơi Bloxstrap sẽ được cài đặt.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Địa điểm cài đặt</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Nơi Bloxstrap đã được cài đặt.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Mở thư mục cài đặt</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Cài đặt</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Đây là hướng dẫn về cách gỡ cài đặt Bloxstrap.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Bạn đang tìm cách để gỡ cài đặt?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrap không thể được cài đặt ở đây. Vui lòng chọn một vị trí khác, hoặc sử dụng vị trí mặc định bằng cách nhấp vào nút đặt lại.</value>
@@ -745,6 +666,7 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
 
 Bạn có muốn thay đổi đến vị trí được đề xuất không?
 Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Bạn phải chọn địa điểm cài đặt</value>
@@ -761,11 +683,14 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Cho phép tham gia hoạt động</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Hiển thị tài khoản Roblox bạn đang sử dụng lên trang cá nhân Discord của bạn.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Hiển thị tài khoản Roblox</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Vị trí ứng dụng</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>v.d. C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Tự động đóng khi Roblox đóng</value>
@@ -777,7 +702,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Giá trị khởi chạy</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>V.d: /k echo Roblox đang chạy!</value>
+    <value>Roblox hiện đang chạy!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Tích hợp mới</value>
@@ -804,7 +729,8 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Bật theo dõi hoạt động</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Tính năng này yêu cầu phải bật theo dõi hoạt động và cài đặt ứng dụng Discord và đang chạy.</value>
+    <value>Tính năng này yêu cầu phải bật theo dõi hoạt động và ứng dụng Discord đã được cài đặt và đang chạy.
+[Tìm hiểu thêm]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>Trò chơi Roblox mà bạn đang chơi sẽ hiện trên trang cá nhân Discord của bạn. [Không hoạt động?]({0})</value>
@@ -812,11 +738,11 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Hiển thị trò chơi đang chơi</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>Khi bạn vào một trò chơi, bạn sẽ được thông báo xem máy chủ bạn đang chơi ở đâu. Sẽ không hiển thị khi chơi toàn màn hình.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Khi ở trong trò chơi, bạn sẽ thấy được địa chỉ máy chủ của bạn thông qua [ipinfo.io]({0}).</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>Xem vị trí máy chủ khi tham gia trò chơi</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Tìm địa điểm của máy chủ</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Các tích hợp</value>
@@ -843,17 +769,8 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Dùng phông chữ tuỳ chỉnh</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>Một tính năng của Windows có thể gây xung đột với hiệu năng ở chế độ toàn màn hình.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Vô hiệu hoá tính năng tối ưu toàn màn hình</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Quản lí và tùy chỉnh mod Roblox ở đây.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap phải được cài đặt trước tiên.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Mở thư mục Mod</value>
@@ -894,18 +811,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Bấm để biết thêm về tùy chọn này.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>Có một vài điều mà bạn cần biết.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>Sau khi cài đặt hoàn tất, Menu Bloxstrap sẽ được đăng ký là một ứng dụng trong Start menu. Nếu bạn cần truy cập lại để điều chỉnh cài đặt của mình hoặc truy cập các tài nguyên như quản lý Fast Flag, bạn có thể tìm thấy nó ở đó.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Nếu bạn cần trợ giúp hoặc hướng dẫn về bất kỳ điều gì, hãy nhớ kiểm tra [Wiki]({0}). Nếu bạn vẫn cần thứ gì đó, hãy tạo một [yêu cầu]({1}) trên GitHub hoặc tham gia [Discord]({2}) của chúng tôi.</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Trước khi bạn cài đặt...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Lưu</value>
   </data>
@@ -916,7 +821,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Các chỉnh sửa đã được lưu!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Menu Bloxstrap</value>
+    <value>Cài Đặt Bloxstrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Chọn ngôn ngữ ưa thích</value>
@@ -995,6 +900,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Không thể tải xuống Roblox ngay bây giờ. Xin hãy đọc trang trợ giúp để biết thêm thông tin: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Nhập từ tệp</value>
@@ -1020,5 +926,305 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Mặc định hệ thống</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Giá trị '{0}' không hợp lệ vì bộ lọc trải nghiệm không được định dạng đúng.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Trình cài đặt Bloxstrap</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Chào mừng</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Cài đặt</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Quá trình hoàn thành</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Tiếp theo</value>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Bấm 'Tiếp' để tiếp tục.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Bạn đang cố cài đặt phiên bản {0} của Bloxstrap, nhưng phiên bản mới nhất hiện tại là {1}. Bạn có muốn tải về không?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Chọn nơi để cài đặt</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox sẽ được cài đặt đến mục này. Thay đổi nếu bạn muốn tải tất cả những trò chơi của bạn đến một ổ khác. Nếu không thì, khuyến khích là bạn giữ nguyên nó.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Đã tìm thấy dữ liệu hiện có. Mod và cài đặt của bạn sẽ được khôi phục.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Phím tắt</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Biểu tượng màn hình chính</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Biểu tượng Start Menu</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap đã được cài đặt thành công.
+
+Roblox vẫn chưa được cài đặt, điều đó sẽ xảy ra khi bạn khởi chạy nó bằng Bloxstrap lần đầu tiên. Tuy nhiên, trước khi thực hiện, có thể 
+bạn sẽ muốn định cấu hình cài đặt của Bloxstrap trước.
+
+Ngoài ra, tránh sử dụng phím tắt "Roblox Player" để khởi chạy Roblox, vì Bloxstrap sẽ không khởi chạy cùng Roblox. Nếu bạn không thấy Bloxstrap hiển thị khi khởi chạy từ trang web, chỉ cần khởi chạy Roblox bằng Bloxstrap một lần từ màn hình chính để khắc phục sự cố.
+
+Bạn muốn làm gì?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Cấu hình cài đặt Bloxstrap</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Chỉnh sửa tất cả những tính năng được cung cấp</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Cài đặt và khởi chạy Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Sẽ đưa bạn đến ứng dụng màn hình nền một khi tất cả đã xong</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Gỡ cài đặt Bloxstrap</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Gỡ cài đặt Bloxstrap sẽ xóa nó khỏi hệ thống của bạn, và tự động cấu hình lại trình khởi chạy mặc định của Roblox nếu nó vẫn được cài đặt.
+
+Nếu bạn đang gỡ cài đặt hoặc cài đặt lại vì gặp sự cố với Roblox, hãy đọc [trang trợ giúp này]({0}) trước.
+
+Quá trình gỡ cài đặt có thể không tự dọn dẹp hoàn toàn, vì vậy có thể bạn sẽ cần phải dọn dẹp thủ công các tệp còn sót lại nơi Bloxstrap đã được cài đặt.
+
+Bloxstrap đã được cài đặt tại "{1}".</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Giữ lại các cài đặt và mod của tôi</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Chúng sẽ được giữ lại nơi Bloxstrap đã được cài đặt, và sẽ tự động khôi phục sau khi cài đặt lại.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Gỡ cài đặt</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Khởi chạy Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Cài đặt cấu hình</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Đang gặp vấn đề?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Xem trang Wiki để tìm trợ giúp</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Hiện tại bạn chưa cài đặt WebView2 runtime. Một số tính năng của Roblox sẽ không hoạt động bình thường nếu không có nó, chẳng hạn như ứng dụng trên màn hình chính. Bạn có muốn tải nó ngay bây giờ không?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap không thể tạo phím tắt cho màn hình chính và Start Menu. Hãy thử tạo chúng thông qua cài đặt.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Tìm xem [Bloxstrap Wiki]({0}) trước để xem nếu vấn đề này đã có phương pháp giải quyết.
+
+Nếu không, thì hãy báo cáo vấn đề này đến người quản lí của bản sao này. ĐỪNG báo cáo vấn đề này đến GitHub của Bloxstrap, bởi vì đây là một bản sao không chính thức.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Đây là các phím tắt chung giúp mở menu khởi chạy với nhiều lựa chọn. Các phím tắt cho các chức năng cụ thể có thể được tạo sau trong phần cài đặt.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Cấu hình cách Bloxstrap có thể được khởi chạy.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Chung</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Đây là những phím tắt mở ra menu chạy nhiều lựa chọn.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Tạo phím tắt để truy cập nhanh vào các chức năng cụ thể. Chúng sẽ được đặt ở màn hình nền.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Đã kết nối đến máy chủ riêng</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Đã kết nối đến máy chủ dự phòng</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Mod biểu cảm không thể được áp dụng tại thời điểm này.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Hãy đợi cho quá trình cài đặt được hoàn thành.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Hãy đợi cho quá trình gỡ cài đặt được hoàn thành.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Về Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Các giấy phép</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Các phiên dịch viên</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Bạn có những thay đổi chưa được lưu. Bạn có chắc chắn muốn đóng mà không lưu không?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Phiên bản Bloxstrap mà bạn khởi chạy cũ hơn so với phiên bản bạn đã cài đặt.
+Có thể xảy ra sự cố và các tùy chỉnh của bạn có thể bị thay đổi. Khuyến khích nên cài đặt lại.
+Bạn có muốn tiếp tục không?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Không thể khởi chạy Roblox.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox đã sập.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Vui lòng đọc thông tin trợ giúp sau, thông tin này sẽ mở trong trình duyệt web của bạn khi bạn đóng hộp thoại này.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Không thể tải dữ liệu vì lỗi mạng.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Đang tải, xin vui lòng chờ...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Những người hỗ trợ</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Đây là những người hiện đang hỗ trợ Bloxstrap thông qua [Ko-fi]({0}). Xin chân thành cảm ơn tất cả mọi người ở đây!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Không thể tải những Cài Đặt của bạn. Chúng đã được đặt lại về cấu hình mặc định.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Không thể tải Fast Flag của bạn. Chúng đã được đặt lại về cấu hình mặc định.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Lịch sử trò chơi</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Tham gia lại</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Trò chơi hiện tại của bạn sẽ không hiển thị trên Discord vì đã xảy ra lỗi khi tải thông tin trò chơi.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Lịch sử trò chơi chỉ được ghi lại cho phiên Roblox hiện tại. Trò chơi sẽ xuất hiện ở đây khi bạn thoát hoặc dịch chuyển trong đó. Không phải tất cả máy chủ có thể được tham gia lại.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Không thể truy vấn vị trí máy chủ. Có thể bạn đang tham gia trò chơi quá nhanh.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Vui lòng thử lại sau.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Trong lần chạy này, Roblox sẽ không được kiểm tra để cập nhật, và những thay đổi đối với các mod sẽ không áp dụng.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Vì Roblox cần được cài đặt hoặc cập nhật, Bloxstrap không thể tiếp tục.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap đã được cài đặt vào vị trí này trước đây và vẫn còn ở đó, tuy nhiên trình cài đặt không thể ghi đè lên tệp cài đặt cũ. 
+
+Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc thử khởi động lại hệ thống của bạn, sau đó thử cài đặt lại sau đó.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Không có sẵn</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Quản lý cài đặt tương thích</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Cấu hình các thông số ứng dụng như hành vi thay đổi tỷ lệ DPI và [tối ưu hóa toàn màn hình]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox chưa được cài đặt. Vui lòng khởi chạy Roblox bằng Bloxstrap ít nhất một lần trước khi thử sử dụng tùy chọn này.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn hủy cài đặt không?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Lưu thất bại {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Không thể tải biểu tượng trình khởi động đã chọn.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Trích xuất biểu tượng Roblox vào thư mục</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap không thể ghi vào Registry của Windows. Có thể một phần mềm diệt virus đang can thiệp và gây ra vấn đề. Vui lòng kiểm tra để đảm bảo không có gì làm ảnh hưởng Bloxstrap.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Hàng tháng</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Một lần</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Tùy chỉnh những lựa chọn liên quan tới cách hoạt động của Bloxstrap.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Bật gửi dữ liệu phân tích</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Mọi thứ đều ẩn danh và không có gì xấu xa cả, thật đấy. Để biết chúng tôi thu thập những gì và lý do, hãy xem [chính sách quyền riêng tư]({0}) của chúng tôi.</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Phân tích</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Đặt tất cả cài đặt về mặc định</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Báo cáo lỗi</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Chế độ thử nghiệm</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Chế độ thử nghiệm giúp bạn dễ dàng kiểm tra các cài đặt ảnh hưởng đến Roblox như thế nào.
+
+Khi được bật, nó sẽ tự động khởi chạy Roblox sau khi đóng Cài Đặt, và mở lại Cài Đặt sau khi đóng Roblox, lặp lại theo chu kỳ cho đến khi bạn tắt chế độ này.
+
+Bạn có muốn bật chế độ thử nghiệm không?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Tất cả các bản dịch của Bloxstrap đều được đóng góp từ cộng đồng thông qua [Crowdin]({0}). Tất cả những người được liệt kê ở đây đều đã tự nguyện dành thời gian và công sức để giúp dịch Bloxstrap. Xin gửi lời cảm ơn chân thành đến tất cả mọi người!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Cài đặt</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Ủng hộ chúng tôi trên Ko-fi!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Biểu tượng</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

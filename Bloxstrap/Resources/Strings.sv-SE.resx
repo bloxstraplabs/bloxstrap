@@ -117,38 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>lämnade spelet</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>sökning misslyckades</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap kunde inte autouppdatera till {0}.
-Var vänlig och ladda ner den senaste versionen och starta den manuellt från GitHub.</value>
+    <value>Bloxstrap kunde inte automatiskt uppdatera till version {0}. Uppdatera Roblox manuellt genom att ladda ner och köra Roblox från webbsidan.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox körs för närvarande och att starta en annan instans kommer att stänga den. Är du säker på att du vill fortsätta att starta?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Det är möjligt att något hindrar Bloxstrap från att ansluta till internet. Kontrollera och försök igen.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Någonting hindrar förmodligen Bloxstrap från att ansluta till internet.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox kan vara nere just nu. Kolla status.roblox.com för mer information. Försök igen senare.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox kan vara nere just nu. Se {0} för mer information.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap stötte på en timeout vid försök att ansluta till 3 olika distribueringsspeglar, vilket pekar på en dålig internetuppkoppling. Försök igen senare.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Kunde inte applicera {0} emoji-moddet på grund av ett nätverksfel. För att försöka igen, ändra inställningen i Bloxstrapmenyn.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>Anslutningen tog för lång tid, vilket kan peka på en dålig internetuppkoppling eller en block från din brandvägg.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Du måste installera Bloxstrap innan du avinstallerar.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox har nu avslutat utrullningen av den nya spelklientuppdateringen, med 64-bitars stöd och Hyperion-anticheat. ReShade fungerar inte med denna uppdatering, och därför har ReShade nu inaktiverats och tagits bort från Bloxstrap.
-
-Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom att öppna mappen där Bloxstrap är installerat och navigera till Integrations-mappen. Du kan välja att ta bort dessa om du vill.</value>
+    <value>Du måste installera Bloxstrap först innan du avinstallerar.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap har inte tillräckligt med diskutrymme för att ladda ner och installera Roblox. Frigör lite diskutrymme och försök igen.</value>
@@ -170,9 +155,7 @@ Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom at
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Startar {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Avinstallerar Bloxstrap...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Uppgraderar {product}...</value>
@@ -190,9 +173,6 @@ Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom at
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
     <value>Stilförhandsvisning - Klicka på avbryt för att stänga</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap har installerats</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap har avinstallerats</value>
@@ -227,8 +207,8 @@ Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom at
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Importera JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Hitta loggfil</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Öppna loggfil</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Övrigt</value>
@@ -250,6 +230,7 @@ Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom at
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Återställ</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Värde</value>
@@ -269,31 +250,21 @@ Dina ReShade-konfigurationsfiler kommer att sparas och du kan hitta dem genom at
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Kopiera deeplink-inbjudan</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Öppna loggfil</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Visa serverdetaljer</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>Kopiera instans-id</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>Instans-id</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Laddar, var vänlig vänta...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Plats</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Ligger i {0}
+    <value>Plats: {0}
 Klicka för mer information</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>Ansluten till {0} server</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Ansluten till en offentlig server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Serverinformation</value>
@@ -311,7 +282,8 @@ Klicka för mer information</value>
     <value>Anslutningsfel</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap kan inte ansluta till Roblox</value>
+    <value>Bloxstrap kan inte ansluta till {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopiera loggfilsinnehåll</value>
@@ -322,7 +294,7 @@ Klicka för mer information</value>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>Kolla [Bloxstrap Wikin]({0}) först för att se om problemet redan har en lösning.
 
-Om det inte har det, rapportera gärna detta undantag med ett [GitHub ärende]({1}) tillsammans med en kopia av loggfilen som skapades.</value>
+Om det inte har det, rapportera gärna detta undantag med ett [GitHub-ärende]({1}) tillsammans med en kopia av loggfilen som skapades.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrapsundantag</value>
@@ -382,7 +354,7 @@ Om det inte har det, rapportera gärna detta undantag med ett [GitHub ärende]({
     <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
@@ -406,33 +378,19 @@ Om det inte har det, rapportera gärna detta undantag med ett [GitHub ärende]({
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Privat</value>
+    <value>Privat server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Offentlig</value>
+    <value>Offentlig server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Reserverad</value>
+    <value>Reserverad server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Mörkt</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Ljust</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap har upptäckt en ändring av enhetsbeteckningen och har konfigurerat om installationsplatsen från {0}-enheten till {1}-enheten.
-
-Även om Bloxstrap kommer att fortsätta att fungera, rekommenderas det att du ändrar enhetsbeteckningen tillbaka till dess ursprungliga värde eftersom andra installerade applikationer kan uppleva liknande problem.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap installerades ursprungligen på {0}-enheten, men den verkar inte längre finnas. Vill du fortsätta och utföra en ny installation?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Det verkar som att Bloxstrap inte har installerats korrekt. Ska den vara installerad på {0}?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Se vad som är nytt i denna version</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap har uppgraderats till v{0}</value>
@@ -455,9 +413,6 @@ Vill du uppdatera din nuvarande installerade version?</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Speciella tack</value>
-  </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Översättningar</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Ett alternativt startprogram för Roblox med en massa extra funktioner.</value>
@@ -488,6 +443,7 @@ Vill du uppdatera din nuvarande installerade version?</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Version {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Alla filer</value>
@@ -496,7 +452,7 @@ Vill du uppdatera din nuvarande installerade version?</value>
     <value>Observera att inte alla dina ändringar kommer att träda i kraft förrän du stänger alla för tillfället öppna Roblox-instanser.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap körs redan</value>
+    <value>Bloxstrap är redan igång</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Du kan få den att se annorlunda, retro eller bara som Roblox.</value>
@@ -555,17 +511,8 @@ Vill du uppdatera din nuvarande installerade version?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Förhindra stängningar av ditt befintliga spel från av att misstag har startat ett annat.</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>Fråga för att bekräfta när du startar en annan Roblox-instans</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap kommer placera en ikon på skrivbordet som kommer starta Roblox nästa gång Bloxstrap startas.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Skapa skrivbordsikon</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigurera vad Bloxstrap ska göra vid start.</value>
+    <value>Konfigurera vad Bloxstrap ska göra när Roblox startas.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox kommer ominstalleras nästa uppstart.</value>
@@ -574,7 +521,7 @@ Vill du uppdatera din nuvarande installerade version?</value>
     <value>Tvinga Robloxominstallation</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Beteende</value>
+    <value>Startprogram</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Lägg till ny</value>
@@ -587,6 +534,7 @@ Vill du uppdatera din nuvarande installerade version?</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Missbruk av detta kan leda till instabilitet eller att oväntade saker händer.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Använd försiktigt.</value>
@@ -596,6 +544,7 @@ Vill du uppdatera din nuvarande installerade version?</value>
 
 Det finns {0} motstridiga flaggor:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Radera valda</value>
@@ -614,6 +563,7 @@ Det finns {0} motstridiga flaggor:
 
 Mer information:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>Flaggan '{0}' är inte giltig eftersom namnet måste börja med FFlag, DFInt, o.s.v.</value>
@@ -660,17 +610,11 @@ Använd INTE detta för att importera stora "flagglistor" gjorda av andra person
     <value>Lär dig mer om Fast Flags, vad förinställningarna gör och hur du använder dem.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>Låter du ändra 21 olika grafikkvalitetsnivåer istället för 10.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Använd avancerat grafikkvalitetsreglage</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exklusiv helskärm]({0}) med Alt+Enter är igång som standard.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Föredragen escapemenyversion</value>
+    <value>Föredragen escapemeny-version</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox sänker din renderingskvalitet beroende på hur din skärm är skalad i Windows.</value>
@@ -700,40 +644,13 @@ Använd INTE detta för att importera stora "flagglistor" gjorda av andra person
     <value>Renderingsläge</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flags</value>
+    <value>Motorinställningar</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Typsnittsfiler</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>Ikonfiler</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Installera</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Ändra hur Bloxstrap/Roblox är installerat.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Välj var Bloxstrap ska installeras.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Installationsplats</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Var Bloxstrap är installerat.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Öppna installationsmapp</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Installation</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Här är en guide på hur du avinstallerar Bloxstrap.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Vill du avinstallera?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrap kan inte installeras här. Välj en annan plats eller använd standardplatsen genom att klicka på återställningsknappen.</value>
@@ -746,6 +663,7 @@ Att byta till följande plats rekommenderas:
 
 Vill du byta till den föreslagna platsen?
 Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Du måste välja en installationsplats</value>
@@ -760,13 +678,16 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Gör det möjligt för vem som helst att gå med i det spel du för närvarande spelar via din Discord-profil.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Tillåt aktivitetsanslutning</value>
+    <value>Tillåt aktivitetssn</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Visar det Roblox konto du använder på din Discord profil.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Visa Roblox konto</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Applikationsplats</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>t.ex. C:\Windows\System32\cmd.exe</value>
+    <value>Applikation</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Stäng automatiskt när Roblox stängs</value>
@@ -778,7 +699,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Startargument</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>t.ex. /k echo Roblox körs!</value>
+    <value>Roblox kör!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Ny integration</value>
@@ -793,7 +714,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Ställ in ytterligare funktionalitet vid sidan av Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox kommer att stängas helt när du lämnar ett spel istället för att du återvänder till appen.</value>
+    <value>Roblox kommer stängas helt när du lämnar ett spel istället för att skicka dig till appen.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Avsluta inte till skrivbordsappen</value>
@@ -805,16 +726,19 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Aktivera aktivitetsspårning</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Denna funktion kräver att aktivitetsspårning är igång och att Discordskrivbordsappen är installerad och körs.</value>
+    <value>Denna funktion kräver att aktivitetsspårning är igång och att Discordskrivbordsappen är installerad och körs. [Mer information]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>Roblox-spelet du spelar kommer visas på din Discord-profil. [Fungerar det inte?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Visa spelaktivitet</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>När du går med i ett spel kommer du att notifieras om var din server är belägen. Visas inte i helskärm.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>När du är i ett spel så kommer du att se var din server är belägen via [ipinfo.io]({0}).</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>Se serverns plats när du går med i ett spel</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Visa serverns plats</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integrationer</value>
@@ -841,17 +765,8 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Använd eget typsnitt</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>En Windows-funktion som kan stå i konflikt med prestanda i helskärm.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Inaktivera helskärmsoptimering</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Hantera egna Roblox moddar här.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Bloxstrap måste vara installerat först.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Öppna Moddmappen</value>
@@ -892,18 +807,6 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Klicka för mer information om detta alternativ.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>Det är några saker du först bör veta om.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>När installationen är klar kommer Bloxstrap-menyn att registreras som ett program i Start-menyn. Om du någonsin behöver komma åt den igen för att justera dina inställningar eller komma åt resurser som Fast Flag-hantering, hittar du den där.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Om du någonsin behöver hjälp eller vägledning med något, se till att kolla [wikin]({0}). Om du fortfarande behöver något, öppna ett [ärende]({1}) på GitHub, eller gå med i vår [Discord-server]({2}).</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Innan du installerar...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Spara</value>
   </data>
@@ -914,7 +817,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Inställningar sparade!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap-menyn</value>
+    <value>Bloxstrapinställningar</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Välj föredraget språk</value>
@@ -993,6 +896,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox kan inte laddas ner just nu. Läs denna hjälpartikel för mer information: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Importera från fil</value>
@@ -1014,9 +918,319 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Standard</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>Automatisk</value>
+    <value>Automatiskt</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Systemstandard</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Flaggan '{0}' är inte giltig eftersom platsfiltret inte är formaterat korrekt.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap-installationsguiden</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Välkommen</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Installera</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Slutförande</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Tillbaka</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Nästa</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Tack för att du har laddat ner Bloxstrap.
+
+De enda officiella sidorna att ladda ner Bloxstrap ifrån är {0} och {1}, så verifiera att du laddade ner Bloxstrap från en officiell källa.
+
+Installationsprocessen kommer att vara snabb och enkel, och du kommer att kunna konfigurera andra inställningar efter installationen.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Klicka på "Nästa" för att fortsätta.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Du försöker installera version {0} av Bloxstrap, men den senaste tillgängliga versionen är {1}. Vill du ladda ner den istället?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Välj var Bloxstrap ska installeras</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox kommer också att installeras till denna sökväg. Ändra detta om du föredrar att installera alla dina spel till en separat disk. Annars rekommenderas du att behålla detta som det är.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Befintlig data hittades. Dina moddar och inställningar kommer att återställas.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Genvägar</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Skrivbordsikon</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Startmenyikon</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap har installerats.
+
+Roblox har inte installerats ännu, det kommer att ske när du startar Roblox med Bloxstrap för första gången. Innan du gör det kanske du vill konfigurera Bloxstraps inställningar först.
+
+Undvik också att använda genvägen "Roblox Player" för att starta Roblox, eftersom då startar inte Bloxstrap. Om Bloxstrap inte startas när du startar Roblox från Roblox-webbsidan, starta Roblox med Bloxstrap en gång från skrivbordet för att fixa det.
+
+Vad skulle du vilja göra?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Konfigurera Bloxstraps inställningar</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Justera med alla funktioner som den har att erbjuda</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Installera och starta Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Kommer att starta skrivbordsappen när allt är klart</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Avinstallera Bloxstrap</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Genom att avinstallera Bloxstrap kommer du att ta bort det från ditt system, och automatiskt byta till Roblox egna startprogram om det fortfarande är installerat.
+
+Om du avinstallerar eller ominstallerar eftersom du har problem med Roblox, läs [denna hjälpsida]({0}) först.
+
+Avinstallationsprocessen kanske inte kan ta bort alla Bloxstraps filer och lämmna kvar några filer där Bloxstrap installerades, som du kan behöva ta bort manuellt.
+
+Bloxstrap installerades i "{1}".</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Behåll mina inställningar och moddar</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>De kommer att behållas där Bloxstrap installerades, och kommer automatiskt att återställas vid en ominstallation.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Avinstallera</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Starta Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Konfigurera inställningar</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Har du ett problem?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Se wikin för hjälp</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Du har för närvarande inte WebView2 installerat. Vissa Roblox funktioner kommer inte att fungera korrekt utan det, såsom skrivbordsappen. Vill du installera det nu?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap kunde inte skapa genvägar på skrivbordet och för Start-menyn. Försök att skapa dem senare genom inställningarna.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Kolla [Bloxstrap Wikin]({0}) först för att se om detta problem redan har en fix.
+
+Annars så rapportera detta felmeddelande till de ansvariga för denna fork. Rapportera INTE detta på Bloxstraps egna GitHub sida, eftersom detta är en inofficiell version av Bloxstrap.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Dessa är generella genvägar som visar en flervalsmeny. Genvägar för specifika funktioner kan skapas senare i inställningarna.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Konfigurera hur Bloxstrap kan startas enklare.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Allmänt</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Dessa är de genvägar som visar flervals-startmenyn.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Funktion</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Skapa genvägar för snabb åtkomst till specifika funktioner. Dessa kommer att placeras på skrivbordet.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Ansluten till en privat server</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Ansluten till reserverad server</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Emoji-moddet kan inte tillämpas just nu.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Vänligen vänta tills installationen är slutförd.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Vänligen vänta tills avinstallationen är slutförd.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Om Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenser</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Översättare</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Du har osparade ändringar. Är du säker på att du vill stänga utan att spara?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Den version av Bloxstrap du har startat är äldre än den version du just nu har installerat.
+Problem kan uppstå och dina inställningar kan ändras. En ominstallation rekommenderas.
+Är du säker på att du vill fortsätta?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox misslyckades med att starta.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox har kraschat.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Läs följande hjälpinformation, som kommer att öppnas i din webbläsare när du stänger denna dialogruta.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Kunde inte ladda data på grund av ett nätverksfel.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Laddar, var vänlig vänta...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Supportrar</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Dessa är de som för närvarande stöder Bloxstrap genom [Ko-fi]({0}). Ett stort tack till alla här!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Dina inställningar kunde inte laddas. De har återställts till standardkonfigurationen.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Dina Fast Flags kunde inte laddas. De har återställts till standardkonfigurationen.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Spelhistorik</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Omanslut</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Ditt nuvarande spel kommer inte att visas på din Discord-profil eftersom ett fel uppstod när spelinformationen hämtades.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Spelhistorik sparas bara för din nuvarande Roblox session. Spel kommer att visas här när du lämnar dem eller teleporterar inom dem. Du kommer inte att kunna omansluta till alla servrar.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Serverns plats kunde inte visas. Det kan bero på att du ansluter till spel för snabbt.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Vänligen försök igen senare.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>För denna start kommer Bloxstrap inte kolla efter Roblox-uppgraderingar, och ändringar av moddar kommer inte att tillämpas.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Roblox behöver installeras eller uppgraderas och Bloxstrap kan inte fortsätta.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap har installerats på den här platsen tidigare och är fortfarande installerad här, men installationsprogrammet kan inte skriva över den gamla programfilen. 
+
+Ta manuellt bort Bloxstrap.exe från installationsplatsen eller försök starta om ditt system och pröva att försöka installera Bloxstrap igen.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Inte tillgänglig</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Hantera kompatibilitetsinställningar</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Konfigurera applikationsparametrar som DPI-skalning och [helskärmsoptimeringar]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox har ännu inte installerats. Starta Roblox med Bloxstrap minst en gång innan du försöker använda det här alternativet.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Är du säker på att du vill avbryta installationen?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Det gick inte att spara {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Den valda startprogramsikonen kunde inte laddas.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Extrahera Roblox ikoner till en mapp</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Låter dig använda Bloxstraps utbud av Roblox ikoner för dina genvägar. [Visa hur.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap kan inte skriva till Windows-registret. Det beror förmodligen på ett antivirus som orsakar problem. Kontrollera att det inte finns något som skulle begränsa Bloxstraps funktion.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Månadsvis</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Engångsdonationer</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Konfigurera alternativ relaterade till Bloxstraps beteende i sig.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Skicka telemetri</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Det är anonymt och inget ont. För att se vad vi samlar in och varför, se vår [integritetspolicy]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Telemetri</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Återställ allt till standard</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Rapportera fel</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Testläge</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Testläget gör det enklare att snabbt testa hur dina inställningar påverkar Roblox. 
+
+När testläge är aktiverat kommer Bloxstrap automatiskt att starta Roblox efter att du stänger inställningsmenyn, och kommer sedan öppna inställningsmenyn igen varje gång du stänger Roblox, tills du inaktiverar testläget.
+
+Vill du aktivera testläge?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Alla Bloxstraps översättningar är insamlade med crowdsourcing via [Crowdin]({0}). Alla listade här är människor som frivilligt lagt ner sin tid och ansträngning för att hjälpa till at lokalisera Bloxstrap. Ett stort tack till alla här!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Installera</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Stöd oss på Ko-fi!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Ikoner</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>

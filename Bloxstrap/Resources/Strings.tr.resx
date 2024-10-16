@@ -117,37 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActivityTracker.LeftGame" xml:space="preserve">
-    <value>oyundan ayrıldı</value>
-  </data>
-  <data name="ActivityTracker.LookupFailed" xml:space="preserve">
-    <value>arama başarısız</value>
-  </data>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap {0} sürümüne otomatik güncelleme yapamadı. Lütfen GitHub sayfasından en son sürümü indirip çalıştırarak manuel olarak güncelleyin.</value>
+    <value>Bloxstrap {0} sürümüne otomatik olarak güncellenemedi. Lütfen Bloxstrap'ı web sitesinden indirip çalıştırarak manuel olarak güncelleyin.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox şu anda çalışıyor ve başka bir istemcinin başlatılması onu kapatacaktır. Başlatmak istediğinizden emin misiniz?</value>
   </data>
-  <data name="Bootstrapper.Connectivity.Preventing" xml:space="preserve">
-    <value>Bir şey Bloxstrap'in internete bağlanmasını engelliyor olabilir. Lütfen kontrol edin ve tekrar deneyin.</value>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value>Muhtemelen bir şey Bloxstrap'ın internet'e bağlanmasına engel oluyor.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox şu anda çökmüş veya sunucuları kapanmış olabilir. Daha fazla bilgi için status.roblox.com adresine bakın. Lütfen daha sonra tekrar deneyin.</value>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox'un sunucuları şu an çökmüş olabilir. Daha fazla bilgi için {0} göz atın.</value>
   </data>
-  <data name="Bootstrapper.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bloxstrap, üç farklı Roblox yansımaya bağlanmaya çalışırken zaman aşımına uğradı, bu da internet bağlantısının zayıf olduğundan kaynaklanabilir. Lütfen daha sonra tekrar deneyin.</value>
-  </data>
-  <data name="Bootstrapper.EmojiPresetFetchFailed" xml:space="preserve">
-    <value>Bir bağlantı hatası nedeniyle {0} önceden ayarlanmış emoji modu uygulanamadı. Tekrar denemek için lütfen Bloxstrap Menüsünden tekrardan yapılandırın.</value>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value>Bağlantı zaman aşımına uğradı, bu da zayıf bir internet bağlantısının veya bir güvenlik duvarı engelinin işareti olabilir.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Bloxstrap'i silmek için ilk önce kurmalısınız.</value>
-  </data>
-  <data name="Bootstrapper.HyperionUpdateInfo" xml:space="preserve">
-    <value>Roblox, 64-bit desteği ve Hyperion anti hilesi içeren yeni oyun istemcisi güncellemesini yayınlamayı tamamladı. ReShade bu güncelleme ile çalışmadığından artık devre dışı bırakıldı ve Bloxstrap'ten kaldırıldı.
-
-ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kurulu olduğu klasörü açıp Entegrasyonlar klasörüne giderek bunları bulabilirsiniz. İsterseniz bunları silmeyi seçebilirsiniz.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrap, Roblox'u indirmek ve kurmak için yeterli disk alanına sahip değil. Lütfen biraz disk alanı boşaltın ve tekrar deneyin.</value>
@@ -169,9 +155,7 @@ ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kuru
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>{product} başlatılıyor...</value>
-  </data>
-  <data name="Bootstrapper.Status.Uninstalling" xml:space="preserve">
-    <value>Bloxstrap kaldırılıyor...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} güncelleniyor...</value>
@@ -187,11 +171,8 @@ ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kuru
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>Stil önizleme - Kapatmak için "İptal" butonuna basın</value>
+    <value>Stil önizleme - Kapatmak için "İptal et" butonuna basın</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
-  </data>
-  <data name="Bootstrapper.SuccessfullyInstalled" xml:space="preserve">
-    <value>Bloxstrap başarıyla kuruldu</value>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
     <value>Bloxstrap başarıyla kaldırıldı</value>
@@ -226,8 +207,8 @@ ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kuru
   <data name="Common.ImportJson" xml:space="preserve">
     <value>JSON'u içe aktar</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Kayıt dosyasını bul</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Kayıt dosyasını aç</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Diğer</value>
@@ -249,6 +230,7 @@ ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kuru
   </data>
   <data name="Common.Reset" xml:space="preserve">
     <value>Sıfırla</value>
+    <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
     <value>Değer</value>
@@ -268,31 +250,21 @@ ReShade yapılandırma dosyalarınız hala kayıtlı olacak ve Bloxstrap'in kuru
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Davet deeplink'ini kopyala</value>
   </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Kayıt dosyasını aç</value>
-  </data>
-  <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
-    <value>Sunucu detaylarını göster</value>
-  </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
     <value>İstemci ID'sini kopyala</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
     <value>İstemci ID'si</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Loading" xml:space="preserve">
-    <value>Yükleniyor, lütfen bekleyin...</value>
-  </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Dosya Konumu</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>{0} konumuna bağlanıldı
-Daha fazla bilgi için tıklayın</value>
+    <value>Konum: {0}
+Daha fazla bilgi için tıklayınız</value>
   </data>
-  <data name="ContextMenu.ServerInformation.Notification.Title" xml:space="preserve">
-    <value>{0} sunucusuna bağlanıldı</value>
-    <comment>Enums.ServerType fills in {0} and is dynamically converted to lowercase when inserted here</comment>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Herkese açık sunucuya bağlanıldı</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
     <value>Sunucu detayları</value>
@@ -310,13 +282,14 @@ Daha fazla bilgi için tıklayın</value>
     <value>Bağlantı hatası</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap Roblox ile bağlantı kuramıyor</value>
+    <value>Bloxstrap {0} ile bağlantı kuramıyor</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kayıt içeriğini kopyala</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxtrap çalıştırılırken bir istisna oluştu</value>
+    <value>Bloxstrap çalıştırılırken bir istisna oluştu</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>Bu sorunun halihazırda bir düzeltmeyle giderilip giderilmediğini görmek için önce [Bloxstrap Wiki]({0})'yi kontrol ediniz.
@@ -381,7 +354,7 @@ Değilse, lütfen bu sorunu oluşturulan kayıt dosyasının bir kopyasıyla bir
     <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2022 (V2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
@@ -405,33 +378,19 @@ Değilse, lütfen bu sorunu oluşturulan kayıt dosyasının bir kopyasıyla bir
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Kişisel</value>
+    <value>Özel sunucu</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Genel</value>
+    <value>Herkese açık sunucu</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Rezerve Edilmiş</value>
+    <value>Rezerve edilmiş sunucu</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Karanlık</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Aydınlık</value>
-  </data>
-  <data name="InstallChecker.DriveLetterChangeDetected" xml:space="preserve">
-    <value>Bloxstrap bir sürücü harfi değişikliği algıladı ve kurulum konumunu {0} diskinden {1} diskine yeniden yapılandırdı.
-
-Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benzer sorunlar yaşayabileceğinden sürücü harfini orijinal değerine geri döndürmeniz önerilir.</value>
-  </data>
-  <data name="InstallChecker.InstallDriveMissing" xml:space="preserve">
-    <value>Bloxstrap başlangıçta {0} diskine kurulmuştu, ancak artık mevcut değil gibi görünüyor. Devam etmek ve yeni bir kurulum yapmak ister misiniz?</value>
-  </data>
-  <data name="InstallChecker.NotInstalledProperly" xml:space="preserve">
-    <value>Bloxstrap düzgün bir şekilde kurulmamış gibi görünüyor. {0}'da mı kurulması gerekiyor?</value>
-  </data>
-  <data name="InstallChecker.SeeWhatsNew" xml:space="preserve">
-    <value>Bu sürümdeki yeniliklere bakın</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap v{0} sürümüne güncellendi</value>
@@ -454,9 +413,6 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Özel Teşekkür</value>
   </data>
-  <data name="Menu.About.Contributors.Translations" xml:space="preserve">
-    <value>Çeviriler</value>
-  </data>
   <data name="Menu.About.Description" xml:space="preserve">
     <value>Roblox için ek özelliklere sahip alternatif bir bootstrapper.</value>
   </data>
@@ -464,7 +420,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
     <value>Discord sunucusu</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>GitHub Repositorysi</value>
+    <value>GitHub deposu (repository)</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
     <value>Yardım ve Bilgi</value>
@@ -486,6 +442,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Sürüm {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
     <value>Tüm dosyalar</value>
@@ -556,14 +513,8 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Başka bir Roblox istemcisi başlatılırken onay iste</value>
   </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Description" xml:space="preserve">
-    <value>Bloxstrap masaüstüne bir sonraki açılışta Roblox'u başlatan bir kısayol yerleştirecek.</value>
-  </data>
-  <data name="Menu.Behaviour.CreateDesktopIcon.Title" xml:space="preserve">
-    <value>Masaüstü kısayolu oluştur</value>
-  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Bloxstrap açıldığında ne yapması gerektiğini yapılandır.</value>
+    <value>Bloxstrap'ın Roblox'u başlatınca yapması gerektiğini yapılandırın.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox, sonraki başlangıçta yeniden kurulacak.</value>
@@ -572,7 +523,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
     <value>Roblox'u yeniden kurmaya zorla</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Davranış</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
     <value>Yeni ekle</value>
@@ -585,6 +536,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
     <value>Bunun yanlış kullanımı istikrarsızlığa veya beklenmedik şeylerin olmasına neden olabilir.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
     <value>Dikkatle kullanın.</value>
@@ -594,6 +546,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
 
 Çakışan {0} bayrak tanımı var:
 {1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
     <value>Seçileni sil</value>
@@ -612,6 +565,7 @@ Bloxstrap çalışmaya devam edecek olsa da, diğer yüklü uygulamalar da benze
 
 Daha fazla bilgi:
 {0}</value>
+    <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
     <value>'{0}' girişi geçerli değildir isim FFlag, DFInt, ve benzeri ile başlaması gereklidir</value>
@@ -658,12 +612,6 @@ Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden
     <value>Fast Flag'ler hakkında biraz daha öğrenin, bu ön ayarların ne işe yaradığını ve nasıl kullanılacağı hakkında öğrenin.</value>
     <comment>Title is Common.Help</comment>
   </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Description" xml:space="preserve">
-    <value>10 yerine 21 farklı kalite seviyesi ayarlamanızı sağlıyor.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.AltGraphicsSelector.Title" xml:space="preserve">
-    <value>Gelişmiş grafik kalitesi seçicisini kullanın</value>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Alt+Enter kullanarak Direct3D [özel tam ekran]({0}) varsayılan olarak zaten etkindir.</value>
   </data>
@@ -677,13 +625,13 @@ Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden
     <value>Ekran ölçeklendirme ile rendering kalitesini koruma</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Robloxun kendi kare hızı açıcısını kullanmak için varsayılanı 0'a ayarlayın.</value>
+    <value>Roblox'un kendi kare hızı açıcısını kullanmak için varsayılanı 0'a ayarlayın.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>Kare hızı limiti (FPS)</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
+    <value>[Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUI'leri gizleme özelliğini etkinleştir</value>
@@ -698,40 +646,13 @@ Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden
     <value>Rendering modu</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Fast Flag'ler</value>
+    <value>Motor Ayarları</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>Yazı tipi dosyaları</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
     <value>İkon Dosyaları</value>
-  </data>
-  <data name="Menu.Install" xml:space="preserve">
-    <value>Kur</value>
-  </data>
-  <data name="Menu.Installation.Description" xml:space="preserve">
-    <value>Bloxstrap/Roblox'un nasıl kurulacağını yapılandır.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Description" xml:space="preserve">
-    <value>Bloxstrap'in nereye kurulacağını seçin.</value>
-  </data>
-  <data name="Menu.Installation.InstallLocation.Title" xml:space="preserve">
-    <value>Kurulum Yeri</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Description" xml:space="preserve">
-    <value>Bloxstrap'in şu anda kurulu olduğu yer.</value>
-  </data>
-  <data name="Menu.Installation.OpenInstallFolder.Title" xml:space="preserve">
-    <value>Kurulum Klasörünü Aç</value>
-  </data>
-  <data name="Menu.Installation.Title" xml:space="preserve">
-    <value>Kurulum</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Description" xml:space="preserve">
-    <value>Burada, Bloxstrap'in nasıl kaldırılacağı hakkında bir rehber.</value>
-  </data>
-  <data name="Menu.Installation.UninstallGuide.Title" xml:space="preserve">
-    <value>Kaldırmak mı istiyorsunuz?</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
     <value>Bloxstrap buraya kurulamaz. Lütfen farklı bir konum seçin veya sıfırla düğmesine tıklayarak varsayılan konumu kullanmaya devam edin.</value>
@@ -744,6 +665,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
 
 Önerilen konuma geçmek ister misiniz?
 'Hayır' seçeneğinin seçilmesi bu uyarıyı yok sayacak ve kuruluma devam edecektir.</value>
+    <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
     <value>Bir kurulum konumu seçmelisin</value>
@@ -760,11 +682,14 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Etkinliğe katılmaya izin ver</value>
   </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Discord profilinizde oynadığınız Roblox hesabını gösterir.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Roblox hesabı göster</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Uygulama Konumu</value>
-  </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>örneğin C:\Windows\System32\cmd.exe</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Roblox kapandığında otomatik olarak kapat</value>
@@ -776,7 +701,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Başlatma Argümanları</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>örneğin /k echo Roblox çalışıyor!</value>
+    <value>Roblox şu an çalışıyor!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Yeni Entegrasyon</value>
@@ -803,19 +728,19 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Etkinlik takibini etkinleştirin</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Bu özellik etkinlik takibinin etkinleştirilmesini gerektirir ve Discord masaüstü uygulamasının kurulu ve çalışır durumda olmasını gerektirir.</value>
+    <value>Bu özellik etkinlik takibinin etkinleştirilmesini, Discord masaüstü uygulamasının kurulu ve çalışır durumda olmasını gerektirir. [Daha fazla bilgi edinin]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>Oynadığınız Roblox oyunu Discord profilinizde gösterilcektir. [Çalışmıyor mu?]({0})</value>
+    <value>Oynadığınız Roblox oyunu Discord profilinizde gösterilecektir. [Çalışmıyor mu?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
     <value>Oyun etkinliğini göster</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Description" xml:space="preserve">
-    <value>Bir oyuna katıldığınızda, sunucunuzun nerede olduğu size bildirilir. Tam ekranda gösterilmez.</value>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Oyunun içindeyken, sunucunuzun konumunu [ipinfo.io]({0}) ile görebileceksiniz.</value>
   </data>
-  <data name="Menu.Integrations.ShowServerDetails.Title" xml:space="preserve">
-    <value>Oyuna katılırken sunucu konumunu göster</value>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Sunucu konumu sorgula</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Entegrasyonlar</value>
@@ -842,17 +767,8 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
     <value>Özel yazı tipi kullan</value>
   </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Description" xml:space="preserve">
-    <value>Tam ekranda performansla çakışabilecek bir Windows özelliği.</value>
-  </data>
-  <data name="Menu.Mods.Misc.DisableFullscreenOptimisations.Title" xml:space="preserve">
-    <value>Tam ekran iyileştirmelerini devre dışı bırak</value>
-  </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
     <value>Özel Roblox modlarını buradan yönetin.</value>
-  </data>
-  <data name="Menu.Mods.OpenModsFolder.MustBeInstalled" xml:space="preserve">
-    <value>Önce Bloxstrap kurulmalıdır.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
     <value>Mod klasörünü aç</value>
@@ -893,18 +809,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.MoreInfo" xml:space="preserve">
     <value>Bu seçenek hakkında daha fazla bilgi için tıklayın.</value>
   </data>
-  <data name="Menu.PreInstall.Description" xml:space="preserve">
-    <value>Öncellikle bilmeniz gereken bir kaç şey var.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.1" xml:space="preserve">
-    <value>Kurulum tamamlandıktan sonra, Bloxstrap Menüsü Başlat menüsünde bir uygulama olarak kaydedilecektir. Ayarlarınızı yeniden yapmak veya Fast Flag yönetimi gibi kaynaklara erişmek için tekrar erişmeniz gerekirse, orada bulabilirsiniz.</value>
-  </data>
-  <data name="Menu.PreInstall.Info.2" xml:space="preserve">
-    <value>Herhangi bir konuda yardıma veya rehberliğe ihtiyacınız olursa, [Wiki]({0}) kontrol ettiğinizden emin olun. Hala bir şeye ihtiyacınız varsa, GitHub'da bir [sorun]({1}) açın veya [Discord sunucumuza]({2}) katılın.</value>
-  </data>
-  <data name="Menu.PreInstall.Title" xml:space="preserve">
-    <value>Kurulumdan önce...</value>
-  </data>
   <data name="Menu.Save" xml:space="preserve">
     <value>Kaydet</value>
   </data>
@@ -915,7 +819,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Ayarlar kaydedildi!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Menüsü</value>
+    <value>Bloxstrap Ayarları</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Tercih edilen dili seçiniz</value>
@@ -994,6 +898,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox şu anda indirilemiyor. Daha fazla bilgi için lütfen yardım sayfasını okuyunuz: {0}</value>
+    <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
     <value>Dosyadan içe aktar</value>
@@ -1019,5 +924,313 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
     <value>Sistem varsayılanı</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Yer filtresi doğru biçimlendirilmediği için '{0}' girişi geçerli değil.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap Yükleyicisi</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Hoş geldiniz</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Yükle</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Tamamla</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>İleri</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Bloxstrap'ı indirdiğiniz için teşekkürler.
+
+Bloxstrap'ı indirebileceğiniz tek resmî web siteleri {0} ve {1}'dur, bu yüzden lütfen resmî bir kaynaktan indirdiğinizi doğrulayın.
+
+Bu yükleme işlemi hızlı ve basit olacaktır, ve yükleme işlemi bittikten sonra Bloxstrap'ın her ayarını yapılandırabileceksiniz.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Devam etmek için lütfen "İleri" butonuna tıklayın.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Bloxstrap'ın {0} sürümünü yüklemeye çalışıyorsunuz, fakat mevcut olan en son sürüm {1}. En son sürümü yüklemek ister misiniz?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Yüklenecek yeri seç</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox bu yola da yüklenecektir. Oyunlarınızı başka bir depolama sürücüsüne yüklemeyi tercih ediyorsanız bunu değiştirin. Onun dışında, bunu olduğu gibi tutmanız önerilir.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Mevcut veri bulundu. Modlarınız ve ayarlarınız geri yüklenecek.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Kısayollar</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Masaüstü simgesi</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Başlat Menü simgesi</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap başarıyla yüklendi.
+
+Roblox henüz yüklenmedi, Bloxstrap'ı ilk defa başlattığınızda yüklenecektir. Ancak, bunu yapmadan önce, Bloxstrap'ın ayarlarını yapılandırmak isteyebilirsiniz.
+
+Ayrıca, Roblox'u başlatmak için "Roblox Player" kısayolunu kullanmaktan sakının, yoksa Bloxstrap Roblox ile başlatılmayacaktır. Eğer siteden başlattığınızda Bloxstrap'ı göremezseniz, düzeltmek için Roblox'u Bloxstrap ile masaüstünden bir kez başlatmanız yeterlidir.
+
+Ne yapmak istersiniz?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Bloxstrap'ın ayarlarını yapılandır</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Sunduğu tüm özelliklerle ince ayar yapın</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Roblox'u yükle ve başlat</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Her şey bittikten sonra masaüstü uygulamasına bırakılacaksınız</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Bloxstrap'ı kaldır</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Kaldırmak, Bloxstrap'ı sisteminizden kaldıracaktır, ve hâlâ yüklü ise varsayılan Roblox başlatıcısını otomatik olarak yeniden yapılandıracaktır.
+
+Eğer Roblox ile bir sorun yaşadığınızdan dolayı kaldırıyorsanız veya yeniden yüklüyorsanız, ilk önce [bu yardım sayfasını]({0}) okuyun.
+
+Kaldırma işlemi kendisinin artıklarını tamamen temizleyemeyebilir, bu yüzden Bloxstrap'ın yüklü olduğu yerdeki artık dosyaları manuel olarak temizlemeniz gerekebilir.
+
+Bloxstrap "{1}" yerine yüklüydü.</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Ayarlarımı ve modlarımı tut</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Bloxstrap'ın yüklü olduğu yerde tutulacak, ve bir yeniden yükleme de otomatik olarak geri yüklenecektir.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Roblox'u başlat</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Ayarları yapılandır</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Bir sorun mu yaşıyorsunuz?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Yardım için Wiki'ye göz atın</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Şuan WebView2 runtime sizde yüklü değil. Masaüstü uygulaması gibi bazı Roblox özellikleri WebView2 runtime olmadan düzgün çalışmayacaktır. WebView2 runtime'yi şimdi indirmek ister misiniz?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap Masaüstü ve Başlat menüsüne kısayollar oluşturamadı. Daha sonra ayarlardan oluşturmayı deneyin.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Bu sorunun daha önce bir düzeltme ile ele alınıp alınmadığını görmek için önce [Bloxstrap Wiki'yi]({0}) kontrol edin.
+
+Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricilerine bildirin. Bu istisnayı SAKIN Bloxstrap'ın GitHub issues sayfasına bildirmeyin, çünkü bu bir resmî olmayan yapıdır.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Bunlar, çoktan seçmeli bir başlatma menüsü getiren genel kısayollardır. Belirli fonksiyonlar için kısayollar daha sonra ayarlardan oluşturulabilir.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Bloxstrap'ın nasıl kolayca başlatılabileceğini yapılandırın.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Bunlar çoktan seçmeli başlatma menüsünü getiren kısayollardır.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Fonksiyon</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Bazı fonksiyonlara hızlıca ulaşmak için kısayollar oluşturun. Bunların hepsi Masaüstüne yerleştirilecektir.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Özel sunucuya bağlanıldı</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Rezerve sunucuya bağlanıldı</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Emoji modu şu an uygulanamamaktadır.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Lütfen yükleme işleminin bitmesini bekleyin.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Lütfen kaldırma işleminin bitmesini bekleyin.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Bloxstrap Hakkında</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Lisanslar</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Çevirmenler</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Kaydedilmemiş değişiklikleriniz var. Kaydetmeden kapatmak istediğinizden emin misiniz?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Başlattığınız Bloxstrap sürümü sizde şu an yüklü olan sürümden daha eski. Sorunlar ortaya çıkabilir ve ayarlarınız değişebilir. Bir yeniden yükleme önerilir. Devam etmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox başlatılamadı.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox çöktü.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Lütfen bu diyaloğu kapattığınızda web tarayıcınızda açılacak yardım bilgisini okuyun.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Bir bağlantı sorunu nedeniyle veri yüklenemedi.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Yükleniyor, lütfen bekleyin...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Destekçiler</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Burada listelenen kişiler şu anda Bloxstrap'ı [Ko-fi]({0}) üzerinden destekliyor. Buradaki herkese çok teşekkürler!</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Ayarlarınız yüklenemedi. Ayarlarınız varsayılan yapılandırmaya sıfırlandı.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Fast Flag'leriniz yüklenemedi. Fast Flag'leriniz varsayılan yapılandırmaya sıfırlandı.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Oyun geçmişi</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Yeniden katıl</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Oyun bilgilerini yüklemeye çalışırken bir sorun yaşandığı için şu anki oynadığınız oyun Discord profilinizde görünmeyecektir.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Oyun geçmişi yalnızca şu anki Roblox oturumunuz için kayıt edilir. Oyunlar çıktığınızda veya onların içinden başka bir oyuna ışınlandığınızda burada görünecektir. Tüm sunucular yeniden katılabilir olmayacaktır.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Sunucu konumu sorgulanılamadı. Oyunlara çok hızlı katılıyor olabilirsiniz.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Lütfen daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Bu başlatma için, Roblox güncellemeler için kontrol edilmeyecek, ve modlara değişiklikler uygulanmayacaktır.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Roblox'un yüklenmesi veya yükseltilmesi gerektiği için Bloxstrap devam edemiyor.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap önceden bu yola yüklendi ve hâlâ burada, fakat yükleyici eski çalıştırılabilirin üzerine yazamıyor.
+
+Lütfen manuel olarak yükleme yolundan Bloxstrap.exe'yi silin veya sisteminizi yeniden başlatmayı deneyin, ve sonra yüklemeyi yeniden deneyin.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Mevcut değil</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Uyumluluk ayarlarını yönetin</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>DPI ölçeklendirme ve [tam ekran optimizasyonları]({0}) gibi uygulama parametrelerini yapılandırın.</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox henüz yüklenmedi. Bu seçeneği kullanmaya çalışmadan önce lütfen Roblox'u Bloxstrap'ı kullanarak en az bir kere başlatın.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Yüklemeyi iptal etmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>{0}: {1} kaydetme başarısız oldu</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Seçilen bootstrapper simgesi yüklenemedi.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Roblox simgelerini klasöre çıkar</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Kısayollarınız için Bloxstrap'ın çeşitli Roblox simgelerini kullanmanızı sağlar. [Nasıl olduğunu görün.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap Windows Kayıt Defterine yazamıyor. Bir antivirüs yazılımı muhtelemen müdahale ediyor ve sorunlara neden oluyor. Lütfen Bloxstrap'ın operasyonunu sınırlayan bir şeyin olmadığını kontrol edin.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Aylık</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Tek sefer</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Bloxstrap'ın davranışı ile ilgili ayarları yapılandırın.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Analitikleri göndermeyi etkinleştir</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Hepsi anonim ve kötü bir şey değil, söz. Ne topladığımız ve neden topladığımız hakkında bilgi için [gizlilik politikamıza]({0}) bakın.</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analitikler</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Her şeyi varsayılanlara sıfırla</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>İstisna bildir</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Test modu</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Test modu yinelemelik olarak ayarlarınızın Roblox'u nasıl etkilediğini test etmeyi kolaylaştırır.
+
+Etkinken, kapatana kadar bir döngü içerisinde Ayarları kapattıktan sonra otomatik olarak Roblox'u başlatacak, ve Roblox'u kapattıktan sonra Ayarları yeniden açacak.
+
+Test modu açmak ister misiniz?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Bloxstrap'ın tüm çevirileri [Crowdin]({0}) üzerinden kitle kaynaklıdır. Burada listelenen herkes cömertce Bloxstrap'ı yerelleştirmek için zamanlarını ve çabalarını harcayan kişilerdir. Buradaki herkese çok teşekkürler!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Yükle</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="LaunchMenu.Donate" xml:space="preserve">
+    <value>Bizi Ko-fi üzerinden destekleyin!</value>
+    <comment>Call-to-action button</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Simgeler</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
 </root>
