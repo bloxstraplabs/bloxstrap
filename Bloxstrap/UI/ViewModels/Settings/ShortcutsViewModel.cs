@@ -2,7 +2,7 @@
 {
     public class ShortcutsViewModel : NotifyPropertyChangedViewModel
     {
-        public bool IsStudioOptionVisible => !String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid);
+        public bool IsStudioOptionVisible => App.IsStudioVisible;
 
         public ShortcutTask DesktopIconTask { get; } = new("Desktop", Paths.Desktop, $"{App.ProjectName}.lnk");
 

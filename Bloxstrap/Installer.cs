@@ -91,7 +91,7 @@ namespace Bloxstrap
 
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
 
-            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+            if (App.IsStudioVisible)
                 WindowsRegistry.RegisterStudio();
 
             App.Settings.Save();
@@ -190,7 +190,7 @@ namespace Bloxstrap
             if (!String.IsNullOrEmpty(App.State.Prop.Player.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+            if (App.IsStudioVisible)
                 processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
