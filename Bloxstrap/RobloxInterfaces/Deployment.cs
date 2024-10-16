@@ -86,7 +86,7 @@
 
                 if (finishedTask.IsFaulted)
                     exceptions.Add(finishedTask.Exception!.InnerException!);
-                else
+                else if (!finishedTask.IsCanceled)
                     BaseUrl = finishedTask.Result;
             }
 
@@ -94,7 +94,11 @@
             tokenSource.Cancel();
 
             if (string.IsNullOrEmpty(BaseUrl))
-                return exceptions[0];
+            {
+                if (exceptions.Any())
+                    return exceptions[0];
+                return new TaskCanceledException("All tasks have been cancelled"); // we can't add TaskCanceledExceptions to the list
+            }
 
             App.Logger.WriteLine(LOG_IDENT, $"Got {BaseUrl} as the optimal base URL");
 
