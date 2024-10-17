@@ -5,6 +5,10 @@ body:
   - type: markdown
     attributes:
       value: |
+        > [!IMPORTANT]
+        > Do NOT open an issue if you're getting an error saying "The given key 'redist.zip' was not present in the dictionary." error.
+        > This problem has been fixed in the latest version of Bloxstrap. You either have auto-updates disabled or are using someone's custom build of an old version.
+        > Download the latest version [here](https://github.com/pizzaboxer/bloxstrap/releases/latest).
         ### **Preliminary instructions**
         - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
           - If it isn't, please confirm which pages that you read that were relevant to your issue.
