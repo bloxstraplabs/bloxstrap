@@ -40,11 +40,15 @@
         </Grid>
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
-            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <Button x:Name="ReportExceptionButton" Content="{x:Static resources:Strings.Dialog_Exception_Report}" />
-                <Button x:Name="LocateLogFileButton" Content="{x:Static resources:Strings.Common_OpenLogFile}" Margin="12,0,0,0" />
-                <Button x:Name="CloseButton" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Margin="12,0,0,0" />
-            </StackPanel>
+            <Grid>
+                <TextBlock x:Name="VersionText" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Version 2.8.0" />
+                
+                <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+                    <Button x:Name="ReportExceptionButton" Content="{x:Static resources:Strings.Dialog_Exception_Report}" />
+                    <Button x:Name="LocateLogFileButton" Content="{x:Static resources:Strings.Common_OpenLogFile}" Margin="12,0,0,0" />
+                    <Button x:Name="CloseButton" MinWidth="100" Content="{x:Static resources:Strings.Common_Close}" Margin="12,0,0,0" />
+                </StackPanel>
+            </Grid>
         </Border>
     </Grid>
 </base:WpfUiWindow>

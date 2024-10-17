@@ -975,6 +975,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Version {0}.
+        /// </summary>
+        public static string Dialog_Exception_Version {
+            get {
+                return ResourceManager.GetString("Dialog.Exception.Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The chosen bootstrapper icon could not be loaded.
         ///
         ///{0}.
