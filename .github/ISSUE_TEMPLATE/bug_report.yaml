@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > Do NOT open an issue if you're getting an error saying "The given key 'redist.zip' was not present in the dictionary."
+        > Do NOT open an issue if you're getting an error saying `The given key 'redist.zip' was not present in the dictionary.`, or if you're getting stuck on "Configuring Roblox...".
         > This problem has been fixed in the latest version of Bloxstrap. You either have auto-updates disabled or are using someone's custom build of an old version.
         > Download the latest version [here](https://github.com/pizzaboxer/bloxstrap/releases/latest).
         ### **Preliminary instructions**
