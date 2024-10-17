@@ -44,5 +44,10 @@
             </controls:OptionControl.Style>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
         </controls:OptionControl>
+        
+        <controls:OptionControl
+            Header="Channel">
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding ViewChannel, Mode=TwoWay}"/>
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

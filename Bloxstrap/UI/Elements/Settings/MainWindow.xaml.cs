@@ -29,10 +29,6 @@ namespace Bloxstrap.UI.Elements.Settings
 
             App.Logger.WriteLine("MainWindow", "Initializing settings window");
 
-#if DEBUG // easier access
-            EditorWarningNavItem.Visibility = Visibility.Visible;
-#endif
-
             if (showAlreadyRunningWarning)
                 ShowAlreadyRunningSnackbar();
 

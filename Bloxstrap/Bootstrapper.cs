@@ -262,25 +262,39 @@ namespace Bloxstrap
 
             var match = Regex.Match(App.LaunchSettings.RobloxLaunchArgs, "channel:([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
-            if (match.Groups.Count == 2)
+            bool ForceChannel = Deployment.Channel==Deployment.DefaultChannel;
+
+            if (match.Groups.Count == 2 && !ForceChannel)
             {
                 Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
             }
-            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
+            else if ((key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value)) && !ForceChannel)
             {
                 Deployment.Channel = value.ToLowerInvariant();
             }
 
+            if (ForceChannel)
+            {
+                Deployment.Channel = App.Settings.Prop.Channel.ToLowerInvariant();
+            }
+
             App.Logger.WriteLine(LOG_IDENT, "Got channel as " + (String.IsNullOrEmpty(Deployment.Channel) ? Deployment.DefaultChannel : Deployment.Channel));
 
-            if (Deployment.Channel != "production")
+            if (Deployment.Channel != "production" && !ForceChannel)
                 App.SendStat("robloxChannel", Deployment.Channel);
 
             ClientVersion clientVersion;
 
             try
             {
-                clientVersion = await Deployment.GetInfo();
+                if (ForceChannel)
+                {
+                    clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
+                } else
+                {
+                    clientVersion = await Deployment.GetInfo();
+                }
+                
             }
             catch (HttpRequestException ex)
             {
@@ -299,8 +313,15 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because channel is behind production");
 
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
+                if (ForceChannel)
+                {
+                    clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
+                }
+                else
+                {
+                    Deployment.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo();
+                }
             }
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);

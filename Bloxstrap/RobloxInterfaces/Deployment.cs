@@ -9,6 +9,7 @@ namespace Bloxstrap.RobloxInterfaces
         
         private const string VersionStudioHash = "version-012732894899482c";
 
+
         public static string Channel = App.Settings.Prop.Channel;
 
         public static string BinaryType = "WindowsPlayer";
@@ -173,7 +174,7 @@ namespace Bloxstrap.RobloxInterfaces
                 {
                     var defaultClientVersion = await GetInfo(DefaultChannel);
 
-                    if (Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == VersionComparison.LessThan)
+                    if ((Utilities.CompareVersions(clientVersion.Version, defaultClientVersion.Version) == VersionComparison.LessThan))
                         clientVersion.IsBehindDefaultChannel = true;
                 }
 

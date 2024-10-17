@@ -38,5 +38,11 @@
                 }
             }
         }
+
+        public string ViewChannel
+        {
+            get => App.Settings.Prop.Channel;
+            set => App.Settings.Prop.Channel = value;
+        }
     }
 }

@@ -5,21 +5,19 @@ namespace Bloxstrap.Models.Persistable
     public class Settings
     {
         // bloxstrap configuration
-        public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.FluentDialog;
+        public BootstrapperStyle BootstrapperStyle { get; set; } = BootstrapperStyle.FluentAeroDialog;
         public BootstrapperIcon BootstrapperIcon { get; set; } = BootstrapperIcon.IconBloxstrap;
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
-        public bool CheckForUpdates { get; set; } = true;
+        public bool CheckForUpdates { get; set; } = false;
         public bool ConfirmLaunches { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
         public bool EnableAnalytics { get; set; } = true;
-
-        public bool ForceChannel { get; set; } = false;
-        public string Channel { get; set; } = "production";
+        public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
 
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
