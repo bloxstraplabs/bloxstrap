@@ -41,7 +41,7 @@
 
         <Border Grid.Row="2" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <Grid>
-                <TextBlock x:Name="VersionText" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Version 2.8.0" />
+                <TextBlock x:Name="VersionText" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="Version 2.8.0" />
                 
                 <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                     <Button x:Name="ReportExceptionButton" Content="{x:Static resources:Strings.Dialog_Exception_Report}" />
