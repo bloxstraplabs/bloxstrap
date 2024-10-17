@@ -1040,7 +1040,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Early 2015.
+        ///   Looks up a localized string similar to .
         /// </summary>
         public static string Enums_BootstrapperIcon_IconEarly2015 {
             get {
@@ -1270,6 +1270,24 @@ namespace Bloxstrap.Resources {
         public static string Enums_FlagPresets_RenderingMode_D3D11 {
             get {
                 return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.D3D11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OpenGL.
+        /// </summary>
+        public static string Enums_FlagPresets_RenderingMode_OpenGL {
+            get {
+                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.OpenGL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vulkan.
+        /// </summary>
+        public static string Enums_FlagPresets_RenderingMode_Vulkan {
+            get {
+                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.Vulkan", resourceCulture);
             }
         }
         
