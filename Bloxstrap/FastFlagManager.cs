@@ -24,6 +24,8 @@ namespace Bloxstrap
             { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
+            { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
+            { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
 
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
@@ -38,7 +40,7 @@ namespace Bloxstrap
             { "UI.FontSize", "FIntFontSizePadding" },
 
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
-            
+
             { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
             { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
             { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
@@ -55,6 +57,8 @@ namespace Bloxstrap
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
         {
             { RenderingMode.Default, "None" },
+            { RenderingMode.Vulkan, "Vulkan" },
+            { RenderingMode.OpenGL, "OpenGL" },
             { RenderingMode.D3D11, "D3D11" },
             { RenderingMode.D3D10, "D3D10" },
         };

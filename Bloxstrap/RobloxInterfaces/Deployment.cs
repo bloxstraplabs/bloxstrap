@@ -1,4 +1,7 @@
-﻿namespace Bloxstrap.RobloxInterfaces
+﻿using Bloxstrap.Properties;
+using System.Configuration;
+
+namespace Bloxstrap.RobloxInterfaces
 {
     public static class Deployment
     {
@@ -6,7 +9,7 @@
         
         private const string VersionStudioHash = "version-012732894899482c";
 
-        public static string Channel = DefaultChannel;
+        public static string Channel = App.Settings.Prop.Channel;
 
         public static string BinaryType = "WindowsPlayer";
 

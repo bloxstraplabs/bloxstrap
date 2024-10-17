@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 using Wpf.Ui.Appearance;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
@@ -14,15 +9,16 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
 
-        [Obsolete("Do not use this! This is for the designer only.", true)]
-        public FluentDialogViewModel() : base()
-        { }
-
-        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
+        public string VersionText { get; init; }
+        public string ChannelText { get; init; }
+        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string version, string channel) : base(dialog)
         {
             const int alpha = 128;
 
             WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
+
+            VersionText = version;
+            ChannelText = channel;
 
             if (aero)
             {

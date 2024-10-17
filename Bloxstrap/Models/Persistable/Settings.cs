@@ -18,6 +18,9 @@ namespace Bloxstrap.Models.Persistable
         public bool WPFSoftwareRender { get; set; } = false;
         public bool EnableAnalytics { get; set; } = true;
 
+        public bool ForceChannel { get; set; } = false;
+        public string Channel { get; set; } = "production";
+
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;

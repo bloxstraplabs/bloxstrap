@@ -27,16 +27,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
             DoCountdown();
         }
 
-        private async void DoCountdown()
+        private void DoCountdown()
         {
-            for (int i = 10; i > 0; i--)
-            {
-                ContinueButtonText = $"({i}) {Strings.Menu_FastFlagEditor_Warning_Continue}";
-                OnPropertyChanged(nameof(ContinueButtonText));
-
-                await Task.Delay(1000);
-            }
-
             ContinueButtonText = Strings.Menu_FastFlagEditor_Warning_Continue;
             OnPropertyChanged(nameof(ContinueButtonText));
 
