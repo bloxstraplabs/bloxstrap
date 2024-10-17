@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Security.Cryptography;
 using System.Windows;
+using System.Windows.Shell;
 using System.Windows.Threading;
 
 using Microsoft.Win32;
@@ -34,6 +35,8 @@ namespace Bloxstrap
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
+
+        public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
         public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
@@ -103,6 +106,14 @@ namespace Bloxstrap
                 return;
 
             _showingExceptionDialog = true;
+
+            if (Bootstrapper?.Dialog != null)
+            {
+                if (Bootstrapper.Dialog.TaskbarProgressValue == 0)
+                    Bootstrapper.Dialog.TaskbarProgressValue = 1; // make sure it's visible
+
+                Bootstrapper.Dialog.TaskbarProgressState = TaskbarItemProgressState.Error;
+            }
 
             Frontend.ShowExceptionDialog(ex);
 
