@@ -43,4 +43,4 @@ body:
       label: Bloxstrap Log
       description: If you're getting a Bloxstrap Exception error, upload your log file here. Otherwise, just leave it empty.
       value: "N/A"
-      #render: text
+      render: text
