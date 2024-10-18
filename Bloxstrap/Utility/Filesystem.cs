@@ -11,14 +11,21 @@ namespace Bloxstrap.Utility
     {
         internal static long GetFreeDiskSpace(string path)
         {
-            foreach (var drive in DriveInfo.GetDrives())
+            try
             {
-                // https://github.com/bloxstraplabs/bloxstrap/issues/1648#issuecomment-2192571030
-                if (path.ToUpperInvariant().StartsWith(drive.Name))
-                    return drive.AvailableFreeSpace;
+                var isUri = Uri.TryCreate(p, UriKind.RelativeOrAbsolute, out var u);
+    			if (!Path.IsPathRooted(p) || !Path.IsPathFullyQualified(p) || (isUri && (u?.IsUnc??false)))
+                {
+                    return -1;
+                }
+                var drive = new DriveInfo(p);
+                return drive.AvailableFreeSpace;
             }
-
-            return -1;
+	    catch (ArgumentException e)
+	    {
+		App.Logger.WriteLine("Filesystem::BadPath", $"The path: {p} does not contain a valid drive info.");
+		return -1
+	    }
         }
 
         internal static void AssertReadOnly(string filePath)
