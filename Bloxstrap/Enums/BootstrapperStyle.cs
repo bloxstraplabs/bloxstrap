@@ -10,6 +10,7 @@
         ByfronDialog,
         [EnumName(StaticName = "Bloxstrap")]
         FluentDialog,
-        FluentAeroDialog
+        FluentAeroDialog,
+        CustomDialog
     }
 }
