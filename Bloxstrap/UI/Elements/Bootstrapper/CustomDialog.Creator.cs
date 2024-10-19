@@ -392,9 +392,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             dialog.Margin = new Thickness(0, 0, 0, 0);
             dialog.Padding = new Thickness(0, 0, 0, 0);
-
-            dialog.MaxHeight = dialog.Height;
-            dialog.MaxWidth = dialog.Width;
         }
 
         private static void HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
