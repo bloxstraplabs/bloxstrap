@@ -501,6 +501,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             var image = new Image();
             HandleXmlElement_FrameworkElement(dialog, image, xmlElement);
 
+            image.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            image.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
             string sourcePath = GetXmlAttribute(xmlElement, "Source");
             sourcePath = sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
 
