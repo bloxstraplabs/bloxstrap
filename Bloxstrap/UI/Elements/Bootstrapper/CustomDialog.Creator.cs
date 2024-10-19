@@ -363,7 +363,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (borderThickness != null)
                 uiElement.BorderThickness = (Thickness)borderThickness;
 
-            // TODO: this isn't working for BloxstrapCustomBootstrapper. likely because of wpf.ui's themeservice.
             object? foregroundBrush = GetBrushFromXElement(xmlElement, "Background");
             if (foregroundBrush is Brush)
                 uiElement.Background = (Brush)foregroundBrush;
