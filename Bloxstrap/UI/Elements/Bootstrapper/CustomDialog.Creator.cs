@@ -225,6 +225,31 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
+        private static TextDecorationCollection? GetTextDecorationsFromXElement(XElement element)
+        {
+            string? value = element.Attribute("TextDecorations")?.Value?.ToString();
+            if (string.IsNullOrEmpty(value))
+                return null;
+
+            switch (value)
+            {
+                case "Baseline":
+                    return TextDecorations.Baseline;
+
+                case "OverLine":
+                    return TextDecorations.OverLine;
+
+                case "Strikethrough":
+                    return TextDecorations.Strikethrough;
+
+                case "Underline":
+                    return TextDecorations.Underline;
+
+                default:
+                    throw new Exception($"{element.Name} Unknown TextDecorations {value}");
+            }
+        }
+
         /// <summary>
         /// Return type of string = Name of DynamicResource
         /// Return type of brush = ... The Brush!!!
@@ -482,7 +507,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             textBlock.FontWeight = GetFontWeightFromXElement(xmlElement);
             textBlock.FontStyle = GetFontStyleFromXElement(xmlElement);
 
+            textBlock.LineHeight = ParseXmlAttribute<double>(xmlElement, "LineHeight", double.NaN);
+            textBlock.LineStackingStrategy = ParseXmlAttribute<LineStackingStrategy>(xmlElement, "LineStackingStrategy", LineStackingStrategy.MaxHeight);
+
             textBlock.TextAlignment = ParseXmlAttribute<TextAlignment>(xmlElement, "TextAlignment", TextAlignment.Center);
+            textBlock.TextTrimming = ParseXmlAttribute<TextTrimming>(xmlElement, "TextTrimming", TextTrimming.None);
+            textBlock.TextWrapping = ParseXmlAttribute<TextWrapping>(xmlElement, "TextWrapping", TextWrapping.NoWrap);
+            textBlock.TextDecorations = GetTextDecorationsFromXElement(xmlElement);
+
+            textBlock.IsHyphenationEnabled = ParseXmlAttribute<bool>(xmlElement, "IsHyphenationEnabled", false);
+            textBlock.BaselineOffset = ParseXmlAttribute<double>(xmlElement, "BaselineOffset", double.NaN);
+
+            object? padding = GetThicknessFromXElement(xmlElement, "Padding");
+            if (padding != null)
+                textBlock.Padding = (Thickness)padding;
 
             if (xmlElement.Attribute("Name")?.Value == "StatusText")
             {
