@@ -335,6 +335,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             uiElement.Name = name;
 
             uiElement.Visibility = ParseXmlAttribute<Visibility>(xmlElement, "Visibility", Visibility.Visible);
+            uiElement.IsEnabled = ParseXmlAttribute<bool>(xmlElement, "IsEnabled", true);
 
             object? margin = GetThicknessFromXElement(xmlElement, "Margin");
             if (margin != null)
@@ -379,6 +380,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static void HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
+            xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
             var theme = ParseXmlAttribute<Theme>(xmlElement, "Theme", Theme.Default);
@@ -396,6 +398,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static void HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Name", "TitleBar"); // prevent two titlebars from existing
+            xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog.RootTitleBar, xmlElement);
 
             Panel.SetZIndex(dialog.RootTitleBar, 1001); // always show above others
