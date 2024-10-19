@@ -530,7 +530,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     throw new Exception($"Image Failed to create BitmapImage: {ex.Message}", ex);
                 }
 
-                image.Source = bitmapImage;
+                bool isAnimated = ParseXmlAttribute<bool>(xmlElement, "IsAnimated", false);
+                if (!isAnimated)
+                    image.Source = bitmapImage;
+                else // we create the bitmapimage to check if the gif is valid
+                    XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, result);
             }
 
             ApplyTransformations_UIElement(image, xmlElement);
