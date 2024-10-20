@@ -224,7 +224,8 @@ namespace Bloxstrap.UI.Elements.Editor
             int endIdx = Math.Min(endIdx1, endIdx2);
             if (endIdx2 > 0 && endIdx2 < int.MaxValue && endIdx > startIdx)
             {
-                return xml.Substring(startIdx + 1, endIdx - startIdx - 1);
+                string element = xml.Substring(startIdx + 1, endIdx - startIdx - 1);
+                return element == "!--" ? null : element; // dont treat comments as elements
             }
             else
             {
