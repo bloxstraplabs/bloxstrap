@@ -16,18 +16,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
     {
         private const int MaxElements = 100;
 
-        private static ThicknessConverter? _thicknessConverter = null;
-        private static ThicknessConverter ThicknessConverter { get => _thicknessConverter ??= new ThicknessConverter(); }
-
-        private static BrushConverter? _brushConverter = null;
-        private static BrushConverter BrushConverter { get => _brushConverter ??= new BrushConverter(); }
-
-        private static RectConverter? _rectConverter = null;
-        public static RectConverter RectConverter { get => _rectConverter ??= new RectConverter(); }
-
-        private static ColorConverter? _colorConverter = null;
-        public static ColorConverter ColorConverter { get => _colorConverter ??= new ColorConverter(); }
-
         private bool _initialised = false;
 
         // prevent users from creating elements with the same name multiple times
@@ -65,26 +53,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         };
 
         #region Utilities
-        // https://stackoverflow.com/a/2961702
-        private static T? ConvertValue<T>(string input) where T : struct
-        {
-            try
-            {
-                var converter = TypeDescriptor.GetConverter(typeof(T));
-                if (converter != null)
-                {
-                    // Cast ConvertFromString(string text) : object to (T)
-                    //return (T?)converter.ConvertFromString(input);
-                    return (T?)converter.ConvertFromInvariantString(input);
-                }
-                return default;
-            }
-            catch (NotSupportedException)
-            {
-                return default;
-            }
-        }
-
         private static string GetXmlAttribute(XElement element, string attributeName, string? defaultValue = null)
         {
             var attribute = element.Attribute(attributeName);
@@ -165,72 +133,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             int value = ParseXmlAttribute<int>(element, attributeName, defaultValue);
             ValidateXmlElement(element.Name.ToString(), attributeName, value, min, max);
             return value;
-        }
-
-        private static object? GetThicknessFromXElement(XElement xmlElement, string attributeName)
-        {
-            string? attributeValue = xmlElement.Attribute(attributeName)?.Value?.ToString();
-            if (attributeValue == null)
-                return null;
-
-            object? thickness;
-            try
-            {
-                thickness = ThicknessConverter.ConvertFromInvariantString(attributeValue);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
-            }
-
-            if (thickness == null)
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
-
-            return thickness;
-        }
-
-        private static object? GetRectFromXElement(XElement xmlElement, string attributeName)
-        {
-            string? attributeValue = xmlElement.Attribute(attributeName)?.Value?.ToString();
-            if (attributeValue == null)
-                return null;
-
-            object? rect;
-            try
-            {
-                rect = RectConverter.ConvertFromInvariantString(attributeValue);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
-            }
-
-            if (rect == null)
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
-
-            return rect;
-        }
-
-        private static object? GetColorFromXElement(XElement xmlElement, string attributeName)
-        {
-            string? attributeValue = xmlElement.Attribute(attributeName)?.Value?.ToString();
-            if (attributeValue == null)
-                return null;
-
-            object? color;
-            try
-            {
-                color = ColorConverter.ConvertFromInvariantString(attributeValue);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
-            }
-
-            if (color == null)
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
-
-            return color;
         }
 
         private static FontWeight GetFontWeightFromXElement(XElement element)
@@ -325,30 +227,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
                 default:
                     throw new Exception($"{element.Name} Unknown TextDecorations {value}");
-            }
-        }
-
-        /// <summary>
-        /// Return type of string = Name of DynamicResource
-        /// Return type of brush = ... The Brush!!!
-        /// </summary>
-        private static object? GetBrushFromXElement(XElement element, string attributeName)
-        {
-            string? value = element.Attribute(attributeName)?.Value?.ToString();
-            if (value == null)
-                return null;
-
-            // dynamic resource name
-            if (value.StartsWith('{') && value.EndsWith('}'))
-                return value[1..^1];
-
-            try
-            {
-                return BrushConverter.ConvertFromInvariantString(value);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{element.Name} has invalid {attributeName}: {ex.Message}", ex);
             }
         }
         #endregion
