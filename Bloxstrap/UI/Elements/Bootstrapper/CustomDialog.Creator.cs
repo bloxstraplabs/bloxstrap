@@ -5,7 +5,10 @@ using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Xml.Linq;
+
 using Wpf.Ui.Markup;
+
+using Bloxstrap.UI.Elements.Controls;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
@@ -36,6 +39,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["Button"] = HandleXmlElement_Button,
             ["ProgressBar"] = HandleXmlElement_ProgressBar,
             ["TextBlock"] = HandleXmlElement_TextBlock,
+            ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image
         };
 
@@ -490,9 +494,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.ElementGrid.Children.Add(progressBar);
         }
 
-        private static void HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
+        private static void HandleXmlElement_TextBlock_Base(CustomDialog dialog, TextBlock textBlock, XElement xmlElement)
         {
-            var textBlock = new TextBlock();
             HandleXmlElement_FrameworkElement(dialog, textBlock, xmlElement);
 
             textBlock.Text = xmlElement.Attribute("Text")?.Value;
@@ -529,6 +532,24 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
 
             ApplyTransformations_UIElement(textBlock, xmlElement);
+        }
+
+        private static void HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
+        {
+            var textBlock = new TextBlock();
+            HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
+
+            dialog.ElementGrid.Children.Add(textBlock);
+        }
+
+        private static void HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
+        {
+            var textBlock = new MarkdownTextBlock();
+            HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
+
+            string? text = xmlElement.Attribute("Text")?.Value;
+            if (text != null)
+                textBlock.MarkdownText = text;
 
             dialog.ElementGrid.Children.Add(textBlock);
         }
