@@ -126,13 +126,20 @@
 				"Y": "double"
 			}
 		},
-		"RenderTransform": {
+		"ImageBrush": {
 			"IsCreatable": true,
-			"Attributes": {}
-		},
-		"Content": {
-			"IsCreatable": true,
-			"Attributes": {}
+			"Attributes": {
+				"AlignmentX": "AlignmentX",
+				"AlignmentY": "AlignmentY",
+				"Opacity": "double",
+				"Stretch": "Stretch",
+				"TileMode": "TileMode",
+				"ViewboxUnits": "BrushMappingMode",
+				"ViewportUnits": "BrushMappingMode",
+				"Viewbox": "Rect",
+				"Viewport": "Rect",
+				"ImageSource": "Source"
+			}
 		}
 	},
 	"Types": {
@@ -146,6 +153,7 @@
 		"int": {},
 		"double": {},
 		"Thickness": {},
+		"Rect": {},
 		"Brush": {},
 		"Content": {},
 		"Visibility": {
@@ -245,6 +253,35 @@
 				"UpOnly",
 				"DownOnly",
 				"Both"
+			]
+		},
+		"AlignmentX": {
+			"Values": [
+				"Left",
+				"Center",
+				"Right"
+			]
+		},
+		"AlignmentY": {
+			"Values": [
+				"Top",
+				"Center",
+				"Bottom"
+			]
+		},
+		"TileMode": {
+			"Values": [
+				"None",
+				"FlipX",
+				"FlipY",
+				"FlipXY",
+				"Tile"
+			]
+		},
+		"BrushMappingMode": {
+			"Values": [
+				"Absolute",
+				"RelativeToBoundingBox"
 			]
 		}
 	}
