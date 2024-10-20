@@ -29,7 +29,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private string ThemeDir { get; set; } = "";
 
-        delegate void HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
+        delegate UIElement HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
         delegate void HandleXmlTransformationElementDelegate(TransformGroup group, XElement xmlElement);
 
         private static Dictionary<string, HandleXmlElementDelegate> _elementHandlerMap = new Dictionary<string, HandleXmlElementDelegate>()
@@ -98,6 +98,23 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
                 throw new Exception($"Element {element.Name} is missing the {attributeName} attribute");
             }
+
+            T? parsed = ConvertValue<T>(attribute.Value);
+            if (parsed == null)
+                throw new Exception($"{element.Name} height is not a valid {typeof(T).Name}");
+
+            return (T)parsed;
+        }
+
+        /// <summary>
+        /// ParseXmlAttribute but the default value is always null
+        /// </summary>
+        private static T? ParseXmlAttributeNullable<T>(XElement element, string attributeName) where T : struct
+        {
+            var attribute = element.Attribute(attributeName);
+
+            if (attribute == null)
+                return null;
 
             T? parsed = ConvertValue<T>(attribute.Value);
             if (parsed == null)
@@ -408,7 +425,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 uiElement.SetResourceReference(Control.BorderBrushProperty, borderBrush);
         }
 
-        private static void HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
             xmlElement.SetAttributeValue("IsEnabled", "True");
@@ -424,9 +441,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             dialog.Margin = new Thickness(0, 0, 0, 0);
             dialog.Padding = new Thickness(0, 0, 0, 0);
+
+            return null; // dont add anything
         }
 
-        private static void HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Name", "TitleBar"); // prevent two titlebars from existing
             xmlElement.SetAttributeValue("IsEnabled", "True");
@@ -446,14 +465,36 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             string? title = xmlElement.Attribute("Title")?.Value?.ToString() ?? "Bloxstrap";
             dialog.Title = title;
             dialog.RootTitleBar.Title = title;
+
+            return null; // dont add anything
         }
 
-        private static void HandleXmlElement_Button(CustomDialog dialog, XElement xmlElement)
+        private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
+        {
+            var contentAttr = xmlElement.Attribute("Content");
+            if (contentAttr != null)
+                return contentAttr.Value.ToString();
+
+            var contentElement = xmlElement.Element("Content");
+            if (contentElement != null)
+            {
+                var first = contentElement.FirstNode as XElement;
+                if (first == null)
+                    throw new Exception($"{xmlElement.Name} Content is missing the content");
+
+                var uiElement = HandleXml(dialog, first);
+                return uiElement;
+            }
+
+            return null;
+        }
+
+        private static UIElement? HandleXmlElement_Button(CustomDialog dialog, XElement xmlElement)
         {
             var button = new Button();
             HandleXmlElement_Control(dialog, button, xmlElement);
 
-            button.Content = xmlElement.Attribute("Text")?.Value?.ToString();
+            button.Content = GetContentFromXElement(dialog, xmlElement);
 
             if (xmlElement.Attribute("Name")?.Value == "CancelButton")
             {
@@ -466,10 +507,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ApplyTransformations_UIElement(button, xmlElement);
 
-            dialog.ElementGrid.Children.Add(button);
+            return button;
         }
 
-        private static void HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
         {
             var progressBar = new ProgressBar();
             HandleXmlElement_Control(dialog, progressBar, xmlElement);
@@ -493,7 +534,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ApplyTransformations_UIElement(progressBar, xmlElement);
 
-            dialog.ElementGrid.Children.Add(progressBar);
+            return progressBar;
         }
 
         private static void HandleXmlElement_TextBlock_Base(CustomDialog dialog, TextBlock textBlock, XElement xmlElement)
@@ -536,15 +577,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ApplyTransformations_UIElement(textBlock, xmlElement);
         }
 
-        private static void HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
         {
             var textBlock = new TextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
 
-            dialog.ElementGrid.Children.Add(textBlock);
+            return textBlock;
         }
 
-        private static void HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
         {
             var textBlock = new MarkdownTextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
@@ -553,10 +594,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (text != null)
                 textBlock.MarkdownText = text;
 
-            dialog.ElementGrid.Children.Add(textBlock);
+            return textBlock;
         }
 
-        private static void HandleXmlElement_Image(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXmlElement_Image(CustomDialog dialog, XElement xmlElement)
         {
             var image = new Image();
             HandleXmlElement_FrameworkElement(dialog, image, xmlElement);
@@ -606,15 +647,23 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ApplyTransformations_UIElement(image, xmlElement);
 
-            dialog.ElementGrid.Children.Add(image);
+            return image;
         }
 
-        private void HandleXml(CustomDialog dialog, XElement xmlElement)
+        private static UIElement? HandleXml(CustomDialog dialog, XElement xmlElement)
         {
             if (!_elementHandlerMap.ContainsKey(xmlElement.Name.ToString()))
                 throw new Exception($"Unknown element {xmlElement.Name}");
 
-            _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
+            var uiElement = _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
+            return uiElement;
+        }
+
+        private static void HandleAndAddXml(CustomDialog dialog, XElement xmlElement)
+        {
+            var uiElement = HandleXml(dialog, xmlElement);
+            if (uiElement != null)
+                dialog.ElementGrid.Children.Add(uiElement);
         }
 
         private void HandleXmlBase(XElement xml)
@@ -638,7 +687,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             // handle everything else
             foreach (var child in xml.Elements())
-                HandleXml(this, child);
+                HandleAndAddXml(this, child);
         }
         #endregion
 
