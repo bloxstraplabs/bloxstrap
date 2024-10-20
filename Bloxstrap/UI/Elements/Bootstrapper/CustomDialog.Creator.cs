@@ -335,16 +335,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static void ApplyTransformations_UIElement(UIElement uiElement, XElement xmlElement)
         {
-            if (!xmlElement.HasElements)
-                return;
+            var renderTransform = xmlElement.Element("RenderTransform");
 
-            var tg = new TransformGroup();
+            if (renderTransform != null)
+            {
+                var tg = new TransformGroup();
 
-            foreach (var child in xmlElement.Elements())
-                HandleXmlTransformation(tg, child);
+                foreach (var child in renderTransform.Elements())
+                    HandleXmlTransformation(tg, child);
 
-            if (tg.Children.Any())
-                uiElement.RenderTransform = tg;
+                if (tg.Children.Any())
+                    uiElement.RenderTransform = tg;
+            }
         }
         #endregion
 
