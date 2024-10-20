@@ -30,6 +30,14 @@ body:
         - label: I am using the latest version of Bloxstrap.
           required: true
         - label: I did not answer truthfully to all the above checkboxes.
+  - type: input
+    id: version
+    attributes:
+      label: Bloxstrap Version
+      description: "What version of Bloxstrap are you using?"
+      placeholder: "v1.0.0"
+    validations:
+      required: true
   - type: textarea
     id: what-happened
     attributes:
