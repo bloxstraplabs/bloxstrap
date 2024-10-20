@@ -14,6 +14,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     public partial class CustomDialog
     {
+        private class DummyFrameworkElement : FrameworkElement { }
+
         private const int MaxElements = 100;
 
         private bool _initialised = false;
@@ -23,35 +25,29 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private string ThemeDir { get; set; } = "";
 
-        delegate UIElement? HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
-        delegate Brush HandleXmlBrushElementDelegate(CustomDialog dialog, XElement xmlElement);
-        delegate void HandleXmlTransformationElementDelegate(TransformGroup group, XElement xmlElement);
+        delegate object HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
 
         private static Dictionary<string, HandleXmlElementDelegate> _elementHandlerMap = new Dictionary<string, HandleXmlElementDelegate>()
         {
-            //["BloxstrapCustomBootstrapper"] = HandleXmlElement_BloxstrapCustomBootstrapper,
             ["TitleBar"] = HandleXmlElement_TitleBar,
             ["Button"] = HandleXmlElement_Button,
             ["ProgressBar"] = HandleXmlElement_ProgressBar,
             ["TextBlock"] = HandleXmlElement_TextBlock,
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
-            ["Image"] = HandleXmlElement_Image
+            ["Image"] = HandleXmlElement_Image,
+
+            ["SolidColorBrush"] = HandleXml_SolidColorBrush,
+            ["ImageBrush"] = HandleXml_ImageBrush,
+            ["LinearGradientBrush"] = HandleXml_LinearGradientBrush,
+
+            ["GradientStop"] = HandleXml_GradientStop,
+
+            ["ScaleTransform"] = HandleXml_ScaleTransform,
+            ["SkewTransform"] = HandleXml_SkewTransform,
+            ["RotateTransform"] = HandleXml_RotateTransform,
+            ["TranslateTransform"] = HandleXml_TranslateTransform
         };
 
-        private static Dictionary<string, HandleXmlBrushElementDelegate> _brushHandlerMap = new Dictionary<string, HandleXmlBrushElementDelegate>()
-        {
-            ["SolidColorBrush"] = HandleXmlBrush_SolidColorBrush,
-            ["ImageBrush"] = HandleXmlBrush_ImageBrush,
-            ["LinearGradientBrush"] = HandleXmlBrush_LinearGradientBrush
-        };
-
-        private static Dictionary<string, HandleXmlTransformationElementDelegate> _transformationHandlerMap = new Dictionary<string, HandleXmlTransformationElementDelegate>()
-        {
-            ["ScaleTransform"] = HandleXmlTransformationElement_ScaleTransform,
-            ["SkewTransform"] = HandleXmlTransformationElement_SkewTransform,
-            ["RotateTransform"] = HandleXmlTransformationElement_RotateTransform,
-            ["TranslateTransform"] = HandleXmlTransformationElement_TranslateTransform
-        };
 
         #region Utilities
         private static string GetXmlAttribute(XElement element, string attributeName, string? defaultValue = null)
@@ -233,7 +229,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         #endregion
 
         #region Transformation Elements
-        private static void HandleXmlTransformationElement_ScaleTransform(TransformGroup group, XElement xmlElement)
+        private static Transform HandleXml_ScaleTransform(CustomDialog dialog, XElement xmlElement)
         {
             var st = new ScaleTransform();
 
@@ -242,10 +238,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             st.CenterX = ParseXmlAttribute<double>(xmlElement, "CenterX", 0);
             st.CenterY = ParseXmlAttribute<double>(xmlElement, "CenterY", 0);
 
-            group.Children.Add(st);
+            return st;
         }
 
-        private static void HandleXmlTransformationElement_SkewTransform(TransformGroup group, XElement xmlElement)
+        private static Transform HandleXml_SkewTransform(CustomDialog dialog, XElement xmlElement)
         {
             var st = new SkewTransform();
 
@@ -254,10 +250,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             st.CenterX = ParseXmlAttribute<double>(xmlElement, "CenterX", 0);
             st.CenterY = ParseXmlAttribute<double>(xmlElement, "CenterY", 0);
 
-            group.Children.Add(st);
+            return st;
         }
 
-        private static void HandleXmlTransformationElement_RotateTransform(TransformGroup group, XElement xmlElement)
+        private static Transform HandleXml_RotateTransform(CustomDialog dialog, XElement xmlElement)
         {
             var rt = new RotateTransform();
 
@@ -265,28 +261,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             rt.CenterX = ParseXmlAttribute<double>(xmlElement, "CenterX", 0);
             rt.CenterY = ParseXmlAttribute<double>(xmlElement, "CenterY", 0);
 
-            group.Children.Add(rt);
+            return rt;
         }
 
-        private static void HandleXmlTransformationElement_TranslateTransform(TransformGroup group, XElement xmlElement)
+        private static Transform HandleXml_TranslateTransform(CustomDialog dialog, XElement xmlElement)
         {
             var tt = new TranslateTransform();
 
             tt.X = ParseXmlAttribute<double>(xmlElement, "X", 0);
             tt.Y = ParseXmlAttribute<double>(xmlElement, "Y", 0);
 
-            group.Children.Add(tt);
+            return tt;
         }
 
-        private static void HandleXmlTransformation(TransformGroup group, XElement xmlElement)
-        {
-            if (!_transformationHandlerMap.ContainsKey(xmlElement.Name.ToString()))
-                throw new Exception($"Unknown transformation {xmlElement.Name}");
-
-            _transformationHandlerMap[xmlElement.Name.ToString()](group, xmlElement);
-        }
-
-        private static void ApplyTransformations_UIElement(UIElement uiElement, XElement xmlElement)
+        private static void ApplyTransformations_UIElement(CustomDialog dialog, UIElement uiElement, XElement xmlElement)
         {
             var renderTransform = xmlElement.Element($"{xmlElement.Name}.RenderTransform");
 
@@ -295,24 +283,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 var tg = new TransformGroup();
 
                 foreach (var child in renderTransform.Elements())
-                    HandleXmlTransformation(tg, child);
+                {
+                    Transform element = HandleXml<Transform>(dialog, child);
+                    tg.Children.Add(element);
+                }
 
-                if (tg.Children.Any())
-                    uiElement.RenderTransform = tg;
+                uiElement.RenderTransform = tg;
             }
         }
         #endregion
 
         #region Brushes
-        private static void HandleXmlBrush_Brush(Brush brush, XElement xmlElement)
+        private static void HandleXml_Brush(Brush brush, XElement xmlElement)
         {
             brush.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1.0);
         }
 
-        private static Brush HandleXmlBrush_SolidColorBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXml_SolidColorBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new SolidColorBrush();
-            HandleXmlBrush_Brush(brush, xmlElement);
+            HandleXml_Brush(brush, xmlElement);
 
             object? color = GetColorFromXElement(xmlElement, "Color");
             if (color is Color)
@@ -321,10 +311,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return brush;
         }
 
-        private static Brush HandleXmlBrush_ImageBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXml_ImageBrush(CustomDialog dialog, XElement xmlElement)
         {
             var imageBrush = new ImageBrush();
-            HandleXmlBrush_Brush(imageBrush, xmlElement);
+            HandleXml_Brush(imageBrush, xmlElement);
 
             imageBrush.AlignmentX = ParseXmlAttribute<AlignmentX>(xmlElement, "AlignmentX", AlignmentX.Center);
             imageBrush.AlignmentY = ParseXmlAttribute<AlignmentY>(xmlElement, "AlignmentY", AlignmentY.Center);
@@ -376,7 +366,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return imageBrush;
         }
 
-        private static GradientStop HandleGradientStop(XElement xmlElement)
+        private static GradientStop HandleXml_GradientStop(CustomDialog dialog, XElement xmlElement)
         {
             var gs = new GradientStop();
 
@@ -389,10 +379,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return gs;
         }
 
-        private static Brush HandleXmlBrush_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXml_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new LinearGradientBrush();
-            HandleXmlBrush_Brush(brush, xmlElement);
+            HandleXml_Brush(brush, xmlElement);
 
             object? startPoint = GetPointFromXElement(xmlElement, "StartPoint");
             if (startPoint is Point)
@@ -407,22 +397,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             brush.SpreadMethod = ParseXmlAttribute<GradientSpreadMethod>(xmlElement, "SpreadMethod", GradientSpreadMethod.Pad);
 
             foreach (var child in xmlElement.Elements())
-            {
-                if (child.Name != "GradientStop")
-                    throw new Exception($"{child.Name} can not be a child of LinearGradientBrush");
-
-                brush.GradientStops.Add(HandleGradientStop(child));
-            }
+                brush.GradientStops.Add(HandleXml<GradientStop>(dialog, child));
 
             return brush;
-        }
-
-        private static Brush HandleXmlBrush(CustomDialog dialog, XElement xmlElement)
-        {
-            if (!_brushHandlerMap.ContainsKey(xmlElement.Name.ToString()))
-                throw new Exception($"Unknown brush {xmlElement.Name}");
-
-            return _brushHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
         }
 
         private static void ApplyBrush_UIElement(CustomDialog dialog, FrameworkElement uiElement, string name, DependencyProperty dependencyProperty, XElement xmlElement)
@@ -449,7 +426,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (first == null)
                 throw new Exception($"{xmlElement.Name} {name} is missing the brush");
 
-            var brush = HandleXmlBrush(dialog, first);
+            var brush = HandleXml<Brush>(dialog, first);
             uiElement.SetValue(dependencyProperty, brush);
         }
         #endregion
@@ -506,7 +483,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ApplyBrush_UIElement(dialog, uiElement, "BorderBrush", Control.BorderBrushProperty, xmlElement);
         }
 
-        private static UIElement? HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
             xmlElement.SetAttributeValue("IsEnabled", "True");
@@ -523,10 +500,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Margin = new Thickness(0, 0, 0, 0);
             dialog.Padding = new Thickness(0, 0, 0, 0);
 
-            return null; // dont add anything
+            return new DummyFrameworkElement();
         }
 
-        private static UIElement? HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
+        private static DummyFrameworkElement HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
         {
             xmlElement.SetAttributeValue("Name", "TitleBar"); // prevent two titlebars from existing
             xmlElement.SetAttributeValue("IsEnabled", "True");
@@ -547,7 +524,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Title = title;
             dialog.RootTitleBar.Title = title;
 
-            return null; // dont add anything
+            return new DummyFrameworkElement(); // dont add anything
         }
 
         private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
@@ -563,14 +540,14 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 if (first == null)
                     throw new Exception($"{xmlElement.Name} Content is missing the content");
 
-                var uiElement = HandleXml(dialog, first);
+                var uiElement = HandleXml<UIElement>(dialog, first);
                 return uiElement;
             }
 
             return null;
         }
 
-        private static UIElement? HandleXmlElement_Button(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_Button(CustomDialog dialog, XElement xmlElement)
         {
             var button = new Button();
             HandleXmlElement_Control(dialog, button, xmlElement);
@@ -586,12 +563,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 BindingOperations.SetBinding(button, Button.CommandProperty, cancelCommandBinding);
             }
 
-            ApplyTransformations_UIElement(button, xmlElement);
+            ApplyTransformations_UIElement(dialog, button, xmlElement);
 
             return button;
         }
 
-        private static UIElement? HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
         {
             var progressBar = new ProgressBar();
             HandleXmlElement_Control(dialog, progressBar, xmlElement);
@@ -613,7 +590,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 BindingOperations.SetBinding(progressBar, ProgressBar.ValueProperty, valueBinding);
             }
 
-            ApplyTransformations_UIElement(progressBar, xmlElement);
+            ApplyTransformations_UIElement(dialog, progressBar, xmlElement);
 
             return progressBar;
         }
@@ -655,10 +632,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 BindingOperations.SetBinding(textBlock, TextBlock.TextProperty, textBinding);
             }
 
-            ApplyTransformations_UIElement(textBlock, xmlElement);
+            ApplyTransformations_UIElement(dialog, textBlock, xmlElement);
         }
 
-        private static UIElement? HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
         {
             var textBlock = new TextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
@@ -666,7 +643,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return textBlock;
         }
 
-        private static UIElement? HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
         {
             var textBlock = new MarkdownTextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
@@ -678,7 +655,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return textBlock;
         }
 
-        private static UIElement? HandleXmlElement_Image(CustomDialog dialog, XElement xmlElement)
+        private static UIElement HandleXmlElement_Image(CustomDialog dialog, XElement xmlElement)
         {
             var image = new Image();
             HandleXmlElement_FrameworkElement(dialog, image, xmlElement);
@@ -726,27 +703,30 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 }
             }
 
-            ApplyTransformations_UIElement(image, xmlElement);
+            ApplyTransformations_UIElement(dialog, image, xmlElement);
 
             return image;
         }
 
-        private static UIElement? HandleXml(CustomDialog dialog, XElement xmlElement)
+        private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
         {
             if (!_elementHandlerMap.ContainsKey(xmlElement.Name.ToString()))
                 throw new Exception($"Unknown element {xmlElement.Name}");
 
-            var uiElement = _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
-            return uiElement;
+            var element = _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
+            if (element is not T)
+                throw new Exception($"{xmlElement.Parent!.Name} cannot have a child of {xmlElement.Name}");
+
+            return (T)element;
         }
 
-        private static void HandleAndAddXml(CustomDialog dialog, XElement xmlElement)
+        private static void AddXml(CustomDialog dialog, XElement xmlElement)
         {
             if (xmlElement.Name.ToString().StartsWith($"{xmlElement.Parent!.Name}."))
                 return; // not an xml element
 
-            var uiElement = HandleXml(dialog, xmlElement);
-            if (uiElement != null)
+            var uiElement = HandleXml<UIElement>(dialog, xmlElement);
+            if (uiElement is not DummyFrameworkElement)
                 dialog.ElementGrid.Children.Add(uiElement);
         }
 
@@ -771,7 +751,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             // handle everything else
             foreach (var child in xml.Elements())
-                HandleAndAddXml(this, child);
+                AddXml(this, child);
         }
         #endregion
 
