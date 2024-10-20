@@ -328,6 +328,9 @@ namespace Bloxstrap.UI.Elements.Editor
 
         private void OpenTypeValueAutoComplete(string typeName)
         {
+            if (CustomBootstrapperSchema.Types.ContainsKey(typeName))
+                throw new Exception($"Schema for type {typeName} is missing. Blame Matt!");
+
             var typeValues = CustomBootstrapperSchema.Types[typeName].Values;
             if (typeValues == null)
                 return;

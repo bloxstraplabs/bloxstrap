@@ -89,7 +89,7 @@
 			"Attributes": {
 				"Stretch": "Stretch",
 				"StretchDirection": "StretchDirection",
-				"Source": "string",
+				"Source": "ImageSource",
 				"IsAnimated": "bool"
 			}
 		},
@@ -138,7 +138,7 @@
 				"ViewportUnits": "BrushMappingMode",
 				"Viewbox": "Rect",
 				"Viewport": "Rect",
-				"ImageSource": "Source"
+				"ImageSource": "ImageSource"
 			}
 		}
 	},
@@ -156,6 +156,7 @@
 		"Rect": {},
 		"Brush": {},
 		"Content": {},
+		"ImageSource": {},
 		"Visibility": {
 			"Values": [
 				"Visible",
