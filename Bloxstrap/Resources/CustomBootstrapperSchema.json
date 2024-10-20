@@ -37,7 +37,7 @@
 			"IsCreatable": true,
 			"Attributes": {
 				"ShowMinimize": "bool",
-				"ShowMaximize": "bool",
+				"ShowClose": "bool",
 				"Title": "string"
 			}
 		},
