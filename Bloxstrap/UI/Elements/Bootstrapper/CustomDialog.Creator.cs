@@ -41,7 +41,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static Dictionary<string, HandleXmlBrushElementDelegate> _brushHandlerMap = new Dictionary<string, HandleXmlBrushElementDelegate>()
         {
             ["SolidColorBrush"] = HandleXmlBrush_SolidColorBrush,
-            ["ImageBrush"] = HandleXmlBrush_ImageBrush
+            ["ImageBrush"] = HandleXmlBrush_ImageBrush,
+            ["LinearGradientBrush"] = HandleXmlBrush_LinearGradientBrush
         };
 
         private static Dictionary<string, HandleXmlTransformationElementDelegate> _transformationHandlerMap = new Dictionary<string, HandleXmlTransformationElementDelegate>()
@@ -373,6 +374,47 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
 
             return imageBrush;
+        }
+
+        private static GradientStop HandleGradientStop(XElement xmlElement)
+        {
+            var gs = new GradientStop();
+
+            object? color = GetColorFromXElement(xmlElement, "Color");
+            if (color is Color)
+                gs.Color = (Color)color;
+
+            gs.Offset = ParseXmlAttribute<double>(xmlElement, "Offset", 0.0);
+
+            return gs;
+        }
+
+        private static Brush HandleXmlBrush_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
+        {
+            var brush = new LinearGradientBrush();
+            HandleXmlBrush_Brush(brush, xmlElement);
+
+            object? startPoint = GetPointFromXElement(xmlElement, "StartPoint");
+            if (startPoint is Point)
+                brush.StartPoint = (Point)startPoint;
+
+            object? endPoint = GetPointFromXElement(xmlElement, "EndPoint");
+            if (endPoint is Point)
+                brush.EndPoint = (Point)endPoint;
+
+            brush.ColorInterpolationMode = ParseXmlAttribute<ColorInterpolationMode>(xmlElement, "ColorInterpolationMode", ColorInterpolationMode.SRgbLinearInterpolation);
+            brush.MappingMode = ParseXmlAttribute<BrushMappingMode>(xmlElement, "MappingMode", BrushMappingMode.RelativeToBoundingBox);
+            brush.SpreadMethod = ParseXmlAttribute<GradientSpreadMethod>(xmlElement, "SpreadMethod", GradientSpreadMethod.Pad);
+
+            foreach (var child in xmlElement.Elements())
+            {
+                if (child.Name != "GradientStop")
+                    throw new Exception($"{child.Name} can not be a child of LinearGradientBrush");
+
+                brush.GradientStops.Add(HandleGradientStop(child));
+            }
+
+            return brush;
         }
 
         private static Brush HandleXmlBrush(CustomDialog dialog, XElement xmlElement)
