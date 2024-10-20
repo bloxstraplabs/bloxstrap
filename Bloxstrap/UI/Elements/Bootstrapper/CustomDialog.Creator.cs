@@ -383,7 +383,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static void ApplyTransformations_UIElement(UIElement uiElement, XElement xmlElement)
         {
-            var renderTransform = xmlElement.Element("RenderTransform");
+            var renderTransform = xmlElement.Element($"{xmlElement.Name}.RenderTransform");
 
             if (renderTransform != null)
             {
@@ -594,7 +594,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (contentAttr != null)
                 return contentAttr.Value.ToString();
 
-            var contentElement = xmlElement.Element("Content");
+            var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
             if (contentElement != null)
             {
                 var first = contentElement.FirstNode as XElement;
