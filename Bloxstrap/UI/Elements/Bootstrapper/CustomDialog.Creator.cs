@@ -22,6 +22,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static BrushConverter? _brushConverter = null;
         private static BrushConverter BrushConverter { get => _brushConverter ??= new BrushConverter(); }
 
+        private static RectConverter? _rectConverter = null;
+        public static RectConverter RectConverter { get => _rectConverter ??= new RectConverter(); }
+
         private bool _initialised = false;
 
         // prevent users from creating elements with the same name multiple times
@@ -30,6 +33,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private string ThemeDir { get; set; } = "";
 
         delegate UIElement? HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
+        delegate Brush HandleXmlBrushElementDelegate(CustomDialog dialog, XElement xmlElement);
         delegate void HandleXmlTransformationElementDelegate(TransformGroup group, XElement xmlElement);
 
         private static Dictionary<string, HandleXmlElementDelegate> _elementHandlerMap = new Dictionary<string, HandleXmlElementDelegate>()
@@ -41,6 +45,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["TextBlock"] = HandleXmlElement_TextBlock,
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image
+        };
+
+        private static Dictionary<string, HandleXmlBrushElementDelegate> _brushHandlerMap = new Dictionary<string, HandleXmlBrushElementDelegate>()
+        {
+            ["ImageBrush"] = HandleXmlBrush_ImageBrush
         };
 
         private static Dictionary<string, HandleXmlTransformationElementDelegate> _transformationHandlerMap = new Dictionary<string, HandleXmlTransformationElementDelegate>()
@@ -174,6 +183,28 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
 
             return thickness;
+        }
+
+        private static object? GetRectFromXElement(XElement xmlElement, string attributeName)
+        {
+            string? attributeValue = xmlElement.Attribute(attributeName)?.Value?.ToString();
+            if (attributeValue == null)
+                return null;
+
+            object? rect;
+            try
+            {
+                rect = RectConverter.ConvertFromInvariantString(attributeValue);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
+            }
+
+            if (rect == null)
+                throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
+
+            return rect;
         }
 
         private static FontWeight GetFontWeightFromXElement(XElement element)
@@ -367,6 +398,100 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
         #endregion
 
+        #region Brushes
+        private static Brush HandleXmlBrush_ImageBrush(CustomDialog dialog, XElement xmlElement)
+        {
+            var imageBrush = new ImageBrush();
+
+            imageBrush.AlignmentX = ParseXmlAttribute<AlignmentX>(xmlElement, "AlignmentX", AlignmentX.Center);
+            imageBrush.AlignmentY = ParseXmlAttribute<AlignmentY>(xmlElement, "AlignmentY", AlignmentY.Center);
+
+            imageBrush.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1.0);
+
+            imageBrush.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Fill);
+            imageBrush.TileMode = ParseXmlAttribute<TileMode>(xmlElement, "TileMode", TileMode.None);
+
+            imageBrush.ViewboxUnits = ParseXmlAttribute<BrushMappingMode>(xmlElement, "ViewboxUnits", BrushMappingMode.RelativeToBoundingBox);
+            imageBrush.ViewportUnits = ParseXmlAttribute<BrushMappingMode>(xmlElement, "ViewportUnits", BrushMappingMode.RelativeToBoundingBox);
+
+            var viewbox = GetRectFromXElement(xmlElement, "Viewbox");
+            if (viewbox is Rect)
+                imageBrush.Viewbox = (Rect)viewbox;
+
+            var viewport = GetRectFromXElement(xmlElement, "Viewport");
+            if (viewport is Rect)
+                imageBrush.Viewport = (Rect)viewport;
+
+            string sourcePath = GetXmlAttribute(xmlElement, "ImageSource");
+            sourcePath = sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
+
+            if (sourcePath == "{Icon}")
+            {
+                // bind the icon property
+                Binding binding = new Binding("Icon") { Mode = BindingMode.OneWay };
+                BindingOperations.SetBinding(imageBrush, ImageBrush.ImageSourceProperty, binding);
+            }
+            else
+            {
+                if (!Uri.TryCreate(sourcePath, UriKind.RelativeOrAbsolute, out Uri? result))
+                    throw new Exception("ImageBrush failed to parse ImageSource as Uri");
+
+                if (result == null)
+                    throw new Exception("ImageBrush ImageSource uri is null");
+
+                BitmapImage bitmapImage;
+                try
+                {
+                    bitmapImage = new BitmapImage(result);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"ImageBrush Failed to create BitmapImage: {ex.Message}", ex);
+                }
+
+                imageBrush.ImageSource = bitmapImage;
+            }
+
+            return imageBrush;
+        }
+
+        private static Brush HandleXmlBrush(CustomDialog dialog, XElement xmlElement)
+        {
+            if (!_brushHandlerMap.ContainsKey(xmlElement.Name.ToString()))
+                throw new Exception($"Unknown brush {xmlElement.Name}");
+
+            return _brushHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
+        }
+
+        private static void ApplyBrush_UIElement(CustomDialog dialog, FrameworkElement uiElement, string name, DependencyProperty dependencyProperty, XElement xmlElement)
+        {
+            // check if attribute exists
+            object? brushAttr = GetBrushFromXElement(xmlElement, name);
+            if (brushAttr is Brush)
+            {
+                uiElement.SetValue(dependencyProperty, brushAttr);
+                return;
+            }
+            else if (brushAttr is string)
+            {
+                uiElement.SetResourceReference(dependencyProperty, brushAttr);
+                return;
+            }
+
+            // check if element exists
+            var brushElement = xmlElement.Element($"{xmlElement.Name}.{name}");
+            if (brushElement == null)
+                return;
+
+            var first = brushElement.FirstNode as XElement;
+            if (first == null)
+                throw new Exception($"{xmlElement.Name} {name} is missing the brush");
+
+            var brush = HandleXmlBrush(dialog, first);
+            uiElement.SetValue(dependencyProperty, brush);
+        }
+        #endregion
+
         #region Elements
         private static void HandleXmlElement_FrameworkElement(CustomDialog dialog, FrameworkElement uiElement, XElement xmlElement)
         {
@@ -412,23 +537,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (borderThickness != null)
                 uiElement.BorderThickness = (Thickness)borderThickness;
 
-            object? foregroundBrush = GetBrushFromXElement(xmlElement, "Foreground");
-            if (foregroundBrush is Brush)
-                uiElement.Foreground = (Brush)foregroundBrush;
-            else if (foregroundBrush is string)
-                uiElement.SetResourceReference(Control.ForegroundProperty, foregroundBrush);
+            ApplyBrush_UIElement(dialog, uiElement, "Foreground", Control.ForegroundProperty, xmlElement);
 
-            object? backgroundBrush = GetBrushFromXElement(xmlElement, "Background");
-            if (backgroundBrush is Brush)
-                uiElement.Background = (Brush)backgroundBrush;
-            else if (backgroundBrush is string)
-                uiElement.SetResourceReference(Control.BackgroundProperty, backgroundBrush);
+            ApplyBrush_UIElement(dialog, uiElement, "Background", Control.BackgroundProperty, xmlElement);
 
-            object? borderBrush = GetBrushFromXElement(xmlElement, "BorderBrush");
-            if (borderBrush is Brush)
-                uiElement.BorderBrush = (Brush)borderBrush;
-            else if (borderBrush is string)
-                uiElement.SetResourceReference(Control.BorderBrushProperty, borderBrush);
+            ApplyBrush_UIElement(dialog, uiElement, "BorderBrush", Control.BorderBrushProperty, xmlElement);
         }
 
         private static UIElement? HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
@@ -549,17 +662,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             textBlock.Text = xmlElement.Attribute("Text")?.Value;
 
-            object? foregroundBrush = GetBrushFromXElement(xmlElement, "Foreground");
-            if (foregroundBrush is Brush)
-                textBlock.Foreground = (Brush)foregroundBrush;
-            else if (foregroundBrush is string)
-                textBlock.SetResourceReference(TextBlock.ForegroundProperty, foregroundBrush);
+            ApplyBrush_UIElement(dialog, textBlock, "Foreground", TextBlock.ForegroundProperty, xmlElement);
 
-            object? backgroundBrush = GetBrushFromXElement(xmlElement, "Background");
-            if (backgroundBrush is Brush)
-                textBlock.Foreground = (Brush)backgroundBrush;
-            else if (backgroundBrush is string)
-                textBlock.SetResourceReference(TextBlock.BackgroundProperty, backgroundBrush);
+            ApplyBrush_UIElement(dialog, textBlock, "Background", TextBlock.BackgroundProperty, xmlElement);
 
             var fontSize = ParseXmlAttributeNullable<double>(xmlElement, "FontSize");
             if (fontSize is double)
@@ -675,6 +780,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static void HandleAndAddXml(CustomDialog dialog, XElement xmlElement)
         {
+            if (xmlElement.Name.ToString().StartsWith($"{xmlElement.Parent!.Name}."))
+                return; // not an xml element
+
             var uiElement = HandleXml(dialog, xmlElement);
             if (uiElement != null)
                 dialog.ElementGrid.Children.Add(uiElement);
