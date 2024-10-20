@@ -29,7 +29,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private string ThemeDir { get; set; } = "";
 
-        delegate UIElement HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
+        delegate UIElement? HandleXmlElementDelegate(CustomDialog dialog, XElement xmlElement);
         delegate void HandleXmlTransformationElementDelegate(TransformGroup group, XElement xmlElement);
 
         private static Dictionary<string, HandleXmlElementDelegate> _elementHandlerMap = new Dictionary<string, HandleXmlElementDelegate>()
