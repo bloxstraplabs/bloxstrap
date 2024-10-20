@@ -549,7 +549,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             else if (foregroundBrush is string)
                 textBlock.SetResourceReference(TextBlock.ForegroundProperty, foregroundBrush);
 
-            textBlock.FontSize = ParseXmlAttribute<double>(xmlElement, "FontSize", 12);
+            var fontSize = ParseXmlAttributeNullable<double>(xmlElement, "FontSize");
+            if (fontSize is double)
+                textBlock.FontSize = (double)fontSize;
             textBlock.FontWeight = GetFontWeightFromXElement(xmlElement);
             textBlock.FontStyle = GetFontStyleFromXElement(xmlElement);
 
