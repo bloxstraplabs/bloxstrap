@@ -126,12 +126,25 @@
 				"Y": "double"
 			}
 		},
+		"Brush": {
+			"IsCreatable": false,
+			"Attributes": {
+				"Opacity": "double"
+			}
+		},
+		"SolidColorBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"Color": "Color"
+			}
+		},
 		"ImageBrush": {
+			"SuperClass": "Brush",
 			"IsCreatable": true,
 			"Attributes": {
 				"AlignmentX": "AlignmentX",
 				"AlignmentY": "AlignmentY",
-				"Opacity": "double",
 				"Stretch": "Stretch",
 				"TileMode": "TileMode",
 				"ViewboxUnits": "BrushMappingMode",
@@ -155,6 +168,7 @@
 		"Thickness": {},
 		"Rect": {},
 		"Brush": {},
+		"Color": {},
 		"Content": {},
 		"ImageSource": {},
 		"Visibility": {

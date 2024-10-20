@@ -25,6 +25,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static RectConverter? _rectConverter = null;
         public static RectConverter RectConverter { get => _rectConverter ??= new RectConverter(); }
 
+        private static ColorConverter? _colorConverter = null;
+        public static ColorConverter ColorConverter { get => _colorConverter ??= new ColorConverter(); }
+
         private bool _initialised = false;
 
         // prevent users from creating elements with the same name multiple times
@@ -49,6 +52,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static Dictionary<string, HandleXmlBrushElementDelegate> _brushHandlerMap = new Dictionary<string, HandleXmlBrushElementDelegate>()
         {
+            ["SolidColorBrush"] = HandleXmlBrush_SolidColorBrush,
             ["ImageBrush"] = HandleXmlBrush_ImageBrush
         };
 
@@ -205,6 +209,28 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
 
             return rect;
+        }
+
+        private static object? GetColorFromXElement(XElement xmlElement, string attributeName)
+        {
+            string? attributeValue = xmlElement.Attribute(attributeName)?.Value?.ToString();
+            if (attributeValue == null)
+                return null;
+
+            object? color;
+            try
+            {
+                color = ColorConverter.ConvertFromInvariantString(attributeValue);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
+            }
+
+            if (color == null)
+                throw new Exception($"{xmlElement.Name} has invalid {attributeName}");
+
+            return color;
         }
 
         private static FontWeight GetFontWeightFromXElement(XElement element)
@@ -399,14 +425,30 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         #endregion
 
         #region Brushes
+        private static void HandleXmlBrush_Brush(Brush brush, XElement xmlElement)
+        {
+            brush.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1.0);
+        }
+
+        private static Brush HandleXmlBrush_SolidColorBrush(CustomDialog dialog, XElement xmlElement)
+        {
+            var brush = new SolidColorBrush();
+            HandleXmlBrush_Brush(brush, xmlElement);
+
+            object? color = GetColorFromXElement(xmlElement, "Color");
+            if (color is Color)
+                brush.Color = (Color)color;
+
+            return brush;
+        }
+
         private static Brush HandleXmlBrush_ImageBrush(CustomDialog dialog, XElement xmlElement)
         {
             var imageBrush = new ImageBrush();
+            HandleXmlBrush_Brush(imageBrush, xmlElement);
 
             imageBrush.AlignmentX = ParseXmlAttribute<AlignmentX>(xmlElement, "AlignmentX", AlignmentX.Center);
             imageBrush.AlignmentY = ParseXmlAttribute<AlignmentY>(xmlElement, "AlignmentY", AlignmentY.Center);
-
-            imageBrush.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1.0);
 
             imageBrush.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Fill);
             imageBrush.TileMode = ParseXmlAttribute<TileMode>(xmlElement, "TileMode", TileMode.None);
