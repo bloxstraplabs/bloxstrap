@@ -321,6 +321,9 @@ namespace Bloxstrap.UI.Elements.Editor
         {
             CloseCompletionWindow();
 
+            if (!completionData.Any())
+                return;
+
             _completionWindow = new CompletionWindow(UIXML.TextArea);
 
             IList<ICompletionData> data = _completionWindow.CompletionList.CompletionData;
