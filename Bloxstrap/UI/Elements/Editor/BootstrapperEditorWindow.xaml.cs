@@ -152,30 +152,31 @@ namespace Bloxstrap.UI.Elements.Editor
         private (string, int) GetLineAndPosAtCaretPosition()
         {
             // this assumes the file was saved as CSLF (\r\n newlines)
-            int lineStartIdx = UIXML.Text.LastIndexOf('\n', UIXML.CaretOffset - 1);
-            int lineEndIdx = UIXML.Text.IndexOf('\n', UIXML.CaretOffset - 1);
+            int offset = UIXML.CaretOffset - 1;
+            int lineStartIdx = UIXML.Text.LastIndexOf('\n', offset);
+            int lineEndIdx = UIXML.Text.IndexOf('\n', offset);
 
             string line;
             int pos;
             if (lineStartIdx == -1 && lineEndIdx == -1)
             {
                 line = UIXML.Text;
-                pos = UIXML.CaretOffset;
+                pos = offset;
             }
             else if (lineStartIdx == -1)
             {
                 line = UIXML.Text[..(lineEndIdx - 1)];
-                pos = UIXML.CaretOffset;
+                pos = offset;
             }
             else if (lineEndIdx == -1)
             {
                 line = UIXML.Text[(lineStartIdx + 1)..];
-                pos = UIXML.CaretOffset - lineStartIdx - 2;
+                pos = offset - lineStartIdx - 2;
             }
             else
             {
                 line = UIXML.Text[(lineStartIdx + 1)..(lineEndIdx - 1)];
-                pos = UIXML.CaretOffset - lineStartIdx - 2;
+                pos = offset - lineStartIdx - 2;
             }
 
             return (line, pos);
