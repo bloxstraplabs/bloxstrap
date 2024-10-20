@@ -143,6 +143,9 @@ namespace Bloxstrap.UI.Elements.Editor
                 case ">":
                     CloseCompletionWindow();
                     break;
+                case "!":
+                    CloseCompletionWindow();
+                    break;
             }
         }
 
