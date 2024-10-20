@@ -29,6 +29,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static Dictionary<string, HandleXmlElementDelegate> _elementHandlerMap = new Dictionary<string, HandleXmlElementDelegate>()
         {
+            ["BloxstrapCustomBootstrapper"] = HandleXmlElement_BloxstrapCustomBootstrapper_Fake,
             ["TitleBar"] = HandleXmlElement_TitleBar,
             ["Button"] = HandleXmlElement_Button,
             ["ProgressBar"] = HandleXmlElement_ProgressBar,
@@ -501,6 +502,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Padding = new Thickness(0, 0, 0, 0);
 
             return new DummyFrameworkElement();
+        }
+
+        private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper_Fake(CustomDialog dialog, XElement xmlElement)
+        {
+            // this only exists to error out the theme if someone tries to use two BloxstrapCustomBootstrappers
+            throw new Exception($"{xmlElement.Parent!.Name} cannot have a child of {xmlElement.Name}");
         }
 
         private static DummyFrameworkElement HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
