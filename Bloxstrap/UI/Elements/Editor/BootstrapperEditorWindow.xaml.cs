@@ -41,12 +41,12 @@ namespace Bloxstrap.UI.Elements.Editor
             /// <summary>
             /// Elements and their attributes
             /// </summary>
-            public static Dictionary<string, Dictionary<string, string>> ElementInfo { get; set; } = new();
+            public static SortedDictionary<string, SortedDictionary<string, string>> ElementInfo { get; set; } = new();
 
             /// <summary>
             /// All type info
             /// </summary>
-            public static Dictionary<string, Type> Types { get; set; } = new();
+            public static SortedDictionary<string, Type> Types { get; set; } = new();
 
             public static void ParseSchema()
             {
@@ -57,16 +57,18 @@ namespace Bloxstrap.UI.Elements.Editor
                 if (_schema == null)
                     throw new Exception("Deserialised CustomBootstrapperSchema is null");
 
-                Types = _schema.Types;
+                foreach (var type in _schema.Types)
+                    Types.Add(type.Key, type.Value);
+
                 PopulateElementInfo();
             }
 
-            private static Dictionary<string, string> GetElementAttributes(string name, Element element)
+            private static SortedDictionary<string, string> GetElementAttributes(string name, Element element)
             {
                 if (ElementInfo.ContainsKey(name))
                     return ElementInfo[name];
 
-                Dictionary<string, string> attributes = new();
+                SortedDictionary<string, string> attributes = new();
 
                 foreach (var attribute in element.Attributes)
                     attributes.Add(attribute.Key, attribute.Value);
