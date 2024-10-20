@@ -138,7 +138,7 @@ namespace Bloxstrap.UI.Elements.Editor
                     OpenAttributeAutoComplete();
                     break;
                 case "/":
-                    CloseCompletionWindow();
+                    AddEndTag();
                     break;
                 case ">":
                     CloseCompletionWindow();
@@ -152,8 +152,8 @@ namespace Bloxstrap.UI.Elements.Editor
         private (string, int) GetLineAndPosAtCaretPosition()
         {
             // this assumes the file was saved as CSLF (\r\n newlines)
-            int lineStartIdx = UIXML.Text.LastIndexOf('\n', UIXML.CaretOffset);
-            int lineEndIdx = UIXML.Text.IndexOf('\n', UIXML.CaretOffset);
+            int lineStartIdx = UIXML.Text.LastIndexOf('\n', UIXML.CaretOffset - 1);
+            int lineEndIdx = UIXML.Text.IndexOf('\n', UIXML.CaretOffset - 1);
 
             string line;
             int pos;
@@ -187,7 +187,7 @@ namespace Bloxstrap.UI.Elements.Editor
         /// <param name="xml"></param>
         /// <param name="offset"></param>
         /// <returns></returns>
-        public static string? GetElementAtCursor(string xml, int offset)
+        public static string? GetElementAtCursor(string xml, int offset, bool onlyAllowInside = false)
         {
             if (offset == xml.Length)
             {
@@ -211,7 +211,7 @@ namespace Bloxstrap.UI.Elements.Editor
             }
             else
             {
-                if (endIdx2 < offset)
+                if (onlyAllowInside && endIdx2 < offset)
                     return null; // we dont want attribute auto complete to show outside of elements
 
                 if (endIdx2 < xml.Length && xml[endIdx2 - 1] == '/')
@@ -247,10 +247,15 @@ namespace Bloxstrap.UI.Elements.Editor
                 // we have an equal number, let's check if pos is in between the speech marks
                 int count = -1;
                 int idx = pos;
+                int size = line.Length - 1;
                 while (idx != -1)
                 {
                     count++;
-                    idx = line.IndexOf('"', idx + 1);
+
+                    if (size > idx + 1)
+                        idx = line.IndexOf('"', idx + 1);
+                    else
+                        idx = -1;
                 }
 
                 if (count % 2 != 0)
@@ -261,7 +266,27 @@ namespace Bloxstrap.UI.Elements.Editor
                 }
             }
 
-            return GetElementAtCursor(UIXML.Text, UIXML.CaretOffset);
+            return GetElementAtCursor(UIXML.Text, UIXML.CaretOffset, true);
+        }
+
+        private void AddEndTag()
+        {
+            CloseCompletionWindow();
+
+            if (UIXML.Text.Length > 2 && UIXML.Text[UIXML.CaretOffset - 2] == '<')
+            {
+                var elementName = GetElementAtCursor(UIXML.Text, UIXML.CaretOffset - 3);
+                if (elementName == null)
+                    return;
+
+                UIXML.TextArea.Document.Insert(UIXML.CaretOffset, $"{elementName}>");
+            }
+            else
+            {
+                var elementName = ShowAttributesForElementName(); // re-using functions :)
+                if (elementName != null)
+                    UIXML.TextArea.Document.Insert(UIXML.CaretOffset, ">");
+            }
         }
 
         private void OpenElementAutoComplete()
