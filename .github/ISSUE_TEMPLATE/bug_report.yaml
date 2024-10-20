@@ -34,7 +34,7 @@ body:
     id: version
     attributes:
       label: Bloxstrap Version
-      description: "What version of Bloxstrap are you using?"
+      description: "What version of Bloxstrap are you using? Find it in the 'About' section of the Settings"
       placeholder: "v1.0.0"
     validations:
       required: true
