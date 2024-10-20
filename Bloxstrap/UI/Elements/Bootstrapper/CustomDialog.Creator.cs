@@ -412,11 +412,17 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (borderThickness != null)
                 uiElement.BorderThickness = (Thickness)borderThickness;
 
-            object? foregroundBrush = GetBrushFromXElement(xmlElement, "Background");
+            object? foregroundBrush = GetBrushFromXElement(xmlElement, "Foreground");
             if (foregroundBrush is Brush)
-                uiElement.Background = (Brush)foregroundBrush;
+                uiElement.Foreground = (Brush)foregroundBrush;
             else if (foregroundBrush is string)
-                uiElement.SetResourceReference(Control.BackgroundProperty, foregroundBrush);
+                uiElement.SetResourceReference(Control.ForegroundProperty, foregroundBrush);
+
+            object? backgroundBrush = GetBrushFromXElement(xmlElement, "Background");
+            if (backgroundBrush is Brush)
+                uiElement.Background = (Brush)backgroundBrush;
+            else if (backgroundBrush is string)
+                uiElement.SetResourceReference(Control.BackgroundProperty, backgroundBrush);
 
             object? borderBrush = GetBrushFromXElement(xmlElement, "BorderBrush");
             if (borderBrush is Brush)
