@@ -45,7 +45,7 @@
 			"SuperClass": "Control",
 			"IsCreatable": true,
 			"Attributes": {
-				"Content": "Content"
+				"Content": "object"
 			}
 		},
 		"ProgressBar": {
@@ -153,6 +153,24 @@
 				"Viewport": "Rect",
 				"ImageSource": "ImageSource"
 			}
+		},
+		"LinearGradientBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"StartPoint": "Point",
+				"EndPoint": "Point",
+				"ColorInterpolationMode": "ColorInterpolationMode",
+				"MappingMode": "BrushMappingMode",
+				"SpreadMethod": "GradientSpreadMethod"
+			}
+		},
+		"GradientStop": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Color": "Color",
+				"Offset": "double"
+			}
 		}
 	},
 	"Types": {
@@ -165,11 +183,12 @@
 		},
 		"int": {},
 		"double": {},
+		"object": {},
 		"Thickness": {},
 		"Rect": {},
+		"Point": {},
 		"Brush": {},
 		"Color": {},
-		"Content": {},
 		"ImageSource": {},
 		"Visibility": {
 			"Values": [
@@ -297,6 +316,19 @@
 			"Values": [
 				"Absolute",
 				"RelativeToBoundingBox"
+			]
+		},
+		"ColorInterpolationMode": {
+			"Values": [
+				"ScRgbLinearInterpolation",
+				"SRgbLinearInterpolation"
+			]
+		},
+		"GradientSpreadMethod": {
+			"Values": [
+				"Pad",
+				"Reflect",
+				"Repeat"
 			]
 		}
 	}
