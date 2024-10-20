@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     public partial class CustomDialog
     {
-        private const int MaxElements = 50;
+        private const int MaxElements = 100;
 
         private static ThicknessConverter? _thicknessConverter = null;
         private static ThicknessConverter ThicknessConverter { get => _thicknessConverter ??= new ThicknessConverter(); }
@@ -691,7 +691,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (xml.Attribute("Version")?.Value != "0")
                 throw new Exception("Unknown BloxstrapCustomBootstrapper version");
 
-            if (xml.Elements().Count() > MaxElements)
+            if (xml.Descendants().Count() > MaxElements)
                 throw new Exception($"Custom bootstrappers can have a maximum of {MaxElements} elements");
 
             _initialised = true;
