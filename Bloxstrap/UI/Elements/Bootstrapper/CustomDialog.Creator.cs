@@ -110,7 +110,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             T? parsed = ConvertValue<T>(attribute.Value);
             if (parsed == null)
-                throw new Exception($"{element.Name} {attribute} is not a valid {typeof(T).Name}");
+                throw new Exception($"{element.Name} {attributeName} is not a valid {typeof(T).Name}");
 
             return (T)parsed;
         }
@@ -127,7 +127,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             T? parsed = ConvertValue<T>(attribute.Value);
             if (parsed == null)
-                throw new Exception($"{element.Name} {attribute} is not a valid {typeof(T).Name}");
+                throw new Exception($"{element.Name} {attributeName} is not a valid {typeof(T).Name}");
 
             return (T)parsed;
         }
