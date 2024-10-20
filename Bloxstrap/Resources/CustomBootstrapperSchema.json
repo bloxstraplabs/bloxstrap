@@ -1,0 +1,251 @@
+{
+	"Elements": {
+		"FrameworkElement": {
+			"IsCreatable": false,
+			"Attributes": {
+				"Name": "string",
+				"Visibility": "Visibility",
+				"IsEnabled": "bool",
+				"Margin": "Thickness",
+				"Height": "double",
+				"Width": "double",
+				"HorizontalAlignment": "HorizontalAlignment",
+				"VerticalAlignment": "VerticalAlignment",
+				"ZIndex": "int"
+			}
+		},
+		"Control": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": false,
+			"Attributes": {
+				"Padding": "Thickness",
+				"BorderThickness": "Thickness",
+				"Foreground": "Brush",
+				"Background": "Brush",
+				"BorderBrush": "Brush"
+			}
+		},
+		"BloxstrapCustomBootstrapper": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"Theme": "Theme"
+			}
+		},
+		"TitleBar": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"ShowMinimize": "bool",
+				"ShowMaximize": "bool",
+				"Title": "string"
+			}
+		},
+		"Button": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"Content": "Content"
+			}
+		},
+		"ProgressBar": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"IsIndeterminate": "bool",
+				"Value": "double",
+				"Maximum": "double"
+			}
+		},
+		"TextBlock": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Text": "string",
+				"Foreground": "Brush",
+				"Background": "Brush",
+				"FontSize": "double",
+				"FontWeight": "FontWeight",
+				"FontStyle": "FontStyle",
+				"LineHeight": "double",
+				"LineStackingStrategy": "LineStackingStrategy",
+				"TextAlignment": "TextAlignment",
+				"TextTrimming": "TextTrimming",
+				"TextWrapping": "TextWrapping",
+				"TextDecorations": "TextDecorations",
+				"IsHyphenationEnabled": "bool",
+				"BaselineOffset": "double",
+				"Padding": "Thickness"
+			}
+		},
+		"MarkdownTextBlock": {
+			"SuperClass": "TextBlock",
+			"IsCreatable": true,
+			"Attributes": {}
+		},
+		"Image": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"Source": "string",
+				"IsAnimated": "bool"
+			}
+		},
+		"ScaleTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"ScaleX": "double",
+				"ScaleY": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"SkewTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"AngleX": "double",
+				"AngleY": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"RotateTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Angle": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"TranslateTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"X": "double",
+				"Y": "double"
+			}
+		},
+		"RenderTransform": {
+			"IsCreatable": true,
+			"Attributes": {}
+		},
+		"Content": {
+			"IsCreatable": true,
+			"Attributes": {}
+		}
+	},
+	"Types": {
+		"string": {},
+		"bool": {
+			"Values": [
+				"True",
+				"False"
+			]
+		},
+		"int": {},
+		"double": {},
+		"Thickness": {},
+		"Brush": {},
+		"Content": {},
+		"Visibility": {
+			"Values": [
+				"Visible",
+				"Hidden",
+				"Collapsed"
+			]
+		},
+		"HorizontalAlignment": {
+			"Values": [
+				"Left",
+				"Center",
+				"Right",
+				"Stretch"
+			]
+		},
+		"VerticalAlignment": {
+			"Values": [
+				"Top",
+				"Center",
+				"Bottom",
+				"Stretch"
+			]
+		},
+		"Theme": {
+			"Values": [
+				"Default",
+				"Dark",
+				"Light"
+			]
+		},
+		"FontWeight": {
+			"Values": [
+				"Thin",
+				"ExtraLight",
+				"UltraLight",
+				"Medium",
+				"Normal",
+				"Regular",
+				"DemiBold",
+				"SemiBold",
+				"Bold",
+				"ExtraBold",
+				"UltraBold",
+				"Black",
+				"Heavy",
+				"ExtraBlack",
+				"ExtraHeavy"
+			]
+		},
+		"FontStyle": {
+			"Values": [
+				"Normal",
+				"Italic",
+				"Oblique"
+			]
+		},
+		"LineStackingStrategy": {
+			"Values": [
+				"BlockLineHeight",
+				"MaxHeight"
+			]
+		},
+		"TextTrimming": {
+			"Values": [
+				"None",
+				"CharacterEllipsis",
+				"WordEllipsis"
+			]
+		},
+		"TextWrapping": {
+			"Values": [
+				"WrapWithOverflow",
+				"NoWrap",
+				"Wrap"
+			]
+		},
+		"TextDecorations": {
+			"Values": [
+				"Baseline",
+				"OverLine",
+				"Strikethrough",
+				"Underline"
+			]
+		},
+		"Stretch": {
+			"Values": [
+				"None",
+				"Fill",
+				"Uniform",
+				"UniformToFill"
+			]
+		},
+		"StretchDirection": {
+			"Values": [
+				"UpOnly",
+				"DownOnly",
+				"Both"
+			]
+		}
+	}
+}
