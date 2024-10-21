@@ -11,7 +11,8 @@
 				"Width": "double",
 				"HorizontalAlignment": "HorizontalAlignment",
 				"VerticalAlignment": "VerticalAlignment",
-				"ZIndex": "int"
+				"ZIndex": "int",
+				"RenderTransform": "Transform"
 			}
 		},
 		"Control": {
@@ -183,13 +184,14 @@
 		},
 		"int": {},
 		"double": {},
-		"object": {},
+		"object": { "CanHaveElement": true },
 		"Thickness": {},
 		"Rect": {},
 		"Point": {},
-		"Brush": {},
+		"Brush": { "CanHaveElement": true },
 		"Color": {},
 		"ImageSource": {},
+		"Transform": { "CanHaveElement": true },
 		"Visibility": {
 			"Values": [
 				"Visible",
@@ -250,6 +252,14 @@
 			"Values": [
 				"BlockLineHeight",
 				"MaxHeight"
+			]
+		},
+		"TextAlignment": {
+			"Values": [
+				"Left",
+				"Right",
+				"Center",
+				"Justify"
 			]
 		},
 		"TextTrimming": {

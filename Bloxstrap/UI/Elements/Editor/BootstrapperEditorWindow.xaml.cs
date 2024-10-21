@@ -33,6 +33,7 @@ namespace Bloxstrap.UI.Elements.Editor
 
             public class Type
             {
+                public bool CanHaveElement { get; set; } = false;
                 public List<string>? Values { get; set; } = null;
             }
 
@@ -42,6 +43,11 @@ namespace Bloxstrap.UI.Elements.Editor
             /// Elements and their attributes
             /// </summary>
             public static SortedDictionary<string, SortedDictionary<string, string>> ElementInfo { get; set; } = new();
+
+            /// <summary>
+            /// Attributes of elements that can have property elements
+            /// </summary>
+            public static Dictionary<string, List<string>> PropertyElements { get; set; } = new();
 
             /// <summary>
             /// All type info
@@ -63,23 +69,42 @@ namespace Bloxstrap.UI.Elements.Editor
                 PopulateElementInfo();
             }
 
-            private static SortedDictionary<string, string> GetElementAttributes(string name, Element element)
+            private static (SortedDictionary<string, string>, List<string>) GetElementAttributes(string name, Element element)
             {
                 if (ElementInfo.ContainsKey(name))
-                    return ElementInfo[name];
+                    return (ElementInfo[name], PropertyElements[name]);
 
+                List<string> properties = new List<string>();
                 SortedDictionary<string, string> attributes = new();
 
                 foreach (var attribute in element.Attributes)
+                {
                     attributes.Add(attribute.Key, attribute.Value);
+
+                    if (!Types.ContainsKey(attribute.Value))
+                        throw new Exception($"Schema for type {attribute.Value} is missing. Blame Matt!");
+
+                    Type type = Types[attribute.Value];
+                    if (type.CanHaveElement)
+                        properties.Add(attribute.Key);
+                }
 
                 if (element.SuperClass != null)
                 {
-                    foreach (var attribute in GetElementAttributes(element.SuperClass, _schema!.Elements[element.SuperClass]))
+                    (SortedDictionary<string, string> superAttributes, List<string> superProperties) = GetElementAttributes(element.SuperClass, _schema!.Elements[element.SuperClass]);
+                    foreach (var attribute in superAttributes)
                         attributes.Add(attribute.Key, attribute.Value);
+
+                    foreach (var property in superProperties)
+                        properties.Add(property);
                 }
 
-                return attributes;
+                properties.Sort();
+
+                ElementInfo[name] = attributes;
+                PropertyElements[name] = properties;
+
+                return (attributes, properties);
             }
 
             private static void PopulateElementInfo()
@@ -88,7 +113,7 @@ namespace Bloxstrap.UI.Elements.Editor
 
                 foreach (var element in _schema!.Elements)
                 {
-                    ElementInfo[element.Key] = GetElementAttributes(element.Key, element.Value);
+                    GetElementAttributes(element.Key, element.Value);
 
                     if (!element.Value.IsCreatable)
                         toRemove.Add(element.Key);
@@ -136,6 +161,9 @@ namespace Bloxstrap.UI.Elements.Editor
                     break;
                 case " ":
                     OpenAttributeAutoComplete();
+                    break;
+                case ".":
+                    OpenPropertyElementAutoComplete();
                     break;
                 case "/":
                     AddEndTag();
@@ -231,6 +259,28 @@ namespace Bloxstrap.UI.Elements.Editor
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// A space between the cursor and the element will completely cancel this function
+        /// </summary>
+        private string? GetElementAtCursorNoSpaces(string xml, int offset)
+        {
+            (string line, int pos) = GetLineAndPosAtCaretPosition();
+
+            string curr = "";
+            while (pos != -1)
+            {
+                char c = line[pos];
+                if (c == ' ' || c == '\t')
+                    return null;
+                if (c == '<')
+                    return curr;
+                curr = c + curr;
+                pos--;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -331,9 +381,6 @@ namespace Bloxstrap.UI.Elements.Editor
 
         private void OpenTypeValueAutoComplete(string typeName)
         {
-            if (!CustomBootstrapperSchema.Types.ContainsKey(typeName))
-                throw new Exception($"Schema for type {typeName} is missing. Blame Matt!");
-
             var typeValues = CustomBootstrapperSchema.Types[typeName].Values;
             if (typeValues == null)
                 return;
@@ -342,6 +389,31 @@ namespace Bloxstrap.UI.Elements.Editor
 
             foreach (var value in typeValues)
                 data.Add(new TypeValueCompletionData(value));
+
+            ShowCompletionWindow(data);
+        }
+
+        private void OpenPropertyElementAutoComplete()
+        {
+            string? element = GetElementAtCursorNoSpaces(UIXML.Text, UIXML.CaretOffset);
+            if (element == null)
+            {
+                CloseCompletionWindow();
+                return;
+            }
+
+            if (!CustomBootstrapperSchema.PropertyElements.ContainsKey(element))
+            {
+                CloseCompletionWindow();
+                return;
+            }
+
+            var properties = CustomBootstrapperSchema.PropertyElements[element];
+
+            var data = new List<ICompletionData>();
+
+            foreach (var property in properties)
+                data.Add(new TypeValueCompletionData(property));
 
             ShowCompletionWindow(data);
         }
