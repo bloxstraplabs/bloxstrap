@@ -30,7 +30,8 @@
 			"SuperClass": "Control",
 			"IsCreatable": true,
 			"Attributes": {
-				"Theme": "Theme"
+				"Theme": "Theme",
+				"Title": "string"
 			}
 		},
 		"TitleBar": {
