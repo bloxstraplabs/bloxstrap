@@ -173,6 +173,45 @@
 				"Color": "Color",
 				"Offset": "double"
 			}
+		},
+		"Shape": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": false,
+			"Attributes": {
+				"Fill": "Brush",
+				"Stroke": "Brush",
+				"Stretch": "Stretch",
+				"StrokeDashCap": "PenLineCap",
+				"StrokeDashOffset": "double",
+				"StrokeEndLineCap": "PenLineCap",
+				"StrokeLineJoin": "PenLineJoin",
+				"StrokeMiterLimit": "double",
+				"StrokeStartLineCap": "PenLineCap",
+				"StrokeThickness": "double"
+			}
+		},
+		"Ellipse": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {}
+		},
+		"Line": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {
+				"X1": "double",
+				"X2": "double",
+				"Y1": "double",
+				"Y2": "double"
+			}
+		},
+		"Rectangle": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {
+				"RadiusX": "double",
+				"RadiusY": "double"
+			}
 		}
 	},
 	"Types": {
@@ -340,6 +379,21 @@
 				"Pad",
 				"Reflect",
 				"Repeat"
+			]
+		},
+		"PenLineCap": {
+			"Values": [
+				"Flat",
+				"Square",
+				"Round",
+				"Triangle"
+			]
+		},
+		"PenLineJoin": {
+			"Values": [
+				"Miter",
+				"Bevel",
+				"Round"
 			]
 		}
 	}
