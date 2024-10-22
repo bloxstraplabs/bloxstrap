@@ -10,6 +10,8 @@
     Title="Bloxstrap"
     Width="800"
     Height="450"
+    MinWidth="150"
+    MinHeight="150"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     ExtendsContentIntoTitleBar="True"
     ResizeMode="NoResize"
