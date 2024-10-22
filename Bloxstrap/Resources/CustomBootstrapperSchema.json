@@ -212,6 +212,25 @@
 				"RadiusX": "double",
 				"RadiusY": "double"
 			}
+		},
+		"BlurEffect": {
+			"IsCreatable": true,
+			"Attributes": {
+				"KernelType": "KernelType",
+				"Radius": "double",
+				"RenderingBias": "RenderingBias"
+			}
+		},
+		"DropShadowEffect": {
+			"IsCreatable": true,
+			"Attributes": {
+				"BlurRadius": "double",
+				"Direction": "double",
+				"Opacity": "double",
+				"ShadowDepth": "double",
+				"RenderingBias": "RenderingBias",
+				"Color": "Color"
+			}
 		}
 	},
 	"Types": {
@@ -394,6 +413,18 @@
 				"Miter",
 				"Bevel",
 				"Round"
+			]
+		},
+		"KernelType": {
+			"Values": [
+				"Gaussian",
+				"Box"
+			]
+		},
+		"RenderingBias": {
+			"Values": [
+				"Performance",
+				"Quality"
 			]
 		}
 	}

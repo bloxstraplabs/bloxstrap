@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 
@@ -47,6 +48,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["SkewTransform"] = HandleXml_SkewTransform,
             ["RotateTransform"] = HandleXml_RotateTransform,
             ["TranslateTransform"] = HandleXml_TranslateTransform,
+
+            ["BlurEffect"] = HandleXmlElement_BlurEffect,
+            ["DropShadowEffect"] = HandleXmlElement_DropShadowEffect,
 
             ["Ellipse"] = HandleXmlElement_Ellipse,
             ["Line"] = HandleXmlElement_Line,
@@ -300,6 +304,55 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
         #endregion
 
+        #region Effects
+        private static BlurEffect HandleXmlElement_BlurEffect(CustomDialog dialog, XElement xmlElement)
+        {
+            var effect = new BlurEffect();
+
+            effect.KernelType = ParseXmlAttribute<KernelType>(xmlElement, "KernelType", KernelType.Gaussian);
+            effect.Radius = ParseXmlAttribute<double>(xmlElement, "Radius", 5);
+            effect.RenderingBias = ParseXmlAttribute<RenderingBias>(xmlElement, "RenderingBias", RenderingBias.Performance);
+
+            return effect;
+        }
+
+        private static DropShadowEffect HandleXmlElement_DropShadowEffect(CustomDialog dialog, XElement xmlElement)
+        {
+            var effect = new DropShadowEffect();
+
+            effect.BlurRadius = ParseXmlAttribute<double>(xmlElement, "BlurRadius", 5);
+            effect.Direction = ParseXmlAttribute<double>(xmlElement, "Direction", 315);
+            effect.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1);
+            effect.ShadowDepth = ParseXmlAttribute<double>(xmlElement, "ShadowDepth", 5);
+            effect.RenderingBias = ParseXmlAttribute<RenderingBias>(xmlElement, "RenderingBias", RenderingBias.Performance);
+
+            var color = GetColorFromXElement(xmlElement, "Color");
+            if (color is Color)
+                effect.Color = (Color)color;
+
+            return effect;
+        }
+
+
+        private static void ApplyEffects_UIElement(CustomDialog dialog, UIElement uiElement, XElement xmlElement)
+        {
+            var effectElement = xmlElement.Element($"{xmlElement.Name}.Effect");
+            if (effectElement == null)
+                return;
+
+            var children = effectElement.Elements();
+            if (children.Count() > 1)
+                throw new Exception($"{xmlElement.Name}.Effect can only have one child");
+
+            var child = children.FirstOrDefault();
+            if (child == null)
+                return;
+
+            Effect effect = HandleXml<Effect>(dialog, child);
+            uiElement.Effect = effect;
+        }
+        #endregion
+
         #region Brushes
         private static void HandleXml_Brush(Brush brush, XElement xmlElement)
         {
@@ -524,6 +577,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             int zIndex = ParseXmlAttributeClamped(xmlElement, "ZIndex", defaultValue: 0, min: 0, max: 1000);
             Panel.SetZIndex(uiElement, zIndex);
+
+            ApplyEffects_UIElement(dialog, uiElement, xmlElement);
         }
 
         private static void HandleXmlElement_Control(CustomDialog dialog, Control uiElement, XElement xmlElement)
@@ -550,6 +605,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
+
+            // transfer effect to element grid
+            dialog.ElementGrid.Effect = dialog.Effect;
+            dialog.Effect = null;
 
             var theme = ParseXmlAttribute<Theme>(xmlElement, "Theme", Theme.Default);
             dialog.Resources.MergedDictionaries.Clear();
@@ -579,6 +638,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             xmlElement.SetAttributeValue("Name", "TitleBar"); // prevent two titlebars from existing
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog.RootTitleBar, xmlElement);
+
+            // get rid of all effects
+            dialog.Effect = null;
 
             Panel.SetZIndex(dialog.RootTitleBar, 1001); // always show above others
 
