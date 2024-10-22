@@ -522,8 +522,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (margin != null)
                 uiElement.Margin = (Thickness)margin;
 
-            uiElement.Height = ParseXmlAttributeClamped(xmlElement, "Height", defaultValue: 100.0, min: 0, max: 1000);
-            uiElement.Width = ParseXmlAttributeClamped(xmlElement, "Width", defaultValue: 100.0, min: 0, max: 1000);
+            uiElement.Height = ParseXmlAttributeClamped(xmlElement, "Height", defaultValue: double.NaN, min: 0, max: 1000);
+            uiElement.Width = ParseXmlAttributeClamped(xmlElement, "Width", defaultValue: double.NaN, min: 0, max: 1000);
 
             // default values of these were originally Stretch but that was no good
             uiElement.HorizontalAlignment = ParseXmlAttribute<HorizontalAlignment>(xmlElement, "HorizontalAlignment", HorizontalAlignment.Left);
