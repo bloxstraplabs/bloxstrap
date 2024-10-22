@@ -13,6 +13,7 @@
 				"VerticalAlignment": "VerticalAlignment",
 				"ZIndex": "int",
 				"RenderTransform": "Transform",
+				"LayoutTransform": "Transform",
 				"Opacity": "double",
 				"OpacityMask": "Brush",
 				"RenderTransformOrigin": "Point"

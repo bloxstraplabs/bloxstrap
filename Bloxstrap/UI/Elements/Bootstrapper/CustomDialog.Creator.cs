@@ -285,22 +285,28 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return tt;
         }
 
+        private static void ApplyTransformation_UIElement(CustomDialog dialog, string name, DependencyProperty property, UIElement uiElement, XElement xmlElement)
+        {
+            var transformElement = xmlElement.Element($"{xmlElement.Name}.{name}");
+
+            if (transformElement == null)
+                return;
+
+            var tg = new TransformGroup();
+
+            foreach (var child in transformElement.Elements())
+            {
+                Transform element = HandleXml<Transform>(dialog, child);
+                tg.Children.Add(element);
+            }
+
+            uiElement.SetValue(property, tg);
+        }
+
         private static void ApplyTransformations_UIElement(CustomDialog dialog, UIElement uiElement, XElement xmlElement)
         {
-            var renderTransform = xmlElement.Element($"{xmlElement.Name}.RenderTransform");
-
-            if (renderTransform != null)
-            {
-                var tg = new TransformGroup();
-
-                foreach (var child in renderTransform.Elements())
-                {
-                    Transform element = HandleXml<Transform>(dialog, child);
-                    tg.Children.Add(element);
-                }
-
-                uiElement.RenderTransform = tg;
-            }
+            ApplyTransformation_UIElement(dialog, "RenderTransform", FrameworkElement.RenderTransformProperty, uiElement, xmlElement);
+            ApplyTransformation_UIElement(dialog, "LayoutTransform", FrameworkElement.LayoutTransformProperty, uiElement, xmlElement);
         }
         #endregion
 
@@ -617,6 +623,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             // transfer effect to element grid
             dialog.ElementGrid.RenderTransform = dialog.RenderTransform;
             dialog.RenderTransform = null;
+            dialog.ElementGrid.LayoutTransform = dialog.LayoutTransform;
+            dialog.LayoutTransform = null;
+
             dialog.ElementGrid.Effect = dialog.Effect;
             dialog.Effect = null;
 
@@ -651,6 +660,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             // get rid of all effects
             dialog.RootTitleBar.RenderTransform = null;
+            dialog.RootTitleBar.LayoutTransform = null;
+
             dialog.RootTitleBar.Effect = null;
 
             Panel.SetZIndex(dialog.RootTitleBar, 1001); // always show above others
