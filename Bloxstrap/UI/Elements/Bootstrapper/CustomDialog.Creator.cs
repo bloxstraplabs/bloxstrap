@@ -641,8 +641,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             HandleXmlElement_Control(dialog, dialog.RootTitleBar, xmlElement);
 
             // get rid of all effects
-            dialog.RenderTransform = null;
-            dialog.Effect = null;
+            dialog.RootTitleBar.RenderTransform = null;
+            dialog.RootTitleBar.Effect = null;
 
             Panel.SetZIndex(dialog.RootTitleBar, 1001); // always show above others
 
