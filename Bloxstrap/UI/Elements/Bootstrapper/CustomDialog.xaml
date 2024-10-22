@@ -12,6 +12,8 @@
     Height="450"
     MinWidth="150"
     MinHeight="150"
+    MaxWidth="1000"
+    MaxHeight="1000"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     ExtendsContentIntoTitleBar="True"
     ResizeMode="NoResize"

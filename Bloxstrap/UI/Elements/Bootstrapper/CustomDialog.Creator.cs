@@ -123,13 +123,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         }
 
         // You can't do numeric only generics in .NET 6. The feature is exclusive to .NET 7+.
-        private static double ParseXmlAttributeClamped(XElement element, string attributeName, double? defaultValue = null, double? min = null, double? max = null)
-        {
-            double value = ParseXmlAttribute<double>(element, attributeName, defaultValue);
-            ValidateXmlElement(element.Name.ToString(), attributeName, value, min, max);
-            return value;
-        }
-
         private static int ParseXmlAttributeClamped(XElement element, string attributeName, int? defaultValue = null, int? min = null, int? max = null)
         {
             int value = ParseXmlAttribute<int>(element, attributeName, defaultValue);
@@ -522,8 +515,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (margin != null)
                 uiElement.Margin = (Thickness)margin;
 
-            uiElement.Height = ParseXmlAttributeClamped(xmlElement, "Height", defaultValue: double.NaN, min: 0, max: 1000);
-            uiElement.Width = ParseXmlAttributeClamped(xmlElement, "Width", defaultValue: double.NaN, min: 0, max: 1000);
+            uiElement.Height = ParseXmlAttribute<double>(xmlElement, "Height", double.NaN);
+            uiElement.Width = ParseXmlAttribute<double>(xmlElement, "Width", double.NaN);
 
             // default values of these were originally Stretch but that was no good
             uiElement.HorizontalAlignment = ParseXmlAttribute<HorizontalAlignment>(xmlElement, "HorizontalAlignment", HorizontalAlignment.Left);
