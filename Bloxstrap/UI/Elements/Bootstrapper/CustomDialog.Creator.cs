@@ -610,6 +610,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ApplyBrush_UIElement(dialog, uiElement, "Background", Control.BackgroundProperty, xmlElement);
 
             ApplyBrush_UIElement(dialog, uiElement, "BorderBrush", Control.BorderBrushProperty, xmlElement);
+
+            var fontSize = ParseXmlAttributeNullable<double>(xmlElement, "FontSize");
+            if (fontSize is double)
+                uiElement.FontSize = (double)fontSize;
+            uiElement.FontWeight = GetFontWeightFromXElement(xmlElement);
+            uiElement.FontStyle = GetFontStyleFromXElement(xmlElement);
         }
 
         private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)

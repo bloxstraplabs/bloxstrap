@@ -27,7 +27,10 @@
 				"BorderThickness": "Thickness",
 				"Foreground": "Brush",
 				"Background": "Brush",
-				"BorderBrush": "Brush"
+				"BorderBrush": "Brush",
+				"FontSize": "double",
+				"FontWeight": "FontWeight",
+				"FontStyle": "FontStyle"
 			}
 		},
 		"BloxstrapCustomBootstrapper": {
