@@ -573,6 +573,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             uiElement.HorizontalAlignment = ParseXmlAttribute<HorizontalAlignment>(xmlElement, "HorizontalAlignment", HorizontalAlignment.Left);
             uiElement.VerticalAlignment = ParseXmlAttribute<VerticalAlignment>(xmlElement, "VerticalAlignment", VerticalAlignment.Top);
 
+            uiElement.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1);
+            ApplyBrush_UIElement(dialog, uiElement, "OpacityMask", FrameworkElement.OpacityMaskProperty, xmlElement);
+
+            object? renderTransformOrigin = GetPointFromXElement(xmlElement, "RenderTransformOrigin");
+            if (renderTransformOrigin is Point)
+                uiElement.RenderTransformOrigin = (Point)renderTransformOrigin;
+
             int zIndex = ParseXmlAttributeClamped(xmlElement, "ZIndex", defaultValue: 0, min: 0, max: 1000);
             Panel.SetZIndex(uiElement, zIndex);
 
@@ -604,6 +611,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
+
+            dialog.Opacity = 1;
 
             // transfer effect to element grid
             dialog.ElementGrid.RenderTransform = dialog.RenderTransform;

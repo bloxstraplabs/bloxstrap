@@ -12,7 +12,10 @@
 				"HorizontalAlignment": "HorizontalAlignment",
 				"VerticalAlignment": "VerticalAlignment",
 				"ZIndex": "int",
-				"RenderTransform": "Transform"
+				"RenderTransform": "Transform",
+				"Opacity": "double",
+				"OpacityMask": "Brush",
+				"RenderTransformOrigin": "Point"
 			}
 		},
 		"Control": {
