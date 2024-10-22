@@ -231,6 +231,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     throw new Exception($"{element.Name} Unknown TextDecorations {value}");
             }
         }
+
+        private static string? GetTranslatedText(string? text)
+        {
+            if (text == null || !text.StartsWith('{') || !text.EndsWith('}'))
+                return text; // can't be translated (not in the correct format)
+
+            string resourceName = text[1..^1];
+            return Strings.ResourceManager.GetStringSafe(resourceName);
+        }
         #endregion
 
         #region Transformation Elements
@@ -599,7 +608,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         {
             var contentAttr = xmlElement.Attribute("Content");
             if (contentAttr != null)
-                return contentAttr.Value.ToString();
+                return GetTranslatedText(contentAttr.Value);
 
             var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
             if (contentElement != null)
@@ -667,7 +676,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         {
             HandleXmlElement_FrameworkElement(dialog, textBlock, xmlElement);
 
-            textBlock.Text = xmlElement.Attribute("Text")?.Value;
+            textBlock.Text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
 
             ApplyBrush_UIElement(dialog, textBlock, "Foreground", TextBlock.ForegroundProperty, xmlElement);
 
@@ -716,7 +725,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             var textBlock = new MarkdownTextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
 
-            string? text = xmlElement.Attribute("Text")?.Value;
+            string? text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
             if (text != null)
                 textBlock.MarkdownText = text;
 
