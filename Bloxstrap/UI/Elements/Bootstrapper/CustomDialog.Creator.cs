@@ -508,8 +508,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             shape.StrokeMiterLimit = ParseXmlAttribute<double>(xmlElement, "StrokeMiterLimit", 10);
             shape.StrokeStartLineCap = ParseXmlAttribute<PenLineCap>(xmlElement, "StrokeStartLineCap", PenLineCap.Flat);
             shape.StrokeThickness = ParseXmlAttribute<double>(xmlElement, "StrokeThickness", 1);
-
-            ApplyTransformations_UIElement(dialog, shape, xmlElement);
         }
 
         private static Ellipse HandleXmlElement_Ellipse(CustomDialog dialog, XElement xmlElement)
@@ -578,6 +576,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             int zIndex = ParseXmlAttributeClamped(xmlElement, "ZIndex", defaultValue: 0, min: 0, max: 1000);
             Panel.SetZIndex(uiElement, zIndex);
 
+            ApplyTransformations_UIElement(dialog, uiElement, xmlElement);
             ApplyEffects_UIElement(dialog, uiElement, xmlElement);
         }
 
@@ -607,6 +606,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
             // transfer effect to element grid
+            dialog.ElementGrid.RenderTransform = dialog.RenderTransform;
+            dialog.RenderTransform = null;
             dialog.ElementGrid.Effect = dialog.Effect;
             dialog.Effect = null;
 
@@ -640,6 +641,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             HandleXmlElement_Control(dialog, dialog.RootTitleBar, xmlElement);
 
             // get rid of all effects
+            dialog.RenderTransform = null;
             dialog.Effect = null;
 
             Panel.SetZIndex(dialog.RootTitleBar, 1001); // always show above others
@@ -695,8 +697,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 BindingOperations.SetBinding(button, Button.CommandProperty, cancelCommandBinding);
             }
 
-            ApplyTransformations_UIElement(dialog, button, xmlElement);
-
             return button;
         }
 
@@ -721,8 +721,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 Binding valueBinding = new Binding("ProgressValue") { Mode = BindingMode.OneWay };
                 BindingOperations.SetBinding(progressBar, ProgressBar.ValueProperty, valueBinding);
             }
-
-            ApplyTransformations_UIElement(dialog, progressBar, xmlElement);
 
             return progressBar;
         }
@@ -763,8 +761,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 Binding textBinding = new Binding("Message") { Mode = BindingMode.OneWay };
                 BindingOperations.SetBinding(textBlock, TextBlock.TextProperty, textBinding);
             }
-
-            ApplyTransformations_UIElement(dialog, textBlock, xmlElement);
         }
 
         private static UIElement HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
@@ -834,8 +830,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, result);
                 }
             }
-
-            ApplyTransformations_UIElement(dialog, image, xmlElement);
 
             return image;
         }
