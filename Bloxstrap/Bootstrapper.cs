@@ -126,7 +126,16 @@ namespace Bloxstrap
             string message = Strings.Dialog_Connectivity_Preventing;
 
             if (exception.GetType() == typeof(AggregateException))
-                exception = exception.InnerException!;
+            {
+                foreach (var innerEx in ((AggregateException)exception).InnerExceptions)
+                {
+                    if (innerEx is KeyNotFoundException keyNotFoundException && keyNotFoundException.Message.Contains("redist.zip"))
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Handled missing 'redist.zip' key");
+                        return;
+                    }
+                }
+            }
 
             if (exception.GetType() == typeof(HttpRequestException))
                 message = String.Format(Strings.Dialog_Connectivity_RobloxDown, "[status.roblox.com](https://status.roblox.com)");

@@ -92,7 +92,15 @@ namespace Bloxstrap
         public static void FinalizeExceptionHandling(AggregateException ex)
         {
             foreach (var innerEx in ex.InnerExceptions)
+            {
+                if (innerEx is KeyNotFoundException keyNotFoundException && keyNotFoundException.Message.Contains("redist.zip"))
+                {
+                    Logger.WriteLine("App::FinalizeExceptionHandling", "Handled missing 'redist.zip' key");
+                    return;
+                }
+
                 Logger.WriteException("App::FinalizeExceptionHandling", innerEx);
+            }
 
             FinalizeExceptionHandling(ex.GetBaseException(), false);
         }
