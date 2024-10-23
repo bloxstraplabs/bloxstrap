@@ -20,7 +20,14 @@ namespace Bloxstrap.AppData
 
         public override string Directory => Path.Combine(Paths.Roblox, "Player");
 
-        public AppState State => App.State.Prop.Player;
+        public AppState State
+        {
+            get
+            {
+                App.InitializeUI();
+                return App.State.Prop.Player;
+            }
+        }
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

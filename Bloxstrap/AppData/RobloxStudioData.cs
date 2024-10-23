@@ -14,7 +14,14 @@
 
         public override string Directory => Path.Combine(Paths.Roblox, "Studio");
         
-        public AppState State => App.State.Prop.Studio;
+        public AppState State
+        {
+            get
+            {
+                App.InitializeUI();
+                return App.State.Prop.Studio;
+            }
+        }
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

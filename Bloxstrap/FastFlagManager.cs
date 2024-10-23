@@ -246,6 +246,14 @@ namespace Bloxstrap
             // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
+
+            EnsureUIFlags();
+        }
+
+        public void EnsureUIFlags()
+        {
+            SetPreset("UI.Hide", null);
+            SetPreset("UI.FontSize", "14");
         }
     }
 }

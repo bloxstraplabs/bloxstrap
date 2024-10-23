@@ -307,6 +307,14 @@ namespace Bloxstrap
             }
 
             // you must *explicitly* call terminate when everything is done, it won't be called implicitly
+
+            FastFlags.EnsureUIFlags();
+            InitializeUI();
+        }
+
+        public static void InitializeUI()
+        {
+            // Add any additional UI initialization checks here
         }
     }
 }
