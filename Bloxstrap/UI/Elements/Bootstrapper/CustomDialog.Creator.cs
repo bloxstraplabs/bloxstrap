@@ -702,10 +702,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
         {
             var contentAttr = xmlElement.Attribute("Content");
+            var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
+            if (contentAttr != null && contentElement != null)
+                throw new Exception($"{xmlElement.Name} can only have one Content defined");
+
             if (contentAttr != null)
                 return GetTranslatedText(contentAttr.Value);
 
-            var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
             if (contentElement == null)
                 return null;
 
