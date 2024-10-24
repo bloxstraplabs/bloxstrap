@@ -706,17 +706,19 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 return GetTranslatedText(contentAttr.Value);
 
             var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
-            if (contentElement != null)
-            {
-                var first = contentElement.FirstNode as XElement;
-                if (first == null)
-                    throw new Exception($"{xmlElement.Name} Content is missing the content");
+            if (contentElement == null)
+                return null;
 
-                var uiElement = HandleXml<UIElement>(dialog, first);
-                return uiElement;
-            }
+            var children = contentElement.Elements();
+            if (children.Count() > 1)
+                throw new Exception($"{xmlElement.Name}.Content can only have one child");
 
-            return null;
+            var first = contentElement.FirstNode as XElement;
+            if (first == null)
+                throw new Exception($"{xmlElement.Name} Content is missing the content");
+
+            var uiElement = HandleXml<UIElement>(dialog, first);
+            return uiElement;
         }
 
         private static UIElement HandleXmlElement_Button(CustomDialog dialog, XElement xmlElement)
