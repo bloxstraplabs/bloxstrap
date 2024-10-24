@@ -636,8 +636,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Effect = null;
 
             var theme = ParseXmlAttribute<Theme>(xmlElement, "Theme", Theme.Default);
+            if (theme == Theme.Default)
+                theme = App.Settings.Prop.Theme;
+
+            var wpfUiTheme = theme.GetFinal() == Theme.Dark ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light;
+
             dialog.Resources.MergedDictionaries.Clear();
-            dialog.Resources.MergedDictionaries.Add(new ThemesDictionary() { Theme = theme.GetFinal() == Theme.Dark ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light });
+            dialog.Resources.MergedDictionaries.Add(new ThemesDictionary() { Theme = wpfUiTheme });
+            dialog.DefaultBorderThemeOverwrite = wpfUiTheme;
+
+            // disable default window border if border is modified
+            if (xmlElement.Attribute("BorderBrush") != null || xmlElement.Attribute("BorderThickness") != null)
+                dialog.DefaultBorderEnabled = false;
 
             // set the margin & padding on the element grid
             dialog.ElementGrid.Margin = dialog.Margin;
