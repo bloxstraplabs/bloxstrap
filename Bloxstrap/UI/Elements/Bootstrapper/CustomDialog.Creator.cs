@@ -239,6 +239,14 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             string resourceName = text[1..^1];
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
+
+        private static string? GetSourcePath(CustomDialog dialog, string? sourcePath)
+        {
+            if (sourcePath == null)
+                return null;
+
+            return sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
+        }
         #endregion
 
         #region Transformation Elements
@@ -401,8 +409,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (viewport is Rect)
                 imageBrush.Viewport = (Rect)viewport;
 
-            string sourcePath = GetXmlAttribute(xmlElement, "ImageSource");
-            sourcePath = sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
+            string sourcePath = GetSourcePath(dialog, GetXmlAttribute(xmlElement, "ImageSource"))!;
 
             if (sourcePath == "{Icon}")
             {
@@ -618,6 +625,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 uiElement.FontSize = (double)fontSize;
             uiElement.FontWeight = GetFontWeightFromXElement(xmlElement);
             uiElement.FontStyle = GetFontStyleFromXElement(xmlElement);
+
+            // NOTE: font family can both be the name of the font or a uri
+            string? fontFamily = GetSourcePath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            if (fontFamily != null)
+                uiElement.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
         }
 
         private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
@@ -830,6 +842,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             textBlock.IsHyphenationEnabled = ParseXmlAttribute<bool>(xmlElement, "IsHyphenationEnabled", false);
             textBlock.BaselineOffset = ParseXmlAttribute<double>(xmlElement, "BaselineOffset", double.NaN);
 
+            // NOTE: font family can both be the name of the font or a uri
+            string? fontFamily = GetSourcePath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            if (fontFamily != null)
+                textBlock.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
+
             object? padding = GetThicknessFromXElement(xmlElement, "Padding");
             if (padding != null)
                 textBlock.Padding = (Thickness)padding;
@@ -869,8 +886,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             image.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             image.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            string sourcePath = GetXmlAttribute(xmlElement, "Source");
-            sourcePath = sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
+            string sourcePath = GetSourcePath(dialog, GetXmlAttribute(xmlElement, "Source"))!;
 
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality); // should this be modifiable by the user?
 
