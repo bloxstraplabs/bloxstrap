@@ -133,16 +133,24 @@ namespace Bloxstrap.UI.Elements.Editor
         {
             CustomBootstrapperSchema.ParseSchema();
 
+            string themeContents = File.ReadAllText(Path.Combine(Paths.CustomThemes, name, "Theme.xml"));
+            themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
+
             var viewModel = new BootstrapperEditorWindowViewModel();
             viewModel.Name = name;
             viewModel.Title = $"Editing \"{name}\"";
-            viewModel.Code = File.ReadAllText(Path.Combine(Paths.CustomThemes, name, "Theme.xml"));
+            viewModel.Code = themeContents;
 
             DataContext = viewModel;
             InitializeComponent();
 
             UIXML.Text = viewModel.Code;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
+        }
+
+        private static string ToCRLF(string text)
+        {
+            return text.Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\r\n");
         }
 
         private void OnCodeChanged(object sender, EventArgs e)
