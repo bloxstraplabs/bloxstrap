@@ -1046,9 +1046,6 @@ namespace Bloxstrap
 
             const int maxTries = 5;
 
-            bool statIsRetrying = false;
-            bool statIsHttp = false;
-
             App.Logger.WriteLine(LOG_IDENT, "Downloading...");
 
             var buffer = new byte[4096];
@@ -1101,8 +1098,6 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    statIsRetrying = true;
-
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
                         App.SendStat("packageDownloadState", "httpFail");
@@ -1132,13 +1127,9 @@ namespace Bloxstrap
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
                         packageUrl = packageUrl.Replace("https://", "http://");
-                        statIsHttp = true;
                     }
                 }
             }
-
-            if (statIsRetrying)
-                App.SendStat("packageDownloadState", statIsHttp ? "httpSuccess" : "retrySuccess");
         }
 
         private void ExtractPackage(Package package, List<string>? files = null)
