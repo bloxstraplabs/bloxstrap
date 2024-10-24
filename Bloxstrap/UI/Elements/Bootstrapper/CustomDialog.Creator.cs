@@ -738,13 +738,21 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static UIElement HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
         {
-            var progressBar = new ProgressBar();
+            var progressBar = new Wpf.Ui.Controls.ProgressBar();
             HandleXmlElement_Control(dialog, progressBar, xmlElement);
 
             progressBar.IsIndeterminate = ParseXmlAttribute<bool>(xmlElement, "IsIndeterminate", false);
 
             progressBar.Value = ParseXmlAttribute<double>(xmlElement, "Value", 0);
             progressBar.Maximum = ParseXmlAttribute<double>(xmlElement, "Maximum", 100);
+
+            object? cornerRadius = GetCornerRadiusFromXElement(xmlElement, "CornerRadius");
+            if (cornerRadius != null)
+                progressBar.CornerRadius = (CornerRadius)cornerRadius;
+
+            object? indicatorCornerRadius = GetCornerRadiusFromXElement(xmlElement, "IndicatorCornerRadius");
+            if (indicatorCornerRadius != null)
+                progressBar.IndicatorCornerRadius = (CornerRadius)indicatorCornerRadius;
 
             if (xmlElement.Attribute("Name")?.Value == "PrimaryProgressBar")
             {

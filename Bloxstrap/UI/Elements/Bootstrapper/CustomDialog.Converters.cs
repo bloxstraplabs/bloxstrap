@@ -61,6 +61,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static object? GetPointFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(PointConverter, xmlElement, attributeName);
 
+        private static CornerRadiusConverter? _cornerRadiusConverter = null;
+        public static CornerRadiusConverter CornerRadiusConverter { get => _cornerRadiusConverter ??= new CornerRadiusConverter(); }
+
+        private static object? GetCornerRadiusFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(CornerRadiusConverter, xmlElement, attributeName);
+
 
         private static BrushConverter? _brushConverter = null;
         private static BrushConverter BrushConverter { get => _brushConverter ??= new BrushConverter(); }
