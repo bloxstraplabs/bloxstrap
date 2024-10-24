@@ -30,7 +30,8 @@
 				"BorderBrush": "Brush",
 				"FontSize": "double",
 				"FontWeight": "FontWeight",
-				"FontStyle": "FontStyle"
+				"FontStyle": "FontStyle",
+				"FontFamily": "FontFamily"
 			}
 		},
 		"BloxstrapCustomBootstrapper": {
@@ -91,6 +92,7 @@
 				"FontSize": "double",
 				"FontWeight": "FontWeight",
 				"FontStyle": "FontStyle",
+				"FontFamily": "FontFamily",
 				"LineHeight": "double",
 				"LineStackingStrategy": "LineStackingStrategy",
 				"TextAlignment": "TextAlignment",
@@ -274,6 +276,7 @@
 		"Color": {},
 		"ImageSource": {},
 		"Transform": { "CanHaveElement": true },
+		"FontFamily": {},
 		"Visibility": {
 			"Values": [
 				"Visible",
