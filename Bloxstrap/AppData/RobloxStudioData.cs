@@ -10,8 +10,6 @@
 
         public override string ExecutableName => "RobloxStudioBeta.exe";
 
-        public string StartEvent => "www.roblox.com/robloxStudioStartedEvent";
-
         public override string Directory => Path.Combine(Paths.Roblox, "Studio");
         
         public AppState State => App.State.Prop.Studio;

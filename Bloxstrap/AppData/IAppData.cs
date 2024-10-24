@@ -10,8 +10,6 @@
 
         string ExecutableName { get; }
 
-        string StartEvent { get; }
-
         string Directory { get; }
 
         string LockFilePath { get; }

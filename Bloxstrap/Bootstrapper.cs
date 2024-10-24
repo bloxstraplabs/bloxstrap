@@ -319,20 +319,15 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
-            if (_launchMode == LaunchMode.Player)
+            if (_launchMode == LaunchMode.Player && App.Settings.Prop.ForceRobloxLanguage)
             {
-                if (App.Settings.Prop.ForceRobloxLanguage)
-                {
-                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+                var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
 
-                    if (match.Groups.Count == 2)
-                        _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
-                }
-
-                if (!String.IsNullOrEmpty(_launchCommandLine))
-                    _launchCommandLine += " ";
-
-                _launchCommandLine += "-isInstallerLaunch";
+                if (match.Groups.Count == 2)
+                    _launchCommandLine = _launchCommandLine.Replace(
+                        "robloxLocale:en_us", 
+                        $"robloxLocale:{match.Groups[1].Value}", 
+                        StringComparison.OrdinalIgnoreCase);
             }
 
             var startInfo = new ProcessStartInfo()
@@ -350,66 +345,56 @@ namespace Bloxstrap
 
             string? logFileName = null;
 
-            using (var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent))
+            string rbxLogDir = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
+
+            if (!Directory.Exists(rbxLogDir))
+                Directory.CreateDirectory(rbxLogDir);
+
+            var logWatcher = new FileSystemWatcher()
             {
-                startEvent.Reset();
+                Path = rbxLogDir,
+                Filter = "*.log",
+                EnableRaisingEvents = true
+            };
 
-                string rbxLogDir = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
+            var logCreatedEvent = new AutoResetEvent(false);
 
-                if (!Directory.Exists(rbxLogDir))
-                    Directory.CreateDirectory(rbxLogDir);
+            logWatcher.Created += (_, e) =>
+            {
+                logWatcher.EnableRaisingEvents = false;
+                logFileName = e.FullPath;
+                logCreatedEvent.Set();
+            };
 
-                var logWatcher = new FileSystemWatcher()
-                {
-                    Path = rbxLogDir,
-                    Filter = "*.log",
-                    EnableRaisingEvents = true
-                };
-
-                var logCreatedEvent = new AutoResetEvent(false);
-
-                logWatcher.Created += (_, e) =>
-                {
-                    logWatcher.EnableRaisingEvents = false;
-                    logFileName = e.FullPath;
-                    logCreatedEvent.Set();
-                };
-
-                // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
-                try
-                {
-                    using var process = Process.Start(startInfo)!;
-                    _appPid = process.Id;
-                }
-                catch (Exception)
-                {
-                    // attempt a reinstall on next launch
-                    File.Delete(AppData.ExecutablePath);
-                    throw;
-                }
-
-                App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {_appPid}), waiting for start event");
-
-                if (startEvent.WaitOne(TimeSpan.FromSeconds(5)))
-                    App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
-                else
-                   App.Logger.WriteLine(LOG_IDENT, "Start event not signalled, implying successful launch");
-
-                logCreatedEvent.WaitOne(TimeSpan.FromSeconds(5));
-
-                if (String.IsNullOrEmpty(logFileName))
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
-                    Frontend.ShowPlayerErrorDialog();
-                    return;
-                }
-                else
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Got log file as {logFileName}");
-                }
-
-                _mutex?.ReleaseAsync();
+            // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
+            try
+            {
+                using var process = Process.Start(startInfo)!;
+                _appPid = process.Id;
             }
+            catch (Exception)
+            {
+                // attempt a reinstall on next launch
+                File.Delete(AppData.ExecutablePath);
+                throw;
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {_appPid}), waiting for log file");
+
+            logCreatedEvent.WaitOne(TimeSpan.FromSeconds(15));
+
+            if (String.IsNullOrEmpty(logFileName))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
+                Frontend.ShowPlayerErrorDialog();
+                return;
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Got log file as {logFileName}");
+            }
+
+            _mutex?.ReleaseAsync();
 
             if (IsStudioLaunch)
                 return;
@@ -466,6 +451,9 @@ namespace Bloxstrap
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, args);
             }
+
+            // average grace time between log being created and the window being shown
+            Thread.Sleep(2000);
         }
 
         public void Cancel()
