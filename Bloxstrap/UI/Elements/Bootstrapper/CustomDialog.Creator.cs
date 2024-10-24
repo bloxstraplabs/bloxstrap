@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -34,6 +35,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["TitleBar"] = HandleXmlElement_TitleBar,
             ["Button"] = HandleXmlElement_Button,
             ["ProgressBar"] = HandleXmlElement_ProgressBar,
+            ["ProgressRing"] = HandleXmlElement_ProgressRing,
             ["TextBlock"] = HandleXmlElement_TextBlock,
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image,
@@ -736,15 +738,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return button;
         }
 
+        private static void HandleXmlElement_RangeBase(CustomDialog dialog, RangeBase rangeBase, XElement xmlElement)
+        {
+            HandleXmlElement_Control(dialog, rangeBase, xmlElement);
+
+            rangeBase.Value = ParseXmlAttribute<double>(xmlElement, "Value", 0);
+            rangeBase.Maximum = ParseXmlAttribute<double>(xmlElement, "Maximum", 100);
+        }
+
         private static UIElement HandleXmlElement_ProgressBar(CustomDialog dialog, XElement xmlElement)
         {
             var progressBar = new Wpf.Ui.Controls.ProgressBar();
-            HandleXmlElement_Control(dialog, progressBar, xmlElement);
+            HandleXmlElement_RangeBase(dialog, progressBar, xmlElement);
 
             progressBar.IsIndeterminate = ParseXmlAttribute<bool>(xmlElement, "IsIndeterminate", false);
-
-            progressBar.Value = ParseXmlAttribute<double>(xmlElement, "Value", 0);
-            progressBar.Maximum = ParseXmlAttribute<double>(xmlElement, "Maximum", 100);
 
             object? cornerRadius = GetCornerRadiusFromXElement(xmlElement, "CornerRadius");
             if (cornerRadius != null)
@@ -764,6 +771,28 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
                 Binding valueBinding = new Binding("ProgressValue") { Mode = BindingMode.OneWay };
                 BindingOperations.SetBinding(progressBar, ProgressBar.ValueProperty, valueBinding);
+            }
+
+            return progressBar;
+        }
+
+        private static UIElement HandleXmlElement_ProgressRing(CustomDialog dialog, XElement xmlElement)
+        {
+            var progressBar = new Wpf.Ui.Controls.ProgressRing();
+            HandleXmlElement_RangeBase(dialog, progressBar, xmlElement);
+
+            progressBar.IsIndeterminate = ParseXmlAttribute<bool>(xmlElement, "IsIndeterminate", false);
+
+            if (xmlElement.Attribute("Name")?.Value == "PrimaryProgressRing")
+            {
+                Binding isIndeterminateBinding = new Binding("ProgressIndeterminate") { Mode = BindingMode.OneWay };
+                BindingOperations.SetBinding(progressBar, Wpf.Ui.Controls.ProgressRing.IsIndeterminateProperty, isIndeterminateBinding);
+
+                Binding maximumBinding = new Binding("ProgressMaximum") { Mode = BindingMode.OneWay };
+                BindingOperations.SetBinding(progressBar, Wpf.Ui.Controls.ProgressRing.MaximumProperty, maximumBinding);
+
+                Binding valueBinding = new Binding("ProgressValue") { Mode = BindingMode.OneWay };
+                BindingOperations.SetBinding(progressBar, Wpf.Ui.Controls.ProgressRing.ValueProperty, valueBinding);
             }
 
             return progressBar;
