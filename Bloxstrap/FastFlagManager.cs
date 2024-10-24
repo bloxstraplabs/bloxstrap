@@ -246,7 +246,7 @@ namespace Bloxstrap
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
 
-             if (GetPreset("Rendering.ManualFullscreen") != "False")
+            if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
         }
     }
