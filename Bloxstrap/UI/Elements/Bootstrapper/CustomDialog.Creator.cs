@@ -40,16 +40,16 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image,
 
-            ["SolidColorBrush"] = HandleXml_SolidColorBrush,
-            ["ImageBrush"] = HandleXml_ImageBrush,
-            ["LinearGradientBrush"] = HandleXml_LinearGradientBrush,
+            ["SolidColorBrush"] = HandleXmlElement_SolidColorBrush,
+            ["ImageBrush"] = HandleXmlElement_ImageBrush,
+            ["LinearGradientBrush"] = HandleXmlElement_LinearGradientBrush,
 
-            ["GradientStop"] = HandleXml_GradientStop,
+            ["GradientStop"] = HandleXmlElement_GradientStop,
 
-            ["ScaleTransform"] = HandleXml_ScaleTransform,
-            ["SkewTransform"] = HandleXml_SkewTransform,
-            ["RotateTransform"] = HandleXml_RotateTransform,
-            ["TranslateTransform"] = HandleXml_TranslateTransform,
+            ["ScaleTransform"] = HandleXmlElement_ScaleTransform,
+            ["SkewTransform"] = HandleXmlElement_SkewTransform,
+            ["RotateTransform"] = HandleXmlElement_RotateTransform,
+            ["TranslateTransform"] = HandleXmlElement_TranslateTransform,
 
             ["BlurEffect"] = HandleXmlElement_BlurEffect,
             ["DropShadowEffect"] = HandleXmlElement_DropShadowEffect,
@@ -242,7 +242,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         #endregion
 
         #region Transformation Elements
-        private static Transform HandleXml_ScaleTransform(CustomDialog dialog, XElement xmlElement)
+        private static Transform HandleXmlElement_ScaleTransform(CustomDialog dialog, XElement xmlElement)
         {
             var st = new ScaleTransform();
 
@@ -254,7 +254,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return st;
         }
 
-        private static Transform HandleXml_SkewTransform(CustomDialog dialog, XElement xmlElement)
+        private static Transform HandleXmlElement_SkewTransform(CustomDialog dialog, XElement xmlElement)
         {
             var st = new SkewTransform();
 
@@ -266,7 +266,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return st;
         }
 
-        private static Transform HandleXml_RotateTransform(CustomDialog dialog, XElement xmlElement)
+        private static Transform HandleXmlElement_RotateTransform(CustomDialog dialog, XElement xmlElement)
         {
             var rt = new RotateTransform();
 
@@ -277,7 +277,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return rt;
         }
 
-        private static Transform HandleXml_TranslateTransform(CustomDialog dialog, XElement xmlElement)
+        private static Transform HandleXmlElement_TranslateTransform(CustomDialog dialog, XElement xmlElement)
         {
             var tt = new TranslateTransform();
 
@@ -367,7 +367,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             brush.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1.0);
         }
 
-        private static Brush HandleXml_SolidColorBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXmlElement_SolidColorBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new SolidColorBrush();
             HandleXml_Brush(brush, xmlElement);
@@ -379,7 +379,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return brush;
         }
 
-        private static Brush HandleXml_ImageBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXmlElement_ImageBrush(CustomDialog dialog, XElement xmlElement)
         {
             var imageBrush = new ImageBrush();
             HandleXml_Brush(imageBrush, xmlElement);
@@ -434,7 +434,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return imageBrush;
         }
 
-        private static GradientStop HandleXml_GradientStop(CustomDialog dialog, XElement xmlElement)
+        private static GradientStop HandleXmlElement_GradientStop(CustomDialog dialog, XElement xmlElement)
         {
             var gs = new GradientStop();
 
@@ -447,7 +447,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return gs;
         }
 
-        private static Brush HandleXml_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
+        private static Brush HandleXmlElement_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new LinearGradientBrush();
             HandleXml_Brush(brush, xmlElement);
