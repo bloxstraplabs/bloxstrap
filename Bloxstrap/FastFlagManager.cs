@@ -1,4 +1,5 @@
 ﻿using Bloxstrap.Enums.FlagPresets;
+using System.Security.Policy;
 
 namespace Bloxstrap
 {
@@ -7,7 +8,9 @@ namespace Bloxstrap
         public override string ClassName => nameof(FastFlagManager);
 
         public override string LOG_IDENT_CLASS => ClassName;
-        
+
+        public override string ProfilesLocation => Path.Combine(Paths.Base, "Profiles");
+
         public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);

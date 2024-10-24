@@ -106,7 +106,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Bloxstrap.
+        ///   Looks up a localized string similar to About Fishstrap.
         /// </summary>
         public static string About_Title {
             get {
@@ -124,7 +124,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translators.
+        ///   Looks up a localized string similar to Bloxstrap translators.
         /// </summary>
         public static string About_Translators_Title {
             get {
@@ -151,7 +151,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
+        ///   Looks up a localized string similar to Fishstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
         /// </summary>
         public static string Bootstrapper_AutoUpdateFailed {
             get {
@@ -259,7 +259,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Getting the latest Bloxstrap....
+        ///   Looks up a localized string similar to Getting the latest Fishstrap....
         /// </summary>
         public static string Bootstrapper_Status_UpgradingBloxstrap {
             get {
@@ -295,7 +295,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has successfully uninstalled.
+        ///   Looks up a localized string similar to Fishstrap has successfully uninstalled.
         /// </summary>
         public static string Bootstrapper_SuccessfullyUninstalled {
             get {
@@ -304,7 +304,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?.
+        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Fishstrap. Would you like close Roblox now?.
         /// </summary>
         public static string Bootstrapper_Uninstall_RobloxRunning {
             get {
@@ -417,6 +417,15 @@ namespace Bloxstrap.Resources {
         public static string Common_DiscordRichPresence {
             get {
                 return ResourceManager.GetString("Common.DiscordRichPresence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flag Editor.
+        /// </summary>
+        public static string Common_FastFlags {
+            get {
+                return ResourceManager.GetString("Common_FastFlags", resourceCulture);
             }
         }
         
@@ -574,7 +583,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option..
+        ///   Looks up a localized string similar to Roblox has not yet been installed. Please launch Roblox using Fishstrap at least once before trying to use this option..
         /// </summary>
         public static string Common_RobloxNotInstalled {
             get {
@@ -890,7 +899,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is unable to connect to {0}.
+        ///   Looks up a localized string similar to Fishstrap is unable to connect to {0}.
         /// </summary>
         public static string Dialog_Connectivity_UnableToConnect {
             get {
@@ -899,7 +908,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is unable to download Roblox.
+        ///   Looks up a localized string similar to Fishstrap is unable to download Roblox.
         /// </summary>
         public static string Dialog_Connectivity_UnableToDownload {
             get {
@@ -966,7 +975,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap Exception.
+        ///   Looks up a localized string similar to Fishstrap Exception.
         /// </summary>
         public static string Dialog_Exception_Title {
             get {
@@ -1031,7 +1040,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn&apos;t anything that would restrict Bloxstrap&apos;s operation..
+        ///   Looks up a localized string similar to Fishstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn&apos;t anything that would restrict Fishstrap&apos;s operation..
         /// </summary>
         public static string Dialog_RegistryWriteError {
             get {
@@ -1076,7 +1085,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap (Glass).
+        ///   Looks up a localized string similar to Fishstrap (Glass).
         /// </summary>
         public static string Enums_BootstrapperStyle_FluentAeroDialog {
             get {
@@ -1382,7 +1391,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has been upgraded to v{0}.
+        ///   Looks up a localized string similar to Fishstrap has been upgraded to v{0}.
         /// </summary>
         public static string InstallChecker_Updated {
             get {
@@ -1391,7 +1400,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The version of Bloxstrap you&apos;ve launched is different to the version you currently have installed.
+        ///   Looks up a localized string similar to The version of Fishstrap you&apos;ve launched is different to the version you currently have installed.
         ///Would you like to upgrade your currently installed version?.
         /// </summary>
         public static string InstallChecker_VersionDifferentThanInstalled {
@@ -1401,7 +1410,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The version of Bloxstrap you&apos;ve launched is older than the version you currently have installed.
+        ///   Looks up a localized string similar to The version of Fishstrap you&apos;ve launched is older than the version you currently have installed.
         ///Issues may occur and your settings may be altered. A reinstall is recommended.
         ///Are you sure you want to continue?.
         /// </summary>
@@ -1439,7 +1448,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure Bloxstrap&apos;s settings.
+        ///   Looks up a localized string similar to Configure Fishstrap&apos;s settings.
         /// </summary>
         public static string Installer_Completion_Settings_Title {
             get {
@@ -1448,11 +1457,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has successfully been installed.
+        ///   Looks up a localized string similar to Fishstrap has successfully been installed.
         ///
-        ///Roblox has not yet been installed, that will happen when you launch it with Bloxstrap for the first time. However, before you do that, you may want to configure Bloxstrap&apos;s settings first.
+        ///Roblox has not yet been installed, that will happen when you launch it with Fishstrap for the first time. However, before you do that, you may want to configure Fishstrap&apos;s settings first.
         ///
-        ///Also, avoid using the &quot;Roblox Player&quot; shortcut to launch Roblox, as Bloxstrap won&apos;t launch with Roblox. If you don&apos;t see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
+        ///Also, avoid using the &quot;Roblox Player&quot; shortcut to launch Roblox, as Fishstrap won&apos;t launch with Roblox. If you don&apos;t see Fishstrap show when launching from the website, simply launch Roblox with Fishstrap once from the desktop to fix it.
         ///
         ///What would you like to do?.
         /// </summary>
@@ -1472,9 +1481,9 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
+        ///   Looks up a localized string similar to Fishstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
         ///
-        ///Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards..
+        ///Please manually delete Fishstrap.exe from the install location or try restarting your system, and then retry installation afterwards..
         /// </summary>
         public static string Installer_Install_CannotOverwrite {
             get {
@@ -1546,11 +1555,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for downloading Bloxstrap. 
+        ///   Looks up a localized string similar to Thank you for downloading Fishstrap. 
         ///
-        ///The only official websites to download Bloxstrap from are {0} and {1}, so please verify that you got it from an official source.
+        ///The only official websites to download Fishstrap from are {0} and {1}, so please verify that you got it from an official source.
         ///
-        ///This installation process will be quick and simple, and you will be able to configure any of Bloxstrap&apos;s settings after installation..
+        ///This installation process will be quick and simple, and you will be able to configure any of Fishstrap&apos;s settings after installation..
         /// </summary>
         public static string Installer_Welcome_MainText {
             get {
@@ -1613,7 +1622,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Support us on Ko-fi!.
+        ///   Looks up a localized string similar to Support Bloxstrap on Ko-fi!.
         /// </summary>
         public static string LaunchMenu_Donate {
             get {
@@ -1892,7 +1901,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure how Bloxstrap should look..
+        ///   Looks up a localized string similar to Configure how Fishstrap should look..
         /// </summary>
         public static string Menu_Appearance_Description {
             get {
@@ -2325,6 +2334,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save current flags.
+        /// </summary>
+        public static string Menu_FastFlagProfiles_Save {
+            get {
+                return ResourceManager.GetString("Menu_FastFlagProfiles_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control how specific Roblox engine parameters and features are configured..
         /// </summary>
         public static string Menu_FastFlags_Description {
@@ -2582,6 +2600,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save and load fast flag profiles..
+        /// </summary>
+        public static string Menu_FlagProfiles_Description {
+            get {
+                return ResourceManager.GetString("Menu_FlagProfiles_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flag Profiles.
+        /// </summary>
+        public static string Menu_FlagProfiles_Title {
+            get {
+                return ResourceManager.GetString("Menu_FlagProfiles_Title", resourceCulture);
             }
         }
         
@@ -3190,7 +3226,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap Settings.
+        ///   Looks up a localized string similar to Fishstrap Settings.
         /// </summary>
         public static string Menu_Title {
             get {

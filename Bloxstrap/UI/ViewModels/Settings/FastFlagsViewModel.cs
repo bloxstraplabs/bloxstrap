@@ -15,6 +15,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
         
         public event EventHandler? OpenFlagEditorEvent;
 
+        public event EventHandler? OpenFlagProfilesEvent;
+
+        private void OpenFastFlagProfiles() => OpenFlagProfilesEvent?.Invoke(this, EventArgs.Empty);
         private void OpenFastFlagEditor() => OpenFlagEditorEvent?.Invoke(this, EventArgs.Empty);
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);

@@ -18,6 +18,8 @@
 
         public static string Base { get; private set; } = "";
         public static string Downloads { get; private set; } = "";
+
+        public static string SavedFlagProfiles { get; private set; } = "";
         public static string Logs { get; private set; } = "";
         public static string Integrations { get; private set; } = "";
         public static string Modifications { get; private set; } = "";
@@ -33,6 +35,7 @@
         {
             Base = baseDirectory;
             Downloads = Path.Combine(Base, "Downloads");
+            SavedFlagProfiles = Path.Combine(Base, "SavedFlagProfiles");
             Logs = Path.Combine(Base, "Logs");
             Integrations = Path.Combine(Base, "Integrations");
             Modifications = Path.Combine(Base, "Modifications");

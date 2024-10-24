@@ -15,9 +15,9 @@ namespace Bloxstrap
 #if QA_BUILD
         public const string ProjectName = "Bloxstrap-QA";
 #else
-        public const string ProjectName = "Bloxstrap";
+        public const string ProjectName = "Fishstrap";
 #endif
-        public const string ProjectOwner = "Bloxstrap";
+        public const string ProjectOwner = "returnrqt";
         public const string ProjectRepository = "returnrqt/bloxstrap";
         public const string ProjectDownloadLink = "https://github.com/returnrqt/bloxstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";

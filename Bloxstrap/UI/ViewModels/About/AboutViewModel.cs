@@ -7,7 +7,7 @@ namespace Bloxstrap.UI.ViewModels.About
         public string Version => string.Format(Strings.Menu_About_Version, App.Version);
 
         public BuildMetadataAttribute BuildMetadata => App.BuildMetadata;
-
+            
         public string BuildTimestamp => BuildMetadata.Timestamp.ToFriendlyString();
         public string BuildCommitHashUrl => $"https://github.com/{App.ProjectRepository}/commit/{BuildMetadata.CommitHash}";
 
