@@ -131,7 +131,7 @@
             <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FontSize, Mode=TwoWay}" PreviewTextInput="ValidateInt32" />
         </controls:OptionControl>
 
-        <controls:OptionControl 
+        <!--<controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_EscapeMenuVersion_Title}"
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#escape-menu-version">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding IGMenuVersions.Keys, Mode=OneTime}" Text="{Binding SelectedIGMenuVersion, Mode=TwoWay}">
@@ -141,7 +141,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-        </controls:OptionControl>
+        </controls:OptionControl>-->
 
         <controls:OptionControl 
             Margin="0,24,0,0"
