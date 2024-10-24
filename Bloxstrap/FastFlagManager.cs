@@ -243,9 +243,11 @@ namespace Bloxstrap
             // clone the dictionary
             OriginalProp = new(Prop);
 
-            // TODO - remove when activity tracking has been revamped
             if (GetPreset("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
+
+             if (GetPreset("Rendering.ManualFullscreen") != "False")
+                SetPreset("Rendering.ManualFullscreen", "False");
         }
     }
 }

@@ -22,6 +22,12 @@
             </StackPanel>
         </ui:CardAction>
 
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />

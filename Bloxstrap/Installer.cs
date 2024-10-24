@@ -359,8 +359,6 @@ namespace Bloxstrap
                 || Paths.Process.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"))
                 || Paths.Process.StartsWith(Paths.TempUpdates);
 
-            isAutoUpgrade = true;
-
             var existingVer = FileVersionInfo.GetVersionInfo(Paths.Application).ProductVersion;
             var currentVer = FileVersionInfo.GetVersionInfo(Paths.Process).ProductVersion;
 
