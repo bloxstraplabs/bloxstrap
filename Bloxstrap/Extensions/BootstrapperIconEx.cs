@@ -14,6 +14,7 @@ namespace Bloxstrap.Extensions
             BootstrapperIcon.IconEarly2015,
             BootstrapperIcon.Icon2011,
             BootstrapperIcon.Icon2008,
+            BootstrapperIcon.IconBloxstrapClassic,
             BootstrapperIcon.IconCustom
         };
 
@@ -61,6 +62,7 @@ namespace Bloxstrap.Extensions
                 BootstrapperIcon.Icon2017 => Properties.Resources.Icon2017,
                 BootstrapperIcon.Icon2019 => Properties.Resources.Icon2019,
                 BootstrapperIcon.Icon2022 => Properties.Resources.Icon2022,
+                BootstrapperIcon.IconBloxstrapClassic => Properties.Resources.IconBloxstrapClassic,
                 _ => Properties.Resources.IconBloxstrap
             };
         }
