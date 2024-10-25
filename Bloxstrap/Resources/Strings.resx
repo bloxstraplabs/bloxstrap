@@ -1241,4 +1241,10 @@ Would you like to enable test mode?</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
   </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap tried to upgrade Roblox but can't because Roblox's files are still in use.
+
+Please close any applications that may be using Roblox's files, and relaunch.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
 </root>

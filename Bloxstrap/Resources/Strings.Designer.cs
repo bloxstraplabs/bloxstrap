@@ -169,6 +169,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap tried to upgrade Roblox but can&apos;t because Roblox&apos;s files are still in use.
+        ///
+        ///Please close any applications that may be using Roblox&apos;s files, and relaunch..
+        /// </summary>
+        public static string Bootstrapper_FilesInUse {
+            get {
+                return ResourceManager.GetString("Bootstrapper.FilesInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must first install Bloxstrap before uninstalling..
         /// </summary>
         public static string Bootstrapper_FirstRunUninstall {

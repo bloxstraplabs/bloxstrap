@@ -11,7 +11,9 @@
         public override string ExecutableName => "RobloxStudioBeta.exe";
 
         public override string Directory => Path.Combine(Paths.Roblox, "Studio");
-        
+
+        public string OldDirectory => Path.Combine(Paths.Roblox, "Studio.old");
+
         public AppState State => App.State.Prop.Studio;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()

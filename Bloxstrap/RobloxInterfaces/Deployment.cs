@@ -157,6 +157,11 @@
                 {
                     clientVersion = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + path);
                 }
+                catch (HttpRequestException)
+                {
+                    // throw up the exception handler chain, as we shouldn't be the one handling it
+                    throw;
+                }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Failed to contact clientsettingscdn! Falling back to clientsettings...");

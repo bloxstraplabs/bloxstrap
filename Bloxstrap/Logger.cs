@@ -115,7 +115,9 @@
         {
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
-            WriteLine($"[{identifier}] {ex}");
+            string hresult = "0x" + ex.HResult.ToString("X8");
+
+            WriteLine($"[{identifier}] ({hresult}) {ex}");
 
             Thread.CurrentThread.CurrentUICulture = Locale.CurrentCulture;
         }

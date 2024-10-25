@@ -452,8 +452,8 @@ namespace Bloxstrap
                     Process.Start(Paths.Process, args);
             }
 
-            // average grace time between log being created and the window being shown
-            Thread.Sleep(2000);
+            // allow for window to show, since the log is created pretty far beforehand
+            Thread.Sleep(1000);
         }
 
         public void Cancel()
@@ -631,19 +631,36 @@ namespace Bloxstrap
             {
                 try
                 {
-                    // gross hack to see if roblox is still running
-                    // i don't want to rely on mutexes because they can change, and will false flag for
-                    // running installations that are not by bloxstrap
-                    File.Delete(AppData.ExecutablePath);
+                    // test to see if any files are in use
+                    // if you have a better way to check for this, please let me know!
+                    Directory.Move(AppData.Directory, AppData.OldDirectory);
                 }
                 catch (Exception ex)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not delete executable/folder, Roblox may still be running. Aborting update.");
+                    App.Logger.WriteLine(LOG_IDENT, "Could not clear old files, aborting update.");
                     App.Logger.WriteException(LOG_IDENT, ex);
+
+                    // 0x80070020 is the HRESULT that indicates that a process is still running
+                    // (either RobloxPlayerBeta or RobloxCrashHandler), so we'll silently ignore it
+                    if ((uint)ex.HResult != 0x80070020)
+                    {
+                        // ensure no files are marked as read-only for good measure
+                        foreach (var file in Directory.GetFiles(AppData.Directory, "*", SearchOption.AllDirectories))
+                            Filesystem.AssertReadOnly(file);
+
+                        Frontend.ShowMessageBox(
+                            Strings.Bootstrapper_FilesInUse, 
+                            _mustUpgrade ? MessageBoxImage.Error : MessageBoxImage.Warning
+                        );
+
+                        if (_mustUpgrade)
+                            App.Terminate(ErrorCode.ERROR_CANCELLED);
+                    }
+
                     return;
                 }
 
-                Directory.Delete(AppData.Directory, true);
+                Directory.Delete(AppData.OldDirectory, true);
             }
 
             _isInstalling = true;
