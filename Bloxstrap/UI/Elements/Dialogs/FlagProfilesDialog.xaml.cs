@@ -25,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
             string profilesDirectory = Path.Combine(Paths.Base, Paths.SavedFlagProfiles);
 
             if (!Directory.Exists(profilesDirectory))
-                throw new Exception("File not found");
+                Directory.CreateDirectory(profilesDirectory);
 
             string[] Profiles = Directory.GetFiles(profilesDirectory);
 

@@ -142,6 +142,8 @@ namespace Bloxstrap
                 throw new ArgumentNullException("Deserialization returned null");
 
             Prop = settings;
+
+            App.FastFlags.Save();
         }
     }
 }
