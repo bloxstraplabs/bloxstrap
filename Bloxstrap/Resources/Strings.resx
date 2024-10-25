@@ -717,7 +717,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Configure additional functionality to go alongside Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox will fully close when you leave a game instead of dropping you back into the app.</value>
+    <value>Roblox will fully close when you leave a game instead of going back to the app. [Will break some things!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Don't exit to desktop app</value>
@@ -1104,7 +1104,9 @@ Are you sure you want to continue?</value>
     <value>Roblox has crashed.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Please read the following help information, which will open in your web browser when you close this dialog.</value>
+    <value>For information about why this could be happening and how this can be resolved, please read [this help article]({0}).
+
+Check if Roblox works with [the original launcher]({1}). If it doesn't, then this isn't a Bloxstrap issue. If it does, then refer to the help article.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Could not load data because of a network error.</value>

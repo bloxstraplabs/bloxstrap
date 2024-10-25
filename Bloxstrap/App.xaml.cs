@@ -218,7 +218,6 @@ namespace Bloxstrap
                 else
                 {
                     // check if user profile folder has been renamed
-                    // honestly, i'll be expecting bugs from this
                     var match = Regex.Match(value, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
 
                     if (match.Success)

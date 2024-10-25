@@ -6,6 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Dialogs"
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+        xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
         mc:Ignorable="d"
         Title="Bloxstrap"
         d:DesignWidth="480"
@@ -33,7 +34,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Image x:Name="IconImage" Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality" Width="32" Height="32" Margin="0,0,15,0" VerticalAlignment="Top" />
-            <TextBlock x:Name="MessageTextBlock" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
+            <controls:MarkdownTextBlock x:Name="MessageTextBlock" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </Grid>
 
         <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
