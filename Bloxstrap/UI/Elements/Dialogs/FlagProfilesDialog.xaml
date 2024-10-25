@@ -28,10 +28,10 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="TODO: Make proper ui :sob:" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Menu_FastFlagEditor_ProfilesDescription}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <TabControl x:Name="Tabs" Grid.Row="1" Margin="16">
-            <TabItem Header="Save">
+            <TabItem Header="{x:Static resources:Strings.Menu_Save}">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -43,7 +43,7 @@
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Text, ElementName=SaveProfileText}" Value="">
+                                    <DataTrigger Binding="{Binding Text, ElementName=SaveProfile}" Value="">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>
@@ -52,7 +52,7 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="Load">
+            <TabItem Header="{x:Static resources:Strings.Menu_Load}">
                 <Grid Margin="11">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -66,7 +66,7 @@
                             <Style TargetType="{x:Type TextBlock}">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Text, ElementName=SaveProfileText}" Value="">
+                                    <DataTrigger Binding="{Binding Text, ElementName=SaveProfile}" Value="">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
                                 </Style.Triggers>

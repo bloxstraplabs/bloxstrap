@@ -24,7 +24,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" Title="Bloxstrap" Icon="pack://application:,,,/Bloxstrap.ico" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" Title="Fishstrap" Icon="pack://application:,,,/Bloxstrap.ico" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
 
                     <Image Grid.Column="0" Width="64" Height="64" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
                     <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                        <TextBlock Text="Bloxstrap" FontSize="24" />
+                        <TextBlock Text="Fishstrap" FontSize="24" />
                         <TextBlock Text="{Binding Version, Mode=OneTime}" VerticalAlignment="Bottom" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </Grid>
