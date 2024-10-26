@@ -240,12 +240,43 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
 
-        private static string? GetSourcePath(CustomDialog dialog, string? sourcePath)
+        private static string? GetFullPath(CustomDialog dialog, string? sourcePath)
         {
             if (sourcePath == null)
                 return null;
 
             return sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
+        }
+
+        struct GetImageSourceDataResult
+        {
+            public bool IsIcon = false;
+            public Uri? Uri = null;
+
+            public GetImageSourceDataResult()
+            {
+            }
+        }
+
+        private static GetImageSourceDataResult GetImageSourceData(CustomDialog dialog, string name, XElement xmlElement)
+        {
+            string path = GetXmlAttribute(xmlElement, name);
+
+            if (path == "{Icon}")
+                return new GetImageSourceDataResult { IsIcon = true };
+
+            path = GetFullPath(dialog, path)!;
+
+            if (!Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out Uri? result))
+                throw new Exception($"{xmlElement.Name} failed to parse {name} as Uri");
+
+            if (result == null)
+                throw new Exception($"{xmlElement.Name} {name} Uri is null");
+
+            if (result.Scheme != "file")
+                throw new Exception($"{xmlElement.Name} {name} uses blacklisted scheme {result.Scheme}");
+
+            return new GetImageSourceDataResult { Uri = result };
         }
         #endregion
 
@@ -409,9 +440,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (viewport is Rect)
                 imageBrush.Viewport = (Rect)viewport;
 
-            string sourcePath = GetSourcePath(dialog, GetXmlAttribute(xmlElement, "ImageSource"))!;
+            var sourceData = GetImageSourceData(dialog, "ImageSource", xmlElement);
 
-            if (sourcePath == "{Icon}")
+            if (sourceData.IsIcon)
             {
                 // bind the icon property
                 Binding binding = new Binding("Icon") { Mode = BindingMode.OneWay };
@@ -419,16 +450,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             else
             {
-                if (!Uri.TryCreate(sourcePath, UriKind.RelativeOrAbsolute, out Uri? result))
-                    throw new Exception("ImageBrush failed to parse ImageSource as Uri");
-
-                if (result == null)
-                    throw new Exception("ImageBrush ImageSource uri is null");
-
                 BitmapImage bitmapImage;
                 try
                 {
-                    bitmapImage = new BitmapImage(result);
+                    bitmapImage = new BitmapImage(sourceData.Uri!);
                 }
                 catch (Exception ex)
                 {
@@ -627,7 +652,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             uiElement.FontStyle = GetFontStyleFromXElement(xmlElement);
 
             // NOTE: font family can both be the name of the font or a uri
-            string? fontFamily = GetSourcePath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            string? fontFamily = GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
             if (fontFamily != null)
                 uiElement.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
         }
@@ -843,7 +868,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             textBlock.BaselineOffset = ParseXmlAttribute<double>(xmlElement, "BaselineOffset", double.NaN);
 
             // NOTE: font family can both be the name of the font or a uri
-            string? fontFamily = GetSourcePath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            string? fontFamily = GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
             if (fontFamily != null)
                 textBlock.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
 
@@ -886,11 +911,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             image.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             image.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            string sourcePath = GetSourcePath(dialog, GetXmlAttribute(xmlElement, "Source"))!;
-
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality); // should this be modifiable by the user?
 
-            if (sourcePath == "{Icon}")
+            var sourceData = GetImageSourceData(dialog, "Source", xmlElement);
+
+            if (sourceData.IsIcon)
             {
                 // bind the icon property
                 Binding binding = new Binding("Icon") { Mode = BindingMode.OneWay };
@@ -898,19 +923,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             else
             {
-                if (!Uri.TryCreate(sourcePath, UriKind.RelativeOrAbsolute, out Uri? result))
-                    throw new Exception("Image failed to parse Source as Uri");
-
-                if (result == null)
-                    throw new Exception("Image Source uri is null");
-
                 bool isAnimated = ParseXmlAttribute<bool>(xmlElement, "IsAnimated", false);
                 if (!isAnimated)
                 {
                     BitmapImage bitmapImage;
                     try
                     {
-                        bitmapImage = new BitmapImage(result);
+                        bitmapImage = new BitmapImage(sourceData.Uri!);
                     }
                     catch (Exception ex)
                     {
@@ -921,7 +940,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 }
                 else
                 {
-                    XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, result);
+                    XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, sourceData.Uri!);
                 }
             }
 
