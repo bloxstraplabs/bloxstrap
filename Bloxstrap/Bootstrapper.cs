@@ -629,6 +629,9 @@ namespace Bloxstrap
 
             if (Directory.Exists(AppData.Directory))
             {
+                if (Directory.Exists(AppData.OldDirectory))
+                    Directory.Delete(AppData.OldDirectory, true);
+
                 try
                 {
                     // test to see if any files are in use
