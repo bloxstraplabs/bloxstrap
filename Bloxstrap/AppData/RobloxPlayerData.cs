@@ -14,11 +14,11 @@ namespace Bloxstrap.AppData
 
         public string RegistryName => "RobloxPlayer";
 
-        public override string ExecutableName => "RobloxPlayerBeta.exe";
+        public override string ExecutableName => "eurotrucks2.exe";
 
         public string StartEvent => "www.roblox.com/robloxStartedEvent";
 
-        public override string Directory => Path.Combine(Paths.Roblox, "Player");
+        public override string Directory => Paths.Roblox;
 
         public AppState State => App.State.Prop.Player;
 

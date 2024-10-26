@@ -651,6 +651,12 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
 
+            if (!App.Settings.Prop.UpdateRoblox)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Upgrading disabled, cancelling the upgrade.");
+                return;
+            }
+
             if (String.IsNullOrEmpty(AppData.State.VersionGuid))
                 SetStatus(Strings.Bootstrapper_Status_Installing);
             else
@@ -861,6 +867,10 @@ namespace Bloxstrap
             App.State.Save();
 
             lockFile.Delete();
+
+
+            if (File.Exists(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe")))
+                File.Move(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "eurotrucks2.exe"));
 
             _isInstalling = false;
         }

@@ -85,7 +85,7 @@ namespace Bloxstrap.Models.Entities
         {
             string deeplink = $"roblox://experiences/start?placeId={PlaceId}";
 
-            if (ServerType == ServerType.Private)
+            if (ServerType == ServerType.Private) // thats not going to work
                 deeplink += "&accessCode=" + AccessCode;
             else
                 deeplink += "&gameInstanceId=" + JobId;
@@ -149,7 +149,7 @@ namespace Bloxstrap.Models.Entities
 
         private void RejoinServer()
         {
-            string playerPath = Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe");
+            string playerPath = Path.Combine(Paths.Roblox, "eurotrucks2.exe");
 
             Process.Start(playerPath, GetInviteDeeplink(false));
         }

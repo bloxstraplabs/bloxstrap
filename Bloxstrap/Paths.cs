@@ -39,7 +39,7 @@
             Logs = Path.Combine(Base, "Logs");
             Integrations = Path.Combine(Base, "Integrations");
             Modifications = Path.Combine(Base, "Modifications");
-            Roblox = Path.Combine(Base, "Roblox");
+            Roblox = App.Settings.Prop.ClientPath;
 
             Application = Path.Combine(Base, $"{App.ProjectName}.exe");
         }

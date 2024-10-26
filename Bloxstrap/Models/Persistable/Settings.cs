@@ -11,12 +11,14 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
         public bool CheckForUpdates { get; set; } = false;
-        public bool ConfirmLaunches { get; set; } = false;
+        public bool ConfirmLaunches { get; set; } = true;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
-        public bool EnableAnalytics { get; set; } = true;
+        public bool EnableAnalytics { get; set; } = false;
+        public bool UpdateRoblox {  get; set; } = true;
+        public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox");
         public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
 
         // integration configuration

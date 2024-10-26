@@ -240,7 +240,7 @@ namespace Bloxstrap
             }
             else
             {
-                string playerPath = Path.Combine((string)playerFolder, "RobloxPlayerBeta.exe");
+                string playerPath = Path.Combine((string)playerFolder, "eurotrucks2.exe");
 
                 WindowsRegistry.RegisterPlayer(playerPath, "%1");
             }
@@ -282,12 +282,17 @@ namespace Bloxstrap
                 },
 
                 () => File.Delete(StartMenuShortcut),
-
                 () => Directory.Delete(Paths.Downloads, true),
-                () => Directory.Delete(Paths.Roblox, true),
 
-                () => File.Delete(App.State.FileLocation)
+                () => File.Delete(App.State.FileLocation),
+
+                () =>
+                {
+                if (Paths.Roblox == Path.Combine(Paths.Base, "Roblox")) // checking if roblox is installed in base directory
+                    Directory.Delete(Paths.Roblox, true);               // made that to prevent accidental removals of different builds
+                }
             };
+
 
             if (!keepData)
             {
