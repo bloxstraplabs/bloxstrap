@@ -653,9 +653,15 @@ namespace Bloxstrap
             else
                 SetStatus(Strings.Bootstrapper_Status_Upgrading);
 
+            bool downloadsExistBefore = Directory.Exists(Paths.Downloads);
+
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
             Directory.CreateDirectory(Paths.Roblox);
+
+            bool downloadsExistAfter = Directory.Exists(Paths.Downloads);
+
+            App.Logger.WriteLine(LOG_IDENT, $"Download folder existence information: before: {downloadsExistBefore}, after: {downloadsExistAfter}");
 
             if (Directory.Exists(AppData.Directory))
             {
@@ -1106,6 +1112,9 @@ namespace Bloxstrap
                     return;
 
                 int totalBytesRead = 0;
+
+                if (!Directory.Exists(Paths.Downloads))
+                    App.Logger.WriteLine(LOG_IDENT, "Downloads folder has disappeared... where'd it go?");
 
                 try
                 {
