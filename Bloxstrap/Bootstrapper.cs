@@ -1053,6 +1053,8 @@ namespace Bloxstrap
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
+            Directory.CreateDirectory(Paths.Downloads);
+
             string packageUrl = Deployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
             string robloxPackageLocation = Path.Combine(Paths.LocalAppData, "Roblox", "Downloads", package.Signature);
 
