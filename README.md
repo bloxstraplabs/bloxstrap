@@ -21,10 +21,10 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
 
 ## Differences from Bloxstrap
 
-- Better Fast Flag editor
- -- Added Flag profiles
- -- Removed editor warning
- -- Removed FFlag validation
+- Better Fast Flag editor\n
+ -- Added Flag profiles\n
+ -- Removed editor warning\n
+ -- Removed FFlag validation\n
  - Readded channel changer
 
 ----
