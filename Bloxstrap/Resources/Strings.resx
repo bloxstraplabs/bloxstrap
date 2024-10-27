@@ -1118,7 +1118,8 @@ Check if Roblox works with [the original launcher]({1}). If it doesn't, then thi
     <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!</value>
+    <value>These are the people who've supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+Every person here is ranked by their overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Your Settings could not be loaded. They have been reset to the default configuration.</value>

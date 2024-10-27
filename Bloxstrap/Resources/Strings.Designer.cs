@@ -70,7 +70,8 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!.
+        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+        ///Every person here is ranked by their overall pledge..
         /// </summary>
         public static string About_Supporters_Description {
             get {
