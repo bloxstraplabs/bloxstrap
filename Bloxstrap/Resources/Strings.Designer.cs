@@ -205,6 +205,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelling Roblox upgrade..
+        /// </summary>
+        public static string Bootstrapper_Status_CancelUpgrade {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.CancelUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuring {product}....
         /// </summary>
         public static string Bootstrapper_Status_Configuring {
@@ -1557,7 +1566,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Thank you for downloading Fishstrap. 
         ///
-        ///The only official websites to download Fishstrap from are {0} and {1}, so please verify that you got it from an official source.
+        ///The only official source to download Fishstrap from is {0} so please verify that you got it from an official source.
         ///
         ///This installation process will be quick and simple, and you will be able to configure any of Fishstrap&apos;s settings after installation..
         /// </summary>
@@ -1586,7 +1595,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are trying to install version {0} of Bloxstrap, but the latest version available is {1}. Would you like to download it?.
+        ///   Looks up a localized string similar to You are trying to install version {0} of Fishstrap, but the latest version available is {1}. Would you like to download it?.
         /// </summary>
         public static string Installer_Welcome_UpdateNotice {
             get {

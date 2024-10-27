@@ -951,7 +951,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
     <value>Thank you for downloading Fishstrap. 
 
-The only official websites to download Fishstrap from are {0} and {1}, so please verify that you got it from an official source.
+The only official source to download Fishstrap from is {0} so please verify that you got it from an official source.
 
 This installation process will be quick and simple, and you will be able to configure any of Fishstrap's settings after installation.</value>
     <comment>{0} and {1} are URLs</comment>
@@ -960,7 +960,7 @@ This installation process will be quick and simple, and you will be able to conf
     <value>Please click 'Next' to continue.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>You are trying to install version {0} of Bloxstrap, but the latest version available is {1}. Would you like to download it?</value>
+    <value>You are trying to install version {0} of Fishstrap, but the latest version available is {1}. Would you like to download it?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Choose where to install to</value>
@@ -1259,5 +1259,8 @@ Would you like to enable test mode?</value>
   </data>
   <data name="Menu.Load" xml:space="preserve">
     <value>Load</value>
+  </data>
+  <data name="Bootstrapper.Status.CancelUpgrade" xml:space="preserve">
+    <value>Cancelling Roblox upgrade.</value>
   </data>
 </root>

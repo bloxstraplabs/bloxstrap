@@ -10,7 +10,7 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
-        public bool CheckForUpdates { get; set; } = false;
+        public bool CheckForUpdates { get; set; } = true;
         public bool ConfirmLaunches { get; set; } = true;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
@@ -18,6 +18,7 @@ namespace Bloxstrap.Models.Persistable
         public bool WPFSoftwareRender { get; set; } = false;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox {  get; set; } = true;
+        public bool RenameClientToEuroTrucks2 { get; set; } = true;
         public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox");
         public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
 

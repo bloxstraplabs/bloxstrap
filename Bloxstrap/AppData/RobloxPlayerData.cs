@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bloxstrap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Bloxstrap.AppData
 
         public string RegistryName => "RobloxPlayer";
 
-        public override string ExecutableName => "eurotrucks2.exe";
+        public override string ExecutableName => App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe";
 
         public string StartEvent => "www.roblox.com/robloxStartedEvent";
 

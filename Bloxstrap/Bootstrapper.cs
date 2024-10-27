@@ -653,7 +653,9 @@ namespace Bloxstrap
 
             if (!App.Settings.Prop.UpdateRoblox)
             {
+                SetStatus(Strings.Bootstrapper_Status_CancelUpgrade);
                 App.Logger.WriteLine(LOG_IDENT, "Upgrading disabled, cancelling the upgrade.");
+                Thread.Sleep(2000);
                 return;
             }
 
@@ -868,10 +870,6 @@ namespace Bloxstrap
 
             lockFile.Delete();
 
-
-            if (File.Exists(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe")))
-                File.Move(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "eurotrucks2.exe"));
-
             _isInstalling = false;
         }
 
@@ -1035,6 +1033,19 @@ namespace Bloxstrap
 
             App.State.Prop.ModManifest = modFolderFiles;
             App.State.Save();
+
+            App.Logger.WriteLine(LOG_IDENT,"Checking for eurotrucks2.exe toggle");
+
+            if (App.Settings.Prop.RenameClientToEuroTrucks2)
+            {
+                if (File.Exists(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe")))
+                    File.Move(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "eurotrucks2.exe"));
+            }
+            else
+            {
+                if (File.Exists(Path.Combine(Paths.Roblox, "eurotrucks2.exe")))
+                    File.Move(Path.Combine(Paths.Roblox, "eurotrucks2.exe"), Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"));
+            }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
         }
