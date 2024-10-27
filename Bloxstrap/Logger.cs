@@ -12,6 +12,8 @@
         public bool NoWriteMode = false;
         public string? FileLocation;
 
+        public string AsDocument => String.Join('\n', History);
+
         public void Initialize(bool useTempDir = false)
         {
             const string LOG_IDENT = "Logger::Initialize";

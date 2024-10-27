@@ -30,7 +30,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
             string wikiUrl = $"{repoUrl}/wiki";
 
             string title = HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}");
-            string log = HttpUtility.UrlEncode(String.Join('\n', App.Logger.History));
+            string log = HttpUtility.UrlEncode(App.Logger.AsDocument);
 
             string issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml&title={title}&log={log}";
 
@@ -58,7 +58,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 if (App.Logger.Initialized && !String.IsNullOrEmpty(App.Logger.FileLocation))
                     Utilities.ShellExecute(App.Logger.FileLocation);
                 else
-                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.History));
+                    Clipboard.SetDataObject(App.Logger.AsDocument);
             };
 
             CloseButton.Click += delegate
