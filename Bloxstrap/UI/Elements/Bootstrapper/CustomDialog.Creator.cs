@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
@@ -237,6 +237,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 return text; // can't be translated (not in the correct format)
 
             string resourceName = text[1..^1];
+            if (resourceName == "Version")
+                return App.Version;
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
 
