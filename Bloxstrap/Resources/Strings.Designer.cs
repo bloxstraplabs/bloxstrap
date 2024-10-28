@@ -433,6 +433,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string Common_Export {
+            get {
+                return ResourceManager.GetString("Common.Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Common_Help {
@@ -1387,6 +1396,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zip archive.
+        /// </summary>
+        public static string FileTypes_ZipArchive {
+            get {
+                return ResourceManager.GetString("FileTypes.ZipArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap has been upgraded to v{0}.
         /// </summary>
         public static string InstallChecker_Updated {
@@ -2100,6 +2118,42 @@ namespace Bloxstrap.Resources {
         public static string Menu_Bloxstrap_Description {
             get {
                 return ResourceManager.GetString("Menu.Bloxstrap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather information that can be uploaded online to troubleshoot a problem you&apos;re having..
+        /// </summary>
+        public static string Menu_Bloxstrap_ExportData_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap configuration.
+        /// </summary>
+        public static string Menu_Bloxstrap_ExportData_ExportConfig {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.ExportConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Bloxstrap logs.
+        /// </summary>
+        public static string Menu_Bloxstrap_ExportData_ExportLogs {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.ExportLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export diagnostic data.
+        /// </summary>
+        public static string Menu_Bloxstrap_ExportData_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.Title", resourceCulture);
             }
         }
         
