@@ -37,7 +37,7 @@
             <ui:NavigationStore x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationStore.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" PageType="{x:Type pages:AboutPage}" Icon="QuestionCircle48" Tag="about" Margin="0,0,0,12" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.About_Supporters_Title}" PageType="{x:Type pages:SupportersPage}" Icon="Heart24" Tag="translators" Margin="0,0,0,12" />
+                    <ui:NavigationItem Visibility="Collapsed" Content="{x:Static resources:Strings.About_Supporters_Title}" PageType="{x:Type pages:SupportersPage}" Icon="Heart24" Tag="translators" Margin="0,0,0,12" />
                     <ui:NavigationItem PageType="{x:Type pages:TranslatorsPage}" Icon="Translate24" Tag="translators" Margin="0,0,0,12">
                         <TextBlock x:Name="TranslatorsText" Text="{x:Static resources:Strings.About_Translators_Title}" FontSize="10" />
                     </ui:NavigationItem>

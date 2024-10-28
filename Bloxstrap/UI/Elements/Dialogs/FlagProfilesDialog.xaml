@@ -79,6 +79,22 @@
 
         <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
+                <Button Background="#302020" Margin="0,0,15,0" MinWidth="100" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=Tabs, Path=SelectedIndex}" Value="1" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                            <Setter Property="Visibility" Value="Hidden" />
+                        </Style>
+                    </Button.Style>
+                </Button>
+
                 <Button MinWidth="100" Content="{x:Static resources:Strings.Common_OK}" Click="OKButton_Click">
                     <Button.Style>
                         <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">

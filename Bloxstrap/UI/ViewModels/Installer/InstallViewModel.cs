@@ -46,12 +46,6 @@ namespace Bloxstrap.UI.ViewModels.Installer
             set => installer.CreateStartMenuShortcuts = value;
         }
 
-        public bool AnalyticsEnabled
-        {
-            get => installer.EnableAnalytics;
-            set => installer.EnableAnalytics = value;
-        }
-
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
 
         public ICommand ResetInstallLocationCommand => new RelayCommand(ResetInstallLocation);
