@@ -8,30 +8,6 @@
             "[github.com/returnrqt/fishstrap](https://github.com/returnrqt/fishstrap)"
         );
 
-        public string VersionNotice { get; private set; } = "";
-
         public bool CanContinue { get; set; } = false;
-
-        public event EventHandler? CanContinueEvent;
-
-        // called by codebehind on page load
-        public async void DoChecks()
-        {
-            var releaseInfo = await App.GetLatestRelease();
-
-            if (releaseInfo is not null)
-            {
-                if (Utilities.CompareVersions(App.Version, releaseInfo.TagName) == VersionComparison.LessThan)
-                {
-                    VersionNotice = String.Format(Strings.Installer_Welcome_UpdateNotice, App.Version, releaseInfo.TagName.Replace("v", ""));
-                    OnPropertyChanged(nameof(VersionNotice));
-                }
-            }
-
-            CanContinue = true;
-            OnPropertyChanged(nameof(CanContinue));
-
-            CanContinueEvent?.Invoke(this, new EventArgs());
-        }
     }
 }

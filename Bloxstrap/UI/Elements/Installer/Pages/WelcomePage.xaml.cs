@@ -12,11 +12,8 @@ namespace Bloxstrap.UI.Elements.Installer.Pages
 
         public WelcomePage()
         {
-            _viewModel.CanContinueEvent += (_, _) =>
-            {
                 if (Window.GetWindow(this) is MainWindow window)
                     window.SetButtonEnabled("next", true);
-            };
 
             DataContext = _viewModel;
             InitializeComponent();
@@ -26,8 +23,6 @@ namespace Bloxstrap.UI.Elements.Installer.Pages
         {
             if (Window.GetWindow(this) is MainWindow window)
                 window.SetNextButtonText(Strings.Common_Navigation_Next);
-
-            _viewModel.DoChecks();
         }
     }
 }
