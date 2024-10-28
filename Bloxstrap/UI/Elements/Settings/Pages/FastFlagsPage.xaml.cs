@@ -35,7 +35,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             if (Window.GetWindow(this) is INavigationWindow window)
             {
-                if (App.State.Prop.ShowFFlagEditorWarning)
+                if (App.State.Prop.ShowFFlagEditorWarnings)
                     window.Navigate(typeof(FastFlagEditorWarningPage));
                 else
                     window.Navigate(typeof(FastFlagEditorPage));

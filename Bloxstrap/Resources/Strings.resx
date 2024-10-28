@@ -1271,4 +1271,12 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
+  <data name="Menu.FastFlagEditor.ScamWarning.Text" xml:space="preserve">
+    <value>If you bought fast flags, you have been scammed.
+
+Ask for your money back immediately.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ScamWarning.Title" xml:space="preserve">
+    <value>Scam Warning</value>
+  </data>
 </root>

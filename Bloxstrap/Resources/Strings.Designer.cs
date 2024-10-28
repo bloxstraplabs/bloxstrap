@@ -2319,6 +2319,26 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If you bought fast flags, you have been scammed.
+        ///
+        ///Ask for your money back immediately..
+        /// </summary>
+        public static string Menu_FastFlagEditor_ScamWarning_Text {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.ScamWarning.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scam Warning.
+        /// </summary>
+        public static string Menu_FastFlagEditor_ScamWarning_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.ScamWarning.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Menu_FastFlagEditor_Search {
