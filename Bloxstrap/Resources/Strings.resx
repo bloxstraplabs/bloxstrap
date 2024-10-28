@@ -1229,7 +1229,7 @@ Would you like to enable test mode?</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
   <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Support Bloxstrap on Ko-fi!</value>
+    <value>Join our discord server</value>
     <comment>Call-to-action button</comment>
   </data>
   <data name="Paths.Icons" xml:space="preserve">

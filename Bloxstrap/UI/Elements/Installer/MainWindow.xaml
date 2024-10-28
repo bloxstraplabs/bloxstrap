@@ -71,7 +71,7 @@
                 <ui:Button Content="{x:Static resources:Strings.Common_Navigation_Back}" Width="{Binding ButtonWidth, Mode=OneTime}" Command="{Binding BackPageCommand, Mode=OneWay}" IsEnabled="{Binding BackButtonEnabled, Mode=OneWay}" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="4,0,4,0">
-                <ui:Button Name="NextButton" Content="{Binding NextButtonText, Mode=OneWay}" Width="{Binding ButtonWidth, Mode=OneTime}" Command="{Binding NextPageCommand, Mode=OneWay}" IsEnabled="{Binding NextButtonEnabled, Mode=OneWay}" />
+                <ui:Button Name="NextButton" Content="{Binding NextButtonText, Mode=OneWay}" Width="{Binding ButtonWidth, Mode=OneTime}" Command="{Binding NextPageCommand, Mode=OneWay}" IsEnabled="True" />
             </StatusBarItem>
             <StatusBarItem Grid.Column="3" Padding="12,0,0,0">
                 <ui:Button Content="{x:Static resources:Strings.Common_Close}" Width="{Binding ButtonWidth, Mode=OneTime}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />

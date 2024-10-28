@@ -1631,7 +1631,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Support Bloxstrap on Ko-fi!.
+        ///   Looks up a localized string similar to Join our discord server.
         /// </summary>
         public static string LaunchMenu_Donate {
             get {
@@ -2018,6 +2018,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prevent against closures of your existing game from accidentally launching another one..
         /// </summary>
         public static string Menu_Behaviour_ConfirmLaunches_Description {
@@ -2077,6 +2086,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_ForceRobloxReinstall_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.ForceRobloxReinstall.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enables Ansel for Roblox client. Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/)..
+        /// </summary>
+        public static string Menu_Behaviour_RenameToEurotrucks_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.RenameToEurotrucks.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename Roblox to eurotrucks2.exe.
+        /// </summary>
+        public static string Menu_Behaviour_RenameToEurotrucks_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.RenameToEurotrucks.Title", resourceCulture);
             }
         }
         
