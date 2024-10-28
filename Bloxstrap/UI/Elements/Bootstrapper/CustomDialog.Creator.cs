@@ -233,12 +233,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static string? GetTranslatedText(string? text)
         {
+            if (text != null) text = text.Replace("{Version}", App.Version);
+
             if (text == null || !text.StartsWith('{') || !text.EndsWith('}'))
                 return text; // can't be translated (not in the correct format)
 
             string resourceName = text[1..^1];
-            if (resourceName == "Version")
-                return App.Version;
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
 
