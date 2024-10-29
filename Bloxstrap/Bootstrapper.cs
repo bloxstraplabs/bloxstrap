@@ -1193,7 +1193,15 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ExtractPackage";
 
-            string packageFolder = Path.Combine(AppData.Directory, AppData.PackageDirectoryMap[package.Name]);
+            string? packageDir = AppData.PackageDirectoryMap.GetValueOrDefault(package.Name);
+
+            if (packageDir is null)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"WARNING: {package.Name} was not found in the package map!");
+                return;
+            }
+
+            string packageFolder = Path.Combine(AppData.Directory, packageDir);
             string? fileFilter = null;
 
             // for sharpziplib, each file in the filter needs to be a regex
