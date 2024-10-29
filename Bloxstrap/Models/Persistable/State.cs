@@ -2,7 +2,7 @@
 {
     public class State
     {
-        public bool ShowFFlagEditorWarning { get; set; } = true;
+        public string CurrentVersion { get; set; } = "None";
 
         public bool PromptWebView2Install { get; set; } = true;
 

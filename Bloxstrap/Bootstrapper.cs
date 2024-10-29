@@ -286,10 +286,10 @@ namespace Bloxstrap
             {
                 if (ForceChannel)
                 {
-                    clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
+                    clientVersion = await Deployment.GetInfo(true, App.Settings.Prop.Channel);
                 } else
                 {
-                    clientVersion = await Deployment.GetInfo();
+                    clientVersion = await Deployment.GetInfo(true);
                 }
                 
             }
@@ -303,7 +303,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because HTTP {(int)ex.StatusCode}");
 
                 Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
+                clientVersion = await Deployment.GetInfo(true);
             }
 
             if (clientVersion.IsBehindDefaultChannel)
@@ -312,12 +312,12 @@ namespace Bloxstrap
 
                 if (ForceChannel)
                 {
-                    clientVersion = await Deployment.GetInfo(App.Settings.Prop.Channel);
+                    clientVersion = await Deployment.GetInfo(true, App.Settings.Prop.Channel);
                 }
                 else
                 {
                     Deployment.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo();
+                    clientVersion = await Deployment.GetInfo(true);
                 }
             }
 
@@ -484,6 +484,8 @@ namespace Bloxstrap
                 if (ipl.IsAcquired)
                     Process.Start(Paths.Process, args);
             }
+
+            App.State.Save();
         }
 
         public void Cancel()

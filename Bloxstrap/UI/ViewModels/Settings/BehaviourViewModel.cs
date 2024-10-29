@@ -28,7 +28,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             try
             {
-                ClientVersion info = await Deployment.GetInfo(channel);
+                ClientVersion info = await Deployment.GetInfo(false, channel);
 
                 ShowChannelWarning = info.IsBehindDefaultChannel;
                 OnPropertyChanged(nameof(ShowChannelWarning));

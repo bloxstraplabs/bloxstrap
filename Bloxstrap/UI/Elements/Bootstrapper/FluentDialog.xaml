@@ -29,7 +29,7 @@
     <!--  Background is for Aero theme only  -->
     <Grid Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}">
         <!--  Allow for drag  -->
-        <TextBlock Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="10" FontFamily="{StaticResource Rubik}" Text="{Binding VersionText}" Foreground="White"/>
+        <TextBlock x:Name="VersionBind" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="10" FontFamily="{StaticResource Rubik}" Text="{Binding VersionText}" Foreground="White"/>
         <TextBlock Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="10" FontFamily="{StaticResource Rubik}" Text="{Binding ChannelText}" Foreground="White"/>
         <ui:TitleBar
             VerticalAlignment="Top"
