@@ -9,27 +9,17 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     public partial class FastFlagEditorWarningPage
     {
         private FastFlagEditorWarningViewModel _viewModel;
-        private bool _initialLoad = false;
 
         public FastFlagEditorWarningPage()
         {
             _viewModel = new FastFlagEditorWarningViewModel(this);
             DataContext = _viewModel;
-            _viewModel.StartCountdown();
 
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // refresh datacontext on page load to reset timer
-
-            if (!_initialLoad)
-            {
-                _initialLoad = true;
-                return;
-            }
-
             _viewModel.StartCountdown();
         }
 
