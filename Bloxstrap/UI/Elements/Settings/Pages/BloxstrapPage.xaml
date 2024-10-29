@@ -8,7 +8,7 @@
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
-      d:DataContext="{d:DesignInstance Type=models:BehaviourViewModel}"
+      d:DataContext="{d:DesignInstance Type=models:BloxstrapViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="BehaviourPage"
@@ -28,5 +28,44 @@
             Description="{Binding Source={x:Static resources:Strings.Menu_Bloxstrap_Analytics_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/Privacy-Policy#analytical-functionality'}">
             <ui:ToggleSwitch IsChecked="{Binding AnalyticsEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_Title}" />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ui:Button Grid.Column="1" MinWidth="100" Margin="0,0,16,0" Icon="CopySelect20" Content="{x:Static resources:Strings.Common_Export}" Command="{Binding ExportDataCommand}">
+                        <ui:Button.Style>
+                            <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding ElementName=ShouldExportConfig, Path=IsChecked}" Value="False" />
+                                            <Condition Binding="{Binding ElementName=ShouldExportLogs, Path=IsChecked}" Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                                <Setter Property="IsEnabled" Value="True" />
+                            </Style>
+                        </ui:Button.Style>
+                    </ui:Button>
+                </Grid>
+            </ui:CardExpander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" Name="ShouldExportConfig" Content="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_ExportConfig}" IsChecked="{Binding ShouldExportConfig}" />
+                <CheckBox Grid.Column="1" Name="ShouldExportLogs" Content="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_ExportLogs}" IsChecked="{Binding ShouldExportLogs}" />
+            </Grid>
+        </ui:CardExpander>
     </StackPanel>
 </ui:UiPage>

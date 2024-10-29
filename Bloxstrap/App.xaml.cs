@@ -107,6 +107,8 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
+            SendLog();
+
             if (Bootstrapper?.Dialog != null)
             {
                 if (Bootstrapper.Dialog.TaskbarProgressValue == 0)
@@ -156,6 +158,24 @@ namespace Bloxstrap
             catch (Exception ex)
             {
                 Logger.WriteException("App::SendStat", ex);
+            }
+        }
+
+        public static async void SendLog()
+        {
+            if (!Settings.Prop.EnableAnalytics || !IsProductionBuild)
+                return;
+
+            try
+            {
+                await HttpClient.PostAsync(
+                    $"https://bloxstraplabs.com/metrics/post-exception", 
+                    new StringContent(Logger.AsDocument)
+                );
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteException("App::SendLog", ex);
             }
         }
 
@@ -218,7 +238,6 @@ namespace Bloxstrap
                 else
                 {
                     // check if user profile folder has been renamed
-                    // honestly, i'll be expecting bugs from this
                     var match = Regex.Match(value, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
 
                     if (match.Success)

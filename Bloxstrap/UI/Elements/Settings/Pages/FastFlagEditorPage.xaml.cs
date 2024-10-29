@@ -104,7 +104,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
 
             if (dialog.Tabs.SelectedIndex == 0)
-                AddSingle(dialog.FlagNameTextBox.Text, dialog.FlagValueTextBox.Text);
+                AddSingle(dialog.FlagNameTextBox.Text.Trim(), dialog.FlagValueTextBox.Text);
             else if (dialog.Tabs.SelectedIndex == 1)
                 ImportJSON(dialog.JsonTextBox.Text);
         }

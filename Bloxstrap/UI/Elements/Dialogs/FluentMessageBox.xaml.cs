@@ -60,6 +60,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             Title = App.ProjectName;
             MessageTextBlock.Text = message;
+            MessageTextBlock.MarkdownText = message;
             ButtonOne.Visibility = Visibility.Collapsed;
             ButtonTwo.Visibility = Visibility.Collapsed;
             ButtonThree.Visibility = Visibility.Collapsed;

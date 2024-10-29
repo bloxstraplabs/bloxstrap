@@ -27,9 +27,13 @@ namespace Bloxstrap.UI
             if (crash)
                 topLine = Strings.Dialog_PlayerError_Crash;
 
-            ShowMessageBox($"{topLine}\n\n{Strings.Dialog_PlayerError_HelpInformation}", MessageBoxImage.Error);
+            string info = String.Format(
+                Strings.Dialog_PlayerError_HelpInformation,
+                $"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch",
+                $"https://github.com/{App.ProjectRepository}/wiki/Switching-between-Roblox-and-Bloxstrap"
+            );
 
-            Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch");
+            ShowMessageBox($"{topLine}\n\n{info}", MessageBoxImage.Error);
         }
 
         public static void ShowExceptionDialog(Exception exception)

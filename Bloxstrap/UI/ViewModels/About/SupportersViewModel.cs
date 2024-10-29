@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.UI.ViewModels.About
+﻿using System.Windows;
+
+namespace Bloxstrap.UI.ViewModels.About
 {
     public class SupportersViewModel : NotifyPropertyChangedViewModel
     {
@@ -8,10 +10,30 @@
 
         public string LoadError { get; set; } = "";
 
+        public int Columns { get; set; } = 3;
+
+        public SizeChangedEventHandler? WindowResizeEvent;
+
         public SupportersViewModel()
         {
+            WindowResizeEvent += OnWindowResize;
+
             // this will cause momentary freezes only when ran under the debugger
             LoadSupporterData();
+        }
+
+        private void OnWindowResize(object sender, SizeChangedEventArgs e)
+        {
+            if (!e.WidthChanged)
+                return;
+
+            int newCols = (int)Math.Floor(e.NewSize.Width / 200);
+
+            if (Columns == newCols)
+                return;
+             
+            Columns = newCols;
+            OnPropertyChanged(nameof(Columns));
         }
 
         public async void LoadSupporterData()

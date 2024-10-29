@@ -10,10 +10,17 @@
 
         public static string BinaryType = "WindowsPlayer";
 
-        public static bool IsDefaultChannel => String.Compare(Channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
+        public static bool IsDefaultChannel => Channel.Equals(DefaultChannel, StringComparison.OrdinalIgnoreCase);
         
         public static string BaseUrl { get; private set; } = null!;
-        
+
+        public static readonly List<HttpStatusCode?> BadChannelCodes = new()
+        {
+            HttpStatusCode.Unauthorized,
+            HttpStatusCode.Forbidden,
+            HttpStatusCode.NotFound
+        };
+
         private static readonly Dictionary<string, ClientVersion> ClientVersionCache = new();
 
         // a list of roblox deployment locations that we check for, in case one of them don't work
@@ -97,7 +104,9 @@
             {
                 if (exceptions.Any())
                     return exceptions[0];
-                return new TaskCanceledException("All tasks have been cancelled"); // we can't add TaskCanceledExceptions to the list
+
+                // task cancellation exceptions don't get added to the list
+                return new TaskCanceledException("All connection attempts timed out.");
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Got {BaseUrl} as the optimal base URL");
@@ -156,6 +165,11 @@
                 try
                 {
                     clientVersion = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + path);
+                }
+                catch (HttpRequestException httpEx) 
+                when (!isDefaultChannel && BadChannelCodes.Contains(httpEx.StatusCode))
+                {
+                    throw new InvalidChannelException(httpEx.StatusCode);
                 }
                 catch (Exception ex)
                 {

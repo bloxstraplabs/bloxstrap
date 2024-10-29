@@ -39,23 +39,17 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
 
     steps:
-      # - name: Sign and download artifact
-      #   uses: signpath/github-action-submit-signing-request@v1
-      #   with:
-      #     api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
-      #     organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
-      #     project-slug: 'bloxstrap'
-      #     signing-policy-slug: 'release-signing'
-      #     artifact-configuration-slug: 'github-ci'
-      #     github-artifact-id: '${{ needs.build.outputs.artifact-id }}'
-      #     wait-for-completion: true
-      #     output-artifact-directory: 'release'
-
-      - name: Download x64 release artifact
-        uses: actions/download-artifact@v4
+      - name: Sign and download artifact
+        uses: signpath/github-action-submit-signing-request@v1
         with:
-          name: Bloxstrap (Release) (${{ github.sha }})
-          path: release
+          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
+          organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
+          project-slug: 'bloxstrap'
+          signing-policy-slug: 'release-signing'
+          artifact-configuration-slug: 'github-ci'
+          github-artifact-id: '${{ needs.build.outputs.artifact-id }}'
+          wait-for-completion: true
+          output-artifact-directory: 'release'
 
       - name: Rename binaries
         run: mv release/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
@@ -79,7 +73,7 @@ jobs:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
           project-slug: 'bloxstrap'
-          signing-policy-slug: 'test-signing'
+          signing-policy-slug: 'release-signing'
           artifact-configuration-slug: 'github-ci'
           github-artifact-id: '${{ needs.build.outputs.artifact-id }}'
           wait-for-completion: true
