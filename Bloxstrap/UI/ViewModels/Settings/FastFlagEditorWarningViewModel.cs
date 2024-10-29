@@ -28,9 +28,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
             _page = page;
         }
 
-        public void StartCountdown()
+        public void StopCountdown()
         {
             _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = null;
+        }
+
+        public void StartCountdown()
+        {
+            StopCountdown();
 
             _cancellationTokenSource = new CancellationTokenSource();
             DoCountdown(_cancellationTokenSource.Token);

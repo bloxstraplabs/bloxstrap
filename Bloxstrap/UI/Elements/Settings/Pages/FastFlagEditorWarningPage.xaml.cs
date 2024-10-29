@@ -31,5 +31,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             ((FastFlagEditorWarningViewModel)DataContext).StartCountdown();
         }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ((FastFlagEditorWarningViewModel)DataContext).StopCountdown();
+        }
     }
 }
