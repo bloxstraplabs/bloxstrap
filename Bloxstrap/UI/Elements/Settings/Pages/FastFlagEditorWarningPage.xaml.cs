@@ -8,13 +8,14 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
     /// </summary>
     public partial class FastFlagEditorWarningPage
     {
+        private FastFlagEditorWarningViewModel _viewModel;
         private bool _initialLoad = false;
 
         public FastFlagEditorWarningPage()
         {
-            var vm = new FastFlagEditorWarningViewModel(this);
-            DataContext = vm;
-            vm.StartCountdown();
+            _viewModel = new FastFlagEditorWarningViewModel(this);
+            DataContext = _viewModel;
+            _viewModel.StartCountdown();
 
             InitializeComponent();
         }
@@ -29,12 +30,12 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            ((FastFlagEditorWarningViewModel)DataContext).StartCountdown();
+            _viewModel.StartCountdown();
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            ((FastFlagEditorWarningViewModel)DataContext).StopCountdown();
+            _viewModel.StopCountdown();
         }
     }
 }
