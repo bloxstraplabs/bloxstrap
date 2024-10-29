@@ -12,7 +12,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         public FastFlagEditorWarningPage()
         {
-            DataContext = new FastFlagEditorWarningViewModel(this);
+            var vm = new FastFlagEditorWarningViewModel(this);
+            DataContext = vm;
+            vm.StartCountdown();
+
             InitializeComponent();
         }
 
@@ -26,7 +29,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 return;
             }
 
-            DataContext = new FastFlagEditorWarningViewModel(this);
+            ((FastFlagEditorWarningViewModel)DataContext).StartCountdown();
         }
     }
 }

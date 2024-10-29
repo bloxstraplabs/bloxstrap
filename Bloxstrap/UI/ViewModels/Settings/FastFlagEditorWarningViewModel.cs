@@ -13,6 +13,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
     {
         private Page _page;
 
+        private CancellationTokenSource? _cancellationTokenSource;
+
         public string ContinueButtonText { get; set; } = "";
 
         public bool CanContinue { get; set; } = false;
@@ -24,17 +26,34 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public FastFlagEditorWarningViewModel(Page page)
         {
             _page = page;
-            DoCountdown();
         }
 
-        private async void DoCountdown()
+        public void StartCountdown()
         {
+            _cancellationTokenSource?.Cancel();
+
+            _cancellationTokenSource = new CancellationTokenSource();
+            DoCountdown(_cancellationTokenSource.Token);
+        }
+
+        private async void DoCountdown(CancellationToken token)
+        {
+            CanContinue = false;
+            OnPropertyChanged(nameof(CanContinue));
+
             for (int i = 10; i > 0; i--)
             {
                 ContinueButtonText = $"({i}) {Strings.Menu_FastFlagEditor_Warning_Continue}";
                 OnPropertyChanged(nameof(ContinueButtonText));
 
-                await Task.Delay(1000);
+                try
+                {
+                    await Task.Delay(1000, token);
+                }
+                catch (TaskCanceledException)
+                {
+                    return;
+                }
             }
 
             ContinueButtonText = Strings.Menu_FastFlagEditor_Warning_Continue;
@@ -42,15 +61,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             CanContinue = true;
             OnPropertyChanged(nameof(CanContinue));
-
-            App.State.Prop.ShowFFlagEditorWarning = false;
-            App.State.Save();
         }
 
         private void Continue()
         {
             if (!CanContinue)
                 return;
+
+            App.State.Prop.ShowFFlagEditorWarning = false;
+            App.State.Save(); // should we be force saving here?
 
             if (Window.GetWindow(_page) is INavigationWindow window)
                 window.Navigate(typeof(FastFlagEditorPage));
