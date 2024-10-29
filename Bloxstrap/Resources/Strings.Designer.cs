@@ -839,20 +839,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn&apos;t blocking Bloxstrap..
+        /// </summary>
+        public static string Dialog_Connectivity_BadConnection {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.BadConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to More information:.
         /// </summary>
         public static string Dialog_Connectivity_MoreInfo {
             get {
                 return ResourceManager.GetString("Dialog.Connectivity.MoreInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Something is likely preventing Bloxstrap from connecting to the internet..
-        /// </summary>
-        public static string Dialog_Connectivity_Preventing {
-            get {
-                return ResourceManager.GetString("Dialog.Connectivity.Preventing", resourceCulture);
             }
         }
         
@@ -880,15 +880,6 @@ namespace Bloxstrap.Resources {
         public static string Dialog_Connectivity_RobloxUpgradeSkip {
             get {
                 return ResourceManager.GetString("Dialog.Connectivity.RobloxUpgradeSkip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The connection timed out, which could indicate a poor internet connection or a firewall block..
-        /// </summary>
-        public static string Dialog_Connectivity_TimedOut {
-            get {
-                return ResourceManager.GetString("Dialog.Connectivity.TimedOut", resourceCulture);
             }
         }
         

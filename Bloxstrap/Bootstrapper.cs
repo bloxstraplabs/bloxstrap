@@ -125,15 +125,14 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Connectivity check failed");
             App.Logger.WriteException(LOG_IDENT, exception);
 
-            string message = Strings.Dialog_Connectivity_Preventing;
+            string message = Strings.Dialog_Connectivity_BadConnection;
 
-            if (exception.GetType() == typeof(AggregateException))
+            if (exception is AggregateException)
                 exception = exception.InnerException!;
 
-            if (exception.GetType() == typeof(HttpRequestException))
+            // https://gist.github.com/pizzaboxer/4b58303589ee5b14cc64397460a8f386
+            if (exception is HttpRequestException && exception.InnerException is null)
                 message = String.Format(Strings.Dialog_Connectivity_RobloxDown, "[status.roblox.com](https://status.roblox.com)");
-            else if (exception.GetType() == typeof(TaskCanceledException))
-                message = Strings.Dialog_Connectivity_TimedOut;
 
             if (_mustUpgrade)
                 message += $"\n\n{Strings.Dialog_Connectivity_RobloxUpgradeNeeded}\n\n{Strings.Dialog_Connectivity_TryAgainLater}";
@@ -252,6 +251,10 @@ namespace Bloxstrap
             Dialog?.CloseBootstrapper();
         }
 
+        /// <summary>
+        /// Will throw whatever HttpClient can throw
+        /// </summary>
+        /// <returns></returns>
         private async Task GetLatestVersionInfo()
         {
             const string LOG_IDENT = "Bootstrapper::GetLatestVersionInfo";
@@ -262,7 +265,11 @@ namespace Bloxstrap
 
             using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
-            var match = Regex.Match(App.LaunchSettings.RobloxLaunchArgs, "channel:([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+            var match = Regex.Match(
+                App.LaunchSettings.RobloxLaunchArgs, 
+                "channel:([a-zA-Z0-9-_]+)", 
+                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
+            );
 
             if (match.Groups.Count == 2)
             {
@@ -273,9 +280,12 @@ namespace Bloxstrap
                 Deployment.Channel = value.ToLowerInvariant();
             }
 
-            App.Logger.WriteLine(LOG_IDENT, "Got channel as " + (String.IsNullOrEmpty(Deployment.Channel) ? Deployment.DefaultChannel : Deployment.Channel));
+            if (String.IsNullOrEmpty(Deployment.Channel))
+                Deployment.Channel = Deployment.DefaultChannel;
 
-            if (Deployment.Channel != "production")
+            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
+
+            if (!Deployment.IsDefaultChannel)
                 App.SendStat("robloxChannel", Deployment.Channel);
 
             ClientVersion clientVersion;
@@ -284,14 +294,9 @@ namespace Bloxstrap
             {
                 clientVersion = await Deployment.GetInfo();
             }
-            catch (HttpRequestException ex)
+            catch (InvalidChannelException ex)
             {
-                if (ex.StatusCode is not HttpStatusCode.Unauthorized 
-                    and not HttpStatusCode.Forbidden 
-                    and not HttpStatusCode.NotFound)
-                    throw;
-
-                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because HTTP {(int)ex.StatusCode}");
+                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
 
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo();
@@ -299,7 +304,7 @@ namespace Bloxstrap
 
             if (clientVersion.IsBehindDefaultChannel)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Changing channel from {Deployment.Channel} to {Deployment.DefaultChannel} because channel is behind production");
+                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
 
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo();
