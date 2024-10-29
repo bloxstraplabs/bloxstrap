@@ -280,9 +280,6 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Got channel as " + (String.IsNullOrEmpty(Deployment.Channel) ? Deployment.DefaultChannel : Deployment.Channel));
 
-            if (Deployment.Channel != "production" && !ForceChannel)
-                App.SendStat("robloxChannel", Deployment.Channel);
-
             ClientVersion clientVersion;
 
             try
@@ -1100,9 +1097,6 @@ namespace Bloxstrap
 
             const int maxTries = 5;
 
-            bool statIsRetrying = false;
-            bool statIsHttp = false;
-
             App.Logger.WriteLine(LOG_IDENT, "Downloading...");
 
             var buffer = new byte[4096];
@@ -1155,12 +1149,8 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"An exception occurred after downloading {totalBytesRead} bytes. ({i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    statIsRetrying = true;
-
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
-                        App.SendStat("packageDownloadState", "httpFail");
-
                         Frontend.ShowConnectivityDialog(
                             Strings.Dialog_Connectivity_UnableToDownload,
                             String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, "[https://github.com/bloxstraplabs/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox](https://github.com/bloxstraplabs/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox)"),
@@ -1186,13 +1176,9 @@ namespace Bloxstrap
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Retrying download over HTTP...");
                         packageUrl = packageUrl.Replace("https://", "http://");
-                        statIsHttp = true;
                     }
                 }
             }
-
-            if (statIsRetrying)
-                App.SendStat("packageDownloadState", statIsHttp ? "httpSuccess" : "retrySuccess");
         }
 
         private void ExtractPackage(Package package, List<string>? files = null)

@@ -47,7 +47,7 @@
                     <Image Grid.Column="0" Width="64" Height="64" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
                     <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
                         <TextBlock Text="Fishstrap" FontSize="24" />
-                        <TextBlock Text="v2.8.0.3" VerticalAlignment="Bottom" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock Text="{Binding Version, Mode=OneTime}" VerticalAlignment="Bottom" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                     </StackPanel>
                 </Grid>
 

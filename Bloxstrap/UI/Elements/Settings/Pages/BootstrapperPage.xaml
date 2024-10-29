@@ -36,7 +36,8 @@
             <controls:OptionControl.Style>
                 <Style TargetType="controls:OptionControl">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding RenameClientToEurotrucks2, Mode=OneTime}" Value="True">
+                        <DataTrigger Binding="{Binding ForceRobloxReinstallation, Mode=OneTime}" Value="True">
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -67,7 +68,8 @@
             <controls:OptionControl.Style>
                 <Style TargetType="controls:OptionControl">
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding UpdateRoblox, Mode=OneTime}" Value="True">
+                        <DataTrigger Binding="{Binding ForceRobloxReinstallation, Mode=OneTime}" Value="True">
+                            <Setter Property="IsEnabled" Value="False" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

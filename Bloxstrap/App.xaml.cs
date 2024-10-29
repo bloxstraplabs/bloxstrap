@@ -33,11 +33,11 @@ namespace Bloxstrap
 
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
 
-        public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString()[..^2];
+        public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
 
         public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
-        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+        public static bool IsProductionBuild => true; //IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -132,8 +132,6 @@ namespace Bloxstrap
 
             return null;
         }
-
-        public static void SendStat(string key, string value) { } // people asked for telementry to get removed
 
         protected override void OnStartup(StartupEventArgs e)
         {
