@@ -58,13 +58,13 @@
             </Grid>
 
             <StackPanel Grid.Column="1" Margin="16">
-                <ui:CardAction Icon="ArrowRight12" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
+                <ui:CardAction Icon="ArrowRight12" TabIndex="0" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}" />
                     </StackPanel>
                 </ui:CardAction>
 
-                <ui:CardAction Margin="0,8,0,0" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
+                <ui:CardAction Margin="0,8,0,0" TabIndex="1" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_ConfigureSettings}" />
                     </StackPanel>
@@ -72,7 +72,7 @@
 
                 <Border Margin="16" />
 
-                <ui:CardAction Margin="0,8,0,0" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/bloxstraplabs/bloxstrap/wiki/">
+                <ui:CardAction Margin="0,8,0,0" TabIndex="2" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/bloxstraplabs/bloxstrap/wiki/">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
                         <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

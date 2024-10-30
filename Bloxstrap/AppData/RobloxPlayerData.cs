@@ -16,10 +16,9 @@ namespace Bloxstrap.AppData
         public string RegistryName => "RobloxPlayer";
 
         public override string ExecutableName => App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe";
-
         public string StartEvent => "www.roblox.com/robloxStartedEvent";
-
-        public override string Directory => Paths.Roblox;
+        public override string Directory => Path.Combine(Paths.Roblox, "Player");
+        public string OldDirectory => Path.Combine(Paths.Roblox, "Player.old");
 
         public AppState State => App.State.Prop.Player;
 

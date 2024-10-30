@@ -10,6 +10,7 @@
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
       d:DesignHeight="1500" d:DesignWidth="800"
+      SizeChanged="UiPage_SizeChanged"
       Title="AboutPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
@@ -93,7 +94,7 @@
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="{Binding SupporterData.Monthly.Columns}" Margin="-4" />
+                        <UniformGrid Columns="{Binding Columns}" Margin="-4" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>
@@ -122,7 +123,7 @@
                 </ListView.ItemTemplate>
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Columns="{Binding SupporterData.OneOff.Columns}" Margin="-4" />
+                        <UniformGrid Columns="{Binding Columns}" Margin="-4" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>

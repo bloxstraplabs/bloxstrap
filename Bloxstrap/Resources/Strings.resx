@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Something is likely preventing Bloxstrap from connecting to the internet.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>The connection timed out, which could indicate a poor internet connection or a firewall block.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Bloxstrap before uninstalling.</value>
@@ -717,7 +714,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Configure additional functionality to go alongside Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox will fully close when you leave a game instead of dropping you back into the app.</value>
+    <value>Roblox will fully close when you leave a game instead of going back to the app. [Will break some things!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Don't exit to desktop app</value>
@@ -757,7 +754,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Choose font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Font size can be adjusted in the Fast Flags tab.</value>
+    <value>Font size can be adjusted in the Engine Settings tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>The file you have chosen does not appear to be a valid font file.</value>
@@ -906,6 +903,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON files</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>The entry for '{0}' is not valid as the value must be a boolean (either 'True' or 'False')</value>
@@ -1104,7 +1102,9 @@ Are you sure you want to continue?</value>
     <value>Roblox has crashed.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Please read the following help information, which will open in your web browser when you close this dialog.</value>
+    <value>For information about why this could be happening and how this can be resolved, please read [this help article]({0}).
+
+Check if Roblox works with [the original launcher]({1}). If it doesn't, then this isn't a Bloxstrap issue. If it does, then refer to the help article.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Could not load data because of a network error.</value>
@@ -1116,7 +1116,8 @@ Are you sure you want to continue?</value>
     <value>Bloxstrap supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>These are the people currently supporting Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!</value>
+    <value>These are the people who've supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+Every person here is ranked by their overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Your Settings could not be loaded. They have been reset to the default configuration.</value>
@@ -1271,5 +1272,36 @@ Would you like to enable test mode?</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>Channel</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap tried to upgrade Roblox but can't because Roblox's files are still in use.
+
+Please close any applications that may be using Roblox's files, and relaunch.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip archive</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Export</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Export diagnostic data</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Gather information that can be uploaded online to troubleshoot a problem you're having.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap configuration</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>All Bloxstrap logs</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

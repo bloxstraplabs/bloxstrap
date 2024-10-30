@@ -1,4 +1,6 @@
-﻿using Bloxstrap.UI.ViewModels.About;
+﻿using System.Windows;
+
+using Bloxstrap.UI.ViewModels.About;
 
 namespace Bloxstrap.UI.Elements.About.Pages
 {
@@ -7,10 +9,15 @@ namespace Bloxstrap.UI.Elements.About.Pages
     /// </summary>
     public partial class SupportersPage
     {
+        private readonly SupportersViewModel _viewModel = new();
+
         public SupportersPage()
         {
-            DataContext = new SupportersViewModel();
+            DataContext = _viewModel;
             InitializeComponent();
         }
+
+        private void UiPage_SizeChanged(object sender, SizeChangedEventArgs e)
+            => _viewModel.WindowResizeEvent?.Invoke(sender, e);
     }
 }

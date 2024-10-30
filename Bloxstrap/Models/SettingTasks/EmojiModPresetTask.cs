@@ -43,7 +43,7 @@ namespace Bloxstrap.Models.SettingTasks
 
                     Directory.CreateDirectory(Path.GetDirectoryName(_filePath)!);
 
-                    await using var fileStream = new FileStream(_filePath, FileMode.CreateNew);
+                    await using var fileStream = new FileStream(_filePath, FileMode.Create);
                     await response.Content.CopyToAsync(fileStream);
 
                     OriginalState = NewState;

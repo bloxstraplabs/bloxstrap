@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Security.Cryptography;
 using System.Windows;
+using System.Windows.Shell;
 using System.Windows.Threading;
 
 using Microsoft.Win32;
@@ -34,6 +35,8 @@ namespace Bloxstrap
         public static BuildMetadataAttribute BuildMetadata = Assembly.GetExecutingAssembly().GetCustomAttribute<BuildMetadataAttribute>()!;
 
         public static string Version = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
+
+        public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
         public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
@@ -104,6 +107,16 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
+            SendLog();
+
+            if (Bootstrapper?.Dialog != null)
+            {
+                if (Bootstrapper.Dialog.TaskbarProgressValue == 0)
+                    Bootstrapper.Dialog.TaskbarProgressValue = 1; // make sure it's visible
+
+                Bootstrapper.Dialog.TaskbarProgressState = TaskbarItemProgressState.Error;
+            }
+
             Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
@@ -132,7 +145,15 @@ namespace Bloxstrap
 
             return null;
         }
+        public static void SendStat(string key, string value)
+        {
+            
+        }
 
+        public static void SendLog()
+        {
+            
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
@@ -192,7 +213,6 @@ namespace Bloxstrap
                 else
                 {
                     // check if user profile folder has been renamed
-                    // honestly, i'll be expecting bugs from this
                     var match = Regex.Match(value, @"^[a-zA-Z]:\\Users\\([^\\]+)", RegexOptions.IgnoreCase);
 
                     if (match.Success)

@@ -16,6 +16,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
     /// </summary>
     public partial class ExceptionDialog
     {
+        const int MAX_GITHUB_URL_LENGTH = 8192;
+
         public ExceptionDialog(Exception exception)
         {
             InitializeComponent();
@@ -27,12 +29,19 @@ namespace Bloxstrap.UI.Elements.Dialogs
             string repoUrl = $"https://github.com/{App.ProjectRepository}";
             string wikiUrl = $"{repoUrl}/wiki";
 
-            string issueUrl = String.Format(
-                "{0}/issues/new?template=bug_report.yaml&title={1}&log={2}",
-                repoUrl,
-                HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}"),
-                HttpUtility.UrlEncode(String.Join('\n', App.Logger.History))
-            );
+            string title = HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}");
+            string log = HttpUtility.UrlEncode(App.Logger.AsDocument);
+
+            string issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml&title={title}&log={log}";
+
+            if (issueUrl.Length > MAX_GITHUB_URL_LENGTH)
+            {
+                // url is way too long for github. remove the log parameter.
+                issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml&title={title}";
+
+                if (issueUrl.Length > MAX_GITHUB_URL_LENGTH)
+                    issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml"; // bruh
+            }
 
             string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
 
@@ -40,6 +49,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
 
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
+            VersionText.Text = String.Format(Strings.Dialog_Exception_Version, App.Version);
+
             ReportExceptionButton.Click += (_, _) => Utilities.ShellExecute(issueUrl);
 
             LocateLogFileButton.Click += delegate
@@ -47,7 +58,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 if (App.Logger.Initialized && !String.IsNullOrEmpty(App.Logger.FileLocation))
                     Utilities.ShellExecute(App.Logger.FileLocation);
                 else
-                    Clipboard.SetDataObject(String.Join("\r\n", App.Logger.History));
+                    Clipboard.SetDataObject(App.Logger.AsDocument);
             };
 
             CloseButton.Click += delegate

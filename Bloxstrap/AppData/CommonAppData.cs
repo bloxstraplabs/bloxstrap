@@ -32,6 +32,7 @@ namespace Bloxstrap.AppData
             { "content-textures3.zip",         @"PlatformContent\pc\textures\" },
             { "content-terrain.zip",           @"PlatformContent\pc\terrain\" },
             { "content-platform-fonts.zip",    @"PlatformContent\pc\fonts\" },
+            { "content-platform-dictionaries.zip", @"PlatformContent\pc\shared_compression_dictionaries\" },
 
             { "extracontent-luapackages.zip",  @"ExtraContent\LuaPackages\" },
             { "extracontent-translations.zip", @"ExtraContent\translations\" },

@@ -5,6 +5,8 @@ namespace Bloxstrap.Utility
     static class WindowsRegistry
     {
         private const string RobloxPlaceKey = "Roblox.Place";
+        
+        public static readonly List<RegistryKey> Roots = new() { Registry.CurrentUser, Registry.LocalMachine };
 
         public static void RegisterProtocol(string key, string name, string handler, string handlerParam = "%1")
         {

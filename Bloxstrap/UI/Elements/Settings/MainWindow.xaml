@@ -11,7 +11,7 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance dmodels:MainWindowViewModel, IsDesignTimeCreatable=True}"
              Title="{x:Static resources:Strings.Menu_Title}"
-             MinWidth="960"
+             MinWidth="1000"
              Width="1000"
              Height="580"
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"

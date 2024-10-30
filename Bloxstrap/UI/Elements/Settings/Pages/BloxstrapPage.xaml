@@ -8,7 +8,7 @@
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
-      d:DataContext="{d:DesignInstance Type=models:BehaviourViewModel}"
+      d:DataContext="{d:DesignInstance Type=models:BloxstrapViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="BehaviourPage"

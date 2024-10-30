@@ -31,9 +31,7 @@ namespace Bloxstrap.UI.Elements.Installer
     /// - MainWindow has a single-set Func<bool> property named NextPageCallback which is reset on every page load
     /// - This callback is called when the next page button is pressed
     /// - Page CodeBehind gets MainWindow and sets the callback to its own local function on page load
-    /// - CodeBehind's local function then directly calls the ViewModel to do whatever it needs to do
-    /// 
-    /// TODO: theme selection
+    /// - CodeBehind's local function then directly calls its ViewModel to do whatever it needs to do
 
     public partial class MainWindow : WpfUiWindow, INavigationWindow
     {
@@ -42,6 +40,8 @@ namespace Bloxstrap.UI.Elements.Installer
         private Type _currentPage = typeof(WelcomePage);
 
         private List<Type> _pages = new() { typeof(WelcomePage), typeof(InstallPage), typeof(CompletionPage) };
+
+        private DateTimeOffset _lastNavigation = DateTimeOffset.Now;
 
         public Func<bool>? NextPageCallback;
 
@@ -55,10 +55,16 @@ namespace Bloxstrap.UI.Elements.Installer
 
             _viewModel.PageRequest += (_, type) =>
             {
+                // debounce
+                if (DateTimeOffset.Now.Subtract(_lastNavigation).TotalMilliseconds < 500)
+                    return;
+
                 if (type == "next")
                     NextPage();
                 else if (type == "back")
                     BackPage();
+
+                _lastNavigation = DateTimeOffset.Now;
             };
 
             DataContext = _viewModel;
