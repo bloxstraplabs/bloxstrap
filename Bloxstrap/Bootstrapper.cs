@@ -1061,13 +1061,13 @@ namespace Bloxstrap
 
             if (App.Settings.Prop.RenameClientToEuroTrucks2)
             {
-                if (File.Exists(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe")))
-                    File.Move(Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "eurotrucks2.exe"));
+                if (File.Exists(Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe")))
+                    File.Move(Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe"));
             }
             else
             {
-                if (File.Exists(Path.Combine(Paths.Roblox, "eurotrucks2.exe")))
-                    File.Move(Path.Combine(Paths.Roblox, "eurotrucks2.exe"), Path.Combine(Paths.Roblox, "RobloxPlayerBeta.exe"));
+                if (File.Exists(Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe")))
+                    File.Move(Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe"), Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe"));
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");

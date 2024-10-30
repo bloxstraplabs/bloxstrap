@@ -30,7 +30,7 @@ namespace Bloxstrap
 #if DEBUG
             if (String.IsNullOrEmpty(watcherDataArg))
             {
-                string path = Path.Combine(Paths.Roblox, "eurotrucks2.exe");
+                string path = Path.Combine(Paths.Roblox, "Player", App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
 
 
                 using var gameClientProcess = Process.Start(path);

@@ -19,7 +19,7 @@ namespace Bloxstrap.Models.Persistable
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox {  get; set; } = true;
         public bool RenameClientToEuroTrucks2 { get; set; } = true;
-        public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox");
+        public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox//Player");
         public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
 
         // integration configuration
