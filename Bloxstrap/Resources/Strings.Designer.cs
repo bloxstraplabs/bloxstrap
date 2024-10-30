@@ -875,6 +875,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Dialog_Connectivity_Preventing {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.Preventing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox may be down right now. See {0} for more information..
         /// </summary>
         public static string Dialog_Connectivity_RobloxDown {
@@ -898,6 +907,15 @@ namespace Bloxstrap.Resources {
         public static string Dialog_Connectivity_RobloxUpgradeSkip {
             get {
                 return ResourceManager.GetString("Dialog.Connectivity.RobloxUpgradeSkip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Dialog_Connectivity_TimedOut {
+            get {
+                return ResourceManager.GetString("Dialog.Connectivity.TimedOut", resourceCulture);
             }
         }
         
@@ -2636,7 +2654,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toggled with [keyboard shortcuts]({0}). Only works if you&apos;re in the [Bloxstrap group]({1})..
+        ///   Looks up a localized string similar to Toggled with [keyboard shortcuts]({0}). Input id of a group you&apos;re in..
         /// </summary>
         public static string Menu_FastFlags_Presets_HideGuis_Description {
             get {
@@ -2645,7 +2663,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable ability to hide GUIs.
+        ///   Looks up a localized string similar to Hiding GUIs.
         /// </summary>
         public static string Menu_FastFlags_Presets_HideGuis_Title {
             get {

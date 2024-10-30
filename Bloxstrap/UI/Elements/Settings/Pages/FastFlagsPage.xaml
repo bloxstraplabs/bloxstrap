@@ -121,7 +121,7 @@
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}" 
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding">
-            <ui:ToggleSwitch IsChecked="{Binding GuiHidingEnabled, Mode=TwoWay}" />
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding GuiHidingId, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
         </controls:OptionControl>
 
         <controls:OptionControl 

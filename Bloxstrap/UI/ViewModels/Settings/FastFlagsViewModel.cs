@@ -103,10 +103,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("UI.FullscreenTitlebarDelay", value ? "3600000" : null);
         }
 
-        public bool GuiHidingEnabled
+        public int GuiHidingId
         {
-            get => App.FastFlags.GetPreset("UI.Hide") == "32380007";
-            set => App.FastFlags.SetPreset("UI.Hide", value ? "32380007" : null);
+            get => int.TryParse(App.FastFlags.GetPreset("UI.Hide"), out int x) ? x : 0;
+            set => App.FastFlags.SetPreset("UI.Hide", value == 0 ? null : value);
         }
 
         public IReadOnlyDictionary<TextureQuality, string?> TextureQualities => FastFlagManager.TextureQualityLevels;

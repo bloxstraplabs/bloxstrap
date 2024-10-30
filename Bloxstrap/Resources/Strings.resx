@@ -629,10 +629,10 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <value>Framerate limit</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled with [keyboard shortcuts]({0}). Only works if you're in the [Bloxstrap group]({1}).</value>
+    <value>Toggled with [keyboard shortcuts]({0}). Input id of a group you're in.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Enable ability to hide GUIs</value>
+    <value>Hiding GUIs</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
     <value>Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0})</value>
@@ -1303,5 +1303,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
+    <value />
   </data>
 </root>
