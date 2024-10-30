@@ -22,7 +22,7 @@
         Icon2022,
         [EnumName(FromTranslation = "Common.Custom")]
         IconCustom,
-        [EnumName(FromTranslation = "Enums.BootstrapperStyle.ClassicFluentDialog")]
+        [EnumName(StaticName = "Bloxstrap (Classic)")]
         IconBloxstrapClassic
     }
 }
