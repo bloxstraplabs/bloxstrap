@@ -1,4 +1,5 @@
 
+
 <p align="center">
     <img src="https://github.com/returnrqt/bloxstrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="420">
     <img src="https://github.com/returnrqt/bloxstrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="420">
@@ -20,16 +21,18 @@ Fishstrap is a Bloxstrap fork aiming to enhance some of the features.
 Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues) or create bug report in our [discord server](https://discord.gg/xSsamjAU84).
 
 ## Differences from Bloxstrap
-
-- Better Fast Flag editor
- - - Added Flag profiles
- - - Removed editor warning
- - - Removed FFlag validation
- - Readded channel changer
+- Improved Fast Flag editor experience
+   - Added Flag profiles
+   - Removed editor warnings
+   - Removed feature flag validation
+ - Channel changer
+ - Disabling Roblox upgrades
+ - Ansel support for Roblox client
+ 
+ *More changes coming soon!*
 
 ----
-
-### Considering switching? [Download it here](https://github.com/returnrqt/bloxstrap/releases).
+### Considering a switch? [Download it here](https://github.com/returnrqt/bloxstrap/releases).
 
 [shield-repo-license]:  https://img.shields.io/github/license/returnrqt/bloxstrap
 [shield-repo-releases]: https://img.shields.io/github/downloads/returnrqt/bloxstrap/latest/total?color=981bfe
@@ -43,4 +46,3 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
 [repo-latest]:   https://github.com/returnrqt/bloxstrap/releases/latest
 
 [discord-invite]:  https://discord.gg/xSsamjAU84
-

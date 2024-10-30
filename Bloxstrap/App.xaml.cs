@@ -19,10 +19,10 @@ namespace Bloxstrap
         public const string ProjectName = "Fishstrap";
 #endif
         public const string ProjectOwner = "returnrqt";
-        public const string ProjectRepository = "returnrqt/bloxstrap";
-        public const string ProjectDownloadLink = "https://github.com/returnrqt/bloxstrap/releases";
+        public const string ProjectRepository = "returnrqt/fishstrap";
+        public const string ProjectDownloadLink = "https://github.com/returnrqt/fishstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
-        public const string ProjectSupportLink = "https://github.com/returnrqt/bloxstrap/issues/new";
+        public const string ProjectSupportLink = "https://github.com/returnrqt/fishstrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
