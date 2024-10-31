@@ -39,6 +39,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     VersionGuid = info.VersionGuid
                 };
 
+                App.State.Prop.IgnoreOutdatedChannel = true;
+
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
             catch (HttpResponseException ex)

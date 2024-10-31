@@ -183,9 +183,6 @@ namespace Bloxstrap.RobloxInterfaces
                     clientVersion = await Http.GetJson<ClientVersion>("https://clientsettings.roblox.com" + path);
                 }
 
-                if (isUpgrade==true)
-                    App.State.Prop.CurrentVersion = clientVersion.Version;
-
                 ClientVersionCache[cacheKey] = clientVersion;
             }
 

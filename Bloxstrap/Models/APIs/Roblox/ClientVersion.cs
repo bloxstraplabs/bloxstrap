@@ -13,6 +13,6 @@
 
         public DateTime? Timestamp { get; set; }
 
-        public bool IsBehindDefaultChannel { get; set; }
+        public bool IsBehindDefaultChannel { get; set; } = false;
     }
 }

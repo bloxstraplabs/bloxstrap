@@ -256,5 +256,18 @@ namespace Bloxstrap
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
         }
+
+        public void DeleteProfile(string Profile)
+        {
+            string profilesDirectory = Path.Combine(Paths.Base, Paths.SavedFlagProfiles);
+
+            if (!Directory.Exists(profilesDirectory))
+                Directory.CreateDirectory(profilesDirectory);
+
+            if (String.IsNullOrEmpty(Profile))
+                return;
+
+            File.Delete(Path.Combine(profilesDirectory, Profile));
+        }
     }
 }

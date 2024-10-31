@@ -65,6 +65,8 @@ namespace Bloxstrap
 
         private int _appPid = 0;
 
+        private int totalPackageSize = 0;
+
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
@@ -299,19 +301,14 @@ namespace Bloxstrap
                 clientVersion = await Deployment.GetInfo(true);
             }
 
-            if (clientVersion.IsBehindDefaultChannel)
+            if (clientVersion.IsBehindDefaultChannel&&!App.State.Prop.IgnoreOutdatedChannel)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
 
-                if (ForceChannel)
-                {
-                    clientVersion = await Deployment.GetInfo(true, App.Settings.Prop.Channel);
-                }
-                else
-                {
-                    Deployment.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo(true);
-                }
+                App.State.Prop.IgnoreOutdatedChannel = false;
+
+                Deployment.Channel = Deployment.DefaultChannel;
+                clientVersion = await Deployment.GetInfo(true);
             }
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
@@ -758,6 +755,11 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
+                totalPackageSize += package.Size;
+            }
+
+            foreach (var package in _versionPackageManifest)
+            {
                 if (_cancelTokenSource.IsCancellationRequested)
                     return;
 
@@ -1161,6 +1163,7 @@ namespace Bloxstrap
                         await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
+                        SetStatus($"Downloading {package.Name} - {_totalDownloadedBytes/1048576}MB / {totalPackageSize/1048576}MB");
                         UpdateProgressBar();
                     }
 

@@ -20,6 +20,8 @@
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
 
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

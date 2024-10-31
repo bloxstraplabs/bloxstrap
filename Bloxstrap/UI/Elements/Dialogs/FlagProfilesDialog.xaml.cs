@@ -46,22 +46,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            string profilesDirectory = Path.Combine(Paths.Base, Paths.SavedFlagProfiles);
-
-            if (!Directory.Exists(profilesDirectory))
-                Directory.CreateDirectory(profilesDirectory);
-
-            if (LoadProfile.SelectedItem == null)
-                return;
             
-            var SelectedItem = LoadProfile.SelectedItem.ToString();
-
-            if (String.IsNullOrEmpty(SelectedItem))
-                return;
-
-            File.Delete(Path.Combine(profilesDirectory,SelectedItem));
-
-            LoadProfiles();
         }
     }
 }

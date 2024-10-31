@@ -86,7 +86,7 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <TextBlock FontSize="14" Text="Channel" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose which deployment channel Roblox should be downloaded from." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="Choose deployment channel Roblox. Don't change unless you know what you're doing." Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
                     </StackPanel>
                     <ui:TextBox Grid.Column="1" Margin="8,0,8,0" Padding="10,5,10,5" Width="200" Text="{Binding ViewChannel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=250}" />
                 </Grid>
@@ -123,6 +123,9 @@
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="VersionGuid" />
                     <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
 
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version Hash" />
+                    <ui:TextBox Grid.Row="2" Grid.Column="1" Margin="-380,0,0,0" Width="200" Text="{Binding VersionHash}"/>
+                    
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">

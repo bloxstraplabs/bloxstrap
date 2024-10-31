@@ -107,7 +107,7 @@ namespace Bloxstrap
             File.WriteAllText(FileDirectory, FastFlagsJson);
         }
 
-        public void LoadProfile(string name)
+        public void LoadProfile(string name, bool? clearFlags)
         {
             string LOGGER_STRING = "LoadProfile::Profiles";
 
@@ -141,7 +141,12 @@ namespace Bloxstrap
             if (settings is null)
                 throw new ArgumentNullException("Deserialization returned null");
 
-            Prop = settings;
+            if (clearFlags == true)
+            {
+                Prop = settings;
+            } else {
+                Prop = settings;
+            }
 
             App.FastFlags.Save();
         }

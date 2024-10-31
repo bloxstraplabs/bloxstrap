@@ -2,7 +2,7 @@
 {
     public class State
     {
-        public string CurrentVersion { get; set; } = "None";
+        public bool IgnoreOutdatedChannel { get; set; } = false;
 
         public bool PromptWebView2Install { get; set; } = true;
 
