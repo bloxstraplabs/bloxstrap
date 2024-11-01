@@ -244,6 +244,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading.
+        /// </summary>
+        public static string Bootstrapper_Status_Downloading {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.Downloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Installing {product}....
         /// </summary>
         public static string Bootstrapper_Status_Installing {
@@ -393,6 +402,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Cancel {
             get {
                 return ResourceManager.GetString("Common.Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel.
+        /// </summary>
+        public static string Common_Channel {
+            get {
+                return ResourceManager.GetString("Common.Channel", resourceCulture);
             }
         }
         
@@ -663,6 +681,24 @@ namespace Bloxstrap.Resources {
         public static string Common_Value {
             get {
                 return ResourceManager.GetString("Common.Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string Common_Version {
+            get {
+                return ResourceManager.GetString("Common.Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VersionGuid.
+        /// </summary>
+        public static string Common_VersionGuid {
+            get {
+                return ResourceManager.GetString("Common.VersionGuid", resourceCulture);
             }
         }
         
@@ -1744,7 +1780,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who have made notable contributions to *Bloxstrap*, helping make it what it is..
+        ///   Looks up a localized string similar to These are the people who have made notable contributions to Bloxstrap/Fishstrap, helping make it what it is..
         /// </summary>
         public static string Menu_About_Contributors_Description {
             get {
@@ -1902,6 +1938,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Appearance_Bootstrapper_Title {
             get {
                 return ResourceManager.GetString("Menu.Appearance.Bootstrapper.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change downloading string. {0} is package name, {1} is downloaded packages size and {2} is total size of packages..
+        /// </summary>
+        public static string Menu_Appearance_BootstrapperDownloading_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.BootstrapperDownloading.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bootstrapper downloading status.
+        /// </summary>
+        public static string Menu_Appearance_BootstrapperDownloading_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.BootstrapperDownloading.Title", resourceCulture);
             }
         }
         
@@ -2226,6 +2280,42 @@ namespace Bloxstrap.Resources {
         public static string Menu_Bloxstrap_ExportData_Title {
             get {
                 return ResourceManager.GetString("Menu.Bloxstrap.ExportData.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change deployment and installation settings for Roblox..
+        /// </summary>
+        public static string Menu_Channel_Description {
+            get {
+                return ResourceManager.GetString("Menu.Channel.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox upgrades.
+        /// </summary>
+        public static string Menu_Channel_RobloxUpgrades {
+            get {
+                return ResourceManager.GetString("Menu.Channel.RobloxUpgrades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When disabled Roblox client won&apos;t upgrade to newer version..
+        /// </summary>
+        public static string Menu_Channel_RobloxUpgrades_Description {
+            get {
+                return ResourceManager.GetString("Menu.Channel.RobloxUpgrades.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose deployment channel. Don&apos;t change unless you know what you&apos;re doing..
+        /// </summary>
+        public static string Menu_ChannelChanger_Description {
+            get {
+                return ResourceManager.GetString("Menu.ChannelChanger.Description", resourceCulture);
             }
         }
         
@@ -2726,7 +2816,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Engine Settings.
+        ///   Looks up a localized string similar to FastFlags.
         /// </summary>
         public static string Menu_FastFlags_Title {
             get {

@@ -42,7 +42,13 @@
             </StackPanel>
             <ui:Button Grid.Column="1" Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" Margin="0,16,0,0" Command="{Binding PreviewBootstrapperCommand}" />
         </Grid>
-        
+
+        <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Appearance_BootstrapperDownloading_Title}" 
+    Description="{x:Static resources:Strings.Menu_Appearance_BootstrapperDownloading_Description}">
+            <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding DownloadingStatus, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Appearance_Style_Title}" 
             Description="{x:Static resources:Strings.Menu_Appearance_Style_Description}">

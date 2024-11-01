@@ -755,7 +755,7 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
-                totalPackageSize += package.Size;
+                totalPackageSize += package.Size; 
             }
 
             foreach (var package in _versionPackageManifest)
@@ -1163,7 +1163,7 @@ namespace Bloxstrap
                         await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
-                        SetStatus($"Downloading {package.Name} - {_totalDownloadedBytes/1048576}MB / {totalPackageSize/1048576}MB");
+                        SetStatus(String.Format(App.Settings.Prop.DownloadingStringFormat, package.Name, _totalDownloadedBytes / 1048576, totalPackageSize / 1048576));
                         UpdateProgressBar();
                     }
 

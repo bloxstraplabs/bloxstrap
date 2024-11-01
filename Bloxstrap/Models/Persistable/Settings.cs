@@ -21,6 +21,8 @@ namespace Bloxstrap.Models.Persistable
         public bool RenameClientToEuroTrucks2 { get; set; } = true;
         public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox//Player");
         public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
+        public string ChannelHash { get; set; } = "";
+        public string DownloadingStringFormat { get; set; } = Strings.Bootstrapper_Status_Downloading + " {0} - {1}MB / {2}MB";
 
         // integration configuration
         public bool EnableActivityTracking { get; set; } = true;

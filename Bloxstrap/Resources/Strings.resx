@@ -403,7 +403,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to *Bloxstrap*, helping make it what it is.</value>
+    <value>These are the people who have made notable contributions to Bloxstrap/Fishstrap, helping make it what it is.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature Ideas</value>
@@ -1309,5 +1309,35 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value />
+  </data>
+  <data name="Menu.Channel.Description" xml:space="preserve">
+    <value>Change deployment and installation settings for Roblox.</value>
+  </data>
+  <data name="Common.Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="Menu.ChannelChanger.Description" xml:space="preserve">
+    <value>Choose deployment channel. Don't change unless you know what you're doing.</value>
+  </data>
+  <data name="Common.Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Common.VersionGuid" xml:space="preserve">
+    <value>VersionGuid</value>
+  </data>
+  <data name="Menu.Channel.RobloxUpgrades" xml:space="preserve">
+    <value>Roblox upgrades</value>
+  </data>
+  <data name="Menu.Channel.RobloxUpgrades.Description" xml:space="preserve">
+    <value>When disabled Roblox client won't upgrade to newer version.</value>
+  </data>
+  <data name="Bootstrapper.Status.Downloading" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="Menu.Appearance.BootstrapperDownloading.Title" xml:space="preserve">
+    <value>Bootstrapper downloading status</value>
+  </data>
+  <data name="Menu.Appearance.BootstrapperDownloading.Description" xml:space="preserve">
+    <value>Change downloading string. {0} is package name, {1} is downloaded packages size and {2} is total size of packages.</value>
   </data>
 </root>

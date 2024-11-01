@@ -174,6 +174,15 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
 
+            App.Logger.WriteLine(LOG_IDENT,"Creating mutex");
+
+            Mutex mutex = new Mutex(true, "ROBLOX_singletonMutex");
+
+            while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
+            {
+                Thread.Sleep(1000);
+            };
+
             if (launchMode == LaunchMode.None)
                 throw new InvalidOperationException("No Roblox launch mode set");
 
