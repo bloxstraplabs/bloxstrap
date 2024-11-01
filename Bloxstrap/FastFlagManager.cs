@@ -58,6 +58,8 @@ namespace Bloxstrap
             { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
             { "UI.Menu.Style.ReportButtonCutOff", "FFlagFixReportButtonCutOff" },
 
+            { "UI.Menu.ChromeUI", "FFlagEnableInGameMenuChromeABTest4" },
+
 
             //{ "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
             //{ "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },

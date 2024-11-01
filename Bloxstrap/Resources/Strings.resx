@@ -1361,4 +1361,10 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
     <value>Telemetry</value>
   </data>
+  <data name="Menu.FastFlags.Presets.ChromeUI.Title" xml:space="preserve">
+    <value>Chrome UI</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.ChromeUI.Description" xml:space="preserve">
+    <value>EnablesRoblox [chrome UI](https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981).</value>
+  </data>
 </root>

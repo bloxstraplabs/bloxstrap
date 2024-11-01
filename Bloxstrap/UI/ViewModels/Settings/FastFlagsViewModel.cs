@@ -176,6 +176,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
         }
 
+        public bool ChromeUI
+        {
+            get => App.FastFlags.GetPreset("UI.Menu.ChromeUI") == "True";
+            set => App.FastFlags.SetPreset("UI.Menu.ChromeUI", value);
+        }
+
 
         public bool ResetConfiguration
         {
