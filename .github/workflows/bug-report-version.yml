@@ -13,7 +13,7 @@ jobs:
       - name: Read Bloxstrap version from .csproj
         id: read-version
         run: |
-          version=$(grep -oPm1 "(?<=<Version>)[^<]+" Bloxstrap.csproj)
+          version=$(grep -oPm1 "(?<=<Version>)[^<]+" Bloxstrap/Bloxstrap.csproj)
           echo "::set-output name=version::$version"
 
       - name: Check issue body for Bloxstrap version
