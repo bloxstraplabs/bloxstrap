@@ -17,6 +17,15 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Channel_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <TextBlock Text="Fishstrap" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="Roblox" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
@@ -95,7 +104,7 @@
 
                     <TextBlock Visibility="Collapsed" Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version Hash" />
                     <ui:TextBox Visibility="Collapsed" Grid.Row="2" Grid.Column="1" Margin="-380,0,0,0" Width="200" Text="{Binding ChannelHash, UpdateSourceTrigger=PropertyChanged, Delay=250}"/>
-                    
+
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
                         <StackPanel.Style>
                             <Style TargetType="StackPanel">

@@ -31,8 +31,14 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-    Header="Rename Roblox to eurotrucks2.exe"
-    Description="Enables Ansel for Roblox client. Requires [supported graphics card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).">
+    Header="{x:Static resources:Strings.Menu_Behaviour_Eurotrucks_Title}"
+    Description="{x:Static resources:Strings.Menu_Behaviour_Eurotrucks_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding RenameClientToEurotrucks2, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
+Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
             <ui:ToggleSwitch IsChecked="{Binding RenameClientToEurotrucks2, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>

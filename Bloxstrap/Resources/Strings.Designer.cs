@@ -2158,6 +2158,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enables Ansel for Roblox client. Requires [supported graphics card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/)..
+        /// </summary>
+        public static string Menu_Behaviour_Eurotrucks_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Eurotrucks.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename Roblox to eurotrucks2.
+        /// </summary>
+        public static string Menu_Behaviour_Eurotrucks_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Eurotrucks.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only applies to games launched from the Roblox website..
         /// </summary>
         public static string Menu_Behaviour_ForceRobloxLanguage_Description {
@@ -2190,6 +2208,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_ForceRobloxReinstall_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.ForceRobloxReinstall.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously. May cause issues with desktop app..
+        /// </summary>
+        public static string Menu_Behaviour_MultiInstances_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MultiInstances.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-instance launching.
+        /// </summary>
+        public static string Menu_Behaviour_MultiInstances_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MultiInstances.Title", resourceCulture);
             }
         }
         
@@ -2284,7 +2320,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Change deployment and installation settings for Roblox..
+        ///   Looks up a localized string similar to Change deployment and installation settings for Roblox &amp; Fishstrap..
         /// </summary>
         public static string Menu_Channel_Description {
             get {

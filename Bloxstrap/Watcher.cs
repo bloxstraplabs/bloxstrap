@@ -62,7 +62,7 @@ namespace Bloxstrap
                     };
                 }
 
-                if (App.Settings.Prop.UseDiscordRichPresence)
+                if (App.Settings.Prop.UseDiscordRichPresence&&!App.State.Prop.WatcherRunning)
                     RichPresence = new(ActivityWatcher);
             }
 
@@ -125,6 +125,8 @@ namespace Bloxstrap
 
             _notifyIcon?.Dispose();
             RichPresence?.Dispose();
+
+            App.State.Prop.WatcherRunning = false;
 
             GC.SuppressFinalize(this);
         }

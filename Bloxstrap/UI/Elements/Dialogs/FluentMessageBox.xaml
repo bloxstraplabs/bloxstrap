@@ -8,7 +8,7 @@
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
         mc:Ignorable="d"
-        Title="Bloxstrap"
+        Title="Fishstrap"
         d:DesignWidth="480"
         MinWidth="180"
         MaxWidth="480"
@@ -20,15 +20,20 @@
         ExtendsContentIntoTitleBar="True"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="357*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.ColumnSpan="3" Padding="8" x:Name="RootTitleBar" Title="Fishstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" VerticalAlignment="Center" />
 
-        <Grid Grid.Row="1" Margin="15">
+        <Grid Grid.Row="1" Margin="15,15,15,15" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -37,7 +42,7 @@
             <controls:MarkdownTextBlock x:Name="MessageTextBlock" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorPrimaryBrush}" />
         </Grid>
 
-        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+        <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
                 <Button x:Name="ButtonOne" MinWidth="100" Content="Button 1" />
                 <Button x:Name="ButtonTwo" MinWidth="100" Margin="12,0,0,0" Content="Button 2" />

@@ -174,14 +174,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
 
-            App.Logger.WriteLine(LOG_IDENT,"Creating mutex");
-
-            Mutex mutex = new Mutex(true, "ROBLOX_singletonMutex");
-
-            while (Process.GetProcessesByName("RobloxPlayerBeta").Any())
-            {
-                Thread.Sleep(1000);
-            };
+            const string MutexName = "ROBLOX_singletonMutex";
 
             if (launchMode == LaunchMode.None)
                 throw new InvalidOperationException("No Roblox launch mode set");
@@ -224,6 +217,22 @@ namespace Bloxstrap
                 dialog.Bootstrapper = App.Bootstrapper;
             }
 
+            App.Logger.WriteLine(LOG_IDENT, $"Creating {MutexName}");
+
+            Mutex? mutex = null;
+            if (App.Settings.Prop.MultiInstanceLaunching)
+            {
+                try
+                {
+                    mutex = new Mutex(true, MutexName);
+                    App.Logger.WriteLine(LOG_IDENT, $"Created {MutexName}");
+                }
+                catch
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to create {MutexName}");
+                }
+            }
+
             Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
@@ -235,6 +244,20 @@ namespace Bloxstrap
                     if (t.Exception is not null)
                         App.FinalizeExceptionHandling(t.Exception);
                 }
+                if (mutex != null) {
+                    // get process name
+                    string ProcessName = "RobloxPlayerBeta";
+                    if (App.Settings.Prop.RenameClientToEuroTrucks2)
+                        ProcessName = "eurotrucks2"; // ansel supports
+                    App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name \"{ProcessName}\".exe, running Fishstrap in background.");
+
+                    // now yield until the processes are closed
+                    while (Process.GetProcessesByName(ProcessName).Any())
+                        Thread.Sleep(5000);
+
+                    App.Logger.WriteLine(LOG_IDENT,"Every Roblox instance is closed, terminating the process");
+                }
+
 
                 App.Terminate();
             });

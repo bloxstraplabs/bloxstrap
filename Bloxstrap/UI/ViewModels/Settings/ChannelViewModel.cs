@@ -13,6 +13,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             Task.Run(() => LoadChannelDeployInfo(App.Settings.Prop.Channel));
         }
 
+        public bool UpdateCheckingEnabled
+        {
+            get => App.Settings.Prop.CheckForUpdates;
+            set => App.Settings.Prop.CheckForUpdates = value;
+        }
+
         private async Task LoadChannelDeployInfo(string channel)
         {
             const string LOG_IDENT = "ChannelViewModel::LoadChannelDeployInfo";

@@ -1311,7 +1311,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value />
   </data>
   <data name="Menu.Channel.Description" xml:space="preserve">
-    <value>Change deployment and installation settings for Roblox.</value>
+    <value>Change deployment and installation settings for Roblox &amp; Fishstrap.</value>
   </data>
   <data name="Common.Channel" xml:space="preserve">
     <value>Channel</value>
@@ -1339,5 +1339,17 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Menu.Appearance.BootstrapperDownloading.Description" xml:space="preserve">
     <value>Change downloading string. {0} is package name, {1} is downloaded packages size and {2} is total size of packages.</value>
+  </data>
+  <data name="Menu.Behaviour.Eurotrucks.Title" xml:space="preserve">
+    <value>Rename Roblox to eurotrucks2</value>
+  </data>
+  <data name="Menu.Behaviour.Eurotrucks.Description" xml:space="preserve">
+    <value>Enables Ansel for Roblox client. Requires [supported graphics card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).</value>
+  </data>
+  <data name="Menu.Behaviour.MultiInstances.Title" xml:space="preserve">
+    <value>Multi-instance launching</value>
+  </data>
+  <data name="Menu.Behaviour.MultiInstances.Description" xml:space="preserve">
+    <value>Allows for having more than one Roblox game client instance open simultaneously. May cause issues with desktop app.</value>
   </data>
 </root>

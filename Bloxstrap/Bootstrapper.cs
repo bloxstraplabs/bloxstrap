@@ -466,7 +466,7 @@ namespace Bloxstrap
                 if (App.LaunchSettings.TestModeFlag.Active)
                     args += " -testmode";
 
-                if (ipl.IsAcquired)
+                if (ipl.IsAcquired||true)
                     Process.Start(Paths.Process, args);
             }
         }
