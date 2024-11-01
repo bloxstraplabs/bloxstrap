@@ -149,7 +149,7 @@ namespace Bloxstrap.Models.Entities
 
         private void RejoinServer()
         {
-            string playerPath = Path.Combine(Paths.Roblox, App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
+            string playerPath = Path.Combine(Paths.Roblox, "Player", App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
 
             Process.Start(playerPath, GetInviteDeeplink(false));
         }

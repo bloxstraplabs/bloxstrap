@@ -28,7 +28,20 @@
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
+            <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry}" FontSize="16" FontWeight="Medium" />
+
+        <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Telemetry_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
+        </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#exclusive-fullscreen'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
@@ -142,11 +155,5 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </controls:OptionControl>-->
-
-        <controls:OptionControl 
-            Margin="0,24,0,0"
-            Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
-            <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
-        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

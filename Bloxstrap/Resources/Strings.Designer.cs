@@ -2834,6 +2834,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Telemetry.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Telemetry {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Telemetry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: This disables only some of the Roblox telemetry..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Telemetry_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Telemetry.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Roblox telemetry.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Telemetry_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Telemetry.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Texture quality.
         /// </summary>
         public static string Menu_FastFlags_Presets_TextureQuality_Title {

@@ -43,6 +43,13 @@ namespace Bloxstrap
             { "UI.Hide.Toggles", "FFlagUserShowGuiHideToggles"},
             { "UI.FontSize", "FIntFontSizePadding" },
 
+            { "Telemetry.EpCounter", "FFlagDebugDisableTelemetryEphemeralCounter"},
+            { "Telemetry.EpStats", "FFlagDebugDisableTelemetryEphemeralStat"},
+            { "Telemetry.Event", "FFlagDebugDisableTelemetryEventIngest"},
+            { "Telemetry.V2Counter", "FFlagDebugDisableTelemetryV2Counter"},
+            { "Telemetry.V2Event", "FFlagDebugDisableTelemetryV2Event"},
+            { "Telemetry.V2Stats", "FFlagDebugDisableTelemetryV2Stat"},
+
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
 
             { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },

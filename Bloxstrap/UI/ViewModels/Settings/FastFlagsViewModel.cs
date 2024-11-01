@@ -21,6 +21,21 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
+        public bool DisableTelemetry
+        {
+            get => App.FastFlags.GetPreset("Telemetry.EpCounter") == "True"; // we use this fflag to determine if preset is enabled
+            set
+            {
+                // is there a better way of doing that?
+                App.FastFlags.SetPreset("Telemetry.EpCounter",value);
+                App.FastFlags.SetPreset("Telemetry.EpStats", value);
+                App.FastFlags.SetPreset("Telemetry.Event", value);
+                App.FastFlags.SetPreset("Telemetry.V2Counter", value);
+                App.FastFlags.SetPreset("Telemetry.V2Event", value);
+                App.FastFlags.SetPreset("Telemetry.V2Stats", value);
+            }
+        }
+
         public bool UseFastFlagManager
         {
             get => App.Settings.Prop.UseFastFlagManager;

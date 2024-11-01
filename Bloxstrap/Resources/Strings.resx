@@ -1352,4 +1352,13 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.Behaviour.MultiInstances.Description" xml:space="preserve">
     <value>Allows for having more than one Roblox game client instance open simultaneously. May cause issues with desktop app.</value>
   </data>
+  <data name="Menu.FastFlags.Presets.Telemetry.Title" xml:space="preserve">
+    <value>Disable Roblox telemetry</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Telemetry.Description" xml:space="preserve">
+    <value>Note: This disables only some of the Roblox telemetry.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
+    <value>Telemetry</value>
+  </data>
 </root>
