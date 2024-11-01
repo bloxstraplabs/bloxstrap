@@ -106,7 +106,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public int GuiHidingId
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.Hide"), out int x) ? x : 0;
-            set => App.FastFlags.SetPreset("UI.Hide", value == 0 ? null : value);
+            set {
+                App.FastFlags.SetPreset("UI.Hide", value == 0 ? null : value);
+                if (value != 0)
+                {
+                    App.FastFlags.SetPreset("UI.Hide.Toggles", true);
+                } else
+                {
+                    App.FastFlags.SetPreset("UI.Hide.Toggles", null);
+                }
+            }
         }
 
         public IReadOnlyDictionary<TextureQuality, string?> TextureQualities => FastFlagManager.TextureQualityLevels;

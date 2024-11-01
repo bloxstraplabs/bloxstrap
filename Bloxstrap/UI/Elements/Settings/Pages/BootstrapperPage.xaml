@@ -39,7 +39,7 @@
         <controls:OptionControl 
 Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
 Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding RenameClientToEurotrucks2, Mode=TwoWay}" />
+            <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

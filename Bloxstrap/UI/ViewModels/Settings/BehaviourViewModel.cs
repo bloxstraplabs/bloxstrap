@@ -11,6 +11,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             
         }
 
+        public bool MultiInstances
+        {
+            get => App.Settings.Prop.MultiInstanceLaunching;
+            set => App.Settings.Prop.MultiInstanceLaunching = value;
+        }
+
         public bool ConfirmLaunches
         {
             get => App.Settings.Prop.ConfirmLaunches;

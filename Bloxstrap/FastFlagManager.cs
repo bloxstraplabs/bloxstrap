@@ -40,6 +40,7 @@ namespace Bloxstrap
             { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
 
             { "UI.Hide", "DFIntCanHideGuiGroupId" },
+            { "UI.Hide.Toggles", "FFlagUserShowGuiHideToggles"},
             { "UI.FontSize", "FIntFontSizePadding" },
 
             { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
