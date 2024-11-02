@@ -178,7 +178,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool ChromeUI
         {
-            get => App.FastFlags.GetPreset("UI.Menu.ChromeUI") == "True";
+            get => App.FastFlags.GetPreset("UI.Menu.ChromeUI") != "False"; // its on by default so we have to do that
             set => App.FastFlags.SetPreset("UI.Menu.ChromeUI", value);
         }
 

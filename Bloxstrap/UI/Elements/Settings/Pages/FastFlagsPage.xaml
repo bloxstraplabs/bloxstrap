@@ -132,7 +132,7 @@
 
         <controls:OptionControl
     Header="Chrome UI" 
-    Description="Enable Roblox [chrome UI](https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981)">
+    Description="Enables Roblox [chrome UI](https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981)">
             <ui:ToggleSwitch IsChecked="{Binding ChromeUI, Mode=TwoWay}" />
         </controls:OptionControl>
 
