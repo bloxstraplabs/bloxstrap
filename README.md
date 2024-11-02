@@ -21,13 +21,18 @@ Fishstrap is a Bloxstrap fork aiming to enhance some of the features.
 Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues) or create bug report in our [discord server](https://discord.gg/xSsamjAU84).
 
 ## Differences from Bloxstrap
-- Improved Fast Flag editor experience
+- Fast Flags
    - Added Flag profiles
    - Removed editor warnings
    - Removed feature flag validation
- - Channel changer
- - Disabling Roblox upgrades
- - Ansel support for Roblox client
+ - Channels
+   - Channel changer
+   - Cancelling Roblox upgrades
+ - Bootstrapper
+   - Ansel support for Roblox client
+   - Multi-instance launching
+  - Appearance
+    - Customizable downloading status
  
  *More changes coming soon!*
 
