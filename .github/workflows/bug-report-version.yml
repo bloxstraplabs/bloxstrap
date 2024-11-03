@@ -14,7 +14,7 @@ jobs:
         id: read-version
         run: |
           version=$(grep -oPm1 "(?<=<Version>)[^<]+" Bloxstrap/Bloxstrap.csproj)
-          echo "::set-output name=version::$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
 
       - name: Check issue for Bloxstrap version
         uses: actions/github-script@v7
