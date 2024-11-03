@@ -31,7 +31,7 @@ jobs:
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: 'Please specify the Bloxstrap version you are using.'
+                body: 'Please specify the Bloxstrap version you are using. Use the format `vX.Y.Z`.'
               });
             } else if (versionMatch) {
               const issueVersion = versionMatch[0];
