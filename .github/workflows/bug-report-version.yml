@@ -25,26 +25,22 @@ jobs:
             const versionHeader = issueBody.match(/### Bloxstrap Version/);
             const versionMatch = issueBody.match(/v\d+\.\d+\.\d+/);
             const latestVersion = '${{ steps.read-version.outputs.version }}';
+
             if (versionHeader && !versionMatch) {
               await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: 'Unable to find Bloxstrap version.'
+                body: 'Please specify the Bloxstrap version you are using.'
               });
-            }
-            const issueVersion = versionMatch[0];
-            if (issueVersion !== latestVersion) {
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: `You are using an outdated version of Bloxstrap (${issueVersion}). Please update to the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest) (${latestVersion}).`
-              });
-              return github.rest.issues.update({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                state: 'closed'
-              });
+            } else if (versionMatch) {
+              const issueVersion = versionMatch[0];
+              if (issueVersion !== latestVersion) {
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: `You are using an outdated version of Bloxstrap (${issueVersion}). Please update to the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest) (${latestVersion}).`
+                });
+              }
             }
