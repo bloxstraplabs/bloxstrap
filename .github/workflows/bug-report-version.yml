@@ -1,18 +1,50 @@
-name: Bug Report Version Check
+name: Check Bug Report Version
 on:
   issues:
     types: [opened]
 
 jobs:
-  comment:
+  check-version:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/checkout@v4
+
+      - name: Get latest version
+        id: read-version
+        run: |
+          version=$(grep -oPm1 "(?<=<Version>)[^<]+" Bloxstrap/Bloxstrap.csproj)
+          echo "::set-output name=version::$version"
+
+      - name: Check issue for Bloxstrap version
+        uses: actions/github-script@v7
+        id: check-issue
         with:
           script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+            const issueBody = context.payload.issue.body;
+            const versionHeader = issueBody.match(/### Bloxstrap Version/);
+            const versionMatch = issueBody.match(/v\d+\.\d+\.\d+/);
+            const latestVersion = '${{ steps.read-version.outputs.version }}';
+            if (versionHeader && !versionMatch) {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: 'Unable to find Bloxstrap version.'
+              });
+            }
+            const issueVersion = versionMatch[0];
+            if (issueVersion !== latestVersion) {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `You are using an outdated version of Bloxstrap (${issueVersion}). Please update to the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest) (${latestVersion}).`
+              });
+              return github.rest.issues.update({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'closed'
+              });
+            }
