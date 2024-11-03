@@ -42,5 +42,11 @@ jobs:
                   repo: context.repo.repo,
                   body: `You are using an outdated version of Bloxstrap (${issueVersion}). Please update to the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest). If you are still experiencing the bug, please reopen this issue.`
                 });
+                return github.rest.issues.update({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  state: 'closed'
+                });
               }
             }
