@@ -23,7 +23,7 @@ jobs:
           script: |
             const issueBody = context.payload.issue.body;
             const versionHeader = issueBody.match(/### Bloxstrap Version/);
-            const versionMatch = issueBody.match(/v\d+\.\d+\.\d+/);
+            const versionMatch = issueBody.match(/v?\d+\.\d+\.\d+/);
             const latestVersion = '${{ steps.read-version.outputs.version }}';
 
             if (versionHeader && !versionMatch) {
