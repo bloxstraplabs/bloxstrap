@@ -42,10 +42,24 @@ namespace Bloxstrap
         /// </returns>
         public static VersionComparison CompareVersions(string versionStr1, string versionStr2)
         {
-            var version1 = new Version(versionStr1.Replace("v", ""));
-            var version2 = new Version(versionStr2.Replace("v", ""));
+            try
+            {
+                var version1 = new Version(versionStr1.Replace("v", ""));
+                var version2 = new Version(versionStr2.Replace("v", ""));
 
-            return (VersionComparison)version1.CompareTo(version2);
+                return (VersionComparison)version1.CompareTo(version2);
+            }
+            catch (Exception)
+            {
+                // temporary diagnostic log for the issue described here:
+                // https://github.com/bloxstraplabs/bloxstrap/issues/3193
+                // the problem is that this happens only on upgrade, so my only hope of catching this is bug reports following the next release
+
+                App.Logger.WriteLine("Utilities::CompareVersions", "An exception occurred when comparing versions");
+                App.Logger.WriteLine("Utilities::CompareVersions", $"versionStr1={versionStr1} versionStr2={versionStr2}");
+
+                throw;
+            }
         }
 
         public static string GetRobloxVersion(bool studio)

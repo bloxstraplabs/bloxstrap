@@ -161,6 +161,8 @@ namespace Bloxstrap
 
                 if (process is not null)
                     PInvoke.SetForegroundWindow((HWND)process.MainWindowHandle);
+
+                App.Terminate();
             }
         }
 
@@ -206,18 +208,18 @@ namespace Bloxstrap
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            var bootstrapper = new Bootstrapper(launchMode);
+            App.Bootstrapper = new Bootstrapper(launchMode);
             IBootstrapperDialog? dialog = null;
 
             if (!App.LaunchSettings.QuietFlag.Active)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
                 dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
-                bootstrapper.Dialog = dialog;
-                dialog.Bootstrapper = bootstrapper;
+                App.Bootstrapper.Dialog = dialog;
+                dialog.Bootstrapper = App.Bootstrapper;
             }
 
-            Task.Run(bootstrapper.Run).ContinueWith(t =>
+            Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
 

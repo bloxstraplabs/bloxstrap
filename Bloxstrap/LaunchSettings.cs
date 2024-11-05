@@ -72,6 +72,19 @@ namespace Bloxstrap
                     _flagMap.Add(identifier, flag);
             }
 
+            // infer roblox launch uris
+            if (Args.Length >= 1)
+            {
+                string arg = Args[0];
+
+                if (arg.StartsWith("roblox:", StringComparison.OrdinalIgnoreCase) 
+                    || arg.StartsWith("roblox-player:", StringComparison.OrdinalIgnoreCase))
+                {
+                    RobloxLaunchMode = LaunchMode.Player;
+                    RobloxLaunchArgs = arg;
+                }
+            }
+
             // parse
             for (int i = 0; i < Args.Length; i++)
             {
