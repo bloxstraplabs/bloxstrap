@@ -6,20 +6,11 @@ body:
     attributes:
       value: |
         ### **Preliminary instructions**
-        - Please first check to see if your idea has already been suggested. You can check by [searching all previous issues](https://github.com/pizzaboxer/bloxstrap/issues?q=is%3Aissue).
+        - Please first check to see if your idea has already been suggested. You can check by [searching all previous issues](https://github.com/returnrqt/fishstrap/issues?q=is%3Aissue).
         - If your feature suggestion is to do with Roblox itself, please consider that what's possible is heavily constrained by what [FastFlags](https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags) are available.
-        - Don't ask for support on Linux or Mac. That's not happening anytime soon, sorry.
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Acknowledgement of preliminary instructions
-      options:
-        - label: I have read and acknowledged the preliminary instructions.
-          required: true
   - type: textarea
     id: what-happened
     attributes:
       label: What idea do you have?
-      description: Provide a comprehensive description of what you think can be improved!
     validations:
       required: true
