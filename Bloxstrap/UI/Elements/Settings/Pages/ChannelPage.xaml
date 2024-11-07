@@ -1,4 +1,4 @@
-﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.ChannelPage"
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.ChannelPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -102,8 +102,8 @@
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="{x:Static resources:Strings.Common_VersionGuid}" />
                     <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
 
-                    <TextBlock Visibility="Collapsed" Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version Hash" />
-                    <ui:TextBox Visibility="Collapsed" Grid.Row="2" Grid.Column="1" Margin="-380,0,0,0" Width="200" Text="{Binding ChannelHash, UpdateSourceTrigger=PropertyChanged, Delay=250}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version Hash" />
+                    <ui:TextBox Grid.Row="2" Grid.Column="1" Margin="-380,0,0,0" Width="200" Text="{Binding ChannelHash, UpdateSourceTrigger=PropertyChanged, Delay=250}"/>
 
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
                         <StackPanel.Style>
