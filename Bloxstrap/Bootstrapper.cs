@@ -323,7 +323,7 @@ namespace Bloxstrap
             _latestVersionGuid = clientVersion.VersionGuid;
             App.Logger.WriteLine(LOG_IDENT, $"fail ch");
             }
-            
+
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
@@ -413,7 +413,7 @@ namespace Bloxstrap
             if (String.IsNullOrEmpty(logFileName))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
-                // Frontend.ShowPlayerErrorDialog();
+               // Frontend.ShowPlayerErrorDialog();
                 return;
             }
             else
@@ -475,7 +475,7 @@ namespace Bloxstrap
                 if (App.LaunchSettings.TestModeFlag.Active)
                     args += " -testmode";
 
-                if (ipl.IsAcquired)
+                if (ipl.IsAcquired||true)
                     Process.Start(Paths.Process, args);
             }
         }
@@ -764,7 +764,7 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
-                totalPackageSize += package.Size;
+                totalPackageSize += package.Size; 
             }
 
             foreach (var package in _versionPackageManifest)
@@ -1172,7 +1172,7 @@ namespace Bloxstrap
                         await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
-                        SetStatus($"Downloading {package.Name} - {_totalDownloadedBytes/1048576}MB / {totalPackageSize/1048576}MB");
+                        SetStatus(String.Format(App.Settings.Prop.DownloadingStringFormat, package.Name, _totalDownloadedBytes / 1048576, totalPackageSize / 1048576));
                         UpdateProgressBar();
                     }
 
