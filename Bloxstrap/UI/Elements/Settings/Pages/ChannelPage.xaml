@@ -151,7 +151,7 @@
                         </ui:ProgressRing.Style>
                     </ui:ProgressRing>
 
-                    <Image Grid.Column="0" Margin="6" Width="60" Height="60" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Error.png">
+                    <Image Grid.Column="0" Margin="6" Width="60" Height="60" Source="pack://application:,,,/Resources/MessageBox/Error.png">
                         <Image.Style>
                             <Style TargetType="Image">
                                 <Setter Property="Visibility" Value="Collapsed" />

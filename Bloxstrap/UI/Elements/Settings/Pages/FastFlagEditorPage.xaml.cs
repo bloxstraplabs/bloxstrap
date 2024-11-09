@@ -123,7 +123,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             {
                 if (dialog.LoadProfile.SelectedValue == null)
                     return;
-                App.FastFlags.LoadProfile(dialog.LoadProfile.SelectedValue.ToString(), false);
+                App.FastFlags.LoadProfile(dialog.LoadProfile.SelectedValue.ToString(), dialog.ClearFlags.IsChecked);
             }
 
             Thread.Sleep(1000);

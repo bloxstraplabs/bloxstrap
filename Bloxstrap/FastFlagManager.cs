@@ -1,5 +1,6 @@
 ﻿using Bloxstrap.Enums.FlagPresets;
 using System.Security.Policy;
+using System.Windows;
 
 namespace Bloxstrap
 {
@@ -269,15 +270,22 @@ namespace Bloxstrap
 
         public void DeleteProfile(string Profile)
         {
-            string profilesDirectory = Path.Combine(Paths.Base, Paths.SavedFlagProfiles);
+            try
+            {
+                string profilesDirectory = Path.Combine(Paths.Base, Paths.SavedFlagProfiles);
 
-            if (!Directory.Exists(profilesDirectory))
-                Directory.CreateDirectory(profilesDirectory);
+                if (!Directory.Exists(profilesDirectory))
+                    Directory.CreateDirectory(profilesDirectory);
 
-            if (String.IsNullOrEmpty(Profile))
-                return;
+                if (String.IsNullOrEmpty(Profile))
+                    return;
 
-            File.Delete(Path.Combine(profilesDirectory, Profile));
+                File.Delete(Path.Combine(profilesDirectory, Profile));
+            }
+            catch (Exception ex)
+            {
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
         }
     }
 }

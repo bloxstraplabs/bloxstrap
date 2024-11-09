@@ -25,6 +25,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private ServerHistory? _gameHistoryWindow;
 
+        private OutputConsole? _OutputConsole;
+
         public MenuContainer(Watcher watcher)
         {
             InitializeComponent();

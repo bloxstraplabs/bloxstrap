@@ -1085,7 +1085,7 @@ If not, then please report this exception to the maintainers of this fork. Do NO
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>Bloxstrap translators</value>
+    <value>Translators</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
     <value>You have unsaved changes. Are you sure you want to close without saving?</value>
@@ -1366,5 +1366,8 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Menu.FastFlags.Presets.Chromeui.Description" xml:space="preserve">
     <value>c</value>
+  </data>
+  <data name="Menu.FlagProfiles.ClearFlags" xml:space="preserve">
+    <value>Clear FFlags</value>
   </data>
 </root>

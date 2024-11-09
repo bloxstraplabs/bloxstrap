@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Xml.Linq;
 
 namespace Bloxstrap
@@ -88,26 +89,32 @@ namespace Bloxstrap
             string LOGGER_STRING = "SaveProfile::Profiles";
 
             string BaseDir = Paths.SavedFlagProfiles;
+            try
+            {
+                string FileDirectory = Path.Combine(BaseDir, name);
 
-            string FileDirectory = Path.Combine(BaseDir, name);
+                if (string.IsNullOrEmpty(name))
+                    return;
 
-            if (string.IsNullOrEmpty(name))
-                return;
+                if (!Directory.Exists(BaseDir))
+                    Directory.CreateDirectory(BaseDir);
 
-            if (!Directory.Exists(BaseDir))
-                Directory.CreateDirectory(BaseDir);
+                App.Logger.WriteLine(LOGGER_STRING, $"Writing flag profile {name}");
 
-            App.Logger.WriteLine(LOGGER_STRING, $"Writing flag profile {name}");
+                if (!File.Exists(FileDirectory))
+                    File.Create(FileDirectory).Dispose();
 
-            if (!File.Exists(FileDirectory))
-                File.Create(FileDirectory).Dispose();
+                string FastFlagsJson = JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true });
 
-            string FastFlagsJson = JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true });
-
-            File.WriteAllText(FileDirectory, FastFlagsJson);
+                File.WriteAllText(FileDirectory, FastFlagsJson);
+            }
+            catch (Exception ex)
+            {
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
         }
 
-        public void LoadProfile(string name, bool? clearFlags)
+        public void LoadProfile(string? name, bool? clearFlags)
         {
             string LOGGER_STRING = "LoadProfile::Profiles";
 
@@ -116,39 +123,55 @@ namespace Bloxstrap
             if (string.IsNullOrEmpty(name))
                 return;
 
-            if (!Directory.Exists(BaseDir))
-                Directory.CreateDirectory(BaseDir);
 
-            string[] Files = Directory.GetFiles(BaseDir);
-
-            string FoundFile = string.Empty;
-
-            foreach (var file in Files)
+            try
             {
-                if (Path.GetFileName(file) == name)
+                if (!Directory.Exists(BaseDir))
+                    Directory.CreateDirectory(BaseDir);
+
+                string[] Files = Directory.GetFiles(BaseDir);
+
+                string FoundFile = string.Empty;
+
+                foreach (var file in Files)
                 {
-                    FoundFile = file;
-                    break;
+                    if (Path.GetFileName(file) == name)
+                    {
+                        FoundFile = file;
+                        break;
+                    }
                 }
-            }
 
-            string SavedClientSettings = File.ReadAllText(FoundFile);
+                string SavedClientSettings = File.ReadAllText(FoundFile);
 
-            App.Logger.WriteLine(LOGGER_STRING, $"Loading {SavedClientSettings}");
+                App.Logger.WriteLine(LOGGER_STRING, $"Loading {SavedClientSettings}");
 
-            T? settings = JsonSerializer.Deserialize<T>(SavedClientSettings);
+                T? settings = JsonSerializer.Deserialize<T>(SavedClientSettings);
 
-            if (settings is null)
-                throw new ArgumentNullException("Deserialization returned null");
+                if (settings is null)
+                    throw new ArgumentNullException("Deserialization returned null");
 
-            if (clearFlags == true)
+                if (clearFlags == true)
+                {
+                    Prop = settings;
+                }
+                else
+                {
+                    if (settings is IDictionary<string, object> settingsDict && Prop is IDictionary<string, object> propDict)
+                    {
+                        foreach (var kvp in settingsDict)
+                        {
+                            if (kvp.Value != null)
+                                propDict[kvp.Key] = kvp.Value;
+                        }
+                    }
+                }
+
+                App.FastFlags.Save();
+            } catch (Exception ex)
             {
-                Prop = settings;
-            } else {
-                Prop = settings;
+                Frontend.ShowMessageBox(ex.Message,MessageBoxImage.Error);
             }
-
-            App.FastFlags.Save();
         }
     }
 }
