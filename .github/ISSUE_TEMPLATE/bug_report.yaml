@@ -2,40 +2,12 @@ name: Bug Report
 title: "[BUG] "
 description: Report a problem you're having
 body:
-  - type: markdown
-    attributes:
-      value: |
-        > [!IMPORTANT]
-        > Do NOT open an issue if you're getting an error saying "`The given key 'redist.zip' was not present in the dictionary.`", or if you're getting stuck on "Configuring Roblox...".
-        > This problem has been fixed in the latest version of Bloxstrap. You either have auto-updates disabled or are using someone's custom build of an old version.
-        > Download the latest version [here](https://github.com/pizzaboxer/bloxstrap/releases/latest).
-        ### **Preliminary instructions**
-        - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
-          - If it isn't, please confirm which pages that you read that were relevant to your issue.
-          - Your issue ***will*** be closed without warning if there's a Wiki page addressing your problem.
-        - If your problem is with Roblox itself (i.e. it crashes or doesn't launch), [check to see if it happens without Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch). 
-          - Please only open an issue if your problem happens only with Bloxstrap, and state clearly that this is the case, as anything else is out of my control.
-        - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
-        - Also, please ensure you are using the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest). Your report will be null and void if you are not.
-        - If more clarification on the issue is needed, and you don't respond after a month, then your issue will be closed as stale.
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Acknowledgement of preliminary instructions
-      options:
-        - label: I have read the preliminary instructions, and I am certain that my problem has not already been addressed.
-          required: true
-        - label: I have thoroughly looked through the available Wiki articles and could not find a solution to my problem.
-          required: true
-        - label: I am using the latest version of Bloxstrap.
-          required: true
-        - label: I did not answer truthfully to all the above checkboxes.
   - type: input
     id: version
     attributes:
-      label: Bloxstrap Version
-      description: "What version of Bloxstrap are you using? Find it in the 'About' section of the Settings"
-      placeholder: "v1.0.0"
+      label: Fishstrap Version
+      description: "What version of Fishstrap are you using?"
+      placeholder: "v2.8.1.3"
     validations:
       required: true
   - type: textarea
@@ -49,6 +21,6 @@ body:
     id: log
     attributes:
       label: Bloxstrap Log
-      description: If you're getting a Bloxstrap Exception error, upload your log file here. Otherwise, just leave it empty.
+      description: If you're getting a Fishstrap Exception error, upload your log file here. Otherwise, just leave it empty.
       value: "N/A"
       render: text

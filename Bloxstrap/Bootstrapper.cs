@@ -1,4 +1,4 @@
-﻿// To debug the automatic updater:
+// To debug the automatic updater:
 // - Uncomment the definition below
 // - Publish the executable
 // - Launch the executable (click no when it asks you to upgrade)
@@ -313,7 +313,16 @@ namespace Bloxstrap
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
+            if (App.Settings.Prop.ChannelHash.Length > 2)
+            {
+            _latestVersionGuid = App.Settings.Prop.ChannelHash;
+            App.Logger.WriteLine(LOG_IDENT, $"succeed ch");
+            }
+            else
+            {
             _latestVersionGuid = clientVersion.VersionGuid;
+            App.Logger.WriteLine(LOG_IDENT, $"fail ch");
+            }
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
@@ -404,7 +413,7 @@ namespace Bloxstrap
             if (String.IsNullOrEmpty(logFileName))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
-                Frontend.ShowPlayerErrorDialog();
+               // Frontend.ShowPlayerErrorDialog();
                 return;
             }
             else
