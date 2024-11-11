@@ -61,6 +61,18 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
+            <MenuItem x:Name="OutputConsoleMenuItem" Click="OutputConsoleMenuItem_Click" Visibility="Visible">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="AnimalRabbit24"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="Player logs" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
             <MenuItem x:Name="GameHistoryMenuItem" Click="JoinLastServerMenuItem_Click" Visibility="Collapsed">
                 <MenuItem.Header>
                     <Grid>

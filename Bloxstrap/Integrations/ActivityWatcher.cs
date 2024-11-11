@@ -2,6 +2,7 @@
 {
     public class ActivityWatcher : IDisposable
     {
+
         private const string GameMessageEntry                = "[FLog::Output] [BloxstrapRPC]";
         private const string GameJoiningEntry                = "[FLog::Output] ! Joining game";
 
@@ -17,6 +18,7 @@
         private const string GameJoinedEntry                 = "[FLog::Network] serverId:";
         private const string GameDisconnectedEntry           = "[FLog::Network] Time to disconnect replication data:";
         private const string GameLeavingEntry                = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
+        private const string GamePlayerJoinLeaveEntry        = "[ExpChat/mountClientApp (Trace)] - Player ";
 
         private const string GameJoiningEntryPattern         = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningPrivateServerPattern = @"""accessCode"":""([0-9a-f\-]{36})""";
@@ -24,6 +26,7 @@
         private const string GameJoiningUDMUXPattern         = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern          = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern         = @"\[BloxstrapRPC\] (.*)";
+        private const string GamePlayerJoinLeavePattern      = @"(added|removed): (.*) (.*[0-9])";
 
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
@@ -34,6 +37,7 @@
         public event EventHandler? OnGameLeave;
         public event EventHandler? OnLogOpen;
         public event EventHandler? OnAppClose;
+        public event EventHandler<ActivityData.UserLog>? OnNewPlayerRequest;
         public event EventHandler<Message>? OnRPCMessage;
 
         private DateTime LastRPCRequest;
@@ -48,6 +52,7 @@
         /// Ordered by newest to oldest
         /// </summary>
         public List<ActivityData> History = new();
+        public Dictionary<int, ActivityData.UserLog> PlayerLogs => Data.PlayerLogs;
 
         public bool IsDisposed = false;
 
@@ -159,11 +164,11 @@
             if (!InGame && Data.PlaceId == 0)
             {
                 // We are not in a game, nor are in the process of joining one
-                
+
                 if (entry.Contains(GameJoiningPrivateServerEntry))
                 {
                     // we only expect to be joining a private server if we're not already in a game
-                
+
                     Data.ServerType = ServerType.Private;
 
                     var match = Regex.Match(entry, GameJoiningPrivateServerPattern);
@@ -376,6 +381,31 @@
                     OnRPCMessage?.Invoke(this, message);
 
                     LastRPCRequest = DateTime.Now;
+                }
+                else if (entry.Contains(GamePlayerJoinLeaveEntry))
+                {
+                    var match = Regex.Match(entry, GamePlayerJoinLeavePattern);
+
+                    if (match.Groups.Count != 4)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join/leave log");
+                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        return;
+                    }
+
+                    var UserLog = new ActivityData.UserLog
+                    {
+                        Type = match.Groups[1].Value,
+                        Username = match.Groups[2].Value,
+                        UserId = match.Groups[3].Value,
+                        Time = DateTime.Now
+                    };
+
+                    Data.PlayerLogs[Data.PlayerLogs.Count] = UserLog;
+
+                    App.Logger.WriteLine(LOG_IDENT, $"Found player log entry \"{match.Groups[1]} @{match.Groups[2]} ({match.Groups[3]})\"");
+
+                    OnNewPlayerRequest?.Invoke(this, UserLog);
                 }
             }
         }

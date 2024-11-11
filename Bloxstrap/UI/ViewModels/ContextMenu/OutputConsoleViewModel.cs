@@ -8,30 +8,35 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
     {
         private readonly ActivityWatcher _activityWatcher;
 
-        public List<ActivityData>? GameHistory { get; private set; }
+        public Dictionary<int, ActivityData.UserLog>? PlayerLogs { get; private set; }
+
+        public IEnumerable<KeyValuePair<int, ActivityData.UserLog>>? PlayerLogsCollection => PlayerLogs;
 
         public GenericTriState LoadState { get; private set; } = GenericTriState.Unknown;
 
         public string Error { get; private set; } = String.Empty;
 
         public ICommand CloseWindowCommand => new RelayCommand(RequestClose);
-        
+
         public EventHandler? RequestCloseEvent;
 
         public OutputConsoleViewModel(ActivityWatcher activityWatcher)
         {
             _activityWatcher = activityWatcher;
 
-            _activityWatcher.OnGameLeave += (_, _) => LoadData();
+            _activityWatcher.OnNewPlayerRequest += (_, _) => LoadData();
 
             LoadData();
         }
 
         private void LoadData()
         {
-            
+            LoadState = GenericTriState.Unknown;
+            OnPropertyChanged(nameof(LoadState));
 
-            OnPropertyChanged(nameof(GameHistory));
+            PlayerLogs = new Dictionary<int, ActivityData.UserLog>(_activityWatcher.PlayerLogs);
+
+            OnPropertyChanged(nameof(PlayerLogsCollection));
 
             LoadState = GenericTriState.Successful;
             OnPropertyChanged(nameof(LoadState));

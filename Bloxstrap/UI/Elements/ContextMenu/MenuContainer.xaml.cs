@@ -148,5 +148,22 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             else
                 _gameHistoryWindow.Activate();
         }
+
+        private void OutputConsoleMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (_activityWatcher is null)
+                throw new ArgumentNullException(nameof(_activityWatcher));
+
+            if (_OutputConsole is null)
+            {
+                _OutputConsole = new(_activityWatcher);
+                _OutputConsole.Closed += (_, _) => _OutputConsole = null;
+            }
+
+            if (!_OutputConsole.IsVisible)
+                _OutputConsole.ShowDialog();
+            else
+                _OutputConsole.Activate();
+        }
     }
 }

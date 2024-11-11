@@ -90,6 +90,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.ShowServerDetails = value;
         }
 
+        public bool PlayerLogsEnabled
+        {
+            get => App.Settings.Prop.JoinLeaveLogs;
+            set { 
+                App.Settings.Prop.JoinLeaveLogs = value;
+                App.FastFlags.SetPreset("Players.LogLevel", value ? "trace" : null);
+                App.FastFlags.SetPreset("Players.LogPattern", value ? "ExpChat/mountClientApp" : null);
+            }
+        }
+
         public bool DiscordActivityEnabled
         {
             get => App.Settings.Prop.UseDiscordRichPresence;

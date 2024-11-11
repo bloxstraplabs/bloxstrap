@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.DirectoryServices.ActiveDirectory;
+using System.Runtime.InteropServices;
+using System.Web;
 using System.Windows;
 using System.Windows.Input;
 using Bloxstrap.Models.APIs;
@@ -8,6 +10,7 @@ namespace Bloxstrap.Models.Entities
 {
     public class ActivityData
     {
+
         private long _universeId = 0;
 
         /// <summary>
@@ -24,6 +27,14 @@ namespace Bloxstrap.Models.Entities
                 _universeId = value;
                 UniverseDetails.LoadFromCache(value);
             }
+        }
+
+        public class UserLog
+        {
+            public string UserId { get; set; } = "Unknown";
+            public string Username { get; set; } = "Unknown";
+            public string Type { get; set; } = "Unknown";
+            public DateTime Time {  get; set; } = DateTime.Now;
         }
 
         public long PlaceId { get; set; } = 0;
@@ -78,6 +89,8 @@ namespace Bloxstrap.Models.Entities
         }
 
         public ICommand RejoinServerCommand => new RelayCommand(RejoinServer);
+
+        public Dictionary<int, UserLog> PlayerLogs { get; internal set; } = new();
 
         private SemaphoreSlim serverQuerySemaphore = new(1, 1);
 
