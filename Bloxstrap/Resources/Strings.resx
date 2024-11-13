@@ -611,7 +611,7 @@ Do NOT use this to import large "flag lists" made by other people that promise t
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default.</value>
+    <value>Direct3D exclusive fullscreen using Alt+Enter is enabled by default.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Preferred escape menu version</value>
@@ -1356,7 +1356,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Disable Roblox telemetry</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry.Description" xml:space="preserve">
-    <value>Note: This disables only some of the Roblox telemetry.</value>
+    <value>Note this disables only some of the Roblox telemetry.</value>
   </data>
   <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
     <value>Telemetry</value>
@@ -1364,10 +1364,37 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.Chromeui.Title" xml:space="preserve">
     <value>Chrome UI</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Chromeui.Description" xml:space="preserve">
-    <value>c</value>
-  </data>
   <data name="Menu.FlagProfiles.ClearFlags" xml:space="preserve">
     <value>Clear FFlags</value>
+  </data>
+  <data name="Common.Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
+    <value>Flag state</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
+    <value>Shows you flag state. Use "," between fflags.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.IngameMenu" xml:space="preserve">
+    <value>Roblox Menu</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.IngameMenu.Description" xml:space="preserve">
+    <value>Debloat Roblox menu with custom toggles</value>
+  </data>
+  <data name="Common.Deployment" xml:space="preserve">
+    <value>Deployment</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Title" xml:space="preserve">
+    <value>VR toggle</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Title" xml:space="preserve">
+    <value>Feedback button</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Title" xml:space="preserve">
+    <value>Language selector</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Title" xml:space="preserve">
+    <value>Haptics button</value>
   </data>
 </root>

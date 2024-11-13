@@ -46,7 +46,13 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            string? ProfileName = LoadProfile.SelectedItem.ToString();
+
+            if (String.IsNullOrEmpty(ProfileName))
+                return;
+
+            App.FastFlags.DeleteProfile(ProfileName);
         }
     }
 }

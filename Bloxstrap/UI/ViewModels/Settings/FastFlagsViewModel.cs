@@ -3,6 +3,8 @@
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Enums.FlagPresets;
+using Bloxstrap.UI.Elements.Settings.Pages;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -14,9 +16,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         
         public event EventHandler? OpenFlagEditorEvent;
 
-        public event EventHandler? OpenFlagProfilesEvent;
-
-        private void OpenFastFlagProfiles() => OpenFlagProfilesEvent?.Invoke(this, EventArgs.Empty);
         private void OpenFastFlagEditor() => OpenFlagEditorEvent?.Invoke(this, EventArgs.Empty);
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
@@ -61,13 +60,29 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public RenderingMode SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
+            set
+            {
+                RenderingMode[] DisableD3D11 = new RenderingMode[]
+                {
+                    RenderingMode.Vulkan,
+                    RenderingMode.OpenGL
+                };
+
+                App.FastFlags.SetPresetEnum("Rendering.Mode", value.ToString(), "True");
+                App.FastFlags.SetPreset("Rendering.Mode.DisableD3D11", DisableD3D11.Contains(value) ? "True" : null);
+            }
         }
 
         public bool FixDisplayScaling
         {
             get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
             set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
+        }
+
+        public string? FlagState
+        {
+            get => App.FastFlags.GetPreset("Debug.FlagState");
+            set => App.FastFlags.SetPreset("Debug.FlagState", value);
         }
 
         //public IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => FastFlagManager.IGMenuVersions;
@@ -182,7 +197,29 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("UI.Menu.ChromeUI", value);
         }
 
+        public bool VRToggle
+        {
+            get => App.FastFlags.GetPreset("Menu.VRToggles") != "False";
+            set => App.FastFlags.SetPreset("Menu.VRToggles", value);
+        }
 
+        public bool SoothsayerCheck
+        {
+            get => App.FastFlags.GetPreset("Menu.Feedback") != "False";
+            set => App.FastFlags.SetPreset("Menu.Feedback", value);
+        }
+
+        public bool LanguageSelector
+        {
+            get => App.FastFlags.GetPreset("Menu.LanguageSelector") != "0";
+            set => App.FastFlags.SetPreset("Menu.LanguageSelector", value ? null : "0");
+        }
+
+        public bool Haptics
+        {
+            get => App.FastFlags.GetPreset("Menu.Haptics") != "False";
+            set => App.FastFlags.SetPreset("Menu.Haptics", value);
+        }
         public bool ResetConfiguration
         {
             get => _preResetFlags is not null;

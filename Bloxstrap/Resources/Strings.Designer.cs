@@ -125,7 +125,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap translators.
+        ///   Looks up a localized string similar to Translators.
         /// </summary>
         public static string About_Translators_Title {
             get {
@@ -433,6 +433,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debug.
+        /// </summary>
+        public static string Common_Debug {
+            get {
+                return ResourceManager.GetString("Common.Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Common_Default {
@@ -447,6 +456,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Delete {
             get {
                 return ResourceManager.GetString("Common.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deployment.
+        /// </summary>
+        public static string Common_Deployment {
+            get {
+                return ResourceManager.GetString("Common.Deployment", resourceCulture);
             }
         }
         
@@ -2645,6 +2663,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox Menu.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Categories_IngameMenu {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Categories.IngameMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debloat Roblox menu with custom toggles.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Categories_IngameMenu_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Categories.IngameMenu.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rendering and Graphics.
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_Rendering {
@@ -2663,7 +2699,16 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default..
+        ///   Looks up a localized string similar to Chrome UI.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Chromeui_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Chromeui.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direct3D exclusive fullscreen using Alt+Enter is enabled by default..
         /// </summary>
         public static string Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo {
             get {
@@ -2722,6 +2767,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_FixDisplayScaling_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FixDisplayScaling.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows you flag state. Use &quot;,&quot; between fflags..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_FlagState_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.FlagState.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag state.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_FlagState_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.FlagState.Title", resourceCulture);
             }
         }
         
@@ -2798,6 +2861,42 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Haptics button.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_Haptics_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Haptics.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language selector.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback button.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VR toggle.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_VRToggle_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.VRToggle.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0}).
         /// </summary>
         public static string Menu_FastFlags_Presets_LightingTechnology_Description {
@@ -2843,7 +2942,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note: This disables only some of the Roblox telemetry..
+        ///   Looks up a localized string similar to Note this disables only some of the Roblox telemetry..
         /// </summary>
         public static string Menu_FastFlags_Presets_Telemetry_Description {
             get {
@@ -2884,6 +2983,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear FFlags.
+        /// </summary>
+        public static string Menu_FlagProfiles_ClearFlags {
+            get {
+                return ResourceManager.GetString("Menu.FlagProfiles.ClearFlags", resourceCulture);
             }
         }
         

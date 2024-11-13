@@ -79,7 +79,7 @@
 
         <Border Grid.Row="2" Margin="0,10,0,0" Padding="15" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right">
-                <CheckBox Content="Clear FFlags" Name="ClearFlags">
+                <CheckBox Content="{x:Static resources:Strings.Menu_FlagProfiles_ClearFlags}" Name="ClearFlags">
                     <CheckBox.Style>
                         <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
                             <Style.Triggers>

@@ -20,16 +20,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         // using a datagrid is a codebehind thing only and thats it theres literally no way around it
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
-        private readonly List<string> _validPrefixes = new()
-        {
-            "FFlag", "DFFlag", "SFFlag", "FInt", "DFInt", "FString", "DFString", "FLog", "DFLog"
-        };
-
-        // values must match the entire string to avoid cases where half the string
-        // matches but the filter would still be invalid
-        private readonly Regex _boolFilterPattern = new("^(?:true|false)(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
-        private readonly Regex _intFilterPattern = new("^([\\d]{1,})?(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
-        private readonly Regex _stringFilterPattern = new("^[^;]*(;[\\d]{1,})+$", RegexOptions.IgnoreCase);
 
         private bool _showPresets = false;
         private string _searchFilter = "";
@@ -136,12 +126,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             if (App.FastFlags.GetValue(name) is null)
             {
-                if (!ValidateFlagEntry(name, value))
-                {
-                    ShowAddDialog();
-                    return;
-                }
-
                 entry = new FastFlag
                 {
                     // Enabled = true,
@@ -276,30 +260,10 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 if (val is null)
                     continue;
 
-                if (!ValidateFlagEntry(pair.Key, val))
-                    continue;
-
                 App.FastFlags.SetValue(pair.Key, pair.Value);
             }
 
             ClearSearch();
-        }
-
-        private bool ValidateFlagEntry(string name, string value)
-        {
-            return true;
-        }
-
-        private bool ValidateFilter(string name, string value)
-        {
-            if(name.StartsWith("FFlag") || name.StartsWith("DFFlag"))
-                return _boolFilterPattern.IsMatch(value);
-            if (name.StartsWith("FInt") || name.StartsWith("DFInt"))
-                return _intFilterPattern.IsMatch(value);
-            if (name.StartsWith("FString") || name.StartsWith("DFString") || name.StartsWith("FLog") || name.StartsWith("DFLog"))
-                return _stringFilterPattern.IsMatch(value);
-            
-            return false;
         }
 
         // refresh list on page load to synchronize with preset page
@@ -343,13 +307,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 case "Value":
                     string oldValue = entry.Value;
                     string newValue = textbox.Text;
-
-                    if (!ValidateFlagEntry(entry.Name, newValue))
-                    {
-                        e.Cancel = true;
-                        textbox.Text = oldValue;
-                        return;
-                    }
 
                     App.FastFlags.SetValue(entry.Name, newValue);
 
