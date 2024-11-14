@@ -29,7 +29,7 @@
 
         <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Player logs" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
 
-        <TextBlock Grid.Row="1" Margin="16,8,16,0" Text="Shows you when players are leaving/joining your current server.}" TextWrapping="Wrap" />
+        <TextBlock Grid.Row="1" Margin="16,8,16,0" Text="{x:Static resources:Strings.Menu_Context_PlayerLogs_Description}" TextWrapping="Wrap" />
 
         <TextBlock Grid.Row="2" Margin="16,8,16,0" Text="{Binding Error, Mode=OneWay}" TextWrapping="Wrap">
             <TextBlock.Style>
@@ -97,10 +97,10 @@
             </DataGrid.CellStyle>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="User ID" Binding="{Binding Value.UserId}" />
-                <DataGridTextColumn Header="Username" Binding="{Binding Value.Username}" />
-                <DataGridTextColumn Header="Type" Binding="{Binding Value.Type}" />
-                <DataGridTextColumn Header="Time" Binding="{Binding Value.Time}" Width="*" />
+                <DataGridTextColumn Header="{x:Static resources:Strings.Common_UserId}" Binding="{Binding Value.UserId}" />
+                <DataGridTextColumn Header="{x:Static resources:Strings.Common_Username}" Binding="{Binding Value.Username}" />
+                <DataGridTextColumn Header="{x:Static resources:Strings.Common_Type}" Binding="{Binding Value.Type}" />
+                <DataGridTextColumn Header="{x:Static resources:Strings.Common_Time}" Binding="{Binding Value.Time}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

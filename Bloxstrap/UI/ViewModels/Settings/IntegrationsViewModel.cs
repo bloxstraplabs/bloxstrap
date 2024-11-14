@@ -92,9 +92,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool PlayerLogsEnabled
         {
-            get => App.Settings.Prop.JoinLeaveLogs;
-            set { 
-                App.Settings.Prop.JoinLeaveLogs = value;
+            get => App.FastFlags.GetPreset("Players.LogLevel") == "trace"; // we r using this to determine if its enabled
+            set {
                 App.FastFlags.SetPreset("Players.LogLevel", value ? "trace" : null);
                 App.FastFlags.SetPreset("Players.LogPattern", value ? "ExpChat/mountClientApp" : null);
             }

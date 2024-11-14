@@ -220,6 +220,18 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.FastFlags.GetPreset("Menu.Haptics") != "False";
             set => App.FastFlags.SetPreset("Menu.Haptics", value);
         }
+
+        public bool Framerate
+        {
+            get => App.FastFlags.GetPreset("Menu.Framerate") != "False";
+            set => App.FastFlags.SetPreset("Menu.Framerate", value);
+        }
+
+        public bool ChatTranslation
+        {
+            get => App.FastFlags.GetPreset("Menu.ChatTranslation") != "False";
+            set => App.FastFlags.SetPreset("Menu.ChatTranslation", value);
+        }
         public bool ResetConfiguration
         {
             get => _preResetFlags is not null;

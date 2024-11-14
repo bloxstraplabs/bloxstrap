@@ -712,6 +712,42 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string Common_Time {
+            get {
+                return ResourceManager.GetString("Common.Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Common_Type {
+            get {
+                return ResourceManager.GetString("Common.Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Id.
+        /// </summary>
+        public static string Common_UserId {
+            get {
+                return ResourceManager.GetString("Common.UserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Common_Username {
+            get {
+                return ResourceManager.GetString("Common.Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
         public static string Common_Value {
@@ -2392,6 +2428,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Player logs.
+        /// </summary>
+        public static string Menu_Context_PlayerLogs {
+            get {
+                return ResourceManager.GetString("Menu.Context.PlayerLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows players leaving/joining server you&apos;re in..
+        /// </summary>
+        public static string Menu_Context_PlayerLogs_Description {
+            get {
+                return ResourceManager.GetString("Menu.Context.PlayerLogs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new.
         /// </summary>
         public static string Menu_FastFlagEditor_AddNew {
@@ -2875,6 +2929,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_HideGuis_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.HideGuis.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chat translation.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Framerate cap.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_Framerate_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Framerate.Title", resourceCulture);
             }
         }
         

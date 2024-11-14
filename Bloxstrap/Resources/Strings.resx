@@ -1397,6 +1397,12 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Title" xml:space="preserve">
     <value>Haptics button</value>
   </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Title" xml:space="preserve">
+    <value>Framerate cap</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
+    <value>Chat translation</value>
+  </data>
   <data name="Common.Studio" xml:space="preserve">
     <value>Studio</value>
   </data>
@@ -1405,5 +1411,23 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Menu.Launch.Studio" xml:space="preserve">
     <value>Launch Roblox Studio</value>
+  </data>
+  <data name="Menu.Context.PlayerLogs" xml:space="preserve">
+    <value>Player logs</value>
+  </data>
+  <data name="Menu.Context.PlayerLogs.Description" xml:space="preserve">
+    <value>Shows players leaving/joining server you're in.</value>
+  </data>
+  <data name="Common.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+	<data name="Common.UserId" xml:space="preserve">
+    <value>User Id</value>
+  </data>
+	<data name="Common.Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+	<data name="Common.Time" xml:space="preserve">
+    <value>Time</value>
   </data>
 </root>

@@ -53,6 +53,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 return;
 
             App.FastFlags.DeleteProfile(ProfileName);
+            LoadProfiles();
         }
     }
 }

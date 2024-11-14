@@ -81,7 +81,9 @@ namespace Bloxstrap
             { "Menu.VRToggles", "FFlagAlwaysShowVRToggleV3" },
             { "Menu.Feedback", "FFlagDisableFeedbackSoothsayerCheck" },
             { "Menu.LanguageSelector", "FIntV1MenuLanguageSelectionFeaturePerMillageRollout" },
-            { "Menu.Haptics", "FFlagAddHapticsToggle" }
+            { "Menu.Haptics", "FFlagAddHapticsToggle" },
+            { "Menu.Framerate", "FFlagGameBasicSettingsFramerateCap5"},
+            { "Menu.ChatTranslation", "FFlagChatTranslationSettingEnabled3" }
 
 
             //{ "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },

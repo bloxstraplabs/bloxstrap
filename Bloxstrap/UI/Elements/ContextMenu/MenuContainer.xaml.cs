@@ -41,6 +41,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
                 if (!App.Settings.Prop.UseDisableAppPatch)
                     GameHistoryMenuItem.Visibility = Visibility.Visible;
+
+                if (App.FastFlags.GetPreset("Players.LogLevel") == "trace")
+                    OutputConsoleMenuItem.Visibility = Visibility.Visible;
             }
 
             if (_watcher.RichPresence is not null)

@@ -215,6 +215,14 @@
     Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Haptics_Title}">
                     <ui:ToggleSwitch IsChecked="{Binding Haptics, Mode=TwoWay}" />
                 </controls:OptionControl>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding Framerate, Mode=TwoWay}" />
+                </controls:OptionControl>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title}">
+                    <ui:ToggleSwitch IsChecked="{Binding ChatTranslation, Mode=TwoWay}" />
+                </controls:OptionControl>
             </StackPanel>
         </ui:CardExpander>
 
