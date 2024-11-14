@@ -1397,4 +1397,13 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Title" xml:space="preserve">
     <value>Haptics button</value>
   </data>
+  <data name="Common.Studio" xml:space="preserve">
+    <value>Studio</value>
+  </data>
+  <data name="Common.RobloxStudio" xml:space="preserve">
+    <value>Roblox Studio</value>
+  </data>
+  <data name="Menu.Launch.Studio" xml:space="preserve">
+    <value>Launch Roblox Studio</value>
+  </data>
 </root>

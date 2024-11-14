@@ -4,6 +4,7 @@
     {
         Terminate,
         LaunchSettings,
-        LaunchRoblox
+        LaunchRoblox,
+        LaunchRobloxStudio
     }
 }

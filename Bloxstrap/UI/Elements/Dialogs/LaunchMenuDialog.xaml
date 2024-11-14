@@ -72,10 +72,9 @@
 
                 <Border Margin="16" />
 
-                <ui:CardAction Visibility="Hidden" Margin="0,8,0,0" TabIndex="2" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/bloxstraplabs/bloxstrap/wiki/">
+                <ui:CardAction Visibility="Visible" Margin="0,8,0,0" TabIndex="2" Icon="Wrench24" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
                     <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Launch_Studio}" />
                     </StackPanel>
                 </ui:CardAction>
             </StackPanel>

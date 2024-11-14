@@ -658,6 +658,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio.
+        /// </summary>
+        public static string Common_RobloxStudio {
+            get {
+                return ResourceManager.GetString("Common.RobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shortcuts.
         /// </summary>
         public static string Common_Shortcuts {
@@ -681,6 +690,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Shortcuts_StartMenu {
             get {
                 return ResourceManager.GetString("Common.Shortcuts.StartMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studio.
+        /// </summary>
+        public static string Common_Studio {
+            get {
+                return ResourceManager.GetString("Common.Studio", resourceCulture);
             }
         }
         
@@ -3286,6 +3304,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch Roblox Studio.
+        /// </summary>
+        public static string Menu_Launch_Studio {
+            get {
+                return ResourceManager.GetString("Menu.Launch.Studio", resourceCulture);
             }
         }
         

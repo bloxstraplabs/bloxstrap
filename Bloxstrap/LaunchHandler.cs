@@ -21,6 +21,10 @@ namespace Bloxstrap
                     LaunchRoblox(LaunchMode.Player);
                     break;
 
+                case NextAction.LaunchRobloxStudio:
+                    LaunchRoblox(LaunchMode.Studio);
+                    break;
+
                 default:
                     App.Terminate(isUnfinishedInstall ? ErrorCode.ERROR_INSTALL_USEREXIT : ErrorCode.ERROR_SUCCESS);
                     break;
