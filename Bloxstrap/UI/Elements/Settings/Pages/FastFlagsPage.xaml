@@ -43,8 +43,8 @@
 
         <controls:OptionControl 
     x:Name="FlagStateOption"
-    Header="Flag state" 
-    Description="Shows you value of a fflag. To show multiple fflags use ',' between.">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Title}" 
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Description}">
             <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
         </controls:OptionControl>
 
@@ -162,8 +162,8 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl
-    Header="Chrome UI" 
-    Description="When disabled Roblox will use old top bar."
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Title}" 
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Description}"
     HelpLink="https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981">
                     <ui:ToggleSwitch IsChecked="{Binding ChromeUI, Mode=TwoWay}" />
                 </controls:OptionControl>
@@ -200,27 +200,33 @@
 
             <StackPanel>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_VRToggle_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_VRToggle_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_VRToggle_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding VRToggle, Mode=TwoWay}" />
                 </controls:OptionControl>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding SoothsayerCheck, Mode=TwoWay}" />
                 </controls:OptionControl>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding LanguageSelector, Mode=TwoWay}" />
                 </controls:OptionControl>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Haptics_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Haptics_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Haptics_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding Haptics, Mode=TwoWay}" />
                 </controls:OptionControl>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_Framerate_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding Framerate, Mode=TwoWay}" />
                 </controls:OptionControl>
                 <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title}">
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title}"
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Description}">
                     <ui:ToggleSwitch IsChecked="{Binding ChatTranslation, Mode=TwoWay}" />
                 </controls:OptionControl>
             </StackPanel>

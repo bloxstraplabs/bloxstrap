@@ -1364,6 +1364,9 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.Chromeui.Title" xml:space="preserve">
     <value>Chrome UI</value>
   </data>
+  <data name="Menu.FastFlags.Presets.Chromeui.Description" xml:space="preserve">
+    <value>When disabled Roblox will use old top bar.</value>
+  </data>
   <data name="Menu.FlagProfiles.ClearFlags" xml:space="preserve">
     <value>Clear FFlags</value>
   </data>
@@ -1403,7 +1406,31 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 	<data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
     <value>Chat translation</value>
   </data>
-  <data name="Common.Studio" xml:space="preserve">
+	<data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Description" xml:space="preserve">
+    <value>Allows to disable VR mode toggle.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description" xml:space="preserve">
+    <value>Hides the button for submitting feedback on translation quality.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Description" xml:space="preserve">
+    <value>Disables haptic feedback features, such as vibrations for controllers.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Description" xml:space="preserve">
+    <value>Removes FPS presets from the menu.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description" xml:space="preserve">
+    <value>Allows players to disable interface translation.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description" xml:space="preserve">
+    <value>Disables automatic translation of chat messages.</value>
+</data>
+	<data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
+    <value>Flag state</value>
+</data>
+	<data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
+    <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
+</data>
+	<data name="Common.Studio" xml:space="preserve">
     <value>Studio</value>
   </data>
   <data name="Common.RobloxStudio" xml:space="preserve">
@@ -1429,5 +1456,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
 	<data name="Common.Time" xml:space="preserve">
     <value>Time</value>
+  </data>
+  <data name="Menu.Channel.VersionHash.Title" xml:space="preserve">
+    <value>Version hash</value>
+  </data>
+	<data name="Menu.Channel.VersionHash.Desription" xml:space="preserve">
+    <value>Force Fishstrap to download version from specific hash. Please do not change if you have no idea what this does.</value>
   </data>
 </root>

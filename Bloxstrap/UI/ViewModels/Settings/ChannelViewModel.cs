@@ -21,8 +21,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private async Task LoadChannelDeployInfo(string channel)
         {
-            const string LOG_IDENT = "ChannelViewModel::LoadChannelDeployInfo";
-
             ShowLoadingError = false;
             OnPropertyChanged(nameof(ShowLoadingError));
 
@@ -49,27 +47,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 OnPropertyChanged(nameof(ChannelDeployInfo));
             }
-            catch (HttpResponseException ex)
-            {
-                ShowLoadingError = true;
-                OnPropertyChanged(nameof(ShowLoadingError));
-
-                ChannelInfoLoadingText = ex.ResponseMessage.StatusCode switch
-                {
-                    HttpStatusCode.NotFound => "The specified channel name does not exist.",
-                    _ => $"Failed to fetch information! (HTTP {(int)ex.ResponseMessage.StatusCode} - {ex.ResponseMessage.ReasonPhrase})",
-                };
-                OnPropertyChanged(nameof(ChannelInfoLoadingText));
-            }
             catch (Exception ex)
             {
-                App.Logger.WriteLine(LOG_IDENT, "An exception occurred while fetching channel information");
-                App.Logger.WriteException(LOG_IDENT, ex);
-
                 ShowLoadingError = true;
                 OnPropertyChanged(nameof(ShowLoadingError));
 
-                ChannelInfoLoadingText = $"Failed to fetch information! ({ex.Message})";
+                ChannelInfoLoadingText = "The channel is likely privated. Use version hash or change channel or try again later.\n"+ex.Message;
                 OnPropertyChanged(nameof(ChannelInfoLoadingText));
             }
         }

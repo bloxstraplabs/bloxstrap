@@ -56,6 +56,13 @@
             <ui:ToggleSwitch IsChecked="{Binding UpdateRoblox, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl 
+    x:Name="FlagStateOption"
+    Header="{x:Static resources:Strings.Menu_Channel_VersionHash_Title}" 
+    Description="{x:Static resources:Strings.Menu_Channel_VersionHash_Desription}">
+            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
+        </controls:OptionControl>
+
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>
@@ -101,9 +108,6 @@
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="{x:Static resources:Strings.Common_VersionGuid}" />
                     <TextBlock Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource TextFillColorTertiaryBrush}" Text="{Binding ChannelDeployInfo.VersionGuid, Mode=OneWay}" />
-
-                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,16,8" VerticalAlignment="Center" Text="Version Hash" />
-                    <ui:TextBox Grid.Row="2" Grid.Column="1" Margin="-380,0,0,0" Width="200" Text="{Binding ChannelHash, UpdateSourceTrigger=PropertyChanged, Delay=250}"/>
 
                     <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0" Orientation="Horizontal">
                         <StackPanel.Style>

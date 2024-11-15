@@ -2419,6 +2419,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Force Fishstrap to download version from specific hash. Please do not change if you have no idea what this does..
+        /// </summary>
+        public static string Menu_Channel_VersionHash_Desription {
+            get {
+                return ResourceManager.GetString("Menu.Channel.VersionHash.Desription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version hash.
+        /// </summary>
+        public static string Menu_Channel_VersionHash_Title {
+            get {
+                return ResourceManager.GetString("Menu.Channel.VersionHash.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose deployment channel. Don&apos;t change unless you know what you&apos;re doing..
         /// </summary>
         public static string Menu_ChannelChanger_Description {
@@ -2771,6 +2789,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When disabled Roblox will use old top bar..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_Chromeui_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.Chromeui.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chrome UI.
         /// </summary>
         public static string Menu_FastFlags_Presets_Chromeui_Title {
@@ -2843,7 +2870,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shows you flag state. Use &quot;,&quot; between fflags..
+        ///   Looks up a localized string similar to Show values of specified flags during runtime. Each flag is comma separated..
         /// </summary>
         public static string Menu_FastFlags_Presets_FlagState_Description {
             get {
@@ -2933,11 +2960,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disables automatic translation of chat messages..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chat translation.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removes FPS presets from the menu..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_Framerate_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Framerate.Description", resourceCulture);
             }
         }
         
@@ -2951,11 +2996,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disables haptic feedback features, such as vibrations for controllers..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_Haptics_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Haptics.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Haptics button.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_Haptics_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Haptics.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allows players to disable interface translation..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description", resourceCulture);
             }
         }
         
@@ -2969,11 +3032,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hides the button for submitting feedback on translation quality..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Feedback button.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allows to disable VR mode toggle..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_IngameMenu_VRToggle_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.VRToggle.Description", resourceCulture);
             }
         }
         
