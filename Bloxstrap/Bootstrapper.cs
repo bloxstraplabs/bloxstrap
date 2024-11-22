@@ -313,15 +313,16 @@ namespace Bloxstrap
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
-            if (App.Settings.Prop.ChannelHash.Length > 2)
+            if (!String.IsNullOrEmpty(App.Settings.Prop.ChannelHash))
             {
             _latestVersionGuid = App.Settings.Prop.ChannelHash;
-            App.Logger.WriteLine(LOG_IDENT, $"succeed ch");
+            clientVersion.VersionGuid = _latestVersionGuid;
+            App.Logger.WriteLine(LOG_IDENT, $"Found custom version hash {App.Settings.Prop.ChannelHash}");
             }
             else
             {
             _latestVersionGuid = clientVersion.VersionGuid;
-            App.Logger.WriteLine(LOG_IDENT, $"fail ch");
+            App.Logger.WriteLine(LOG_IDENT, $"Falling back to default version hash");
             }
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");

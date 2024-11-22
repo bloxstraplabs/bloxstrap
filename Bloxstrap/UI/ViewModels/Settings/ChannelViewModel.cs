@@ -77,7 +77,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public string ChannelHash
         {
             get => App.Settings.Prop.ChannelHash;
-            set => App.Settings.Prop.ChannelHash = value;
+            set
+            {
+                const string VersionHashFormat = "version-(.*)";
+                Match match = Regex.Match(value, VersionHashFormat);
+                if (match.Success || String.IsNullOrEmpty(value))
+                {
+                    App.Settings.Prop.ChannelHash = value;
+                }
+            }
         }
 
         public bool UpdateRoblox

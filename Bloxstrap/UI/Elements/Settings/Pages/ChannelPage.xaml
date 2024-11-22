@@ -60,7 +60,7 @@
     x:Name="FlagStateOption"
     Header="{x:Static resources:Strings.Menu_Channel_VersionHash_Title}" 
     Description="{x:Static resources:Strings.Menu_Channel_VersionHash_Desription}">
-            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
+            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding ChannelHash, Mode=TwoWay}"  />
         </controls:OptionControl>
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
