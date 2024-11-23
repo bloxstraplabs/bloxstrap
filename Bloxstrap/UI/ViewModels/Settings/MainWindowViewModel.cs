@@ -10,11 +10,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand OpenAboutCommand => new RelayCommand(OpenAbout);
         
         public ICommand SaveSettingsCommand => new RelayCommand(SaveSettings);
-        
+
+        public ICommand SaveAndLaunchSettingsCommand => new RelayCommand(SaveAndLaunchSettings);
+
+
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
 
         public EventHandler? RequestSaveNoticeEvent;
-        
+
         public EventHandler? RequestCloseWindowEvent;
 
         public bool TestModeEnabled
@@ -60,6 +63,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
             App.PendingSettingTasks.Clear();
 
             RequestSaveNoticeEvent?.Invoke(this, EventArgs.Empty);
+        }
+        public void SaveAndLaunchSettings()
+        {
+            SaveSettings();
+            LaunchHandler.LaunchRoblox(LaunchMode.Player);
         }
     }
 }

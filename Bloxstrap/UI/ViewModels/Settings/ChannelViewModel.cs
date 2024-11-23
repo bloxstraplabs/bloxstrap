@@ -70,7 +70,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 value = value.Trim();
                 Task.Run(() => LoadChannelDeployInfo(value));
-                App.Settings.Prop.Channel = value;
+                if (value.ToLower() == "live" || value.ToLower() == "zlive")
+                {
+                    App.Settings.Prop.Channel = "production";
+                } else {
+                    App.Settings.Prop.Channel = value;
+                }
             }
         }
 

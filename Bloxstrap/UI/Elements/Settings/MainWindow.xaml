@@ -93,6 +93,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
@@ -104,9 +105,12 @@
                 </StackPanel>
             </StatusBarItem>
             <StatusBarItem Grid.Column="2" Padding="0,0,4,0">
+                <ui:Button Content="{x:Static resources:Strings.Menu_SaveAndLaunch}" Appearance="Primary" Command="{Binding SaveAndLaunchSettingsCommand, Mode=OneWay}" />
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="3" Padding="0,0,4,0">
                 <ui:Button Content="{x:Static resources:Strings.Menu_Save}" Appearance="Primary" Command="{Binding SaveSettingsCommand, Mode=OneWay}" />
             </StatusBarItem>
-            <StatusBarItem Grid.Column="3" Padding="4,0,0,0">
+            <StatusBarItem Grid.Column="4" Padding="0,0,0,0">
                 <ui:Button Content="{x:Static resources:Strings.Common_Close}" Command="{Binding CloseWindowCommand, Mode=OneWay}" />
             </StatusBarItem>
         </StatusBar>

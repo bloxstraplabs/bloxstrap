@@ -2464,6 +2464,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changing deployment settings may break the bootstrapper and Roblox client..
+        /// </summary>
+        public static string Menu_Deployment_WarningDescription {
+            get {
+                return ResourceManager.GetString("Menu.Deployment.WarningDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning!.
+        /// </summary>
+        public static string Menu_Deployment_WarningTitle {
+            get {
+                return ResourceManager.GetString("Menu.Deployment.WarningTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new.
         /// </summary>
         public static string Menu_FastFlagEditor_AddNew {
@@ -3700,6 +3718,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Save {
             get {
                 return ResourceManager.GetString("Menu.Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save and Launch.
+        /// </summary>
+        public static string Menu_SaveAndLaunch {
+            get {
+                return ResourceManager.GetString("Menu.SaveAndLaunch", resourceCulture);
             }
         }
         

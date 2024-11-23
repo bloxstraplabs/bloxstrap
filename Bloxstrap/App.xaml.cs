@@ -40,7 +40,7 @@ namespace Bloxstrap
 
         public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
-        public static bool IsProductionBuild => true; //IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 

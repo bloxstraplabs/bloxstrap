@@ -1460,7 +1460,16 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.Channel.VersionHash.Title" xml:space="preserve">
     <value>Version hash</value>
   </data>
-	<data name="Menu.Channel.VersionHash.Desription" xml:space="preserve">
+  <data name="Menu.Channel.VersionHash.Desription" xml:space="preserve">
     <value>Force Fishstrap to download version from specific hash. Please do not change if you have no idea what this does.</value>
+  </data>
+  <data name="Menu.SaveAndLaunch" xml:space="preserve">
+    <value>Save and Launch</value>
+  </data>
+  <data name="Menu.Deployment.WarningTitle" xml:space="preserve">
+    <value>Warning!</value>
+  </data>
+	<data name="Menu.Deployment.WarningDescription" xml:space="preserve">
+    <value>Changing deployment settings may break the bootstrapper and Roblox client.</value>
   </data>
 </root>
