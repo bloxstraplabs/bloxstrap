@@ -30,7 +30,7 @@ Bloxstrap is only supported for PCs running Windows.
 
 **Q: Is this malware?**
 
-**A:** No. The source code here is viewable to all, and it'd be impossible for us to slip anything malicious into the downloads without anyone noticing. Just be sure you're downloading it from an official source. The only two official sources are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com).
+**A:** No. The source code here is viewable to all, and it'd be impossible for us to slip anything malicious into the downloads without anyone noticing. Just be sure you're downloading it from an official source. The only 3 official sources are this GitHub repository, [bloxstraplabs.com](https://bloxstraplabs.com) and [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap).
 
 **Q: Can using this get me banned?**
 
