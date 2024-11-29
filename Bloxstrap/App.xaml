@@ -34,6 +34,7 @@
                 </Setter>
             </Style>
 
+            <converters:StringResourceConverter x:Key="StringResourceConverter" />
             <converters:StringFormatConverter x:Key="StringFormatConverter" />
             <converters:RangeConverter x:Key="RangeConverter" />
             <converters:EnumNameConverter x:Key="EnumNameConverter" />

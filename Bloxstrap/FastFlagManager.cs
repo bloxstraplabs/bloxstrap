@@ -1,6 +1,4 @@
-﻿using Bloxstrap.Enums.FlagPresets;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
@@ -12,146 +10,13 @@ namespace Bloxstrap
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
 
-        public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
+        public readonly FFlagPresets PresetConfig;
+
+        public FastFlagManager()
         {
-            { "Network.Log", "FLogNetwork" },
-
-#if DEBUG
-            { "HTTP.Log", "DFLogHttpTraceLight" },
-
-            { "HTTP.Proxy.Enable", "DFFlagDebugEnableHttpProxy" },
-            { "HTTP.Proxy.Address.1", "DFStringDebugPlayerHttpProxyUrl" },
-            { "HTTP.Proxy.Address.2", "DFStringHttpCurlProxyHostAndPort" },
-            { "HTTP.Proxy.Address.3", "DFStringHttpCurlProxyHostAndPortForExternalUrl" },
-#endif
-
-            { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
-            { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
-            { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
-            { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
-            { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
-            { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
-
-            { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
-            { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
-
-            { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
-            { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
-            { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
-
-            { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
-            { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
-            { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
-
-            { "UI.Hide", "DFIntCanHideGuiGroupId" },
-            { "UI.FontSize", "FIntFontSizePadding" },
-#if DEBUG
-            { "UI.FlagState", "FStringDebugShowFlagState" },
-#endif
-
-            { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
-            
-            { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
-            { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
-            { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
-            { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
-
-            { "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
-            { "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
-            { "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" }
-        };
-
-        public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
-        {
-            { RenderingMode.Default, "None" },
-            { RenderingMode.D3D11, "D3D11" },
-            { RenderingMode.D3D10, "D3D10" },
-        };
-
-        public static IReadOnlyDictionary<LightingMode, string> LightingModes => new Dictionary<LightingMode, string>
-        {
-            { LightingMode.Default, "None" },
-            { LightingMode.Voxel, "Voxel" },
-            { LightingMode.ShadowMap, "ShadowMap" },
-            { LightingMode.Future, "Future" }
-        };
-
-        public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>
-        {
-            { MSAAMode.Default, null },
-            { MSAAMode.x1, "1" },
-            { MSAAMode.x2, "2" },
-            { MSAAMode.x4, "4" }
-        };
-
-        public static IReadOnlyDictionary<TextureQuality, string?> TextureQualityLevels => new Dictionary<TextureQuality, string?>
-        {
-            { TextureQuality.Default, null },
-            { TextureQuality.Level0, "0" },
-            { TextureQuality.Level1, "1" },
-            { TextureQuality.Level2, "2" },
-            { TextureQuality.Level3, "3" },
-        };
-
-        // this is one hell of a dictionary definition lmao
-        // since these all set the same flags, wouldn't making this use bitwise operators be better?
-        public static IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => new Dictionary<InGameMenuVersion, Dictionary<string, string?>>
-        {
-            {
-                InGameMenuVersion.Default,
-                new Dictionary<string, string?>
-                {
-                    { "V2Rollout", null },
-                    { "EnableV4", null },
-                    { "EnableV4Chrome", null },
-                    { "ABTest", null }
-                }
-            },
-
-            {
-                InGameMenuVersion.V1,
-                new Dictionary<string, string?>
-                {
-                    { "V2Rollout", "0" },
-                    { "EnableV4", "False" },
-                    { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
-                }
-            },
-
-            {
-                InGameMenuVersion.V2,
-                new Dictionary<string, string?>
-                {
-                    { "V2Rollout", "100" },
-                    { "EnableV4", "False" },
-                    { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
-                }
-            },
-
-            {
-                InGameMenuVersion.V4,
-                new Dictionary<string, string?>
-                {
-                    { "V2Rollout", "0" },
-                    { "EnableV4", "True" },
-                    { "EnableV4Chrome", "False" },
-                    { "ABTest", "False" }
-                }
-            },
-
-            {
-                InGameMenuVersion.V4Chrome,
-                new Dictionary<string, string?>
-                {
-                    { "V2Rollout", "0" },
-                    { "EnableV4", "True" },
-                    { "EnableV4Chrome", "True" },
-                    { "ABTest", "False" }
-                }
-            }
-        };
+            PresetConfig = JsonSerializer.Deserialize<FFlagPresets>(File.ReadAllText("C:\\Users\\pizzaboxer\\Documents\\Projects\\Bloxstrap\\PrototypeSchema.json"));
+            Debug.WriteLine(PresetConfig);
+        }
 
         // all fflags are stored as strings
         // to delete a flag, set the value as null
@@ -170,7 +35,7 @@ namespace Bloxstrap
             {
                 if (Prop.ContainsKey(key))
                 {
-                    if (key == Prop[key].ToString())
+                    if (value.ToString() == Prop[key].ToString())
                         return;
 
                     App.Logger.WriteLine(LOG_IDENT, $"Changing of '{key}' from '{Prop[key]}' to '{value}' is pending");
@@ -184,10 +49,16 @@ namespace Bloxstrap
             }
         }
 
-        // this returns null if the fflag doesn't exist
+        /// <summary>
+        /// Returns null if the flag has not been set
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public string? GetValue(string key)
         {
-            // check if we have an updated change for it pushed first
+            if (PresetConfig.Flags.ContainsKey(key))
+                key = PresetConfig.Flags[key];
+
             if (Prop.TryGetValue(key, out object? value) && value is not null)
                 return value.ToString();
 
@@ -196,36 +67,24 @@ namespace Bloxstrap
 
         public void SetPreset(string prefix, object? value)
         {
-            foreach (var pair in PresetFlags.Where(x => x.Key.StartsWith(prefix)))
+            foreach (var pair in PresetConfig.Flags.Where(x => x.Key.StartsWith(prefix)))
                 SetValue(pair.Value, value);
         }
 
-        public void SetPresetEnum(string prefix, string target, object? value)
+        public bool CheckPresetValue(string prefix, string value)
         {
-            foreach (var pair in PresetFlags.Where(x => x.Key.StartsWith(prefix)))
+            var presets = PresetConfig.Flags.Where(x => x.Key.StartsWith(prefix));
+
+            foreach (var preset in presets)
             {
-                if (pair.Key.StartsWith($"{prefix}.{target}"))
-                    SetValue(pair.Value, value);
-                else
-                    SetValue(pair.Value, null);
-            }
-        }
-
-        public string? GetPreset(string name) => GetValue(PresetFlags[name]);
-
-        public T GetPresetEnum<T>(IReadOnlyDictionary<T, string> mapping, string prefix, string value) where T : Enum
-        {
-            foreach (var pair in mapping)
-            {
-                if (pair.Value == "None")
-                    continue;
-
-                if (GetPreset($"{prefix}.{pair.Value}") == value)
-                    return pair.Key;
+                if (GetValue(preset.Value) != value)
+                    return false;
             }
 
-            return mapping.First().Key;
+            return true;
         }
+
+        public bool CheckPresetValue(KeyValuePair<string, string> entry) => CheckPresetValue(entry.Key, entry.Value);
 
         public override void Save()
         {
@@ -248,7 +107,7 @@ namespace Bloxstrap
             OriginalProp = new(Prop);
 
             // TODO - remove when activity tracking has been revamped
-            if (GetPreset("Network.Log") != "7")
+            if (GetValue("Network.Log") != "7")
                 SetPreset("Network.Log", "7");
         }
     }

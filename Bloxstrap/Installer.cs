@@ -483,14 +483,14 @@ namespace Bloxstrap
                 {
                     App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
 
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
+                    if (App.FastFlags.GetValue("UI.Menu.Style.DisableV2") is not null)
                         App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.5.3") == VersionComparison.LessThan)
                 {
-                    string? val = App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.1");
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.2") != val)
+                    string? val = App.FastFlags.GetValue("UI.Menu.Style.EnableV4.1");
+                    if (App.FastFlags.GetValue("UI.Menu.Style.EnableV4.2") != val)
                         App.FastFlags.SetPreset("UI.Menu.Style.EnableV4.2", val);
                 }
 
@@ -513,7 +513,7 @@ namespace Bloxstrap
                     if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
                         App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
 
-                    _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
+                    _ = int.TryParse(App.FastFlags.GetValue("Rendering.Framerate"), out int x);
                     if (x == 0)
                         App.FastFlags.SetPreset("Rendering.Framerate", null);
                 }

@@ -236,6 +236,36 @@ namespace Bloxstrap
                 State.Load();
                 FastFlags.Load();
 
+                //List<string> tests = new()
+                //{
+                //    "UI.FullscreenTitlebarDelay == null || true",
+                //    "UI.FullscreenTitlebarDelay == null && true",
+                //    "UI.FullscreenTitlebarDelay == null || false",
+                //    "UI.FullscreenTitlebarDelay == null && false",
+                //    "UI.FullscreenTitlebarDelay == null && false || true",
+                //    "UI.FullscreenTitlebarDelay == null && true || false",
+                //    "false && false || true",
+                //    "(false && false) || true",
+                //    "false && (false || true)",
+                //    "FFlagDisableNewIGMinDUA != True",
+                //    "FStringDebugFlagState == 'hi'",
+                //    "FStringDebugFlagState == 'wassup'",
+                //    "FStringDebugFlagState == FStringDebugFlagState",
+                //    "FStringDebugFlagState != FStringDebugFlagState",
+                //    "FLogNetwork == 7",
+                //    "FLogNetwork > 9",
+                //    "FLogNetwork < 9"
+                //};
+
+
+                //foreach (string test in tests)
+                //{
+                //    bool result = new FlexParser(test).Evaluate();
+                //    App.Logger.WriteLine(LOG_IDENT, $"'{test}' evaluated to {result}");
+                //}
+
+                //Debugger.Break();
+
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))
                 {
                     Settings.Prop.Locale = "nil";

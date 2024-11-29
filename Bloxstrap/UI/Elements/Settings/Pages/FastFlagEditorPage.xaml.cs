@@ -45,7 +45,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
             _fastFlagList.Clear();
 
-            var presetFlags = FastFlagManager.PresetFlags.Values;
+            var presetFlags = App.FastFlags.PresetConfig.Flags.Values;
 
             foreach (var pair in App.FastFlags.Prop.OrderBy(x => x.Key))
             {
@@ -141,7 +141,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
                 bool refresh = false;
 
-                if (!_showPresets && FastFlagManager.PresetFlags.Values.Contains(name))
+                if (!_showPresets && App.FastFlags.PresetConfig.Flags.Values.Contains(name))
                 {
                     TogglePresetsButton.IsChecked = true;
                     _showPresets = true;
