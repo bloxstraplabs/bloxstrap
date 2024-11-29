@@ -541,6 +541,7 @@ namespace Bloxstrap
 
                     WindowsRegistry.RegisterPlayer();
 
+                    App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
 
                     try
