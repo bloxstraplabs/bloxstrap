@@ -26,13 +26,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set
             {
                 // is there a better way of doing that?
-                App.FastFlags.SetPreset("Telemetry.EpCounter",value);
-                App.FastFlags.SetPreset("Telemetry.EpStats", value);
-                App.FastFlags.SetPreset("Telemetry.Event", value);
-                App.FastFlags.SetPreset("Telemetry.V2Counter", value);
-                App.FastFlags.SetPreset("Telemetry.V2Event", value);
-                App.FastFlags.SetPreset("Telemetry.V2Stats", value);
+                App.FastFlags.SetPreset("Telemetry.EpCounter", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.EpStats", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.Event", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.V2Counter", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.V2Event", value ? "True" : null);
+                App.FastFlags.SetPreset("Telemetry.V2Stats", value ? "True" : null);
             }
+        }
+
+        public bool PingBreakdown
+        {
+            get => App.FastFlags.GetPreset("Debug.PingBreakdown") == "True";
+            set => App.FastFlags.SetPreset("Debug.PingBreakdown", value ? "True" : null);
         }
 
         public bool UseFastFlagManager

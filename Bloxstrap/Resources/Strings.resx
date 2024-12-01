@@ -1373,12 +1373,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Common.Debug" xml:space="preserve">
     <value>Debug</value>
   </data>
-  <data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
-    <value>Flag state</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
-    <value>Shows you flag state. Use "," between fflags.</value>
-  </data>
   <data name="Menu.FastFlags.Presets.Categories.IngameMenu" xml:space="preserve">
     <value>Roblox Menu</value>
   </data>
@@ -1466,10 +1460,10 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.SaveAndLaunch" xml:space="preserve">
     <value>Save and Launch</value>
   </data>
-  <data name="Menu.Deployment.WarningTitle" xml:space="preserve">
-    <value>Warning!</value>
-  </data>
-	<data name="Menu.Deployment.WarningDescription" xml:space="preserve">
-    <value>Changing deployment settings may break the bootstrapper and Roblox client.</value>
-  </data>
+	<data name="Menu.FastFlags.Presets.PingBreakdown.Title" xml:space="preserve">
+		<value>Ping breakdown</value>
+	</data>
+	<data name="Menu.FastFlags.Presets.PingBreakdown.Description" xml:space="preserve">
+		<value>Sends detailed ping information to the Roblox console.</value>
+	</data>
 </root>

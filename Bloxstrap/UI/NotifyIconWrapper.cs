@@ -29,7 +29,7 @@ namespace Bloxstrap.UI
             _notifyIcon = new(new System.ComponentModel.Container())
             {
                 Icon = Properties.Resources.IconBloxstrap,
-                Text = App.ProjectName,
+                Text = "Fishstrap",
                 Visible = true
             };
 

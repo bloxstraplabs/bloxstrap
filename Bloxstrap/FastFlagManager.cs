@@ -25,6 +25,7 @@ namespace Bloxstrap
 
             // Debug
             { "Debug.FlagState", "FStringDebugShowFlagState"},
+            { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
 
             // Presets and stuff
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
@@ -40,6 +41,7 @@ namespace Bloxstrap
             { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
+            { "Rendering.FixHighlights", "FFlagHighlightOutlinesOnMobile"},
 
             // Lighting technology
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
@@ -290,6 +292,9 @@ namespace Bloxstrap
 
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
+
+            if (GetPreset("Rendering.FixHighlights") != "True")
+                SetPreset("Rendering.FixHighlights", "True");
         }
 
         public void DeleteProfile(string Profile)

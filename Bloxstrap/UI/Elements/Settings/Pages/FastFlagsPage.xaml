@@ -41,13 +41,6 @@
             <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <controls:OptionControl 
-    x:Name="FlagStateOption"
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Title}" 
-    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Description}">
-            <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
-        </controls:OptionControl>
-
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
                 <Grid>
@@ -231,6 +224,35 @@
                 </controls:OptionControl>
             </StackPanel>
         </ui:CardExpander>
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Debug}" />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+                <controls:OptionControl 
+    x:Name="FlagStateOption"
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Title}" 
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FlagState_Description}">
+                    <ui:TextBox Width="200" Padding="10,5,10,5" Text="{Binding FlagState, Mode=TwoWay}"  />
+                </controls:OptionControl>
+                <controls:OptionControl 
+    x:Name="PingBreakdownOption"
+    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Title}" 
+    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PingBreakdown_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding PingBreakdown, Mode=TwoWay}" />
+                </controls:OptionControl>
+            </StackPanel>
+    </ui:CardExpander>
 
         <!--<ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
         <ui:CardExpander.Header>
