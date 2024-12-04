@@ -10,6 +10,7 @@
         ByfronDialog,
         [EnumName(StaticName = "Fishstrap")]
         FluentDialog,
-        FluentAeroDialog
+        FluentAeroDialog,
+        CustomDialog
     }
 }
