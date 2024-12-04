@@ -477,21 +477,6 @@ namespace Bloxstrap
                     App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.5.1") == VersionComparison.LessThan)
-                {
-                    App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
-
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
-                        App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
-                }
-
-                if (Utilities.CompareVersions(existingVer, "2.5.3") == VersionComparison.LessThan)
-                {
-                    string? val = App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.1");
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.2") != val)
-                        App.FastFlags.SetPreset("UI.Menu.Style.EnableV4.2", val);
-                }
-
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
@@ -556,28 +541,7 @@ namespace Bloxstrap
 
                     WindowsRegistry.RegisterPlayer();
 
-                    string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
-
-                    if (oldV2Val is not null)
-                    {
-                        if (oldV2Val == "True")
-                        {
-                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "0");
-
-                            if (App.FastFlags.GetValue("UI.Menu.Style.EnableV4.1") == "False")
-                                App.FastFlags.SetPreset("UI.Menu.Style.ReportButtonCutOff", "False");
-                        }
-                        else
-                        {
-                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
-                        }
-
-                        if (App.FastFlags.GetPreset("UI.Menu.Style.ABTest.1") is not null)
-                            App.FastFlags.SetPreset("UI.Menu.Style.ABTest", "False");
-
-                        App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
-                    }
-
+                    App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
 
                     try
