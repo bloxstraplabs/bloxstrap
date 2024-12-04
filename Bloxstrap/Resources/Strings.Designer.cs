@@ -1645,6 +1645,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Launch Roblox Studio.
+        /// </summary>
+        public static string LaunchMenu_LaunchRobloxStudio {
+            get {
+                return ResourceManager.GetString("LaunchMenu.LaunchRobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to See the Wiki for help.
         /// </summary>
         public static string LaunchMenu_Wiki_Description {
