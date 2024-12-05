@@ -287,8 +287,8 @@ namespace Bloxstrap
 
                 () => File.Delete(StartMenuShortcut),
 
+                () => Directory.Delete(Paths.Versions, true),
                 () => Directory.Delete(Paths.Downloads, true),
-                () => Directory.Delete(Paths.Roblox, true),
 
                 () => File.Delete(App.State.FileLocation)
             };
@@ -547,15 +547,6 @@ namespace Bloxstrap
 
                     App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
-
-                    try
-                    {
-                        Directory.Delete(Path.Combine(Paths.Base, "Versions"), true);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.1") == VersionComparison.LessThan)
@@ -572,6 +563,17 @@ namespace Bloxstrap
                     App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest4", null);
                 }
 
+                if (Utilities.CompareVersions(existingVer, "2.8.2") == VersionComparison.LessThan)
+                {
+                    try
+                    {
+                        Directory.Delete(Path.Combine(Paths.Base, "Roblox"), true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
 
                 App.Settings.Save();
                 App.FastFlags.Save();
