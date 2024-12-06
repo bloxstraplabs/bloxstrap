@@ -14,9 +14,16 @@
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Product>$(AssemblyName)</Product>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\DarkEditor.xshd" />
+    <None Remove="Resources\LightEditor.xshd" />
+  </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
+    <Resource Include="Resources\LightEditor.xshd" />
+    <Resource Include="Resources\DarkEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoDark.jpg" />

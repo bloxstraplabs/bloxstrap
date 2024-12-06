@@ -39,8 +39,10 @@
             Grid.Row="1"
             Margin="10,10,10,0"
             ShowLineNumbers="True"
-            SyntaxHighlighting="XML"
-            TextChanged="OnCodeChanged" />
+            
+            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+            TextChanged="OnCodeChanged"
+            Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}"/>
 
         <Grid
             Grid.Row="2"

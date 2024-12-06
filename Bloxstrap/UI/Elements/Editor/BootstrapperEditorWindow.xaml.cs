@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using System.Xml;
 
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
@@ -6,6 +7,10 @@ using ICSharpCode.AvalonEdit.Editing;
 
 using Bloxstrap.UI.Elements.Base;
 using Bloxstrap.UI.ViewModels.Editor;
+using ICSharpCode.AvalonEdit.Highlighting;
+using System.Windows.Media;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Editor
 {
@@ -146,6 +151,21 @@ namespace Bloxstrap.UI.Elements.Editor
 
             UIXML.Text = viewModel.Code;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
+
+            // im so stupid
+
+            var resourceUri = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ? new Uri("pack://application:,,,/Resources/LightEditor.xshd") : new Uri("pack://application:,,,/Resources/DarkEditor.xshd");
+            using (var stream = Application.GetResourceStream(resourceUri)?.Stream)
+            {
+                if (stream == null)
+                    throw new FileNotFoundException("Resource not found");
+
+                using (var reader = new XmlTextReader(stream))
+                {
+                    var highlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+                    UIXML.SyntaxHighlighting = highlighting;
+                }
+            }
         }
 
         private static string ToCRLF(string text)
