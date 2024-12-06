@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Bloxstrap.AppData;
+using System.ComponentModel;
 
 namespace Bloxstrap
 {
@@ -64,9 +65,9 @@ namespace Bloxstrap
 
         public static string GetRobloxVersion(bool studio)
         {
-            string fileName = studio ? "Studio/RobloxStudioBeta.exe" : "Player/RobloxPlayerBeta.exe";
+            IAppData data = studio ? new RobloxStudioData() : new RobloxPlayerData();
 
-            string playerLocation = Path.Combine(Paths.Roblox, fileName);
+            string playerLocation = data.ExecutablePath;
 
             if (!File.Exists(playerLocation))
                 return "";

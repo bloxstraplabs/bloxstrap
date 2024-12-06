@@ -1,4 +1,5 @@
-﻿using Bloxstrap.Integrations;
+﻿using Bloxstrap.AppData;
+using Bloxstrap.Integrations;
 using Bloxstrap.Models;
 
 namespace Bloxstrap
@@ -30,7 +31,7 @@ namespace Bloxstrap
 #if DEBUG
             if (String.IsNullOrEmpty(watcherDataArg))
             {
-                string path = Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe");
+                string path = new RobloxPlayerData().ExecutablePath;
                 using var gameClientProcess = Process.Start(path);
 
                 _watcherData = new() { ProcessId = gameClientProcess.Id };
