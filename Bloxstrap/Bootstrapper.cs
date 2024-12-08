@@ -916,7 +916,17 @@ namespace Bloxstrap
 
                 const string path = "rbxasset://fonts/CustomFont.ttf";
 
-                foreach (string jsonFilePath in Directory.GetFiles(Path.Combine(_latestVersionDirectory, "content\\fonts\\families")))
+                // lets make sure the content/fonts/families path exists in the version directory
+                string contentFolder = Path.Combine(_latestVersionDirectory, "content");
+                Directory.CreateDirectory(contentFolder);
+
+                string fontsFolder = Path.Combine(contentFolder, "fonts");
+                Directory.CreateDirectory(fontsFolder);
+
+                string familiesFolder = Path.Combine(fontsFolder, "families");
+                Directory.CreateDirectory(familiesFolder);
+
+                foreach (string jsonFilePath in Directory.GetFiles(familiesFolder))
                 {
                     string jsonFilename = Path.GetFileName(jsonFilePath);
                     string modFilepath = Path.Combine(modFontFamiliesFolder, jsonFilename);
