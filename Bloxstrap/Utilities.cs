@@ -30,6 +30,18 @@ namespace Bloxstrap
             }
         }
 
+        public static Version GetVersionFromString(string version)
+        {
+            if (version.StartsWith('v'))
+                version = version[1..];
+
+            int idx = version.IndexOf('+'); // commit info
+            if (idx != -1)
+                version = version[..idx];
+
+            return new Version(version);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -45,8 +57,8 @@ namespace Bloxstrap
         {
             try
             {
-                var version1 = new Version(versionStr1.Replace("v", ""));
-                var version2 = new Version(versionStr2.Replace("v", ""));
+                var version1 = GetVersionFromString(versionStr1);
+                var version2 = GetVersionFromString(versionStr2);
 
                 return (VersionComparison)version1.CompareTo(version2);
             }
