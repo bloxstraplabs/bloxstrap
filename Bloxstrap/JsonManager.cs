@@ -49,7 +49,14 @@ namespace Bloxstrap
                         Frontend.ShowMessageBox($"{message}\n\n{ex.Message}", System.Windows.MessageBoxImage.Warning);
                     
                     // Create a backup of loaded file
-                    File.Copy(FileLocation, FileLocation + ".bak");
+                    try
+                    {
+                        File.Copy(FileLocation, FileLocation + ".bak");
+                    }
+                    catch
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Backup file attempted to be created but failed. Please create a issue.");
+                    }
                 }
 
                 Save();
