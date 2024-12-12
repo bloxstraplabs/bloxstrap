@@ -52,8 +52,7 @@
                 </Grid>
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-                    <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Margin="0,0,0,8" Command="{Binding LaunchAboutCommand, Mode=OneTime}" HorizontalAlignment="Center" />
-                    <ui:Hyperlink Icon="Heart48" Content="{x:Static resources:Strings.LaunchMenu_Donate}" NavigateUri="https://ko-fi.com/boxerpizza" HorizontalAlignment="Center" />
+                    <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Command="{Binding LaunchAboutCommand, Mode=OneTime}" HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>
 
@@ -61,6 +60,12 @@
                 <ui:CardAction Icon="ArrowRight12" TabIndex="0" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}" />
+                    </StackPanel>
+                </ui:CardAction>
+
+                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Visibility="{Binding RobloxStudioOptionVisibility, Mode=OneTime}" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
+                    <StackPanel>
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
                     </StackPanel>
                 </ui:CardAction>
 

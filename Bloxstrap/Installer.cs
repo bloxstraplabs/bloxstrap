@@ -91,7 +91,7 @@ namespace Bloxstrap
 
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
 
-            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+            if (App.IsStudioVisible)
                 WindowsRegistry.RegisterStudio();
 
             App.Settings.Save();
@@ -122,6 +122,10 @@ namespace Bloxstrap
 
             // prevent from installing to an essential user profile folder (e.g. Documents, Downloads, Contacts idk)
             if (String.Compare(Directory.GetParent(InstallLocation)?.FullName, Paths.UserProfile, StringComparison.InvariantCultureIgnoreCase) == 0)
+                return false;
+
+            // prevent from installing into the program files folder
+            if (InstallLocation.Contains("Program Files"))
                 return false;
 
             return true;
@@ -190,7 +194,7 @@ namespace Bloxstrap
             if (!String.IsNullOrEmpty(App.State.Prop.Player.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-            if (!String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid))
+            if (App.IsStudioVisible)
                 processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
@@ -283,8 +287,8 @@ namespace Bloxstrap
 
                 () => File.Delete(StartMenuShortcut),
 
+                () => Directory.Delete(Paths.Versions, true),
                 () => Directory.Delete(Paths.Downloads, true),
-                () => Directory.Delete(Paths.Roblox, true),
 
                 () => File.Delete(App.State.FileLocation)
             };
@@ -477,21 +481,6 @@ namespace Bloxstrap
                     App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.5.1") == VersionComparison.LessThan)
-                {
-                    App.FastFlags.SetValue("FIntDebugForceMSAASamples", null);
-
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.DisableV2") is not null)
-                        App.FastFlags.SetPreset("UI.Menu.Style.ABTest", false);
-                }
-
-                if (Utilities.CompareVersions(existingVer, "2.5.3") == VersionComparison.LessThan)
-                {
-                    string? val = App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.1");
-                    if (App.FastFlags.GetPreset("UI.Menu.Style.EnableV4.2") != val)
-                        App.FastFlags.SetPreset("UI.Menu.Style.EnableV4.2", val);
-                }
-
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
@@ -556,38 +545,8 @@ namespace Bloxstrap
 
                     WindowsRegistry.RegisterPlayer();
 
-                    string? oldV2Val = App.FastFlags.GetValue("FFlagDisableNewIGMinDUA");
-
-                    if (oldV2Val is not null)
-                    {
-                        if (oldV2Val == "True")
-                        {
-                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "0");
-
-                            if (App.FastFlags.GetValue("UI.Menu.Style.EnableV4.1") == "False")
-                                App.FastFlags.SetPreset("UI.Menu.Style.ReportButtonCutOff", "False");
-                        }
-                        else
-                        {
-                            App.FastFlags.SetPreset("UI.Menu.Style.V2Rollout", "100");
-                        }
-
-                        if (App.FastFlags.GetPreset("UI.Menu.Style.ABTest.1") is not null)
-                            App.FastFlags.SetPreset("UI.Menu.Style.ABTest", "False");
-
-                        App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
-                    }
-
+                    App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
                     App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
-
-                    try
-                    {
-                        Directory.Delete(Path.Combine(Paths.Base, "Versions"), true);
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.1") == VersionComparison.LessThan)
@@ -604,6 +563,17 @@ namespace Bloxstrap
                     App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest4", null);
                 }
 
+                if (Utilities.CompareVersions(existingVer, "2.8.2") == VersionComparison.LessThan)
+                {
+                    try
+                    {
+                        Directory.Delete(Path.Combine(Paths.Base, "Roblox"), true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
 
                 App.Settings.Save();
                 App.FastFlags.Save();

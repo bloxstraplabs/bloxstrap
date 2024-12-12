@@ -15,7 +15,7 @@
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
         <TextBlock Text="{x:Static resources:Strings.About_Supporters_Title}" FontWeight="Medium" FontSize="24" />
-        <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.About_Supporters_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://ko-fi.com/boxerpizza'}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+        <controls:MarkdownTextBlock MarkdownText="{x:Static resources:Strings.About_Supporters_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
         <Grid Margin="0,8,0,0">
             <Grid.Style>

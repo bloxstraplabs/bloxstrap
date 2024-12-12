@@ -175,7 +175,7 @@
     <value>Bloxstrap has successfully uninstalled</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?</value>
+    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
@@ -1116,7 +1116,7 @@ Check if Roblox works with [the original launcher]({1}). If it doesn't, then thi
     <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>These are the people who've supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+    <value>These are the people who've supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
 Every person here is ranked by their overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1229,13 +1229,12 @@ Would you like to enable test mode?</value>
     <value>Install</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Support us on Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Icons</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Launch Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>

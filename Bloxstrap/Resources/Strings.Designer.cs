@@ -70,7 +70,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
         ///Every person here is ranked by their overall pledge..
         /// </summary>
         public static string About_Supporters_Description {
@@ -316,7 +316,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like close Roblox now?.
+        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?.
         /// </summary>
         public static string Bootstrapper_Uninstall_RobloxRunning {
             get {
@@ -1627,20 +1627,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Support us on Ko-fi!.
-        /// </summary>
-        public static string LaunchMenu_Donate {
-            get {
-                return ResourceManager.GetString("LaunchMenu.Donate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Launch Roblox.
         /// </summary>
         public static string LaunchMenu_LaunchRoblox {
             get {
                 return ResourceManager.GetString("LaunchMenu.LaunchRoblox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch Roblox Studio.
+        /// </summary>
+        public static string LaunchMenu_LaunchRobloxStudio {
+            get {
+                return ResourceManager.GetString("LaunchMenu.LaunchRobloxStudio", resourceCulture);
             }
         }
         
