@@ -47,9 +47,17 @@ namespace Bloxstrap
 
                     if (!String.IsNullOrEmpty(message))
                         Frontend.ShowMessageBox($"{message}\n\n{ex.Message}", System.Windows.MessageBoxImage.Warning);
-                    
-                    // Create a backup of loaded file
-                    File.Copy(FileLocation, FileLocation + ".bak");
+
+                    try
+                    {
+                        // Create a backup of loaded file
+                        File.Copy(FileLocation, FileLocation + ".bak", true);
+                    }
+                    catch (Exception copyEx)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to create backup file: {FileLocation}.bak");
+                        App.Logger.WriteException(LOG_IDENT, copyEx);
+                    }
                 }
 
                 Save();
