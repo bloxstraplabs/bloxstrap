@@ -46,6 +46,16 @@ body:
     validations:
       required: true
   - type: textarea
+    id: repro-steps
+    attributes:
+      label: How do you reproduce the problem?
+      description: Include the steps to reproduce the problem from start to finish. Include details such as FastFlags you added and settings you changed.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+  - type: textarea
     id: log
     attributes:
       label: Bloxstrap Log
