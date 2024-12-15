@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fishstrap", "Fishstrap\Fishstrap.csproj", "{0D75146E-DA24-4B05-B6C9-250C8F81B0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bloxstrap", "Bloxstrap\Bloxstrap.csproj", "{0D75146E-DA24-4B05-B6C9-250C8F81B0C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Ui", "wpfui\src\Wpf.Ui\Wpf.Ui.csproj", "{1ADC87D1-8963-4100-845A-18477824718E}"
 EndProject
