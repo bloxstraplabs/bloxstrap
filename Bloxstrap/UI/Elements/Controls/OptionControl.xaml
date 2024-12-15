@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Bloxstrap.UI.Elements.Controls.OptionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+             xmlns:resources="clr-namespace:Bloxstrap.Resources"
+             xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Controls"
+             mc:Ignorable="d" 
+             x:Name="Control"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ui:CardControl Margin="0,8,0,0" Content="{Binding InnerContent, ElementName=Control}">
+        <ui:CardControl.Header>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="14" Text="{Binding Header, ElementName=Control}" />
+                    <TextBlock Grid.Column="1" Margin="4,0,0,0">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HelpLink, ElementName=Control}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                        <Hyperlink TextDecorations="None" ToolTip="{x:Static resources:Strings.Menu_MoreInfo}" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding HelpLink, ElementName=Control}">
+                            <ui:SymbolIcon Symbol="QuestionCircle48" Margin="0,1,0,0">
+                                <ui:SymbolIcon.Style>
+                                    <Style TargetType="ui:SymbolIcon" BasedOn="{StaticResource {x:Type ui:SymbolIcon}}">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Foreground">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="{DynamicResource SystemAccentColorTertiary}" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Foreground">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ui:SymbolIcon.Style>
+                            </ui:SymbolIcon>
+                        </Hyperlink>
+                    </TextBlock>
+                </Grid>
+                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                    <local:MarkdownTextBlock.Style>
+                        <Style TargetType="local:MarkdownTextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Description, ElementName=Control}" Value="{x:Null}">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </local:MarkdownTextBlock.Style>
+                </local:MarkdownTextBlock>
+            </StackPanel>
+        </ui:CardControl.Header>
+    </ui:CardControl>
+</UserControl>

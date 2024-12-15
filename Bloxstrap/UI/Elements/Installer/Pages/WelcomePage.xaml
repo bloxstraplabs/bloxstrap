@@ -1,0 +1,36 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Installer.Pages.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Installer.Pages"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Installer"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:enums="clr-namespace:Bloxstrap.Enums"
+      mc:Ignorable="d" 
+      d:DataContext="{d:DesignInstance dmodels:WelcomeViewModel, IsDesignTimeCreatable=True}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WelcomePage"
+      Scrollable="True"
+      Loaded="UiPage_Loaded">
+
+    <StackPanel Margin="0,0,14,14">
+        <controls:MarkdownTextBlock FontSize="14" MarkdownText="{Binding MainText, Mode=OneWay}" TextWrapping="Wrap" />
+        <StackPanel>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding CanContinue, Mode=OneWay}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
+            <TextBlock Margin="0,24,0,0" FontSize="14" Text="{x:Static resources:Strings.Installer_Welcome_NextToContinue}" TextWrapping="Wrap" />
+        </StackPanel>
+    </StackPanel>
+</ui:UiPage>
