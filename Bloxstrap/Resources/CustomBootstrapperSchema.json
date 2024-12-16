@@ -117,7 +117,7 @@
 				"StretchDirection": "StretchDirection",
 				"Source": "ImageSource",
 				"IsAnimated": "bool",
-				"RepeatBehaviour":  "RepeatBehaviour"
+				"RepeatBehaviour":  "string"
 			}
 		},
 		"ScaleTransform": {
