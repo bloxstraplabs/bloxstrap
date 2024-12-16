@@ -28,7 +28,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
 
-            dialog.Message = String.Format(App.Settings.Prop.DownloadingStringFormat,"RobloxApp.zip",30,150);
+            dialog.Message = String.Format(App.Settings.Prop.DownloadingStringFormat, "RobloxApp.zip", 30, 150);
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
@@ -72,9 +72,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public static List<string> Languages => Locale.GetLanguages();
 
-        public string SelectedLanguage 
-        { 
-            get => Locale.SupportedLocales[App.Settings.Prop.Locale]; 
+        public string SelectedLanguage
+        {
+            get => Locale.SupportedLocales[App.Settings.Prop.Locale];
             set => App.Settings.Prop.Locale = Locale.GetIdentifierFromName(value);
         }
 
@@ -97,7 +97,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public BootstrapperIcon Icon
         {
             get => App.Settings.Prop.BootstrapperIcon;
-            set => App.Settings.Prop.BootstrapperIcon = value; 
+            set => App.Settings.Prop.BootstrapperIcon = value;
         }
 
         public string Title

@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using Wpf.Ui.Markup;
 
 using Bloxstrap.UI.Elements.Controls;
+using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
@@ -277,6 +278,40 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 throw new Exception($"{xmlElement.Name} {name} uses blacklisted scheme {result.Scheme}");
 
             return new GetImageSourceDataResult { Uri = result };
+        }
+
+        private static RepeatBehavior GetImageRepeatBehaviourData(XElement element)
+        {
+            string? value = element.Attribute("RepeatBehaviour")?.Value?.ToString();
+            RepeatBehavior Behaviour = RepeatBehavior.Forever;
+
+            // Repeat forever behaviour (default)
+            if (string.IsNullOrEmpty(value) || value == "Forever")
+                return Behaviour;
+
+            // Patterns
+            const string RepeatCountPattern = "([0-9]+)x";
+            const string PlayTimePattern = "[0-9][0-9]:[0-9][0-9]:[0-9][0-9]";
+
+            // RegExes
+            Match RepeatCountRegEx = new Regex(RepeatCountPattern).Match(value);
+            Match PlayTimeRegEx = new Regex(PlayTimePattern).Match(value);
+
+            // Repeat count ex. 3x (repeats 3 times)
+            if (RepeatCountRegEx.Success)
+            {
+                int? RepeatCount = int.TryParse(RepeatCountRegEx.Groups[1].Value, out int x) ? x : 0;
+                Behaviour = new RepeatBehavior(x);
+            }
+
+            // Play time ex. 00:00:10 (plays for 10 seconds)
+            if (PlayTimeRegEx.Success)
+            {
+                TimeSpan PlayTime = TimeSpan.Parse(value);
+                Behaviour = new RepeatBehavior(PlayTime);
+            }
+
+            return Behaviour;
         }
         #endregion
 
@@ -652,7 +687,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             uiElement.FontStyle = GetFontStyleFromXElement(xmlElement);
 
             // NOTE: font family can both be the name of the font or a uri
-            string? fontFamily = GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            string? fontFamily = "file:///" + GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
             if (fontFamily != null)
                 uiElement.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
         }
@@ -730,7 +765,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.RootTitleBar.ShowMinimize = ParseXmlAttribute<bool>(xmlElement, "ShowMinimize", true);
             dialog.RootTitleBar.ShowClose = ParseXmlAttribute<bool>(xmlElement, "ShowClose", true);
 
-            string? title = xmlElement.Attribute("Title")?.Value?.ToString() ?? "Bloxstrap";
+            string? title = xmlElement.Attribute("Title")?.Value?.ToString() ?? "Fishstrap";
             dialog.RootTitleBar.Title = title;
 
             return new DummyFrameworkElement(); // dont add anything
@@ -868,7 +903,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             textBlock.BaselineOffset = ParseXmlAttribute<double>(xmlElement, "BaselineOffset", double.NaN);
 
             // NOTE: font family can both be the name of the font or a uri
-            string? fontFamily = GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
+            string? fontFamily = "file:///" + GetFullPath(dialog, xmlElement.Attribute("FontFamily")?.Value);
             if (fontFamily != null)
                 textBlock.FontFamily = new System.Windows.Media.FontFamily(fontFamily);
 
@@ -914,6 +949,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             RenderOptions.SetBitmapScalingMode(image, BitmapScalingMode.HighQuality); // should this be modifiable by the user?
 
             var sourceData = GetImageSourceData(dialog, "Source", xmlElement);
+            
 
             if (sourceData.IsIcon)
             {
@@ -941,6 +977,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 else
                 {
                     XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, sourceData.Uri!);
+
+                    RepeatBehavior repeatBehaviour = GetImageRepeatBehaviourData(xmlElement);
+                    XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior(image, repeatBehaviour);
                 }
             }
 

@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Bootstrapper"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Bloxstrap"
+    Title="Fishstrap"
     Width="800"
     Height="450"
     MinWidth="150"
@@ -40,7 +40,7 @@
 
             <ui:TitleBar
                 x:Name="RootTitleBar"
-                Title="Bloxstrap"
+                Title="Fishstrap"
                 Grid.Row="0"
                 Padding="8"
                 Panel.ZIndex="1001"
