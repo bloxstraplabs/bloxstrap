@@ -257,70 +257,62 @@ namespace Bloxstrap
         /// </summary>
         /// <returns></returns>
         private async Task GetLatestVersionInfo()
+{
+    const string LOG_IDENT = "Bootstrapper::GetLatestVersionInfo";
+
+    using (var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel"))
+    {
+        // Check for channel in launch arguments
+        var match = Regex.Match(
+            App.LaunchSettings.RobloxLaunchArgs,
+            @"channel:([a-zA-Z0-9-_]+)",
+            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
+        );
+
+        if (match.Success)
         {
-            const string LOG_IDENT = "Bootstrapper::GetLatestVersionInfo";
-
-            // before we do anything, we need to query our channel
-            // if it's set in the launch uri, we need to use it and set the registry key for it
-            // else, check if the registry key for it exists, and use it
-
-            using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
-
-            var match = Regex.Match(
-                App.LaunchSettings.RobloxLaunchArgs, 
-                "channel:([a-zA-Z0-9-_]+)", 
-                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
-            );
-
-            if (match.Groups.Count == 2)
-            {
-                Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
-            }
-            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
-            {
-                Deployment.Channel = value.ToLowerInvariant();
-            }
-
-            if (String.IsNullOrEmpty(Deployment.Channel))
-                Deployment.Channel = Deployment.DefaultChannel;
-
-            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
-
-            if (!Deployment.IsDefaultChannel)
-                App.SendStat("robloxChannel", Deployment.Channel);
-
-            ClientVersion clientVersion;
-
-            try
-            {
-                clientVersion = await Deployment.GetInfo();
-            }
-            catch (InvalidChannelException ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
-            }
-
-            if (clientVersion.IsBehindDefaultChannel)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
-            }
-
-            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
-
-            _latestVersionGuid = clientVersion.VersionGuid;
-            _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
-
-            string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
-            var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
-
-            _versionPackageManifest = new(pkgManifestData);
+            Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
         }
+        else if (key.GetValue("www.roblox.com") is string value && !string.IsNullOrEmpty(value))
+        {
+            Deployment.Channel = value.ToLowerInvariant();
+        }
+
+        // Fallback to default if no channel is set
+        if (string.IsNullOrEmpty(Deployment.Channel))
+        {
+            Deployment.Channel = Deployment.DefaultChannel;
+        }
+
+        // Save the updated channel to the registry
+        key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+    }
+
+    App.Logger.WriteLine(LOG_IDENT, $"Using channel: {Deployment.Channel}");
+
+    // Fetch client version information
+    ClientVersion clientVersion;
+    try
+    {
+        clientVersion = await Deployment.GetInfo();
+    }
+    catch (InvalidChannelException ex)
+    {
+        App.Logger.WriteLine(LOG_IDENT, $"Error fetching version info for channel {Deployment.Channel}: {ex.StatusCode}");
+        throw; // Propagate the exception since channel correction is not required
+    }
+
+    // Update version information
+    _latestVersionGuid = clientVersion.VersionGuid;
+    _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
+
+    // Fetch the package manifest
+    string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
+    var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
+
+    _versionPackageManifest = new(pkgManifestData);
+    }
+
 
         private void StartRoblox()
         {
