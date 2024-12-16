@@ -113,6 +113,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[axellse](https://github.com/axellse)" />
                     <controls:MarkdownTextBlock MarkdownText="[ZFkQSZ3GxWFy6bthZ](https://github.com/ZFkQSZ3GxWFy6bthZ)" />
                     <controls:MarkdownTextBlock MarkdownText="[BlueOutside](https://github.com/BlueOutside)" />
+                    <controls:MarkdownTextBlock MarkdownText="[MikeyUsersREC](https://github.com/MikeyUsersREC)" />
                 </StackPanel>
             </controls:Expander>
 
