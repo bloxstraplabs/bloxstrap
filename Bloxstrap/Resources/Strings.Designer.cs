@@ -2730,7 +2730,34 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Integrations.Custom.AppLocation", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Run on specific games.
+        /// </summary>
+        public static string Menu_Integrations_Custom_SpecifyGame {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.SpecifyGame", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Game ID.
+        /// </summary>
+        public static string Menu_Integrations_Custom_GameID {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.GameID", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Auto close when game closes.
+        /// </summary>
+        public static string Menu_Integrations_Custom_AutoCloseOnGame {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Custom.AutoCloseOnGame", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Auto close when Roblox closes.
         /// </summary>

@@ -689,6 +689,15 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>
   </data>
+  <data name="Menu.Integrations.Custom.SpecifyGame" xml:space="preserve">
+    <value>Run on a specific game</value>
+  </data>
+  <data name="Menu.Integrations.Custom.GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoCloseOnGame" xml:space="preserve">
+    <value>Auto close when the game closes</value>
+  </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Auto close when Roblox closes</value>
   </data>
