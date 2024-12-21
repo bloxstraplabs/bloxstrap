@@ -27,7 +27,7 @@ namespace Bloxstrap
             { "cs", "Čeština" }, // Czech
             { "de", "Deutsch" }, // German
 #if QA_BUILD
-            { "dk", "Dansk" }, // Danish
+            { "da", "Dansk" }, // Danish
 #endif
             { "es-ES", "Español" }, // Spanish
 #if QA_BUILD
