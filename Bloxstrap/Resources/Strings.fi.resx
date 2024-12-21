@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox on tällä hetkellä käynnissä, ja toisen instanssin käynnistäminen tulee sulkemaan aiemman. Oletko varma, että haluat jatkaa?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Jokin todennäköisesti estää Bloxstrapia yhdistämästä internetiin.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox saattaa olla tällä hetkellä alhaalla. Katso {0} saadaksesi lisätietoja.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Yhteys aikakatkaistiin, mikä voisi merkitä huonoa internetyhteyttä tai palomuurin estoa.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Yhteyttä ei voitu luoda, mikä todennäköisesti merkitsee huonoa internetyhteyttä tai palomuurin estoon. Jos yhteytesi on kunnossa, varmista, ettei virustentorjuntasi estä Bloxstrapia.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Sinun pitää asentaa Bloxstrap ennen poistamista.</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap poistettiin onnistuneesti</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox on auki juuri nyt, mutta sen täytyy olla suljettu ennen Bloxstrapin poistamista. Haluatko sulkea Robloxin nyt?</value>
+    <value>Roblox on tällä hetkellä käynnissä, mutta se pitää sulkea ennen Bloxstrapin poistamista. Haluatko sulkea Robloxin nyt?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox vaatii Windows Media Foundation -komponentit. Sinulla ei näytä olevan niitä, todennäköisesti koska käytät N-versiota Windowsista. Asenna ne ensin, ja sitten käynnistä Roblox.</value>
@@ -717,7 +714,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Konfiguroi ylimääräisiä toimintoja Robloxin rinnalle.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox sulkeutuu täysin, kun poistut pelistä sen sijaan, että pistäisi sinut takaisin sovellukseen.</value>
+    <value>Roblox sulkeutuu täysin, kun poistut pelistä sen sijaan, että palaisi takaisi sovellukseen. [Rikkoo joitakin asioita!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Älä poistu työpöytäsovellukseen</value>
@@ -757,7 +754,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Valitse fontti...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Fonttikokoa voi säätää Fast Flags -välilehdellä.</value>
+    <value>Fonttikokoa voi säätää Pelimoottorin asetukset -välilehdellä.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Valitsemasi tiedosto ei näytä olevan fonttitiedosto.</value>
@@ -906,6 +903,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON-tiedostot</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Merkintä flagille '{0}' ei kelpaa, koska arvon pitää olla totuusarvomuuttuja (joko 'True' tai 'False')</value>
@@ -1104,7 +1102,9 @@ Oletko varma, että tahdot jatkaa?</value>
     <value>Roblox on kaatunut.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Ole hyvä ja lue seuraava aputieto, joka avautuu selaimeesi, kun suljet tämän dialogin.</value>
+    <value>Saadaksesi tietoa siitä, miksi tämä saattaisi tapahtua ja kuinka sen voi ratkaista, lue [tämä ohjeartikkeli}({0}).
+
+Tarkista, toimiiko Roblox [alkuperäisellä käynnistysohjelmalla]({1}). Jos ei, tämä ei ole vika Bloxstrapissa. Jos toimii, viittaa ohjeartikkeliin.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Dataa ei voitu ladata verkkovirheen vuoksi.</value>
@@ -1116,7 +1116,8 @@ Oletko varma, että tahdot jatkaa?</value>
     <value>Tukijat</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Nämä ovat ihmiset, ketkä tukevat Bloxstrapia tällä hetkellä [Ko-fi]({0}):n kautta. Suuret kiitokset kaikille, ketkä ovat tässä!</value>
+    <value>Nämä henkilöt ovat tukeneet Bloxstrapia Ko-fin kautta. Suuret kiitokset kaikille, ketkä olevat tässä!
+Jokainen henkilö tässä on sijoitettu kokonaislahjoituksensa mukaisesti.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Asetuksiasi ei voitu ladata. Ne on palatutettu oletuksiin.</value>
@@ -1228,12 +1229,42 @@ Haluaisitko ottaa testaustilan käyttöön?</value>
     <value>Asentaa</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Tue meitä Ko-fi:ssa!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Kuvakkeet</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Käynnistä Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Versio {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap yritti päivittää Robloxin, mutta ei voi, koska Robloxin tiedostot ovat vielä käytössä.
+
+Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja käynnistä Bloxstrap sitten uudelleen.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip-arkisto</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Vie</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Vie diagnostiikkadata</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Kerää tietoja, joita voi ladata verkkoon kokemasi ongelman vianmäärityksen takia.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrapin konfiguraatio</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Kaikki Bloxstrapin lokit</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

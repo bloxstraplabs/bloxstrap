@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 當前正在運行，開啟另一個窗口將會關掉它。您確定要繼續開啟嗎？</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>可能有東西正在阻止 Bloxstrap 去連接網路。</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox 的伺服器可能已經炸了。請參考 {0} 來了解更多資訊。</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>連接超時。這可能是因為較差的網路或被防火牆阻止連線。</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>無法連線，這可能是因為您的網路問題或者是防火牆設定，如果您的網路連線沒問題，請確認你的防毒軟體沒有干預 Bloxstrap 的網路權限。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>您要先安裝Bloxstrap才能解除安裝。</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap解除安裝成功</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox正在運行中，刪除Bloxstrap之前需要關閉Roblox，你確定要現在關閉Roblox嗎？</value>
+    <value>Roblox 正在運行中，但在解除安裝 Bloxstrap 之前，你必須先關閉 Roblox，請問你現在要關閉 Roblox 嗎？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>似乎您的系統缺少Windows媒體基礎元件，這很大機會是你的Windows作業系統是N版本，請先安裝它然後再開啟Roblox。</value>
@@ -698,7 +695,7 @@
     <value>在這裡，你可以讓其他程式和Roblox一起啟動。</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>目標參數</value>
+    <value>啟動參數</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
     <value>Roblox 正在運行！</value>
@@ -716,7 +713,8 @@
     <value>設定Roblox的附設功能。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>當你離開遊戲時，Roblox會直接關閉而不是返回主介面。</value>
+    <value>當你離開遊戲時，Roblox 將會完全關閉；而不是讓您退回到主界面。
+[將會讓某些功能無法正常運作！]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>不要在離開遊戲後返回主介面</value>
@@ -756,7 +754,7 @@
     <value>選擇字體...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>字體大小可在Fast Flags欄內修改。</value>
+    <value>字體大小可在 “引擎設定” 中進行調整。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>你選擇的文件不是一個有效的字體文件。</value>
@@ -905,6 +903,7 @@
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON 文件</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>'{0}'的條目無效；內容必須是布林值 ('True' 或 'False')</value>
@@ -1103,7 +1102,10 @@ Bloxstrap 安裝在 "{1}"。</value>
     <value>Roblox 已崩潰。</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>請閱讀以下幫助資訊，關閉此對話框後，它將在您的瀏覽器中打開。</value>
+    <value>有關此錯誤發生的原因及解決方法，請參閱 [此幫助頁]({0})。
+
+請檢查 Roblox 是否能在 [原版啟動器]({1}) 中執行。
+如果不能，則這不是 Bloxstrap 的問題；如果可以，那麼請參閱幫助頁面以為您除錯。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>由於網絡錯誤，無法載入數據。</value>
@@ -1115,7 +1117,8 @@ Bloxstrap 安裝在 "{1}"。</value>
     <value>贊助者</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>這是目前通過 [Ko-fi]({0}) 支持 Bloxstrap 的人。非常感激不盡！</value>
+    <value>這些是使用 Ko-fi 來支持 Bloxstrap 的贊助者們；在此由衷感謝每一個協助 Bloxstrap 發展的贊助者們！
+（在此處的人都按其總捐款額來排名）</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>無法載入您的設置 。它們已被重設為默認設置。</value>
@@ -1179,6 +1182,10 @@ Bloxstrap 安裝在 "{1}"。</value>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>提取 Roblox 圖示到資料夾</value>
   </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>啟用此選項後將會在 Bloxstrap 安裝根目錄上創建一個名為 “Icons” 的資料夾。
+（此選項允許您獲取 Roblox 圖示文件以便快捷應用於捷徑）[如何使用？]({0})</value>
+  </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap 無法寫入進 Windows 登錄檔。可能是防毒軟體干擾並導致問題。請檢查是否有任何會限制 Bloxstrap 操作的應用程式。</value>
   </data>
@@ -1224,12 +1231,42 @@ Bloxstrap 安裝在 "{1}"。</value>
     <value>安裝</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>在 Ko-fi 上支持我們！</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>圖示</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>啟動 Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>版本 {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap 目前無法更新 Roblox；因為當前 Roblox 的文件被其他佔用。
+
+請關閉任何可能正在使用 Roblox 程式文件的應用程式，然後重新啟動 Bloxstrap。</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip 壓縮檔</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>導出</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>導出診斷數據</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>收集可以上傳到網際網路的記錄檔，以便排查您所遇到的問題。</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap 設定</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>所有 Bloxstrap 記錄檔</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

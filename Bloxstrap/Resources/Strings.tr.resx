@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox şu anda çalışıyor ve başka bir istemcinin başlatılması onu kapatacaktır. Başlatmak istediğinizden emin misiniz?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Muhtemelen bir şey Bloxstrap'ın internet'e bağlanmasına engel oluyor.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox'un sunucuları şu an çökmüş olabilir. Daha fazla bilgi için {0} göz atın.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Bağlantı zaman aşımına uğradı, bu da zayıf bir internet bağlantısının veya bir güvenlik duvarı engelinin işareti olabilir.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Herhangi bir bağlantı sağlanılamadı, bu da zayıf bir internet bağlantısının veya bir güvenlik duvarı engelinin işareti olabilir. Eğer bağlantınızda bir sorun yoksa, lütfen antivirüs yazılımınızın Bloxstrap'ı engellemediğinden emin olun.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Bloxstrap'i silmek için ilk önce kurmalısınız.</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap başarıyla kaldırıldı</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox şu anda çalışıyor, ancak Bloxstrap'i kaldırılması için Robloxun kapatılması gerekiyor. Şimdi kapatmak ister misiniz?</value>
+    <value>Roblox şu an çalışıyor, ancak Bloxstrap'ı kaldırmak için kapalı olması gerekiyor. Roblox'u şimdi kapatmak ister misiniz?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Büyük ihtimalle Windows'un N sürümünü kullandığınız için Windows Media Foundation bileşenleri eksik olabilir ve bu yüzden Roblox'u açamıyor olabilirsiniz. Lütfen bu bileşenleri kurun ve ardından Roblox'u tekrar başlatın.</value>
@@ -716,7 +713,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Roblox'a eşlik edecek ek işlevleri ayarlayın.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox, bir oyundan çıktığınızda sizi uygulamaya geri bırakmak yerine tamamen kapanacaktır.</value>
+    <value>Bir oyundan çıktığınızda uygulamaya geri dönmek yerine Roblox tamamen kapanacaktır. [Bazı şeyleri bozacaktır!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Masaüstü uygulamasına çıkma</value>
@@ -756,7 +753,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Yazı tipi seçiniz...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Yazı tipi boyutu Fast Flag'lar sekmesinde ayarlanabilir.</value>
+    <value>Yazı tipi boyutu Motor Ayarları sekmesinde ayarlanabilir.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Seçtiğiniz dosya geçerli bir yazı tipi dosyası gibi görünmüyor.</value>
@@ -905,6 +902,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON dosyaları</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>'{0}' girişi geçerli değildir, değeri boolean olmalıdır ('True' yada 'False')</value>
@@ -1101,7 +1099,9 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
     <value>Roblox çöktü.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Lütfen bu diyaloğu kapattığınızda web tarayıcınızda açılacak yardım bilgisini okuyun.</value>
+    <value>Bunun neden yaşandığı ve nasıl çözüleceğine dair bilgi için lütfen [bu yardım makalesini]({0}) okuyun.
+
+Roblox'un [asıl başlatıcı]({1}) ile çalışıp çalışmadığına göz atın. Eğer çalışmıyorsa, o zaman bu bir Bloxstrap sorunu değildir. Eğer çalışıyorsa, lütfen yardım makalesine bakın.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Bir bağlantı sorunu nedeniyle veri yüklenemedi.</value>
@@ -1113,7 +1113,8 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
     <value>Destekçiler</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Burada listelenen kişiler şu anda Bloxstrap'ı [Ko-fi]({0}) üzerinden destekliyor. Buradaki herkese çok teşekkürler!</value>
+    <value>Bu kişiler, Bloxstrap'ı Ko-fi üzerinden destekleyen kişilerdir. Burada ki herkese çok teşekkürler!
+Buradaki herkes genel vaatlerine göre sıralanmıştır.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Ayarlarınız yüklenemedi. Ayarlarınız varsayılan yapılandırmaya sıfırlandı.</value>
@@ -1181,7 +1182,7 @@ Lütfen manuel olarak yükleme yolundan Bloxstrap.exe'yi silin veya sisteminizi 
     <value>Kısayollarınız için Bloxstrap'ın çeşitli Roblox simgelerini kullanmanızı sağlar. [Nasıl olduğunu görün.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap Windows Kayıt Defterine yazamıyor. Bir antivirüs yazılımı muhtelemen müdahale ediyor ve sorunlara neden oluyor. Lütfen Bloxstrap'ın operasyonunu sınırlayan bir şeyin olmadığını kontrol edin.</value>
+    <value>Bloxstrap Windows Kayıt Defterine yazamıyor. Bir antivirüs yazılımı muhtemelen müdahale ediyor ve sorunlara neden oluyor. Lütfen Bloxstrap'ın operasyonunu sınırlayan bir şeyin olmadığını kontrol edin.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Aylık</value>
@@ -1225,12 +1226,42 @@ Test modu açmak ister misiniz?</value>
     <value>Yükle</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Bizi Ko-fi üzerinden destekleyin!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Simgeler</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studio'u başlat</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Sürüm {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap Roblox'u yükseltmeye çalıştı ancak başaramadı çünkü Roblox'un dosyaları hâlâ kullanımda.
+
+Lütfen Roblox'un dosyalarını kullanabilecek olan uygulamaları kapatın, ve tekrar başlatın.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip arşivi</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Dışarı aktar</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Tanısal veriyi dışarı aktar</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Yaşadığınız bir sorunu onarmak için çevrimiçi yüklenebilen bilgi toplayın.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap yapılandırması</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Tüm Bloxstrap kayıtları</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

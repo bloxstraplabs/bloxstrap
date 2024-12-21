@@ -15,61 +15,62 @@ namespace Bloxstrap
             { "nil", Strings.Common_SystemDefault },
             { "en", "English" },
             { "en-US", "English (United States)" },
-            { "ar", "العربية" },
-            { "bg", "Български" },
 #if QA_BUILD
-            { "bn", "বাংলা" },
-            { "bs", "Bosanski" },
+            { "sq", "Albanian" }, // Albanian (TODO: translate string)
+            { "ar", "العربية" }, // Arabic
 #endif
-            { "cs", "Čeština" },
-            { "de", "Deutsch" },
+            { "bg", "Български" }, // Bulgarian
 #if QA_BUILD
-            { "dk", "Dansk" },
+            { "bn", "বাংলা" }, // Bengali
+            { "bs", "Bosanski" }, // Bosnian
 #endif
-            { "es-ES", "Español" },
+            { "cs", "Čeština" }, // Czech
+            { "de", "Deutsch" }, // German
 #if QA_BUILD
-            { "el", "Ελληνικά" },
-            { "fa", "فارسی" },
+            { "dk", "Dansk" }, // Danish
 #endif
-            { "fi", "Suomi" },
+            { "es-ES", "Español" }, // Spanish
 #if QA_BUILD
-            { "fil", "Filipino" },
+            { "el", "Ελληνικά" }, // Greek
 #endif
-            { "fr", "Français" },
-            { "he", "עברית‎" },
+            { "fa", "فارسی" }, // Persian
+            { "fi", "Suomi" }, // Finnish
+            { "fil", "Filipino" }, // Filipino
+            { "fr", "Français" }, // French
 #if QA_BUILD
-            { "hi", "Hindi (Latin)" },
+            { "he", "עברית‎" }, // Hebrew
+            { "hi", "Hindi (Latin)" }, // Hindi
 #endif
-            { "hr", "Hrvatski" },
-            { "hu", "Magyar" },
+            { "hr", "Hrvatski" }, // Croatian
+            { "hu", "Magyar" }, // Hungarian
+            { "id", "Bahasa Indonesia" }, // Indonesian
+            { "it", "Italiano" }, // Italian
+            { "ja", "日本語" }, // Japanese
 #if QA_BUILD
-            { "id", "Bahasa Indonesia" },
+            { "ko", "한국어" }, // Korean
 #endif
-            { "it", "Italiano" },
-            { "ja", "日本語" },
+            { "lt", "Lietuvių" }, // Lithuanian
+            { "ms", "Malay" }, // Malay
 #if QA_BUILD
-            { "ko", "한국어" },
+            { "nl", "Nederlands" }, // Dutch
+            { "no", "Bokmål" }, // Norwegian
 #endif
-            { "lt", "Lietuvių" },
-            { "ms", "Malay" },
+            { "pl", "Polski" }, // Polish
+            { "pt-BR", "Português (Brasil)" }, // Portuguese, Brazilian
+            { "ro", "Română" }, // Romanian
+            { "ru", "Русский" }, // Russian
 #if QA_BUILD
-            { "nl", "Nederlands" },
-            { "no", "Bokmål" },
+            { "sv-SE", "Svenska" }, // Swedish
+            { "th", "ภาษาไทย" }, // Thai
 #endif
-            { "pl", "Polski" },
-            { "pt-BR", "Português (Brasil)" },
-            { "ro", "Română" },
-            { "ru", "Русский" },
-            { "sv-SE", "Svenska" },
-            { "th", "ภาษาไทย" },
-            { "tr", "Türkçe" },
-            { "uk", "Українська" },
-            { "vi", "Tiếng Việt" },
-            { "zh-CN", "中文 (简体)" },
+            { "tr", "Türkçe" }, // Turkish
+            { "uk", "Українська" }, // Ukrainian
+            { "vi", "Tiếng Việt" }, // Vietnamese
+            { "zh-CN", "中文 (简体)" }, // Chinese Simplified
 #if QA_BUILD
-            { "zh-HK", "中文 (廣東話)" },
+            { "zh-HK", "中文 (廣東話)" }, // Chinese Traditional, Hong Kong
 #endif
-            { "zh-TW", "中文 (繁體)" }
+            { "zh-TW", "中文 (繁體)" } // Chinese Traditional
         };
 
         public static string GetIdentifierFromName(string language) => SupportedLocales.FirstOrDefault(x => x.Value == language).Key ?? "nil";

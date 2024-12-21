@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Robloxは現在実行中です。新しくゲームを開く場合、もとのゲームは終了します。本当に開きますか？</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>何らかの原因でBloxstrapはインターネット接続を制限されています。</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Robloxにサーバー障害が発生している可能性があります。{0}より詳細な情報を確認できます。</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>インターネット接続がタイムアウトしました。インターネット回線が不安定、またはファイアウォールによるブロックの可能性があります。</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>接続できませんでした。これは、インターネット接続が不安定、またはファイアウォールによるブロックが原因の可能性があります。接続に問題がない場合は、ウイルス対策ソフトがBloxstrapをブロックしていないか確認してください。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Bloxstrapをアンインストールする前に、インストールする必要があります。</value>
@@ -161,10 +158,10 @@
     <value>{product}を更新中...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Bloxstrapの最新版を取得しています...</value>
+    <value>Bloxstrapの最新版を取得中...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>他のインスタンスを待機しています...</value>
+    <value>他のインスタンスを待機中...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
     <value>プレビュー中 - 右上の✕ボタンで閉じます</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrapがアンインストールされました。</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>BloxstrapをアンインストールするためにはRobloxを終了する必要があります。Robloxを終了しますか？</value>
+    <value>Robloxが現在実行中です。Bloxstrapをアンインストールする前に終了する必要があります。今すぐRobloxを終了しますか？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションを利用している場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
@@ -575,7 +572,7 @@
     <value>クリップボードにコピーしました。</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>多くの設定が含まれるFlag設定をインポートしようとしています。内容を理解している場合のみ行ってください。内容を理解せずに他人が配布したものをインポートすることは"絶対に"やめてください。
+    <value>大量の設定が含まれるFastFlagをインポートしようとしています。内容を理解している場合のみ行ってください。内容を理解せずに他人が配布したものをインポートすることは"絶対に"やめてください。
 続行する場合、動作が不安定になったり、予期していないことに繋がる可能性があります。
 
 本当に続行しますか？</value>
@@ -723,7 +720,7 @@
     <value>Robloxと連携する機能を設定できます。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>ゲーム退出時にデスクトップアプリが表示されないようにします。</value>
+    <value>ゲーム退出時にデスクトップアプリを表示せず、完全に終了します。 [一部の機能が利用できなくなります。]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>デスクトップアプリを無効化</value>
@@ -763,7 +760,7 @@
     <value>フォントを選択...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>FastFlagタブでフォントサイズを調整できます。</value>
+    <value>フォントサイズは「エンジン設定」タブで調整できます。</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>選択したファイルは有効なフォントファイルではありません。</value>
@@ -912,6 +909,7 @@
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSONファイル</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>値が無効です。このFlag「{0}」の値は真偽値である必要があります。("True"または"False")</value>
@@ -1053,7 +1051,8 @@ Bloxstrapのインストール場所: {1}</value>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>最初に[Bloxstrap Wiki]({0})で解決策がないか確認してください。
 
-解決策が見つからない場合は、エラーをこのフォークのメンテナーに報告してください。絶対に公式版BloxstrapのGitHub issuesに投稿しないでください。このBloxstrapは非公式版です。</value>
+解決策が見つからない場合は、エラーをこのフォークのメンテナーに報告してください。絶対に公式版BloxstrapのGitHub issuesに投稿しないでください。
+このBloxstrapは非公式版です。</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1115,7 +1114,9 @@ Bloxstrapのインストール場所: {1}</value>
     <value>Robloxがクラッシュしました</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>この画面を閉じた後に、ブラウザで表示されるヘルプを確認してください。</value>
+    <value>このエラーが発生する理由や解決方法については、[ヘルプ記事]({0})をお読みください。 
+
+Robloxが[正規のランチャー]({1})で動作するか確認してください。それでも動作しない場合は、このエラーはBloxstrapが原因ではありません。正規のランチャーで動作する場合は、ヘルプ記事をご覧ください。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>ネットワークエラーにより、データの読み込みに失敗しました。</value>
@@ -1127,7 +1128,7 @@ Bloxstrapのインストール場所: {1}</value>
     <value>支援</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>[Ko-fi]({0})を通じてBloxstrapの開発を支援している方々です。厚いご支援ありがとうございます！</value>
+    <value>Ko-fiを通じてBloxstrapの開発を支援した方々です(寄付額順)。厚いご支援ありがとうございます！</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>設定の読み込みに失敗しました。デフォルト設定にリセットされます。</value>
@@ -1195,7 +1196,7 @@ Bloxstrapのインストール場所: {1}</value>
     <value>Bloxstrapのショートカットアイコンとして使用できるようにします。[詳細はこちら]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Windowsレジストリに書き込むことができません。アンチウイルスソフトが干渉している可能性があります。 Bloxstrapの動作を制限するものがないか確認してください。</value>
+    <value>Windowsレジストリに書き込むことができません。ウイルス対策ソフトが干渉している可能性があります。 Bloxstrapの動作を制限するものがないか確認してください。</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>定期支援</value>
@@ -1240,12 +1241,42 @@ Bloxstrapのインストール場所: {1}</value>
     <value>インストール</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Ko-fiで支援する</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>アイコン</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studioを起動</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Ver. {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Robloxのアプリファイルが使用中のため、Robloxを更新できませんでした。
+
+Robloxのアプリファイルを使用している可能性のあるアプリを閉じて、もう一度お試しください。</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>zip 形式</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>診断データをエクスポートする</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>問題解決のために、オンライン上に投稿できる情報を収集することができます。</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrapの設定</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>すべてのBloxstrapログ</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>
