@@ -46,9 +46,7 @@ namespace Bloxstrap
             { "id", "Bahasa Indonesia" }, // Indonesian
             { "it", "Italiano" }, // Italian
             { "ja", "日本語" }, // Japanese
-#if QA_BUILD
             { "ko", "한국어" }, // Korean
-#endif
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
 #if QA_BUILD
