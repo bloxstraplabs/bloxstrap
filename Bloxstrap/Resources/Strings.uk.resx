@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox вже запущено, і запуск нового сеансу призведе до його завершення. Ви впевнені, що хочете продовжити запуск?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Ймовірно, щось заважає Bloxstrap приєднатися до інтернету.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox може зараз не працювати. Дивіться {0} для отримання додаткової інформації.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Час з'єднання вичерпано, що може вказувати на погане інтернет-з'єднання або блокування брандмауером.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Не вдалося встановити з'єднання, що, ймовірно, свідчить про погане інтернет з'єднання або блокування брандмауером. Якщо ваше з'єднання в нормі, переконайтеся, що ваш антивірус не блокує Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Ви маєте спочатку встановити Bloxstrap, перед його видаленням.</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap було успішно деінстальовано</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Перед деінсталяцією Bloxstrap необхідно закрити Roblox. Бажаєте зараз закрити Roblox?</value>
+    <value>Roblox зараз запущений, але має закритись перед видаленням Bloxstrap. Хочете зараз закрити Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox вимагає використання компонентів Windows Media Foundation. Схоже що вони відсутні, ймовірно, тому що ви використовуєте видання Windows N. Будь ласка, спочатку встановіть їх, а потім запустіть Roblox.</value>
@@ -714,7 +711,7 @@
     <value>Налаштуйте додатковий функціонал для Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox повністю закривається, коли ви виходите з гри, а не повертає вас назад у додаток.</value>
+    <value>Roblox буде повністю закрито, коли ви вийдете з гри замість застосунку. [Може наробити бід!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Не виходити в десктопний додаток</value>
@@ -754,7 +751,7 @@
     <value>Оберіть шрифт...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Розмір шрифту можна змінювати в меню Fast Flags.</value>
+    <value>Розмір шрифту можна змінити на вкладці "Налаштування движка".</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Вибраний вами файл не є правильним файлом шрифту.</value>
@@ -903,6 +900,7 @@
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>Файли JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Введення '{0}' є недійсним, оскільки значення має бути логічним (або 'True', або 'False')</value>
@@ -1101,7 +1099,9 @@ Bloxstrap встановлено на "{1}".</value>
     <value>Roblox аварійно завершив роботу.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Будь ласка, прочитайте наступну довідкову інформацію, яка відкриється у вашому веб-браузері після закриття цього діалогу.</value>
+    <value>Ви можете пошукати інформацію чому це відбувається і як це можна вирішити в цьому допоміжному посібнику({0}).
+
+Перевірте, чи працює Roblox з оригінальним лаунчером({1}). Якщо так, тоді перегляньте посібник. Якщо ні, тоді це не проблема Bloxstrap.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Не вдалося завантажити дані через помилку мережі.</value>
@@ -1113,7 +1113,8 @@ Bloxstrap встановлено на "{1}".</value>
     <value>Підтримка</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Це люди, які наразі підтримують Bloxstrap через [Ko-fi]({0}). Велика подяка всім тут!</value>
+    <value>Це люди, які підтримали Bloxstrap грошима через сервіс Ko-fi. Велике вам всім дякую!
+Кожна людина тут аранжована за загальною сумою донатів.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Ваші налаштування не вдалося завантажити. Вони були скинуті до стандартної конфігурації.</value>
@@ -1225,12 +1226,42 @@ Bloxstrap встановлено на "{1}".</value>
     <value>Встановити</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Підтримайте нас на Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Іконки</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Запустити Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Версія {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap намагався оновити Roblox, але не може, тому що файли Roblox все ще у використанні.
+
+Будь ласка, закрийте застосунки, які можуть використовувати файли Roblox і перезапустіться.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Архів Zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Експорт</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Експортувати діагностичні дані</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Зберіть інформацію, яку можна завантажити онлайн для усунення неполадок, які у вас є.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Налаштування Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Всі журнали Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

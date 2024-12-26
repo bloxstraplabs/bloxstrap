@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Aplikasi Roblox sedang berjalan, membukanya sekali lagi akan menutup aplikasi tersebut. Adakah anda pasti ingin meneruskannya?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Kemungkinan ada sesuatu yang menghalang Bloxstrap daripada menyambung ke internet.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox mungkin mengalami masalah sekarang. Lihat {0} untuk maklumat lanjut. Sila cuba sebentar lagi.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Sambungan anda telah tamat masa, yang mungkin menunjukkan bahawa sambungan internet anda yang lemah atau terdapat sekatan firewall.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Sambungan tidak dapat dibuat, berkemungkinan disebabkan oleh sambungan internet yang lemah atau sekatan oleh tembok api. Jika sambungan internet anda baik, pastikan perisian antivirus anda tidak menyekat Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Anda seharunys memasang Bloxstrap terlebih dahulu sebelum membuangnya.</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap telah berjaya dinyahpasang</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Aplikasi Roblox sedang berjalan, aplikasi hendaklah ditutup terlebih dahulu sebelum menyahpasang Bloxstrap. Adakah anda ingin menutup Roblox sekarang?</value>
+    <value>Roblox sedang berjalan dan perlu ditutup sebelum Bloxstrap dapat dinyahpasang. Adakah anda ingin menutup Roblox sekarang?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Rolox memerlukan komponen Windows Media Foundation. Kelihatan seperti anda tidak memilikinya kerana anda sedang menggunakan Windows versi N. Tolong memuat turun komponen tersebut sebelum membuka aplikasi Roblox.</value>
@@ -714,7 +711,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Konfigurasi fungsi tambahan yang akan digunakan bersama dengan Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox akan ditutup sepenuhnya selepas anda meninggalkan permainan, tanpa membawa anda semula ke aplikasi.</value>
+    <value>Roblox akan ditutup sepenuhnya selepas anda meninggalkan permainan, tanpa membawa anda semula ke aplikasi. [Ini mungkin akan menyebabkan beberapa masalah!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Jangan kembalikan saya ke aplikasi desktop</value>
@@ -754,7 +751,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Pilih font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Saiz font boleh dilaraskan dalam tab "Fast Flags".</value>
+    <value>Saiz font boleh dilaraskan dalam tab tetapan enjin.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Fail yang anda pilih merupakan fail font yang tidak sah.</value>
@@ -903,6 +900,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>Fail JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Entri untuk '{0}' tidak sah kerana nilainya mestilah dalam boolean (sama ada 'True' atau 'False')</value>
@@ -1098,7 +1096,8 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
     <value>Roblox telah mengalami ralat.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Sila baca maklumat bantuan berikut, yang akan dibuka di pelayar web anda apabila anda menutup dialog ini.</value>
+    <value>Untuk mengetahui punca masalah ini berlaku dan cara mengatasinya, sila rujuk [artikel bantuan] ini ({0}).
+Periksa sama ada Roblox berfungsi dengan [pelancar asal] ({1}). Jika tidak, ini bermaksud masalah tersebut tidak berkaitan dengan Bloxstrap. Jika ia berfungsi, sila rujuk semula artikel bantuan tersebut.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Data tidak dapat dimuat kerana ralat pada rangkaian.</value>
@@ -1110,7 +1109,8 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
     <value>Sokongan</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Berikut adalah individu yang sedang memberikan sokongan kepada Bloxstrap melalui [Ko-fi]({0}). Jutaan terima kasih kepada semua yang berada di sini!</value>
+    <value>Ini adalah individu yang telah menyokong Bloxstrap melalui Ko-fi. Terima kasih yang tidak terhingga kepada semua di sini!
+Setiap yang disenaraikan disini adalah mengikut jumlah sumbangan keseluruhan mereka.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Terdapat masalah dalam memuat tetapan anda. Ia telah di set semula kepada konfigurasi asal.</value>
@@ -1220,12 +1220,41 @@ Adakah anda ingin mengaktifkan mod pengujian?</value>
     <value>Pasang</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Dukung kami di Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Ikon</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Lancarkan Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Versi {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap cuba menaik taraf Roblox tetapi gagal kerana fail Roblox sedang digunakan.
+Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Arkib zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Eksport</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Eksport data diagnostik</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Mengumpul maklumat yang akan dimuat naik untuk membantu menyelesaikan masalah yang anda hadapi.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Konfigurasi Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Semua log Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

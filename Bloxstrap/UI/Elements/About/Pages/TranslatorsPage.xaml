@@ -8,7 +8,7 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d"
-      d:DesignHeight="1500" d:DesignWidth="800"
+      d:DesignHeight="2500" d:DesignWidth="800"
       Title="AboutPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
@@ -123,16 +123,6 @@
                 <TextBlock Text="Urzy" />
                 <TextBlock Text="ZakaHaceCosas" />
 
-                <!--<TextBlock Text="Filipino" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
-                <TextBlock Text="alphjectiom" />
-                <TextBlock Text="FlaminDaPotato" />
-                <TextBlock Text="RobiTheRobloxxer" />
-                <TextBlock Text="shadow01148" />-->
-
                 <TextBlock Text="Français" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -166,6 +156,27 @@
                 <TextBlock Text="Sur_" />
                 <TextBlock Text="Tezos" />
                 <TextBlock Text="TheTakuo" />-->
+
+                <TextBlock Text="Bahasa Indonesia" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="hfzrk" />
+                <TextBlock Text="e7leo" />
+                <TextBlock Text="SoudBlox" />
+                <TextBlock Text="Nayottamaa" />
+                <TextBlock Text="rifirsyad" />
+                <TextBlock Text="AriaP" />
+                <TextBlock Text="Linerly" />
+                <TextBlock Text="Merpglerp" />
+                <TextBlock Text="niluhfitriani4" />
+                <TextBlock Text="User_425" />
+                <TextBlock Text="senzore" />
+                <TextBlock Text="nabbyowo" />
+                <TextBlock Text="cavclyde" />
+                <TextBlock Text="rafaderren" />
+                <TextBlock Text="BeaconPower" />
             </StackPanel>
 
             <StackPanel Grid.Column="1">
@@ -288,6 +299,27 @@
                 <TextBlock Text="retromaxwell" />
                 <TextBlock Text="SomePinglord" />
                 <TextBlock Text="xxsheepx" />
+
+                <TextBlock Text="Filipino" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="SilentBearPH" />
+                <TextBlock Text="faxixing" />
+                <TextBlock Text="shadow01148" />
+                <TextBlock Text="Reyvenosaur" />
+                <TextBlock Text="RobiTheRobloxer" />
+                <TextBlock Text="alphjection" />
+                <TextBlock Text="FlaminDaPotato" />
+                <TextBlock Text="Noblefrix" />
+                <TextBlock Text="pureyourself123" />
+                <TextBlock Text="tgyt.random" />
+                <TextBlock Text="holloweenowl" />
+                <TextBlock Text="skappa" />
+                <TextBlock Text="Wantonpres" />
+                <TextBlock Text="hankskyjames777" />
+                <TextBlock Text="ElectricPH" />
             </StackPanel>
 
             <StackPanel Grid.Column="2">
@@ -423,7 +455,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3">
-                <TextBlock Text="עברית" FontSize="16" FontWeight="Medium">
+                <!--<TextBlock Text="עברית" FontSize="16" FontWeight="Medium">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
@@ -431,9 +463,9 @@
                 <TextBlock Text="1cur1" />
                 <TextBlock Text="ilan0098" />
                 <TextBlock Text="koerga" />
-                <TextBlock Text="Sezei" />
+                <TextBlock Text="Sezei" />-->
 
-                <TextBlock Text="العربية" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                <TextBlock Text="العربية" FontSize="16" FontWeight="Medium">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
@@ -475,15 +507,24 @@
                 <TextBlock Text="Sem1z" />
                 <TextBlock Text="xAom" />
 
-                <!--<TextBlock Text="한국어" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                <TextBlock Text="한국어" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="ADVI50R" />
-                <TextBlock Text="asd123456fghqwerty" />
                 <TextBlock Text="bacon1295" />
-                <TextBlock Text="NightPlay" /-->
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="NightPlay" />
+                <TextBlock Text="luz3n" />
+                <TextBlock Text="NoUserName" />
+                <TextBlock Text="hellta" />
+                <TextBlock Text="swaggytendencies" />
+                <TextBlock Text="oprx64" />
+                <TextBlock Text="Star_Moon" />
+                <TextBlock Text="asd123456fghqwerty" />
+                <TextBlock Text="ADVI50R" />
+                <TextBlock Text="xsinew" />
+                <TextBlock Text="sk92376053" />
 
                 <TextBlock Text="中文 (简体)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -531,6 +572,35 @@
                 <TextBlock Text="mtmtyu" />
                 <TextBlock Text="pimeja7" />
                 <TextBlock Text="yixhuaa" />
+
+                <TextBlock Text="فارسی" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="Mvtbh" />
+                <TextBlock Text="sadrakalantari4" />
+                <TextBlock Text="VioletBrains" />
+                <TextBlock Text="ahmadahmadi3312300" />
+
+                <TextBlock Text="Nederlands" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="ydbossz" />
+                <TextBlock Text="Miwwzy" />
+                <TextBlock Text="Flemish" />
+                <TextBlock Text="4Yuri" />
+                <TextBlock Text="pikminmario500" />
+                <TextBlock Text="Quickvision1" />
+                <TextBlock Text="m.arefe69420" />
+                <TextBlock Text="Cosmix" />
+                <TextBlock Text="smarttubed" />
+                <TextBlock Text="SwecII" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="Ardaniho" />
+                <TextBlock Text="LeventGameing" />
             </StackPanel>
         </Grid>
     </StackPanel>
