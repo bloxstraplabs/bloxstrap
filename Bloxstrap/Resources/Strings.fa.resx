@@ -1,0 +1,1270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
+    <value>بلاکسترپ نتوانست خود را به صورت خودکار به نسخه {0} به روزرسانی کند. لطفاً با دانلود و اجرای آن از وب سایت، آن را به صورت دستی به روز کنید.</value>
+  </data>
+  <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
+    <value>روبلاکس در حال اجرا شدن است؛ و باز کردن دوباره آن باعث می‌شود که بسته شود. آیا می خواهید به باز کردن ادامه بدهید؟</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>ممکن است روبلاکس درحال حاضر دردسترس نباشد. {0} را ببینید برای اطلاعات بیشتر.</value>
+  </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>اتصال برقرار نشد، که احتمالاً نشان دهنده اتصال ضعیف اینترنت یا بلاک بودن از فایروال است. اگر اتصال شما خوب است، لطفاً مطمئن شوید که آنتی ویروس شما بلاکسترپ را مسدود نمی کند.</value>
+  </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>شما باید بلاکسترپ را نصب داشته باشید که بتواند آنرا حذف نصب کنید.</value>
+  </data>
+  <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
+    <value>بلاکسترپ فضای کافی برای دانلود و نصب روبلاکس ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
+  </data>
+  <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
+    <value>در حال اعمال کردن تغییرات روبلاکس...</value>
+  </data>
+  <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
+    <value>در حال پیکربندی {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
+    <value>در حال متصل شدن به روبلاکس...</value>
+  </data>
+  <data name="Bootstrapper.Status.Installing" xml:space="preserve">
+    <value>در حال نصب کردن {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Bootstrapper.Status.Starting" xml:space="preserve">
+    <value>{product}در حال شروع کردن {produ{product}ct}...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
+  </data>
+  <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
+    <value>در حال به روز رسانی کردن {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>در حال گرفتن آخرین بلاکسترپ...</value>
+  </data>
+  <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
+    <value>در حال صبر کردن برای موارد دیگر...</value>
+  </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>نمای سبک - روی دکمه ی X در سمت راست بالا برای بستن بزنید</value>
+    <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>پیش نمایش سبک - روی دکمه ی لغو برای بستن بزنید</value>
+    <comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
+  <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
+    <value>بلاکسترپ با موفقیت حذف شد</value>
+  </data>
+  <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
+    <value>روبلاکس در حال اجرا شدن است؛ ولی قبل از حذف نصب بلاکسترپ باید بسته شود. آیا میخواهید روبلاکس را الان بیندید؟</value>
+  </data>
+  <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
+    <value>روبلاکس نیاز به استفاده از اجزای بنیاد رسانه ویندوز می باشد. همانا این‌طور می باشد که آنها را ندارید؛ و ممکن است شما در حال استفاده از نسخهٔ «ن» ویندوز می باشید. اول آنها را نصب کرده، و بعد روبلاکس را اجرا کنید.</value>
+  </data>
+  <data name="Common.AddSingle" xml:space="preserve">
+    <value>اضافه کردن تک</value>
+  </data>
+  <data name="Common.Browse" xml:space="preserve">
+    <value>مرور</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Common.DiscordRichPresence" xml:space="preserve">
+    <value>حضور غنی دیسکورد</value>
+  </data>
+  <data name="Common.Help" xml:space="preserve">
+    <value>کمک</value>
+  </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>وارد كردن جیسون</value>
+  </data>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>باز کردن فایل لاگ</value>
+  </data>
+  <data name="Common.Miscellaneous" xml:space="preserve">
+    <value>متفرقه</value>
+  </data>
+  <data name="Common.Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Common.New" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="Common.No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="Common.OK" xml:space="preserve">
+    <value>خوب</value>
+  </data>
+  <data name="Common.Presets" xml:space="preserve">
+    <value>تنظیمات از پیش تعیین شده</value>
+  </data>
+  <data name="Common.Reset" xml:space="preserve">
+    <value>بازنشانی</value>
+    <comment>In the context of resetting something to a default value</comment>
+  </data>
+  <data name="Common.Value" xml:space="preserve">
+    <value>مقدار</value>
+  </data>
+  <data name="Common.Warning" xml:space="preserve">
+    <value>هشدار</value>
+  </data>
+  <data name="Common.Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="ContextMenu.CloseRoblox" xml:space="preserve">
+    <value>بستن روبلاکس</value>
+  </data>
+  <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
+    <value>آیا مطمئن هستید که می خواهید روبلاکس را ببندید؟ این به زور این روند را پایان می دهد.</value>
+  </data>
+  <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
+    <value>کپی پیوند عمیق دعوت</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
+    <value>کپی کردن شناسه نمونه</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
+    <value>شناسه نمونه</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
+    <value>مکان</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
+    <value>مکان {0}
+برای اطلاعات بیشتر کلیک کنید</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>وصل شدید به سرور همگانی</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
+    <value>اطلاعات سرور</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>نوع</value>
+  </data>
+  <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
+    <value>اضافه کردن فست فلگس</value>
+  </data>
+  <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
+    <value>اطلاعات بیشتر:</value>
+  </data>
+  <data name="Dialog.Connectivity.Title" xml:space="preserve">
+    <value>مشکل اتصال</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
+    <value>بلاکسترپ نمیتواند به {0} وصل شود</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
+  </data>
+  <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
+    <value>کپی اطلاعات لاگ</value>
+  </data>
+  <data name="Dialog.Exception.Info.1" xml:space="preserve">
+    <value>یک مشکل در هنگام اجرای بلاکسترپ رخ داد</value>
+  </data>
+  <data name="Dialog.Exception.Info.2" xml:space="preserve">
+    <value>چک کنید [ویکی بلاکسترپ]({0}) اول ببینید کسی این مشکل را گزارش داده است با فیکس 
+
+اگر نه، لطفا این مشکل را از [مشکلات گیتهاب]({1}) به همراه کپی فایل از لاگ که ساخته شده است گزارش نمایید.</value>
+  </data>
+  <data name="Dialog.Exception.Title" xml:space="preserve">
+    <value>استثنا های بلاکسترپ</value>
+  </data>
+  <data name="Common.Custom" xml:space="preserve">
+    <value>دلخواه</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
+    <value>اوایل 2015</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
+    <value>دیرتر از 2015</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
+    <value>بلاکسترپ (کلاسیک)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
+    <value>بلاکسترپ (شیشه ای)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
+    <value>روبلاکس (~2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
+    <value>ویستا (2008 - 2011)</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (کارتونی)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (زاویه ای)</value>
+  </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>Catmoji</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>پیش فرض (Twemoji)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>ویندوز 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>ویندوز 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>ویندوز 8</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
+    <value>2015 (نسخه اول)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
+    <value>2020 (نسخه دوم)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
+    <value>2023 (نسخه چهارم)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
+    <value>انتخاب توسط بازی</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
+    <value>آینده (فاز سوم)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
+    <value>سایه نقشه (فاز دوم)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
+    <value>وکسل (فاز اول)</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
+    <value>دیرکت سه بعدی ۱۰</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
+    <value>دیرکت سه بعدی ۱۱</value>
+  </data>
+  <data name="Enums.ServerType.Private" xml:space="preserve">
+    <value>سرور شخصی</value>
+  </data>
+  <data name="Enums.ServerType.Public" xml:space="preserve">
+    <value>سرور همگانی</value>
+  </data>
+  <data name="Enums.ServerType.Reserved" xml:space="preserve">
+    <value>سرور محفوظ شده</value>
+  </data>
+  <data name="Enums.Theme.Dark" xml:space="preserve">
+    <value>سیاه</value>
+  </data>
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>روشن</value>
+  </data>
+  <data name="InstallChecker.Updated" xml:space="preserve">
+    <value>بلاکسترپ به ورژن {0} بروزرسانی شد</value>
+  </data>
+  <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
+    <value>ورژن بلاکسترپی که شما باز کردید با نسخه نصب شده فرق میکنید.
+آِیا شما میخواد به این نسخه آپگرید کنید؟</value>
+  </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>مشارکت‌کنندگان</value>
+  </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>کد</value>
+  </data>
+  <data name="Menu.About.Contributors.Description" xml:space="preserve">
+    <value>اینها افرادی هستند که کمک های قابل توجهی به بلاکسترپ کرده اند و آن را که آنچه هست تبدیل کرده اند.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>ایده های قابلیت</value>
+  </data>
+  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
+    <value>سپاس ویژه</value>
+  </data>
+  <data name="Menu.About.Description" xml:space="preserve">
+    <value>یک بوت استرپر جایگزین برای روبلاکس با بسیاری ویژگی های جدید.</value>
+  </data>
+  <data name="Menu.About.DiscordServer" xml:space="preserve">
+    <value>سرور دیسکورد</value>
+  </data>
+  <data name="Menu.About.GithubRepository" xml:space="preserve">
+    <value>ریپازتوری گیت هاب</value>
+  </data>
+  <data name="Menu.About.HelpInformation" xml:space="preserve">
+    <value>کمک و اطلاعات</value>
+  </data>
+  <data name="Menu.About.Licenses" xml:space="preserve">
+    <value>مجوز ها</value>
+  </data>
+  <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
+    <value>مجوز BSD 2-Clause</value>
+  </data>
+  <data name="Menu.About.Licenses.MIT" xml:space="preserve">
+    <value>مجوز MIT</value>
+  </data>
+  <data name="Menu.About.ReportIssue" xml:space="preserve">
+    <value>گزارش مشکل</value>
+  </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>درباره</value>
+  </data>
+  <data name="Menu.About.Version" xml:space="preserve">
+    <value>ورژن {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>تمامی فایل ها</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>لطفا بدانید که تمام تغییرات انجام شده نمیتوانند همین الان انجام شوند تا وقتی که شما تمامی اینستنس های روبلاکس را ببندید.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>بلاکس استرپ درحال حاضر باز است</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>شما می توانید آن را متفاوت، رترو یا حتی شبیه روبلاکس کنید.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>بوت استرپر</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
+    <value>سایر گزینه های قابل تنظیم دیگر را پیکربندی کنید.</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
+    <value>شخصی سازی</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
+    <value>باید یک فایل ico. چند اندازه با اندازه های 16 تا 128 پیکسل باشد. نماد را به عنوان "سفارشی" برای استفاده از آن تنظیم کنید.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>آیکون سفارشی</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
+    <value>متنی که به عنوان بوت استرپر نشان داده می شود.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Menu.Appearance.Description" xml:space="preserve">
+    <value>پیکربندی کنید که بلاکسترپ چگونه باشد.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>تم</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
+    <value>انتخاب کنید چه آیکونی میخواید استفاده شود.</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
+    <value>آیکون</value>
+  </data>
+  <data name="Menu.Appearance.Preview" xml:space="preserve">
+    <value>پیش‌نمایش</value>
+  </data>
+  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+    <value>انتخاب کنید که چگونه باشد. تم سیاه برای Legacy/Vista کار نمیکند.</value>
+  </data>
+  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
+    <value>استایل</value>
+  </data>
+  <data name="Menu.Appearance.Title" xml:space="preserve">
+    <value>ظاهر</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+    <value>بلاکسترپ آپدیت های جدید را به صورت خودکار درهنگام باز کردن روبلاکس چک خواهد کرد.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+    <value>بروزرسانی بلاکسترپ به صورت خودکار</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+    <value>از بسته شدن بازی موجود خود از راه‌اندازی تصادفی دیگری جلوگیری کنید.</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>صفحه جهت تایید کردن باز شدن یک مورد روبلاکس دیگر</value>
+  </data>
+  <data name="Menu.Behaviour.Description" xml:space="preserve">
+    <value>تنظیم کنید که بلاکسترپ چه کاری هنگام باز شدن روبلاکس انجام دهد.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+    <value>روبلاکس در باز شدن بعدی از اول نصب خواهد شد.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+    <value>مجبور به نصب مجدد روبلاکس</value>
+  </data>
+  <data name="Menu.Behaviour.Title" xml:space="preserve">
+    <value>بوت استرپر</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
+    <value>افزودن جدید</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
+    <value>ورودی برای این نام پرچم از قبل وجود دارد.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
+    <value>استفاده نادرست از این می تواند منجر به بی ثباتی یا اتفاقات غیرمنتظره شود.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
+    <value>در استفاده کردن احتیاط کنید.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
+    <value>برخی از پرچم‌هایی که می‌خواهید وارد کنید دارای مقادیر تنظیم شده‌اند. آیا می خواهید مقادیر فعلی آنها را با مقادیر تعریف شده بازنویسی کنید؟
+
+{0} تعاریف پرچم متناقض وجود دارد:
+{1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
+    <value>حذف انتخاب شده‌‌‌‌‌‌ها</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
+    <value>فست فلگس های خود را مدیریت کنید. برای ویرایش روی یک ستون دوبار کلیک کنید.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>وارد کردن JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
+    <value>ورودی "{0}" معتبر نیست زیرا نام فقط می تواند شامل حروف، اعداد و زیرخط باشد</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
+    <value>به نظر می رسد JSON که وارد کرده اید درست نیست. لطفاً دوباره آن را بررسی کنید و دوباره امتحان کنید.
+
+اطلاعات بیشتر:
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
+    <value>ورودی "{0}" معتبر نیست زیرا نام آن باید با FFlag، DFInt و غیره شروع شود</value>
+  </data>
+  <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
+    <value>کپی شد در کلیپ بورد.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
+    <value>انگاری شما میخواهید مقدار زیادی کانفیگ وارد نرم‌افزار کنید. شم فقط باید کانفیگ های وارد کنید که کاملا باهاشون آشنا هستید. به هیچ عنوان بدون دیدن کانفیگ های دیگران را وارد نکنید. اگه میخواید ادامه دهید. شما به احتمال زیاد با مشکلات زیادی روبرو خواهید شد.
+
+آیا مطمئن هستید که ادامه دهید؟</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
+    <value>نمایش فلگ های از پیش تعیین شده</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
+    <value>فست فلگ ادیتور</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
+    <value>من میدونم دارم چیکار میکنم</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
+    <value>آیا میدانی داری چیکار میکنی؟</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
+    <value>فست فلگ ها بسیار قدرتمند هستند، زیرا فقط برای مهندسین روبلاکس در نظر گرفته شده اند. در حالی که آنها می توانند بسیار مفید باشند، پیکربندی دستی آنها می تواند مشکلات جدی با ثبات و عملکرد ایجاد کند. اگر از کاری که انجام می دهید مطمئن نیستید از ویرایشگر استفاده نکنید.
+
+از این برای وارد کردن "فهرست های پرچم" بزرگ ساخته شده توسط افراد دیگر که قول بهبود عملکرد یا موارد مشابه را می دهند استفاده نکنید. آنها مشمول موارد ذکر شده هستند و از آنجایی که شما به طور کامل از تغییر آنها آگاه نخواهید شد، برای شما مشکل ایجاد خواهند کرد. اگر قصد انجام این کار را داشتید، به عقب برگردید.</value>
+  </data>
+  <data name="Menu.FastFlags.Description" xml:space="preserve">
+    <value>نحوه پیکربندی پارامترها و ویژگی های موتور روبلاکس را کنترل کنید.</value>
+  </data>
+  <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
+    <value>مدیریت کردن فست فلگ های خودتان. با احتیاط استفاده کنید.</value>
+    <comment>Title is Menu.FastFlagEditor.Title</comment>
+  </data>
+  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
+    <value>درباره Fast Flags، کارهایی که انجام می دهند و نحوه استفاده از آنها را بیاموزید.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
+    <value>({0}) Direct3D [exclusive fullscreen] با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>نسخه منوی ترجیحی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
+    <value>روبلاکس کمتر میکند کیفیت رندرینگ را بر نوع صفحه نمایش کوچک شده در ویندوز.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
+    <value>حفظ کیفیت رندر با مقیاس بندی نمایشگر</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>اگر می‌خواهید از قفل‌کننده نرخ فریم روبلاکس استفاده کنید، به 0 به عنوان پیش فرض تنظیم کنید.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>حد نرخ فریم</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>با [شورتکات های کیبورد] ({0}) تغییر وضعیت میتوان داد. فقط در صورتی کار می کند که در [گروه بلاکسترپ] ({1}) حضور داشته باشید.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>فعال سازی قدرت پنهان گردن رابط کاربر گرافیکی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>یکی را انتخاب کنید که در همه بازی ها به صورت مجبوری فعال باشید. [بدانید، باعث مشکلات نوری میشوید!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>تکنولوژی نور ترجیهی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>مود رندر کردن</value>
+  </data>
+  <data name="Menu.FastFlags.Title" xml:space="preserve">
+    <value>تنظیمات موتور</value>
+  </data>
+  <data name="Menu.FontFiles" xml:space="preserve">
+    <value>فایل های فونت</value>
+  </data>
+  <data name="Menu.IconFiles" xml:space="preserve">
+    <value>فایل های آیکون</value>
+  </data>
+  <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
+    <value>بلاکسترپ نمیتواند اینجا نصب شود. لطفا محل دیگری را انتخاب کنید، و یا از محل پیش فرض با کلیک بر روی دکمه ریست استفاده نمایید.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
+    <value>پوشه ای که برای نصب بلاکسترپ انتخاب کرده اید از قبل وجود دارد و خالی نیست. اکیداً توصیه می شود که بلاکسترپ در پوشه مستقل خود نصب شود.
+
+تغییر به مکان زیر پیشنهاد می شود:
+{0}
+
+آیا می خواهید به مکان پیشنهادی تغییر دهید؟
+با انتخاب "نه" این هشدار نادیده گرفته می شود و نصب ادامه می یابد.</value>
+    <comment>{0} is a file path</comment>
+  </data>
+  <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
+    <value>شما باید یه محل نصب انتخاب کنید</value>
+  </data>
+  <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
+    <value>بلاکسترپ در محل نصبی که انتخاب کردید دسترسی نوشتن ندارد. لطفا محل دیگری را انتخاب کنید.</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
+    <value>پیدا کردن فعالیت</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
+    <value>اجازه می دهد کسانی که بر روی پروفایلتون کلیک میکنند بتوانند وارد بازیتان شوند.</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
+    <value>اجازه فعالیت وارد شدن را میدهد</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>در داخل دیسکورد نشان میدهد با چه اکانت روبلاکسی درحال بازی کردن هستید.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>نشان دادن اکانت روبلاکس</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
+    <value>محل نرم‌افزار</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
+    <value>خودکار بسته شدن بعد از بسته شدن روبلاکس</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
+    <value>در اینجا شما میتواند نرم‌افزار های دیگری را همزمان با روبلاکس باز کنید.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>Launch Arguments</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
+    <value>روبلاکس باز است!</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
+    <value>ادغام جدید</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
+    <value>هیچ ادغامی انتخاب نشده است، لطفا یکی را انتخاب کنید و یا یکی بسازید</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
+    <value>ادغام های سفارشی</value>
+  </data>
+  <data name="Menu.Integrations.Description" xml:space="preserve">
+    <value>قابلیت های اضافی را برای همراهی با روبلاکس پیکربندی کنید.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
+    <value>روبلاکس به‌جای بازگشت به برنامه، وقتی بازی را ترک می‌کنید، کاملاً بسته می‌شود. [بعضی چیزها را خراب میکند!]({0})</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
+    <value>از دسکتاپ خارج نشوید</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
+    <value>اجازه دادن به بلاکسترپ برای فهمیدن اینکه چه بازی ای دارید میکنید. بعضی از قابلیت ها نیازمند این آپشن هستند.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
+    <value>فعال سازی پیدا کردن فعالیت</value>
+  </data>
+  <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
+    <value>این قابلیت به پیدا کردن فعالیت نیازمند است و دیسکورد نسخه دسکتاپ نصب شده و باز باشد). [بیشتر بدانید]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>بازی روبلاکسی که شما درحال بازی کردن هستید را در پروفایل دیسکوردتان نمایش میدهد. [کارنمیکند؟]({0})</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>نشان دادن فعالیت بازی</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>وقتی در بازی هستید، میتوانید ببینید سرورتان در کجا قرار دارد با کمک [ipinfo.io]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>جستجوی مکان سرور</value>
+  </data>
+  <data name="Menu.Integrations.Title" xml:space="preserve">
+    <value>ادغام ها</value>
+  </data>
+  <data name="Menu.Mods.Description" xml:space="preserve">
+    <value>مدریریت و اعمال کردن فایل های ماد به کلاینت بازی روبلاکس.</value>
+  </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>ببینید اطلاعان درباره مدیریت و ساختن ماد.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
+    <value>انتخاب فونت...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
+    <value>اندازه فونت را میتوانید در بخش موتور تنظیم کنید.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>فایلی که انتخاب کردید یک فایل درست فونت نیست.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
+    <value>حذف فونت بکارداده شده</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
+    <value>استفاده از فونت سفارشی</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
+    <value>مدیریت کردن ماد های کاستوم روبلاکس در اینجا.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>باز کردن پوشۀ ماد ها</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
+    <value>انتخاب کنید چه نوع ایموجی برای روبلاکس میخواهید استفاده کنید.</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>نوع ایموجی تجریحی</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
+    <value>انتخاب کنید بین دو استایل نشانگر موس کلاسیک روبلاکس.</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
+    <value>نشانگر موس</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
+    <value>برگرداندن پس زمینه آواتار ادیتور اپلیکیشن روبلاکس برای قبل از 2020.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
+    <value>استفاده از پس زمینه قدیمی آواتار ادیتور</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
+    <value>تلاشی برای بازگرداندن تقریباً همه صداهای شخصیتی که قبل از سال 2014 استفاده می شدند.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
+    <value>تقلید کردن صدای کارکتر های قدیمی</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
+    <value>برگرداندن صدای کلاسیک 'oof' برای صدای مرگ.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
+    <value>استفاده از صدای مرگ قدیمی</value>
+  </data>
+  <data name="Menu.Mods.Title" xml:space="preserve">
+    <value>مودها</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>کلیک برای اطلاعات بیشتر درمورد این گزینه.</value>
+  </data>
+  <data name="Menu.Save" xml:space="preserve">
+    <value>ذخيره</value>
+  </data>
+  <data name="Menu.SettingsSaved.Message" xml:space="preserve">
+    <value>تغییرات پس از باز شدن مجدد روبلاکس انجام خواهند شد.</value>
+  </data>
+  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
+    <value>تنظیمات ذخیره شد!</value>
+  </data>
+  <data name="Menu.Title" xml:space="preserve">
+    <value>تنظیمات بلاکسترپ</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
+    <value>انتخاب کردن زبان موردنیاز</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
+    <value>یک زبان انتخاب کنید قبل از ادامه دادن نصب.</value>
+  </data>
+  <data name="Menu.Appearance.Language.Title" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+  <data name="Menu.Appearance.Language.Description" xml:space="preserve">
+    <value>به یک راه‌اندازی مجدد نیاز است که تغییرات نتیجه بگیرند.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+    <value>اجازه استفاده از زبان های پشتیبانی نشده روبلاکس</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+    <value>فقط برو روی بازی های باز شده از روی سایت روبلاکس است.</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+    <value>2023 (ورژن چهار + رابط کاربری جدید)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
+    <value>رندر ها و گرافیک ها</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
+    <value>رابط کاربری و چیدمان</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
+    <value>اجازه بدید بلاکسترپ فست فلگس هارا مدیریت کند</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
+    <value>غیرفعال کردن این گزینه باعث میشود هیچ کانفیگی بر روی روبلاکس انجام نگردد.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
+    <value>کیفیت ضد آلیاسینگ (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>افکت های پس از پردازش را غیرفعال کنید</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>غیرفعال کردن نوار عنوان فول اسکرین</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
+    <value>متوقف کردن نمایان بودن منو که وقتی موستان را به بالا صفحه میبرید.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
+    <value>کیفیت بافت</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
+    <value>لول صفر (کمترین)</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
+    <value>لول اول</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
+    <value>لول دوم</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
+    <value>لول سوم (بالاترین)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>غیرفعال کردن سایه های بازیکن</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>اندازه فونت</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>مقدار پیش فرض 1 است. تنظیم کنید در صورت استفاده از فونت سفارشی.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>غیرفعال کردن بافت های زمین</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
+    <value>بلاکس استرپ نمیتواند روبلاکس را دانلود کند</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
+    <value>روبلاکس درحال حاضر نمیتواند بارگیری شود. لطفا با خواندن صفحه کمکی اطلاعات بیشتری درمورد این مشکل بدست بیاورید: {0}</value>
+    <comment>{0} is a URL</comment>
+  </data>
+  <data name="Common.ImportFromFile" xml:space="preserve">
+    <value>وارد کردن از فایل</value>
+  </data>
+  <data name="FileTypes.JSONFiles" xml:space="preserve">
+    <value>فایل های JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
+    <value>ورودی "{0}" معتبر نیست زیرا مقدار باید منطقی باشد ("True" و یا "False")</value>
+    <comment>Do not translate 'True' and 'False', those must stay in English</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
+    <value>ورودی "{0}" معتبر نیست زیرا مقدار باید یک عدد باشد</value>
+  </data>
+  <data name="Logger.NoWriteMode" xml:space="preserve">
+    <value>هیچ لاگ فایلی برای این لانچ نوشتنه نخواهد شد زیرا بلاکسترپ نمیتواد در فولدر '{0}' فایل بنویسد</value>
+  </data>
+  <data name="Common.Default" xml:space="preserve">
+    <value>پیش‌فرض</value>
+  </data>
+  <data name="Common.Automatic" xml:space="preserve">
+    <value>خودکار</value>
+  </data>
+  <data name="Common.SystemDefault" xml:space="preserve">
+    <value>پیش فرض سیستم</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>ورودی '{0}' معتبر نیست زیرا فیلتر مکان به درستی قالب بندی نشده است.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>نصب کننده بلاکسترپ</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>خوش آمدید</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>نصب</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>تکمیل</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>ممنونیم بابت دانلود بلاکسترپ.
+
+تنها وبسایت رسمی جهت دانلود بلاکسترپ {0} و {1} هستند، پس مطمئن شوید از منبع رسمی بلاکسترپ را دریافت کرده اید.
+
+طریقه نصب کردن سریع و آسان است، و شما میتونید بعد از نصب تنظیمات بلاکسترپ را تغییر دهید.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>لطفا کلیک کنید "بعدی" برای ادامه دادن.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>شما درتلاش برای نصب نسخه {0} از بلاکسترپ هستید، ولی جدیدترین ورژن درحال حاضر {1} است. آیا مایل به دانلود هستید؟</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>انتخاب کنید کجا میخواهید نصب کنید</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>همچنین روبلاکس هم در این مسیر نصب میشود، این را عوض کنید اگر شما ترجیح میدهید به نصب کردن همه بازی های شما در یک درایو دیگر. وگرنه، به شما پیشنهاد میشود که این را طوری که است نگه دارید.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>داده های پیشین پیدا شد. مودها و تنظیمات شما بازیابی خواهند شد.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>میانبرها</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>ایکون دسکتاپ</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>ایکون منوی استارت</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>بلاکسترپ به صورت موفقیت آمیز نصب شد.
+
+روبلاکس هنوز نصب نشده, آن موقعه انجام میشه که بلاکسترپ رو برای اولین باز بازش کنید, اما, قبل از اینکه این کارو بکنید, شاید بخواهید تنظیمات بلاکسترپتون رو تنظیم کنید.
+
+همینطور, اجتناب از باز کردن میانبر "Roblox Player" بکنید برای باز کردن روبلاکس, وگرنه بلاکسترپ با روبلاکس باز نخواهد شد. اگه نمیبینید بلاکسترپ را درصورتی که از وبسایت بازی هارا باز میکنید, فقط یکبار روبلاکس رو با بلاکسترپ باز کنید تا حل بشود.
+
+چه کاری میخواهید انجام دهید؟</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>تنظیمات بلاکسترپ را پیکربندی کنید</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>تغییر جزئی با قابلیت هایی که دردسترس هستند</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>نصب و باز کردن روبلاکس</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>بعد از اینکه همه چی تمام شد، شما را به اپلیکیشن دسکتاپ میبرد</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>حذف نصب بلاکسترپ</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>حذف کردن، برنامه بلاکسترپ را از سیستم شما حذف میکند، و اگر هنوز نصب شده است به طور خودکار تنظیمات را به تنظیمات اصلی لانچر روبلاکس برمیگرداند.
+
+اگر شما درحال حذف کردن و یا نصب مجدد هستید به دلیل اینکه مشکلاتی با روبلاکس دارید، اول [این صفحه کمکی]({0}) را بخوانید.
+
+عمل حذف کردن ممکن است تمامی فایل های بلاکسترپ را پاک نکند, پس شما نیاز دارید که به طور دستی فایل های کافی مانده را که در مکانی که بلاکسترپ نصب شده حذف کنید.
+
+بلاکسترپ در "{1}" نصب شده بود.</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>تنظیمات و مود های من را ذخیره کن</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>آنها در مکانی که بلاکسترپ نصب شده نگهداری میشوند، و در یک نصب مجدد به طور خودکار برمیگردند.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>حذف نصب</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>بازکردن روبلاکس</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>پیکربندی تنظیمات ها</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>مشکلی دارید؟</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>ویکی رو ببینید جهت کمک</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>شما در حال حاضر ران تایم "WebView2" را نصب ندارید. بعضی از قابلیت های روبلاکس بدون آن درست کار نمیکنند. مثل برنامه دسکتاپ. آیا شما مایل هستید که همین الان آن را دانلود و نصب کنید؟</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>بلاکسترپ نتوانست یک میانبر برای دسکتاپ و صفحه شروع بسازد. تلاش کنید که آنها را بعدا از طریق تنظیمات بسازید.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>اول [ویکی بلاکسترپ]({0}) را بررسی کنید تا ببینید مشکل شما قبلاً برطرف شده است یا خیر.
+
+اگر نه، لطفاً این استثنا را به مدیرهای این فورک گزارش دهید. این مشکلات را در گیتهاب بلاکسترپ گزارش نکنید، زیرا این یک نسخه غیر رسمی است.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>اینها میانبرهای همگانی هستند که منوی راه‌اندازی چند گزینه ای را نشان می دهند. میانبرهایی برای عملکردهای خاص را می توان بعداً در تنظیمات ایجاد کرد.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>تنظیم کنید چگونه بلاکسترپ به راحتی باز شود.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>عمومی</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>این ها میانبرهایی هستند که منوی راه‌اندازی چند گزینه ای را نشان می دهند.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>کارکرد</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>میانبرهایی برای دسترسی سریع به عملکردهای خاص ایجاد کنید. همه اینها روی دسکتاپ قرار خواهند گرفت.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>وصل شدید به سرور شخصی</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>وصل شدید به سرور رزرو شده</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>مود ایموجی در حال حاضر قابل اعمال نیست.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>لطفا صبر کنید تا نصب به اتمام برسد.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>اطفا صبر کنید تا حذف نصب کردن به اتمام برسد.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>درباره بلاکسترپ</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>مجوز ها</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>مترجمان</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>شما تغییرات ذخیره نشده دارید. آیا مطمئن که میخواهید بدون ذخیره کردن ببندید؟</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>نسخه بلاکسترپ که اکنون باز کرده اید از نسخه ای که نصب دارید قدیمی تر است.
+امکان دارد مشکلاتی به وجود بیاید و تنظیمات شما دچار اشکال شود. پیشنهاد میشود یک نصب مجدد انجام شود.
+آیا مطمئن هستید که میخواهید ادامه دهید؟</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>روبلاکس نتوانستد باز شود.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>روبلاکس کرش کرد.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>برای اطلاعات در مورد اینکه چرا ممکن است این اتفاق بیفتد و چگونه می توان آن را حل کرد، لطفاً [این مقاله راهنما] ({0}) را بخوانید.
+
+بررسی کنید آیا روبلاکس با [لانچر اصلی] ({1}) کار می‌کند یا خیر. اگر اینطور نیست، پس این یک مشکل بلاکسترپ نیست. اگر چنین بود، به مقاله راهنما مراجعه کنید.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>داده ها بخاطر یک مشکل در شبکه بارگیری نشدند.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>در حال بارگذاری؛ لطفا صبر کنید...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>حامیان</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>اینها افرادی هستند که بلاکسترپ را از طریق Ko-fi حمایت کرده اند. یک تشکر گسترده از همه کسانی که در اینجا هستند!
+هر فردی در اینجا بر اساس تعهد کلی خود رتبه بندی می شود.</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>تنظیمات شما بارگیری نشد. آنها به تنظیمات پیش فرض بازنشانی شده اند.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>فست فلگس شما بارگیری نشد. آنها به تنظیمات پیش فرض بازنشانی شده اند.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>تاریخچه بازی</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>دوباره ملحق شوید</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>بازی فعلی شما در حضور دیسکورد شما نشان داده نخواهد شد زیرا هنگام بارگیری اطلاعات بازی خطایی رخ داده است.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>تاریخچه بازی فقط برای همین نشست روبلاکس ضبط میشوند. بازی ها در این لیست وقتی از آنها خارج و یا تلپروت میشوید نمایان میشوند. همه سرورها قابل وارد شدن مجدد نخواهند بود.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>مکان سرور را نمی توان جستجو کرد. ممکن است بخاطر سریع وارد شدن به بازی ها باشد.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>لطفا بعدا دوباره تلاش کنید.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>برای این بازشدن، روبلاکس برای بروزرسانی بررسی نخواهد شد، و تغییرات در مود ها هم اعمال نخواهد شد.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>بخاطر اینکه روبلاکس نیازمند نصب شدن و یا آپدیت شدن است، بلاکسترپ نمیتواند ادامه دهد.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>بلاکسترپ قبلا در این مسیر نصب شده و هنوز در این مسیر وجود دارد، اما نصب کننده نمیتواند فایل اجرایی قدیمی را بازنویسی کند.
+
+لطفا به طور دستی "Bloxstrap.exe" را از مسیر نصب کننده پاک کنید و یا سیستم خود را خاموش و روشن کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>در دسترس نیست</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>مدیریت تنظیمات سازگاری</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>پارامترهای برنامه مانند رفتار مقیاس DPI و [بهینه‌سازی تمام صفحه] ({0}) را پیکربندی کنید.</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>روبلاکس در حال حاضر نصب نشده است. لطفا قبل از استفاده از این قابلیت روبلاکس را حداقل یک بار با بلاکسترپ باز کنید.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>آیا مطمئن هستید که می خواهید نصب را لغو کنید؟</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>نتوانست ذخیره شود {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>ایکون بوت استرپر انتخابی بارگیری نشد.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>استخراج کردن ایکون های روبلاکس در فولدر</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>بلاکسترپ به شما اجازه میدهد که از تعدادی آیکون های روبلاکس برای میانبر های خود استفاده کنید. [ببینید چگونه.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>بلاکسترپ قادر به نوشتن در رجیستری ویندوز نیست. یک آنتی ویروس به احتمال زیاد درحال ایجاد تداخل است و درحال ایجاد مشکلات است. لطفاً بررسی کنید تا مطمئن شوید چیزی وجود ندارد که عملکرد بلاکسترپ را محدود کند.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>ماهیانه</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>یکبار</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>پیکربندی تنظیماتی به رفتار خود بلاکسترپ ربط دارد.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>فعال سازی ارسال تجزیه و تحلیل</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>این کار ناشناس است و هیچ چیز بدی نیست، قول میدهیم. برای اطلاعات بیشتر در مورد آنچه که جمع‌آوری می کنیم و چرا، به [خط مشی رازداری] ({0}) ما مراجعه کنید.</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>تجزیه و تحلیل ها</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>همه چیز را به حالت پیش فرض برگردانید</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>گزارش استثنا</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>حالت تست</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>حالت تست آزمایش مکرر نحوه تأثیرگزاری تنظیمات شما را بر روی روبلاکس آسان‌تر می‌کند. 
+
+در حالی که فعال است، پس از بستن تنظیمات، روبلاکس به طور خودکار راه‌اندازی می شود و پس از بستن روبلاکس، در یک چرخه تا زمانی که آنرا غیرفعال نکنید، تنظیمات را دوباره باز می کند.
+
+آیا می خواهید حالت تست را فعال کنید؟</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>همه ترجمه‌های بلاکسترپ از طریق [Crowdin] ({0}) جمع‌آوری می‌شوند. همه افرادی که در اینجا لیست شده اند افرادی هستند که سخاوتمندانه زمان و تلاش خود را برای کمک به بومی سازی بلاکسترپ صرف کرده اند. یک تشکر گسترده از همه در اینجا!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>نصب</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>آیکون ها</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>بازکردن روبلاکس استودیو</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>ورژن {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>بلاکسترپ تلاش کرد که روبلاکس را بروزرسانی بکند اما نمی تواند زیرا فایل که های روبلاکس هنوز در حال استفاده هستند.
+
+لطفاً برنامه‌هایی را که ممکن است از فایل‌های روبلاکس استفاده می‌کنند ببندید و دوباره راه‌اندازی کنید.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>فایل فشرده Zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>صدور</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>صدور داده های تشخیصی</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>برای مشکلی که دارید، اطلاعات عیب یابی را جمع‌آوری کنید که به صورت آنلاین آپلود شود.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>پیکربندی بلاکسترپ</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>تمامی لاگ های بلاکسترپ</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+</root>

@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox قيد التشغيل حاليًا، وسيؤدي هذا إلى إغلاق النافذة الحالية. هل أنت متأكد أنك تريد مواصلة التشغيل؟</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>من المحتمل أن يمنع Bloxstrap من الاتصال بالإنترنت.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>قد يكون Roblox معطلاً في الوقت الحالي. راجع {0} لمزيد من المعلومات.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>انتهت مهلة الاتصال، الذي يمكن أن يشير إلى ضعف الاتصال بالإنترنت أو إلى كتلة جدار الحماية.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>لا يمكن انشاء اتصال, و هو على الأرجح يشير إلى اتصال إنترنت ضعيف أو حظر من جدار الحماية. إذا كان اتصالك بالإنترنت جيدا, يرجى التحقق من أن مكافح الفيروسات الخاص بك لا يحظر Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>يجب تحميل بلوكس ستراب  قبل حذفه.</value>
@@ -178,7 +175,7 @@
     <value>تم إزالة Bloxstrap بنجاح</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>يجب إغلاق Roblox قبل إلغاء تثبيت Bloxstrap. هل ترغب في إغلاق Roblox الآن؟</value>
+    <value>Roblox قيد التشغيل حالياً، ولكن يجب إغلاقها قبل إلغاء تثبيت Bloxstrap. هل ترغب في إغلاق Roblox الآن؟</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>تطلب Roblox أستخدام مكونات Windows Media Foundation. المكونات المطلوبة ليست موجودة، في الأغلب لأنك تستخدم نسخة N من Windows. يرجى تنزيلها أولاً، ثم فتح Roblox.</value>
@@ -715,7 +712,7 @@
     <value>قم بتكوين وظائف إضافية لتتوافق مع Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>سيتم إغلاق Roblox بالكامل عند مغادرة اللعبة بدلاً من إعادتك إلى التطبيق مرة أخرى.</value>
+    <value>Roblox سوف تغلق كليا عندما تخرج من اللعبة بدلا من العودة للتطبيق [سوف تعطل بعض الأشياء!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>عدم الخروج إلى تطبيق Roblox</value>
@@ -755,7 +752,7 @@
     <value>اختار الخط...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>يمكن ضبط حجم الخط في علامة صفحة FastFlag.</value>
+    <value>حجم الخط يمكن تعديله في علامة تبويب اعدادات المحرك.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>لا يبدو أن المِلَفّ الذي اخترته هو مِلَفّ خط صالح.</value>
@@ -904,6 +901,7 @@
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>ملفات JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>الإدخال ل '{0}' غير صالح لأن القيمة يجب أن تكون منطقية (إما 'True' أو 'False')</value>
@@ -1102,7 +1100,9 @@
     <value>لقد تحطم Roblox.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>يرجى قراءة معلومات المساعدة التالية، التي ستفتح في متصفح الويب الخاص بك عند إغلاق هذا الحوار.</value>
+    <value>للحصول على معلومات عن السبب الذي من أجله يمكن أن يحدث هذا وكيف يمكن حله، يرجى قراءة [هذه المادة المساعدة]({0}).
+
+تحقق مما إذا كان Roblox يعمل مع [المشغل الأصلي]({1}). إذا لم يكن الأمر كذلك، فهذا ليس مشكلة Bloxstrap. إذا كان الأمر كذلك، فيرجى الرجوع إلى مقالة المساعدة.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>تعذر تحميل البيانات بسبب خطأ في الشبكة.</value>
@@ -1114,7 +1114,8 @@
     <value>الداعمين</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>هؤلاء هم الأشخاص الذين يدعمون Bloxstrap من خلال [Ko-fi]({0}). شكرا جزيلا للجميع هنا!</value>
+    <value>هؤلاء هم الأشخاص الذين دعموا Bloxstrap من خلال Ko-fi. شكرًا جزيلاً للجميع هنا!
+يتم تصنيف كل شخص هنا حسب تعهده الإجمالي.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>لا يمكن تحميل الإعدادات الخاصة بك. تم إعادة تعيينها إلى الإعدادات الأصلية.</value>
@@ -1226,12 +1227,42 @@
     <value>تثبيت</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>قم بدعمنا على Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>الأيقونات</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>تشغيل Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>الإصدار {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>حاول Bloxstrap ترقية Roblox ولكن لا يمكن أن يكون لأن ملفات Roblox لا تزال قيد الاستخدام.
+
+الرجاء إغلاق أي تطبيقات قد تستخدم ملفات Roblox، وإعادة التشغيل.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>أرشيف الملفات المضغوطة</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>تصدير</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>تصدير البيانات التشخيصية</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>جمع المعلومات التي يمكن تحميلها عبر الإنترنت لاستكشاف مشكلة تعاني منها.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>إعدادات Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>جميع سجلات Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

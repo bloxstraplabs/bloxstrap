@@ -118,257 +118,255 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap לא הצליח לעדכן באופן אוטומטי לגרסה {0}. אנא עדכן את זה באופן ידני על ידי הורדה והרצה של זה מהאתר.</value>
+    <value>Bloxstrap tidak dapat diperbarui secara otomatis ke versi {0}. Mohon perbarui secara manual dengan mengunduh dari website kemudian menjalankannya.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>רובלוקס פועל ברקע, ולהפעיל אותו שוב יסגור את זה. האם אתה בטוח שאתה רוצה להמשיך להריץ את ההפעלה?</value>
-  </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>משהו ככל הנראה מונע מ-Bloxstrap להתחבר לאינטרנט.</value>
+    <value>Roblox sedang berjalan saat ini, dan menjalankan instansi Roblox baru akan menutup instansi Roblox yang sedang berjalan, apakah Anda yakin ingin tetap menjalankannya?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>ייתכן שהשרתים של Roblox קרסו כרגע. בדוק ב-{0} בשביל מידע נוסף.</value>
+    <value>Roblox mungkin sedang gangguan saat ini. Lihat {0} untuk informasi lebih lanjut.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>החיבור קרס, מה שעלול להראות על חיבור אינטרנט גרוע או חסימה של חומת אש.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Koneksi tidak dapat dibuat, yang berarti adanya koneksi internet buruk atau pemblokiran tembok api. Jika koneksi tidak bermasalah, pastikan antivirus tidak memblokir Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>אתה חייב קודם להתקין את Bloxstrap לפני המחיקה.</value>
+    <value>Anda harus menginstal Bloxstrap terlebih dahulu sebelum menghapus.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>ל-Bloxstrap אין מספיק שטח אחסון על מנת להוריד ולהתקין את Roblox. בבקשה פנה קצת מקום ונסה שוב.</value>
+    <value>Bloxstrap tidak memiliki ruang penyimpanan yang cukup untuk mengunduh dan menginstal Roblox. Tolong kosongkan beberapa ruang penyimpanan dan coba kembali.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>מפעיל מודים לרובלוקס...</value>
+    <value>Menerapkan modifikasi Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>מגדיר את ה-{product}...</value>
+    <value>Mengkonfigurasi {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>מתחבר ל-Roblox...</value>
+    <value>Menghubungkan ke Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>מתקין את ה-{product}...</value>
+    <value>Menginstal {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>מתקין WebView2, אנא המתן...</value>
+    <value>Menginstal WebView2, mohon tunggu...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>מתחיל את ה-{product}...</value>
+    <value>Memulai {product}...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>מעדכן את ה-{product}...</value>
+    <value>Memperbarui {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>משיג את הגרסה העדכנית של Bloxstrap...</value>
+    <value>Mengunduh versi Bloxstrap terbaru...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>מחכה לחלונות אחרים...</value>
+    <value>Menunggu untuk instansi lainnya...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>תצוגה מקדימה של סגנון - לחץ על כפתור ה-X בפינה הימנית העליונה כדי לסגור</value>
+    <value>Pratinjau gaya - Tekan tombol X di kanan atas untuk menutup</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>תצוגה מקדימה של סגנון - לחץ על ביטול כדי לסגור</value>
+    <value>Pratinjau gaya - Tekan Batal untuk menutup</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap הוסר בהצלחה</value>
+    <value>Bloxstrap berhasil dihapus</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox פועל ברקע, אך יש לסגור אותו לפני הסרת Bloxstrap. האם תרצה לסגור את Roblox עכשיו?</value>
+    <value>Roblox sedang berjalan saat ini, namun harus ditutup sebelum menghapus Bloxstrap. Apakah Anda yakin untuk menutup Roblox sekarang?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox דורש שימוש ברכיבי Windows Media Foundation. נראה שהם אינם נמצאים על המחשב, כנראה בגלל שאתה משתמש במהדורת N של Windows. אנא התקן אותם, ולאחר מכן הפעל את Roblox.</value>
+    <value>Roblox membutuhkan penggunaan komponen Windows Media Foundation. Anda sepertinya tidak memilikinya, kemungkinan karena anda menggunakan edisi Windows N. Tolong install komponen tersebut, dan mulai Roblox kembali.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>הוסף חדש</value>
+    <value>Tambahkan satu</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>לדפדף</value>
+    <value>Telusuri</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>ביטול</value>
+    <value>Batal</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>סגירה</value>
+    <value>Tutup</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>למחוק</value>
+    <value>Hapus</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
     <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>עזרה</value>
+    <value>Bantuan</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>ייבוא JSON</value>
+    <value>Impor JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>פתח קובץ לוג</value>
+    <value>Buka file log</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>שונות</value>
+    <value>Lain-lain</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>שם</value>
+    <value>Nama</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>חדש</value>
+    <value>Baru</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>לא</value>
+    <value>Tidak</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>בסדר</value>
+    <value>OK</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>הגדרות מוכנות מראש</value>
+    <value>Preset</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>לאתחל</value>
+    <value>Reset</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>ערך</value>
+    <value>Jumlah</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>אזהרה</value>
+    <value>Peringatan</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>כן</value>
+    <value>Iya</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>סגור את רובלוקס</value>
+    <value>Tutup Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>האם אתה בטוח שאתה רוצה לסגור את רובלוקס? זה יגרום לתהליך להסתיים בכוח.</value>
+    <value>Apakah anda yakin ingin menutup Roblox? Tindakan ini akan memaksa mati proses.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>העתק קישור מחוזק</value>
+    <value>Salin undangan deeplink</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>העתק את מזהה השרת</value>
+    <value>Salin Instansi ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>מזהה שרת</value>
+    <value>ID Instansi</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>מיקום</value>
+    <value>Lokasi</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>השרת ממוקם ב-{0} 
-לחץ עבור מידע נוסף</value>
+    <value>Lokasi: {0}
+Tekan untuk informasi lebih lanjut.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>התחבר לשרת ציבורי</value>
+    <value>Terhubung ke server publik</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>מידע על השרת</value>
+    <value>Informasi server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>סוג</value>
+    <value>Tipe</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>הוסף FFlag</value>
+    <value>Tambahkan Fast Flag</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>מידע נוסף:</value>
+    <value>Informasi lebih lanjut:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>בעיית חיבור</value>
+    <value>Kesalahan koneksi</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap לא הצליח להתחבר ל-{0}</value>
+    <value>Bloxstrap gagal menghubungkan ke {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>העתקת תוכן לוג</value>
+    <value>Salin isi log</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>הייתה בעיה בזמן הרצת Bloxstrap</value>
+    <value>Sebuah eror telah terjadi ketika menjalankan Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>בדוק את ה[Bloxstrap Wiki]({0}) קודם כל כדי לראות אם כבר יש תיקון לבעיה הזאת.
-אם לא, אז בבקשה תדווח על זה דרך ה[Github issue]({1}) עם העתק של קובץ הלוג שנוצר.</value>
+    <value>Periksa [Bloxstrap Wiki]({0}) terlebih dahulu jika masalah ini sudah diperbaiki
+
+Jika belym, Mohon laporkan masalah ini melalui [GitHub issue]({1}) bersama file log yang dibuat.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>תקלת Bloxstrap</value>
+    <value>Error Bloxstrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>מותאם אישית</value>
+    <value>Kustom</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>2015 מוקדם</value>
+    <value>Awal 2015</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>2015 מאוחר</value>
+    <value>Akhir 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Byfron מזויף (2023)</value>
+    <value>Byfron Palsu (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (קלאסי)</value>
+    <value>Bloxstrap (Klasik)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (שקוף)</value>
+    <value>Bloxstrap (Kaca)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>ישן (2008 - 2011)</value>
+    <value>Jadul (2008 - 2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>ישן (2011 - 2014)</value>
+    <value>Jadul (2011 - 2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Roblox (~2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>וויסטה (2008 - 2011)</value>
+    <value>Vista (2008 - 2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (מצוייר)</value>
+    <value>2006 (Kartunis)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (אנגולרי)</value>
+    <value>2013 (Angular)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
-    <value>חתולמוג'י</value>
+    <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>רגיל (טוויטר)</value>
+    <value>Bawaan (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
-    <value>ווינדוס 10</value>
+    <value>Windows 10</value>
   </data>
   <data name="Enums.EmojiType.Windows11" xml:space="preserve">
-    <value>ווינדוס 11</value>
+    <value>Windows 11</value>
   </data>
   <data name="Enums.EmojiType.Windows8" xml:space="preserve">
-    <value>ווינדוס 8</value>
+    <value>Windows 8</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
-    <value>2015 (גרסה 1)</value>
+    <value>2015 (V1)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2020 (גרסה 2)</value>
+    <value>2020 (V2)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
-    <value>2023 (גרסה 4)</value>
+    <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>נבחר על ידי המשחק</value>
+    <value>Dipilih oleh game</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>עתיד (שלב 3)</value>
+    <value>Future (Fase 3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>מפת צללים (שלב 2)</value>
+    <value>Shadow Map (Fase 2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (שלב 1)</value>
+    <value>Voxel (Fase 1)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -377,862 +375,896 @@
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>שרת פרטי</value>
+    <value>Server pribadi</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>שרת ציבורי</value>
+    <value>Server publik</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>שרת שמור</value>
+    <value>Server terdedikasi</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>חשוך</value>
+    <value>Gelap</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>מואר</value>
+    <value>Terang</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap עודכן לגרסה {0}</value>
+    <value>Bloxstrap telah diperbarui ke v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>הגרסה של Bloxstrap שהרגע פתחת שונה מהגרסה המותקנת.
-האם אתה רוצה לעדכן את הגרסה המותקנת?</value>
+    <value>Versi Bloxstrap yang Anda luncurkan sepertinya berbeda dengan versi yang Anda pasang sekarang.
+Apakah Anda ingin memperbarui versi yang sudah Anda install?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>עוזרים</value>
+    <value>Kontributor</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>קוד</value>
+    <value>Kode</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>אלה האנשים אשר תרמו ל-Bloxstrap להגיע לאיפה שהוא נמצא עכשיו.</value>
+    <value>Mereka adalah orang-orang yang telah memberikan kontribusi penting pada Bloxstrap, membantu mewujudkannya sampai saat ini.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>רעיונות לפיצ'רים</value>
+    <value>Ide fitur</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>תודות מיוחדות</value>
+    <value>Ucapan spesial</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>תוכנה חלופית בשביל Roblox עם תכונות נוספות.</value>
+    <value>Bootstrapper alternatif untuk Roblox dengan fitur ekstra yang banyak.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>שרת דיסקורד</value>
+    <value>Server Discord</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>גיטהאב</value>
+    <value>Repositori GitHub</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>עזרה ומידע</value>
+    <value>Bantuan dan Informasi</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>רשיונות</value>
+    <value>Lisensi</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>BSD 2-Clause License</value>
+    <value>Lisensi BSD 2-Clause</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>MIT License</value>
+    <value>Lisensi MIT</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>דווח על בעיה או תקלה</value>
+    <value>Laporkan suatu masalah</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>על התוכנה</value>
+    <value>Tentang</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>גרסה {0}</value>
+    <value>Versi {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>כל הקבצים</value>
+    <value>Semua file</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>אנא שים לב שלא כל השינויים יחלו מיד עד שתסגור לחלוטין את כל החלונות הפתוחים של Roblox.</value>
+    <value>Harap dicatat bahwa perubahan akan segera di terapkan sampai Anda menutup semua instansi Roblox yang terbuka.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap כבר רץ</value>
+    <value>Bloxstrap sudah berjalan</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>אתה יכול לגרום לזה להיראות שונה, ישן, או אפילו כמו ברירת המחדל ב-Roblox.</value>
+    <value>Anda bisa membuatnya terlihat berbeda, jadul, atau bahkan seperti Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>תוכנה</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>שינוי אפשרויות התאמה אישית שונות.</value>
+    <value>Konfigurasikan opsi lain yang dapat disesuaikan.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>התאמה אישית</value>
+    <value>Kustomisasi</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>האייקון צריך להיות קובץ ico. עם מימדים שונים בין 16 פיקסלים עד 128 פיקסלים . שנה את הגדרת האייקון ל'מותאם אישית' בכדי להשתמש בו.</value>
+    <value>Harus berupa file .ico multi-size dengan ukuran 16px sampai 128px. Setel Ikon sebagai
+'Kustom' untuk menerapkannya.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>אייקון מותאם אישית</value>
+    <value>Ikon kustom</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>הטקסט שמוצג ככותרת של התוכנה.</value>
+    <value>Teks yang akan ditampilkan sebagai judul bootstrapper.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>כותרת</value>
+    <value>Judul</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>הגדר איך Bloxstrap אמור להראות.</value>
+    <value>Konfigurasikan bagaimana tampilan Bloxstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>ערכת נושא גלובלית</value>
+    <value>Tema Global</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>בחר באיזה אייקון זה אמור להשתמש.</value>
+    <value>Pilih ikon yang harus digunakan.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>אייקון</value>
+    <value>Ikon</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>תצוגה מקדימה</value>
+    <value>Pratinjau</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>בחר איך זה אמור להראות. ערכת נושא "חשוך" לא תעבוד על מיושן/וויסטה.</value>
+    <value>Pilih bagaimana tampilannya. Mode gelap tidak di terapkan ke Jadul/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>סגנון</value>
+    <value>Gaya</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>מראה</value>
+    <value>Penampilan</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap יבדוק ויתעדכן בעצמו כשמריצים את Roblox.</value>
+    <value>Bloxstrap akan otomatis mengecek dan memperbarui saat memulai Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>עדכן אוטומטית את Bloxstrap</value>
+    <value>Perbarui Bloxstrap secara otomatis</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>מנע את סגירת המשחק הפועל שלך מהפעלה בטעות של אחד אחר.</value>
+    <value>Mencegah menutup sebuah game yang telah dibuka dari membuka game lagi secara tidak sengaja.</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>שאל לגבי אישור כאשר אתה מריץ עוד חלון של Roblox</value>
+    <value>Berikan pesan untuk mengkonfirmasi ketika membuka instansi Roblox yang lain</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>הגדר מה Bloxstrap אמור לעשות כאשר רובלוקס מופעל.</value>
+    <value>Atur apa yang Bloxstrap lakukan saat menjalankan Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox יותקן מחדש בפעם הבאה שיופעל.</value>
+    <value>Roblox akan di instal ulang di peluncuran berikutnya.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>התקן מחדש את Roblox בכוח</value>
+    <value>Paksa instalasi ulang Roblox</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>תוכנה</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>הוסף חדש</value>
+    <value>Tambah baru</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>כבר יש הגדרה ל-FFlag בשם הזה.</value>
+    <value>Entri dari nama flag sudah ada.</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>חזור</value>
+    <value>Kembali</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>שימוש בצורה לא נכונה עלול להוביל לחוסר יציבות או דברים לא צפויים לקרות.</value>
+    <value>Menyalahgunakan ini dapat menyebabkan ketidakstabilan atau hal lain yang tidak terduga terjadi.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>השתמש בזהירות.</value>
+    <value>Gunakan dengan hati-hati.</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>חלק מה-FFlag-ים שאתה מנסה להכניס כבר מצורפים. האם אתה רוצה לשנות את הערכים שלהם עם הערכים החדשים שהכנסת?
+    <value>Beberapa flags yang Anda ingin impor sudah memiliki jumlah yang ditentukan. Apakah Anda ingin menggantikan jumlah sekarang dengan yang di impor?
 
-יש {0} ערכים מתנגשים:
+Ada {0} definisi flag yang bertentangan dengan:
 {1}</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>מחק את הבחירה</value>
+    <value>Hapus yang dipilih</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>נהל את ה-FFlag-ים שלך. לחץ פעמיים על הטור בכדי לערוך.</value>
+    <value>Kelola Fast Flag Anda sendiri. Dobel klik sebuah kolom untuk mengedit.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>לייצא JSON</value>
+    <value>Ekspor JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>הערך ל'{0}' לא תקין מכיוון שהשם יכול להכיל רק אותיות, מספרים וקווים תחתונים</value>
+    <value>Entri dari '{0}' tidak valid karena nama hanya dapat memuat huruf, angka, dan garis bawah</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>ה-JSON שהכנסת לא נראה חוקי. אנא בדוק שנית ונסה שוב.
+    <value>JSON yang Anda masukkan sepertinya tidak benar. Mohon cek kembali dan coba lagi.
 
-מידע נוסף:
+Informasi lainnya:
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>הערך ל'{0}' לא תקין מאחר והשם חייב להתחיל עם FFlag, DFInt וכו'</value>
+    <value>Entri dari {0} tidak valid karena nama harus dimulai dengan FFlag, DFInt, dll</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>הועתק ללוח.</value>
+    <value>Disalin ke papan klip.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>נראה שאתה מנסה לייבא הגדרה גדולה. אתה אמור לייבא רק הגדרות שאתה מבין בצורה מלאה לחלוטין. אל תייבא הגדרות מאנשים אחרים באופן עיוור. אם אתה תמשיך, ייתכן שתיתקל בבעיות יציבות ובשינויים לא צפויים.
+    <value>Kelihatannya Anda sedang mengimpor sebuah konfigurasi yang sangat besar. Anda hanya boleh mengimpor konfigurasi jika Anda sudah mengerti secara penuh. JANGAN menyalin konfigurasi yang dibuat orang lain tanpa pengetahuan apapun. Jika Anda lanjutkan, Anda kemungkinan akan mengalami masalah stabilitas dan perubahan yang tidak diduga.
 
-אתה בטוח שאתה רוצה להמשיך?</value>
+Apakah Anda yakin untuk melanjutkan?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>חיפוש</value>
+    <value>Cari</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>הצג FFlag-ים מוגדרים מראש</value>
+    <value>Tampilkan preset flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>עורך FFlag-ים</value>
+    <value>Editor Fast Flag</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>חזור אחורה</value>
+    <value>Kembali</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>אני יודע/ת מה אני עושה</value>
+    <value>Aku tahu apa yang aku lakukan</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>האם אתה יודע מה אתה עושה?</value>
+    <value>Apakah Anda tahu apa yang Anda lakukan?</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>ה-FFlag-ים עוצמתיים ביותר, ונוצרו לשימוש רק על ידי המתכנתים של Roblox. למרות שהם יכולים להיות מאוד שימושיים, שינויים ידניים שלהם עלולים לגרום לבעיות רציניות עם יציבות ותפקוד. אל תשתמש בעורך אם אתה לא יודע מה אתה עושה!
+    <value>Fast Flags sangatlah kuat, oleh karena itu, Fast Flags hanya diperuntukkan untuk insinyur di Roblox. Walau mereka bisa sangat berguna, mengkonfigurasinya secara manual dapat menyebabkan masalah serius, ketidakstabilan, dan masalah fungsi. JANGAN gunakan editor jika Anda tidak tahu apa yang Anda lakukan.
 
-אל תשתמש בזה בכדי לייבא "רשימות FFlag-ים" גדולים על ידי אנשים שמבטיחים שהמשחק ירוץ מהר יותר או משהו כזה. הם עלולים לגרום לבעיות אשר נכתבו למעלה, והם יגרמו לך בעיות מאחר ואתה לא יודע לחלוטין מה הם משנים. אם עמדת לעשות את זה, חזור אחורה.</value>
+JANGAN gunakan ini untuk mengimpor kumpulan "flag lists" yang dibuat orang lain yang menjanjikan peningkatan performa. Mereka dapat menyebabkan masalah yang disebutkan tadi karena Anda tidak sepenuhnya tahu apa yang "flag lists" tersebut lakukan. Jika Anda baru saja ingin melakukan itu, KEMBALI.</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>שלוט בכמה דברים ספציפיים אשר משנים את המנוע של Roblox ואת שאר ההגדרות שלך.</value>
+    <value>Kontrol bagaimana parameter dan fitur Roblox engine dikonfigurasi secara spesifik.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>נהל את ה"FFlag-ים" שלך. השתמש בזהירות.</value>
+    <value>Kelola Fast Flags mu. Gunakan dengan hati-hati.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>למד עוד על ה-FFlag-ים, מה ההגדרות הקבועות מראש עושות, ואיך להשתמש בהם.</value>
+    <value>Pelajari lebih lanjut tentang Fast Flags, apa yang preset ini lakukan, dan cara menggunakannya.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>שימוש ב-Direct3D באמצעות Alt+Enter [רק עבור מסך מלא]({0}) מופעל כברירת מחדל.</value>
+    <value>Direct3D [ekslusif fullscreen]({0}) menggunakan Alt+Enter sudah dinyalakan dari bawaan.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>הגרסא המועדפת עלייך כאשר אתה לוחץ ESC</value>
+    <value>Versi menu escape yang diinginkan</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>רובלוקס מוריד את הגדרות הרנדור שלך בהתאם לאיך שהמסך שלך מוגדר ב-Windows.</value>
+    <value>Roblox mengurangi kualitas rendering anda tergantung pada skala display Windows anda.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>שמירת איכות עם שינויי מידת תצוגה</value>
+    <value>Menjaga kualitas rendering dengan display scaling</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>בחר 0 עבור הגדרות ברירת מחדל אם אתה רוצה להשתמש בביטול הגבלת הפריימים לשנייה הבנוי של רובלוקס.</value>
+    <value>Ubah ke 0 untuk bawaan jika Anda ingin menggunakan pembuka framerate bawaan dari Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>הגבלת קצב פריימים</value>
+    <value>Batas framerate</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>מופעל עם [דרכי קיצור במקלדת]({0}). עובד רק אם אתם נמצאים ב[קבוצה של Bloxstrap]({1}).</value>
+    <value>Di aktifkan lewat [shortcut keyboard]({0}). Hanya berfungsi jika Anda ada di [grup Bloxstrap]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>הפעל את היכולת להסתיר את ממשק המשתמש</value>
+    <value>Nyalakan kemampuan untuk menyembunyikan GUI</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>האחד שנבחר יופעל בכפייה על כל המשחקים. [שים לב, ייתכנו בעיות תאורה!]({0})</value>
+    <value>Yang dipilih akan dinyalakan secara paksa pada semua permainan. [Hati-hati, kemungkinan menyebabkan masalah pengcahayaan!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>הגדרות תאורה מעודפות</value>
+    <value>Teknologi pencahayaan yang di sukai</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>טכנולגיית עיבוד</value>
+    <value>Mode rendering</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>הגדרות מנוע המשחק</value>
+    <value>Pengaturan engine</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>קבצי גופן</value>
+    <value>File Font</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>קבצי אייקון</value>
+    <value>File ikon</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap לא יכול להיות מותקן כאן. אנא בחר מיקום אחר, או שפשוט תחזור להשתמש במיקום ברירת המחדל על ידי לחיצה על כפתור השחזור.</value>
+    <value>Bloxstrap tidak bisa di instal di sini. Mohon untuk memilih lokasi pemasangan yang berbeda, atau gunakan lokasi instal bawaan dengan memilih tombol Reset.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>התיקיה שבחרת להתקין בה את Bloxstrap כבר קיימת ואינה ריקה. מומלץ מאוד להתקין את Bloxstrap בתיקייה עצמאית משלה.
+    <value>Folder yang Anda pilih untuk menginstal Bloxstrap sudah ada dan TIDAK kosong. Sangat disarankan agar Bloxstrap diinstal ke folder independennya sendiri.
 
-מומלץ לשנות למיקום הבא:
+Disarankan untuk pindah ke lokasi ini:
 {0}
 
-האם תרצה לשנות את ההתקנה לתיקיה המומלצת?
-אם תבחר ב-"לא", האזהרה תתעלם וההתקנה תימשך.</value>
+Apakah Anda ingin mengubah ke lokasi yang disarankan?
+Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>אתה חייב להגדיר מיקום התקנה</value>
+    <value>Kamu harus memilih lokasi instalasi</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>ל- Bloxstrap אין גישת כתיבה למיקום ההתקנה שבחרתם. אנא בחר במיקום אחר.</value>
+    <value>Bloxstrap tidak mempunyai akses write ke lokasi instalasi yang anda pilih. Mohon pilih lokasi yang lain.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>מעקב פעילות</value>
+    <value>Pelacak aktifitas</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>נותן את האפשרות לכולם להיכנס לשרת שבו אתה נמצא דרך כפתור בפרופיל של הדיסקורד שלך.</value>
+    <value>Memungkinkan siapa saja untuk bergabung ke permainan Anda lewat profil Discord.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>הפעל פעילות כניסה</value>
+    <value>Izinkan gabung aktifitas</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>מציג את משתמש ה-Roblox אשר איתו אתה משחק בפרופיל הדיסקורד שלך.</value>
+    <value>Menampilkan akun Roblox yang Anda gunakan untuk bermain di profil Discord.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>הצג את חשבון ה-Roblox</value>
+    <value>Tampilkan akun Roblox</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>מיקום האפליקציה</value>
+    <value>Lokasi aplikasi</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>סגירה אוטומטית כש-Roblox נסגר</value>
+    <value>Tutup otomatis saat Roblox keluar</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>פה, אתה יכול לפתוח תוכנות נוספות עם ההרצה של Roblox בצורה אוטומטית.</value>
+    <value>Di sini, Anda dapat meluncurkan program lain bersama Roblox secara otomatis.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>הוספת הוראות הפעלה</value>
+    <value>Argumen peluncuran</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox כרגע פתוח!</value>
+    <value>Roblox sedang berjalan!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>אינטגרציה חדשה</value>
+    <value>Integrasi baru</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>אין בחירת אינטגרציה, בבקשה בחר באינטגרציה מסוימת או תוסיף אחת חדשה</value>
+    <value>Tidak ada integrasi yang dipilih, mohon untuk memilih atau buat baru</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>אינטגרציה מותאמת אישית</value>
+    <value>Integrasi kustom</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>הגדר פונקציונליות נוספת שתהיה לצד Roblox.</value>
+    <value>Konfigurasikan fungsi tambahan untuk berjalan bersama Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>רובלוקס ייסגר לחלוטין מתי שאתה עוזב את המשחק במקום להחזיר אותך בחזרה לתוכנה.</value>
+    <value>Roblox akan sepenuhnya ditutup daripada kembali ke aplikasinya. [Akan merusak beberapa hal!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>לא לצאת מהתוכנה של המשחק</value>
+    <value>Jangan keluar ke aplikasi desktop</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>אפשר ל-Bloxstrap לזהות באיזה משחק ב-Roblox אתה משחק. תכונות מסויימות עלולות לדרוש את זה.</value>
+    <value>Izinkan Bloxstrap untuk mendeteksi permainan Roblox apa yang Anda mainkan. Beberapa fitur mungkin membutuhkan ini.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>הפעל מעקב פעילות</value>
+    <value>Nyalakan pelacak aktifitas</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>התכונה הזאת דורשת מ"מעקב הפעילות" להיות פעיל ומהתוכנה של דיסקורד להיות מותקנת ופועלת. [עוד פרטים]({0}).</value>
+    <value>Fitur ini memerlukan pelacak aktifitas untuk diaktifkan dan aplikasi desktop Discord terpasang dan berjalan. [Lihat lebih lanjut]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>משחק הרובלוקס שבו שאתה משחק יוצג בפרופיל הדיסקורד שלך. [לא עובד?]({0})</value>
+    <value>Permainan Roblox yang Anda mainkan akan ditampilkan di profil Discord Anda. [Tidak bekerja?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>הצג פעילות משחק</value>
+    <value>Tampilkan aktifitas permainan</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>כשאתה במשחק, תוכל לראות איפה השרת ממוקם בעזרת [ipinfo.io]({0}).</value>
+    <value>Saat di dalam game, Anda dapat melihat dimana server Anda berada menggunakan [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>בקש את מיקום השרת</value>
+    <value>Kueri lokasi server</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>אינטגרציות</value>
+    <value>Integrasi</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>נהל והפעל מודים ל-Roblox.</value>
+    <value>Kelola dan terapkan file mods ke klien permainan Roblox.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>צפה במידע לגבי ניהול ויצירת מודים.</value>
+    <value>Tampilkan informasi tentang mengelola dan membuat mods.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>בחר גופן...</value>
+    <value>Pilih font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>גודל הגופן ניתן לשינוי בכרטיסיית הFFlag-ים.</value>
+    <value>Ukuran fon dapat diubah melalui tab Pengaturan Mesin.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>הקובץ שבחרת לא נראה כקובץ גופן תקין.</value>
+    <value>File yang Anda pilih sepertinya bukan file font yang valid.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>הסר גופן פעיל</value>
+    <value>Hapus font yang dipakai</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>השתמש בגופן מותאם אישית</value>
+    <value>Gunakan font kustom</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>נהל מודים מותאמים אישית עבור Roblox כאן.</value>
+    <value>Kelola mods kustom Roblox di sini.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>פתח את תיקיית המודים</value>
+    <value>Buka Folder Mods</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>בחר באיזה סוג אימוג'י רובלוקס צריך להשתמש.</value>
+    <value>Pilih tipe emoji apa yang harus di gunakan Roblox.</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>הגדרת אימוג'י מועדפת</value>
+    <value>Tipe emoji yang disukai</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>בחר בין שני סמנים קלאסים של רובלוקס עבור העכבר.</value>
+    <value>Pilih di antara dua tipe kursor Roblox klasik.</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>סמן עכבר</value>
+    <value>Kursor mouse</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>החזר בחזרה את הרקע של עורך האווטארים אשר היה בשימוש ברובלוקס ב2020.</value>
+    <value>Kembalikan editor avatar lama yang di gunakan aplikasi Roblox sebelum 2020.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>השתמש ברקע הישן של עורך האווטארים</value>
+    <value>Gunakan editor avatar lama</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>ניסיון להחזיר כמה שאפשר את הצלילים הישנים של השחקן אשר היו בשימוש ב2014.</value>
+    <value>Sebuah percobaan untuk mengembalikan suara karakter yang di gunakan sebelum 2014.</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>דמה את צלילי השחקן הישנים</value>
+    <value>Tiru suara karakter lama</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>החזר את צליל ה-"oof" הקלאסי כאשר מתים.</value>
+    <value>Kembalikan suara mati klasik 'oof'.</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>השתמש בצליל המוות הישן</value>
+    <value>Gunakan suara mati yang lama</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>מודים</value>
+    <value>Mods</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>לחץ בשביל לקבל עוד מידע על האפשרות הזאת.</value>
+    <value>Klik untuk informasi lebih lanjut dari opsi ini.</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>שמור</value>
+    <value>Simpan</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>השינויים יתרחשו בפעם הבאה שתתחיל את Roblox.</value>
+    <value>Perubahan akan berlaku di saat Anda memulai Roblox lagi.</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>ההגדרות נשמרו!</value>
+    <value>Setelan tersimpan!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>הגדרות Bloxstrap</value>
+    <value>Setelan Bloxstrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>בחר שפה מועדפת</value>
+    <value>Pilih bahasa yang di inginkan</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>בחר שפה לפני המשכת ההתקנה.</value>
+    <value>Pilih suatu bahasa sebelum melanjutkan instalasi.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>שפה</value>
+    <value>Bahasa</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>הפעלה מחדש דרושה כדי שהשינויים ישפיעו.</value>
+    <value>Peluncuran ulang diperlukan agar perubahan dapat berlaku.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>אפשר שימוש בשפות לא נתמכות של רובלוקס</value>
+    <value>Izinkan penggunaan dari bahasa yang tidak didukung Roblox</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>חל רק על משחקים שמופעלים מהאתר של Roblox.</value>
+    <value>Hanya berlaku untuk permainan yang diluncurkan di website Roblox.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (גרסה 4 + ממשק משתמש חדש)</value>
+    <value>2023 (V4 + UI Baru)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>רנדור וגרפיקה</value>
+    <value>Rendering dan Grafik</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>ממשק משתמש</value>
+    <value>Interface pengguna dan layout</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>אפשר לBloxstrap לנהל FFlag-ים</value>
+    <value>Biarkan Bloxstrap untuk mengelola Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>לבטל את זה ימנע מכל דבר שמוגדר פה לחול על Roblox.</value>
+    <value>Menonaktifkan ini akan mencegah apapun yang dikonfigurasikan disini agar diterapkan ke Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>איכות Anti-aliasing (MSAA)</value>
+    <value>Kualitas anti-aliasing (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>בטל אפקטים לאחר עיבוד</value>
+    <value>Matikan efek post-processing</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>בטל את שורת הכותרת במסך מלא</value>
+    <value>Nonaktifkan titlebar fullscreen</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>מפסיק את הצגתו בכל פעם שאתה מזיז את העכבר לראש המסך.</value>
+    <value>Mencegah tampilannya untuk muncul ketika menggerakan mouse ke bagian atas layar.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>הגדרות טקסטורה</value>
+    <value>Kualitas tekstur</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>רמה 0 (הנמוך ביותר)</value>
+    <value>Level 0 (Paling rendah)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>רמה 1</value>
+    <value>Level 1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>רמה 2</value>
+    <value>Level 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>רמה 3 (הגבוה ביותר)</value>
+    <value>Level 3 (Paling tinggi)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>בטל צללים של שחקנים</value>
+    <value>Matikan bayangan pemain</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>גודל גופן</value>
+    <value>Ukuran font</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>הערך שמוגדר כברירת מחדל הוא 1. שנה אם אתה משתמש בגופן מותאם אישית.</value>
+    <value>Jumlah bawaan adalah 1. Ubah jika Anda menggunakan font kustom.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>בטל טקסטורות הרריות</value>
+    <value>Matikan tekstur daratan</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap לא מצליח להוריד את רובלוקס</value>
+    <value>Bloxstrap gagal untuk mengunduh Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>רובלוקס לא יכול לרדת כרגע. אנא קרא את דף העזרה הבא עבור מידע נוסף: {0}</value>
+    <value>Roblox tidak dapat diunduh pada saat ini. Tolong baca halaman bantuan berikut untuk informasi lebih lanjut: {0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>ייבא מקובץ</value>
+    <value>Impor dari file</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>קבצי JSON</value>
+    <value>File JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>הערך ל'{0}' לא תקין מאחר והערך צריך להיות בולאני ('True' או 'False')</value>
+    <value>Entri untuk '{0}' tidak valid karena harus berupa boolean (antara 'True' atau 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>הערך ל'{0}' לא תקין מאחר והערך צריך להיות מספר</value>
+    <value>Entri untuk '{0}' tidak valid karena harus berupa angka</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>קובץ לוג לא יווצר בהדלקה הזאת בגלל שBloxstrap לא הצליח לכתוב בתיקייה ב{0}</value>
+    <value>Tidak ada file log yang akan dibuat untuk peluncuran ini karena Bloxstrap tidak bisa menulis file pada folder '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>ברירת מחדל</value>
+    <value>Bawaan</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>אוטומטי</value>
+    <value>Otomatis</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>ברירת המחדל של המערכת</value>
+    <value>Bawaan sistem</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>הערך עבור "{0}" אינו תקין מכיוון שהסינון אינו כתוב בצורה נכונה.</value>
+    <value>Entri untuk '{0}' tidak valid karena filter tempat tidak diformat dengan benar.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>התקנת Bloxstrap</value>
+    <value>Pemasang Bloxstrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>ברוכים הבאים</value>
+    <value>Selamat datang</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>התקן</value>
+    <value>Pasang</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
-    <value>סיום</value>
+    <value>Penyelesaian</value>
   </data>
   <data name="Common.Navigation.Back" xml:space="preserve">
-    <value>חזור</value>
+    <value>Kembali</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>הבא</value>
+    <value>Lanjut</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>תודה שהורדת את Bloxstrap.
+    <value>Terima kasih telah mengunduh Bloxstrap. 
 
-האתרים הרשמיים בשביל להוריד את Bloxstrap הם מ-{0} או מ-{1}, אז בבקשה תאמתו שהורדתם ממקורות רשמיים.
+Situs resmi untuk mengunduh Bloxstrap ada di {0} dan {1}, Jadi tolong diverifikasi jika Anda mendapatnya dari situs yang resmi
 
-ההתקנה תהיה מהירה ופשוטה, ותוכל לשנות את כל ההגדרות של Bloxstrap לאחר ההתקנה.</value>
+Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Bloxstrap setelah pemasangan selesai.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>אנא לחץ על 'הבא' בשביל להמשיך.</value>
+    <value>Mohon klik 'Lanjut' untuk melanjutkan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>אתה מנסה להוריד את גרסה {0} של Bloxstrap, אבל הגרסה החדשה היא {1}. האם תרצה להוריד אותה?</value>
+    <value>Anda sedang mencoba memasang Bloxstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin memasangnya?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
-    <value>בחר לאיפה להתקין</value>
+    <value>Pilih lokasi instalasi</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox גם יותקן במיקום הזה. שנה את זה אם אתה מעדיף להתקין את כל המשחקים שלך בדיסק נפרד, אחרת מומלץ שתשאיר את זה כפי שזה.</value>
+    <value>Roblox juga akan di install ke lokasi ini. Ubah lokasi ini jika Anda ingin install semua game Anda ke drive terpisah. Jika tidak, disarankan agar Anda tetap menggunakan lokasi ini.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>נמצאו נתונים קיימים. ההגדרות והמודים שלך ישוחזרו.</value>
+    <value>Terdapat data sebelumnya yang ditemukan. Modifikasi dan pengaturan Anda akan dipulihkan.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
-    <value>קיצורי דרך</value>
+    <value>Pintasan</value>
   </data>
   <data name="Common.Shortcuts.Desktop" xml:space="preserve">
-    <value>סמל בשולחן העבודה</value>
+    <value>Ikon desktop</value>
   </data>
   <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
-    <value>סמל בתפריט התחלה</value>
+    <value>Ikon Start Menu</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap הותקן בהצלחה.
+    <value>Bloxstrap berhasil dipasang.
 
-Roblox עוד לא הותקן, זה יקרה ברגע שתריץ את זה עם Bloxstrap בפעם הראשונה. אך לפני שתעשה זאת, אולי תרצה לשנות את ההגדרות של Bloxstrap קודם כל.
+Roblox belum terpasang, itu akan terjadi saat Anda menjalankannya dengan Bloxstrap untuk pertama kalinya. Namun, sebelum Anda melakukannya, munkin Anda mau mengkonfigurasikan pengaturan Bloxstrap terlebih dahulu.
 
-בנוסף לכך, נסה לא להשתמש בקיצור הדרך ל-"Roblox Player" בשביל לפתוח את Roblox, מכיוון ש-Bloxstrap לא יופעל עם Roblox. אם אתה לא רואה את Bloxstrap מופעל מהאתר, פשוט תריץ את Roblox עם Bloxstrap משולחן העבודה פעם אחת על מנת לתקן זאת.
+Juga, hindari menggunakan pintasan "Roblox Player" untuk menjalankan Roblox, karena Bloxstrap tidak akan berjalan dengan roblox. Jika Anda tidak melihat Bloxstrap saat menjalankannya menggunakan situs web, jalankan Roblox dengan Bloxstrap sekali untuk memperbaikinya
 
-מה תרצה לעשות?</value>
+Apa yang ingin Anda lakukan?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>שנה את ההגדרות של Bloxstrap</value>
+    <value>Atur setelan Bloxstrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>שינוי עם כל התכונות שיש לזה להציע</value>
+    <value>Sesuaikan dengan semua fitur yang dimilikinya</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
-    <value>התקן ופתח את Roblox</value>
+    <value>Pasang dan Buka Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>יכניס אותך לאפליקציה כשהכל מוכן</value>
+    <value>Akan membawa Anda ke aplikasi desktop setelah semuanya selesai</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>הסר את Bloxstrap</value>
+    <value>Hapus Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>ההסרה תמחק את Bloxstrap מהמערכת שלך ותגדיר אוטומטית את Roblox כברירת המחדל אם הוא עדיין מותקן.
+    <value>Mencopot pemasangan akan menghapus Bloxstrap dari sistem Anda, dan secara otomatis mengatur ulang peluncur Roblox bawaan jika masih terpasang.
 
-אם אתה מסיר או מתקין מחדש בגלל שיש לך בעיות עם Roblox, קרא תחילה את [דף העזרה הזה]({0}).
+Jika Anda mencopot pemasangan atau memasang ulang karena mengalami masalah dengan Roblox, baca [halaman bantuan ini]({0}) terlebih dahulu.
 
-ייתכן שתהליך הסרת ההתקנה לא יוכל לנקות את הכל לגמרי, כך שייתכן שתצטרך לנקות ידנית קבצים שנשארו היכן ש-Bloxstrap הותקן.
+Proses pencopotan mungkin tidak dapat sepenuhnya membersihkan dirinya sendiri, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Bloxstrap secara mandiri.
 
-Bloxstrap הותקן ב-"{1}".</value>
+Bloxstrap terpasang di "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>שמור את ההגדרות והמודים שלי</value>
+    <value>Simpan pengaturan dan mods saya</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>הם יישמרו איפה ש-Bloxstrap הותקן, וישוחזרו אוטומטית לפעם הבאה שתתקין מחדש.</value>
+    <value>File-file tersebut akan disimpan di lokasi tempat Bloxstrap diinstal, dan akan secara otomatis dipulihkan saat diinstal ulang.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
-    <value>הסר התקנה</value>
+    <value>Hapus Instalasi</value>
   </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>הרץ את Roblox</value>
+    <value>Buka Roblox</value>
   </data>
   <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>שנה הגדרות</value>
+    <value>Atur setelan</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>יש לך תקלה?</value>
+    <value>Mempunyai masalah?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>בדוק את הוויקי בשביל לקבל עזרה</value>
+    <value>Lihat Wiki untuk bantuan</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>אין לך כרגע את WebView2 Runtime מותקן. חלק מהתכונות של Roblox לא יפעלו כראוי בלי זה, לדוגמא האפליקציה. האם תרצה להוריד את זה עכשיו?</value>
+    <value>Saat ini Anda belum menginstal runtime WebView2. Beberapa fitur Roblox tidak akan berfungsi dengan baik tanpanya, seperti aplikasi desktop. Apakah Anda ingin mengunduhnya sekarang?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap לא הצליח ליצור קיצורי דרך עבור שולחן העבודה ותפריט ההתחלה. נסה ליצור אותם מאוחר יותר דרך ההגדרות.</value>
+    <value>Bloxstrap tidak dapat membuat pintasan untuk Desktop dan Start menu. Coba membuatnya nanti melalui pengaturan.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>בדוק את ה[וויקי של Bloxstrap]({0}) קודם בשביל לראות אם כבר יש פתרון לבעיה.
+    <value>Periksa [Bloxstrap Wiki]({0}) terlebih dahulu untuk melihat apakah masalah ini telah ditangani dengan solusi.
 
-אם אין, אנא דווח ליוצר הגרסה הזאת של Bloxstrap. אנא המנע מלפתוח תקלה על זה ב-GitHub המקורי של Bloxstrap, מאחר וזו גרסה לא מקורית.</value>
+Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN laporkan ini ke masalah GitHub Bloxstrap, karena ini adalah versi yang tidak resmi.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>אלה קיצורי הדרך הכלליים שמביאים תפריט רב-בחירה. ניתן ליצור קיצורי דרך לפונקציות ספציפיות מאוחר יותר בהגדרות.</value>
+    <value>Ini adalah pintasan umum yang memunculkan banyak pilihan menu peluncuran. Pintasan untuk fungsi khusus dapat dibuat nanti di pengaturan.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>הגדר איך להפעיל את Bloxstrap בקלות.</value>
+    <value>Atur bagaimana Bloxstrap telah siap untuk diluncurkan.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
-    <value>כללי</value>
+    <value>Umum</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>אלה קיצורי הדרך הכלליים שמביאים את תפריט הרב-בחירה.</value>
+    <value>Ini adalah pintasan yang memunculkan banyak pilihan menu peluncuran.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
-    <value>פונקציה</value>
+    <value>Fungsi</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>צור קיצורי דרך בשביל גישה מהירה עבור פונקציות ספציפיות. הם יהיו ממוקמים על שולחן העבודה.</value>
+    <value>Buat pintasan untuk akses cepat ke fungsi khusus. Semuanya akan ditempatkan di Desktop.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>התחבר לשרת פרטי</value>
+    <value>Terhubung ke server pribadi</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>התחבר לשרת שמור</value>
+    <value>Terhubung ke server yang disediakan</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>המוד של האימוג'י לא יכול להיות לפעול כרגע.</value>
+    <value>Mod emoji tidak dapat diterapkan saat ini.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>אנא המתן להתקנה שתסתיים.</value>
+    <value>Harap tunggu untuk instalasi selesai.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
-    <value>אנא המתן להסרה שתסתיים.</value>
+    <value>Harap tunggu untuk pencopotan instalasi selesai.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>על Bloxstrap</value>
+    <value>Tentang Bloxstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
-    <value>רשיונות</value>
+    <value>Lisensi</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>מתרגמים</value>
+    <value>Penerjemah</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>יש שינויים שלא נשמרו. האם אתה בטוח שאתה רוצה לצאת בלי לשמור?</value>
+    <value>Anda memiliki perubahan yang belum disimpan. Apakah Anda yakin ingin menutup tanpa menyimpan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>הגרסה של Bloxstrap שפתחת ישנה יותר מהגרסה שמותקנת כעת.
-עלולות להתרחש בעיות וייתכן שההגדרות שלך ישתנו. מומלץ להתקין מחדש.
-האם אתה בטוח שאתה רוצה להמשיך?</value>
+    <value>Versi Bloxstrap yang kamu jalankan adalah versi lama dari versi yang Anda sudah pasang.
+Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Melakukan pemasangan ulang direkomendasikan.
+Apakah Anda yakin untuk melanjutkan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox לא הצליח להפתח.</value>
+    <value>Roblox gagal diluncurkan.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox קרס.</value>
+    <value>Roblox mengalami kerusakan.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>בבקשה קרא את דף המידע של העזרה, שייפתח לך באינטרנט כאשר תסגור את ההודעה הזאת.</value>
+    <value>Untuk informasi lebih lanjut mengapa ini dapat terjadi dan cara memperbaikinya, silakan baca [artikel bantuan ini]({0}).
+
+Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti bukan masalah Bloxstrap. Jika ya, rujuklah pada artikel bantuan.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>אי אפשר לטעון נתונים בגלל בעיית אינטרנט.</value>
+    <value>Tidak dapat memuat data karena suatu masalah koneksi.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>טוען, אנא המתן...</value>
+    <value>Memuat, mohon tunggu...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
-    <value>תומכים</value>
+    <value>Pendukung</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>אלה האנשים אשר תומכים ב-Bloxstrap על ידי תרומות ב- ({0})[Ko-fi]. המון תודה לכל מי שנמצא כאן!</value>
+    <value>Mereka merupakan orang-orang yang telah mendukung Bloxstrap melalui Ko-fi. Terima kasih sebesar-besarnya kepada semua orang di sini! Setiap orang di sini diberi peringkat berdasarkan pemberiannya.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>ההגדרות שלך לא הצליחו להיטען, הן אופסו לברירת המחדל.</value>
+    <value>Pengaturan Anda tidak dapat dimuat. Mereka telah diatur ulang ke setelan bawaan.</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>ה-FFlag-ים שלך לא הצליחו להיטען, הן אופסו לברירת המחדל.</value>
+    <value>Fast Flags Anda tidak dapat dimuat. Mereka telah diatur ulang ke setelan bawaan.</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>היסטוריית משחקים</value>
+    <value>Riwayat permainan</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>התחבר מחדש לשרת</value>
+    <value>Join kembali</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>המשחק הנוכחי שבו אתה משחק לא יוצג בפרופיל הדיסקורד שלך בגלל שהייתה שגיאה בטעינת הנתונים על המשחק.</value>
+    <value>Game yang sedang Anda mainkan tidak akan muncul di presensi Discord Anda karena terjadi kesalahan saat memuat informasi game.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>היסטוריית המשחקים מתועדת רק עבור ההפעלה הנוכחית של ה-Roblox שלך. משחקים יופיעו כאן כשאתה עוזב אותם או משתגר בתוכם. לא לכל השרתים יהיה ניתן להתחבר מחדש.</value>
+    <value>Riwayat permainan hanya direkam untuk sesi Roblox Anda saat ini. Permainan akan muncul di sini saat Anda meninggalkannya atau berteleportasi di dalamnya. Tidak semua server dapat digabung kembali.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>לא ניתן לזהות את מיקום השרת. אתה ככל הנראה נכנס למשחקים מהר מדי.</value>
+    <value>Lokasi server tidak dapat dinyatakan. Mungkin Anda bergabung ke permainan terlalu cepat.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
-    <value>בבקשה נסה שוב מאוחר יותר.</value>
+    <value>Silahkan coba lagi nanti.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
-    <value>עבור הפעלה זו, Roblox לא ייבדק עבור עדכונים, ושינויים במודים לא יחולו.</value>
+    <value>Pada peluncuran ini, Roblox tidak akan diperiksa untuk pembaruan, dan perubahan pada modifikasi tidak akan diterapkan.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>מכיוון ש-Roblox צריך להיות מותקן או מעודכן, Bloxstrap לא יכול להמשיך.</value>
+    <value>Karena Roblox perlu dipasang atau diperbarui, Bloxstrap tidak dapat dilanjutkan.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap הותקן בעבר במיקום זה ועדיין קיים, אולם ההתקנה אינה יכולה לשנות את קובץ ההפעלה הישן.
+    <value>Bloxstrap sudah pernah dipasang di lokasi ini sebelumnya dan masih ada, tetapi instalasi tidak dapat menulis ulang aplikasi yang lama.
 
-אנא מחק ידנית את Bloxstrap.exe ממיקום ההתקנה או נסה להפעיל מחדש את המערכת, ולאחר מכן נסה להתקין מחדש.</value>
+Tolong hapus Bloxstrap.exe secara manual dari lokasi pemasangan atau coba untuk menyalakan ulang sistem anda, dan coba untuk menjalankan instalasi lagi.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
-    <value>לא זמין</value>
+    <value>Tidak tersedia</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
-    <value>נהל הגדרות תאימות</value>
+    <value>Kelola pengaturan kompabilitas</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>הגדר פרמטרים של יישום כגון קנה מידה של DPI ו[אופטימיזציות במסך מלא]({0}).</value>
+    <value>Atur parameter aplikasi seperti sifat penskalaan DPI dan [optimasi layar penuh]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox עוד לא הותקן. אנא הרץ את Roblox באמצעות Bloxstrap לפחות פעם אחת לפני שאתה מנסה להשתמש באפשרות הזאת.</value>
+    <value>Roblox belum dipasang. Tolong jalankan Roblox menggunakan Bloxstrap setidaknya sekali sebelum mencoba menggunakan opsi ini.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>האם אתה בטוח שאתה רוצה לבטל את ההתקנה?</value>
+    <value>Apakah Anda yakin ingin membatalkan pemasangan?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>שגיאה בשמירה של {0}: {1}</value>
+    <value>Gagal untuk menyimpan {0}: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>לא היה ניתן לטעון את סמל התוכנה שנבחר.
+    <value>Bootstrapper yang dipilih tidak dapat dimuat.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>חלץ את הסמלים של Roblox לתיקייה</value>
+    <value>Keluarkan simbol Roblox ke direktori</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>מאפשר לך להשתמש במגוון הסמלים של Bloxstrap או Roblox לקיצורי הדרך שלך. [ראה כיצד.]({0})</value>
+    <value>Memungkinkan Anda untuk menggunakan jangkauan Bloxstrap dari simbol Roblox untuk pintasan Anda. [Lihat caranya.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap אינו מסוגל לכתוב ל-Windows Registry. סביר להניח שהאנטי וירוס מפריע וגורם לבעיות. אנא בדוק כדי לוודא שאין שום דבר שמגביל את פעולת Bloxstrap.</value>
+    <value>Bloxstrap gagal menulis ke Registry Windows. Kemungkinan ada antivirus yang menghalangi dan menyebabkan masalah. Mohon dilihat jika ada yang mengganggu operasi Bloxstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>חודשיים</value>
+    <value>Per bulan</value>
   </data>
   <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>חד-פעמיים</value>
+    <value>Sekali</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>הגדר אפשרויות שקשורות לתפקוד של Bloxstrap עצמו.</value>
+    <value>Atur opsi yang terkait dengan perilaku Bloxstrap itu sendiri.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>הפעל שליחה של נתונים</value>
+    <value>Aktifkan pengiriman analisa</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>זה אנונימי ושום דבר מרושע, מבטיחים. בכדי לראות מה אנחנו אוספים ולמה, ראה את [מדיניות הפרטיות]({0}) שלנו.</value>
+    <value>Ini anonim dan tidak digunakan untuk hal yang jahat, janji. Untuk wawasan tentang apa yang kami kumpulkan dan mengapa, lihat [kebijakan privasi]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
-    <value>נתונים</value>
+    <value>Analitik</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
-    <value>אפס הכל לברירת המחדל</value>
+    <value>Ubah semuanya ke bawaan</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>דווח על שגיאה</value>
+    <value>Laporkan Kesalahan</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>מצב בדיקה</value>
+    <value>Mode tes</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>מצב בדיקה עוזר בלבחון איך ההגדרות משפיעות על ה-Roblox.
+    <value>Mode Uji Coba memudahkan untuk menguji secara berulang bagaimana pengaturan Anda memengaruhi Roblox.
 
-כל עוד מצב הבדיקה דלוק, Roblox יופעל כאשר תסגור את ההגדרות, וההגדרות ייפתחו אחרי ש-Roblox נסגר, כך זה ימשיך עד שתבטל את זה.
+Saat diaktifkan, Roblox akan secara otomatis dijalankan setelah menutup Pengaturan, dan membuka Pengaturan kembali setelah menutup Roblox, dalam siklus hingga Anda menonaktifkannya.
 
-האם אתה רוצה להדליק את מצב הבדיקה?</value>
+Apakah Anda ingin mengaktifkan mode uji coba?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>כל התרגומים של Bloxstrap מגיעים ישירות מ-({0})[Crowdin]. כל מי שרשום פה הם אנשים אשר נתנו את זמנם על מנת לעזור לתרגם את Bloxstrap. תודה ענקית לכל מי שברשימה הזאת!</value>
+    <value>Semua translasi Bloxstrap bersumber dari banyak orang menggunakan [Crowdin]({0}). Semua yang ditulis disini adalah orang yang suka rela menawarkan waktu mereka dan upaya untuk membantu melokalkan Bloxstrap. Terima kasih sebesar-besarnya untuk semuanya disini!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
-    <value>התקן</value>
+    <value>Pasang</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>תתרמו לנו ב-Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
-    <value>אייקונים</value>
+    <value>Ikon</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Buka Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Versi {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap mencoba meningkatkan Roblox tetapi tidak bisa karena berkas Roblox masih digunakan.
+
+Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncurkan ulang.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Arsip zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Ekspor</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Ekspor data diagnostik</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Kumpulkan informasi yang bisa dikirim online untuk pemecahan masalah yang anda miliki.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Konfigurasi Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Semua log Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>
