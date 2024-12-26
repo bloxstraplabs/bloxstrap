@@ -572,8 +572,9 @@
     <value>クリップボードにコピーしました。</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>大量の設定が含まれるFastFlagをインポートしようとしています。内容を理解している場合のみ行ってください。内容を理解せずに他人が配布したものをインポートすることは"絶対に"やめてください。
-続行する場合、動作が不安定になったり、予期していないことに繋がる可能性があります。
+    <value>大量の設定が含まれるFastFlagをインポートしようとしています。
+内容を理解している場合のみ行ってください。内容を理解せずに他人が配布したものをインポートすることは"絶対に"やめてください。
+続行すると、動作が不安定になったり、予期せぬ変更に繋がる可能性があります。
 
 本当に続行しますか？</value>
   </data>
@@ -1108,10 +1109,10 @@ Bloxstrapのインストール場所: {1}</value>
 このまま続行しますか？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Robloxの起動に失敗しました</value>
+    <value>Robloxの起動に失敗しました。</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Robloxがクラッシュしました</value>
+    <value>Robloxがクラッシュしました。</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>このエラーが発生する理由や解決方法については、[ヘルプ記事]({0})をお読みください。 

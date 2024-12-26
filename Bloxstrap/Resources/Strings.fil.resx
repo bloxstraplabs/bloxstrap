@@ -1167,10 +1167,10 @@ Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart 
     <value>Sigurado ka bang gusto mo i-cancel ang pag install?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>Palpak ang pag-save {0}: {1}</value>
+    <value>Sumablay ang pag-save {0}: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>Ang piniling icon ng bootstrapper ay hindi ma-load
+    <value>Ang piniling icon ng bootstrapper ay hindi maka-load.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
@@ -1213,11 +1213,11 @@ Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart 
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>Ang test mode ay pinapadali ang paulit-ulit na pag test kung paano ina-apekto ang settings ng Roblox.
+    <value>Pinapadali ang "Test Mode" para paulit-ulit na masubok kung paano ina-apekto ang settings mo sa Roblox.
 
-Habang enabled, automatically na binubuksan ang Roblox pagkasarado ng Settings, at muling binubuksan ulit ang Settings pagkatapos i-sarado ang Roblox, sa isang cycle habang isarado mo.
+Habang naka-enable, kusang bubukas ang Roblox pagkatapos isara ang mga settings, at bubuksan ulit ang mga settings pagkatapos isara ang Roblox, sa isang cycle hanggang sa i-disable mo ito.
 
-Gusto mo ba i-enable ang test mode?</value>
+Gusto mo bang i-enable ang "Test Mode"?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
     <value>Lahat ng translations para sa Bloxstrap ay crowdsourced galing sa [Crowdin]({0}). Lahat nakalista dito ang mga tao na nakapagboluntaryo para sa oras at pagsisikap para tulungan i-localize at Bloxstrap. Malaking pasasalamat sa iyong lahat!</value>
@@ -1254,7 +1254,7 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
     <value>I-export ang diagnostic data</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>I-gather and impormasyon na pwedeng i upload online para ma troubleshoot and iyong nararanasan na problema.</value>
+    <value>I-gather ang impormasyon na pwedeng I-upload online para ma-troubleshoot ang iyong nararanasan na problema.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Bloxstrap configuration</value>

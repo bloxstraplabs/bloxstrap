@@ -1101,7 +1101,7 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Bunun neden yaşandığı ve nasıl çözüleceğine dair bilgi için lütfen [bu yardım makalesini]({0}) okuyun.
 
-Roblox'un [asıl başlatıcı]({1}) ile çalışıp çalışmadığına göz atın. Eğer çalışmıyorsa, o zaman bu bir Bloxstrap sorunu değildir. Eğer çalışıyorsa, lütfen yardım makalesine bakın.</value>
+Roblox'un [varsayılan başlatıcı]({1}) ile çalışıp çalışmadığına göz atın. Eğer çalışmıyorsa, o zaman bu bir Bloxstrap sorunu değildir. Eğer çalışıyorsa, lütfen yardım makalesine göz atın.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Bir bağlantı sorunu nedeniyle veri yüklenemedi.</value>
@@ -1113,7 +1113,7 @@ Roblox'un [asıl başlatıcı]({1}) ile çalışıp çalışmadığına göz at�
     <value>Destekçiler</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Bu kişiler, Bloxstrap'ı Ko-fi üzerinden destekleyen kişilerdir. Burada ki herkese çok teşekkürler!
+    <value>Bu kişiler, Bloxstrap'ı Ko-fi üzerinden desteklemiş kişilerdir. Burada ki herkese çok teşekkürler!
 Buradaki herkes genel vaatlerine göre sıralanmıştır.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">

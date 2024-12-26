@@ -127,7 +127,7 @@
     <value>Roblox kan vara nere just nu. Se {0} för mer information.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>An anslutning kunde inte upprättas, vilket pekar på att du har en dålig internetuppkoppling eller att anslutningen blir blockerad av en brandvägg. Om din internetanslutning funkar bra, se till att något antivirusprogram inte blockerar Bloxstrap.</value>
+    <value>En anslutning kunde inte upprättas, vilket pekar på att du har en dålig internetuppkoppling eller att anslutningen blir blockerad av en brandvägg. Om din internetanslutning funkar bra, se till att något antivirusprogram inte blockerar Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Du måste installera Bloxstrap först innan du avinstallerar.</value>

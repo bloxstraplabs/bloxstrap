@@ -118,225 +118,225 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap을 버전 {0}으로 자동 업데이트하지 못했습니다. 웹사이트에서 다운로드하고 실행하여 수동으로 업데이트하세요.</value>
+    <value>Bloxstrap kon niet automatisch updaten naar versie {0}. Update het alstublieft manueel door het te downloaden en openen via de website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox가 현재 실행 중이며 다른 인스턴스를 실행하면 종료됩니다. 계속 진행하시겠습니까?</value>
+    <value>Roblox is nu al open, een ander venster openen zal het sluiten. Weet je zeker dat je een nieuw venster wilt openen?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox 서버가 다운되었을 수도 있습니다. 자세한 정보는 {0}에서 확인하세요.</value>
+    <value>Roblox kan op dit moment problemen hebben. Zie {0} voor meer informatie.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>연결에 실패했습니다. 이는 주로 인터넷 연결 상태가 좋지 않거나 방화벽으로 인한 차단을 뜻합니다. 연결에 문제가 없다면, 안티바이러스 프로그램이 Bloxstrap을 차단하고 있지는 않은지 확인해 주세요.</value>
+    <value>Een verbinding kon niet worden gemaakt, waarschijnlijk door een zwakke internetverbinding of een firewall blok. Als je verbinding in orde is, controleer dan of je antivirus Bloxstrap niet blokkeert.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Bloxstrap을 제거하기 전에 먼저 설치해야 합니다.</value>
+    <value>Je moet eerst Bloxstrap installeren voordat je de installatie ongedaan maakt.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 다운로드하고 설치하기에 충분한 디스크 공간이 없습니다. 디스크 공간을 확보한 후 다시 시도하세요.</value>
+    <value>Bloxstrap heeft niet genoeg schijfruimte om Roblox te downloaden en te installeren. Maak wat schijfruimte vrij en probeer het opnieuw.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Roblox 수정 사항을 적용 중...</value>
+    <value>Roblox-aanpassingen toepassen...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>{product} 구성 중...</value>
+    <value>{product} configureren...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Roblox에 연결 중...</value>
+    <value>Verbinding maken met Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>{product} 설치 중...</value>
+    <value>{product} installeren...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>WebView2 설치 중, 잠시만 기다려주세요...</value>
+    <value>WebView2 wordt geïnstalleerd, even geduld...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>{product} 시작 중...</value>
+    <value>{product} starten...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>{product} 업그레이드 중...</value>
+    <value>{product} aan het bijwerken...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>최신 Bloxstrap을 받는 중...</value>
+    <value>De nieuwste Bloxstrap krijgen...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>다른 인스턴스를 기다리는 중...</value>
+    <value>Wachten op andere instanties...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>스타일 미리보기 - 닫으려면 오른쪽 상단의 X 버튼을 클릭하세요.</value>
+    <value>Stijlvoorbeeld - Klik op de knop X rechtsboven om te sluiten</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>스타일 미리 보기 - 취소를 클릭하여 닫기</value>
+    <value>Stijlvoorbeeld - Klik op Annuleren om te sluiten</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap이 성공적으로 제거되었습니다</value>
+    <value>Bloxstrap is succesvol verwijderd</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox가 현재 실행 중입니다. Bloxstrap을 제거하려면 먼저 Roblox를 종료해야 합니다. 종료하시겠습니까?</value>
+    <value>Roblox is momenteel actief, maar moet worden gesloten voordat je Bloxstrap kunt deïnstalleren. Wil je Roblox nu afsluiten?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox는 Windows Media Foundation 구성 요소를 필요로 합니다. N 버전의 Windows를 사용하고 있기 때문에 해당 항목이 누락된 것 같습니다. 먼저 해당 구성 요소를 설치한 후 Roblox를 실행하세요.</value>
+    <value>Roblox vereist het gebruik van Windows Media Foundation-componenten. Het lijkt erop dat deze ontbreken, waarschijnlijk omdat je een N editie van Windows gebruikt. Installeer ze eerst en start dan Roblox.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>하나만 추가</value>
+    <value>Eén toevoegen</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>찾기</value>
+    <value>Bladeren</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>취소</value>
+    <value>Annuleren</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>닫기</value>
+    <value>Sluiten</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>삭제</value>
+    <value>Verwijder</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Discord 활동 상태</value>
+    <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>도움말</value>
+    <value>Help</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>JSON 불러오기</value>
+    <value>Importeer JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>로그 파일 열기</value>
+    <value>Open logbestand</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>기타</value>
+    <value>Overige</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>이름</value>
+    <value>Naam</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>새로 추가</value>
+    <value>Nieuw</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>아니요</value>
+    <value>Nee</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>확인</value>
+    <value>Oke</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>프리셋</value>
+    <value>Vooraf ingesteld</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>초기화</value>
+    <value>Terugzetten</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>값</value>
+    <value>Waarde</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>경고</value>
+    <value>Waarschuwing</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>예</value>
+    <value>Ja</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Roblox 종료</value>
+    <value>Sluit Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Roblox를 종료하시겠습니까? 이 작업은 프로세스를 강제로 종료합니다.</value>
+    <value>Weet je zeker dat je Roblox wilt afsluiten? Dit zal het proces geforceerd beëindigen.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>초대 링크 복사</value>
+    <value>Deeplink naar uitnodiging kopiëren</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>인스턴스 아이디 복사</value>
+    <value>Instantie-ID kopiëren</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>인스턴스 아이디</value>
+    <value>Instantie-ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>위치</value>
+    <value>Locatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>서버 위치: {0}
-자세한 내용을 보려면 클릭하세요</value>
+    <value>Locatie: {0}
+Klik voor meer informatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>공개 서버에 연결됨</value>
+    <value>Verbonden aan een openbare server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>서버 정보</value>
+    <value>Serverinformatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>종류</value>
+    <value>Type</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Fast Flag 추가</value>
+    <value>Voeg Fast Flag toe</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>더 많은 정보:</value>
+    <value>Meer informatie:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>연결 오류</value>
+    <value>Verbindingsfout</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap이 {0}에 연결할 수 없습니다</value>
+    <value>Bloxstrap kan niet verbinden met {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>로그 내용 복사</value>
+    <value>Inhoud van logboek kopiëren</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxstrap 실행 중 예외 오류가 발생했습니다.</value>
+    <value>Er is een uitzondering opgetreden tijdens het uitvoeren van Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>[Bloxstrap 위키]({0})에서 이 문제에 대한 해결책이 있는지 확인하세요.
+    <value>Controleer de [Bloxstrap Wiki]({0}) om eerst te zien of dit probleem al is verholpen.
 
-만약 해결책이 없다면, 생성된 로그 파일과 함께 [GitHub issue]({1})를 통해 이 오류를 보고해주세요.</value>
+Als dat niet het geval is, rapporteer deze uitzondering dan alstublieft door een [GitHub-issue]({1}) aan te maken, samen met een kopie van het logbestand dat is aangemaakt.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap 예외 오류</value>
+    <value>Bloxstrap-Uitzondering</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>사용자 지정</value>
+    <value>Aangepast</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>2015 초</value>
+    <value>Begin 2015</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>2015 말</value>
+    <value>Eind 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>가짜 Byfron (2023)</value>
+    <value>Nep-Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (클래식)</value>
+    <value>Bloxstrap (Klassiek)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (투명)</value>
+    <value>Bloxstrap (Doorzichtig)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>Legacy (2008 - 2011)</value>
+    <value>Legacy (2008-2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>Legacy (2011 - 2014)</value>
+    <value>Legacy (2011-2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Roblox (~2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>Vista (2008 - 2011)</value>
+    <value>Vista (2008-2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (카툰)</value>
+    <value>2006 (Tekenfilmachtig)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (각진 모양)</value>
+    <value>2013 (Hoekig)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>기본 (Twemoji)</value>
+    <value>Standaard (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -357,16 +357,16 @@
     <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>게임 설정 따르기</value>
+    <value>Gekozen door spel</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (3단계)</value>
+    <value>Toekomst (Fase 3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (2단계)</value>
+    <value>Schaduwkaart (Fase 2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (1단계)</value>
+    <value>Voxel (Fase 1)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -375,896 +375,895 @@
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>비공개 서버</value>
+    <value>Privéserver</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>공개 서버</value>
+    <value>Openbare server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>예약된 서버</value>
+    <value>Gereserveerde server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>어두운 테마</value>
+    <value>Donker</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>밝은 테마</value>
+    <value>Licht</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap이 v{0} (으)로 업그레이드되었습니다.</value>
+    <value>Bloxstrap is bijgewerkt naar v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>실행한 Bloxstrap 버전이 현재 설치된 버전과 다릅니다.
-현재 설치된 버전을 업그레이드하시겠습니까?</value>
+    <value>De versie van Bloxstrap die je hebt gelanceerd is anders dan de versie die je momenteel hebt geïnstalleerd.
+Wil je je huidige geïnstalleerde versie bijwerken?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>기여자</value>
+    <value>Bijdragers</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>코드</value>
+    <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>현재의 Bloxstrap을 만드는 데 큰 도움을 주신 분들입니다.</value>
+    <value>Dit zijn de mensen die een opmerkelijke bijdrage hebben geleverd aan Bloxstrap en het hebben gemaakt tot wat het is.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>아이디어 제공</value>
+    <value>Functie-ideeën</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>특별히 고마운 사람들</value>
+    <value>Speciaal dankwoord</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>다양한 추가 기능을 갖춘 Roblox 전용 부트스트래퍼입니다.</value>
+    <value>Een alternatieve bootstrapper voor Roblox met een heleboel extra functies.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Discord 서버</value>
+    <value>Discord-server</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>GitHub 리포지토리</value>
+    <value>GitHub-archief</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>도움말과 정보</value>
+    <value>Hulp en informatie</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>라이선스</value>
+    <value>Licenties</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>BSD 2-Clause 라이선스</value>
+    <value>BSD 2-gebruikslicentie</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>MIT 라이선스</value>
+    <value>MIT-licentie</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>문제 신고하기</value>
+    <value>Meld een probleem</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>프로그램 정보</value>
+    <value>Over</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>버전 {0}</value>
+    <value>Versie {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>모든 파일</value>
+    <value>Alle bestanden</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>현재 실행 중인 Roblox 인스턴스를 전부 닫기 전까지는 몇몇 변경 사항이 적용되지 않을 수도 있습니다.</value>
+    <value>Houd er rekening mee dat niet al je wijzigingen direct van toepassing zijn totdat je alle huidige open Roblox-instanties sluit.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap이 이미 실행 중입니다.</value>
+    <value>Bloxstrap wordt al uitgevoerd</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>부트스트래퍼를 다른 모습으로, 레트로하게, 심지어는 Roblox처럼 꾸밀 수 있습니다.</value>
+    <value>Je kunt het er anders, retro of zelfs net als Roblox laten uitzien.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>부트스트래퍼</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>그 외 다양한 설정들을 변경하세요.</value>
+    <value>Configureer andere diverse aanpasbare opties.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>사용자 정의 설정</value>
+    <value>Aanpassing</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>16px에서 128px의 .ico 파일이어야 합니다. 사용하려면 아이콘을 '사용자 지정' 으로 지정해주세요.</value>
+    <value>Het moet een multi-size .ico bestand zijn met afmetingen 16px tot 128px. Stel Pictogram in als 'Aangepast' om het te gebruiken.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>사용자 지정 아이콘</value>
+    <value>Aangepast pictogram</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>부트스트래퍼의 이름으로 표시되는 텍스트입니다.</value>
+    <value>De tekst die wordt weergegeven als de titel van de bootstrapper.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>이름</value>
+    <value>Titel</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Bloxstrap을 원하는 대로 꾸미세요.</value>
+    <value>Configureer hoe Bloxstrap eruit moet zien.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>전역 테마</value>
+    <value>Globaal thema</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>사용할 아이콘을 선택하세요.</value>
+    <value>Kies welk pictogram het moet gebruiken.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>아이콘</value>
+    <value>Pictogram</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>미리보기</value>
+    <value>Voorbeeld</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>원하는 스타일을 선택하세요. 어두운 테마는 Legacy/Vista에 적용되지 않습니다.</value>
+    <value>Kies hoe het eruit moet zien. Donker thema is niet van toepassing op Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>스타일</value>
+    <value>Stijl</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>외관</value>
+    <value>Uiterlijk</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap이 Roblox가 실행될 때 자동으로 확인하고 업데이트합니다.</value>
+    <value>Bloxstrap zal zichzelf automatisch controleren en bijwerken bij het starten van Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Bloxstrap 자동으로 업데이트하기</value>
+    <value>Bloxstrap automatisch bijwerken</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>게임을 하던 도중 실수로 다른 게임을 실행해서 꺼지는 것을 방지합니다.</value>
+    <value>Voorkom dat je bestaande spel niet wordt afgesloten als je per ongeluk een ander spel start.</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>다른 Roblox 인스턴스를 실행하기 전에 묻기</value>
+    <value>Vraag om bevestiging wanneer een andere Roblox instantie wordt geopend</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Roblox 실행 시 Bloxstrap이 수행할 작업을 설정하세요.</value>
+    <value>Kies wat Bloxstrap moet doen bij het opstarten van Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox가 다음 실행 때 새로 설치됩니다.</value>
+    <value>Roblox wordt opnieuw geïnstalleerd bij de volgende lancering.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Roblox 재설치하기</value>
+    <value>Roblox herinstallatie forceren</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>부트스트래퍼</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>새로 추가</value>
+    <value>Nieuw toevoegen</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>이 Flag 이름과 같은 항목이 이미 존재합니다.</value>
+    <value>Er bestaat al een item voor deze Flag-naam.</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>뒤로</value>
+    <value>Terug</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>잘못 사용하면 불안정하거나 예상치 못한 일이 발생할 수 있습니다.</value>
+    <value>Verkeerd gebruik hiervan kan leiden tot instabiliteit of onverwachte dingen die gebeuren.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>주의해서 사용하세요.</value>
+    <value>Voorzichtig gebruiken.</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>가져오려는 Flag가 이미 존재합니다. 가져오는 값으로 덮어쓰시겠습니까?
+    <value>Sommige Flags die je probeert te importeren hebben al ingestelde waarden. Wil je hun huidige waarden overschrijven met de waarden die zijn gedefinieerd in de import?
 
-다음 {0} 개의 충돌하는 Flag 정의가 있습니다:
+Er zijn {0} conflicterende vlagdefinities:
 {1}</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>삭제</value>
+    <value>Geselecteerde verwijderen</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>FastFlag를 관리할 수 있습니다. 편집할 열을 두 번 클릭하세요.</value>
+    <value>Beheer je eigen Fast Flags. Dubbelklik op een kolom om te bewerken.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>JSON으로 내보내기</value>
+    <value>Exporteer JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>입력된 값 '{0}'이 유효하지 않습니다. 이름에는 문자, 숫자, 밑줄만 포함할 수 있습니다.</value>
+    <value>De opgegeven naam voor '{0}' is ongeldig omdat deze alleen letters, cijfers en underscores mag bevatten</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>입력한 JSON이 유효하지 않습니다. 다시 확인하고 시도해 주세요.
+    <value>De JSON die je hebt ingevoerd lijkt niet geldig te zijn. Controleer het nogmaals en probeer het opnieuw.
 
-추가 정보: {0}</value>
+Meer informatie:
+{0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>입력된 값 '{0}'이 유효하지 않습니다. 이름은 반드시 FFlag, DFInt 등으로 시작해야 합니다.</value>
+    <value>De invoer voor '{0}' is ongeldig omdat de naam moet beginnen met FFlag, DFInt, enzovoort</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>클립보드에 복사했습니다.</value>
+    <value>Gekopieerd naar klembord.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>매우 큰 설정을 가져오려고 하는 것 같습니다. 완전히 이해한 설정만 가져와야 하며, 다른 사람이 만든 설정을 무턱대고 붙여넣으면 안됩니다. 계속 진행하면 안정성 문제와 예상치 못한 변경사항이 생길 가능성이 매우 높습니다.
+    <value>Het lijkt erop dat je een erg grote configuratie importeert. Je zou alleen configuraties moeten importeren die je volledig begrijpt. Plak NIET blindelings configuraties in die door andere mensen zijn gemaakt. Als je doorgaat, zul je zeer waarschijnlijk stabiliteitsproblemen krijgen en onverwachte veranderingen tegenkomen.
 
-계속 진행하시겠습니까?</value>
+Weet je zeker dat je door wilt gaan?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>검색</value>
+    <value>Zoeken</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>프리셋 Flag 표시</value>
+    <value>Toon vooraf ingestelde Flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Fast Flag 편집기</value>
+    <value>Fast Flag-editor</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>돌아가기</value>
+    <value>Ga terug</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>제가 뭘 하는 건지 알고 있어요</value>
+    <value>Ik weet wat ik doe</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>지금 뭘 하는 건지 알고 계세요?</value>
+    <value>Weet je wat je aan het doen bent?</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flag는 매우 강력한 기능이며, 본래 Roblox 엔지니어들만 사용하던 것입니다. 매우 유용할 수 있지만 직접 수정하는 것은 안정성 및 기능에 심각한 문제를 초래할 수 있습니다. 본인이 무엇을 하고 있는지 확실하게 알고 있지 않다면, 이 에디터는 절대 사용하지 마세요.
+    <value>Fast Flags zijn extreem krachtig, omdat ze bedoeld zijn om alleen gebruikt te worden door Roblox engineers. Hoewel ze erg nuttig kunnen zijn, kan het handmatig configureren ervan ernstige problemen veroorzaken met de stabiliteit en functionaliteit. Gebruik de editor NIET als je niet zeker weet wat je doet.
 
-성능을 향상시켜 준다거나 하는, 특히 다른 사람이 만든 Flag 리스트를 넣기 위해 이걸 사용하지 마세요. 앞서 언급한 문제가 이로 인해 발생할 수 있으며, 무엇이 바뀌는지도 몰라 문제가 발생할 수 있습니다. 혹여나 그러려고 했다면, 지금 당장 돌아가세요.</value>
+Gebruik dit NIET om grote "vlaggenlijsten" te importeren die gemaakt zijn door andere mensen die beloven de prestaties te verbeteren of iets dergelijks. Ze zijn onderhevig aan de eerder genoemde problemen en ze zullen problemen voor je veroorzaken omdat je niet volledig bewust bent van wat ze veranderen. Als je dat van plan was, ga dan TERUG.</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>특정 Roblox 엔진 매개변수 및 기능의 구성을 제어합니다.</value>
+    <value>Bepaal hoe specifieke parameters en functies van de Roblox-engine worden geconfigureerd.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Fast Flag를 관리할 수 있습니다. 주의해서 사용해야 합니다.</value>
+    <value>Beheer je eigen Fast Flags. Voorzichtig gebruiken.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Fast Flag와 여러 프리셋의 기능 및 사용 방법에 대해 자세히 알아보세요.</value>
+    <value>Leer meer over Fast Flags, wat deze presets doen en hoe je ze kunt gebruiken.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Alt+Enter를 눌러 Direct3D [전체 화면]({0})을 실행하는 FastFlag 프리셋은 이미 기본적으로 활성화되어 있습니다.</value>
+    <value>Direct3D [Exclusief volledig scherm]({0}) Alt + Enter gebruiken is standaard ingeschakeld.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>선호하는 Esc 메뉴 버전</value>
+    <value>Gewenste escape-menu-versie</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox는 Windows 디스플레이 해상도에 따라 렌더링 품질을 낮춥니다.</value>
+    <value>Roblox vermindert je rendering kwaliteit afhankelijk van hoe je scherm geschaald is in Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>디스플레이 해상도와 함께 렌더링 품질 유지하기</value>
+    <value>De renderkwaliteit behouden bij het schalen van het scherm</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Roblox 기본 프레임 제한을 사용하려면 0으로 설정하세요.</value>
+    <value>Stel het in op 0 als je de standaard framesnelheid onvergrendeling van Roblox wilt gebruiken.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>초당 프레임 제한</value>
+    <value>Framerate-limiet</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[단축키]({0})로 전환 가능합니다. [Bloxstrap 그룹]({1})에 가입한 경우에만 작동합니다.</value>
+    <value>Omschakelen met [sneltoetsen]({0}). Werkt alleen als je in de [Bloxstrap-groep]({1}) zit.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>GUI 숨기기 기능 켜기</value>
+    <value>Mogelijkheid om GUI's te verbergen inschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>적용된 조명은 모든 게임에 강제로 적용됩니다. [조명에 문제가 발생할 수 있습니다, 조심하세요!]({0})</value>
+    <value>De gekozen lichttechnologie zal in alle spellen geforceerd ingeschakeld worden. [Let op, dit kan verlichtingsproblemen veroorzaken!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>선호하는 조명 기술</value>
+    <value>Voorkeur voor verlichtingstechnologie</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>렌더링 모드</value>
+    <value>Rendermodus</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>엔진 설정</value>
+    <value>Engine instellingen</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>글꼴 파일</value>
+    <value>Lettertype-bestanden</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>아이콘 파일</value>
+    <value>Pictogrammenbestanden</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap을 여기에 설치할 수 없습니다. 다른 위치를 선택하거나 초기화 버튼을 클릭하여 기본 경로를 사용하세요.</value>
+    <value>Bloxstrap kan hier niet geïnstalleerd worden. Kies een andere locatie of gebruik de standaardlocatie door op de resetknop te klikken.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>선택한 Bloxstrap 설치 폴더가 이미 존재하며 비어 있지 않습니다. Bloxstrap은 독립된 폴더에 설치하는 것을 권장합니다.
+    <value>De map waarin je Bloxstrap wilt installeren bestaat al en is NIET leeg. Het wordt sterk aangeraden om Bloxstrap in zijn eigen onafhankelijke map te installeren.
 
-다음 위치로 변경하는 것이 좋습니다:
+De volgende locatie wordt aanbevolen:
 {0}
 
-제안된 위치로 변경하시겠습니까?
-'아니요'를 선택하면 이 경고를 무시하고 설치를 계속합니다.</value>
+Wil je de voorgestelde locatie gebruiken?
+Als je 'Nee' selecteert, wordt deze waarschuwing genegeerd en wordt de installatie voortgezet.</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>설치 경로를 설정해야 합니다.</value>
+    <value>Je moet een installatielocatie instellen</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap은 선택한 설치 경로에 대한 접근 권한이 없습니다. 다른 위치를 선택해 주세요.</value>
+    <value>Bloxstrap heeft geen schrijftoegang tot de installatielocatie die je hebt geselecteerd. Kies een andere locatie.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>활동 추적</value>
+    <value>Activiteit bijhouden</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Discord 프로필을 통해 누구나 현재 플레이 중인 게임에 참여할 수 있도록 허용합니다.</value>
+    <value>Hiermee kan iedereen meedoen aan het spel waar je op dat moment in zit via je Discord-profiel.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>활동 추적 허용하기</value>
+    <value>Deelnemen via je activiteit toestaan</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>플레이 중인 Roblox 계정이 Discord 프로필에 표시됩니다.</value>
+    <value>Laat het Roblox account zien waarmee je aan het spelen bent op jouw Discord profiel.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Roblox 계정 표시</value>
+    <value>Toon Roblox account</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>경로</value>
+    <value>Toepassingslocatie</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Roblox를 끄면 자동으로 끄기</value>
+    <value>Automatisch sluiten wanneer Roblox sluit</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>여기서 다른 프로그램을 Roblox와 함께 자동으로 실행할 수 있습니다.</value>
+    <value>Hier kun je andere programma's automatisch met Roblox laten starten.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>실행 명령어</value>
+    <value>Start-Argumenten</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox가 실행 중입니다!</value>
+    <value>Roblox draait nu!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>새로운 연동 기능</value>
+    <value>Nieuwe integratie</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>선택한 기능이 없습니다. 새 기능을 선택하거나 추가하세요.</value>
+    <value>Geen integratie geselecteerd, selecteer of voeg een nieuwe toe</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>사용자 정의 연동 기능</value>
+    <value>Aangepaste integraties</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Roblox와 함께 사용할 추가 기능을 구성해보세요.</value>
+    <value>Voeg extra functionaliteit toe die naast Roblox werkt.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>게임을 떠날 때, 앱으로 돌아가는 대신 Roblox가 완전히 종료됩니다.
-[문제가 발생할 수 있습니다!]({0})</value>
+    <value>Roblox wordt volledig afgesloten wanneer je een spel verlaat, in plaats van terug te gaan naar de app. [Dit kan enkele dingen breken!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>데스크톱 앱으로 나가지 않기</value>
+    <value>Niet afsluiten naar bureaublad-app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Bloxstrap이 당신이 어떤 Roblox 게임을 플레이하는지 감지할 수 있도록 허용합니다. 특정 기능에는 이 설정이 필요할 수 있습니다.</value>
+    <value>Staat toe dat Bloxstrap kan detecteren welk Roblox-spel je speelt. Bepaalde functies kunnen dit vereisen.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>활동 추적 켜기</value>
+    <value>Activiteitentracking inschakelen</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>이 기능은 활동 추적 기능이 활성화되어 있고 Discord 데스크톱 앱이 켜져 있어야 합니다. [더 알아보기]({0}).</value>
+    <value>Deze functie vereist dat de activiteitstracker is ingeschakeld en dat je Discord applicatie geïnstalleerd en geopend is [Meer informatie]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>현재 플레이 중인 Roblox 게임이 Discord 프로필 활동에 표시됩니다. [표시되지 않나요?]({0})</value>
+    <value>Het Roblox-spel dat je speelt, zal worden weergegeven op je Discord-profiel. [Werkt niet?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>게임 활동 표시하기</value>
+    <value>Toon spelactiviteit</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>게임 내에서 [ipinfo.io]({0})를 통해 서버의 위치를 확인할 수 있습니다.</value>
+    <value>Wanneer je in een spel bent, kun je zien waar de server zich bevind via [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>서버 위치 보기</value>
+    <value>Laat server locatie zien</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>연동 기능</value>
+    <value>Integraties</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Roblox 게임 클라이언트에 적용할 모드를 관리하세요.</value>
+    <value>Beheer en pas bestandsmods toe op de Roblox-spelclient.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>모드 관리 및 제작에 관한 정보를 확인하세요.</value>
+    <value>Zie info over het beheren en maken van mods.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>글꼴 선택...</value>
+    <value>Kies een lettertype...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>글꼴 크기는 엔진 설정에서 변경이 가능합니다.</value>
+    <value>Het lettertype kan worden aangepast in de Engine Settings-tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>선택한 파일이 유효한 글꼴 파일이 아닙니다.</value>
+    <value>Het bestand dat je hebt gekozen lijkt geen geldig lettertypebestand te zijn.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>적용된 글꼴 제거</value>
+    <value>Toegepast lettertype verwijderen</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>사용자 지정 글꼴 사용하기</value>
+    <value>Aangepaste lettertype gebruiken</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Roblox 사용자 정의 모드를 관리하세요.</value>
+    <value>Beheer aangepaste Roblox-mods hier.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>모드 폴더 열기</value>
+    <value>Map met mods openen</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Roblox에서 사용할 이모지 유형을 선택하세요.</value>
+    <value>Kies welk type emoji Roblox moet gebruiken.</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>선호하는 이모지 유형</value>
+    <value>Voorkeur emoji-type</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>두 가지 클래식 Roblox 커서 스타일 중 선택하세요.</value>
+    <value>Kies tussen twee klassieke Roblox-cursorstijlen.</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>마우스 커서</value>
+    <value>Muisaanwijzer</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>2020년 이전 Roblox 앱에서 사용된 아바타 에디터 배경을 되돌립니다.</value>
+    <value>Breng de oude avatar-editorachtergrond terug die voor 2020 in de Roblox-app werd gebruikt.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>예전 아바타 에디터 배경 사용하기</value>
+    <value>Gebruik oude avatar-editor achtergrond</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>2014년 이전에 사용되던 캐릭터 효과음을 되돌립니다.</value>
+    <value>Een poging om de karaktergeluiden van voor 2014 ongeveer terug te brengen.</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>예전 캐릭터 효과음 재구현하기</value>
+    <value>Emuleer oude karaktergeluiden</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>예전 'oof' 사망 효과음을 되돌립니다.</value>
+    <value>Breng het klassieke 'oof' doodsgeluid terug.</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>예전 사망 효과음 사용하기</value>
+    <value>Gebruik oud doodsgeluid</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>모드</value>
+    <value>Modificaties</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>이 설정에 대한 자세한 정보를 보려면 클릭하세요.</value>
+    <value>Klik voor meer informatie over deze optie.</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>저장</value>
+    <value>Opslaan</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>변경사항은 다음에 Roblox를 실행할 때 적용됩니다.</value>
+    <value>Wijzigingen worden van kracht wanneer je Roblox de volgende keer opstart.</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>설정 저장 완료!</value>
+    <value>Instellingen opgeslagen!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+    <value>Bloxstrap Instellingen</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>언어를 선택하세요</value>
+    <value>Kies voorkeurstaal</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>설치를 계속하기 전에 언어를 선택하세요.</value>
+    <value>Kies een taal voordat je verder gaat met de installatie.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>언어</value>
+    <value>Taal</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>변경 사항을 적용하려면 다시 시작해야 합니다.</value>
+    <value>Een herlancering is nodig om verandering in effect te brengen.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>지원되지 않는 Roblox 언어 사용 허용</value>
+    <value>Sta gebruik van niet ondersteunde Roblox talen toe</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Roblox 웹사이트에서 실행한 게임에만 적용됩니다.</value>
+    <value>Alleen van toepassing op spellen die vanaf de Roblox website worden gestart.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (V4 + 새 UI)</value>
+    <value>2023 (V4 + Nieuw gebruikersinterface)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>렌더링 및 그래픽</value>
+    <value>Rendering en grafische weergave</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>UI 및 레이아웃</value>
+    <value>Gebruikersinterface en lay-out</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Bloxstrap이 Fast Flag를 관리하도록 허용</value>
+    <value>Sta Bloxstrap toe om Fast Flags te beheren</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>이 기능을 비활성화하면 여기서 설정한 모든 항목이 Roblox에 적용되지 않습니다.</value>
+    <value>Als je dit uitzet, zullen alle configuraties hier niet worden toegepast op Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>안티앨리어싱 품질 (MSAA)</value>
+    <value>Kwaliteit van anti-aliasing (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>포스트 프로세싱 비활성화</value>
+    <value>Post-processing effecten uitschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>전체화면 제목 표시줄 비활성화</value>
+    <value>Volledig scherm titelbalk uitschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>마우스를 화면 상단으로 이동할 때 제목 표시줄이 표시되지 않도록 합니다.</value>
+    <value>Voorkomt dat het verschijnt wanneer je je muis naar de bovenkant van je scherm beweegt.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>텍스처 품질</value>
+    <value>Textuurkwaliteit</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>0단계 (최저)</value>
+    <value>Niveau 0 (Laagste)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>1단계</value>
+    <value>Niveau 1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>2단계</value>
+    <value>Niveau 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>3단계 (최고)</value>
+    <value>Level 3 (Hoogste)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>플레이어 그림자 비활성화</value>
+    <value>Spelerschaduw uitzetten</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>글꼴 크기</value>
+    <value>Grootte van lettertype beheren</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>기본값은 1입니다. 사용자 지정 글꼴을 사용할 경우 조정하세요.</value>
+    <value>Standaardwaarde is 1. Pas aan als je een aangepast lettertype gebruikt.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>지형 텍스처 비활성화</value>
+    <value>Schakel terreintexturen uit</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 다운로드할 수 없습니다</value>
+    <value>Bloxstrap kan Roblox niet downloaden</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>지금은 Roblox를 다운로드할 수 없습니다. 자세한 내용은 다음 페이지를 읽어보세요: {0}</value>
+    <value>Op dit moment kan Roblox niet worden gedownload. Lees alsjeblieft de volgende help-pagina voor meer informatie: {0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>파일에서 불러오기</value>
+    <value>Importeer uit bestand</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>JSON 파일</value>
+    <value>JSON-bestanden</value>
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>입력된 값 '{0}'이 유효하지 않습니다. 값은 참 또는 거짓('True' 혹은 'False')만 들어갈 수 있습니다.</value>
+    <value>De invoer voor '{0}' is ongeldig, omdat de waarde een booleaanse waarde moet zijn (ofwel 'True' of 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>입력된 값 '{0}'이 유효하지 않습니다. 값은 숫자만 들어갈 수 있습니다.</value>
+    <value>De invoer voor '{0}' is ongeldig, omdat de waarde een getal moet zijn</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Bloxstrap이 '{0}' 폴더에 작성할 수 없어 이번 실행에 로그 파일이 작성되지 않습니다.</value>
+    <value>Er wordt geen logbestand aangemaakt voor deze start omdat Bloxstrap niet kan schrijven naar de map op '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>기본</value>
+    <value>Standaard</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>자동</value>
+    <value>Automatisch</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>시스템 기본</value>
+    <value>Systeemstandaard</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>입력된 값 '{0}'이 유효하지 않습니다. 게임 필터 값이 제대로 입력되어야 합니다.</value>
+    <value>De invoer voor '{0}' is niet geldig omdat de plaatsfilter niet correct is opgemaakt.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap 설치 프로그램</value>
+    <value>Bloxstrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>환영합니다</value>
+    <value>Welkom</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>설치</value>
+    <value>Installeren</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
-    <value>완료</value>
+    <value>Voltooiing</value>
   </data>
   <data name="Common.Navigation.Back" xml:space="preserve">
-    <value>뒤로</value>
+    <value>Vorige</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>다음</value>
+    <value>Volgende</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Bloxstrap를 다운로드해 주셔서 감사합니다.
+    <value>Bedankt voor het downloaden van Bloxstrap.
 
-Bloxstrap을 다운로드할 수 있는 공식 웹사이트는 {0}과 {1}뿐이므로, 공식 출처에서 다운로드했는지 확인해 주세요.
+De enigste officiële websites om Bloxstrap te downloaden zijn {0} en {1}, verifieer dat u ze van een officiële bron hebt.
 
-설치 과정은 빠르고 간단하며, 설치 후 Bloxstrap의 설정을 구성할 수 있습니다.</value>
+De installatie proces zal snel en eenvoudig zijn, dus u kunt na de installatie elke Bloxstrap instelling veranderen.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>'다음'을 눌러 계속 진행해주세요.</value>
+    <value>Klik alstublieft op 'Volgende' om door te gaan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>버전 {0}의 Bloxstrap을 설치하려고 계시지만 최신 버전은 {1}입니다. 다운로드하시겠습니까?</value>
+    <value>U probeert de versie {0} van Bloxstrap te installeren, terwijl de nieuwste versie {1} is. Wilt u deze downloaden?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
-    <value>설치할 위치를 선택하세요</value>
+    <value>Kies waar te installeren</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox도 이 경로에 설치됩니다. 다른 드라이브에 게임을 설치하신다면 경로를 바꾸시거나, 그렇지 않을 경우 경로를 유지하시는 것이 좋습니다.</value>
+    <value>Roblox zal ook hier geïnstalleerd worden. Verander deze als u het liever hebt dat uw games op een aparte schijf staan, hou dit anders zoals het is.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>기존 데이터를 발견했습니다. 모드와 설정이 복원됩니다.</value>
+    <value>Bestaande gegevens gevonden. Uw modificaties en instellingen zullen hersteld worden.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
-    <value>바로 가기</value>
+    <value>Snelkoppelingen</value>
   </data>
   <data name="Common.Shortcuts.Desktop" xml:space="preserve">
-    <value>바탕화면 아이콘</value>
+    <value>Bureaublad icoon</value>
   </data>
   <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
-    <value>시작 메뉴 아이콘</value>
+    <value>Start Menu icoon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap이 성공적으로 설치되었습니다.
+    <value>Bloxstrap is met succes geïnstalleerd.
 
-Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때 설치되지만, 그 전에 먼저 Bloxstrap의 설정을 구성하는 것이 좋습니다.
+Roblox is nog niet geïnstalleerd, dat zal gebeuren wanneer je Bloxstrap voor het eerst gebruikt. Voor dat je dit doet, wil je misschien Bloxstrap's instellingen veranderen.
 
-또한, "Roblox Player" 바로 가기로 Roblox를 실행하면 Bloxstrap이 같이 실행되지 않으므로 사용하지 말아주세요. 웹사이트에서 Roblox를 실행할 때 Bloxstrap이 보이지 않는다면 컴퓨터에서 Bloxstrap으로 Roblox를 한 번 실행하시면 고쳐집니다.
+Vermijd ook het gebruik van de "Roblox Player" snelkoppeling om Roblox te spelen, omdat Bloxstrap dan niet met Roblox lanceert. Als je Bloxstrap niet ziet wanneer je Roblox lanceert vanaf de website, start dan eenmaal Roblox met Bloxstrap op van je desktop om het op te lossen.
 
-무엇을 하시겠습니까?</value>
+Wat wilt u doen?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Bloxstrap 설정하기</value>
+    <value>Bloxstrap instellingen veranderen</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>제공되는 모든 기능으로 조정하기</value>
+    <value>Pas alle functies aan die het heeft aan te bieden</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
-    <value>Roblox 설치 및 실행하기</value>
+    <value>Installeer en open Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>모든 작업이 완료되면 프로그램을 실행합니다</value>
+    <value>Opent de desktop app zodra alles gedaan is</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Bloxstrap 제거하기</value>
+    <value>Verwijder Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>제거하면 시스템에서 Bloxstrap이 제거되고, 기존의 Roblox가 아직 설치되어 있는 경우 자동으로 재구성됩니다.
+    <value>De-installeren zal Bloxstrap van uw systeem verwijderen en automatisch de standaard Roblox launcher opnieuw configureren als het nog steeds geïnstalleerd is.
 
-Roblox에 문제가 있어서 제거하거나 재설치하는 경우 먼저 [도움말]({0})을 읽어보세요.
+Als u eerst problemen ondervindt met Roblox en probeert de de-installeren of opnieuw te installeren, lees dan [deze helppagina] ({0}).
 
-설치된 위치에서 일부 파일을 완전히 제거할 수 없을 수도 있습니다. 따라서, 설치된 위치에 남은 파일을 수동으로 제거해야 할 수도 있습니다.
+Het de-installatieproces kan zichzelf mogelijk niet volledig opschonen, dus u moet misschien handmatig de overgebleven bestanden opschonen waar Bloxstrap is geïnstalleerd.
 
-Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
+Bloxstrap is geïnstalleerd op "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>설정 및 모드 유지하기</value>
+    <value>Mijn instellingen en modificaties behouden</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Bloxstrap이 설치된 위치에 보관되며, 재설치 시 자동으로 복원됩니다.</value>
+    <value>Ze zullen bewaard worden waar Bloxstrap geïnstalleerd was, en zal automatisch herstelt worden op een herinstallatie.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
-    <value>제거</value>
+    <value>Verwijderen</value>
   </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>Roblox 실행</value>
+    <value>Open Roblox</value>
   </data>
   <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>설정 변경하기</value>
+    <value>Verander instellingen</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>문제가 있나요?</value>
+    <value>Heeft u een probleem?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>도움이 필요하면 Wiki를 확인하세요</value>
+    <value>Bekijk de wiki voor hulp</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>현재 WebView2 런타임이 설치되어 있지 않습니다. 이 런타임이 없으면 데스크톱 애플리케이션과 같은 일부 Roblox 기능이 제대로 작동하지 않습니다. 지금 다운로드하시겠습니까?</value>
+    <value>De WebView2 runtime is momenteel niet geïnstalleerd. Sommige Roblox functies werken zonder deze niet goed, zoals de desktop app. Wilt u deze nu downloaden?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap에서 데스크톱 및 시작 메뉴에 대한 바로 가기를 만들 수 없었습니다. 나중에 설정을 통해 생성해 보세요.</value>
+    <value>Bloxstrap kon geen snelkoppelingen maken voor het bureaublad en Start menu. Probeer ze later te maken via de instellingen.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>[Bloxstrap Wiki]({0}) 에서 이 문제가 이미 수정으로 해결되었는지 먼저 확인해 주세요.
+    <value>Bekijk de [Bloxstrap Wiki]({0}) eerst om te zien of dit probleem al is opgelost met een oplossing.
 
-그렇지 않은 경우 이 포크의 관리자에게 이 오류를 보고해 주세요. 이 포크는 비공식 빌드이므로 Bloxstrap's GitHub issues에 보고하지 마세요.</value>
+Als dit niet het geval is, rapporteer dit probleem dan aan de beheerders van deze fork. Meld dit NIET aan de GitHub van Bloxstrap, omdat dit niet een officiële versie is.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>이는 다중 선택 실행 메뉴를 불러오는 일반적인 바로 가기입니다. 특정 기능에 대한 바로 가기는 나중에 설정에서 만들 수 있습니다.</value>
+    <value>Dit zijn algemene snelkoppelingen die een opstart menu met meerdere keuzes opleveren. Snelkoppelingen voor specifieke functies kunnen later worden aangemaakt in de instellingen.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Bloxstrap을 쉽게 실행할 수 있는 방법을 구성합니다.</value>
+    <value>Stel in hoe Bloxstrap gemakkelijk gestart kan worden.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
-    <value>일반</value>
+    <value>Algemeen</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>이것은 다중 선택 시작 메뉴를 불러오는 바로 가기입니다.</value>
+    <value>Dit zijn de snelkoppelingen die het opstart menu met meerdere keuzes openen.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
-    <value>기능</value>
+    <value>Functie</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>특정 기능에 빠르게 액세스할 수 있는 바로 가기를 만들 수 있습니다. 이러한 바로 가기는 모두 데스크톱에 배치됩니다.</value>
+    <value>Maak snelkoppelingen voor snelle toegang tot specifieke functies. Deze worden allemaal op het bureaublad geplaatst.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>비공개 서버에 연결됐습니다</value>
+    <value>Verbonden met een privéserver</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>예약된 서버에 연결됐습니다</value>
+    <value>Verbonden met een reserveerde server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>지금은 이모지 모드를 적용할 수 없습니다.</value>
+    <value>De emoji mod kan nu niet toegepast worden.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>설치가 완료될 때까지 기다려주세요.</value>
+    <value>Wacht alstublieft tot de installatie klaar is.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
-    <value>제거가 완료될 때까지 기다려주세요.</value>
+    <value>Wacht alstublieft tot het klaar is met verwijderen.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Bloxstrap 정보</value>
+    <value>Over Bloxstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
-    <value>라이선스</value>
+    <value>Licenties</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>번역자</value>
+    <value>Vertalers</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>저장되지 않은 변경사항이 있습니다. 저장하지 않고 닫으시겠습니까?</value>
+    <value>U hebt wijzigingen dat niet opgeslagen zijn. Bent u zeker dat u wilt afsluiten zonder op te slaan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>실행한 Bloxstrap의 버전이 현재 설치한 버전보다 오래된 버전입니다.
-문제가 발생하고 설정이 변경될 수 있습니다. 재설치가 권장됩니다.
-계속하시겠습니까?</value>
+    <value>De versie van Bloxstrap die u hebt geopend is ouder dan de versie die je nu hebt geïnstalleerd.
+Er kunnen problemen zijn, en uw instellingen kunnen veranderd worden. Het is aanbevolen om Bloxstrap te herinstalleren. Bent u zeker dat u wilt doorgaan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox가 실행에 실패했습니다.</value>
+    <value>Roblox kon niet starten.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox가 충돌했습니다.</value>
+    <value>Roblox is gecrasht.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>이 문제가 왜 일어나는지, 그리고 해결하는 방법을 알아보시려면 [이 도움말 문서]({0})을 참조하세요.
+    <value>Voor informatie over hoe dit kan gebeuren en hoe het opgelost kan worden, lees je alstublieft [dit hulpartikel]({0}).
 
-[기존 Roblox 런처]({1})로 문제가 해결되는지 확인하세요. 그렇지 않으면, 이는 Bloxstrap의 문제가 아닙니다. 만약 그렇다면, 도움말 문서를 참조하세요.</value>
+Controleer of Roblox werkt met [de originele launcher]({1}). Als dit niet het geval is, is het geen Bloxstrap-probleem. Verwijs dan naar het hulpartikel.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>네트워크 오류로 인해 데이터를 로드할 수 없습니다.</value>
+    <value>Kon gegevens niet laden door een netwerkfout.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>불러오는 중, 잠시만 기다려주세요...</value>
+    <value>Bezig met laden, even wachten...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
-    <value>후원자</value>
+    <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>이 분들은 Ko-fi를 통해 Bloxstrap을 지원해주신 분들입니다. 모두 감사를 전합니다!
-여기 계신 모든 분들은 후원금에 따라 순위가 매겨집니다.</value>
+    <value>Dit zijn de mensen die Bloxstrap hebben ondersteund via Ko-fi. Een enorme dank aan iedereen hier!
+Elke persoon hier is gerangschikt op basis van hun totale bijdrage.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>설정을 불러올 수 없습니다. 기본 구성으로 다시 설정되었습니다.</value>
+    <value>Uw instellingen konden niet geladen worden. Ze zijn teruggezet naar de standaardinstellingen.</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>Fast Flag를 불러올 수 없습니다. 기본 구성으로 다시 설정되었습니다.</value>
+    <value>Uw Fast Flags konden niet geladen worden. Ze zijn teruggezet naar de standaard configuratie.</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>게임 기록</value>
+    <value>Spel geschiedenis</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>재접속</value>
+    <value>Rejoin</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>게임 정보를 불러오는 도중에 오류가 발생했습니다. 현재 게임이 Discord 활동에 표시되지 않습니다.</value>
+    <value>Je huidige spel zal niet verschijnen op je Discord activiteit, omdat er een fout is opgetreden bij het laden van de spelinformatie.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>게임 기록은 현재 Roblox 세션 관련으로만 기록됩니다. 게임에서 나가거나 게임 내에서 순간이동하였을 때 여기에 표시됩니다. 모든 서버에 다시 접속할 수 있는 것은 아닙니다.</value>
+    <value>Spelgeschiedenis is alleen opgenomen voor je huidige Roblox sessie. Spellen zullen hier verschijnen terwijl je ze verlaat of teleporteert binnen hen. Je kan niet opnieuw alle servers joinen.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>서버 위치를 조회할 수 없습니다. 게임에 너무 빨리 접속하고 있을 수 있습니다.</value>
+    <value>De serverlocatie kon niet worden opgevraagd. Het zou mogelijk kunnen zijn dat je te snel games speelt.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
-    <value>나중에 다시 시도해 주세요.</value>
+    <value>Probeer later opnieuw.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
-    <value>이번에 시작할 때, Roblox의 업그레이드를 확인하지 않으며 모드에 대한 변경 사항도 적용되지 않습니다.</value>
+    <value>Voor deze launch zal Roblox niet gecontroleerd worden op upgrades, en wijzigingen aan mods zullen niet toegepast worden.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Roblox를 설치하거나 업그레이드해야 하므로 Bloxstrap이 계속할 수 없습니다.</value>
+    <value>Omdat Roblox geïnstalleerd of geüpdate moet worden, Bloxstrap kan niet doorgaan.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap이 이전에 이 위치에 설치되었으며 여전히 존재하지만, 설치 관리자가 이전 실행 파일을 덮어쓸 수 없습니다. 
+    <value>Bloxstrap is geïnstalleerd op deze locatie en is nog steeds aanwezig, maar het installatieprogramma kan het oude uitvoerbare niet overschrijven. 
 
-설치 위치에서 Bloxstrap.exe를 수동으로 삭제하거나 시스템을 다시 시작한 다음 설치를 다시 시도해 보세요.</value>
+Verwijder handmatig Bloxstrap.EXE van de installatielocatie of probeer je systeem opnieuw op te starten, en probeer daarna opnieuw te installeren.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
-    <value>사용할 수 없음</value>
+    <value>Niet beschikbaar</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
-    <value>호환성 설정 관리</value>
+    <value>Compatibiliteitsinstellingen beheren</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>DPI 크기 조정 동작 및 [전체 화면 최적화]({0})와 같은 애플리케이션 매개 변수를 구성합니다.</value>
+    <value>Configureer applicatie parameters zoals DPI scaling behaviour en [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox가 아직 설치되지 않았습니다. 이 옵션을 사용하기 전에 Bloxstrap을 사용하여 Roblox를 한 번 이상 실행해 보세요.</value>
+    <value>Roblox is nog niet geïnstalleerd. Start Roblox minstens eenmaal op via Bloxstrap voordat u probeert deze optie te gebruiken.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>설치를 취소하시겠습니까?</value>
+    <value>Bent u zeker dat u de installatie wilt stoppen?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>{0}을(를) 저장하지 못했습니다: {1}</value>
+    <value>Opslaan van {0} is mislukt: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>선택한 부트스트래퍼 아이콘을 불러오지 못했습니다.
+    <value>De gekozen bootstrapper icoon kon niet worden geladen.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Roblox 아이콘을 폴더로 추출하기</value>
+    <value>Extract Roblox iconen naar folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Bloxstrap의 다양한 Roblox 아이콘을 바로 가기에 사용할 수 있습니다. [어떻게 할 수 있는지 알아보세요.]({0})</value>
+    <value>Staat u toe om Bloxstrap's collectie van Roblox iconen te gebruiken voor snelkoppelingen. [Zie hoe.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap이 Windows 레지스트리 작성에 실패했습니다. 안티바이러스의 방해로 인해 문제가 발생할 가능성이 높습니다. Bloxstrap의 작동을 제한할 수 있는 요인이 있는지 확인해 주세요.</value>
+    <value>Bloxstrap kan niet naar het Windows-register schrijven. Een antivirus programma kan mogelijk storen en problemen veroorzaken. Controleer of er niet iets is dat de Bloxstrap werking zou beperken.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>매달 후원</value>
+    <value>Maandelijks</value>
   </data>
   <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>일회성 후원</value>
+    <value>Eenmalig</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Bloxstrap의 동작과 관련된 옵션을 구성</value>
+    <value>Configureer opties gerelateerd aan het gedrag van Bloxstrap zelf.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>사용 진단 정보 전송 활성화</value>
+    <value>Het verzenden van analytics inschakelen</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>전송되는 정보는 전부 익명이며 악의적인 목적이 아닙니다. 저희가 수집하는 항목과 이유에 대한 자세한 내용은 [개인정보 처리방침]({0})을 확인해 주세요.</value>
+    <value>Het is anoniem en niets slecht, beloofd. Voor inzicht in wat we verzamelen en waarom, zie ons ({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
-    <value>사용 진단 정보</value>
+    <value>Statistieken</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
-    <value>전부 기본값으로 재설정</value>
+    <value>Alle standaard instellingen herstellen</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>오류 신고하기</value>
+    <value>Meld exceptie</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>테스트 모드</value>
+    <value>Test modus</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>테스트 모드는 변경된 설정을 더 쉽게 확인할 수 있도록 도움을 줍니다.
+    <value>Test modus maakt het gemakkelijker om iteratief te testen hoe uw instellingen Roblox beïnvloeden. 
 
-활성화되어 있을 때, 설정을 닫을 때마다 자동으로 Roblox가 실행되고, 다시 설정을 열 때 Roblox가 꺼집니다. 이는 꺼지기 전까지 반복됩니다.
+Wanneer ingeschakeld, zal Roblox automatisch starten na het sluiten van de instellingen, en de Instellingen heropenen na het sluiten van Roblox, in een cyclus totdat u het uitschakelt.
 
-테스트 모드를 활성화하시겠습니까?</value>
+Wilt u de testmodus inschakelen?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Bloxstrap의 모든 번역은 [Crowdin]({0})을 통해 크라우드소싱됩니다. 여기 적힌 모든 사람들은 Bloxstrap의 번역을 위해 시간과 노력을 아끼지 않고 도와주신 분들입니다. 모두 진심으로 감사드립니다!</value>
+    <value>Alle vertalingen van Bloxstrap zijn gecrowdsourcet via [Crowdin]({0}). Iedereen die hier op de lijst staat, zijn mensen die zich ruimhartig hebben ingezet voor het lokaliseren van Bloxstrap. Een grote dank aan iedereen hier!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
-    <value>설치</value>
+    <value>Installeer</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
   <data name="Paths.Icons" xml:space="preserve">
-    <value>아이콘</value>
+    <value>Iconen</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Roblox Studio 실행하기</value>
+    <value>Start Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>버전 {0}</value>
+    <value>Versie {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 업데이트하려고 했으나 현재 Roblox의 파일이 사용 중입니다.
+    <value>Bloxstrap heeft geprobeerd Roblox bij te werken, maar kan dit niet omdat de bestanden van Roblox nog in gebruik zijn.
 
-Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 실행해 주세요.</value>
+Sluit alstublieft alle applicaties die mogelijk de bestanden van Roblox gebruiken en start opnieuw.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Zip 압축 파일</value>
+    <value>Zip archief</value>
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
   <data name="Common.Export" xml:space="preserve">
-    <value>내보내기</value>
+    <value>Exporteer</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
-    <value>진단 데이터 내보내기</value>
+    <value>Exporteer diagnostische gegevens</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>온라인으로 업로드가 가능한 정보를 수집하여 겪고 계신 문제를 해결하세요.</value>
+    <value>Verzamel informatie die online kan worden geüpload om een probleem op te lossen dat je hebt.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+    <value>Bloxstrap configuratie</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>모든 Bloxstrap 로그</value>
+    <value>Alle Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

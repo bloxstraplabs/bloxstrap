@@ -17,8 +17,8 @@ namespace Bloxstrap
             { "en-US", "English (United States)" },
 #if QA_BUILD
             { "sq", "Albanian" }, // Albanian (TODO: translate string)
-            { "ar", "العربية" }, // Arabic
 #endif
+            { "ar", "العربية" }, // Arabic
             { "bg", "Български" }, // Bulgarian
 #if QA_BUILD
             { "bn", "বাংলা" }, // Bengali
@@ -49,8 +49,8 @@ namespace Bloxstrap
             { "ko", "한국어" }, // Korean
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
-#if QA_BUILD
             { "nl", "Nederlands" }, // Dutch
+#if QA_BUILD
             { "no", "Bokmål" }, // Norwegian
 #endif
             { "pl", "Polski" }, // Polish
