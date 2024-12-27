@@ -706,6 +706,19 @@ namespace Bloxstrap
 
             _isInstalling = true;
 
+            if (Directory.Exists(_latestVersionDirectory))
+            {
+                try
+                {
+                    Directory.Delete(_latestVersionDirectory, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+
             Directory.CreateDirectory(_latestVersionDirectory);
 
             var cachedPackageHashes = Directory.GetFiles(Paths.Downloads).Select(x => Path.GetFileName(x));
