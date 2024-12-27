@@ -133,25 +133,25 @@
     <value>شما باید بلاکسترپ را نصب داشته باشید که بتواند آنرا حذف نصب کنید.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>بلاکسترپ فضای کافی برای دانلود و نصب روبلاکس ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
+    <value>Bloxstrap فضای کافی برای دانلود و نصب Roblox ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>در حال اعمال کردن تغییرات روبلاکس...</value>
+    <value>در حال اعمال کردن تغییرات Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
     <value>در حال پیکربندی {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>در حال متصل شدن به روبلاکس...</value>
+    <value>در حال متصل شدن به Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
     <value>در حال نصب کردن {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value></value>
+    <value>در حال نصب کردن WebView2؛ لطفاً صبر کنید...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>{product}در حال شروع کردن {produ{product}ct}...</value>
+    <value>در حال شروع کردن {product}...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
@@ -164,18 +164,18 @@
     <value>در حال صبر کردن برای موارد دیگر...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>نمای سبک - روی دکمه ی X در سمت راست بالا برای بستن بزنید</value>
+    <value>پیش نمایش سبک - روی دکمه ی X در سمت راست بالا برای بستن بزنید</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>پیش نمایش سبک - روی دکمه ی لغو برای بستن بزنید</value>
+    <value>پیش نمایش سبک - روی دکمه لغو برای بستن بزنید</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>بلاکسترپ با موفقیت حذف شد</value>
+    <value>Bloxstrap با موفقیت حذف شد</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>روبلاکس در حال اجرا شدن است؛ ولی قبل از حذف نصب بلاکسترپ باید بسته شود. آیا میخواهید روبلاکس را الان بیندید؟</value>
+    <value>Roblox در حال اجرا است؛ ولی قبل از حذف نصب Bloxstrap باید بسته شود. آیا میخواهید Roblox را الان بیندید?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>روبلاکس نیاز به استفاده از اجزای بنیاد رسانه ویندوز می باشد. همانا این‌طور می باشد که آنها را ندارید؛ و ممکن است شما در حال استفاده از نسخهٔ «ن» ویندوز می باشید. اول آنها را نصب کرده، و بعد روبلاکس را اجرا کنید.</value>
@@ -202,7 +202,7 @@
     <value>کمک</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>وارد كردن جیسون</value>
+    <value>وارد كردن JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
     <value>باز کردن فایل لاگ</value>
@@ -306,7 +306,7 @@
     <value>دیرتر از 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value></value>
+    <value>Byfron دروغی (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
     <value>بلاکسترپ (کلاسیک)</value>

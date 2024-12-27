@@ -127,7 +127,7 @@
     <value>Roblox könnte aktuell nicht erreichbar sein. Siehe dir {0} für mehr Informationen an.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Es konnte keine Verbindung hergestellt werden, was wahrscheinlich auf eine schlechte Internetverbindung oder eine Firewall-Blockade hinweist. Wenn Ihre Verbindung in Ordnung ist, stellen Sie bitte sicher, dass Ihr Antivirus Bloxstrap nicht blockiert.</value>
+    <value>Es konnte keine Verbindung hergestellt werden, was wahrscheinlich auf eine schlechte Internetverbindung oder eine Firewall-Blockade hinweist. Sollte das Problem nicht bei deiner Internetverbindung liegen, könnte es sein, dass Bloxstrap durch dein Antivirus blockiert wird.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Du musst zuerst Bloxstrap installieren, bevor du es deinstallierst.</value>
@@ -175,7 +175,7 @@
     <value>Bloxstrap wurde erfolgreich deinstalliert</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox läuft derzeit, muss jedoch geschlossen werden, bevor Bloxstrap deinstalliert werden kann. Möchten Sie Roblox jetzt schließen?</value>
+    <value>Roblox läuft derzeit, muss jedoch geschlossen werden, bevor Bloxstrap deinstalliert werden kann. Möchtest du Roblox jetzt schließen?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox erfordert die Nutzung von Windows Media Foundation Komponenten. Es sieht so aus, als ob sie bei dir fehlen, wahrscheinlich weil du eine N Edition von Windows verwendest. Bitte installiere sie zuerst und starte anschließend Roblox.</value>
@@ -714,7 +714,7 @@ Wenn du 'Nein' wählst, wird diese Warnung ignoriert und die Installation fortge
     <value>Konfiguriere zusätzliche Funktionalität für Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox wird vollständig geschlossen, wenn Sie ein Spiel verlassen, anstatt zur App zurückzukehren. [Dies wird einige Dinge beeinträchtigen!]({0})</value>
+    <value>Roblox wird vollständig geschlossen, wenn du ein Spiel verlässt, anstatt zur App zurückzukehren. [Dies wird einige Dinge beeinträchtigen!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Nicht zur Desktop-App zurückkehren</value>
@@ -1102,9 +1102,9 @@ Bist du sicher, dass du fortfahren möchtest?</value>
     <value>Roblox ist abgestürzt.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Für Informationen warum dies passieren könnte und wie es behoben werden kann, lesen Sie bitte [diesen Hilfeartikel]({0}).
+    <value>Für Informationen warum dies passieren könnte und wie es behoben werden kann, lese bitte [diesen Hilfeartikel]({0}).
 
-Prüfen Sie, ob Roblox mit [dem ursprünglichen Launcher]({1}) funktioniert. Wenn nicht, liegt das Problem nicht bei Bloxstrap. Wenn doch, konsultieren Sie bitte den Hilfeartikel.</value>
+Prüfe, ob Roblox mit [dem ursprünglichen Launcher]({1}) funktioniert. Wenn nicht, liegt das Problem nicht bei Bloxstrap. Wenn doch, greife bitte auf den Hilfeartikel zurück.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Daten konnten aufgrund eines Netzwerkfehlers nicht geladen werden.</value>
@@ -1242,7 +1242,7 @@ Möchtest du den Testmodus aktivieren?</value>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Bloxstrap hat versucht, Roblox zu aktualisieren, kann dies jedoch nicht, da die Dateien von Roblox noch verwendet werden.
 
-Bitte schließen Sie alle Anwendungen, die möglicherweise auf die Dateien von Roblox zugreifen, und starten Sie neu.</value>
+Bitte schließe alle Anwendungen, die möglicherweise auf die Dateien von Roblox zugreifen, und starte die App neu.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1257,7 +1257,7 @@ Bitte schließen Sie alle Anwendungen, die möglicherweise auf die Dateien von R
     <value>Diagnosedaten exportieren</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Sammeln Sie Informationen die online hochgeladen werden können, um ein Problem zu beheben.</value>
+    <value>Speichere informationen, welche online hochgeladen werden können, um bei der Problemlösung zu helfen.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Bloxstrap Konfiguration</value>

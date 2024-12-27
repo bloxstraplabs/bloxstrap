@@ -1247,14 +1247,14 @@ Lütfen Roblox'un dosyalarını kullanabilecek olan uygulamaları kapatın, ve t
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
   <data name="Common.Export" xml:space="preserve">
-    <value>Dışarı aktar</value>
+    <value>Dışa aktar</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
     <value>Tanısal veriyi dışarı aktar</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Yaşadığınız bir sorunu onarmak için çevrimiçi yüklenebilen bilgi toplayın.</value>
+    <value>Yaşadığınız bir sorunu onarmak için çevrim içi yüklenebilen bilgi toplayın.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Bloxstrap yapılandırması</value>
