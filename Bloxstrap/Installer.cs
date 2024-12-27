@@ -575,8 +575,16 @@ namespace Bloxstrap
                     }
                 }
 
+                if (Utilities.CompareVersions(existingVer, "2.8.3") == VersionComparison.LessThan)
+                {
+                    // force reinstallation
+                    App.State.Prop.Player.VersionGuid = "";
+                    App.State.Prop.Studio.VersionGuid = "";
+                }
+
                 App.Settings.Save();
                 App.FastFlags.Save();
+                App.State.Save();
             }
 
             if (currentVer is null)
