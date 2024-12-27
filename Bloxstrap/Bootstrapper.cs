@@ -701,18 +701,16 @@ namespace Bloxstrap
 
             foreach (Process process in processes)
             {
-                string? processPath = process.MainModule?.FileName;
-                if (processPath != null && processPath.StartsWith(path))
+                try
                 {
-                    try
-                    {
+                    string? processPath = process.MainModule?.FileName;
+                    if (processPath != null && processPath.StartsWith(path))
                         process.Kill();
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id} at {processPath}");
-                        App.Logger.WriteException(LOG_IDENT, ex);
-                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id}");
+                    App.Logger.WriteException(LOG_IDENT, ex);
                 }
             }
         }
