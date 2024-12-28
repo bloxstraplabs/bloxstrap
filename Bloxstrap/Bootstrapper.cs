@@ -691,21 +691,19 @@ namespace Bloxstrap
             }
         }
 
-        private void KillRunningRobloxInDirectory(string path)
+        private static void KillRobloxPlayers()
         {
-            const string LOG_IDENT = "Bootstrapper::KillRunningRobloxInDirectory";
+            const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
 
             List<Process> processes = new List<Process>();
-            processes.AddRange(Process.GetProcessesByName(IsStudioLaunch ? "RobloxStudioBeta" : "RobloxPlayerBeta"));
-            processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler"));
+            processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
 
             foreach (Process process in processes)
             {
                 try
                 {
-                    string? processPath = process.MainModule?.FileName;
-                    if (processPath != null && processPath.StartsWith(path))
-                        process.Kill();
+                    process.Kill();
                 }
                 catch (Exception ex)
                 {
@@ -730,9 +728,11 @@ namespace Bloxstrap
 
             _isInstalling = true;
 
-            // make sure nothing is running from the latest version directory before deleting the whole directory
-            KillRunningRobloxInDirectory(_latestVersionDirectory);
+            // make sure nothing is running before continuing upgrade
+            if (!IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
+                KillRobloxPlayers();
 
+            // get a fully clean install
             if (Directory.Exists(_latestVersionDirectory))
             {
                 try
