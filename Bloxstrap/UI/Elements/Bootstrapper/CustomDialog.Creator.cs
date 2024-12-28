@@ -280,6 +280,24 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return new GetImageSourceDataResult { Uri = result };
         }
 
+        private static Uri GetMediaSourceData(CustomDialog dialog, XElement xmlElement)
+        {
+            string path = GetXmlAttribute(xmlElement, "Source");
+
+            path = GetFullPath(dialog, path)!;
+
+            if (!Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out Uri? result))
+                throw new Exception($"{xmlElement.Name} failed to parse Source as Uri");
+
+            if (result == null)
+                throw new Exception($"{xmlElement.Name} Source Uri is null");
+
+            if (result.Scheme != "file")
+                throw new Exception($"{xmlElement.Name} Source uses blacklisted scheme {result.Scheme}");
+
+            return result;
+        }
+
         private static RepeatBehavior GetImageRepeatBehaviourData(XElement element)
         {
             string? value = element.Attribute("RepeatBehaviour")?.Value?.ToString();
