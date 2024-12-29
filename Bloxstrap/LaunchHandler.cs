@@ -11,17 +11,27 @@ namespace Bloxstrap
     {
         public static void ProcessNextAction(NextAction action, bool isUnfinishedInstall = false)
         {
+            const string LOG_IDENT = "LaunchHandler::ProcessNextAction";
+
             switch (action)
             {
                 case NextAction.LaunchSettings:
+                    App.Logger.WriteLine(LOG_IDENT, "Opening settings");
                     LaunchSettings();
                     break;
 
                 case NextAction.LaunchRoblox:
+                    App.Logger.WriteLine(LOG_IDENT, "Opening Roblox");
                     LaunchRoblox(LaunchMode.Player);
                     break;
 
+                case NextAction.LaunchRobloxStudio:
+                    App.Logger.WriteLine(LOG_IDENT, "Opening Roblox Studio");
+                    LaunchRoblox(LaunchMode.Studio);
+                    break;
+
                 default:
+                    App.Logger.WriteLine(LOG_IDENT, "Closing");
                     App.Terminate(isUnfinishedInstall ? ErrorCode.ERROR_INSTALL_USEREXIT : ErrorCode.ERROR_SUCCESS);
                     break;
             }
@@ -29,20 +39,40 @@ namespace Bloxstrap
 
         public static void ProcessLaunchArgs()
         {
+            const string LOG_IDENT = "LaunchHandler::ProcessLaunchArgs";
+
             // this order is specific
 
             if (App.LaunchSettings.UninstallFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening uninstaller");
                 LaunchUninstaller();
+            }
             else if (App.LaunchSettings.MenuFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening settings");
                 LaunchSettings();
+            }
             else if (App.LaunchSettings.WatcherFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
+            }
             else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Opening bootstrapper ({App.LaunchSettings.RobloxLaunchMode})");
                 LaunchRoblox(App.LaunchSettings.RobloxLaunchMode);
+            }
             else if (!App.LaunchSettings.QuietFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening menu");
                 LaunchMenu();
+            }
             else
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Closing - quiet flag active");
                 App.Terminate();
+            }
         }
 
         public static void LaunchInstaller()
@@ -231,6 +261,8 @@ namespace Bloxstrap
             });
 
             dialog?.ShowBootstrapper();
+
+            App.Logger.WriteLine(LOG_IDENT, "Exiting");
         }
 
         public static void LaunchWatcher()

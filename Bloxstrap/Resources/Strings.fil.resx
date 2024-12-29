@@ -118,201 +118,201 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap non è stato in grado di aggiornarsi automaticamente alla versione {0}. Per favore, aggiornalo manualmente scaricandolo ed eseguendolo dal sito.</value>
+    <value>Hindi nagkukusang nag update ang Bloxstrap sa version {0}. Pakiusap na i-update mo ng manu-mano sa pag-download at pagtakbo nito sa website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox è già in esecuzione e l'avvio di un'altra istanza lo chiuderà. Sei sicuro di voler continuare ad avviarlo?</value>
+    <value>Nakabukas pa rin ang Roblox, at ang pag-launch ng iba pang instance ay isasarado ito. Sigurado ka bang gusto mong ituloy ang pag-launch?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox potrebbe non essere raggiungibile in questo momento. Vai su {0} per più informazioni.</value>
+    <value>Maaring down ngayon ang Roblox. Tignan dito sa {0} para sa ibang impormasyon.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Non è stato possibile effettuare una connessione, il che probabilmente indica una scarsa connessione a internet o un blocco firewall. Se la tua connessione va bene, assicurati che il tuo antivirus non stia bloccando Bloxstrap.</value>
+    <value>Hindi makagawa ng connection, ibig sabihin nito ay mahina ang internet connection o isang firewall block. Kapag ang iyong connection ay ayos, i-ensure na ang iyong antivirus ay hindi binablock ang Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Devi prima installare Bloxstrap per disinstallarlo.</value>
+    <value>Kailangan mo munang i-install ang Bloxstrap bago mo ito i-uninstall.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap non ha abbastanza spazio per scaricare e installare Roblox. Per favore libera dello spazio e riprova.</value>
+    <value>Walang sapat na disk space para mag-install ng Roblox. Maaring mag-delete ng mga files upang magkaroon ng disk space at subukan muli.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Applicando le modifiche di Roblox...</value>
+    <value>Ina-apply ang mga Roblox modifications...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>Configurando {product}...</value>
+    <value>Inaayos ang {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Connessione a Roblox...</value>
+    <value>Kumukonekta sa Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>Installando {product}...</value>
+    <value>Ini-install ang {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>Installazione WebView2, per favore attendere...</value>
+    <value>Ini-install ang WebView2, maghintay...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>Inizializzazione di {product}...</value>
+    <value>Sinisimulan ang {product}...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>Aggiornando {product}...</value>
+    <value>Mag-uupgrade ng {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Ricerca della versione più recente di Bloxstrap...</value>
+    <value>Kinukuha ang latest Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>In attesa di altre istanze...</value>
+    <value>Naghihintay ng ibang instances...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>Anteprima stile - Clicca sul pulsante X in alto a destra per chiudere</value>
+    <value>Style preview - Pindutin ang X button na nasa kanang itaas para masarado</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>Anteprima stile - Clicca su Annulla per chiudere</value>
+    <value>Style preview - Pindutin ang Kanselahin para masarado</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap è stato disinstallato con successo</value>
+    <value>Natanggal na ang Bloxstrap</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox è attualmente in esecuzione, deve essere chiuso prima di poter disinstallare Bloxstrap. Desideri chiudere Roblox ora?</value>
+    <value>Tumatakbo ang Roblox, pero kailangan i-close bago tangalin ang Bloxstrap. Gusto mo ba i-sarado ang Roblox ngayon?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox richiede l'uso dei componenti Windows Media Foundation, che sembrano mancare. Probabilmente perché stai utilizzando un'edizione di Windows N. Per favore, installali prima di avviare Roblox.</value>
+    <value>Kinakailangan ng Roblox na gumamit ng Windows Media Foundation components. Mukhang ang mga components ay nawawala sa iyong system, dahil siguro ikaw ay gumagamit ng N edition ng Windows. Maaring i-install muna ang mga components, tapos i-launch ang Roblox.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>Aggiungi singolo</value>
+    <value>Magdagdag ng isa</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Sfoglia</value>
+    <value>Browse</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Kanselahin</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Isara</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Elimina</value>
+    <value>Burahin</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Attività di Discord</value>
+    <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Tulong</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>Importa JSON</value>
+    <value>Import JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>Apri file di registro</value>
+    <value>I-buksan ang log file</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Varie</value>
+    <value>Iba pa</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>Nome</value>
+    <value>Pangalan</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>Nuovo</value>
+    <value>Bago</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>No</value>
+    <value>Hindi</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>OK</value>
+    <value>Oo</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>Impostazioni predefinite</value>
+    <value>Presets</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Resetta</value>
+    <value>Reset</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>Valore</value>
+    <value>Value</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>Avvertimento</value>
+    <value>Babala</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>Sì</value>
+    <value>Oo</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Chiudi Roblox</value>
+    <value>Isara ang Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Sei sicuro di voler chiudere Roblox? Questo chiuderà forzatamente il processo.</value>
+    <value>Sigurado ka bang gusto mong isara ang Roblox? Ito ay puwersahang tatapusin ang proseso.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Copia l'invito</value>
+    <value>Kopyahin ang invite deeplink</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copia ID dell'istanza</value>
+    <value>Kopyahin ang Instance ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>ID dell'istanza</value>
+    <value>Instance ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Posizione</value>
+    <value>Lokasyon</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Posizione: {0}
-Clicca per maggiori informazioni</value>
+    <value>Lokasyon: {0}
+Pindutin para sa marami pang impormasyon</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>Connesso a un server pubblico</value>
+    <value>Nakakonekta na sa publikong server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>Informazioni sul server</value>
+    <value>Impormasyon ng Server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>Scrivi</value>
+    <value>Uri</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Aggiungi Fast Flag</value>
+    <value>Maglagay ng Fast Flag</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>Più informazioni:</value>
+    <value>Ibang impormasyon:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Errore di connessione</value>
+    <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap non è in grado di connettersi a {0}</value>
+    <value>Hindi maka-konek ang Bloxstrap sa {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copia il contenuto del registro</value>
+    <value>Kopyahin ang log contents</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Si è verificata un'eccezione durante l'esecuzione di bloxtrap</value>
+    <value>May exception na nangyari habang pinapatakbo ang Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Controlla la [Bloxstrap Wiki]({0}) prima per vedere se il problema è già stato risolto.
+    <value>Suriin muna ang [Bloxstrap Wiki]({0}) upang makita kung itong problema ay meron nang paraan ng pag-aayos.
 
-Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) con una copia del file di registro che è stato creato.</value>
+Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang kopya ng log file na nilikha.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Errore di Bloxstrap</value>
+    <value>Bloxstrap Exception</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>Personalizzato</value>
+    <value>Custom</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Inizio 2015</value>
+    <value>Early 2015</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Fine 2015</value>
+    <value>Late 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Finto Byfron (2023)</value>
+    <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classico)</value>
+    <value>Bloxstrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Vetro)</value>
+    <value>Bloxstrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -327,16 +327,16 @@ Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) co
     <value>Vista (2008 - 2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartonizzato)</value>
+    <value>2006 (Cartoony)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angolare)</value>
+    <value>2013 (Angular)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>Predefinito (Twemoji)</value>
+    <value>Default (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -357,16 +357,16 @@ Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) co
     <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Scelto dal gioco</value>
+    <value>Pinili ng laro</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Fase 3)</value>
+    <value>Future (Phase 3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Fase 2)</value>
+    <value>Shadow Map (Phase 2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Fase 1)</value>
+    <value>Voxel (Phase 1)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -375,897 +375,893 @@ Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) co
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Server privato</value>
+    <value>Pribadong server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Server pubblico</value>
+    <value>Publikong serbiro</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Server riservato</value>
+    <value>Nakareserba na serbiro</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Dark</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Light</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap è stato aggiornato alla versione {0}</value>
+    <value>Na-upgrade na ang Bloxstrap sa v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>La versione di Bloxstrap che hai avviato è diversa da quella attualmente installata.
-Vorresti aggiornare la versione attualmente installata?</value>
+    <value>Ang bersyon ng Bloxstrap na iyong sinimulan ay magkaiba sa bersyon na iyong ininstall. Gusto mo ba i-upgrade ang kasalukuyang naka-install na bersyon?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributori</value>
+    <value>Mga Kontribyutor</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Codice</value>
+    <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Queste sono le persone che hanno dato un contributo notevole per Bloxstrap, rendendolo ciò che è.</value>
+    <value>Ito ang mga tao na nagbigay ng mahalagang kontribusyon sa Bloxstrap, na tumulong upang maging ganito ang Bloxstrap.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Idee per le funzionalità</value>
+    <value>Mga tampok na ideya</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>Ringraziamenti speciali</value>
+    <value>Namumukod-tanging pasasalamat</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>Un bootstrapper alternativo per Roblox con qualche funzionalità in più.</value>
+    <value>Isang alternatibong bootstrapper para sa Roblox na may maraming karagdagang feature.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Server Discord</value>
+    <value>Discord server</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>Repositorio GitHub</value>
+    <value>Github repository</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Aiuto e Informazioni</value>
+    <value>Tulong at Impormasyon</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenses</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>Licenza BSD 2 Clausole</value>
+    <value>BSD 2-Clause License</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>Licenza MIT</value>
+    <value>MIT License</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Mag ulat ng isyu</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>Riguardo a</value>
+    <value>About</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>Versione {0}</value>
+    <value>Version {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>Tutti i file</value>
+    <value>Lahat ng files</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>Nota che non tutti i tuoi cambiamenti verranno immediatamente applicati finché non verranno chiuse tutte le istanze di Roblox aperte.</value>
+    <value>Tandaan, hindi lahat ng pagbabago ay agad na maga-apply hangga't hindi pa naisasa ang lahat ng bukas na Roblox instances.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap è già in esecuzione</value>
+    <value>Ang Bloxstrap ay kasalukuyang tumatakbo</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>Si può dare un aspetto diverso, retro o simile a quello di Roblox.</value>
+    <value>Maaari mong gawin itong magmukhang iba, retro, o kahit na tulad lamang ng Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>Bootstrapper</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configura altre opzioni personalizzabili varie.</value>
+    <value>Ipasadya ang ibang miscellaneous customisable options na pagpipilian.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Personalizzazione</value>
+    <value>Pagpapasadya</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Deve essere un file .ico multiformato con dimensioni da 16px a 128px. Imposta l'icona su 'Personalizzata' per utilizzarla.</value>
+    <value>Dapat isang multi-size na .ico file na may mga size mula 16px hanggang 128px. Itakda ang Icon bilang 'Custom' upang magamit ito.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Icona personalizzata</value>
+    <value>Custom Icon</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>Il testo che appare come titolo del bootstrapper.</value>
+    <value>Ang text na ipinapakitang pamagat ng bootstrapper.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>Titolo</value>
+    <value>Title</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configura come Bloxstrap dovrebbe apparire.</value>
+    <value>I-configure kung paano dapat magmukha ang Bloxstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Tema</value>
+    <value>Global Theme</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Scegli quale icona dovrebbe usare.</value>
+    <value>Pumili kung anong icon ang dapat gamitin.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Icona</value>
+    <value>Icon</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>Anteprima</value>
+    <value>Preview</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Scegli come dovrebbe apparire. Il tema scuro non si applica a Legacy/Vista.</value>
+    <value>Piliin kung ano ang magiging hitsura nito. Ang madilim na tema ay hindi nalalapat sa Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>Stile</value>
+    <value>Style</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Appearance</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap verificherà se ci sono aggiornamenti e gli eseguirà automaticamente al lancio di Roblox.</value>
+    <value>Awtomatikong susuriin at ia-update ng Bloxstrap ang sarili nito kapag magsisimula na ang Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Aggiorna automaticamente Bloxstrap</value>
+    <value>Awtomatikong i-update ang Bloxstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>Evita la chiusura di un gioco aperto aprendone uno accidentalmente.</value>
+    <value>Pigilan ang pagsasara ng kasalukuyang laro mo mula sa aksidenteng pagbukas ng isa pa.</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>Richiedi conferma prima di avviare un'altra istanza di Roblox</value>
+    <value>I-prompt upang kumpirmahin kapag mag-launch ng iba pang Roblox instance</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configura cosa dovrebbe fare Bloxstrap quando avvia Roblox.</value>
+    <value>I-configure kung ano ang dapat gawin ng Bloxstrap kapag ito'y binubuksan.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox verrà installato da capo al prossimo avvio.</value>
+    <value>Ang Roblox ay mai-install nang bago sa susunod na bubuksan ito.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Forza la reinstallazione di Roblox</value>
+    <value>Pilitang muling i-install ang Roblox</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
     <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>Aggiungi nuovo</value>
+    <value>Magdagdag ng bago</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>Esiste già un flag con questo nome.</value>
+    <value>Mayroong kapareho na ng flag na ito.</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Balik</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>L'uso improprio di questo può causare instabilità o comportamenti imprevisti.</value>
+    <value>Ang maling paggamit nito ay maaring magdulot ng instability o hindi inaasahang bagay.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>Usare con cautela.</value>
+    <value>Gamitin na may pag-iingat.</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>Alcuni dei flag che stai cercando di importare hanno già valori impostati. Vorresti sovrascrivere i valori attuali con quelli definiti nell'importazione?
+    <value>Ang ilang mga flag na sinusubukan mong i-import ay mayroon nang mga itinakdang halaga. Gusto mo bang palitan ang kanilang kasalukuyang mga halaga gamit ang mga itinakda sa pag-import?
 
-Ci sono {0} definizioni di flag in conflitto:
-{1}</value>
+Mayroong {0} mga magkaalitang mga kahulugan ng flag: {1}</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>Cancella i selezionati</value>
+    <value>Tanggalin ang naka-select</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Gestisci i tuoi Fast Flag. Fai doppio click su una colonna per modificarla.</value>
+    <value>I-Manage ang iyong sariling FastFlags. I-Double click ang column upang ma-edit.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>Esporta in JSON</value>
+    <value>Export JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>Il nome di '{0}' non è valido visto che può contenere solo lettere, numeri e trattini bassi</value>
+    <value>Ang pangalan ng flag na '{0}' ay hindi tama sapagkat ang pangalan ay dapat naglalaman lang ng mga letra, numero, at underscores</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>Il JSON inserito non sembra essere valido. Si prega di ricontrollare e riprovare.
+    <value>Ang JSON na iyong nilagay ay hindi wasto. Tiyakin ulit at subukan ulit
 
-Più informazioni:
+Karagdagang impormasyon:
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>Il nome di '{0}' non è valido dato che deve iniziare con FFlag, DFInt, ecc</value>
+    <value>Ang pangalan ng flag na '{0}' ay hindi tama sapagkat ang pangalan ay dapat nagsisimula sa FFlag, DFInt, atbp</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>Copiato negli appunti.</value>
+    <value>Na copy sa clipboard.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>Sembra che stiate importando una configurazione molto grande. Dovresti importare solo le configurazioni che comprendi. NON incollare ciecamente configurazioni create da altre persone. Se si continua, è molto probabile che si verificano problemi di stabilità e cambiamenti imprevisti.
+    <value>Mukhang nagi-import ka nag sobrang laking configuration. Dapat mag-i-import ka lamang ng mga configuration na naiintindihan mo. HUWAG ka bulag mag paste ng configuration na gawa ng ibang tao. Kung itutuloy mo, malamang na magkakaroon ka ng mga isyu sa katatagan at makakaranas ng hindi inaasahang pagbago
 
-Siete sicuri di volere continuare?</value>
+Sigurado ka bang gusto mo magtuloy?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>Cerca</value>
+    <value>Hanapin</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>Mostra i flag predefiniti</value>
+    <value>Ipakita ang preset flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Editor di Fast Flag</value>
+    <value>Fast Flag Editor</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Bumalik</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>So quello che sto facendo</value>
+    <value>Alam ko ang ginagawa ko</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Sai quello che stai facendo?</value>
+    <value>Alam mo ba ang ginagawa mo?</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>I Fast Flag sono estremamente potenti, dato che sono pensati per essere utilizzati esclusivamente dagli ingegneri di Roblox. Anche se possono risultare molto utili, la loro configurazione manuale può provocare gravi problemi di stabilità e funzionalità. NON usare l’editor se non sei sicuro di quello che stai facendo.
+    <value>Napakalakas ang mga Fast Flag, dahil sila ay sinasadya na dapat ginagamit lang ng mga Roblox engineers. Bagama't maaaring nakakatulong, manu-manong pag-configure sa mga ito ay maaaring makagawa ng seryosong isyu sa tatag at functionality. HUWAG gamitin ang editor kapag hindi ka sure kung ano ang ginagawa mo.
 
-NON usare questo editor per importare lunghi ‘elenchi di flag’ creati da altre persone che promettono di migliorare le prestazioni o simili. Questi sono soggetti ai problemi menzionati sopra e causeranno difficoltà poiché non sarai completamente a conoscenza di ciò che stanno modificando. Se stavi per farlo, TORNA INDIETRO.</value>
+HUWAG gagamitin ito upang mag-import ng mga malalaking "flag lists" na gawa ng ibang tao na nangangakong nagpapabuti ng performance o katulad nito. Ang mga ito ay nabanggit na isyu, at sila ay nakakaproblema sa iyo dahil hindi mo alam na alam ang pinapaltan nila. Kung gagawin mo iyon, BUMALIK KA.</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Controlla come specifiche caratteristiche e parametri del sistema di Roblox sono configurati.</value>
+    <value>I-Control kung paano na-configure ang mga espesipikong parameter at feature ng Roblox engine.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Gestisci i tuoi Fast Flag. Da usare con cautela.</value>
+    <value>I-Manage ang iyong Fast Flags. Gamitin nang may pag-iingat.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Impara di più sui Fast Flag, su cosa queste reimpostazioni fanno e come usarle.</value>
+    <value>Mas matuto pa sa Fast Flags, kung ano ang ginagawa ng mga preset na ito, at kung paano gamitin ang mga ito.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [schermo intero esclusivo]({0}) usando Alt+Invio è già attivo di base.</value>
+    <value>Direct3D [exclusive fullscreen]({0}) ang paggamit ng Alt+Enter ay naka enable na by default.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versione del menu preferita</value>
+    <value>Bersyon ng escape menu na naayon sa iyong panlasa</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox riduce la qualità del rendering in base al ridimensionamento di Windows del tuo display.</value>
+    <value>Ang Roblox ay binabawasan ang iyong rendering quality depende sa gaanong laki ang display sa Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>Mantiene la qualità del rendering con il ridimensionamento del display</value>
+    <value>Pangalagaan ang rendering quality kasama ang display scaling</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Imposta a 0 se vuoi usare il framerate unlocker nativo di Roblox.</value>
+    <value>Ilagay sa 0 para sa defaults pag ikaw ay gusto gamitin ang native framerate unlocker ng Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Limite di Framerate</value>
+    <value>Framerate Limit</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Attivato/Disattivato con [keyboard shortcuts]({0}). Funziona solo se fai parte del gruppo [Bloxstrap group]({1}).</value>
+    <value>Toggled kasama ang [keyboard shortcuts]({0}). Gumagana lang kapag ikaw ay nasa [Bloxstrap group]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Abilita la possibilità di nascondere le GUI</value>
+    <value>Paganahin ang kakayahang itago ang mga GUIs</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Quello scelto sarà forzatamente usato in tutti i giochi. [Attenzione, questo può causare problemi con l'illuminazione!]({0})</value>
+    <value>Ang napili ay ang magiging default lighting sa lahat ng laro. [Babala, maaring magdulot ng isyu sa lighting!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tecnologia di illuminazione preferita</value>
+    <value>Gustong lighting technology</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>Modalità di renderizzazione</value>
+    <value>Rendering mode</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Impostazioni dell'engine</value>
+    <value>Engine Settings</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>File di font</value>
+    <value>Font files</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>File delle icone</value>
+    <value>Icon files</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap non può essere installato qui. Seleziona una cartella diversa, oppure utilizza la posizione predefinita cliccando il tasto reset.</value>
+    <value>Hindi maaring i-install ang Bloxstrap dito. Mangyaring pumili ng ibang location, o mapilitang gamitin ang Default location sa pamamagitan ng pagpindot ng reset button.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>La cartella che hai scelto per l'installazione di Bloxstrap esiste già e NON è vuota. È consigliato installare Bloxstrap in una nuova cartella indipendente.
+    <value>Ang iyong piniling folder upang i-install ang bloxstrap ay umiiral na at HINDI walang laman. Ito ay malakas na ni rerecommenda para ma install ang Bloxstrap sa kanyang independent na folder.
 
-È consigiabile proseguire l'installazione nella posizione suggerita:
+Iminumungkahi na palitan ito sa:
 {0}
 
-Vuoi utilizzare questa posizione per procedere con l'installazione?
-Selezionando 'No' si ignorerà questo avvertimento procedendo con l'installazione.</value>
+Gusto mo ba palitan ito sa sa iminungkahing lokasyon?
+Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-install.</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>Devi impostare una posizione d'installazione</value>
+    <value>Kinakailangan mo mag-set ang install location</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap non ha il permesso di scrittura alla posizione selezionata per l'installazione. Per favore, scegli un'altra posizione.</value>
+    <value>Ang Bloxstrap ay walang write access sa iyong install location na pinili. Mangyari pumili ng ibang location.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Tracciamento delle attività</value>
+    <value>Activity tracking</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Permette a tutti di entrare nel gioco a cui stai giocando attraverso il tuo profilo di Discord.</value>
+    <value>Ina-allow para sa kung sino man sumali sa game na kasalukuyang nakikita sa Discord profile.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Permetti di unirsi all'attività</value>
+    <value>Payagan ang activity joining</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Mostra l’account Roblox con cui stai giocando sul tuo profilo Discord.</value>
+    <value>Ipakita ang Roblox account na iyong nilalaro sa iyong Discord profile.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Mostra account di Roblox</value>
+    <value>Ipakita ang Roblox account</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Posizione dell'applicazione</value>
+    <value>Lokasyon ng Application</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Chiudi automaticamente quando Roblox si chiude</value>
+    <value>Awtomatikong isara kapag nagsara ang Roblox</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>Qui puoi scegliere se avere altri programmi che si avvieranno automaticamente con Roblox.</value>
+    <value>Dito, maaari kang awtomatikong maglunsad ng iba pang mga programa gamit ang Roblox.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>Argomenti di avvio</value>
+    <value>Launch Arguments</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox è in esecuzione!</value>
+    <value>Tumatakbo ang Roblox!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>Nuova integrazione</value>
+    <value>Bagong Integrasyon</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>Nessuna integrazione scelta, per favore scegli o aggiungine una nuova</value>
+    <value>Walang piniling integrasyon, Magselect o magdagdag ng bago</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>Integrazioni personalizzate</value>
+    <value>Custom Integrations</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configura funzionalità aggiuntive da fare andare con Roblox.</value>
+    <value>I-configure ang mga karagdagang mga functionality na kasama sa Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox si chiuderà completamente quando lasci una partita invece di tornare all'app. [Interromperà alcune cose!]({0})</value>
+    <value>Ang Roblox ay magsasarado kapag ikaw ay umalis sa laro sa halip ng pagbalik sa app. [Makakasira ng gamit!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>Non avviare l'applicazione del desktop alla chiusura</value>
+    <value>Huwag lumabas sa desktop app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Permetti a Bloxstrap di rilevare il gioco di Roblox che stai giocando. Alcune funzionalità potrebbero richiederlo.</value>
+    <value>Pahintulutan ang Bloxstrap na matukoy kung anong larong Roblox ang iyong nilalaro. Maaaring kailanganin ito ng ilang partikular na feature.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>Abilita il tracciamento delle attività</value>
+    <value>Paganahin ang activity tracking</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Questa funzionalità richiede che il tracciamento delle attività sia attivo e che l’app desktop di Discord sia installata e in esecuzione. [Trova di più al riguardo]({0}).</value>
+    <value>Itong feature ay kinakailangang naka-enable ang activity tracking at ang Discord desktop app na naka-install at naka-bukas. [Alamin pa]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>Il gioco di Roblox a cui stai giocando sarà mostrato sul tuo profilo di Discord. [Non funziona?]({0})</value>
+    <value>Ang nilalaro mong Roblox game ay lalabas sa iyong Discord profile. [Di gumagana?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>Mostra attività di gioco</value>
+    <value>Ipakita ang game activity</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>Quando in gioco, sarai in grado di vedere dove si trova il tuo server tramite [ipinfo.io]({0}).</value>
+    <value>Kapag nasa loob ng laro, makikita mo ang iyong lokasyon ng server sa pamamagitan ng [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>Posizione del server Query</value>
+    <value>Query server location</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>Integrazioni</value>
+    <value>Integrations</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Cambia e applica i file di mod al client di Roblox.</value>
+    <value>I-Manage at i-apply ang mga file mods sa Roblox game client.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>Vedi info sul maneggiamento e creazione di mod.</value>
+    <value>Tignan ang impormasyon tungkol sa pag-manage at paglikha ng mods.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>Scegli Font...</value>
+    <value>Piliin ang font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Le dimensioni del font possono essere cambiate nella scheda delle impostazioni.</value>
+    <value>Ang Font size ay pwede ibago sa Engine Settings tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>Il file che hai scelto non sembra essere un file di font valido.</value>
+    <value>Ang pinili mo na file ay hindi wasto na font file.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>Rimuovi font applicato</value>
+    <value>Itanggal ang inilagay na font</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Usa font personalizzato</value>
+    <value>Gamitin ang custom font</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Gestisci le mod di Roblox personalizzate qui.</value>
+    <value>I-Manage ang mga custom na Roblox mods dito.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>Apri la cartella delle Modifiche</value>
+    <value>Buksan ang Mods Folder</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Scegli che tipo di emoji Roblox dovrebbe usare.</value>
+    <value>Piliin ang type ng emoji na dapat piliin ng Roblox.</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>Tipo di emoji preferito</value>
+    <value>Gustong uri ng emoji</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>Scegli quale usare tra due stili di cursore classici di Roblox.</value>
+    <value>Pumili sa dalawang klase ng classic Roblox cursor style.</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>Cursore del mouse</value>
+    <value>Cursor ng mouse</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Riporta indietro il vecchio sfondo dell'editor di avatar usato su Roblox prima del 2020.</value>
+    <value>Ibalik ang dating avatar editor background na ginamit sa Roblox app bago ang 2020.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>Usa il vecchio sfondo dell'editore di avatar</value>
+    <value>Gamitin ang dating avatar editor background</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>Un tentativo di riportare i vecchi suoni dei personaggi usati prima del 2014.</value>
+    <value>Isang pagsubok upang halos mapabalik ang mga tunog ng character na ginamit bago mag 2014.</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>Emula i vecchi suoni dei personaggi</value>
+    <value>Kopyahin ang dating tunog ng character</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Fa ritornare il classico 'oof' come suono di morte.</value>
+    <value>Ibalik ang classic 'oof' death sound.</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Usa il vecchio suono di morte</value>
+    <value>Gamitin ang dating death sound</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>Modifiche</value>
+    <value>Mods</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Clicca per maggiori informazioni su questa opzione.</value>
+    <value>Pindutin para sa mas maraming informasyon sa option na ito.</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>Salva</value>
+    <value>Save</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>Questi cambiamenti prenderanno effetto la prossima volta che avvierai Roblox.</value>
+    <value>Ang mga pagbabago ay mag-eepekto sa susunod na bubuksan mo ang Roblox.</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>Impostazioni salvate!</value>
+    <value>Nai-save na ang settings!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Impostazioni di Bloxstrap</value>
+    <value>Bloxstrap Settings</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>Scegli la lingua preferita</value>
+    <value>Pumili ng gustong wika</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Scegli una lingua prima di continuare con l'installazione.</value>
+    <value>Pumili ng wika bago mag-install.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Wika</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>È necessario un riavvio per rendere effettive le modifiche.</value>
+    <value>Kailan ng relaunch para ang pagbabago ay gumana.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Permetti l'uso di lingue non supportate da Roblox</value>
+    <value>Payagan ang paggamit ng mga hindi suportadong wika sa Roblox</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Si applica solo a giochi avviati dal sito di Roblox.</value>
+    <value>Ito ay gagana lang sa mga laro na-launch gamit ang Roblox website.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (V4 + Nuova UI)</value>
+    <value>2023 (V4 + New UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>Rendering e Grafica</value>
+    <value>Rendering at Graphics</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Interfaccia Utente e Layout</value>
+    <value>User Interface at Layout</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Permetti a Bloxstrap di configurare Fast Flags</value>
+    <value>Payagin ang Bloxstrap na i-manage ang Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>Disabilitando questo non permetterà qualsiasi cosa configurata qui a essere applicata a Roblox.</value>
+    <value>Sa pag disable nito ay ang mga na-configure dito ay hindi gagana sa Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>Qualità Anti-aliasing (MSAA)</value>
+    <value>Anti-aliasing quality (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Disabilita effetti post-processing</value>
+    <value>I-disable ang post-processing effects</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Disabilita la barra del titolo a schermo intero</value>
+    <value>I-disable ang full-screen titlebar</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Impedisce la visualizzazione ogni volta che sposti il ​​mouse nella parte superiore dello schermo.</value>
+    <value>Hindi siya ipinapakita pag ginalaw mo ang iyong mouse sa tuktok ng screen.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>Qualità delle texture</value>
+    <value>Quality ng texture</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>Livello 0 (Più basso)</value>
+    <value>Level 0 (Lowest)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>Livello 1</value>
+    <value>Level 1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>Livello 2</value>
+    <value>Level 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>Livello 3 (Più alto)</value>
+    <value>Level 3 (Highest)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Disabilita le ombre dei giocatori</value>
+    <value>I-disable ang player shadows</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Dimensione del font</value>
+    <value>Font size</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Il valore di base è 1. Aggiustalo se stai usando un font personalizzato.</value>
+    <value>Ang default value nito ay 1. I-adjust ito pag gumagamit ng custom font.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Disabilita le texture del terreno</value>
+    <value>I-disable ang terrain textures</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap non può scaricare Roblox</value>
+    <value>Hindi maka-download ng Roblox ang Bloxstrap</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>Roblox non può essere scaricato al momento. Per favore leggi la seguente pagina di aiuto per più informazioni: {0}</value>
+    <value>Hindi ma-download ang Roblox ngayon oras na ito. Basahin ang following help page para sa idadag na impormasyon: {0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>Importa da file</value>
+    <value>I-Import galing sa file</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>File JSON</value>
+    <value>Mga JSON files</value>
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>Il valore di '{0}' non è valido perché deve essere un boolean ('True' o 'False')</value>
+    <value>Ang entry para sa '{0}' ay hindi tama sapagkat ang value ay dapat isang boolean (maging 'True' o 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Il valore di '{0}' non è valido perché deve essere un numero</value>
+    <value>Ang entry para sa '{0}' ay hindi tama sapagkat ang value ay dapat isang numero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Nessun file di registro sarà scritto perché Bloxstrap non ha accesso alla cartella a '{0}'</value>
+    <value>Walang magagawang log file para sa launch na ito dahil ang Bloxstrap ay hindi makapag-gawa nito sa folder na '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>Base</value>
+    <value>Default</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>Automatico</value>
+    <value>Automatic</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>Predefinito di sistema</value>
+    <value>System default</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>La voce per '{0}' non è valida perché il filtro di luogo non è formattato correttamente.</value>
+    <value>Ang entry na {0} ay hindi tama dahil ang place filter ay hindi naka-format ng maayos.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Bloxstrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>Benvenuto/a</value>
+    <value>Maligayang pagdating</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>Installa</value>
+    <value>Install</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
-    <value>Compimento</value>
+    <value>Pagkumpleto</value>
   </data>
   <data name="Common.Navigation.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Bumalik</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>Avanti</value>
+    <value>Sunod</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Grazie per aver scaricato Bloxstrap.
+    <value>Salamat sa pag-download ng Bloxstrap.
 
-Gli unici siti ufficiali per scaricare Bloxstrap sono {0} e {1}, quindi per favore verifica che l'hai ottenuto da una fonte ufficiale.
+Ang mga opisyal na websites na makukuha para ma-download ang Bloxstrap ay nandito sa {0} at {1}, kaya’t pakiusap lang na i-verify mo na nakuha mo siya sa opisyal na source.
 
-Questo processo di installazione sarà veloce e semplice, e sarai in grado di configurare qualsiasi impostazione di Bloxstrap dopo l'installazione.</value>
+Ang proseso ng installation ay mabilis at simple lang, at ikaw ang magaayos ng kahit anong mga settings ng Bloxstrap pagkatapos ng installation.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>Per favore clicca 'Avanti' per continuare.</value>
+    <value>Paki click ang 'Next' upang magpatuloy.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Stai cercando d'installare la versione {0} di Bloxstrap, ma l'ultima versione disponibile è {1}. Vorresti scaricarla?</value>
+    <value>Sinubukan mong i-install ang version {0} ng Bloxstrap, pero ang latest version ay {1}. Gusto mo ba itong i-download?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
-    <value>Scegli dove installare</value>
+    <value>Piliin kung saan i-install</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox sarà anche installato in questo percorso. Cambialo se preferisci installare tutti i tuoi giochi in un'unità separata. Altrimenti, è consigliato mantenerlo così com'è.</value>
+    <value>Ang Roblox ay mai-install din sa path nito. Baguhin mo ito kung gusto mong i-install lahat ng laro mo sa isang hiwalay na drive. Kung hindi, inirerekumenda na huwag na lang ibahin.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>Dati esistenti trovati. Le tue mod e impostazioni saranno ripristinate.</value>
+    <value>May natagpuang existing data. Ang mods at settings mo ay naiibalik na sa dating kalagayan.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
-    <value>Scorciatoie</value>
+    <value>Mga Shortcuts</value>
   </data>
   <data name="Common.Shortcuts.Desktop" xml:space="preserve">
-    <value>Icona sul desktop</value>
+    <value>Desktop na icon</value>
   </data>
   <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
-    <value>Icona menu iniziale</value>
+    <value>Start Menu na icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap è stato installato con successo.
+    <value>Nai-install ng matagumpay ang Bloxstrap.
 
-Roblox non è stato ancora installato, questo accadrà quando lo avvierai insieme a Bloxstrap per la prima volta. Tuttavia, prima che tu lo faccia, potresti voler configurare prima le impostazioni di Bloxstrap.
+Hindi pa nainstall ang Roblox, yan ang mangyayari kapag nilaunch mo gamit ang Bloxstrap sa unahang pagkakataon.
 
-Inoltre, evita di utilizzare la scorciatoia "Roblox Player" per avviare Roblox, poiché Bloxstrap non si avvierà con Roblox. Se non vedi Bloxstrap apparire quando stai avviando attraverso il sito web, semplicemente avvia Roblox insieme a Bloxstrap da desktop una volta per risolvere il problema.
+Gayundin, iwasang paggamit ng "Roblox Player" shortcut para i-launch ang Roblox, dahil hindi la-launch ang Bloxstrap kasama ang Roblox. Kung hindi mo nakitang lumilitaw ang Bloxstrap kapag nag-lalaunch siya galing sa website, i-launch mo yung Roblox kasama ang Bloxstrap ng isang beses galing sa desktop para ayusin ito.
 
-Cosa preferiresti fare?</value>
+Ano ang gusto mong gawin?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configura le impostazioni di Bloxstrap</value>
+    <value>I-configure mga Bloxstrap settings</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>Modifica con tutte le funzionalità che offre</value>
+    <value>I-tweak ang lahat ng features na inaalok nito</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
-    <value>Installa e avvia Roblox</value>
+    <value>I-install at I-launch ang Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>Ti porterà all'interno dell'app desktop una volta che tutto sarà finito</value>
+    <value>Ilalagay ka sa loob ng desktop app kapag tapos na lahat</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Disinstalla Bloxstrap</value>
+    <value>I-uninstall ang Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Con la disinstallazione verrà rimosso Bloxstrap dal tuo sistema, e automaticamente riconfiguererà al launcher predefinito di Roblox se è installato.
+    <value>Matatanggal ang Bloxstrap sa iyong systema kapag na-uninstall mo, at kukusang i-configure ang default na Roblox launcher kung naka install pa rin.
 
-Se lo stai disinstallando o lo stai reinstallando perchè stai avendo problemi con Roblox, per favore leggi prima [questa pagina d'aiuto]({0}).
+Kung ikaw ay mag-uninstall o mag-reinstall dahil mayroon kang issues sa Roblox, basahin mo [itong help page]({0}) muna.
 
-Il processo di disinstallazione potrebbe non essere capace di completamente eliminarsi, quindi potresti dovere manualmente pulire i file rimanenti rimasti dove Bloxstrap è stato installato.
+Ang proseso sa pag-uninstall ay maaaring hindi ganap na malinis ang sarili, kaya kailangan mong linisin ang natitirang files kung saan na-install ang Bloxstrap.
 
-Bloxstrap è stato installato in "{1}".</value>
+Na-installed ang Bloxstrap sa "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>Mantieni le mie impostazioni e mod</value>
+    <value>I-tabi ang aking settings at mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Verranno mantenuti dove Bloxstrap è stato installato, e verranno ripristinati automaticamente su una reinstallazione.</value>
+    <value>Matatabi din ito kung saan na-install ang Bloxstrap, at mababalik din sa pag-reinstall.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
-    <value>Disinstalla</value>
+    <value>Uninstall</value>
   </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>Avvia Roblox</value>
+    <value>I-launch ang Roblox</value>
   </data>
   <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>Configurazione delle impostazioni</value>
+    <value>I-configure ang mga setting</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>Stai avendo problemi?</value>
+    <value>Nagkaroon kang issue?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>Vedi la Wiki per aiuto</value>
+    <value>Tumingin sa Wiki para magtanong</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>Al momento non hai il runtime WebView2 installato. Alcune funzionalità di Roblox potrebbero non funzionare correttamente senza di esso, come l’applicazione desktop. Vorresti scaricarlo ora?</value>
+    <value>Hindi mo pa nainstall ang WebView2 runtime. Hindi gagana ng maayos ang mga Roblox features kung wala pa yan, katulad ng desktop app. Gusto mong I-download ito ngayon?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap non è stato in grado di creare scorciatoie per il Desktop e il menu Start. Prova a crearle più tardi tramite le impostazioni.</value>
+    <value>Hindi kaya ng Bloxstrap na gumawa ng shortcuts para sa Desktop at Start Menu. Subukan mong gawin ito sa ibang pagkakataon sa mga settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Controlla prima la [Wiki di Bloxstrap]({0}) per vedere se il problema è stato già risolto.
+    <value>Tumingin sa [Bloxstrap Wiki]({0}) muna para makita kung itong problema ay tinutugunan ng pag-aayos.
 
-In caso contrario, si prega di segnalare questa eccezione ai manutentori di questo fork. NON segnalarlo ai problemi di GitHub di Bloxstrap, perché si tratta di una build non ufficiale.</value>
+Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong i-report ito sa GitHub issues ng Bloxstrap, dahil ito ang unofficial build.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>Si trattano di scorciatoie generiche che consentono di visualizzare un menu di avvio a scelta multipla. I collegamenti per funzioni specifiche possono essere creati successivamente nelle impostazioni.</value>
+    <value>Ito ang mga pangkalahatang mga shortcuts na ilabas ang multi-choice launch menu. Ang mga shortcuts para sa mga tiyak na functions ay magagawa din sa susunod sa loob ng settings.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configura il modo in cui Bloxstrap può essere avviato.</value>
+    <value>I-configure kung paano madaling i-launch ang Bloxstrap.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
-    <value>Generale</value>
+    <value>General</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>Queste sono le scorciatoie che aprono il menu di avvio multi-scelta.</value>
+    <value>Ito ang mga pangkalahatang mga shortcuts na ilabas ang multi-choice launch menu.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
-    <value>Funzione</value>
+    <value>Function</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>Servono per la creazione di scorciatoie per accedere rapidamente a funzioni specifiche. Questi saranno tutti posizionati sul Desktop.</value>
+    <value>Gumawa ng shortcut para may quick access sa mga specific na function. Lahat ng ito ay ilalagay sa Desktop.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Connesso al server privato</value>
+    <value>Nakakonekta sa private server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Connesso a un server riservato</value>
+    <value>Nakakonekta sa nakareserbang server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>La mod delle emoji non può essere applicata in questo momento.</value>
+    <value>Itong emoji mod ay hindi muna pwedeng inilapat.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>Per favore aspetta che l'installazione finisca.</value>
+    <value>Paki antaying tapusin ang installation.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
-    <value>Per favore attendi che la disinstallazione finisca.</value>
+    <value>Paki antaying tapusin ang uninstallation.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Riguardante Bloxstrap</value>
+    <value>Tungkol sa Bloxstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Mga lisensya</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>Traduttori</value>
+    <value>Tagapagsalin</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>Hai delle modifiche non salvate. Sei sicuro che vuoi chiudere senza salvare?</value>
+    <value>Meron kang nabago at hindi pa naka-save. Sigurado ka bang gusto mo isara nang hindi naka-save?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>La versione di Bloxstrap che hai avviato è più vecchia di quella installata attualmente.
-Potresti riscontrare dei problemi e alcune impostazioni potrebbero cambiare. Una reinstallazione è consigliata.
-Sei sicuro di voler continuare?</value>
+    <value>Ang version ng Bloxstrap na nabuksan mo ay mas matanda kaysa sa version na install mo ngayon.
+Mayroong issues na mangyayari at yung settings mo ay maiiba. Ang pag-reinstall ay rekomendado.
+Sigurado kang gusto mo bang ituloy?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox non è riuscito ad avviarsi.</value>
+    <value>Nabigo ang Roblox sa pag-launch.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox è crashato.</value>
+    <value>Nag-crash ang Roblox.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Per informazioni sul perché questo potrebbe accadere e su come può essere risolto, si prega di leggere [questo articolo di aiuto]({0}).
+    <value>Para sa impormasyon kung bakit ito nangyayari at kung paano ito ayusin, pakibasa po [ng help article]({0})
 
-Verifica se Roblox funziona con [il launcher originale]({1}). Se non lo fa, allora questo non è un problema Bloxstrap. Se lo fa, quindi fare riferimento all'articolo di aiuto.</value>
+Tingnan kung nagana ang Roblox gamit ang [original launcher]({1}). Kapag hindi, ito ay hindi problema ng Bloxstrap. Kapag nagana, pakitingin sa help article.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>Impossibile caricare i dati a causa di un errore di rete.</value>
+    <value>Hindi makapag load ng data dahil sa network error.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>Caricamento, aspetta per favore...</value>
+    <value>Naglo-loading, maaring maghintay...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
-    <value>Sostenitori</value>
+    <value>Mga Tagasupporta</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Queste sono le persone che hanno supportato Bloxstrap attraverso Ko-fi. Un enorme ringraziamento a tutti qui!
-Ogni persona qui è classificato dal loro impegno generale.</value>
+    <value>Ito ang mga tao na nag suporta sa Bloxstrap gamit ang Ko-fi. Maraming salamat para sa lahat ng nandito! Lahat ng tao na nandito ay naka rank gamit ang kanilang overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>Le tue impostazioni non posso essere caricate. Verranno ripristinate alle configurazioni predefinite.</value>
+    <value>Ang settings mo ay hindi makaload. Naka-reset na sa dating pagsasaayos.</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>Le tue Fast Flags non possono essere caricate. Verranno ripristinate alle configurazioni predefinite.</value>
+    <value>Ang FastFlags mo ay hindi makaload. Naka-reset na sa dating pagsasaayos.</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>Cronologia giochi</value>
+    <value>Game history</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>Rientra</value>
+    <value>Rejoin</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>Il tuo gioco non verrà mostrato sulla tua attività di Discord, perché si è verificato un errore durante il caricamento delle informazioni di gioco.</value>
+    <value>Ang laro mo ngayon ay hindi makikita sa iyong Discord presence dahil may naganap na error sa pagloload ng impormasyon sa laro.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>La cronologia dei giochi sarà registrata solo per questa sessione. I giochi appariranno qui quando esci o entri all'interno di essi. Non potrai rientrare dentro tutti i server.</value>
+    <value>Ang Game History ay nakarecord lamang para sa Roblox session mo ngayon. Ang mga laro ay nakalitaw dito kapag nakaalis ka o magteleport ka sa kanila. Hindi lahat ng servers ay rejoinable.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>La posizione del server non può essere ottenuta. Potrebbe essere dovuto al fatto che entri nei giochi troppo velocemente.</value>
+    <value>Ang server location ay hindi makapagusisa. Baka nagjoin ka ng mga laro na masyong mabilis.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
-    <value>Per favore riprova più tardi.</value>
+    <value>Pakisubukang muli mamaya.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
-    <value>Per questo avvio, Roblox non sarà controllato per gli aggiornamenti, e le modifiche alle mod non saranno applicate.</value>
+    <value>Para sa launch nito, hindi makatingin ang Roblox para sa mga upgrades, at mga pagkakaiba sa mods ay hindi ilalapat.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Dato che Roblox deve essere installato o aggiornato, Bloxstrap non può continuare.</value>
+    <value>Dahil kailangan ng Roblox na maginstall o magupgrade, hindi makapagtuloy ang Bloxstrap.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap è stato installato in questa posizione prima che ed è ancora presente, tuttavia l'installer non può sovrascrivere il vecchio eseguibile.
+    <value>Ang Bloxstrap ay naka install sa isang lokasyon dati at andito pa rin, pero hindi ma-overwrite ng installer ang dating executable.
 
-Per favore elimina manualmente Bloxstrap.exe dalla posizione d'installazione o prova a riavviare il sistema, e poi riprovare l'installazione.</value>
+Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart ang systema, at ulitin mo yung installation pagkatapos.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Hindi magagamit</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
-    <value>Gestisci le impostazioni di compatibilità</value>
+    <value>I-manage ang compatibility settings</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>Configura i parametri della applicazione come lo scaling dei DPI e le [ottimizzazioni a schermo intero]({0}).</value>
+    <value>I-configure ang mga application parameters kagaya ng DPI scaling behaviour at [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox non è ancora stato installato. Si prega di avviare Roblox utilizzando Bloxstrap almeno una volta prima di provare a utilizzare questa opzione.</value>
+    <value>Hindi pa nakainstall ang Roblox. Paki-launch mo yung Roblox gamit ng Bloxstrap kahit minsan lang bago subukang gamitin itong option.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>Sei sicuro di volere annullare l'installazione?</value>
+    <value>Sigurado ka bang gusto mo i-cancel ang pag install?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>Salvataggio non riuscito di {0}: {1}</value>
+    <value>Sumablay ang pag-save {0}: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>Impossibile caricare l'icona di bootstrapper scelta.
+    <value>Ang piniling icon ng bootstrapper ay hindi maka-load.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Estrai le icone di Roblox nella cartella</value>
+    <value>I-extract ang mga icon ng Roblox sa folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Permette di utilizzare la lista delle icone di Roblox di Bloxstrap per i collegamenti. [Vedi come]({0})</value>
+    <value>Binibigyang-daan kang gamitin yung Bloxstrap ang mga Roblox icons para sa iyong shortcuts. [Pakita kung paano.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap non è in grado di scrivere nel Registro di Windows. Probabilmente un antivirus sta interferendo e causando problemi.
-Assicurati che non ci sia nulla che possa limitare le operazioni di Bloxstrap.</value>
+    <value>Hindi makapagsulat sa Windows Registry ang Bloxstrap. Malamang ang antivirus ay nakialam at nagdudulot ng mga isyu. Pakitignan para sigurado na walang anumang bagay na pumipigil sa operasyon ng Bloxstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>Mensilmente</value>
+    <value>Buwanan</value>
   </data>
   <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>Una volta</value>
+    <value>Isang beses</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configura le opzioni a riguardo del comportamento di Bloxstrap.</value>
+    <value>I-configure ang mga option na nanuugnay sa pag-uugali ng Bloxstrap mismo.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>Abilita l'invio delle statistiche</value>
+    <value>I-enable ang pag-send ng analitiko</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>È anonimo e non è niente di male, promesso. Per informazioni su che cosa collezioniamo e perché, guarda la nostra [informativa sulla privacy]({0}).</value>
+    <value>Ito ay anonima lang at walang masama, promise. Para sa insight na anong kinokolekta namin at bakit, tignan mo ang aming [privacy policy]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
-    <value>Statistiche</value>
+    <value>Analitika</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
-    <value>Ripristina tutto ai valori predefiniti</value>
+    <value>I-balik lahat sa default</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Segnala eccezione</value>
+    <value>Report exception</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>Modalità di prova</value>
+    <value>Test mode</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>La modalità di prova facilita la verifica iterativa dell'effetto delle impostazioni su Roblox.
+    <value>Pinapadali ang "Test Mode" para paulit-ulit na masubok kung paano ina-apekto ang settings mo sa Roblox.
 
-Quando è attiva, avvierà automaticamente Roblox dopo aver chiuso le Impostazioni e riaprirà le Impostazioni dopo aver chiuso Roblox, in un ciclo che dura fino a quando non la si disattiva.
+Habang naka-enable, kusang bubukas ang Roblox pagkatapos isara ang mga settings, at bubuksan ulit ang mga settings pagkatapos isara ang Roblox, sa isang cycle hanggang sa i-disable mo ito.
 
-Vuoi abilitare la modalità di prova?</value>
+Gusto mo bang i-enable ang "Test Mode"?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Tutte le traduzioni di Bloxstrap provengono dalla community attraverso [Crowdin]({0}). Tutte le persone elencate qui hanno volontariamente dedicato il loro tempo e impegno ad aiutare a tradurre Bloxstrap. Un grande grazie a tutti!</value>
+    <value>Lahat ng translations para sa Bloxstrap ay crowdsourced galing sa [Crowdin]({0}). Lahat nakalista dito ang mga tao na nakapagboluntaryo para sa oras at pagsisikap para tulungan i-localize at Bloxstrap. Malaking pasasalamat sa iyong lahat!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
-    <value>Installa</value>
+    <value>I-install</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
   <data name="Paths.Icons" xml:space="preserve">
-    <value>Icone</value>
+    <value>Mga icon</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Avvia Roblox Studio</value>
+    <value>I-launch ang Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Versione {0}</value>
+    <value>Version {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap ha provato ad aggiornare Roblox ma non può perché i file di Roblox sono ancora in uso.
+    <value>Sinubukan ng Bloxstrap mag-upgrade ng Roblox pero hindi kaya kasi ginagamit pa ang mga file ng Roblox.
 
-Si prega di chiudere tutte le applicazioni che potrebbero usare i file di Roblox e rilanciare.</value>
+Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Roblox, at mag relaunch.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Archivio zip</value>
+    <value>Zip archive</value>
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
   <data name="Common.Export" xml:space="preserve">
-    <value>Esportazione</value>
+    <value>I-export</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
-    <value>Esportazione diagnostica dati</value>
+    <value>I-export ang diagnostic data</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Raccogli informazioni che possono essere caricate online per risolvere un problema che stai riscontrando.</value>
+    <value>I-gather ang impormasyon na pwedeng I-upload online para ma-troubleshoot ang iyong nararanasan na problema.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Configurazione Bloxstrap</value>
+    <value>Bloxstrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Tutti i logs di Bloxstrap</value>
+    <value>Lahat ng Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

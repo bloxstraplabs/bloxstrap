@@ -118,225 +118,225 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap non è stato in grado di aggiornarsi automaticamente alla versione {0}. Per favore, aggiornalo manualmente scaricandolo ed eseguendolo dal sito.</value>
+    <value>Bloxstrap kon niet automatisch updaten naar versie {0}. Update het alstublieft manueel door het te downloaden en openen via de website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox è già in esecuzione e l'avvio di un'altra istanza lo chiuderà. Sei sicuro di voler continuare ad avviarlo?</value>
+    <value>Roblox is nu al open, een ander venster openen zal het sluiten. Weet je zeker dat je een nieuw venster wilt openen?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox potrebbe non essere raggiungibile in questo momento. Vai su {0} per più informazioni.</value>
+    <value>Roblox kan op dit moment problemen hebben. Zie {0} voor meer informatie.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Non è stato possibile effettuare una connessione, il che probabilmente indica una scarsa connessione a internet o un blocco firewall. Se la tua connessione va bene, assicurati che il tuo antivirus non stia bloccando Bloxstrap.</value>
+    <value>Een verbinding kon niet worden gemaakt, waarschijnlijk door een zwakke internetverbinding of een firewall blok. Als je verbinding in orde is, controleer dan of je antivirus Bloxstrap niet blokkeert.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Devi prima installare Bloxstrap per disinstallarlo.</value>
+    <value>Je moet eerst Bloxstrap installeren voordat je de installatie ongedaan maakt.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap non ha abbastanza spazio per scaricare e installare Roblox. Per favore libera dello spazio e riprova.</value>
+    <value>Bloxstrap heeft niet genoeg schijfruimte om Roblox te downloaden en te installeren. Maak wat schijfruimte vrij en probeer het opnieuw.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Applicando le modifiche di Roblox...</value>
+    <value>Roblox-aanpassingen toepassen...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>Configurando {product}...</value>
+    <value>{product} configureren...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Connessione a Roblox...</value>
+    <value>Verbinding maken met Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>Installando {product}...</value>
+    <value>{product} installeren...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>Installazione WebView2, per favore attendere...</value>
+    <value>WebView2 wordt geïnstalleerd, even geduld...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>Inizializzazione di {product}...</value>
+    <value>{product} starten...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>Aggiornando {product}...</value>
+    <value>{product} aan het bijwerken...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Ricerca della versione più recente di Bloxstrap...</value>
+    <value>De nieuwste Bloxstrap krijgen...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>In attesa di altre istanze...</value>
+    <value>Wachten op andere instanties...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>Anteprima stile - Clicca sul pulsante X in alto a destra per chiudere</value>
+    <value>Stijlvoorbeeld - Klik op de knop X rechtsboven om te sluiten</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>Anteprima stile - Clicca su Annulla per chiudere</value>
+    <value>Stijlvoorbeeld - Klik op Annuleren om te sluiten</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap è stato disinstallato con successo</value>
+    <value>Bloxstrap is succesvol verwijderd</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox è attualmente in esecuzione, deve essere chiuso prima di poter disinstallare Bloxstrap. Desideri chiudere Roblox ora?</value>
+    <value>Roblox is momenteel actief, maar moet worden gesloten voordat je Bloxstrap kunt deïnstalleren. Wil je Roblox nu afsluiten?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox richiede l'uso dei componenti Windows Media Foundation, che sembrano mancare. Probabilmente perché stai utilizzando un'edizione di Windows N. Per favore, installali prima di avviare Roblox.</value>
+    <value>Roblox vereist het gebruik van Windows Media Foundation-componenten. Het lijkt erop dat deze ontbreken, waarschijnlijk omdat je een N editie van Windows gebruikt. Installeer ze eerst en start dan Roblox.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>Aggiungi singolo</value>
+    <value>Eén toevoegen</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Sfoglia</value>
+    <value>Bladeren</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>Annulla</value>
+    <value>Annuleren</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>Chiudi</value>
+    <value>Sluiten</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Elimina</value>
+    <value>Verwijder</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Attività di Discord</value>
+    <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Aiuto</value>
+    <value>Help</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>Importa JSON</value>
+    <value>Importeer JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>Apri file di registro</value>
+    <value>Open logbestand</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Varie</value>
+    <value>Overige</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>Nome</value>
+    <value>Naam</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>Nuovo</value>
+    <value>Nieuw</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>No</value>
+    <value>Nee</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>OK</value>
+    <value>Oke</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>Impostazioni predefinite</value>
+    <value>Vooraf ingesteld</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Resetta</value>
+    <value>Terugzetten</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>Valore</value>
+    <value>Waarde</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>Avvertimento</value>
+    <value>Waarschuwing</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>Sì</value>
+    <value>Ja</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Chiudi Roblox</value>
+    <value>Sluit Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Sei sicuro di voler chiudere Roblox? Questo chiuderà forzatamente il processo.</value>
+    <value>Weet je zeker dat je Roblox wilt afsluiten? Dit zal het proces geforceerd beëindigen.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Copia l'invito</value>
+    <value>Deeplink naar uitnodiging kopiëren</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copia ID dell'istanza</value>
+    <value>Instantie-ID kopiëren</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>ID dell'istanza</value>
+    <value>Instantie-ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Posizione</value>
+    <value>Locatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Posizione: {0}
-Clicca per maggiori informazioni</value>
+    <value>Locatie: {0}
+Klik voor meer informatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>Connesso a un server pubblico</value>
+    <value>Verbonden aan een openbare server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>Informazioni sul server</value>
+    <value>Serverinformatie</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>Scrivi</value>
+    <value>Type</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Aggiungi Fast Flag</value>
+    <value>Voeg Fast Flag toe</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>Più informazioni:</value>
+    <value>Meer informatie:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Errore di connessione</value>
+    <value>Verbindingsfout</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap non è in grado di connettersi a {0}</value>
+    <value>Bloxstrap kan niet verbinden met {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copia il contenuto del registro</value>
+    <value>Inhoud van logboek kopiëren</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Si è verificata un'eccezione durante l'esecuzione di bloxtrap</value>
+    <value>Er is een uitzondering opgetreden tijdens het uitvoeren van Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Controlla la [Bloxstrap Wiki]({0}) prima per vedere se il problema è già stato risolto.
+    <value>Controleer de [Bloxstrap Wiki]({0}) om eerst te zien of dit probleem al is verholpen.
 
-Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) con una copia del file di registro che è stato creato.</value>
+Als dat niet het geval is, rapporteer deze uitzondering dan alstublieft door een [GitHub-issue]({1}) aan te maken, samen met een kopie van het logbestand dat is aangemaakt.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Errore di Bloxstrap</value>
+    <value>Bloxstrap-Uitzondering</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>Personalizzato</value>
+    <value>Aangepast</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Inizio 2015</value>
+    <value>Begin 2015</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Fine 2015</value>
+    <value>Eind 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Finto Byfron (2023)</value>
+    <value>Nep-Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classico)</value>
+    <value>Bloxstrap (Klassiek)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Vetro)</value>
+    <value>Bloxstrap (Doorzichtig)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>Legacy (2008 - 2011)</value>
+    <value>Legacy (2008-2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>Legacy (2011 - 2014)</value>
+    <value>Legacy (2011-2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Roblox (~2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>Vista (2008 - 2011)</value>
+    <value>Vista (2008-2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartonizzato)</value>
+    <value>2006 (Tekenfilmachtig)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angolare)</value>
+    <value>2013 (Hoekig)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>Predefinito (Twemoji)</value>
+    <value>Standaard (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -357,13 +357,13 @@ Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) co
     <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Scelto dal gioco</value>
+    <value>Gekozen door spel</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Fase 3)</value>
+    <value>Toekomst (Fase 3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Fase 2)</value>
+    <value>Schaduwkaart (Fase 2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
     <value>Voxel (Fase 1)</value>
@@ -375,897 +375,895 @@ Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) co
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Server privato</value>
+    <value>Privéserver</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Server pubblico</value>
+    <value>Openbare server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Server riservato</value>
+    <value>Gereserveerde server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>Scuro</value>
+    <value>Donker</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Chiaro</value>
+    <value>Licht</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap è stato aggiornato alla versione {0}</value>
+    <value>Bloxstrap is bijgewerkt naar v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>La versione di Bloxstrap che hai avviato è diversa da quella attualmente installata.
-Vorresti aggiornare la versione attualmente installata?</value>
+    <value>De versie van Bloxstrap die je hebt gelanceerd is anders dan de versie die je momenteel hebt geïnstalleerd.
+Wil je je huidige geïnstalleerde versie bijwerken?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributori</value>
+    <value>Bijdragers</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Codice</value>
+    <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Queste sono le persone che hanno dato un contributo notevole per Bloxstrap, rendendolo ciò che è.</value>
+    <value>Dit zijn de mensen die een opmerkelijke bijdrage hebben geleverd aan Bloxstrap en het hebben gemaakt tot wat het is.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Idee per le funzionalità</value>
+    <value>Functie-ideeën</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>Ringraziamenti speciali</value>
+    <value>Speciaal dankwoord</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>Un bootstrapper alternativo per Roblox con qualche funzionalità in più.</value>
+    <value>Een alternatieve bootstrapper voor Roblox met een heleboel extra functies.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Server Discord</value>
+    <value>Discord-server</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>Repositorio GitHub</value>
+    <value>GitHub-archief</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Aiuto e Informazioni</value>
+    <value>Hulp en informatie</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenties</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>Licenza BSD 2 Clausole</value>
+    <value>BSD 2-gebruikslicentie</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>Licenza MIT</value>
+    <value>MIT-licentie</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Segnala un problema</value>
+    <value>Meld een probleem</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>Riguardo a</value>
+    <value>Over</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>Versione {0}</value>
+    <value>Versie {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>Tutti i file</value>
+    <value>Alle bestanden</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>Nota che non tutti i tuoi cambiamenti verranno immediatamente applicati finché non verranno chiuse tutte le istanze di Roblox aperte.</value>
+    <value>Houd er rekening mee dat niet al je wijzigingen direct van toepassing zijn totdat je alle huidige open Roblox-instanties sluit.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap è già in esecuzione</value>
+    <value>Bloxstrap wordt al uitgevoerd</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>Si può dare un aspetto diverso, retro o simile a quello di Roblox.</value>
+    <value>Je kunt het er anders, retro of zelfs net als Roblox laten uitzien.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>Bootstrapper</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configura altre opzioni personalizzabili varie.</value>
+    <value>Configureer andere diverse aanpasbare opties.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Personalizzazione</value>
+    <value>Aanpassing</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Deve essere un file .ico multiformato con dimensioni da 16px a 128px. Imposta l'icona su 'Personalizzata' per utilizzarla.</value>
+    <value>Het moet een multi-size .ico bestand zijn met afmetingen 16px tot 128px. Stel Pictogram in als 'Aangepast' om het te gebruiken.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Icona personalizzata</value>
+    <value>Aangepast pictogram</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>Il testo che appare come titolo del bootstrapper.</value>
+    <value>De tekst die wordt weergegeven als de titel van de bootstrapper.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>Titolo</value>
+    <value>Titel</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configura come Bloxstrap dovrebbe apparire.</value>
+    <value>Configureer hoe Bloxstrap eruit moet zien.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Tema</value>
+    <value>Globaal thema</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Scegli quale icona dovrebbe usare.</value>
+    <value>Kies welk pictogram het moet gebruiken.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Icona</value>
+    <value>Pictogram</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>Anteprima</value>
+    <value>Voorbeeld</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Scegli come dovrebbe apparire. Il tema scuro non si applica a Legacy/Vista.</value>
+    <value>Kies hoe het eruit moet zien. Donker thema is niet van toepassing op Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
-    <value>Stile</value>
+    <value>Stijl</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>Aspetto</value>
+    <value>Uiterlijk</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap verificherà se ci sono aggiornamenti e gli eseguirà automaticamente al lancio di Roblox.</value>
+    <value>Bloxstrap zal zichzelf automatisch controleren en bijwerken bij het starten van Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Aggiorna automaticamente Bloxstrap</value>
+    <value>Bloxstrap automatisch bijwerken</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>Evita la chiusura di un gioco aperto aprendone uno accidentalmente.</value>
+    <value>Voorkom dat je bestaande spel niet wordt afgesloten als je per ongeluk een ander spel start.</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>Richiedi conferma prima di avviare un'altra istanza di Roblox</value>
+    <value>Vraag om bevestiging wanneer een andere Roblox instantie wordt geopend</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configura cosa dovrebbe fare Bloxstrap quando avvia Roblox.</value>
+    <value>Kies wat Bloxstrap moet doen bij het opstarten van Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox verrà installato da capo al prossimo avvio.</value>
+    <value>Roblox wordt opnieuw geïnstalleerd bij de volgende lancering.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Forza la reinstallazione di Roblox</value>
+    <value>Roblox herinstallatie forceren</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
     <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>Aggiungi nuovo</value>
+    <value>Nieuw toevoegen</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>Esiste già un flag con questo nome.</value>
+    <value>Er bestaat al een item voor deze Flag-naam.</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Terug</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>L'uso improprio di questo può causare instabilità o comportamenti imprevisti.</value>
+    <value>Verkeerd gebruik hiervan kan leiden tot instabiliteit of onverwachte dingen die gebeuren.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>Usare con cautela.</value>
+    <value>Voorzichtig gebruiken.</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>Alcuni dei flag che stai cercando di importare hanno già valori impostati. Vorresti sovrascrivere i valori attuali con quelli definiti nell'importazione?
+    <value>Sommige Flags die je probeert te importeren hebben al ingestelde waarden. Wil je hun huidige waarden overschrijven met de waarden die zijn gedefinieerd in de import?
 
-Ci sono {0} definizioni di flag in conflitto:
+Er zijn {0} conflicterende vlagdefinities:
 {1}</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>Cancella i selezionati</value>
+    <value>Geselecteerde verwijderen</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Gestisci i tuoi Fast Flag. Fai doppio click su una colonna per modificarla.</value>
+    <value>Beheer je eigen Fast Flags. Dubbelklik op een kolom om te bewerken.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>Esporta in JSON</value>
+    <value>Exporteer JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>Il nome di '{0}' non è valido visto che può contenere solo lettere, numeri e trattini bassi</value>
+    <value>De opgegeven naam voor '{0}' is ongeldig omdat deze alleen letters, cijfers en underscores mag bevatten</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>Il JSON inserito non sembra essere valido. Si prega di ricontrollare e riprovare.
+    <value>De JSON die je hebt ingevoerd lijkt niet geldig te zijn. Controleer het nogmaals en probeer het opnieuw.
 
-Più informazioni:
+Meer informatie:
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>Il nome di '{0}' non è valido dato che deve iniziare con FFlag, DFInt, ecc</value>
+    <value>De invoer voor '{0}' is ongeldig omdat de naam moet beginnen met FFlag, DFInt, enzovoort</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>Copiato negli appunti.</value>
+    <value>Gekopieerd naar klembord.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>Sembra che stiate importando una configurazione molto grande. Dovresti importare solo le configurazioni che comprendi. NON incollare ciecamente configurazioni create da altre persone. Se si continua, è molto probabile che si verificano problemi di stabilità e cambiamenti imprevisti.
+    <value>Het lijkt erop dat je een erg grote configuratie importeert. Je zou alleen configuraties moeten importeren die je volledig begrijpt. Plak NIET blindelings configuraties in die door andere mensen zijn gemaakt. Als je doorgaat, zul je zeer waarschijnlijk stabiliteitsproblemen krijgen en onverwachte veranderingen tegenkomen.
 
-Siete sicuri di volere continuare?</value>
+Weet je zeker dat je door wilt gaan?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>Cerca</value>
+    <value>Zoeken</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>Mostra i flag predefiniti</value>
+    <value>Toon vooraf ingestelde Flags</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Editor di Fast Flag</value>
+    <value>Fast Flag-editor</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Ga terug</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>So quello che sto facendo</value>
+    <value>Ik weet wat ik doe</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Sai quello che stai facendo?</value>
+    <value>Weet je wat je aan het doen bent?</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>I Fast Flag sono estremamente potenti, dato che sono pensati per essere utilizzati esclusivamente dagli ingegneri di Roblox. Anche se possono risultare molto utili, la loro configurazione manuale può provocare gravi problemi di stabilità e funzionalità. NON usare l’editor se non sei sicuro di quello che stai facendo.
+    <value>Fast Flags zijn extreem krachtig, omdat ze bedoeld zijn om alleen gebruikt te worden door Roblox engineers. Hoewel ze erg nuttig kunnen zijn, kan het handmatig configureren ervan ernstige problemen veroorzaken met de stabiliteit en functionaliteit. Gebruik de editor NIET als je niet zeker weet wat je doet.
 
-NON usare questo editor per importare lunghi ‘elenchi di flag’ creati da altre persone che promettono di migliorare le prestazioni o simili. Questi sono soggetti ai problemi menzionati sopra e causeranno difficoltà poiché non sarai completamente a conoscenza di ciò che stanno modificando. Se stavi per farlo, TORNA INDIETRO.</value>
+Gebruik dit NIET om grote "vlaggenlijsten" te importeren die gemaakt zijn door andere mensen die beloven de prestaties te verbeteren of iets dergelijks. Ze zijn onderhevig aan de eerder genoemde problemen en ze zullen problemen voor je veroorzaken omdat je niet volledig bewust bent van wat ze veranderen. Als je dat van plan was, ga dan TERUG.</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Controlla come specifiche caratteristiche e parametri del sistema di Roblox sono configurati.</value>
+    <value>Bepaal hoe specifieke parameters en functies van de Roblox-engine worden geconfigureerd.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Gestisci i tuoi Fast Flag. Da usare con cautela.</value>
+    <value>Beheer je eigen Fast Flags. Voorzichtig gebruiken.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Impara di più sui Fast Flag, su cosa queste reimpostazioni fanno e come usarle.</value>
+    <value>Leer meer over Fast Flags, wat deze presets doen en hoe je ze kunt gebruiken.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [schermo intero esclusivo]({0}) usando Alt+Invio è già attivo di base.</value>
+    <value>Direct3D [Exclusief volledig scherm]({0}) Alt + Enter gebruiken is standaard ingeschakeld.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versione del menu preferita</value>
+    <value>Gewenste escape-menu-versie</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox riduce la qualità del rendering in base al ridimensionamento di Windows del tuo display.</value>
+    <value>Roblox vermindert je rendering kwaliteit afhankelijk van hoe je scherm geschaald is in Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>Mantiene la qualità del rendering con il ridimensionamento del display</value>
+    <value>De renderkwaliteit behouden bij het schalen van het scherm</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Imposta a 0 se vuoi usare il framerate unlocker nativo di Roblox.</value>
+    <value>Stel het in op 0 als je de standaard framesnelheid onvergrendeling van Roblox wilt gebruiken.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Limite di Framerate</value>
+    <value>Framerate-limiet</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Attivato/Disattivato con [keyboard shortcuts]({0}). Funziona solo se fai parte del gruppo [Bloxstrap group]({1}).</value>
+    <value>Omschakelen met [sneltoetsen]({0}). Werkt alleen als je in de [Bloxstrap-groep]({1}) zit.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Abilita la possibilità di nascondere le GUI</value>
+    <value>Mogelijkheid om GUI's te verbergen inschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Quello scelto sarà forzatamente usato in tutti i giochi. [Attenzione, questo può causare problemi con l'illuminazione!]({0})</value>
+    <value>De gekozen lichttechnologie zal in alle spellen geforceerd ingeschakeld worden. [Let op, dit kan verlichtingsproblemen veroorzaken!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tecnologia di illuminazione preferita</value>
+    <value>Voorkeur voor verlichtingstechnologie</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>Modalità di renderizzazione</value>
+    <value>Rendermodus</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Impostazioni dell'engine</value>
+    <value>Engine instellingen</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>File di font</value>
+    <value>Lettertype-bestanden</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>File delle icone</value>
+    <value>Pictogrammenbestanden</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap non può essere installato qui. Seleziona una cartella diversa, oppure utilizza la posizione predefinita cliccando il tasto reset.</value>
+    <value>Bloxstrap kan hier niet geïnstalleerd worden. Kies een andere locatie of gebruik de standaardlocatie door op de resetknop te klikken.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>La cartella che hai scelto per l'installazione di Bloxstrap esiste già e NON è vuota. È consigliato installare Bloxstrap in una nuova cartella indipendente.
+    <value>De map waarin je Bloxstrap wilt installeren bestaat al en is NIET leeg. Het wordt sterk aangeraden om Bloxstrap in zijn eigen onafhankelijke map te installeren.
 
-È consigiabile proseguire l'installazione nella posizione suggerita:
+De volgende locatie wordt aanbevolen:
 {0}
 
-Vuoi utilizzare questa posizione per procedere con l'installazione?
-Selezionando 'No' si ignorerà questo avvertimento procedendo con l'installazione.</value>
+Wil je de voorgestelde locatie gebruiken?
+Als je 'Nee' selecteert, wordt deze waarschuwing genegeerd en wordt de installatie voortgezet.</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>Devi impostare una posizione d'installazione</value>
+    <value>Je moet een installatielocatie instellen</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap non ha il permesso di scrittura alla posizione selezionata per l'installazione. Per favore, scegli un'altra posizione.</value>
+    <value>Bloxstrap heeft geen schrijftoegang tot de installatielocatie die je hebt geselecteerd. Kies een andere locatie.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Tracciamento delle attività</value>
+    <value>Activiteit bijhouden</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Permette a tutti di entrare nel gioco a cui stai giocando attraverso il tuo profilo di Discord.</value>
+    <value>Hiermee kan iedereen meedoen aan het spel waar je op dat moment in zit via je Discord-profiel.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Permetti di unirsi all'attività</value>
+    <value>Deelnemen via je activiteit toestaan</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Mostra l’account Roblox con cui stai giocando sul tuo profilo Discord.</value>
+    <value>Laat het Roblox account zien waarmee je aan het spelen bent op jouw Discord profiel.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Mostra account di Roblox</value>
+    <value>Toon Roblox account</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Posizione dell'applicazione</value>
+    <value>Toepassingslocatie</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Chiudi automaticamente quando Roblox si chiude</value>
+    <value>Automatisch sluiten wanneer Roblox sluit</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>Qui puoi scegliere se avere altri programmi che si avvieranno automaticamente con Roblox.</value>
+    <value>Hier kun je andere programma's automatisch met Roblox laten starten.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>Argomenti di avvio</value>
+    <value>Start-Argumenten</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox è in esecuzione!</value>
+    <value>Roblox draait nu!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>Nuova integrazione</value>
+    <value>Nieuwe integratie</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>Nessuna integrazione scelta, per favore scegli o aggiungine una nuova</value>
+    <value>Geen integratie geselecteerd, selecteer of voeg een nieuwe toe</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>Integrazioni personalizzate</value>
+    <value>Aangepaste integraties</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configura funzionalità aggiuntive da fare andare con Roblox.</value>
+    <value>Voeg extra functionaliteit toe die naast Roblox werkt.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox si chiuderà completamente quando lasci una partita invece di tornare all'app. [Interromperà alcune cose!]({0})</value>
+    <value>Roblox wordt volledig afgesloten wanneer je een spel verlaat, in plaats van terug te gaan naar de app. [Dit kan enkele dingen breken!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>Non avviare l'applicazione del desktop alla chiusura</value>
+    <value>Niet afsluiten naar bureaublad-app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Permetti a Bloxstrap di rilevare il gioco di Roblox che stai giocando. Alcune funzionalità potrebbero richiederlo.</value>
+    <value>Staat toe dat Bloxstrap kan detecteren welk Roblox-spel je speelt. Bepaalde functies kunnen dit vereisen.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>Abilita il tracciamento delle attività</value>
+    <value>Activiteitentracking inschakelen</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Questa funzionalità richiede che il tracciamento delle attività sia attivo e che l’app desktop di Discord sia installata e in esecuzione. [Trova di più al riguardo]({0}).</value>
+    <value>Deze functie vereist dat de activiteitstracker is ingeschakeld en dat je Discord applicatie geïnstalleerd en geopend is [Meer informatie]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>Il gioco di Roblox a cui stai giocando sarà mostrato sul tuo profilo di Discord. [Non funziona?]({0})</value>
+    <value>Het Roblox-spel dat je speelt, zal worden weergegeven op je Discord-profiel. [Werkt niet?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>Mostra attività di gioco</value>
+    <value>Toon spelactiviteit</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>Quando in gioco, sarai in grado di vedere dove si trova il tuo server tramite [ipinfo.io]({0}).</value>
+    <value>Wanneer je in een spel bent, kun je zien waar de server zich bevind via [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>Posizione del server Query</value>
+    <value>Laat server locatie zien</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>Integrazioni</value>
+    <value>Integraties</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Cambia e applica i file di mod al client di Roblox.</value>
+    <value>Beheer en pas bestandsmods toe op de Roblox-spelclient.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>Vedi info sul maneggiamento e creazione di mod.</value>
+    <value>Zie info over het beheren en maken van mods.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>Scegli Font...</value>
+    <value>Kies een lettertype...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Le dimensioni del font possono essere cambiate nella scheda delle impostazioni.</value>
+    <value>Het lettertype kan worden aangepast in de Engine Settings-tab.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>Il file che hai scelto non sembra essere un file di font valido.</value>
+    <value>Het bestand dat je hebt gekozen lijkt geen geldig lettertypebestand te zijn.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>Rimuovi font applicato</value>
+    <value>Toegepast lettertype verwijderen</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Usa font personalizzato</value>
+    <value>Aangepaste lettertype gebruiken</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Gestisci le mod di Roblox personalizzate qui.</value>
+    <value>Beheer aangepaste Roblox-mods hier.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>Apri la cartella delle Modifiche</value>
+    <value>Map met mods openen</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Scegli che tipo di emoji Roblox dovrebbe usare.</value>
+    <value>Kies welk type emoji Roblox moet gebruiken.</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>Tipo di emoji preferito</value>
+    <value>Voorkeur emoji-type</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>Scegli quale usare tra due stili di cursore classici di Roblox.</value>
+    <value>Kies tussen twee klassieke Roblox-cursorstijlen.</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>Cursore del mouse</value>
+    <value>Muisaanwijzer</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Riporta indietro il vecchio sfondo dell'editor di avatar usato su Roblox prima del 2020.</value>
+    <value>Breng de oude avatar-editorachtergrond terug die voor 2020 in de Roblox-app werd gebruikt.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>Usa il vecchio sfondo dell'editore di avatar</value>
+    <value>Gebruik oude avatar-editor achtergrond</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>Un tentativo di riportare i vecchi suoni dei personaggi usati prima del 2014.</value>
+    <value>Een poging om de karaktergeluiden van voor 2014 ongeveer terug te brengen.</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>Emula i vecchi suoni dei personaggi</value>
+    <value>Emuleer oude karaktergeluiden</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Fa ritornare il classico 'oof' come suono di morte.</value>
+    <value>Breng het klassieke 'oof' doodsgeluid terug.</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Usa il vecchio suono di morte</value>
+    <value>Gebruik oud doodsgeluid</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>Modifiche</value>
+    <value>Modificaties</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Clicca per maggiori informazioni su questa opzione.</value>
+    <value>Klik voor meer informatie over deze optie.</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>Salva</value>
+    <value>Opslaan</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>Questi cambiamenti prenderanno effetto la prossima volta che avvierai Roblox.</value>
+    <value>Wijzigingen worden van kracht wanneer je Roblox de volgende keer opstart.</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>Impostazioni salvate!</value>
+    <value>Instellingen opgeslagen!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Impostazioni di Bloxstrap</value>
+    <value>Bloxstrap Instellingen</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>Scegli la lingua preferita</value>
+    <value>Kies voorkeurstaal</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Scegli una lingua prima di continuare con l'installazione.</value>
+    <value>Kies een taal voordat je verder gaat met de installatie.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>Lingua</value>
+    <value>Taal</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>È necessario un riavvio per rendere effettive le modifiche.</value>
+    <value>Een herlancering is nodig om verandering in effect te brengen.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Permetti l'uso di lingue non supportate da Roblox</value>
+    <value>Sta gebruik van niet ondersteunde Roblox talen toe</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Si applica solo a giochi avviati dal sito di Roblox.</value>
+    <value>Alleen van toepassing op spellen die vanaf de Roblox website worden gestart.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (V4 + Nuova UI)</value>
+    <value>2023 (V4 + Nieuw gebruikersinterface)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>Rendering e Grafica</value>
+    <value>Rendering en grafische weergave</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Interfaccia Utente e Layout</value>
+    <value>Gebruikersinterface en lay-out</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Permetti a Bloxstrap di configurare Fast Flags</value>
+    <value>Sta Bloxstrap toe om Fast Flags te beheren</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>Disabilitando questo non permetterà qualsiasi cosa configurata qui a essere applicata a Roblox.</value>
+    <value>Als je dit uitzet, zullen alle configuraties hier niet worden toegepast op Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>Qualità Anti-aliasing (MSAA)</value>
+    <value>Kwaliteit van anti-aliasing (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Disabilita effetti post-processing</value>
+    <value>Post-processing effecten uitschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Disabilita la barra del titolo a schermo intero</value>
+    <value>Volledig scherm titelbalk uitschakelen</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Impedisce la visualizzazione ogni volta che sposti il ​​mouse nella parte superiore dello schermo.</value>
+    <value>Voorkomt dat het verschijnt wanneer je je muis naar de bovenkant van je scherm beweegt.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>Qualità delle texture</value>
+    <value>Textuurkwaliteit</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>Livello 0 (Più basso)</value>
+    <value>Niveau 0 (Laagste)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>Livello 1</value>
+    <value>Niveau 1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>Livello 2</value>
+    <value>Niveau 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>Livello 3 (Più alto)</value>
+    <value>Level 3 (Hoogste)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Disabilita le ombre dei giocatori</value>
+    <value>Spelerschaduw uitzetten</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Dimensione del font</value>
+    <value>Grootte van lettertype beheren</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Il valore di base è 1. Aggiustalo se stai usando un font personalizzato.</value>
+    <value>Standaardwaarde is 1. Pas aan als je een aangepast lettertype gebruikt.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Disabilita le texture del terreno</value>
+    <value>Schakel terreintexturen uit</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap non può scaricare Roblox</value>
+    <value>Bloxstrap kan Roblox niet downloaden</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>Roblox non può essere scaricato al momento. Per favore leggi la seguente pagina di aiuto per più informazioni: {0}</value>
+    <value>Op dit moment kan Roblox niet worden gedownload. Lees alsjeblieft de volgende help-pagina voor meer informatie: {0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>Importa da file</value>
+    <value>Importeer uit bestand</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>File JSON</value>
+    <value>JSON-bestanden</value>
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>Il valore di '{0}' non è valido perché deve essere un boolean ('True' o 'False')</value>
+    <value>De invoer voor '{0}' is ongeldig, omdat de waarde een booleaanse waarde moet zijn (ofwel 'True' of 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Il valore di '{0}' non è valido perché deve essere un numero</value>
+    <value>De invoer voor '{0}' is ongeldig, omdat de waarde een getal moet zijn</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Nessun file di registro sarà scritto perché Bloxstrap non ha accesso alla cartella a '{0}'</value>
+    <value>Er wordt geen logbestand aangemaakt voor deze start omdat Bloxstrap niet kan schrijven naar de map op '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>Base</value>
+    <value>Standaard</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>Automatico</value>
+    <value>Automatisch</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>Predefinito di sistema</value>
+    <value>Systeemstandaard</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>La voce per '{0}' non è valida perché il filtro di luogo non è formattato correttamente.</value>
+    <value>De invoer voor '{0}' is niet geldig omdat de plaatsfilter niet correct is opgemaakt.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Bloxstrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>Benvenuto/a</value>
+    <value>Welkom</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>Installa</value>
+    <value>Installeren</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
-    <value>Compimento</value>
+    <value>Voltooiing</value>
   </data>
   <data name="Common.Navigation.Back" xml:space="preserve">
-    <value>Indietro</value>
+    <value>Vorige</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>Avanti</value>
+    <value>Volgende</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Grazie per aver scaricato Bloxstrap.
+    <value>Bedankt voor het downloaden van Bloxstrap.
 
-Gli unici siti ufficiali per scaricare Bloxstrap sono {0} e {1}, quindi per favore verifica che l'hai ottenuto da una fonte ufficiale.
+De enigste officiële websites om Bloxstrap te downloaden zijn {0} en {1}, verifieer dat u ze van een officiële bron hebt.
 
-Questo processo di installazione sarà veloce e semplice, e sarai in grado di configurare qualsiasi impostazione di Bloxstrap dopo l'installazione.</value>
+De installatie proces zal snel en eenvoudig zijn, dus u kunt na de installatie elke Bloxstrap instelling veranderen.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>Per favore clicca 'Avanti' per continuare.</value>
+    <value>Klik alstublieft op 'Volgende' om door te gaan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Stai cercando d'installare la versione {0} di Bloxstrap, ma l'ultima versione disponibile è {1}. Vorresti scaricarla?</value>
+    <value>U probeert de versie {0} van Bloxstrap te installeren, terwijl de nieuwste versie {1} is. Wilt u deze downloaden?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
-    <value>Scegli dove installare</value>
+    <value>Kies waar te installeren</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox sarà anche installato in questo percorso. Cambialo se preferisci installare tutti i tuoi giochi in un'unità separata. Altrimenti, è consigliato mantenerlo così com'è.</value>
+    <value>Roblox zal ook hier geïnstalleerd worden. Verander deze als u het liever hebt dat uw games op een aparte schijf staan, hou dit anders zoals het is.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>Dati esistenti trovati. Le tue mod e impostazioni saranno ripristinate.</value>
+    <value>Bestaande gegevens gevonden. Uw modificaties en instellingen zullen hersteld worden.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
-    <value>Scorciatoie</value>
+    <value>Snelkoppelingen</value>
   </data>
   <data name="Common.Shortcuts.Desktop" xml:space="preserve">
-    <value>Icona sul desktop</value>
+    <value>Bureaublad icoon</value>
   </data>
   <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
-    <value>Icona menu iniziale</value>
+    <value>Start Menu icoon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap è stato installato con successo.
+    <value>Bloxstrap is met succes geïnstalleerd.
 
-Roblox non è stato ancora installato, questo accadrà quando lo avvierai insieme a Bloxstrap per la prima volta. Tuttavia, prima che tu lo faccia, potresti voler configurare prima le impostazioni di Bloxstrap.
+Roblox is nog niet geïnstalleerd, dat zal gebeuren wanneer je Bloxstrap voor het eerst gebruikt. Voor dat je dit doet, wil je misschien Bloxstrap's instellingen veranderen.
 
-Inoltre, evita di utilizzare la scorciatoia "Roblox Player" per avviare Roblox, poiché Bloxstrap non si avvierà con Roblox. Se non vedi Bloxstrap apparire quando stai avviando attraverso il sito web, semplicemente avvia Roblox insieme a Bloxstrap da desktop una volta per risolvere il problema.
+Vermijd ook het gebruik van de "Roblox Player" snelkoppeling om Roblox te spelen, omdat Bloxstrap dan niet met Roblox lanceert. Als je Bloxstrap niet ziet wanneer je Roblox lanceert vanaf de website, start dan eenmaal Roblox met Bloxstrap op van je desktop om het op te lossen.
 
-Cosa preferiresti fare?</value>
+Wat wilt u doen?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configura le impostazioni di Bloxstrap</value>
+    <value>Bloxstrap instellingen veranderen</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>Modifica con tutte le funzionalità che offre</value>
+    <value>Pas alle functies aan die het heeft aan te bieden</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
-    <value>Installa e avvia Roblox</value>
+    <value>Installeer en open Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>Ti porterà all'interno dell'app desktop una volta che tutto sarà finito</value>
+    <value>Opent de desktop app zodra alles gedaan is</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Disinstalla Bloxstrap</value>
+    <value>Verwijder Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Con la disinstallazione verrà rimosso Bloxstrap dal tuo sistema, e automaticamente riconfiguererà al launcher predefinito di Roblox se è installato.
+    <value>De-installeren zal Bloxstrap van uw systeem verwijderen en automatisch de standaard Roblox launcher opnieuw configureren als het nog steeds geïnstalleerd is.
 
-Se lo stai disinstallando o lo stai reinstallando perchè stai avendo problemi con Roblox, per favore leggi prima [questa pagina d'aiuto]({0}).
+Als u eerst problemen ondervindt met Roblox en probeert de de-installeren of opnieuw te installeren, lees dan [deze helppagina] ({0}).
 
-Il processo di disinstallazione potrebbe non essere capace di completamente eliminarsi, quindi potresti dovere manualmente pulire i file rimanenti rimasti dove Bloxstrap è stato installato.
+Het de-installatieproces kan zichzelf mogelijk niet volledig opschonen, dus u moet misschien handmatig de overgebleven bestanden opschonen waar Bloxstrap is geïnstalleerd.
 
-Bloxstrap è stato installato in "{1}".</value>
+Bloxstrap is geïnstalleerd op "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>Mantieni le mie impostazioni e mod</value>
+    <value>Mijn instellingen en modificaties behouden</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Verranno mantenuti dove Bloxstrap è stato installato, e verranno ripristinati automaticamente su una reinstallazione.</value>
+    <value>Ze zullen bewaard worden waar Bloxstrap geïnstalleerd was, en zal automatisch herstelt worden op een herinstallatie.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
-    <value>Disinstalla</value>
+    <value>Verwijderen</value>
   </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>Avvia Roblox</value>
+    <value>Open Roblox</value>
   </data>
   <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>Configurazione delle impostazioni</value>
+    <value>Verander instellingen</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>Stai avendo problemi?</value>
+    <value>Heeft u een probleem?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>Vedi la Wiki per aiuto</value>
+    <value>Bekijk de wiki voor hulp</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>Al momento non hai il runtime WebView2 installato. Alcune funzionalità di Roblox potrebbero non funzionare correttamente senza di esso, come l’applicazione desktop. Vorresti scaricarlo ora?</value>
+    <value>De WebView2 runtime is momenteel niet geïnstalleerd. Sommige Roblox functies werken zonder deze niet goed, zoals de desktop app. Wilt u deze nu downloaden?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap non è stato in grado di creare scorciatoie per il Desktop e il menu Start. Prova a crearle più tardi tramite le impostazioni.</value>
+    <value>Bloxstrap kon geen snelkoppelingen maken voor het bureaublad en Start menu. Probeer ze later te maken via de instellingen.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Controlla prima la [Wiki di Bloxstrap]({0}) per vedere se il problema è stato già risolto.
+    <value>Bekijk de [Bloxstrap Wiki]({0}) eerst om te zien of dit probleem al is opgelost met een oplossing.
 
-In caso contrario, si prega di segnalare questa eccezione ai manutentori di questo fork. NON segnalarlo ai problemi di GitHub di Bloxstrap, perché si tratta di una build non ufficiale.</value>
+Als dit niet het geval is, rapporteer dit probleem dan aan de beheerders van deze fork. Meld dit NIET aan de GitHub van Bloxstrap, omdat dit niet een officiële versie is.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>Si trattano di scorciatoie generiche che consentono di visualizzare un menu di avvio a scelta multipla. I collegamenti per funzioni specifiche possono essere creati successivamente nelle impostazioni.</value>
+    <value>Dit zijn algemene snelkoppelingen die een opstart menu met meerdere keuzes opleveren. Snelkoppelingen voor specifieke functies kunnen later worden aangemaakt in de instellingen.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configura il modo in cui Bloxstrap può essere avviato.</value>
+    <value>Stel in hoe Bloxstrap gemakkelijk gestart kan worden.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
-    <value>Generale</value>
+    <value>Algemeen</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>Queste sono le scorciatoie che aprono il menu di avvio multi-scelta.</value>
+    <value>Dit zijn de snelkoppelingen die het opstart menu met meerdere keuzes openen.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
-    <value>Funzione</value>
+    <value>Functie</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>Servono per la creazione di scorciatoie per accedere rapidamente a funzioni specifiche. Questi saranno tutti posizionati sul Desktop.</value>
+    <value>Maak snelkoppelingen voor snelle toegang tot specifieke functies. Deze worden allemaal op het bureaublad geplaatst.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Connesso al server privato</value>
+    <value>Verbonden met een privéserver</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Connesso a un server riservato</value>
+    <value>Verbonden met een reserveerde server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>La mod delle emoji non può essere applicata in questo momento.</value>
+    <value>De emoji mod kan nu niet toegepast worden.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>Per favore aspetta che l'installazione finisca.</value>
+    <value>Wacht alstublieft tot de installatie klaar is.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
-    <value>Per favore attendi che la disinstallazione finisca.</value>
+    <value>Wacht alstublieft tot het klaar is met verwijderen.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Riguardante Bloxstrap</value>
+    <value>Over Bloxstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
-    <value>Licenze</value>
+    <value>Licenties</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>Traduttori</value>
+    <value>Vertalers</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>Hai delle modifiche non salvate. Sei sicuro che vuoi chiudere senza salvare?</value>
+    <value>U hebt wijzigingen dat niet opgeslagen zijn. Bent u zeker dat u wilt afsluiten zonder op te slaan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>La versione di Bloxstrap che hai avviato è più vecchia di quella installata attualmente.
-Potresti riscontrare dei problemi e alcune impostazioni potrebbero cambiare. Una reinstallazione è consigliata.
-Sei sicuro di voler continuare?</value>
+    <value>De versie van Bloxstrap die u hebt geopend is ouder dan de versie die je nu hebt geïnstalleerd.
+Er kunnen problemen zijn, en uw instellingen kunnen veranderd worden. Het is aanbevolen om Bloxstrap te herinstalleren. Bent u zeker dat u wilt doorgaan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox non è riuscito ad avviarsi.</value>
+    <value>Roblox kon niet starten.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox è crashato.</value>
+    <value>Roblox is gecrasht.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Per informazioni sul perché questo potrebbe accadere e su come può essere risolto, si prega di leggere [questo articolo di aiuto]({0}).
+    <value>Voor informatie over hoe dit kan gebeuren en hoe het opgelost kan worden, lees je alstublieft [dit hulpartikel]({0}).
 
-Verifica se Roblox funziona con [il launcher originale]({1}). Se non lo fa, allora questo non è un problema Bloxstrap. Se lo fa, quindi fare riferimento all'articolo di aiuto.</value>
+Controleer of Roblox werkt met [de originele launcher]({1}). Als dit niet het geval is, is het geen Bloxstrap-probleem. Verwijs dan naar het hulpartikel.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>Impossibile caricare i dati a causa di un errore di rete.</value>
+    <value>Kon gegevens niet laden door een netwerkfout.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>Caricamento, aspetta per favore...</value>
+    <value>Bezig met laden, even wachten...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
-    <value>Sostenitori</value>
+    <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Queste sono le persone che hanno supportato Bloxstrap attraverso Ko-fi. Un enorme ringraziamento a tutti qui!
-Ogni persona qui è classificato dal loro impegno generale.</value>
+    <value>Dit zijn de mensen die Bloxstrap hebben ondersteund via Ko-fi. Een enorme dank aan iedereen hier!
+Elke persoon hier is gerangschikt op basis van hun totale bijdrage.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>Le tue impostazioni non posso essere caricate. Verranno ripristinate alle configurazioni predefinite.</value>
+    <value>Uw instellingen konden niet geladen worden. Ze zijn teruggezet naar de standaardinstellingen.</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>Le tue Fast Flags non possono essere caricate. Verranno ripristinate alle configurazioni predefinite.</value>
+    <value>Uw Fast Flags konden niet geladen worden. Ze zijn teruggezet naar de standaard configuratie.</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>Cronologia giochi</value>
+    <value>Spel geschiedenis</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>Rientra</value>
+    <value>Rejoin</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>Il tuo gioco non verrà mostrato sulla tua attività di Discord, perché si è verificato un errore durante il caricamento delle informazioni di gioco.</value>
+    <value>Je huidige spel zal niet verschijnen op je Discord activiteit, omdat er een fout is opgetreden bij het laden van de spelinformatie.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>La cronologia dei giochi sarà registrata solo per questa sessione. I giochi appariranno qui quando esci o entri all'interno di essi. Non potrai rientrare dentro tutti i server.</value>
+    <value>Spelgeschiedenis is alleen opgenomen voor je huidige Roblox sessie. Spellen zullen hier verschijnen terwijl je ze verlaat of teleporteert binnen hen. Je kan niet opnieuw alle servers joinen.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>La posizione del server non può essere ottenuta. Potrebbe essere dovuto al fatto che entri nei giochi troppo velocemente.</value>
+    <value>De serverlocatie kon niet worden opgevraagd. Het zou mogelijk kunnen zijn dat je te snel games speelt.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
-    <value>Per favore riprova più tardi.</value>
+    <value>Probeer later opnieuw.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
-    <value>Per questo avvio, Roblox non sarà controllato per gli aggiornamenti, e le modifiche alle mod non saranno applicate.</value>
+    <value>Voor deze launch zal Roblox niet gecontroleerd worden op upgrades, en wijzigingen aan mods zullen niet toegepast worden.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Dato che Roblox deve essere installato o aggiornato, Bloxstrap non può continuare.</value>
+    <value>Omdat Roblox geïnstalleerd of geüpdate moet worden, Bloxstrap kan niet doorgaan.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap è stato installato in questa posizione prima che ed è ancora presente, tuttavia l'installer non può sovrascrivere il vecchio eseguibile.
+    <value>Bloxstrap is geïnstalleerd op deze locatie en is nog steeds aanwezig, maar het installatieprogramma kan het oude uitvoerbare niet overschrijven. 
 
-Per favore elimina manualmente Bloxstrap.exe dalla posizione d'installazione o prova a riavviare il sistema, e poi riprovare l'installazione.</value>
+Verwijder handmatig Bloxstrap.EXE van de installatielocatie of probeer je systeem opnieuw op te starten, en probeer daarna opnieuw te installeren.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
-    <value>Non disponibile</value>
+    <value>Niet beschikbaar</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
-    <value>Gestisci le impostazioni di compatibilità</value>
+    <value>Compatibiliteitsinstellingen beheren</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>Configura i parametri della applicazione come lo scaling dei DPI e le [ottimizzazioni a schermo intero]({0}).</value>
+    <value>Configureer applicatie parameters zoals DPI scaling behaviour en [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox non è ancora stato installato. Si prega di avviare Roblox utilizzando Bloxstrap almeno una volta prima di provare a utilizzare questa opzione.</value>
+    <value>Roblox is nog niet geïnstalleerd. Start Roblox minstens eenmaal op via Bloxstrap voordat u probeert deze optie te gebruiken.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>Sei sicuro di volere annullare l'installazione?</value>
+    <value>Bent u zeker dat u de installatie wilt stoppen?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>Salvataggio non riuscito di {0}: {1}</value>
+    <value>Opslaan van {0} is mislukt: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>Impossibile caricare l'icona di bootstrapper scelta.
+    <value>De gekozen bootstrapper icoon kon niet worden geladen.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Estrai le icone di Roblox nella cartella</value>
+    <value>Extract Roblox iconen naar folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Permette di utilizzare la lista delle icone di Roblox di Bloxstrap per i collegamenti. [Vedi come]({0})</value>
+    <value>Staat u toe om Bloxstrap's collectie van Roblox iconen te gebruiken voor snelkoppelingen. [Zie hoe.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap non è in grado di scrivere nel Registro di Windows. Probabilmente un antivirus sta interferendo e causando problemi.
-Assicurati che non ci sia nulla che possa limitare le operazioni di Bloxstrap.</value>
+    <value>Bloxstrap kan niet naar het Windows-register schrijven. Een antivirus programma kan mogelijk storen en problemen veroorzaken. Controleer of er niet iets is dat de Bloxstrap werking zou beperken.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>Mensilmente</value>
+    <value>Maandelijks</value>
   </data>
   <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>Una volta</value>
+    <value>Eenmalig</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configura le opzioni a riguardo del comportamento di Bloxstrap.</value>
+    <value>Configureer opties gerelateerd aan het gedrag van Bloxstrap zelf.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>Abilita l'invio delle statistiche</value>
+    <value>Het verzenden van analytics inschakelen</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>È anonimo e non è niente di male, promesso. Per informazioni su che cosa collezioniamo e perché, guarda la nostra [informativa sulla privacy]({0}).</value>
+    <value>Het is anoniem en niets slecht, beloofd. Voor inzicht in wat we verzamelen en waarom, zie ons ({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
-    <value>Statistiche</value>
+    <value>Statistieken</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
-    <value>Ripristina tutto ai valori predefiniti</value>
+    <value>Alle standaard instellingen herstellen</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Segnala eccezione</value>
+    <value>Meld exceptie</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>Modalità di prova</value>
+    <value>Test modus</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>La modalità di prova facilita la verifica iterativa dell'effetto delle impostazioni su Roblox.
+    <value>Test modus maakt het gemakkelijker om iteratief te testen hoe uw instellingen Roblox beïnvloeden. 
 
-Quando è attiva, avvierà automaticamente Roblox dopo aver chiuso le Impostazioni e riaprirà le Impostazioni dopo aver chiuso Roblox, in un ciclo che dura fino a quando non la si disattiva.
+Wanneer ingeschakeld, zal Roblox automatisch starten na het sluiten van de instellingen, en de Instellingen heropenen na het sluiten van Roblox, in een cyclus totdat u het uitschakelt.
 
-Vuoi abilitare la modalità di prova?</value>
+Wilt u de testmodus inschakelen?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Tutte le traduzioni di Bloxstrap provengono dalla community attraverso [Crowdin]({0}). Tutte le persone elencate qui hanno volontariamente dedicato il loro tempo e impegno ad aiutare a tradurre Bloxstrap. Un grande grazie a tutti!</value>
+    <value>Alle vertalingen van Bloxstrap zijn gecrowdsourcet via [Crowdin]({0}). Iedereen die hier op de lijst staat, zijn mensen die zich ruimhartig hebben ingezet voor het lokaliseren van Bloxstrap. Een grote dank aan iedereen hier!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
-    <value>Installa</value>
+    <value>Installeer</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
   <data name="Paths.Icons" xml:space="preserve">
-    <value>Icone</value>
+    <value>Iconen</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Avvia Roblox Studio</value>
+    <value>Start Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Versione {0}</value>
+    <value>Versie {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap ha provato ad aggiornare Roblox ma non può perché i file di Roblox sono ancora in uso.
+    <value>Bloxstrap heeft geprobeerd Roblox bij te werken, maar kan dit niet omdat de bestanden van Roblox nog in gebruik zijn.
 
-Si prega di chiudere tutte le applicazioni che potrebbero usare i file di Roblox e rilanciare.</value>
+Sluit alstublieft alle applicaties die mogelijk de bestanden van Roblox gebruiken en start opnieuw.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Archivio zip</value>
+    <value>Zip archief</value>
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
   <data name="Common.Export" xml:space="preserve">
-    <value>Esportazione</value>
+    <value>Exporteer</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
-    <value>Esportazione diagnostica dati</value>
+    <value>Exporteer diagnostische gegevens</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Raccogli informazioni che possono essere caricate online per risolvere un problema che stai riscontrando.</value>
+    <value>Verzamel informatie die online kan worden geüpload om een probleem op te lossen dat je hebt.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Configurazione Bloxstrap</value>
+    <value>Bloxstrap configuratie</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Tutti i logs di Bloxstrap</value>
+    <value>Alle Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

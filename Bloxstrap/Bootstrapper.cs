@@ -50,6 +50,7 @@ namespace Bloxstrap
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private string _latestVersionGuid = null!;
+        private string _latestVersionDirectory = null!;
         private PackageManifest _versionPackageManifest = null!;
 
         private bool _isInstalling = false;
@@ -58,7 +59,7 @@ namespace Bloxstrap
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
 
-        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -313,6 +314,7 @@ namespace Bloxstrap
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
             _latestVersionGuid = clientVersion.VersionGuid;
+            _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
@@ -357,8 +359,11 @@ namespace Bloxstrap
 
             string? logFileName = null;
 
-            string rbxLogDir = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
+            string rbxDir = Path.Combine(Paths.LocalAppData, "Roblox");
+            if (!Directory.Exists(rbxDir))
+                Directory.CreateDirectory(rbxDir);
 
+            string rbxLogDir = Path.Combine(rbxDir, "logs");
             if (!Directory.Exists(rbxLogDir))
                 Directory.CreateDirectory(rbxLogDir);
 
@@ -510,18 +515,13 @@ namespace Bloxstrap
                 try
                 {
                     // clean up install
-                    if (Directory.Exists(AppData.Directory))
-                        Directory.Delete(AppData.Directory, true);
+                    if (Directory.Exists(_latestVersionDirectory))
+                        Directory.Delete(_latestVersionDirectory, true);
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not fully clean up installation!");
                     App.Logger.WriteException(LOG_IDENT, ex);
-
-                    // assurance to make sure the next launch does a fresh install
-                    // we probably shouldn't be using the lockfile to do this, but meh
-                    var lockFile = new FileInfo(AppData.LockFilePath);
-                    lockFile.Create().Dispose();
                 }
             }
             else if (_appPid != 0)
@@ -646,9 +646,73 @@ namespace Bloxstrap
 
             return false;
         }
-#endregion
+        #endregion
 
         #region Roblox Install
+        private void CleanupVersionsFolder()
+        {
+            const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
+
+            foreach (string dir in Directory.GetDirectories(Paths.Versions))
+            {
+                string dirName = Path.GetFileName(dir);
+
+                if (dirName != App.State.Prop.Player.VersionGuid && dirName != App.State.Prop.Studio.VersionGuid)
+                {
+                    try
+                    {
+                        Directory.Delete(dir, true);
+                    }
+                    catch (IOException ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {dir}");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+            }
+        }
+
+        private void MigrateCompatibilityFlags()
+        {
+            const string LOG_IDENT = "Bootstrapper::MigrateCompatibilityFlags";
+
+            string oldClientLocation = Path.Combine(Paths.Versions, AppData.State.VersionGuid, AppData.ExecutableName);
+            string newClientLocation = Path.Combine(_latestVersionDirectory, AppData.ExecutableName);
+
+            // move old compatibility flags for the old location
+            using RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
+            string? appFlags = appFlagsKey.GetValue(oldClientLocation) as string;
+
+            if (appFlags is not null)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Migrating app compatibility flags from {oldClientLocation} to {newClientLocation}...");
+                appFlagsKey.SetValueSafe(newClientLocation, appFlags);
+                appFlagsKey.DeleteValueSafe(oldClientLocation);
+            }
+        }
+
+        private static void KillRobloxPlayers()
+        {
+            const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
+
+            List<Process> processes = new List<Process>();
+            processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
+
+            foreach (Process process in processes)
+            {
+                try
+                {
+                    process.Kill();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id}");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+        }
+
         private async Task UpgradeRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
@@ -660,55 +724,29 @@ namespace Bloxstrap
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
-            Directory.CreateDirectory(Paths.Roblox);
-
-            if (Directory.Exists(AppData.Directory))
-            {
-                if (Directory.Exists(AppData.OldDirectory))
-                    Directory.Delete(AppData.OldDirectory, true);
-
-                try
-                {
-                    // test to see if any files are in use
-                    // if you have a better way to check for this, please let me know!
-                    Directory.Move(AppData.Directory, AppData.OldDirectory);
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not clear old files, aborting update.");
-                    App.Logger.WriteException(LOG_IDENT, ex);
-
-                    // 0x80070020 is the HRESULT that indicates that a process is still running
-                    // (either RobloxPlayerBeta or RobloxCrashHandler), so we'll silently ignore it
-                    if ((uint)ex.HResult != 0x80070020)
-                    {
-                        // ensure no files are marked as read-only for good measure
-                        foreach (var file in Directory.GetFiles(AppData.Directory, "*", SearchOption.AllDirectories))
-                            Filesystem.AssertReadOnly(file);
-
-                        Frontend.ShowMessageBox(
-                            Strings.Bootstrapper_FilesInUse, 
-                            _mustUpgrade ? MessageBoxImage.Error : MessageBoxImage.Warning
-                        );
-
-                        if (_mustUpgrade)
-                            App.Terminate(ErrorCode.ERROR_CANCELLED);
-                    }
-
-                    return;
-                }
-
-                Directory.Delete(AppData.OldDirectory, true);
-            }
+            Directory.CreateDirectory(Paths.Versions);
 
             _isInstalling = true;
 
-            Directory.CreateDirectory(AppData.Directory);
+            // make sure nothing is running before continuing upgrade
+            if (!IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
+                KillRobloxPlayers();
 
-            // installer lock, it should only be present while roblox is in the process of upgrading
-            // if it's present while we're launching, then it's an unfinished install and must be reinstalled
-            var lockFile = new FileInfo(AppData.LockFilePath);
-            lockFile.Create().Dispose();
+            // get a fully clean install
+            if (Directory.Exists(_latestVersionDirectory))
+            {
+                try
+                {
+                    Directory.Delete(_latestVersionDirectory, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+
+            Directory.CreateDirectory(_latestVersionDirectory);
 
             var cachedPackageHashes = Directory.GetFiles(Paths.Downloads).Select(x => Path.GetFileName(x));
 
@@ -776,7 +814,7 @@ namespace Bloxstrap
             await Task.WhenAll(extractionTasks);
             
             App.Logger.WriteLine(LOG_IDENT, "Writing AppSettings.xml...");
-            await File.WriteAllTextAsync(Path.Combine(AppData.Directory, "AppSettings.xml"), AppSettings);
+            await File.WriteAllTextAsync(Path.Combine(_latestVersionDirectory, "AppSettings.xml"), AppSettings);
 
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
@@ -811,7 +849,7 @@ namespace Bloxstrap
                             return;
                         }
 
-                        string baseDirectory = Path.Combine(AppData.Directory, AppData.PackageDirectoryMap[package.Name]);
+                        string baseDirectory = Path.Combine(_latestVersionDirectory, AppData.PackageDirectoryMap[package.Name]);
 
                         ExtractPackage(package);
 
@@ -835,12 +873,16 @@ namespace Bloxstrap
 
             // finishing and cleanup
 
+            MigrateCompatibilityFlags();
+
             AppData.State.VersionGuid = _latestVersionGuid;
 
             AppData.State.PackageHashes.Clear();
 
             foreach (var package in _versionPackageManifest)
                 AppData.State.PackageHashes.Add(package.Name, package.Signature);
+
+            CleanupVersionsFolder();
 
             var allPackageHashes = new List<string>();
 
@@ -882,8 +924,6 @@ namespace Bloxstrap
 
             App.State.Save();
 
-            lockFile.Delete();
-
             _isInstalling = false;
         }
 
@@ -916,7 +956,17 @@ namespace Bloxstrap
 
                 const string path = "rbxasset://fonts/CustomFont.ttf";
 
-                foreach (string jsonFilePath in Directory.GetFiles(Path.Combine(AppData.Directory, "content\\fonts\\families")))
+                // lets make sure the content/fonts/families path exists in the version directory
+                string contentFolder = Path.Combine(_latestVersionDirectory, "content");
+                Directory.CreateDirectory(contentFolder);
+
+                string fontsFolder = Path.Combine(contentFolder, "fonts");
+                Directory.CreateDirectory(fontsFolder);
+
+                string familiesFolder = Path.Combine(fontsFolder, "families");
+                Directory.CreateDirectory(familiesFolder);
+
+                foreach (string jsonFilePath in Directory.GetFiles(familiesFolder))
                 {
                     string jsonFilename = Path.GetFileName(jsonFilePath);
                     string modFilepath = Path.Combine(modFontFamiliesFolder, jsonFilename);
@@ -977,7 +1027,7 @@ namespace Bloxstrap
                 modFolderFiles.Add(relativeFile);
 
                 string fileModFolder = Path.Combine(Paths.Modifications, relativeFile);
-                string fileVersionFolder = Path.Combine(AppData.Directory, relativeFile);
+                string fileVersionFolder = Path.Combine(_latestVersionDirectory, relativeFile);
 
                 if (File.Exists(fileVersionFolder) && MD5Hash.FromFile(fileModFolder) == MD5Hash.FromFile(fileVersionFolder))
                 {
@@ -1013,7 +1063,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"{fileLocation} was removed as a mod but does not belong to a package");
 
-                    string versionFileLocation = Path.Combine(AppData.Directory, fileLocation);
+                    string versionFileLocation = Path.Combine(_latestVersionDirectory, fileLocation);
 
                     if (File.Exists(versionFileLocation))
                         File.Delete(versionFileLocation);
@@ -1201,7 +1251,7 @@ namespace Bloxstrap
                 return;
             }
 
-            string packageFolder = Path.Combine(AppData.Directory, packageDir);
+            string packageFolder = Path.Combine(_latestVersionDirectory, packageDir);
             string? fileFilter = null;
 
             // for sharpziplib, each file in the filter needs to be a regex
