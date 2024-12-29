@@ -24,6 +24,7 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
+using Microsoft.VisualBasic.Logging;
 
 namespace Bloxstrap
 {
@@ -50,6 +51,7 @@ namespace Bloxstrap
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private string _latestVersionGuid = null!;
+        private string _latestVersionDirectory = null!;
         private PackageManifest _versionPackageManifest = null!;
 
         private bool _isInstalling = false;
@@ -58,7 +60,7 @@ namespace Bloxstrap
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
 
-        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || File.Exists(AppData.LockFilePath) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -268,62 +270,54 @@ namespace Bloxstrap
             using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
             var match = Regex.Match(
-                App.LaunchSettings.RobloxLaunchArgs, 
-                "channel:([a-zA-Z0-9-_]+)", 
+                App.LaunchSettings.RobloxLaunchArgs,
+                "channel:([a-zA-Z0-9-_]+)",
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
-            bool ForceChannel = Deployment.Channel==Deployment.DefaultChannel;
-
-            if (match.Groups.Count == 2 && !ForceChannel)
+            if (match.Groups.Count == 2)
             {
                 Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
             }
-            else if ((key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value)) && !ForceChannel)
+            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
             {
                 Deployment.Channel = value.ToLowerInvariant();
             }
 
+            if (String.IsNullOrEmpty(Deployment.Channel))
+                Deployment.Channel = Deployment.DefaultChannel;
 
+            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
 
-            
+            if (!Deployment.IsDefaultChannel)
+                App.SendStat("robloxChannel", Deployment.Channel);
+
             ClientVersion clientVersion;
 
             try
             {
                 clientVersion = await Deployment.GetInfo();
             }
-            catch (HttpRequestException ex)
+            catch (InvalidChannelException ex)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
 
                 Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo(true);
+                clientVersion = await Deployment.GetInfo();
             }
 
-            if (clientVersion.IsBehindDefaultChannel&&!App.State.Prop.IgnoreOutdatedChannel)
+            if (clientVersion.IsBehindDefaultChannel)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
 
-                App.State.Prop.IgnoreOutdatedChannel = false;
-
                 Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo(true);
+                clientVersion = await Deployment.GetInfo();
             }
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
-            if (!String.IsNullOrEmpty(App.Settings.Prop.ChannelHash))
-            {
-            _latestVersionGuid = App.Settings.Prop.ChannelHash;
-            clientVersion.VersionGuid = _latestVersionGuid;
-            App.Logger.WriteLine(LOG_IDENT, $"Found custom version hash {App.Settings.Prop.ChannelHash}");
-            }
-            else
-            {
             _latestVersionGuid = clientVersion.VersionGuid;
-            App.Logger.WriteLine(LOG_IDENT, $"Falling back to default version hash");
-            }
+            _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
@@ -368,11 +362,11 @@ namespace Bloxstrap
 
             string? logFileName = null;
 
-            string rbxLogDir = Path.Combine(Paths.LocalAppData, "Roblox\\logs");
+            string rbxDir = Path.Combine(Paths.LocalAppData, "Roblox");
+            if (!Directory.Exists(rbxDir))
+                Directory.CreateDirectory(rbxDir);
 
-            if (!Directory.Exists(rbxLogDir))
-                Directory.CreateDirectory(rbxLogDir);
-
+            string rbxLogDir = Path.Combine(rbxDir, "logs");
             var logWatcher = new FileSystemWatcher()
             {
                 Path = rbxLogDir,
@@ -518,18 +512,13 @@ namespace Bloxstrap
                 try
                 {
                     // clean up install
-                    if (Directory.Exists(AppData.Directory))
-                        Directory.Delete(AppData.Directory, true);
+                    if (Directory.Exists(_latestVersionDirectory))
+                        Directory.Delete(_latestVersionDirectory, true);
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Could not fully clean up installation!");
                     App.Logger.WriteException(LOG_IDENT, ex);
-
-                    // assurance to make sure the next launch does a fresh install
-                    // we probably shouldn't be using the lockfile to do this, but meh
-                    var lockFile = new FileInfo(AppData.LockFilePath);
-                    lockFile.Create().Dispose();
                 }
             }
             else if (_appPid != 0)
@@ -654,18 +643,95 @@ namespace Bloxstrap
 
             return false;
         }
-#endregion
+        #endregion
 
         #region Roblox Install
+
+        private void CleanupVersionsFolder()
+        {
+            const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
+
+            foreach (string dir in Directory.GetDirectories(Paths.Versions))
+            {
+                string dirName = Path.GetFileName(dir);
+
+                if (dirName != App.State.Prop.Player.VersionGuid && dirName != App.State.Prop.Studio.VersionGuid)
+                {
+                    try
+                    {
+                        Directory.Delete(dir, true);
+                    }
+                    catch (IOException ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {dir}");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+            }
+        }
+
+        private void MigrateCompatibilityFlags()
+        {
+            const string LOG_IDENT = "Bootstrapper::MigrateCompatibilityFlags";
+
+            string oldClientLocation = Path.Combine(Paths.Versions, AppData.State.VersionGuid, AppData.ExecutableName);
+            string newClientLocation = Path.Combine(_latestVersionDirectory, AppData.ExecutableName);
+
+            // move old compatibility flags for the old location
+            using RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
+            string? appFlags = appFlagsKey.GetValue(oldClientLocation) as string;
+
+            if (appFlags is not null)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Migrating app compatibility flags from {oldClientLocation} to {newClientLocation}...");
+                appFlagsKey.SetValueSafe(newClientLocation, appFlags);
+                appFlagsKey.DeleteValueSafe(oldClientLocation);
+            }
+        }
+
+        private static void KillRobloxPlayers()
+        {
+            const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
+
+            List<Process> processes = new List<Process>();
+            processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
+
+            foreach (Process process in processes)
+            {
+                try
+                {
+                    process.Kill();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id}");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+        }
+
+
         private async Task UpgradeRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
 
-            if (!App.Settings.Prop.UpdateRoblox)
+            bool CancelUpgrade = !App.Settings.Prop.UpdateRoblox;
+
+            if (CancelUpgrade)
             {
                 SetStatus(Strings.Bootstrapper_Status_CancelUpgrade);
                 App.Logger.WriteLine(LOG_IDENT, "Upgrading disabled, cancelling the upgrade.");
                 Thread.Sleep(2000);
+            }
+
+            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory))
+            {
+                Frontend.ShowMessageBox(Strings.Bootstrapper_Dialog_NoUpgradeWithoutClient, MessageBoxImage.Error, MessageBoxButton.OK);
+                App.Terminate();
+            }
+            else if (CancelUpgrade)
+            {
                 return;
             }
 
@@ -676,55 +742,29 @@ namespace Bloxstrap
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
-            Directory.CreateDirectory(Paths.Roblox);
-
-            if (Directory.Exists(AppData.Directory))
-            {
-                if (Directory.Exists(AppData.OldDirectory))
-                    Directory.Delete(AppData.OldDirectory, true);
-
-                try
-                {
-                    // test to see if any files are in use
-                    // if you have a better way to check for this, please let me know!
-                    Directory.Move(AppData.Directory, AppData.OldDirectory);
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not clear old files, aborting update.");
-                    App.Logger.WriteException(LOG_IDENT, ex);
-
-                    // 0x80070020 is the HRESULT that indicates that a process is still running
-                    // (either RobloxPlayerBeta or RobloxCrashHandler), so we'll silently ignore it
-                    if ((uint)ex.HResult != 0x80070020)
-                    {
-                        // ensure no files are marked as read-only for good measure
-                        foreach (var file in Directory.GetFiles(AppData.Directory, "*", SearchOption.AllDirectories))
-                            Filesystem.AssertReadOnly(file);
-
-                        Frontend.ShowMessageBox(
-                            Strings.Bootstrapper_FilesInUse, 
-                            _mustUpgrade ? MessageBoxImage.Error : MessageBoxImage.Warning
-                        );
-
-                        if (_mustUpgrade)
-                            App.Terminate(ErrorCode.ERROR_CANCELLED);
-                    }
-
-                    return;
-                }
-
-                Directory.Delete(AppData.OldDirectory, true);
-            }
+            Directory.CreateDirectory(Paths.Versions);
 
             _isInstalling = true;
 
-            Directory.CreateDirectory(AppData.Directory);
+            // make sure nothing is running before continuing upgrade
+            if (!IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
+                KillRobloxPlayers();
 
-            // installer lock, it should only be present while roblox is in the process of upgrading
-            // if it's present while we're launching, then it's an unfinished install and must be reinstalled
-            var lockFile = new FileInfo(AppData.LockFilePath);
-            lockFile.Create().Dispose();
+            // get a fully clean install
+            if (Directory.Exists(_latestVersionDirectory))
+            {
+                try
+                {
+                    Directory.Delete(_latestVersionDirectory, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+
+            Directory.CreateDirectory(_latestVersionDirectory);
 
             var cachedPackageHashes = Directory.GetFiles(Paths.Downloads).Select(x => Path.GetFileName(x));
 
@@ -734,7 +774,7 @@ namespace Bloxstrap
             // packed size only matters if we don't already have the package cached on disk
             totalSizeRequired += _versionPackageManifest.Where(x => !cachedPackageHashes.Contains(x.Signature)).Sum(x => x.PackedSize);
             totalSizeRequired += _versionPackageManifest.Sum(x => x.Size);
-            
+
             if (Filesystem.GetFreeDiskSpace(Paths.Base) < totalSizeRequired)
             {
                 Frontend.ShowMessageBox(Strings.Bootstrapper_NotEnoughSpace, MessageBoxImage.Error);
@@ -765,7 +805,7 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
-                totalPackageSize += package.Size; 
+                totalPackageSize += package.Size;
             }
 
             foreach (var package in _versionPackageManifest)
@@ -795,9 +835,9 @@ namespace Bloxstrap
             }
 
             await Task.WhenAll(extractionTasks);
-            
+
             App.Logger.WriteLine(LOG_IDENT, "Writing AppSettings.xml...");
-            await File.WriteAllTextAsync(Path.Combine(AppData.Directory, "AppSettings.xml"), AppSettings);
+            await File.WriteAllTextAsync(Path.Combine(_latestVersionDirectory, "AppSettings.xml"), AppSettings);
 
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
@@ -811,7 +851,7 @@ namespace Bloxstrap
                 {
                     // reset prompt state if the user has it installed
                     App.State.Prop.PromptWebView2Install = true;
-                }   
+                }
                 else
                 {
                     var result = Frontend.ShowMessageBox(Strings.Bootstrapper_WebView2NotFound, MessageBoxImage.Warning, MessageBoxButton.YesNo, MessageBoxResult.Yes);
@@ -832,7 +872,7 @@ namespace Bloxstrap
                             return;
                         }
 
-                        string baseDirectory = Path.Combine(AppData.Directory, AppData.PackageDirectoryMap[package.Name]);
+                        string baseDirectory = Path.Combine(_latestVersionDirectory, AppData.PackageDirectoryMap[package.Name]);
 
                         ExtractPackage(package);
 
@@ -856,12 +896,16 @@ namespace Bloxstrap
 
             // finishing and cleanup
 
+            MigrateCompatibilityFlags();
+
             AppData.State.VersionGuid = _latestVersionGuid;
 
             AppData.State.PackageHashes.Clear();
 
             foreach (var package in _versionPackageManifest)
                 AppData.State.PackageHashes.Add(package.Name, package.Signature);
+
+            CleanupVersionsFolder();
 
             var allPackageHashes = new List<string>();
 
@@ -873,7 +917,7 @@ namespace Bloxstrap
                 if (!allPackageHashes.Contains(hash))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
-                        
+
                     try
                     {
                         File.Delete(Path.Combine(Paths.Downloads, hash));
@@ -902,8 +946,6 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
             App.State.Save();
-
-            lockFile.Delete();
 
             _isInstalling = false;
         }
@@ -937,7 +979,17 @@ namespace Bloxstrap
 
                 const string path = "rbxasset://fonts/CustomFont.ttf";
 
-                foreach (string jsonFilePath in Directory.GetFiles(Path.Combine(AppData.Directory, "content\\fonts\\families")))
+                // lets make sure the content/fonts/families path exists in the version directory
+                string contentFolder = Path.Combine(_latestVersionDirectory, "content");
+                Directory.CreateDirectory(contentFolder);
+
+                string fontsFolder = Path.Combine(contentFolder, "fonts");
+                Directory.CreateDirectory(fontsFolder);
+
+                string familiesFolder = Path.Combine(fontsFolder, "families");
+                Directory.CreateDirectory(familiesFolder);
+
+                foreach (string jsonFilePath in Directory.GetFiles(familiesFolder))
                 {
                     string jsonFilename = Path.GetFileName(jsonFilePath);
                     string modFilepath = Path.Combine(modFontFamiliesFolder, jsonFilename);
@@ -998,7 +1050,7 @@ namespace Bloxstrap
                 modFolderFiles.Add(relativeFile);
 
                 string fileModFolder = Path.Combine(Paths.Modifications, relativeFile);
-                string fileVersionFolder = Path.Combine(AppData.Directory, relativeFile);
+                string fileVersionFolder = Path.Combine(_latestVersionDirectory, relativeFile);
 
                 if (File.Exists(fileVersionFolder) && MD5Hash.FromFile(fileModFolder) == MD5Hash.FromFile(fileVersionFolder))
                 {
@@ -1034,7 +1086,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"{fileLocation} was removed as a mod but does not belong to a package");
 
-                    string versionFileLocation = Path.Combine(AppData.Directory, fileLocation);
+                    string versionFileLocation = Path.Combine(_latestVersionDirectory, fileLocation);
 
                     if (File.Exists(versionFileLocation))
                         File.Delete(versionFileLocation);
@@ -1071,15 +1123,23 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT,"Checking for eurotrucks2.exe toggle");
 
+            bool isEuroTrucks = File.Exists(Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")) ? true : false;
+
             if (App.Settings.Prop.RenameClientToEuroTrucks2)
             {
-                if (File.Exists(Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe")))
-                    File.Move(Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe"), Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe"));
+                if (!isEuroTrucks)
+                    File.Move(
+                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"), 
+                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
+                    );
             }
             else
             {
-                if (File.Exists(Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe")))
-                    File.Move(Path.Combine(Paths.Roblox, "Player", "eurotrucks2.exe"), Path.Combine(Paths.Roblox, "Player", "RobloxPlayerBeta.exe"));
+                if (isEuroTrucks)
+                    File.Move(
+                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"),
+                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe")
+                    );
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
@@ -1173,7 +1233,12 @@ namespace Bloxstrap
                         await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
                         _totalDownloadedBytes += bytesRead;
-                        SetStatus(String.Format(App.Settings.Prop.DownloadingStringFormat, package.Name, _totalDownloadedBytes / 1048576, totalPackageSize / 1048576));
+                        SetStatus(
+                            String.Format(App.Settings.Prop.DownloadingStringFormat, 
+                            package.Name, 
+                            _totalDownloadedBytes / 1048576,
+                            totalPackageSize / 1048576
+                            ));
                         UpdateProgressBar();
                     }
 

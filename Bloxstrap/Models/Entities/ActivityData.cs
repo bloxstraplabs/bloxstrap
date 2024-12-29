@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Windows;
 using System.Windows.Input;
+using Bloxstrap.AppData;
 using Bloxstrap.Models.APIs;
 using CommunityToolkit.Mvvm.Input;
 
@@ -162,7 +163,7 @@ namespace Bloxstrap.Models.Entities
 
         private void RejoinServer()
         {
-            string playerPath = Path.Combine(Paths.Roblox, "Player", App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
+            string playerPath = new RobloxPlayerData().ExecutablePath;
 
             Process.Start(playerPath, GetInviteDeeplink(false));
         }

@@ -126,6 +126,9 @@
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox trenutno možda ne radi. Pogledajte {0} za više informacija.</value>
   </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Veza se nije mogla uspostaviti, što vjerojatno ukazuje na nestabilnu internetsku vezu ili blokadu vatrozida. Ako je Vaša veza u redu, molimo provjerite blokira li Vaš antivirus Bloxstrap.</value>
+  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Vi morate prvo instalirati Bloxstrap pre deinstaliranja.</value>
   </data>
@@ -172,7 +175,7 @@
     <value>Bloxstrap je uspješno deinstaliran</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox je trenutno pokrenut, ali mora biti zatvoren pre deinstaliranja Bloxstrapa. Želite li sada da zatvorite Roblox?</value>
+    <value>Roblox se trenutno pokreće, ali mora biti zatvoren prije nego što se Bloxstrap deinstalira. Želite li ugasiti Roblox sada?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox zahteva upotrebu Windows Media Foundation komponenta. Izgleda da vam nedostaju, verovatno zato što koristite N ediciju Windows-a. Molimo, prvo ih instalirajte, a zatim pokrenite Roblox.</value>
@@ -709,7 +712,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Konfigurirajte dodatne funkcionalnosti koje idu uz Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox će se zatvoriti do kraja kada izađete iz igre umjesto da vas prebaci natrag u aplikaciju.</value>
+    <value>Roblox će se potpuno ugasiti kada izađete iz igre umjesto da otiđe natrag u apliakciju. [Srušiti će neke stvari!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Ne izlazite iz Desktop aplikacije</value>
@@ -749,7 +752,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Izaberite font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Veličina fonta se može prilagoditi u kartici za Fast Flags.</value>
+    <value>Veličina fonta se može promijeniti u kartici Postavke Motora.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Izabrana datoteka se ne čini kao ispravna font datoteka.</value>
@@ -898,6 +901,7 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON datoteke</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Unos za '{0}' ne važi jer vrijednost mora biti boolean (ili 'True' ili 'False')</value>
@@ -1096,7 +1100,9 @@ Jeste li sigurni da želite nastaviti?</value>
     <value>Roblox se je srušio.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Molimo pročitajte iduće informacije o pomoći, koje će se otvoriti u Vašem web-pregledniku kad zatvorite ovaj dijalog.</value>
+    <value>Za informacije o tome zašto bi se ovo moglo događati i kako se može riješiti, molimo pročitajte [ovaj članak za pomoć]({0}).
+
+Provjerite radi li Robloxov [originalni pokretač]({1}). Ako ne radi, onda ovo nije poteškoća kod Bloxstrapa. Ako radi, onda pogledajte članak za pomoć.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nije moguće učitati podatke zbog greške s mrežom.</value>
@@ -1108,7 +1114,8 @@ Jeste li sigurni da želite nastaviti?</value>
     <value>Podržavatelji</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Ovo su ljudi koji trenutno podržavaju Bloxstrap preko [Ko-fi]({0}). Veliko hvala svima ovdje!</value>
+    <value>Ovo su ljudi koji podržavaju Bloxstrap preko Ko-fi. Veliko hvala svima ovdje!
+Svaka osoba ovdje je rangirana svojim sveukupnim zalogom.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Vaše postavke se nisu mogle učitati. Resetirale su se na zadanu konfiguraciju.</value>
@@ -1220,10 +1227,6 @@ Kada uključen, automatski će pokrenuti Roblox nakon zatvaranja postavki, i pon
     <value>Instaliraj</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Podržite nas na Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Ikone</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
@@ -1252,5 +1255,25 @@ Kada uključen, automatski će pokrenuti Roblox nakon zatvaranja postavki, i pon
   </data>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Pokreni Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Verzija {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap je pokušao ažurirati Roblox, ali ne može jer se Robloxove datoteke još dalje koriste.
+
+Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke, i ponovno pokrenite.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip arhiva</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Izvezi</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

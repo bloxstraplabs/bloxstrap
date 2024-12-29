@@ -70,7 +70,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
         ///Every person here is ranked by their overall pledge..
         /// </summary>
         public static string About_Supporters_Description {
@@ -166,6 +166,16 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_ConfirmLaunch {
             get {
                 return ResourceManager.GetString("Bootstrapper.ConfirmLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launching failed due to missing client.
+        ///		Please enable Roblox upgrades..
+        /// </summary>
+        public static string Bootstrapper_Dialog_NoUpgradeWithoutClient {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Dialog.NoUpgradeWithoutClient", resourceCulture);
             }
         }
         
@@ -334,7 +344,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Fishstrap. Would you like close Roblox now?.
+        ///   Looks up a localized string similar to Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?.
         /// </summary>
         public static string Bootstrapper_Uninstall_RobloxRunning {
             get {
@@ -1250,7 +1260,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.BootstrapperStyle.CustomDialog", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Fishstrap (Glass).
         /// </summary>
@@ -1812,6 +1822,15 @@ namespace Bloxstrap.Resources {
         public static string LaunchMenu_LaunchRoblox {
             get {
                 return ResourceManager.GetString("LaunchMenu.LaunchRoblox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch Roblox Studio.
+        /// </summary>
+        public static string LaunchMenu_LaunchRobloxStudio {
+            get {
+                return ResourceManager.GetString("LaunchMenu.LaunchRobloxStudio", resourceCulture);
             }
         }
         
@@ -3484,15 +3503,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Launch Roblox Studio.
-        /// </summary>
-        public static string Menu_Launch_Studio {
-            get {
-                return ResourceManager.GetString("Menu.Launch.Studio", resourceCulture);
             }
         }
         

@@ -175,7 +175,7 @@
     <value>Fishstrap has successfully uninstalled</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Fishstrap. Would you like close Roblox now?</value>
+    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
@@ -1116,7 +1116,7 @@ Check if Roblox works with [the original launcher]({1}). If it doesn't, then thi
     <value>Bloxstrap supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>These are the people who've supported Bloxstrap through [Ko-fi]({0}). A massive thank you to everyone here!
+    <value>These are the people who've supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
 Every person here is ranked by their overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1272,6 +1272,9 @@ Would you like to enable test mode?</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>Channel</value>
+</data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Launch Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
@@ -1433,9 +1436,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Common.RobloxStudio" xml:space="preserve">
     <value>Roblox Studio</value>
   </data>
-  <data name="Menu.Launch.Studio" xml:space="preserve">
-    <value>Launch Roblox Studio</value>
-  </data>
   <data name="Menu.Context.PlayerLogs" xml:space="preserve">
     <value>Player logs</value>
   </data>
@@ -1468,5 +1468,9 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 	</data>
 	<data name="Menu.FastFlags.Presets.PingBreakdown.Description" xml:space="preserve">
 		<value>Sends detailed ping information to the Roblox console.</value>
+	</data>
+	<data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
+		<value>Launching failed due to missing client.
+		Please enable Roblox upgrades.</value>
 	</data>
 </root>

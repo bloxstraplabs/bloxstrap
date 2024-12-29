@@ -126,6 +126,9 @@
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox kan vara nere just nu. Se {0} för mer information.</value>
   </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>En anslutning kunde inte upprättas, vilket pekar på att du har en dålig internetuppkoppling eller att anslutningen blir blockerad av en brandvägg. Om din internetanslutning funkar bra, se till att något antivirusprogram inte blockerar Bloxstrap.</value>
+  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Du måste installera Bloxstrap först innan du avinstallerar.</value>
   </data>
@@ -172,7 +175,7 @@
     <value>Bloxstrap har avinstallerats</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox är igång just nu, men måste stängas innan du avinstallerar Bloxstrap. Vill du stänga Roblox nu?</value>
+    <value>Roblox är igång, men måste stängas innan du avinstallerar Bloxstrap. Vill du stänga Roblox nu?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox behöver använda Windows Media Foundation-komponenter. Du verkar sakna dem, troligen för att du använder en N-utgåva av Windows. Vänligen installera dem först och starta sedan Roblox.</value>
@@ -505,6 +508,9 @@ Vill du uppdatera din nuvarande installerade version?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Förhindra stängningar av ditt befintliga spel från av att misstag har startat ett annat.</value>
   </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>Bekräfta när du startar en annan Roblox instans</value>
+  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
     <value>Konfigurera vad Bloxstrap ska göra när Roblox startas.</value>
   </data>
@@ -672,7 +678,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Gör det möjligt för vem som helst att gå med i det spel du för närvarande spelar via din Discord-profil.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Tillåt aktivitetssn</value>
+    <value>Tillåt aktivitetsanslutning</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
     <value>Visar det Roblox konto du använder på din Discord profil.</value>
@@ -708,7 +714,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Ställ in ytterligare funktionalitet vid sidan av Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox kommer stängas helt när du lämnar ett spel istället för att skicka dig till appen.</value>
+    <value>Roblox kommer att stängas helt när du lämnar ett spel istället för att återvända till skrivbordsappen. [Kommer att orsaka vissa problem!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Avsluta inte till skrivbordsappen</value>
@@ -748,7 +754,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <value>Välj typsnitt...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Typsnittsstorlek kan ändras i Fast Flags-fliken.</value>
+    <value>Typsnittsstorlek kan justeras i fliken Motorinställningar.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Den fil du har valt verkar inte vara en giltig typsnittsfil.</value>
@@ -897,6 +903,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON-filer</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Flaggan '{0}' är inte giltig eftersom värdet måste vara en boolesk ('True' eller 'False')</value>
@@ -1095,7 +1102,9 @@ Problem kan uppstå och dina inställningar kan ändras. En ominstallation rekom
     <value>Roblox har kraschat.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Läs följande hjälpinformation, som kommer att öppnas i din webbläsare när du stänger denna dialogruta.</value>
+    <value>För information om varför detta sker och hur det kan lösas, se [denna hjälpartikel]({0}).
+
+Kontrollera att Roblox fungerar med [det vanliga startprogrammet]({1}). Om varken Bloxstrap eller det vanliga startprogrammer funkar så är detta inte ett Bloxstrap-fel. Om det gör det, hänvisa till hjälpartikeln.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Kunde inte ladda data på grund av ett nätverksfel.</value>
@@ -1107,7 +1116,8 @@ Problem kan uppstå och dina inställningar kan ändras. En ominstallation rekom
     <value>Supportrar</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Dessa är de som för närvarande stöder Bloxstrap genom [Ko-fi]({0}). Ett stort tack till alla här!</value>
+    <value>Dessa är de människor som har stött Bloxstrap genom Ko-fi. Ett stort tack till alla här!
+Varje person här ordnas efter hur mycket de har donerat.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Dina inställningar kunde inte laddas. De har återställts till standardkonfigurationen.</value>
@@ -1169,7 +1179,7 @@ Ta manuellt bort Bloxstrap.exe från installationsplatsen eller försök starta 
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Extrahera Roblox ikoner till en mapp</value>
+    <value>Extrahera Roblox-ikoner till en mapp</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
     <value>Låter dig använda Bloxstraps utbud av Roblox ikoner för dina genvägar. [Visa hur.]({0})</value>
@@ -1219,10 +1229,6 @@ Vill du aktivera testläge?</value>
     <value>Installera</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Stöd oss på Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Ikoner</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
@@ -1251,5 +1257,25 @@ Vill du aktivera testläge?</value>
   </data>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Starta Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap kunde inte uppdatera Roblox eftersom Roblox filer fortfarande används.
+
+Var vänlig och stäng applikationer som kan använda Roblox filer, och starta sedan om Bloxstrap.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip-arkiv</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Exportera</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

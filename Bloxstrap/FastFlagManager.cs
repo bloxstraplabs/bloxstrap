@@ -251,7 +251,17 @@ namespace Bloxstrap
             }
         }
 
-        public string? GetPreset(string name) => GetValue(PresetFlags[name]);
+        public string? GetPreset(string name)
+        {
+            if (!PresetFlags.ContainsKey(name))
+            {
+                App.Logger.WriteLine("FastFlagManager::GetPreset", $"Could not find preset {name}");
+                Debug.Assert(false, $"Could not find preset {name}");
+                return null;
+            }
+
+            return GetValue(PresetFlags[name]);
+        }
 
         public T GetPresetEnum<T>(IReadOnlyDictionary<T, string> mapping, string prefix, string value) where T : Enum
         {

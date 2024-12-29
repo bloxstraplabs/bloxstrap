@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Bloxstrap.AppData;
+using System.ComponentModel;
 
 namespace Bloxstrap
 {
@@ -29,6 +30,18 @@ namespace Bloxstrap
             }
         }
 
+        public static Version GetVersionFromString(string version)
+        {
+            if (version.StartsWith('v'))
+                version = version[1..];
+
+            int idx = version.IndexOf('+'); // commit info
+            if (idx != -1)
+                version = version[..idx];
+
+            return new Version(version);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -44,8 +57,8 @@ namespace Bloxstrap
         {
             try
             {
-                var version1 = new Version(versionStr1.Replace("v", ""));
-                var version2 = new Version(versionStr2.Replace("v", ""));
+                var version1 = GetVersionFromString(versionStr1);
+                var version2 = GetVersionFromString(versionStr2);
 
                 return (VersionComparison)version1.CompareTo(version2);
             }
@@ -64,11 +77,9 @@ namespace Bloxstrap
 
         public static string GetRobloxVersion(bool studio)
         {
-            string clientName = App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe";
+            IAppData data = studio ? new RobloxStudioData() : new RobloxPlayerData();
 
-            string fileName = studio ? "Studio/RobloxStudioBeta.exe" : $"Player/{clientName}";
-
-            string playerLocation = Path.Combine(Paths.Roblox, fileName);
+            string playerLocation = data.ExecutablePath;
 
             if (!File.Exists(playerLocation))
                 return "";

@@ -126,6 +126,9 @@
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>„Roblox“ šiuo metu gali būti neveikiantis. Žiūrėkite {0} dėl daugiau informacijos.</value>
   </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Ryšio užmegzti nepavyko, o tai greičiausiai reiškia prastą interneto ryšį arba užkardos blokavimą. Jei ryšys veikia gerai, įsitikinkite, kad jūsų antivirusinė programa neblokuoja „Bloxstrap“.</value>
+  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Prieš išdiegdami „Bloxstrap“, pirmiausia turite įdiegti „Bloxstrap“.</value>
   </data>
@@ -711,7 +714,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Sukonfigūruokite papildomas funkcijas, kurios būtų naudojamos kartu su „Roblox“.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>„Roblox“ visiškai užsidarys, kai paliksite iš žaidimo, vietoj grąžinti jus atgal į programą.</value>
+    <value>„Roblox“ visiškai užsidarys, kai paliksite žaidimą, vietoj grįžti atgal į programą. [Sugadins kai kuriuos dalykus.]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Neišeiti iki darbalaukio programos</value>
@@ -751,7 +754,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Pasirinkti šriftą...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Šrifto dydį galima koreguoti skirtuke „Fast Flags“.</value>
+    <value>Šrifto dydį galima koreguoti skirtuke Variklio nustatymai.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Atrodo, kad jūsų pasirinktas failas nėra tinkamas šrifto failas.</value>
@@ -900,6 +903,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON failai</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Elementas „{0}“ netinkamas, nes reikšmė turi būti loginis rodiklis (arba „True“, arba „False“).</value>
@@ -1098,7 +1102,9 @@ Ar tikrai norite tęsti?</value>
     <value>„Roblox“ sutriko.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Perskaitykite toliau esančią pagalbos informaciją, kuri bus atidaryta interneto naršyklėje, kai uždarysite šį dialogo langą.</value>
+    <value>Informacijos apie tai, kodėl taip gali atsitikti ir kaip tai išspręsti, skaitykite [šiame pagalbos straipsnyje]({0}).
+
+Patikrinkite, ar „Roblox“ veikia su [originalia paleidyklė]({1}). Jei neveikia, vadinasi, tai nėra „Bloxstrap“ problema. Jei veikia, skaitykite pagalbos straipsnį.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepavyko įkelti duomenų dėl tinklo klaidos.</value>
@@ -1110,7 +1116,8 @@ Ar tikrai norite tęsti?</value>
     <value>Palaikytojai</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Tai – žmonės, šiuo metu palaikantys „Bloxstrap“ per [„Ko-fi“]({0}). Didelis dėkui visiems čia esantiems!</value>
+    <value>Tai – žmonės, kurie palaikė „Bloxstrap“ per „Ko-fi“. Didelis dėkui visiems čia esantiems!
+Kiekvienas čia esantis žmogus vertinamas pagal bendrą pažadą.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Nepavyko įkelti nustatymų. Jie buvo atkurti į numatytąją konfigūraciją.</value>
@@ -1222,10 +1229,6 @@ Ar norėtumėte įjungti bandymo režimą?</value>
     <value>Diegti</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Palaikyti mus platformoje „Ko-fi“!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Piktogramos</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
@@ -1254,5 +1257,25 @@ Ar norėtumėte įjungti bandymo režimą?</value>
   </data>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Paleisti „Roblox Studio“</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>{0} versija</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>„Bloxstrap“ bandė atnaujinti „Roblox“, bet negali, nes „Roblox“ failai vis dar naudojami.
+
+Uždarykite visas programas, kurios gali naudoti „Roblox“ failus, ir paleiskite iš naujo.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>ZIP archyvas</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Eksportuoti</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

@@ -52,6 +52,17 @@ namespace Bloxstrap
 
                     if (!String.IsNullOrEmpty(message))
                         Frontend.ShowMessageBox($"{message}\n\n{ex.Message}", System.Windows.MessageBoxImage.Warning);
+
+                    try
+                    {
+                        // Create a backup of loaded file
+                        File.Copy(FileLocation, FileLocation + ".bak", true);
+                    }
+                    catch (Exception copyEx)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to create backup file: {FileLocation}.bak");
+                        App.Logger.WriteException(LOG_IDENT, copyEx);
+                    }
                 }
 
                 Save();
@@ -70,7 +81,7 @@ namespace Bloxstrap
             {
                 File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
             }
-            catch (IOException ex)
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Failed to save");
                 App.Logger.WriteException(LOG_IDENT, ex);

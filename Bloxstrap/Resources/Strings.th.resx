@@ -126,6 +126,9 @@
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox อาจจะล่มตอนนี้. ดู {0} เพื่อข้อมูลเพิ่มเติม</value>
   </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>ไม่สามารถเชื่อมต่อได้, อาจเกิดจากการเชื่อมต่ออินเตอร์เน็ตที่ไม่เสถียรหรือการปิดกั้นจากไฟร์วอลล์, หากการเชื่อมต่อของคุณเป็นปกติโปรดตรวจสอบว่าแอนตี้ไวรัสของคุณไม่ได้กำลังปิดกั้น Bloxstrap</value>
+  </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>คุณต้องติดตั้ง Bloxstrap ก่อนถอนการติดตั้ง.</value>
   </data>
@@ -709,7 +712,7 @@
     <value>ตั้งค่าฟังชั่นเพิ่มเติมที่ใช้พร้อมกับ Roblox</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox จะถูกปิดแทนที่จะส่งคุณกลับไปยังหน้าแอป</value>
+    <value>Roblox จะถูกปิดอย่างสมบูรณ์เมื่อคุณออกเกมแทนที่จะกลับเข้าสู้หน้าแอป [อาจพังบางสิ่ง!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>ไม่ออกไปที่เเอป desktop</value>
@@ -750,7 +753,7 @@
     <value>เลือกฟอนต์...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>ขนาดของฟ้อนต์สามารถถูกแก้ไขได้ในหน้า Fast Flags</value>
+    <value>ขนาดของฟอร์นสามารถเปลี่ยนได้ในแท็บ Engine Setting</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>ไฟล์ที่คุณเลือกไม่ใช่ไฟล์ฟอนต์ที่ถูกต้อง</value>
@@ -899,6 +902,7 @@
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>ไฟล์ JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>ช่องข้อมูล '{0}' ไม่ถูกต้องเนื่องจากค่าจะต้องเป็นบูลีน ('True' หรือ 'False')</value>
@@ -1093,7 +1097,9 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
     <value>Roblox เกิดการขัดข้อง</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>กรุณาอ่านข้อมูลช่วยเหลือต่อไปนี้ ซึ่งจะเปิดในเว็บเบราว์เซอร์ของคุณเมื่อคุณปิดข้อความนี้</value>
+    <value>สำหรับข้อมูลเกี่ยวกับสิ่งที่เกิดขึ้นและวิธีการแก้ไขโปรดอ่าน [บทความช่วยเหลือนี้]({0})
+
+ตรวจสอบว่า Roblox สามารถทำงานกับ [ตัวเปิดใช้เดิม]({1}) ได้หรือไม่ หากไม่ใช่เช่นนั้นแสดงว่าไม่ใช่ปัญหาของ Bloxstrap หากเป็นเช่นนั้นโปรดดูบทความช่วยเหลือ</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>ไม่สามารถโหลดข้อมูลได้เนื่องจากข้อผิดผลาดทางเครือข่าย</value>
@@ -1105,7 +1111,7 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
     <value>ผู้สนับสนุน</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>นี่คือผู้ที่สนับสนุน Bloxstrap ผ่าน [Ko-fi]({0}). ขอบคุณมาก ๆ สำหรับทุกคนที่นี่!</value>
+    <value>คนเหล่านี้คือคนที่สนับสนุน Bloxstrap ผ่าน Ko-fi ขอขอบคุณทุกท่านที่อยู่ในนี้ ทุกท่านในนี้ถูกเรียงอันดับโดยยอดรวมทั้งหมดของการสนับสนุน</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>ไม่สามารถโหลดการตั้งค่าของคุณได้ การตั้งค่าถูกรีเซ็ตเป็นค่าตั้งต้น</value>
@@ -1169,6 +1175,9 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>แตกไฟล์ไอคอน Roblox ไปยังโฟลเดอร์</value>
   </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>อนุญาตให้คุณใช้ไอคอน Roblox จาก Bloxstrap สำหรับการสร้างทางลัดของคุณ [ดูวิธีการ] ({0})</value>
+  </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap ไม่สามารถเขียนลงใน Windows Registry ได้ อาจมีซอฟต์เเวร์ป้องกันไวรัสที่เข้ามาขัดขวางเเละทำให้เกิดปัญหา กรุณาตรวจสอบเพื่อให้เเน่ใจว่าไม่มีอะไรที่จำกัดการทำงานของ Bloxstrap</value>
   </data>
@@ -1214,10 +1223,6 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
     <value>ติดตั้ง</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>สนับสนุนพวกเราบน Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>ไอคอน</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
@@ -1246,5 +1251,25 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
   </data>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>เปิด Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>เวอร์ชั่น {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap พยายามที่จะอัปเดต Roblox แต่ไม่สามารถทำได้เพราะมีไฟล์ของ Roblox ที่กำลังถูกใช้
+
+โปรดปิดแอปพลิเคชันที่กำลังใช้ไฟล์ของ Roblox แล้วลองใหม่อีกครั้ง</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>ไฟล์ซิป</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>ส่งออก</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>
