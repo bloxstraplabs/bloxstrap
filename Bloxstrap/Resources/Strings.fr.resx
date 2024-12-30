@@ -1264,9 +1264,9 @@ Voulez-vous activer le mode test ?</value>
     <value>Version {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap a tenté de mettre Roblox à jour mais a échoué car des fichiers de Roblox sont ouverts.
+    <value>Bloxstrap a tenté de mettre Roblox à jour mais a échoué car des fichiers de Roblox sont utilisés.
 
-Veuillez fermer toute application pouvant utiliser des fichiers de Roblox, et relancez.</value>
+Veuillez fermer toute application pouvant utiliser les fichiers de Roblox, et relancez.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">

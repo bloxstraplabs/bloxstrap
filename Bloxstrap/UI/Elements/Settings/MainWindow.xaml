@@ -34,7 +34,7 @@
             Title="{x:Static resources:Strings.Menu_AlreadyRunning_Title}"
             Message="{x:Static resources:Strings.Menu_AlreadyRunning_Caption}"
             Icon="Info20" Timeout="10000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="10" />
-        
+
         <ui:Snackbar
             x:Name="SettingsSavedSnackbar"
             Title="{x:Static resources:Strings.Menu_SettingsSaved_Title}"

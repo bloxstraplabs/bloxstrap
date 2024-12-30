@@ -25,12 +25,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.LaunchSettings.TestModeFlag.Active;
             set
             {
-                if (value)
+                if (value && !App.State.Prop.TestModeWarningShown)
                 {
                     var result = Frontend.ShowMessageBox(Strings.Menu_TestMode_Prompt, MessageBoxImage.Information, MessageBoxButton.YesNo);
 
                     if (result != MessageBoxResult.Yes)
                         return;
+
+                    App.State.Prop.TestModeWarningShown = true;
                 }
 
                 App.LaunchSettings.TestModeFlag.Active = value;

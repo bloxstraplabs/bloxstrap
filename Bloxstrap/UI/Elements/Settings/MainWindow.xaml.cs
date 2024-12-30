@@ -6,6 +6,7 @@ using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.ViewModels.Settings;
+using Wpf.Ui.Common;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -24,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Settings
             viewModel.RequestCloseWindowEvent += (_, _) => Close();
 
             DataContext = viewModel;
-            
+
             InitializeComponent();
 
             App.Logger.WriteLine("MainWindow", "Initializing settings window");
@@ -33,6 +34,17 @@ namespace Bloxstrap.UI.Elements.Settings
                 ShowAlreadyRunningSnackbar();
 
             LoadState();
+
+            int LastPage = App.State.Prop.LastPage;
+
+            RootNavigation.SelectedPageIndex = LastPage;
+
+            RootNavigation.Navigated += SaveNavigation;
+
+            void SaveNavigation(INavigation? sender, RoutedNavigationEventArgs? e)
+            {
+                App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
+            }
         }
 
         public void LoadState()
@@ -88,7 +100,7 @@ namespace Bloxstrap.UI.Elements.Settings
                 if (result != MessageBoxResult.Yes)
                     e.Cancel = true;
             }
-            
+
             _state.Width = this.Width;
             _state.Height = this.Height;
 

@@ -24,20 +24,6 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0">
-                <!--<TextBlock Text="Bahasa Indonesia" FontSize="16" FontWeight="Medium">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
-                <TextBlock Text="AriaP" />
-                <TextBlock Text="e7leopard" />
-                <TextBlock Text="hfzrk" />
-                <TextBlock Text="nabbyowo" />
-                <TextBlock Text="Nayottamaa" />
-                <TextBlock Text="niluhfitriani4" />
-                <TextBlock Text="SenZore" />
-                <TextBlock Text="soudblox" />-->
-
                 <!--<TextBlock Text="Bokmål" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -229,16 +215,6 @@
                 <TextBlock Text="DynoPlays" />
                 <TextBlock Text="Elotomka" />
                 <TextBlock Text="xM4rk1" />
-
-                <!--<TextBlock Text="Nederlands" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock Text="Cosmix" />
-                        <TextBlock Text="Miwwzy" />
-                        <TextBlock Text="Quickvision1" />
-                        <TextBlock Text="ydboss" />-->
 
                 <TextBlock Text="Polski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -601,6 +577,17 @@
                 <TextBlock Text="yuzegh" />
                 <TextBlock Text="Ardaniho" />
                 <TextBlock Text="LeventGameing" />
+
+                <TextBlock Text="Malay" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="so1ehee" />
+                <TextBlock Text="Suchan96" />
+                <TextBlock Text="ShdyDayz" />
+                <TextBlock Text="cyanpyxl" />
+                <TextBlock Text="CormacZ" />
             </StackPanel>
         </Grid>
     </StackPanel>
