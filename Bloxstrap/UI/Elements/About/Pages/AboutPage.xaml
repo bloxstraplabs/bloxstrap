@@ -159,8 +159,8 @@
                     <controls:MarkdownTextBlock MarkdownText="[Mantaraix](https://github.com/Mantaraix)" />
                     <controls:MarkdownTextBlock MarkdownText="[apprehensions](https://github.com/apprehensions)" />
                     <controls:MarkdownTextBlock MarkdownText="[axellse](https://github.com/axellse)" />
+                    <controls:MarkdownTextBlock MarkdownText="[NetSoftworks](https://github.com/netsoftwork)" />
                     <controls:MarkdownTextBlock MarkdownText="[BlueOutside](https://github.com/BlueOutside)" />
-                    <controls:MarkdownTextBlock MarkdownText="[netsoftwork](https://github.com/netsoftwork)" />
                 </StackPanel>
             </controls:Expander>
         </Grid>
