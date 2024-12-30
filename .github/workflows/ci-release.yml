@@ -64,7 +64,7 @@ jobs:
   release-test:
     needs: build
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/release-test')
+    #if: startsWith(github.ref, 'refs/tags/release-test')
 
     steps:
       - name: Sign and download artifact
