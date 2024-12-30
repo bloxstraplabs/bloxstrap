@@ -66,8 +66,8 @@ jobs:
     runs-on: ubuntu-latest
     #if: startsWith(github.ref, 'refs/tags/release-test')
     permissions:
-      action: read
-      content: read
+      actions: read
+      contents: read
 
     steps:
       - name: Sign and download artifact
