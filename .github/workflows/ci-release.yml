@@ -65,6 +65,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     #if: startsWith(github.ref, 'refs/tags/release-test')
+    permissions:
+      action: read
+      content: read
 
     steps:
       - name: Sign and download artifact
@@ -86,5 +89,5 @@ jobs:
         id: upload-artifact
         uses: actions/upload-artifact@v4
         with:
-           name: Bloxstrap (Signed Release) (${{ github.sha }})
-           path: Bloxstrap-Signed.exe
+          name: Bloxstrap (Signed Release) (${{ github.sha }})
+          path: Bloxstrap-Signed.exe
