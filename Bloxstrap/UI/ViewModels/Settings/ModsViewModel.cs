@@ -9,8 +9,10 @@ using Windows.Win32.Foundation;
 
 using CommunityToolkit.Mvvm.Input;
 
-using Bloxstrap.Models.SettingTasks;
 using Bloxstrap.AppData;
+using System.Drawing.Text;
+using Wpf.Ui.Controls;
+using System.Windows.Media;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -52,9 +54,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 TextFontTask.NewState = dialog.FileName;
             }
+            
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
+            OnPropertyChanged(nameof(CustomFontName));
+            OnPropertyChanged(nameof(DeleteCustomFontFontFamily));
         }
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
@@ -62,6 +67,18 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public Visibility ChooseCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Collapsed : Visibility.Visible;
 
         public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
+
+        public System.Windows.Media.FontFamily DeleteCustomFontFontFamily => new System.Windows.Media.FontFamily($"{TextFontTask.NewState}#{CustomFontName}");
+
+        public string CustomFontName
+        {
+            get
+            {
+                var families = Fonts.GetFontFamilies(TextFontTask.NewState);
+                var first = families.ElementAt(0);
+                return first.ToString().Split("#").ElementAt(first.ToString().Split("#").Count() - 1);
+            }
+        }
 
         public ICommand ManageCustomFontCommand => new RelayCommand(ManageCustomFont);
 
