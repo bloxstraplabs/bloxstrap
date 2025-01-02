@@ -34,8 +34,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-    Header="Player logs" 
-    Description="Shows you players joining/leaving your current server. Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837)."
+    Header="{x:Static resources:Strings.Menu_Integrations_PlayerMessageLogs_Title}"
+    Description="{x:Static resources:Strings.Menu_Integrations_PlayerMessageLogs_Description}"
     IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding PlayerLogsEnabled, Mode=TwoWay}" />
         </controls:OptionControl>

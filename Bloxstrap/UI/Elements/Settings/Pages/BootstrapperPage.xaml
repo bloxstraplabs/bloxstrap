@@ -31,8 +31,8 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_Behaviour_Eurotrucks_Title}"
-    Description="{x:Static resources:Strings.Menu_Behaviour_Eurotrucks_Description}">
+    Header="{x:Static resources:Strings.Menu_Behaviour_RenameToEurotrucks_Title}"
+    Description="{x:Static resources:Strings.Menu_Behaviour_RenameToEurotrucks_Description}">
             <ui:ToggleSwitch IsChecked="{Binding RenameClientToEurotrucks2, Mode=TwoWay}" />
         </controls:OptionControl>
 

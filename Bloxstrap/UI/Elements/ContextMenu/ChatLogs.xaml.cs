@@ -4,13 +4,13 @@ using Bloxstrap.UI.ViewModels.ContextMenu;
 namespace Bloxstrap.UI.Elements.ContextMenu
 {
     /// <summary>
-    /// Interaction logic for OutputConsole.xaml
+    /// Interaction logic for ChatLogs.xaml
     /// </summary>
-    public partial class OutputConsole
+    public partial class ChatLogs
     {
-        public OutputConsole(ActivityWatcher watcher)
+        public ChatLogs(ActivityWatcher watcher)
         {
-            var viewModel = new OutputConsoleViewModel(watcher);
+            var viewModel = new ChatLogsViewModel(watcher);
 
             viewModel.RequestCloseEvent += (_, _) => Close();
 

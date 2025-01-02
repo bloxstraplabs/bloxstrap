@@ -542,6 +542,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        public static string Common_Message {
+            get {
+                return ResourceManager.GetString("Common.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Miscellaneous.
         /// </summary>
         public static string Common_Miscellaneous {
@@ -853,6 +862,33 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_GameHistory_Title {
             get {
                 return ResourceManager.GetString("ContextMenu.GameHistory.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays recently sent messages by players..
+        /// </summary>
+        public static string ContextMenu_MessageLogs_Description {
+            get {
+                return ResourceManager.GetString("ContextMenu.MessageLogs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message logs.
+        /// </summary>
+        public static string ContextMenu_MessageLogs_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.MessageLogs.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player logs.
+        /// </summary>
+        public static string ContextMenu_PlayerLogs_Title {
+            get {
+                return ResourceManager.GetString("ContextMenu.PlayerLogs.Title", resourceCulture);
             }
         }
         
@@ -2258,24 +2294,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enables Ansel for Roblox client. Requires [supported graphics card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/)..
-        /// </summary>
-        public static string Menu_Behaviour_Eurotrucks_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.Eurotrucks.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rename Roblox to eurotrucks2.
-        /// </summary>
-        public static string Menu_Behaviour_Eurotrucks_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.Eurotrucks.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Only applies to games launched from the Roblox website..
         /// </summary>
         public static string Menu_Behaviour_ForceRobloxLanguage_Description {
@@ -2330,7 +2348,8 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enables Ansel for Roblox client. Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/)..
+        ///   Looks up a localized string similar to Renames Roblox to &quot;eurotrucks2&quot;. Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).
+        ///	This feature is required for shaders..
         /// </summary>
         public static string Menu_Behaviour_RenameToEurotrucks_Description {
             get {
@@ -2339,7 +2358,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rename Roblox to eurotrucks2.exe.
+        ///   Looks up a localized string similar to Ansel support.
         /// </summary>
         public static string Menu_Behaviour_RenameToEurotrucks_Title {
             get {
@@ -3431,6 +3450,25 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_EnableActivityTracking_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.EnableActivityTracking.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows you players joining/leaving and messages being sent.
+        ///		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837)..
+        /// </summary>
+        public static string Menu_Integrations_PlayerMessageLogs_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.PlayerMessageLogs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player and Message logs.
+        /// </summary>
+        public static string Menu_Integrations_PlayerMessageLogs_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.PlayerMessageLogs.Title", resourceCulture);
             }
         }
         

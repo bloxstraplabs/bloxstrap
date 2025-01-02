@@ -1265,10 +1265,11 @@ Would you like to enable test mode?</value>
     <value>Cancelling Roblox upgrade.</value>
   </data>
   <data name="Menu.Behaviour.RenameToEurotrucks.Title" xml:space="preserve">
-    <value>Rename Roblox to eurotrucks2.exe</value>
+    <value>Ansel support</value>
   </data>
   <data name="Menu.Behaviour.RenameToEurotrucks.Description" xml:space="preserve">
-    <value>Enables Ansel for Roblox client. Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).</value>
+    <value>Renames Roblox to "eurotrucks2". Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).
+	This feature is required for shaders.</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>Channel</value>
@@ -1345,12 +1346,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Menu.Appearance.BootstrapperDownloading.Description" xml:space="preserve">
     <value>Change downloading string. {0} is package name, {1} is downloaded packages size and {2} is total size of packages.</value>
-  </data>
-  <data name="Menu.Behaviour.Eurotrucks.Title" xml:space="preserve">
-    <value>Rename Roblox to eurotrucks2</value>
-  </data>
-  <data name="Menu.Behaviour.Eurotrucks.Description" xml:space="preserve">
-    <value>Enables Ansel for Roblox client. Requires [supported graphics card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).</value>
   </data>
   <data name="Menu.Behaviour.MultiInstances.Title" xml:space="preserve">
     <value>Multi-instance launching</value>
@@ -1472,5 +1467,24 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 	<data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
 		<value>Launching failed due to missing client.
 		Please enable Roblox upgrades.</value>
+	</data>
+	<data name="ContextMenu.PlayerLogs.Title" xml:space="preserve">
+		<value>Player logs</value>
+	</data>
+	<data name="Common.Message" xml:space="preserve">
+		<value>Message</value>
+	</data>
+	<data name="ContextMenu.MessageLogs.Title" xml:space="preserve">
+		<value>Message logs</value>
+	</data>
+	<data name="ContextMenu.MessageLogs.Description" xml:space="preserve">
+		<value>Displays recently sent messages by players.</value>
+	</data>
+	<data name="Menu.Integrations.PlayerMessageLogs.Title" xml:space="preserve">
+		<value>Player and Message logs</value>
+	</data>
+	<data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
+		<value>Shows you players joining/leaving and messages being sent.
+		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
 	</data>
 </root>

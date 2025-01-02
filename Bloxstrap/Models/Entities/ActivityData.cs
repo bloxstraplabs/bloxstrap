@@ -38,6 +38,12 @@ namespace Bloxstrap.Models.Entities
             public DateTime Time {  get; set; } = DateTime.Now;
         }
 
+        public class UserMessage
+        {
+            public string Message { get; set; } = "Unknown";
+            public DateTime Time { get; set; } = DateTime.Now;
+        }
+
         public long PlaceId { get; set; } = 0;
 
         public string JobId { get; set; } = string.Empty;
@@ -92,6 +98,8 @@ namespace Bloxstrap.Models.Entities
         public ICommand RejoinServerCommand => new RelayCommand(RejoinServer);
 
         public Dictionary<int, UserLog> PlayerLogs { get; internal set; } = new();
+
+        public Dictionary<int, UserMessage> MessageLogs { get; internal set; } = new();
 
         private SemaphoreSlim serverQuerySemaphore = new(1, 1);
 
