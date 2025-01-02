@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
+using Vlc.DotNet.Core.Interops.Signatures;
 
 namespace Bloxstrap
 {
@@ -78,6 +79,8 @@ namespace Bloxstrap
                 uninstallKey.SetValueSafe("URLInfoAbout", App.ProjectSupportLink);
                 uninstallKey.SetValueSafe("URLUpdateInfo", App.ProjectDownloadLink);
             }
+
+            WindowsRegistry.RegisterApis();
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
@@ -248,7 +251,8 @@ namespace Bloxstrap
             }
             else
             {
-                string playerPath = Path.Combine(Paths.Roblox, App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
+                string playerPath = Path.Combine((string)playerFolder, App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
+
                 WindowsRegistry.RegisterPlayer(playerPath, "%1");
             }
 
@@ -274,6 +278,8 @@ namespace Bloxstrap
                 WindowsRegistry.RegisterStudioProtocol(studioPath, "%1");
                 WindowsRegistry.RegisterStudioFileClass(studioPath, "-ide \"%1\"");
             }
+
+            Registry.CurrentUser.DeleteSubKey(App.ApisKey);
 
             var cleanupSequence = new List<Action>
             {

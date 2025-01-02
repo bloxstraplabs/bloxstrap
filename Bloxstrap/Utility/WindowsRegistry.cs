@@ -108,6 +108,13 @@ namespace Bloxstrap.Utility
                 uriKey.SetValueSafe("", RobloxPlaceKey);
         }
 
+        public static void RegisterApis()
+        {
+            using var apisKey = Registry.CurrentUser.CreateSubKey(App.ApisKey);
+            apisKey.SetValueSafe("ApplicationPath", Paths.Application);
+            apisKey.SetValueSafe("InstallationPath", Paths.Base);
+        }
+
         public static void Unregister(string key)
         {
             try
