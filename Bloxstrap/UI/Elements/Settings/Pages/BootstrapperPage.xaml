@@ -30,6 +30,8 @@
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxLanguage, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <ui:InfoBar x:Name="AnselBanner" Margin="0,5,0,-5" Padding="4" IsOpen="False" Message="{x:Static resources:Strings.Menu_Behaviour_AnselBanner}" Severity="Informational" IsClosable="True" />
+
         <controls:OptionControl 
     Header="{x:Static resources:Strings.Menu_Behaviour_RenameToEurotrucks_Title}"
     Description="{x:Static resources:Strings.Menu_Behaviour_RenameToEurotrucks_Description}">

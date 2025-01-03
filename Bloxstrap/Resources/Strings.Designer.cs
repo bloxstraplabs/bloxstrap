@@ -2240,6 +2240,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ansel support is required for shaders..
+        /// </summary>
+        public static string Menu_Behaviour_AnselBanner {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.AnselBanner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fishstrap will automatically check and update itself when launching Roblox..
         /// </summary>
         public static string Menu_Behaviour_AutoUpdate_Description {

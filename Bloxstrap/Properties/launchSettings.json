@@ -30,6 +30,10 @@
     "Fishstrap (Watcher)": {
       "commandName": "Project",
       "commandLineArgs": "-watcher"
+    },
+    "Fishstrap (Bloxshade)": {
+      "commandName": "Project",
+      "commandLineArgs": "-bloxshade"
     }
   }
 }

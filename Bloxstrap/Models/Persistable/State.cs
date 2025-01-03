@@ -1,8 +1,12 @@
-﻿namespace Bloxstrap.Models.Persistable
+﻿using System.Windows.Forms;
+
+namespace Bloxstrap.Models.Persistable
 {
     public class State
     {
         public bool TestModeWarningShown { get; set; } = false;
+
+        public bool ShowBloxshadeWarning { get; set; } = false;
 
         public bool IgnoreOutdatedChannel { get; set; } = false;
 

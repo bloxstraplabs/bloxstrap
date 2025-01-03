@@ -32,6 +32,8 @@ namespace Bloxstrap
         
         public LaunchFlag StudioFlag    { get; } = new("studio");
 
+        public LaunchFlag BloxshadeFlag { get; } = new("bloxshade");
+
 #if DEBUG
         public bool BypassUpdateCheck => true;
 #else

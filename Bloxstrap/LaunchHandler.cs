@@ -63,6 +63,11 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Opening bootstrapper ({App.LaunchSettings.RobloxLaunchMode})");
                 LaunchRoblox(App.LaunchSettings.RobloxLaunchMode);
             }
+            else if (App.LaunchSettings.BloxshadeFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening bloxshade");
+                LaunchBloxshadeConfig();
+            }
             else if (!App.LaunchSettings.QuietFlag.Active)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Opening menu");
@@ -219,7 +224,7 @@ namespace Bloxstrap
                 App.Terminate(ErrorCode.ERROR_FILE_NOT_FOUND);
             }
 
-            if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
+            if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
             {
                 // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
                 // which often hangs around for a few seconds after the window closes
@@ -326,6 +331,23 @@ namespace Bloxstrap
 
                 App.Terminate();
             });
+        }
+
+        public static void LaunchBloxshadeConfig()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchBloxshade";
+
+            // ansel setting
+            App.Settings.Prop.RenameClientToEuroTrucks2 = true;
+            App.Settings.Save();
+
+            App.State.Prop.ShowBloxshadeWarning = true;
+            App.State.Save();
+
+            App.Logger.WriteLine(LOG_IDENT, "Ansel setting has been set to true");
+
+            Frontend.ShowMessageBox("Thank you for using Bloxshade with fishstrap\nAnsel setting has been enabled",MessageBoxImage.Asterisk);
+            App.SoftTerminate();
         }
     }
 }

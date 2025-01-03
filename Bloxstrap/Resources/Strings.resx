@@ -1487,4 +1487,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 		<value>Shows you players joining/leaving and messages being sent.
 		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
 	</data>
+	<data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
+		<value>Ansel support is required for shaders.</value>
+	</data>
 </root>
