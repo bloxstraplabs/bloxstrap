@@ -30,7 +30,7 @@ namespace Bloxstrap
         // simple shorthand for extremely frequently used and long string - this goes under HKCU
         public const string UninstallKey = $@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{ProjectName}";
 
-        public const string ApisKey = "Software\\Fishstrap";
+        public const string ApisKey = $"Software\\{ProjectName}";
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
