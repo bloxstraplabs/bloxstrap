@@ -24,7 +24,6 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
-using Microsoft.VisualBasic.Logging;
 
 namespace Bloxstrap
 {
@@ -367,6 +366,9 @@ namespace Bloxstrap
                 Directory.CreateDirectory(rbxDir);
 
             string rbxLogDir = Path.Combine(rbxDir, "logs");
+            if (!Directory.Exists(rbxLogDir))
+                Directory.CreateDirectory(rbxLogDir);
+
             var logWatcher = new FileSystemWatcher()
             {
                 Path = rbxLogDir,
@@ -472,6 +474,9 @@ namespace Bloxstrap
 
                 if (ipl.IsAcquired||true)
                     Process.Start(Paths.Process, args);
+
+                // allow for window to show, since the log is created pretty far beforehand
+                Thread.Sleep(1000);
             }
         }
 
@@ -1299,7 +1304,7 @@ namespace Bloxstrap
                 return;
             }
 
-            string packageFolder = Path.Combine(AppData.Directory, packageDir);
+            string packageFolder = Path.Combine(_latestVersionDirectory, packageDir);
             string? fileFilter = null;
 
             // for sharpziplib, each file in the filter needs to be a regex
