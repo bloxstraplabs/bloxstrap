@@ -62,8 +62,11 @@ namespace Bloxstrap
                     };
                 }
 
-                if (App.Settings.Prop.UseDiscordRichPresence&&!App.State.Prop.WatcherRunning)
+                if (App.Settings.Prop.UseDiscordRichPresence && !App.State.Prop.WatcherRunning)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Running rpc");
                     RichPresence = new(ActivityWatcher);
+                }
             }
 
             _notifyIcon = new(this);
