@@ -1002,6 +1002,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ansel support has been enabled.
+        /// </summary>
+        public static string Dialog_Bloxshade_Setting {
+            get {
+                return ResourceManager.GetString("Dialog.Bloxshade.Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for using Bloxshade with Fishstrap.
+        /// </summary>
+        public static string Dialog_Bloxshade_ThankYou {
+            get {
+                return ResourceManager.GetString("Dialog.Bloxshade.ThankYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fishstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings..
         /// </summary>
         public static string Dialog_CannotCreateShortcuts {

@@ -1490,4 +1490,10 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 	<data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
 		<value>Ansel support is required for shaders.</value>
 	</data>
+	<data name="Dialog.Bloxshade.ThankYou" xml:space="preserve">
+		<value>Thank you for using Bloxshade with Fishstrap</value>
+	</data>
+	<data name="Dialog.Bloxshade.Setting" xml:space="preserve">
+		<value>Ansel support has been enabled</value>
+	</data>
 </root>
