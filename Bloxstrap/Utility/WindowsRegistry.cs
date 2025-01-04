@@ -110,9 +110,20 @@ namespace Bloxstrap.Utility
 
         public static void RegisterApis()
         {
-            using var apisKey = Registry.CurrentUser.CreateSubKey(App.ApisKey);
-            apisKey.SetValueSafe("ApplicationPath", Paths.Application);
-            apisKey.SetValueSafe("InstallationPath", Paths.Base);
+            static void Register()
+            {
+                using var apisKey = Registry.CurrentUser.CreateSubKey(App.ApisKey);
+                apisKey.SetValueSafe("ApplicationPath", Paths.Application);
+                apisKey.SetValueSafe("InstallationPath", Paths.Base);
+            };
+
+            var currentApis = Registry.CurrentUser.OpenSubKey(App.ApisKey,false);
+
+            if (currentApis == null)
+            {
+                Register();
+            };
+            currentApis?.Dispose();
         }
 
         public static void Unregister(string key)

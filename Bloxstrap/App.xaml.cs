@@ -301,6 +301,9 @@ namespace Bloxstrap
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
 
+                WindowsRegistry.RegisterApis(); // we want to register those early on
+                                                // so we wont have any issues with bloxshade
+
                 LaunchHandler.ProcessLaunchArgs();
             }
 
