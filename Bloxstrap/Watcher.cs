@@ -20,6 +20,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Watcher";
 
+
             if (!_lock.IsAcquired)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Watcher instance already exists");

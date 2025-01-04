@@ -474,10 +474,10 @@ namespace Bloxstrap
 
                 if (ipl.IsAcquired||true)
                     Process.Start(Paths.Process, args);
-
-                // allow for window to show, since the log is created pretty far beforehand
-                Thread.Sleep(1000);
             }
+
+            // allow for window to show, since the log is created pretty far beforehand
+            Thread.Sleep(1000);
         }
 
         private bool ShouldRunAsAdmin()
