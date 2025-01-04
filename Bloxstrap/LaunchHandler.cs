@@ -65,7 +65,7 @@ namespace Bloxstrap
             }
             else if (App.LaunchSettings.BloxshadeFlag.Active)
             {
-                App.Logger.WriteLine(LOG_IDENT, "Opening bloxshade");
+                App.Logger.WriteLine(LOG_IDENT, "Opening Bloxshade");
                 LaunchBloxshadeConfig();
             }
             else if (!App.LaunchSettings.QuietFlag.Active)
@@ -346,7 +346,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Ansel setting has been set to true");
 
-            Frontend.ShowMessageBox("Thank you for using Bloxshade with fishstrap\nAnsel setting has been enabled",MessageBoxImage.Asterisk);
+            new BloxshadeDialog().ShowDialog();
             App.SoftTerminate();
         }
     }
