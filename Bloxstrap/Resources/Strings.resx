@@ -1496,4 +1496,10 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
 	<data name="Dialog.Bloxshade.Setting" xml:space="preserve">
 		<value>Ansel support has been enabled</value>
 	</data>
+	<data name="Common.Profiles" xml:space="preserve">
+		<value>Profiles</value>
+	</data>
+	<data name="Menu.Deployment.Channel.OutOfDate">
+		<value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
+	</data>
 </root>

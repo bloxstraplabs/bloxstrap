@@ -73,7 +73,7 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="ChatLogsMenuItem" Click="ChatLogsMenuItemMenuItem_Click" Visibility="Visible">
+            <MenuItem x:Name="ChatLogsMenuItem" Click="ChatLogsMenuItemMenuItem_Click" Visibility="Collapsed">
                 <MenuItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>

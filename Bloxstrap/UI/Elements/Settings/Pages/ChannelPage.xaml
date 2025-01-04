@@ -121,7 +121,7 @@
                             </Style>
                         </StackPanel.Style>
                         <Image Grid.Column="0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Resources/MessageBox/Warning.png" />
-                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="This channel is out of date, and is likely no longer being updated. Please use another channel." />
+                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Deployment_Channel_OutOfDate}" />
                     </StackPanel>
                 </Grid>
 

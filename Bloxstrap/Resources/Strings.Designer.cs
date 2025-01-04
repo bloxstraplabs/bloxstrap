@@ -659,6 +659,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profiles.
+        /// </summary>
+        public static string Common_Profiles {
+            get {
+                return ResourceManager.GetString("Common.Profiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string Common_Reset {
@@ -2534,6 +2543,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Context_PlayerLogs_Description {
             get {
                 return ResourceManager.GetString("Menu.Context.PlayerLogs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This channel is out of date, and is likely no longer being updated. Please use another channel..
+        /// </summary>
+        public static string Menu_Deployment_Channel_OutOfDate {
+            get {
+                return ResourceManager.GetString("Menu.Deployment.Channel.OutOfDate", resourceCulture);
             }
         }
         
