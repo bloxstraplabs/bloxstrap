@@ -730,7 +730,7 @@ namespace Bloxstrap
                 Thread.Sleep(2000);
             }
 
-            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory))
+            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory) && false)
             {
                 Frontend.ShowMessageBox(Strings.Bootstrapper_Dialog_NoUpgradeWithoutClient, MessageBoxImage.Error, MessageBoxButton.OK);
                 App.Terminate();
@@ -810,6 +810,9 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
+                if (package.Name == "WebView2RuntimeInstaller.zip")
+                    continue;
+
                 totalPackageSize += package.Size;
             }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.CodeDom;
 
 namespace Bloxstrap.Utility
 {
