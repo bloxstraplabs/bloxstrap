@@ -1131,23 +1131,30 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT,"Checking for eurotrucks2.exe toggle");
 
-            bool isEuroTrucks = File.Exists(Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")) ? true : false;
+            try
+            {
+                bool isEuroTrucks = File.Exists(Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")) ? true : false;
 
-            if (App.Settings.Prop.RenameClientToEuroTrucks2)
+                if (App.Settings.Prop.RenameClientToEuroTrucks2)
+                {
+                    if (!isEuroTrucks)
+                        File.Move(
+                            Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"),
+                            Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
+                        );
+                }
+                else
+                {
+                    if (isEuroTrucks)
+                        File.Move(
+                            Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"),
+                            Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe")
+                        );
+                }
+            } 
+            catch (Exception ex)
             {
-                if (!isEuroTrucks)
-                    File.Move(
-                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"), 
-                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
-                    );
-            }
-            else
-            {
-                if (isEuroTrucks)
-                    File.Move(
-                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"),
-                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe")
-                    );
+                App.Logger.WriteLine(LOG_IDENT, "Failed to update client! " + ex.Message);
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
