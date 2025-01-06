@@ -1267,4 +1267,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
+  <data name="Bootstrapper.AutoUpdateMetered" xml:space="preserve">
+    <value>An update for Bloxstrap is available, but it has been detected you are currently using a metered connection. Would you like to update now?</value>
+  </data>
 </root>

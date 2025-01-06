@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Windows.Shell;
 
 using Microsoft.Win32;
+using Windows.Networking.Connectivity;
 
 using Bloxstrap.AppData;
 using Bloxstrap.RobloxInterfaces;
@@ -577,6 +578,24 @@ namespace Bloxstrap
 #else
             string version = App.Version;
 #endif
+
+            // check if we are on a metered connection, as updating Bloxstrap might incur additional costs
+            var profile = NetworkInformation.GetInternetConnectionProfile();
+            bool meteredConnection = (profile != null) && (profile.GetConnectionCost().NetworkCostType != NetworkCostType.Unrestricted);
+
+            if (meteredConnection)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Metered connection detected");
+
+                var result = Frontend.ShowMessageBox(
+                    Strings.Bootstrapper_AutoUpdateMetered,
+                    MessageBoxImage.Exclamation,
+                    MessageBoxButton.YesNo
+                );
+
+                if (result != MessageBoxResult.Yes)
+                    return false;
+            }
 
             SetStatus(Strings.Bootstrapper_Status_UpgradingBloxstrap);
 

@@ -161,6 +161,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An update for Bloxstrap is available, but it has been detected you are currently using a metered connection. Would you like to update now?.
+        /// </summary>
+        public static string Bootstrapper_AutoUpdateMetered {
+            get {
+                return ResourceManager.GetString("Bootstrapper.AutoUpdateMetered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?.
         /// </summary>
         public static string Bootstrapper_ConfirmLaunch {
