@@ -17,6 +17,8 @@
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     ExtendsContentIntoTitleBar="True"
     ResizeMode="NoResize"
+    AllowsTransparency="True"
+    WindowStyle="None"
     WindowBackdropType="Disable"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
