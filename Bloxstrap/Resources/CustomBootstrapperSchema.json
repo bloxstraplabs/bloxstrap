@@ -39,7 +39,8 @@
 			"IsCreatable": true,
 			"Attributes": {
 				"Theme": "Theme",
-				"Title": "string"
+				"Title": "string",
+				"WindowBackdropType": "string"
 			}
 		},
 		"TitleBar": {
@@ -283,6 +284,18 @@
 				"Visible",
 				"Hidden",
 				"Collapsed"
+			]
+		},
+		"WindowBackdropType": {
+			"Values": [
+				"None",
+				"Unkown",
+				"Disable",
+				"Auto",
+				"Mica",
+				"Acrylic",
+				"Tabbed",
+				"Aero"
 			]
 		},
 		"HorizontalAlignment": {
