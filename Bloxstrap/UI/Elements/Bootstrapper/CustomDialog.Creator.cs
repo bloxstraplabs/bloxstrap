@@ -9,6 +9,7 @@ using System.Windows.Shapes;
 using System.Xml.Linq;
 
 using Wpf.Ui.Markup;
+using Wpf.Ui.Appearance;
 
 using Bloxstrap.UI.Elements.Controls;
 using System.Windows.Media.Animation;
@@ -135,6 +136,43 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             int value = ParseXmlAttribute<int>(element, attributeName, defaultValue);
             ValidateXmlElement(element.Name.ToString(), attributeName, value, min, max);
             return value;
+        }
+
+        private static BackgroundType GetBackgroundTypeFromXElement(XElement element)
+        {
+            string? value = element.Attribute("WindowBackdropType")?.Value?.ToString();
+            if (string.IsNullOrEmpty(value))
+                value = "Disable";
+
+            switch (value)
+            {
+                case "None":
+                    return BackgroundType.None;
+
+                case "Unknown":
+                    return BackgroundType.Unknown;
+
+                case "Disable":
+                    return BackgroundType.Disable;
+
+                case "Auto":
+                    return BackgroundType.Auto;
+
+                case "Mica":
+                    return BackgroundType.Mica;
+
+                case "Acrylic":
+                    return BackgroundType.Acrylic;
+
+                case "Tabbed":
+                    return BackgroundType.Tabbed;
+
+                case "Aero":
+                    return BackgroundType.Aero;
+
+                default:
+                    throw new Exception($"{element.Name} Unknown WindowBackdropType {value}");
+            }
         }
 
         private static FontWeight GetFontWeightFromXElement(XElement element)
@@ -716,6 +754,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
+            dialog.WindowBackdropType = GetBackgroundTypeFromXElement(xmlElement);
             dialog.Opacity = 1;
 
             // transfer effect to element grid
@@ -727,11 +766,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.ElementGrid.Effect = dialog.Effect;
             dialog.Effect = null;
 
-            var theme = ParseXmlAttribute<Theme>(xmlElement, "Theme", Theme.Default);
-            if (theme == Theme.Default)
+            var theme = ParseXmlAttribute<Bloxstrap.Enums.Theme>(xmlElement, "Theme", Bloxstrap.Enums.Theme.Default);
+            if (theme == Bloxstrap.Enums.Theme.Default)
                 theme = App.Settings.Prop.Theme;
 
-            var wpfUiTheme = theme.GetFinal() == Theme.Dark ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light;
+            var wpfUiTheme = theme.GetFinal() == Bloxstrap.Enums.Theme.Dark ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light;
 
             dialog.Resources.MergedDictionaries.Clear();
             dialog.Resources.MergedDictionaries.Add(new ThemesDictionary() { Theme = wpfUiTheme });
