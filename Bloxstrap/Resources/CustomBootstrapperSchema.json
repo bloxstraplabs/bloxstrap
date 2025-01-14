@@ -118,7 +118,7 @@
 				"StretchDirection": "StretchDirection",
 				"Source": "ImageSource",
 				"IsAnimated": "bool",
-				"RepeatBehaviour":  "string"
+				"RepeatBehaviour": "string"
 			}
 		},
 		"ScaleTransform": {
@@ -193,6 +193,17 @@
 				"SpreadMethod": "GradientSpreadMethod"
 			}
 		},
+		"RadialGradientBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"GradientOrigin": "Point",
+				"Center": "Point",
+				"ColorInterpolationMode": "ColorInterpolationMode",
+				"MappingMode": "BrushMappingMode",
+				"SpreadMethod": "GradientSpreadMethod"
+			}
+},
 		"GradientStop": {
 			"IsCreatable": true,
 			"Attributes": {

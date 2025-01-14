@@ -45,6 +45,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["SolidColorBrush"] = HandleXmlElement_SolidColorBrush,
             ["ImageBrush"] = HandleXmlElement_ImageBrush,
             ["LinearGradientBrush"] = HandleXmlElement_LinearGradientBrush,
+            ["RadialGradientBrush"] = HandleXmlElement_RadialGradientBrush,
 
             ["GradientStop"] = HandleXmlElement_GradientStop,
 
@@ -573,6 +574,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static Brush HandleXmlElement_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new LinearGradientBrush();
+
             HandleXml_Brush(brush, xmlElement);
 
             object? startPoint = GetPointFromXElement(xmlElement, "StartPoint");
@@ -591,6 +593,29 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 brush.GradientStops.Add(HandleXml<GradientStop>(dialog, child));
 
             return brush;
+        }
+
+        private static Brush HandleXmlElement_RadialGradientBrush(CustomDialog dialog, XElement xmlElement) {
+            var radialbrush = new RadialGradientBrush();
+
+            HandleXml_Brush(radialbrush, xmlElement);
+
+            object? startPoint = GetPointFromXElement(xmlElement, "GradientOrigin");
+            if (startPoint is Point)
+                radialbrush.GradientOrigin = (Point)startPoint;
+
+            object? endPoint = GetPointFromXElement(xmlElement, "Center");
+            if (endPoint is Point)
+                radialbrush.Center = (Point)endPoint;
+
+            radialbrush.ColorInterpolationMode = ParseXmlAttribute<ColorInterpolationMode>(xmlElement, "ColorInterpolationMode", ColorInterpolationMode.SRgbLinearInterpolation);
+            radialbrush.MappingMode = ParseXmlAttribute<BrushMappingMode>(xmlElement, "MappingMode", BrushMappingMode.RelativeToBoundingBox);
+            radialbrush.SpreadMethod = ParseXmlAttribute<GradientSpreadMethod>(xmlElement, "SpreadMethod", GradientSpreadMethod.Pad);
+
+            foreach (var child in xmlElement.Elements())
+                radialbrush.GradientStops.Add(HandleXml<GradientStop>(dialog, child));
+
+            return radialbrush;
         }
 
         private static void ApplyBrush_UIElement(CustomDialog dialog, FrameworkElement uiElement, string name, DependencyProperty dependencyProperty, XElement xmlElement)
