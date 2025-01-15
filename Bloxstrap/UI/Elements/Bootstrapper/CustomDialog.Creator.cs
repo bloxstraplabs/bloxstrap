@@ -139,6 +139,29 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return value;
         }
 
+        private static WindowCornerPreference GetCornerPreferenceFromXElement(XElement element)
+        {
+            string? value = element.Attribute("WindowCornerPreference")?.Value?.ToString();
+            if (string.IsNullOrEmpty(value))
+                value = "Default";
+
+            switch (value) {
+                case "Default":
+                    return WindowCornerPreference.Default;
+
+                case "DoNotRound":
+                    return WindowCornerPreference.DoNotRound;
+
+                case "Round":
+                    return WindowCornerPreference.Round;
+
+                case "RoundSmall":
+                    return WindowCornerPreference.RoundSmall;
+
+                default:
+                    throw new Exception($"{element.Name} Unknown WindowCornerPreference {value}");
+            }
+        }
         private static BackgroundType GetBackgroundTypeFromXElement(XElement element)
         {
             string? value = element.Attribute("WindowBackdropType")?.Value?.ToString();
@@ -779,8 +802,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
+            dialog.AllowsTransparency = ParseXmlAttribute<bool>(xmlElement, "AllowsTransparency", true);
+            dialog.WindowCornerPreference = GetCornerPreferenceFromXElement(xmlElement);
             dialog.WindowBackdropType = GetBackgroundTypeFromXElement(xmlElement);
-            dialog.Opacity = 1;
+            dialog.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1);
 
             // transfer effect to element grid
             dialog.ElementGrid.RenderTransform = dialog.RenderTransform;
