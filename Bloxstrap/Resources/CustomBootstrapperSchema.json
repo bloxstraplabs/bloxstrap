@@ -40,7 +40,9 @@
 			"Attributes": {
 				"Theme": "Theme",
 				"Title": "string",
-				"WindowBackdropType": "string"
+				"WindowBackdropType": "BackgroundType",
+				"WindowCornerPreference": "WindowCornerPreference",
+				"AllowTransparency": "bool"
 			}
 		},
 		"TitleBar": {
@@ -203,7 +205,7 @@
 				"MappingMode": "BrushMappingMode",
 				"SpreadMethod": "GradientSpreadMethod"
 			}
-},
+		},
 		"GradientStop": {
 			"IsCreatable": true,
 			"Attributes": {
@@ -297,7 +299,15 @@
 				"Collapsed"
 			]
 		},
-		"WindowBackdropType": {
+		"WindowCornerPreference": {
+			"Values": [
+				"Default",
+				"DoNotRound",
+				"Round",
+				"RoundSmall"
+			]
+		},
+		"BackgroundType": {
 			"Values": [
 				"None",
 				"Unkown",
