@@ -60,6 +60,7 @@
                 Grid.Row="1"
                 Margin="0,0,0,8"
                 HorizontalAlignment="Center"
+                TextAlignment="Center"
                 FontSize="18"
                 Foreground="{DynamicResource TextFillColorPrimaryBrush}"
                 Text="{Binding Message, Mode=OneWay}"
