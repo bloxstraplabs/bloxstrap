@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
-using Vlc.DotNet.Core.Interops.Signatures;
 
 namespace Bloxstrap
 {
