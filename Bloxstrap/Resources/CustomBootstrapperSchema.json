@@ -40,7 +40,7 @@
 			"Attributes": {
 				"Theme": "Theme",
 				"Title": "string",
-				"WindowBackdropType": "string"
+				"WindowBackdropType": "BackgroundType",
 			}
 		},
 		"TitleBar": {
