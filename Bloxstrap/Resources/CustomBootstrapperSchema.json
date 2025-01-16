@@ -112,6 +112,18 @@
 			"IsCreatable": true,
 			"Attributes": {}
 		},
+		"MediaElement": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"Source": "Uri",
+				"Volume": "double",
+				"UnloadedBehaviour": "MediaState",
+				"LoadedBehaviour": "MediaState"
+			}
+		},
 		"Image": {
 			"SuperClass": "FrameworkElement",
 			"IsCreatable": true,
@@ -298,6 +310,7 @@
 		"Color": {},
 		"Data": {},
 		"Figures": {},
+		"Uri": {},
 		"Geometry": {},
 		"ImageSource": {},
 		"Transform": { "CanHaveElement": true },
@@ -307,6 +320,15 @@
 				"Visible",
 				"Hidden",
 				"Collapsed"
+			]
+		},
+		"MediaState": {
+			"Values": [
+				"Play",
+				"Stop",
+				"Close",
+				"Manual",
+				"Pause"
 			]
 		},
 		"WindowCornerPreference": {

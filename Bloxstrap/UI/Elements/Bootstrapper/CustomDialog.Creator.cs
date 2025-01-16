@@ -41,6 +41,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["TextBlock"] = HandleXmlElement_TextBlock,
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image,
+            ["MediaElement"] = HandleXmlElement_MediaElement,
 
             ["SolidColorBrush"] = HandleXmlElement_SolidColorBrush,
             ["ImageBrush"] = HandleXmlElement_ImageBrush,
@@ -140,66 +141,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             int value = ParseXmlAttribute<int>(element, attributeName, defaultValue);
             ValidateXmlElement(element.Name.ToString(), attributeName, value, min, max);
             return value;
-        }
-
-        private static WindowCornerPreference GetCornerPreferenceFromXElement(XElement element)
-        {
-            string? value = element.Attribute("WindowCornerPreference")?.Value?.ToString();
-            if (string.IsNullOrEmpty(value))
-                value = "Default";
-
-            switch (value) {
-                case "Default":
-                    return WindowCornerPreference.Default;
-
-                case "DoNotRound":
-                    return WindowCornerPreference.DoNotRound;
-
-                case "Round":
-                    return WindowCornerPreference.Round;
-
-                case "RoundSmall":
-                    return WindowCornerPreference.RoundSmall;
-
-                default:
-                    throw new Exception($"{element.Name} Unknown WindowCornerPreference {value}");
-            }
-        }
-        private static BackgroundType GetBackgroundTypeFromXElement(XElement element)
-        {
-            string? value = element.Attribute("WindowBackdropType")?.Value?.ToString();
-            if (string.IsNullOrEmpty(value))
-                value = "Disable";
-
-            switch (value)
-            {
-                case "None":
-                    return BackgroundType.None;
-
-                case "Unknown":
-                    return BackgroundType.Unknown;
-
-                case "Disable":
-                    return BackgroundType.Disable;
-
-                case "Auto":
-                    return BackgroundType.Auto;
-
-                case "Mica":
-                    return BackgroundType.Mica;
-
-                case "Acrylic":
-                    return BackgroundType.Acrylic;
-
-                case "Tabbed":
-                    return BackgroundType.Tabbed;
-
-                case "Aero":
-                    return BackgroundType.Aero;
-
-                default:
-                    throw new Exception($"{element.Name} Unknown WindowBackdropType {value}");
-            }
         }
 
         private static FontWeight GetFontWeightFromXElement(XElement element)
@@ -1117,6 +1058,27 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             return image;
         }
+
+        private static UIElement HandleXmlElement_MediaElement(CustomDialog dialog, XElement xmlElement)
+        {
+            var media = new MediaElement();
+            HandleXmlElement_FrameworkElement(dialog, media, xmlElement);
+
+            RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality);
+
+            media.UnloadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "UnloadedBehaviour", MediaState.Close);
+            media.UnloadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "UnloadedBehaviour", MediaState.Play);
+
+            media.Volume = ParseXmlAttribute<double>(xmlElement, "Volume", 0.5);
+
+            media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
+            media.Source = GetMediaSourceData(dialog, "Source", xmlElement); //ty return for doing the work
+            return media;
+        }
+
+
 
         private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
         {
