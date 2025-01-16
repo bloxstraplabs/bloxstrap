@@ -49,6 +49,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ["GradientStop"] = HandleXmlElement_GradientStop,
 
+            //["PathFigure"] = HandleXmlElement_PathGeometry,
+
             ["ScaleTransform"] = HandleXmlElement_ScaleTransform,
             ["SkewTransform"] = HandleXmlElement_SkewTransform,
             ["RotateTransform"] = HandleXmlElement_RotateTransform,
@@ -57,6 +59,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["BlurEffect"] = HandleXmlElement_BlurEffect,
             ["DropShadowEffect"] = HandleXmlElement_DropShadowEffect,
 
+            ["Path"] = HandleXmlElement_Path,
             ["Ellipse"] = HandleXmlElement_Ellipse,
             ["Line"] = HandleXmlElement_Line,
             ["Rectangle"] = HandleXmlElement_Rectangle
@@ -594,6 +597,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return gs;
         }
 
+/*        private static PathGeometry HandleXmlElement_PathGeometry(CustomDialog dialog, XElement xmlElement) 
+        {
+            var pg = new PathGeometry();
+            object? data = GetGeometryFromXElement(xmlElement, "Figures");
+            if (data is Geometry)
+                pg.Figures = (PathFigureCollection)data;
+
+            pg.FillRule = ParseXmlAttribute<FillRule>(xmlElement, "FillRule", FillRule.EvenOdd);
+
+            return pg;
+        }*/
+
         private static Brush HandleXmlElement_LinearGradientBrush(CustomDialog dialog, XElement xmlElement)
         {
             var brush = new LinearGradientBrush();
@@ -688,7 +703,17 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             shape.StrokeStartLineCap = ParseXmlAttribute<PenLineCap>(xmlElement, "StrokeStartLineCap", PenLineCap.Flat);
             shape.StrokeThickness = ParseXmlAttribute<double>(xmlElement, "StrokeThickness", 1);
         }
+        private static System.Windows.Shapes.Path HandleXmlElement_Path(CustomDialog dialog, XElement xmlElement)
+        {
+            var path = new System.Windows.Shapes.Path();
+            HandleXmlElement_Shape(dialog, path, xmlElement);
 
+            object? data = GetGeometryFromXElement(xmlElement, "Data");
+            if (data is Geometry)
+                path.Data = (Geometry)data;
+
+            return path;
+        }
         private static Ellipse HandleXmlElement_Ellipse(CustomDialog dialog, XElement xmlElement)
         {
             var ellipse = new Ellipse();

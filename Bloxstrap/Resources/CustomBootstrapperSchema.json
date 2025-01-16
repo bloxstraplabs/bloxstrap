@@ -229,6 +229,13 @@
 				"StrokeThickness": "double"
 			}
 		},
+		"Path": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {
+				"Data": "Geometry"
+			}
+		},
 		"Ellipse": {
 			"SuperClass": "Shape",
 			"IsCreatable": true,
@@ -289,6 +296,9 @@
 		"CornerRadius": {},
 		"Brush": { "CanHaveElement": true },
 		"Color": {},
+		"Data": {},
+		"Figures": {},
+		"Geometry": {},
 		"ImageSource": {},
 		"Transform": { "CanHaveElement": true },
 		"FontFamily": {},
@@ -340,6 +350,12 @@
 				"Default",
 				"Dark",
 				"Light"
+			]
+		},
+		"FillRule": {
+			"Values": [
+				"EvenOdd",
+				"Nonzero"
 			]
 		},
 		"FontWeight": {
