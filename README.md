@@ -25,10 +25,12 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
 ## Differences from Bloxstrap
 - Integrations
   - Player logs - Players leaving/joining server
+  - Message logs
 - Fast Flags
    - Flag profiles
    - Removed editor warnings & flag validation
-   - In-game menu editor
+   - Roblox menu customization
+   - More presets
  - Channels
    - Channel changer
    - Cancelling Roblox upgrades
@@ -38,6 +40,9 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
    - Multi-instance launching
   - Appearance
     - Customizable downloading status
+  - Extras
+    - Save last opened settings page
+    - Custom bootstrapper themes
  
  *More changes coming soon!*
  
