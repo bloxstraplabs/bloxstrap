@@ -286,7 +286,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return new GetImageSourceDataResult { Uri = result };
         }
 
-        private static Uri GetMediaSourceData(CustomDialog dialog, XElement xmlElement)
+        private static Uri GetMediaSourceData(CustomDialog dialog, string name, XElement xmlElement)
         {
             string path = GetXmlAttribute(xmlElement, "Source");
 
