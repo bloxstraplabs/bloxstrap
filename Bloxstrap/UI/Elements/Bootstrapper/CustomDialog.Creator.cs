@@ -828,8 +828,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
             dialog.AllowsTransparency = ParseXmlAttribute<bool>(xmlElement, "AllowsTransparency", true);
-            dialog.WindowCornerPreference = GetCornerPreferenceFromXElement(xmlElement);
-            dialog.WindowBackdropType = GetBackgroundTypeFromXElement(xmlElement);
+            dialog.WindowCornerPreference = ParseXmlAttribute<WindowCornerPreference>(xmlElement, "WindowCornerPreference", WindowCornerPreference.Default);
+            dialog.WindowBackdropType = ParseXmlAttribute<BackgroundType>(xmlElement, "WindowBackdropType", BackgroundType.Disable);
             dialog.Opacity = ParseXmlAttribute<double>(xmlElement, "Opacity", 1);
 
             // transfer effect to element grid
