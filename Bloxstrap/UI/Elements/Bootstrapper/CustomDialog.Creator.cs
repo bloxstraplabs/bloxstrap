@@ -1066,8 +1066,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality);
 
+            media.LoadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "LoadedBehaviour", MediaState.Play);
             media.UnloadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "UnloadedBehaviour", MediaState.Close);
-            media.UnloadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "UnloadedBehaviour", MediaState.Play);
 
             media.Volume = ParseXmlAttribute<double>(xmlElement, "Volume", 0.5);
 
