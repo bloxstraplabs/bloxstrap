@@ -823,13 +823,14 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Choose preferred language</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Choose a language before continuing with installation.</value>
+    <value>Choose a language before continuing with installation.
+Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>A relaunch is required for changes to take effect.</value>
+    <value>A relaunch is required for changes to take effect. Some text might not be translated to preferred language.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>Allow use of unsupported Roblox languages</value>
@@ -1273,7 +1274,7 @@ Would you like to enable test mode?</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>Channel</value>
-</data>
+  </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
     <value>Launch Roblox Studio</value>
   </data>
@@ -1398,34 +1399,34 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Title" xml:space="preserve">
     <value>Framerate cap</value>
   </data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
+  <data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
     <value>Chat translation</value>
   </data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Description" xml:space="preserve">
+  <data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Description" xml:space="preserve">
     <value>Allows to disable VR mode toggle.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description" xml:space="preserve">
     <value>Hides the button for submitting feedback on translation quality.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Description" xml:space="preserve">
     <value>Disables haptic feedback features, such as vibrations for controllers.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Description" xml:space="preserve">
     <value>Removes FPS presets from the menu.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description" xml:space="preserve">
     <value>Allows players to disable interface translation.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description" xml:space="preserve">
     <value>Disables automatic translation of chat messages.</value>
-</data>
-	<data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
     <value>Flag state</value>
-</data>
-	<data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
+  </data>
+  <data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
     <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
-</data>
-	<data name="Common.Studio" xml:space="preserve">
+  </data>
+  <data name="Common.Studio" xml:space="preserve">
     <value>Studio</value>
   </data>
   <data name="Common.RobloxStudio" xml:space="preserve">
@@ -1440,13 +1441,13 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Common.Type" xml:space="preserve">
     <value>Type</value>
   </data>
-	<data name="Common.UserId" xml:space="preserve">
+  <data name="Common.UserId" xml:space="preserve">
     <value>User Id</value>
   </data>
-	<data name="Common.Username" xml:space="preserve">
+  <data name="Common.Username" xml:space="preserve">
     <value>Username</value>
   </data>
-	<data name="Common.Time" xml:space="preserve">
+  <data name="Common.Time" xml:space="preserve">
     <value>Time</value>
   </data>
   <data name="Menu.Channel.VersionHash.Title" xml:space="preserve">
@@ -1458,48 +1459,48 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.SaveAndLaunch" xml:space="preserve">
     <value>Save and Launch</value>
   </data>
-	<data name="Menu.FastFlags.Presets.PingBreakdown.Title" xml:space="preserve">
-		<value>Ping breakdown</value>
-	</data>
-	<data name="Menu.FastFlags.Presets.PingBreakdown.Description" xml:space="preserve">
-		<value>Sends detailed ping information to the Roblox console.</value>
-	</data>
-	<data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
-		<value>Launching failed due to missing client.
+  <data name="Menu.FastFlags.Presets.PingBreakdown.Title" xml:space="preserve">
+    <value>Ping breakdown</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.PingBreakdown.Description" xml:space="preserve">
+    <value>Sends detailed ping information to the Roblox console.</value>
+  </data>
+  <data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
+    <value>Launching failed due to missing client.
 		Please enable Roblox upgrades.</value>
-	</data>
-	<data name="ContextMenu.PlayerLogs.Title" xml:space="preserve">
-		<value>Player logs</value>
-	</data>
-	<data name="Common.Message" xml:space="preserve">
-		<value>Message</value>
-	</data>
-	<data name="ContextMenu.MessageLogs.Title" xml:space="preserve">
-		<value>Message logs</value>
-	</data>
-	<data name="ContextMenu.MessageLogs.Description" xml:space="preserve">
-		<value>Displays recently sent messages by players.</value>
-	</data>
-	<data name="Menu.Integrations.PlayerMessageLogs.Title" xml:space="preserve">
-		<value>Player and Message logs</value>
-	</data>
-	<data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
-		<value>Shows you players joining/leaving and messages being sent.
+  </data>
+  <data name="ContextMenu.PlayerLogs.Title" xml:space="preserve">
+    <value>Player logs</value>
+  </data>
+  <data name="Common.Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ContextMenu.MessageLogs.Title" xml:space="preserve">
+    <value>Message logs</value>
+  </data>
+  <data name="ContextMenu.MessageLogs.Description" xml:space="preserve">
+    <value>Displays recently sent messages by players.</value>
+  </data>
+  <data name="Menu.Integrations.PlayerMessageLogs.Title" xml:space="preserve">
+    <value>Player and Message logs</value>
+  </data>
+  <data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
+    <value>Shows you players joining/leaving and messages being sent.
 		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
-	</data>
-	<data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
-		<value>Ansel support is required for shaders.</value>
-	</data>
-	<data name="Dialog.Bloxshade.ThankYou" xml:space="preserve">
-		<value>Thank you for using Bloxshade with Fishstrap</value>
-	</data>
-	<data name="Dialog.Bloxshade.Setting" xml:space="preserve">
-		<value>Ansel support has been enabled</value>
-	</data>
-	<data name="Common.Profiles" xml:space="preserve">
-		<value>Profiles</value>
-	</data>
-	<data name="Menu.Deployment.Channel.OutOfDate">
-		<value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
-	</data>
+  </data>
+  <data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
+    <value>Ansel support is required for shaders.</value>
+  </data>
+  <data name="Dialog.Bloxshade.ThankYou" xml:space="preserve">
+    <value>Thank you for using Bloxshade with Fishstrap</value>
+  </data>
+  <data name="Dialog.Bloxshade.Setting" xml:space="preserve">
+    <value>Ansel support has been enabled</value>
+  </data>
+  <data name="Common.Profiles" xml:space="preserve">
+    <value>Profiles</value>
+  </data>
+  <data name="Menu.Deployment.Channel.OutOfDate" xml:space="preserve">
+    <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
+  </data>
 </root>
