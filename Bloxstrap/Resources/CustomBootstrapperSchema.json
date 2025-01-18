@@ -241,6 +241,25 @@
 				"StrokeThickness": "double"
 			}
 		},
+		"SvgViewbox": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Source": "Uri",
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection"
+			}
+		},
+		"SvgIcon": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"SvgSource": "string",
+				"Source": "Uri",
+				"Fill": "Brush",
+				"Stroke": "Brush"
+			}
+		},
 		"Path": {
 			"SuperClass": "Shape",
 			"IsCreatable": true,

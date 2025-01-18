@@ -11,6 +11,8 @@ using System.Xml.Linq;
 using Wpf.Ui.Markup;
 using Wpf.Ui.Appearance;
 
+using SharpVectors.Converters;
+
 using Bloxstrap.UI.Elements.Controls;
 using System.Windows.Media.Animation;
 
@@ -59,6 +61,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ["BlurEffect"] = HandleXmlElement_BlurEffect,
             ["DropShadowEffect"] = HandleXmlElement_DropShadowEffect,
+
+            ["SvgViewbox"] = HandleXmlElement_SvgViewbox,
+            ["SvgIcon"] = HandleXmlElement_SvgIcon,
 
             ["Path"] = HandleXmlElement_Path,
             ["Ellipse"] = HandleXmlElement_Ellipse,
@@ -283,7 +288,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return new GetImageSourceDataResult { Uri = result };
         }
 
-        private static Uri GetMediaSourceData(CustomDialog dialog, string name, XElement xmlElement)
+        private static Uri GetSourceData(CustomDialog dialog, string name, XElement xmlElement)
         {
             string path = GetXmlAttribute(xmlElement, name);
 
@@ -295,7 +300,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (result == null)
                 throw new Exception($"{xmlElement.Name} Source Uri is null");
 
-            Uri? uri = result; //why does this work?
+            Uri? uri = result;
 
             return uri;
         }
@@ -435,6 +440,36 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return effect;
         }
 
+        private static SvgViewbox HandleXmlElement_SvgViewbox (CustomDialog dialog, XElement xmlElement)
+        {
+            var svgviewbox = new SvgViewbox();
+            HandleXmlElement_FrameworkElement(dialog, svgviewbox, xmlElement);
+
+            svgviewbox.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            svgviewbox.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
+            var path = GetSourceData(dialog, "Source", xmlElement);
+            svgviewbox.Source = path;
+
+            return svgviewbox;
+        }
+
+        private static SvgIcon HandleXmlElement_SvgIcon(CustomDialog dialog, XElement xmlElement)
+        {
+            var svgicon = new SvgIcon();
+            HandleXmlElement_FrameworkElement(dialog, svgicon, xmlElement);
+
+            ApplyBrush_UIElement(dialog, svgicon, "Fill", SvgIcon.FillProperty, xmlElement);
+            ApplyBrush_UIElement(dialog, svgicon, "Stroke", SvgIcon.FillProperty , xmlElement);
+
+            svgicon.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            svgicon.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
+            string? xml = xmlElement.Value;
+            svgicon.SvgSource = xml;
+
+            return svgicon;
+        }
 
         private static void ApplyEffects_UIElement(CustomDialog dialog, UIElement uiElement, XElement xmlElement)
         {
@@ -1070,7 +1105,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            media.Source = GetMediaSourceData(dialog, "Source", xmlElement); //ty return for doing the work
+            media.Source = GetSourceData(dialog, "Source", xmlElement);
             return media;
         }
 
