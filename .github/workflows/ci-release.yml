@@ -39,6 +39,12 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/v')
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Bloxstrap (Release) (${{ github.sha }})
+          path: release
+
       - name: Rename binaries
         run: mv release/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
 
@@ -55,6 +61,12 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/release-test')
 
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Bloxstrap (Release) (${{ github.sha }})
+          path: release
+
       - name: Rename binaries
         run: mv release/Bloxstrap.exe Bloxstrap-${{ github.ref_name }}.exe
 
