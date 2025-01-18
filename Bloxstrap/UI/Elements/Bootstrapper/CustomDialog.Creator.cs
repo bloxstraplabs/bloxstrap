@@ -295,7 +295,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (result == null)
                 throw new Exception($"{xmlElement.Name} Source Uri is null");
 
-            return result;
+            Uri? uri = result; //why does this work?
+
+            return uri;
         }
 
         private static RepeatBehavior GetImageRepeatBehaviourData(XElement element)
