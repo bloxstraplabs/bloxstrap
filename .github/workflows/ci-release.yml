@@ -5,9 +5,6 @@ jobs:
   build:
     runs-on: windows-latest
 
-    outputs:
-      artifact-id: ${{ steps.upload-artifact.outputs.artifact-id }}
-
     steps:
     - uses: actions/checkout@v4
       with:
@@ -27,7 +24,6 @@ jobs:
       run: dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c Release --self-contained false .\Bloxstrap\Bloxstrap.csproj
 
     - name: Upload Artifact
-      id: upload-artifact
       uses: actions/upload-artifact@v4
       with:
         name: Fishstrap (Release) (${{ github.sha }})
