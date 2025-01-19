@@ -132,14 +132,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 throw new Exception($"{elementName} {attributeName} must be smaller than {max}");
         }
 
-        private static void ValidateXmlElement(string elementName, string attributeName, double value, double? min = null, double? max = null)
-        {
-            if (min != null && value < min)
-                throw new Exception($"{elementName} {attributeName} must be larger than {min}");
-            if (max != null && value > max)
-                throw new Exception($"{elementName} {attributeName} must be smaller than {max}");
-        }
-
         // You can't do numeric only generics in .NET 6. The feature is exclusive to .NET 7+.
         private static int ParseXmlAttributeClamped(XElement element, string attributeName, int? defaultValue = null, int? min = null, int? max = null)
         {
