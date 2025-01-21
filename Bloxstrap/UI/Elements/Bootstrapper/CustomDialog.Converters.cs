@@ -41,37 +41,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
-        private static ThicknessConverter? _thicknessConverter = null;
-        private static ThicknessConverter ThicknessConverter { get => _thicknessConverter ??= new ThicknessConverter(); }
-
+        private static ThicknessConverter ThicknessConverter { get; } = new ThicknessConverter();
         private static object? GetThicknessFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(ThicknessConverter, xmlElement, attributeName);
 
-        private static RectConverter? _rectConverter = null;
-        public static RectConverter RectConverter { get => _rectConverter ??= new RectConverter(); }
-
+        private static RectConverter RectConverter { get; } = new RectConverter();
         private static object? GetRectFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(RectConverter, xmlElement, attributeName);
 
-        private static ColorConverter? _colorConverter = null;
-        public static ColorConverter ColorConverter { get => _colorConverter ??= new ColorConverter(); }
-
+        private static ColorConverter ColorConverter { get; } = new ColorConverter();
         private static object? GetColorFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(ColorConverter, xmlElement, attributeName);
 
-        private static PointConverter? _pointConverter = null;
-        public static PointConverter PointConverter { get => _pointConverter ??= new PointConverter(); }
-
+        private static PointConverter PointConverter { get; } = new PointConverter();
         private static object? GetPointFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(PointConverter, xmlElement, attributeName);
 
-        private static CornerRadiusConverter? _cornerRadiusConverter = null;
-        public static CornerRadiusConverter CornerRadiusConverter { get => _cornerRadiusConverter ??= new CornerRadiusConverter(); }
-
+        private static CornerRadiusConverter CornerRadiusConverter { get; } = new CornerRadiusConverter();
         private static object? GetCornerRadiusFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(CornerRadiusConverter, xmlElement, attributeName);
 
-        public static GridLengthConverter GridLengthConverter { get; } = new GridLengthConverter();
+        private static GridLengthConverter GridLengthConverter { get; } = new GridLengthConverter();
         private static object? GetGridLengthFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(GridLengthConverter, xmlElement, attributeName);
 
 
-        private static BrushConverter? _brushConverter = null;
-        private static BrushConverter BrushConverter { get => _brushConverter ??= new BrushConverter(); }
+        private static BrushConverter BrushConverter { get; } = new BrushConverter();
 
         /// <summary>
         /// Return type of string = Name of DynamicResource
