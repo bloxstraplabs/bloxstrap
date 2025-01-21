@@ -844,8 +844,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         {
             HandleXmlElement_FrameworkElement(dialog, textBlock, xmlElement);
 
-            textBlock.Text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
-
             ApplyBrush_UIElement(dialog, textBlock, "Foreground", TextBlock.ForegroundProperty, xmlElement);
 
             ApplyBrush_UIElement(dialog, textBlock, "Background", TextBlock.BackgroundProperty, xmlElement);
@@ -887,6 +885,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         {
             var textBlock = new TextBlock();
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
+
+            textBlock.Text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
 
             return textBlock;
         }
