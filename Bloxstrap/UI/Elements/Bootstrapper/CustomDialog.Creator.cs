@@ -5,6 +5,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     public partial class CustomDialog
     {
+        const int Version = 0;
+
         private class DummyFrameworkElement : FrameworkElement { }
 
         private const int MaxElements = 100;
@@ -78,7 +80,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (xml.Name != "BloxstrapCustomBootstrapper")
                 throw new Exception("XML root is not a BloxstrapCustomBootstrapper");
 
-            if (xml.Attribute("Version")?.Value != "0")
+            if (xml.Attribute("Version")?.Value != Version.ToString())
                 throw new Exception("Unknown BloxstrapCustomBootstrapper version");
 
             if (xml.Descendants().Count() > MaxElements)
