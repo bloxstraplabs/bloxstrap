@@ -16,7 +16,11 @@
 				"LayoutTransform": "Transform",
 				"Opacity": "double",
 				"OpacityMask": "Brush",
-				"RenderTransformOrigin": "Point"
+				"RenderTransformOrigin": "Point",
+				"Grid.Row": "int",
+				"Grid.RowSpan": "int",
+				"Grid.Column": "int",
+				"Grid.ColumnSpan": "int"
 			}
 		},
 		"Control": {
@@ -117,6 +121,30 @@
 				"StretchDirection": "StretchDirection",
 				"Source": "ImageSource",
 				"IsAnimated": "bool"
+			}
+		},
+		"Grid": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"RowDefinitions": "object",
+				"ColumnDefinitions": "object"
+			}
+		},
+		"RowDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Height": "GridLength",
+				"MinHeight": "double",
+				"MaxHeight": "double"
+			}
+		},
+		"ColumnDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Width": "GridLength",
+				"MinWidth": "double",
+				"MaxWidth": "double"
 			}
 		},
 		"ScaleTransform": {
@@ -277,6 +305,7 @@
 		"ImageSource": {},
 		"Transform": { "CanHaveElement": true },
 		"FontFamily": {},
+		"GridLength": {},
 		"Visibility": {
 			"Values": [
 				"Visible",

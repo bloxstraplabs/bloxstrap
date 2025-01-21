@@ -316,6 +316,16 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             int zIndex = ParseXmlAttributeClamped(xmlElement, "ZIndex", defaultValue: 0, min: 0, max: 1000);
             Panel.SetZIndex(uiElement, zIndex);
 
+            int gridRow = ParseXmlAttribute<int>(xmlElement, "Grid.Row", 0);
+            Grid.SetRow(uiElement, gridRow);
+            int gridRowSpan = ParseXmlAttribute<int>(xmlElement, "Grid.RowSpan", 1);
+            Grid.SetRowSpan(uiElement, gridRowSpan);
+
+            int gridColumn = ParseXmlAttribute<int>(xmlElement, "Grid.Column", 0);
+            Grid.SetColumn(uiElement, gridColumn);
+            int gridColumnSpan = ParseXmlAttribute<int>(xmlElement, "Grid.ColumnSpan", 1);
+            Grid.SetColumnSpan(uiElement, gridColumnSpan);
+
             ApplyTransformations_UIElement(dialog, uiElement, xmlElement);
             ApplyEffects_UIElement(dialog, uiElement, xmlElement);
         }
@@ -613,6 +623,88 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
 
             return image;
+        }
+
+        private static RowDefinition HandleXmlElement_RowDefinition(CustomDialog dialog, XElement xmlElement)
+        {
+            var rowDefinition = new RowDefinition();
+
+            var height = GetGridLengthFromXElement(xmlElement, "Height");
+            if (height != null)
+                rowDefinition.Height = (GridLength)height;
+
+            rowDefinition.MinHeight = ParseXmlAttribute<double>(xmlElement, "MinHeight", 0);
+            rowDefinition.MaxHeight = ParseXmlAttribute<double>(xmlElement, "MaxHeight", double.PositiveInfinity);
+
+            return rowDefinition;
+        }
+
+        private static ColumnDefinition HandleXmlElement_ColumnDefinition(CustomDialog dialog, XElement xmlElement)
+        {
+            var columnDefinition = new ColumnDefinition();
+
+            var width = GetGridLengthFromXElement(xmlElement, "Width");
+            if (width != null)
+                columnDefinition.Width = (GridLength)width;
+
+            columnDefinition.MinWidth = ParseXmlAttribute<double>(xmlElement, "MinWidth", 0);
+            columnDefinition.MaxWidth = ParseXmlAttribute<double>(xmlElement, "MaxWidth", double.PositiveInfinity);
+
+            return columnDefinition;
+        }
+
+        private static void HandleXmlElement_Grid_RowDefinitions(Grid grid, CustomDialog dialog, XElement xmlElement)
+        {
+            foreach (var element in xmlElement.Elements())
+            {
+                var rowDefinition = HandleXml<RowDefinition>(dialog, element);
+                grid.RowDefinitions.Add(rowDefinition);
+            }
+        }
+
+        private static void HandleXmlElement_Grid_ColumnDefinitions(Grid grid, CustomDialog dialog, XElement xmlElement)
+        {
+            foreach (var element in xmlElement.Elements())
+            {
+                var columnDefinition = HandleXml<ColumnDefinition>(dialog, element);
+                grid.ColumnDefinitions.Add(columnDefinition);
+            }
+        }
+
+        private static Grid HandleXmlElement_Grid(CustomDialog dialog, XElement xmlElement)
+        {
+            var grid = new Grid();
+            HandleXmlElement_FrameworkElement(dialog, grid, xmlElement);
+
+            bool rowsSet = false;
+            bool columnsSet = false;
+
+            foreach (var element in xmlElement.Elements())
+            {
+                if (element.Name == "Grid.RowDefinitions")
+                {
+                    if (rowsSet)
+                        throw new Exception("Grid can only have one RowDefinitions defined");
+                    rowsSet = true;
+
+                    HandleXmlElement_Grid_RowDefinitions(grid, dialog, element);
+                }
+                else if (element.Name == "Grid.ColumnDefinitions")
+                {
+                    if (columnsSet)
+                        throw new Exception("Grid can only have one ColumnDefinitions defined");
+                    columnsSet = true;
+
+                    HandleXmlElement_Grid_ColumnDefinitions(grid, dialog, element);
+                }
+                else
+                {
+                    var uiElement = HandleXml<FrameworkElement>(dialog, element);
+                    grid.Children.Add(uiElement);
+                }
+            }
+
+            return grid;
         }
         #endregion
     }

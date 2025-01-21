@@ -30,6 +30,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["TextBlock"] = HandleXmlElement_TextBlock,
             ["MarkdownTextBlock"] = HandleXmlElement_MarkdownTextBlock,
             ["Image"] = HandleXmlElement_Image,
+            ["Grid"] = HandleXmlElement_Grid,
 
             ["SolidColorBrush"] = HandleXmlElement_SolidColorBrush,
             ["ImageBrush"] = HandleXmlElement_ImageBrush,
@@ -47,7 +48,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ["Ellipse"] = HandleXmlElement_Ellipse,
             ["Line"] = HandleXmlElement_Line,
-            ["Rectangle"] = HandleXmlElement_Rectangle
+            ["Rectangle"] = HandleXmlElement_Rectangle,
+
+            ["RowDefinition"] = HandleXmlElement_RowDefinition,
+            ["ColumnDefinition"] = HandleXmlElement_ColumnDefinition
         };
 
         private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
