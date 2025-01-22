@@ -558,12 +558,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             object? padding = GetThicknessFromXElement(xmlElement, "Padding");
             if (padding != null)
                 textBlock.Padding = (Thickness)padding;
-
-            if (xmlElement.Attribute("Name")?.Value == "StatusText")
-            {
-                Binding textBinding = new Binding("Message") { Mode = BindingMode.OneWay };
-                BindingOperations.SetBinding(textBlock, TextBlock.TextProperty, textBinding);
-            }
         }
 
         private static UIElement HandleXmlElement_TextBlock(CustomDialog dialog, XElement xmlElement)
@@ -572,6 +566,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
 
             textBlock.Text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
+
+            if (xmlElement.Attribute("Name")?.Value == "StatusText")
+            {
+                Binding textBinding = new Binding("Message") { Mode = BindingMode.OneWay };
+                BindingOperations.SetBinding(textBlock, TextBlock.TextProperty, textBinding);
+            }
 
             return textBlock;
         }
