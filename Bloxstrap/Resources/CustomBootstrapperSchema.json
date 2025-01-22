@@ -245,6 +245,7 @@
 			"SuperClass": "FrameworkElement",
 			"IsCreatable": true,
 			"Attributes": {
+				"SvgSource": "string",
 				"Source": "Uri",
 				"Stretch": "Stretch",
 				"StretchDirection": "StretchDirection"
@@ -258,6 +259,16 @@
 				"Source": "Uri",
 				"Fill": "Brush",
 				"Stroke": "Brush"
+			}
+		},
+		"SvgBitmap": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"SvgSource": "string",
+				"UriSource": "Uri"
 			}
 		},
 		"Path": {

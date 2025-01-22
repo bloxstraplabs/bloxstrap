@@ -64,6 +64,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             ["SvgViewbox"] = HandleXmlElement_SvgViewbox,
             ["SvgIcon"] = HandleXmlElement_SvgIcon,
+            ["SvgBitmap"] = HandleXmlElement_SvgBitmap,
 
             ["Path"] = HandleXmlElement_Path,
             ["Ellipse"] = HandleXmlElement_Ellipse,
@@ -440,8 +441,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             svgviewbox.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             svgviewbox.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
+            string? xml = xmlElement.Value;
+            if (xml != null)
+            {
+                svgviewbox.SvgSource = xml;
+                return svgviewbox;
+            }
+
             var path = GetSourceData(dialog, "Source", xmlElement);
-            svgviewbox.Source = path;
+            svgviewbox.UriSource = path;
 
             return svgviewbox;
         }
@@ -461,6 +469,27 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             svgicon.SvgSource = xml;
 
             return svgicon;
+        }
+
+        private static SvgBitmap HandleXmlElement_SvgBitmap(CustomDialog dialog, XElement xmlElement)
+        {
+            var svgbitmap = new SvgBitmap();
+            HandleXmlElement_FrameworkElement(dialog, svgbitmap, xmlElement);
+
+            svgbitmap.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            svgbitmap.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
+            string? xml = xmlElement.Value;
+            if (xml != null)
+            {
+                svgbitmap.SvgSource = xml;
+                return svgbitmap;
+            }
+
+            var path = GetSourceData(dialog, "Source", xmlElement);
+            svgbitmap.UriSource = path;
+                
+            return svgbitmap; 
         }
 
         private static void ApplyEffects_UIElement(CustomDialog dialog, UIElement uiElement, XElement xmlElement)
