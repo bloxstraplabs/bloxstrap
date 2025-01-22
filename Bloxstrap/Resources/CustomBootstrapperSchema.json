@@ -43,7 +43,8 @@
 			"IsCreatable": true,
 			"Attributes": {
 				"Theme": "Theme",
-				"Title": "string"
+				"Title": "string",
+				"IgnoreTitleBarInset": "bool"
 			}
 		},
 		"TitleBar": {

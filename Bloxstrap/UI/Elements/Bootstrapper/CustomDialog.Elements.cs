@@ -401,6 +401,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             string? title = xmlElement.Attribute("Title")?.Value?.ToString() ?? "Bloxstrap";
             dialog.Title = title;
 
+            bool ignoreTitleBarInset = ParseXmlAttribute<bool>(xmlElement, "IgnoreTitleBarInset", false);
+            if (ignoreTitleBarInset)
+            {
+                Grid.SetRow(dialog.ElementGrid, 0);
+                Grid.SetRowSpan(dialog.ElementGrid, 2);
+            }
+
             return new DummyFrameworkElement();
         }
 
