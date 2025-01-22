@@ -42,6 +42,7 @@
 			"SuperClass": "Control",
 			"IsCreatable": true,
 			"Attributes": {
+				"Version": "int",
 				"Theme": "Theme",
 				"Title": "string",
 				"IgnoreTitleBarInset": "bool"
