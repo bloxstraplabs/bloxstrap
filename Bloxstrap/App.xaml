@@ -11,6 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
+                <ResourceDictionary x:Name="Default" Source="UI/Style/Default.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
