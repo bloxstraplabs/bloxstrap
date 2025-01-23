@@ -704,6 +704,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
                     HandleXmlElement_Grid_ColumnDefinitions(grid, dialog, element);
                 }
+                else if (element.Name.ToString().StartsWith("Grid."))
+                {
+                    continue; // ignore others
+                }
                 else
                 {
                     var uiElement = HandleXml<FrameworkElement>(dialog, element);
