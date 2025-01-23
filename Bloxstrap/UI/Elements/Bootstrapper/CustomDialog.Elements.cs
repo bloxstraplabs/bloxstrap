@@ -713,6 +713,22 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             return grid;
         }
+
+        private static StackPanel HandleXmlElement_StackPanel(CustomDialog dialog, XElement xmlElement)
+        {
+            var stackPanel = new StackPanel();
+            HandleXmlElement_FrameworkElement(dialog, stackPanel, xmlElement);
+
+            stackPanel.Orientation = ParseXmlAttribute<Orientation>(xmlElement, "Orientation", Orientation.Vertical);
+
+            foreach (var element in xmlElement.Elements())
+            {
+                var uiElement = HandleXml<FrameworkElement>(dialog, element);
+                stackPanel.Children.Add(uiElement);
+            }
+
+            return stackPanel;
+        }
         #endregion
     }
 }

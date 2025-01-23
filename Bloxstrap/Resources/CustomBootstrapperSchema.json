@@ -133,6 +133,13 @@
 				"ColumnDefinitions": "object"
 			}
 		},
+		"StackPanel": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Orientation": "Orientation"
+			}
+		},
 		"RowDefinition": {
 			"IsCreatable": true,
 			"Attributes": {
@@ -482,6 +489,12 @@
 			"Values": [
 				"Performance",
 				"Quality"
+			]
+		},
+		"Orientation": {
+			"Values": [
+				"Horizontal",
+				"Vertical"
 			]
 		}
 	}
