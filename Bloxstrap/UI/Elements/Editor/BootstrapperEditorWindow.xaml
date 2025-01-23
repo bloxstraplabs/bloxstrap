@@ -15,6 +15,7 @@
     d:DataContext="{d:DesignInstance dmodels:BootstrapperEditorWindowViewModel,
                                      IsDesignTimeCreatable=True}"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+    Closing="OnClosing"
     ExtendsContentIntoTitleBar="True"
     mc:Ignorable="d">
     <Grid>
@@ -40,8 +41,7 @@
             Margin="10,10,10,0"
             ShowLineNumbers="True"
             Style="{StaticResource NewTextEditor}"
-            SyntaxHighlighting="XML"
-            TextChanged="OnCodeChanged" />
+            SyntaxHighlighting="XML" />
 
         <ui:Button
             Grid.Row="2"

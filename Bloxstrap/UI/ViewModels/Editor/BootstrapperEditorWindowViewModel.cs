@@ -26,6 +26,8 @@ namespace Bloxstrap.UI.ViewModels.Editor
         public string Title { get; set; } = "Editing \"Custom Theme\"";
         public string Code { get; set; } = "";
 
+        public bool CodeChanged { get; set; } = false;
+
         private void Preview()
         {
             const string LOG_IDENT = "BootstrapperEditorWindowViewModel::Preview";
@@ -61,6 +63,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
             try
             {
                 File.WriteAllText(path, Code);
+                CodeChanged = false;
                 ThemeSavedCallback.Invoke(true, "Your theme has been saved!");
             }
             catch (Exception ex)

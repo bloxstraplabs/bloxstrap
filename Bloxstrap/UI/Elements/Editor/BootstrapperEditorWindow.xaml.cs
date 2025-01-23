@@ -9,6 +9,7 @@ using ICSharpCode.AvalonEdit.Highlighting;
 
 using Bloxstrap.UI.Elements.Base;
 using Bloxstrap.UI.ViewModels.Editor;
+using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Editor
 {
@@ -130,7 +131,8 @@ namespace Bloxstrap.UI.Elements.Editor
             }
         }
 
-        CompletionWindow? _completionWindow = null;
+        private BootstrapperEditorWindowViewModel _viewModel;
+        private CompletionWindow? _completionWindow = null;
 
         public BootstrapperEditorWindow(string name)
         {
@@ -141,17 +143,18 @@ namespace Bloxstrap.UI.Elements.Editor
             string themeContents = File.ReadAllText(Path.Combine(directory, "Theme.xml"));
             themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
 
-            var viewModel = new BootstrapperEditorWindowViewModel();
-            viewModel.ThemeSavedCallback = ThemeSavedCallback;
-            viewModel.Directory = directory;
-            viewModel.Name = name;
-            viewModel.Title = $"Editing \"{name}\"";
-            viewModel.Code = themeContents;
+            _viewModel = new BootstrapperEditorWindowViewModel();
+            _viewModel.ThemeSavedCallback = ThemeSavedCallback;
+            _viewModel.Directory = directory;
+            _viewModel.Name = name;
+            _viewModel.Title = $"Editing \"{name}\"";
+            _viewModel.Code = themeContents;
 
-            DataContext = viewModel;
+            DataContext = _viewModel;
             InitializeComponent();
 
-            UIXML.Text = viewModel.Code;
+            UIXML.Text = _viewModel.Code;
+            UIXML.TextChanged += OnCodeChanged;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
 
             LoadHighlightingTheme();
@@ -180,11 +183,28 @@ namespace Bloxstrap.UI.Elements.Editor
             return text.Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\r\n");
         }
 
-        private void OnCodeChanged(object sender, EventArgs e)
+        private void OnCodeChanged(object? sender, EventArgs e)
         {
             BootstrapperEditorWindowViewModel viewModel = (BootstrapperEditorWindowViewModel)DataContext;
             viewModel.Code = UIXML.Text;
+            viewModel.CodeChanged = true;
             viewModel.OnPropertyChanged(nameof(viewModel.Code));
+        }
+
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!_viewModel.CodeChanged)
+                return;
+
+            var result = Frontend.ShowMessageBox($"Save changes to {_viewModel.Name}?", MessageBoxImage.Information, MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else if (result == MessageBoxResult.Yes)
+            {
+                _viewModel.SaveCommand.Execute(null);
+            }
         }
 
         private void OnTextAreaTextEntered(object sender, TextCompositionEventArgs e)
