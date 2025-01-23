@@ -142,6 +142,7 @@ namespace Bloxstrap.UI.Elements.Editor
             themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
 
             var viewModel = new BootstrapperEditorWindowViewModel();
+            viewModel.ThemeSavedCallback = ThemeSavedCallback;
             viewModel.Directory = directory;
             viewModel.Name = name;
             viewModel.Title = $"Editing \"{name}\"";
@@ -164,6 +165,14 @@ namespace Bloxstrap.UI.Elements.Editor
             UIXML.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
             UIXML.TextArea.TextView.SetResourceReference(ICSharpCode.AvalonEdit.Rendering.TextView.LinkTextForegroundBrushProperty, "NewTextEditorLink");
+        }
+
+        private void ThemeSavedCallback(bool success, string message)
+        {
+            if (success)
+                Snackbar.Show("Settings saved!", message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
+            else
+                Snackbar.Show("Error", message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
         }
 
         private static string ToCRLF(string text)

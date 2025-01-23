@@ -71,5 +71,12 @@
                 Command="{Binding Path=SaveCommand, Mode=OneTime}"
                 Content="Save" />
         </Grid>
+
+        <ui:Snackbar
+            x:Name="Snackbar"
+            Grid.RowSpan="3"
+            Margin="200,0,200,20"
+            Panel.ZIndex="9"
+            Timeout="3000" />
     </Grid>
 </base:WpfUiWindow>
