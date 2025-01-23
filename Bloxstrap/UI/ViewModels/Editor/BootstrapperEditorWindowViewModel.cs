@@ -16,6 +16,9 @@ namespace Bloxstrap.UI.ViewModels.Editor
 
         public ICommand PreviewCommand => new RelayCommand(Preview);
         public ICommand SaveCommand => new RelayCommand(Save);
+        public ICommand OpenThemeFolderCommand => new RelayCommand(OpenThemeFolder);
+
+        public string Directory { get; set; } = "";
 
         public string Name { get; set; } = "";
         public string Title { get; set; } = "Editing \"Custom Theme\"";
@@ -65,6 +68,11 @@ namespace Bloxstrap.UI.ViewModels.Editor
 
                 Frontend.ShowMessageBox($"Failed to save theme: {ex.Message}", MessageBoxImage.Error, MessageBoxButton.OK);
             }
+        }
+
+        private void OpenThemeFolder()
+        {
+            Process.Start("explorer.exe", Directory);
         }
     }
 }

@@ -136,10 +136,13 @@ namespace Bloxstrap.UI.Elements.Editor
         {
             CustomBootstrapperSchema.ParseSchema();
 
-            string themeContents = File.ReadAllText(Path.Combine(Paths.CustomThemes, name, "Theme.xml"));
+            string directory = Path.Combine(Paths.CustomThemes, name);
+
+            string themeContents = File.ReadAllText(Path.Combine(directory, "Theme.xml"));
             themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
 
             var viewModel = new BootstrapperEditorWindowViewModel();
+            viewModel.Directory = directory;
             viewModel.Name = name;
             viewModel.Title = $"Editing \"{name}\"";
             viewModel.Code = themeContents;
