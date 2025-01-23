@@ -179,6 +179,8 @@ namespace Bloxstrap
             }
 #endif
 
+            App.AssertWindowsOSVersion();
+
             // ensure only one instance of the bootstrapper is running at the time
             // so that we don't have stuff like two updates happening simultaneously
 
