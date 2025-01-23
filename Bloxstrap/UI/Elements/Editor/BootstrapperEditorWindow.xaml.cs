@@ -1,8 +1,11 @@
 ﻿using System.Windows.Input;
+using System.Xml;
 
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.Highlighting;
 
 using Bloxstrap.UI.Elements.Base;
 using Bloxstrap.UI.ViewModels.Editor;
@@ -146,6 +149,18 @@ namespace Bloxstrap.UI.Elements.Editor
 
             UIXML.Text = viewModel.Code;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
+
+            LoadHighlightingTheme();
+        }
+
+        private void LoadHighlightingTheme()
+        {
+            string name = $"Editor-Theme-{App.Settings.Prop.Theme.GetFinal()}.xshd";
+            using Stream xmlStream = Resource.GetStream(name);
+            using XmlReader reader = XmlReader.Create(xmlStream);
+            UIXML.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+
+            UIXML.TextArea.TextView.SetResourceReference(ICSharpCode.AvalonEdit.Rendering.TextView.LinkTextForegroundBrushProperty, "NewTextEditorLink");
         }
 
         private static string ToCRLF(string text)

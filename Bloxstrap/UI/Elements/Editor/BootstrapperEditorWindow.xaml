@@ -39,6 +39,7 @@
             Grid.Row="1"
             Margin="10,10,10,0"
             ShowLineNumbers="True"
+            Style="{StaticResource NewTextEditor}"
             SyntaxHighlighting="XML"
             TextChanged="OnCodeChanged" />
 
