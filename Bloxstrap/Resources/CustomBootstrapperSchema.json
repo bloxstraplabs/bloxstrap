@@ -140,6 +140,17 @@
 				"Orientation": "Orientation"
 			}
 		},
+		"Border": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Background": "Brush",
+				"BorderBrush": "Brush",
+				"BorderThickness": "Thickness",
+				"Padding": "Thickness",
+				"CornerRadius": "CornerRadius"
+			}
+		},
 		"RowDefinition": {
 			"IsCreatable": true,
 			"Attributes": {

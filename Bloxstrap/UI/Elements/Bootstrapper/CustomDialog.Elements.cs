@@ -729,6 +729,37 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             return stackPanel;
         }
+
+        private static Border HandleXmlElement_Border(CustomDialog dialog, XElement xmlElement)
+        {
+            var border = new Border();
+
+            ApplyBrush_UIElement(dialog, border, "Background", Border.BackgroundProperty, xmlElement);
+            ApplyBrush_UIElement(dialog, border, "BorderBrush", Border.BorderBrushProperty, xmlElement);
+
+            object? borderThickness = GetThicknessFromXElement(xmlElement, "BorderThickness");
+            if (borderThickness != null)
+                border.BorderThickness = (Thickness)borderThickness;
+
+            object? padding = GetThicknessFromXElement(xmlElement, "Padding");
+            if (padding != null)
+                border.Padding = (Thickness)padding;
+
+            object? cornerRadius = GetCornerRadiusFromXElement(xmlElement, "CornerRadius");
+            if (cornerRadius != null)
+                border.CornerRadius = (CornerRadius)cornerRadius;
+
+            var children = xmlElement.Elements().Where(x => !x.Name.ToString().StartsWith("Border."));
+            if (children.Any())
+            {
+                if (children.Count() > 1)
+                    throw new Exception("Border can only have one child");
+
+                border.Child = HandleXml<UIElement>(dialog, children.First());
+            }
+
+            return border;
+        }
         #endregion
     }
 }

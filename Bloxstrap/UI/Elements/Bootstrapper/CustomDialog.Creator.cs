@@ -32,6 +32,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["Image"] = HandleXmlElement_Image,
             ["Grid"] = HandleXmlElement_Grid,
             ["StackPanel"] = HandleXmlElement_StackPanel,
+            ["Border"] = HandleXmlElement_Border,
 
             ["SolidColorBrush"] = HandleXmlElement_SolidColorBrush,
             ["ImageBrush"] = HandleXmlElement_ImageBrush,
