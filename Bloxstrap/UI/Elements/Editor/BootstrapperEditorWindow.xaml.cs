@@ -187,7 +187,6 @@ namespace Bloxstrap.UI.Elements.Editor
         {
             _viewModel.Code = UIXML.Text;
             _viewModel.CodeChanged = true;
-            _viewModel.OnPropertyChanged(nameof(_viewModel.Code));
         }
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
