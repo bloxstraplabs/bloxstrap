@@ -4,13 +4,11 @@ using System.Xml;
 using ICSharpCode.AvalonEdit.CodeCompletion;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.Highlighting;
 
 using Bloxstrap.UI.Elements.Base;
 using Bloxstrap.UI.ViewModels.Editor;
-using ICSharpCode.AvalonEdit.Highlighting;
-using System.Windows.Media;
-using ICSharpCode.AvalonEdit.Highlighting.Xshd;
-using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Editor
 {
@@ -138,10 +136,14 @@ namespace Bloxstrap.UI.Elements.Editor
         {
             CustomBootstrapperSchema.ParseSchema();
 
-            string themeContents = File.ReadAllText(Path.Combine(Paths.CustomThemes, name, "Theme.xml"));
+            string directory = Path.Combine(Paths.CustomThemes, name);
+
+            string themeContents = File.ReadAllText(Path.Combine(directory, "Theme.xml"));
             themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
 
             var viewModel = new BootstrapperEditorWindowViewModel();
+            viewModel.ThemeSavedCallback = ThemeSavedCallback;
+            viewModel.Directory = directory;
             viewModel.Name = name;
             viewModel.Title = $"Editing \"{name}\"";
             viewModel.Code = themeContents;
@@ -152,20 +154,25 @@ namespace Bloxstrap.UI.Elements.Editor
             UIXML.Text = viewModel.Code;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
 
-            // im so stupid
+            LoadHighlightingTheme();
+        }
 
-            var resourceUri = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ? new Uri("pack://application:,,,/Resources/LightEditor.xshd") : new Uri("pack://application:,,,/Resources/DarkEditor.xshd");
-            using (var stream = Application.GetResourceStream(resourceUri)?.Stream)
-            {
-                if (stream == null)
-                    throw new FileNotFoundException("Resource not found");
+        private void LoadHighlightingTheme()
+        {
+            string name = $"Editor-Theme-{App.Settings.Prop.Theme.GetFinal()}.xshd";
+            using Stream xmlStream = Resource.GetStream(name);
+            using XmlReader reader = XmlReader.Create(xmlStream);
+            UIXML.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
 
-                using (var reader = new XmlTextReader(stream))
-                {
-                    var highlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                    UIXML.SyntaxHighlighting = highlighting;
-                }
-            }
+            UIXML.TextArea.TextView.SetResourceReference(ICSharpCode.AvalonEdit.Rendering.TextView.LinkTextForegroundBrushProperty, "NewTextEditorLink");
+        }
+
+        private void ThemeSavedCallback(bool success, string message)
+        {
+            if (success)
+                Snackbar.Show("Settings saved!", message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
+            else
+                Snackbar.Show("Error", message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
         }
 
         private static string ToCRLF(string text)
