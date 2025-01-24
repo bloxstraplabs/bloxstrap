@@ -261,15 +261,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             svgviewbox.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             svgviewbox.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            
+            string? xml = xmlElement.Value;
             if (xmlElement.Value != null)
-            {
-                string? xml = xmlElement.Value;
                 svgviewbox.SvgSource = xml;
-            }
 
-            var path = GetSourceData(dialog, "Source", xmlElement);
-            svgviewbox.UriSource = path;
+            if (xmlElement.Attribute("Source")?.Value?.ToString() != null)
+            {
+                var path = GetSourceData(dialog, "Source", xmlElement);
+                svgviewbox.UriSource = path;
+            }
 
             return svgviewbox;
         }
@@ -299,14 +299,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             svgbitmap.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             svgbitmap.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            if (xmlElement.Value != null)
-            {
-                string? xml = xmlElement.Value;
+            string? xml = xmlElement.Value;
+            if (xmlElement.Value != null)            
                 svgbitmap.SvgSource = xml;
-            }
 
-            var path = GetSourceData(dialog, "Source", xmlElement);
-            svgbitmap.UriSource = path;
+            if (xmlElement.Attribute("Source")?.Value?.ToString() != null)
+            {
+                var path = GetSourceData(dialog, "Source", xmlElement);
+                svgbitmap.UriSource = path;
+            }
 
             return svgbitmap;
         }
