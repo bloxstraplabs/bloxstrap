@@ -105,7 +105,7 @@ namespace Bloxstrap.Models.Entities
 
         public string GetInviteDeeplink(bool launchData = true)
         {
-            string deeplink = $"roblox://experiences/start?placeId={PlaceId}";
+            string deeplink = $"https://www.roblox.com/games/start?placeId={PlaceId}";
 
             if (ServerType == ServerType.Private) // thats not going to work
                 deeplink += "&accessCode=" + AccessCode;
