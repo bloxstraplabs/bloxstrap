@@ -17,6 +17,7 @@
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     Closing="OnClosing"
     ExtendsContentIntoTitleBar="True"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
