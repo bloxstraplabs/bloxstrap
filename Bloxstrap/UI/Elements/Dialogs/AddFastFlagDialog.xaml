@@ -16,6 +16,7 @@
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
         WindowStartupLocation="CenterScreen">
     <ui:UiWindow.Resources>
         <converters:RangeConverter x:Key="ValidationConverter" From="0" />
