@@ -737,6 +737,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static Border HandleXmlElement_Border(CustomDialog dialog, XElement xmlElement)
         {
             var border = new Border();
+            HandleXmlElement_FrameworkElement(dialog, border, xmlElement);
 
             ApplyBrush_UIElement(dialog, border, "Background", Border.BackgroundProperty, xmlElement);
             ApplyBrush_UIElement(dialog, border, "BorderBrush", Border.BorderBrushProperty, xmlElement);
