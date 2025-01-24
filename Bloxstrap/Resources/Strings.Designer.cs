@@ -1099,6 +1099,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string Enums_BootstrapperStyle_CustomDialog {
+            get {
+                return ResourceManager.GetString("Enums.BootstrapperStyle.CustomDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap (Glass).
         /// </summary>
         public static string Enums_BootstrapperStyle_FluentAeroDialog {
@@ -1758,6 +1767,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_About_Licenses {
             get {
                 return ResourceManager.GetString("Menu.About.Licenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apache License 2.0.
+        /// </summary>
+        public static string Menu_About_Licenses_Apache {
+            get {
+                return ResourceManager.GetString("Menu.About.Licenses.Apache", resourceCulture);
             }
         }
         

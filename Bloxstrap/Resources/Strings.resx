@@ -1239,6 +1239,9 @@ Would you like to enable test mode?</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Custom</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Bloxstrap tried to upgrade Roblox but can't because Roblox's files are still in use.
 
@@ -1266,5 +1269,8 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

@@ -21,5 +21,10 @@ namespace Bloxstrap
             await stream.CopyToAsync(memoryStream);
             return memoryStream.ToArray();
         }
+
+        public static async Task<string> GetString(string name)
+        {
+            return Encoding.UTF8.GetString(await Get(name));
+        }
     }
 }
