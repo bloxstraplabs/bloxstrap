@@ -1771,6 +1771,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apache License 2.0.
+        /// </summary>
+        public static string Menu_About_Licenses_Apache {
+            get {
+                return ResourceManager.GetString("Menu.About.Licenses.Apache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BSD 2-Clause License.
         /// </summary>
         public static string Menu_About_Licenses_BSD2 {

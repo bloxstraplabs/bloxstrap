@@ -1270,4 +1270,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
+  </data>
 </root>
