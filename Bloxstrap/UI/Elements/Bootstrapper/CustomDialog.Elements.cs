@@ -387,6 +387,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Resources.MergedDictionaries.Add(new ThemesDictionary() { Theme = wpfUiTheme });
             dialog.DefaultBorderThemeOverwrite = wpfUiTheme;
 
+            dialog.WindowCornerPreference = ParseXmlAttribute<Wpf.Ui.Appearance.WindowCornerPreference>(xmlElement, "WindowCornerPreference", Wpf.Ui.Appearance.WindowCornerPreference.Round);
+
             // disable default window border if border is modified
             if (xmlElement.Attribute("BorderBrush") != null || xmlElement.Attribute("BorderThickness") != null)
                 dialog.DefaultBorderEnabled = false;

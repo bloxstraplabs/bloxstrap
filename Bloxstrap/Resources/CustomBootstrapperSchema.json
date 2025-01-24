@@ -45,7 +45,8 @@
 				"Version": "int",
 				"Theme": "Theme",
 				"Title": "string",
-				"IgnoreTitleBarInset": "bool"
+				"IgnoreTitleBarInset": "bool",
+				"WindowCornerPreference": "WindowCornerPreference"
 			}
 		},
 		"TitleBar": {
@@ -506,6 +507,14 @@
 			"Values": [
 				"Horizontal",
 				"Vertical"
+			]
+		},
+		"WindowCornerPreference": {
+			"Values": [
+				"Default",
+				"DoNotRound",
+				"Round",
+				"RoundSmall"
 			]
 		}
 	}
