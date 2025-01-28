@@ -49,9 +49,7 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
  
 ## Screenshots
 <p align="center">
-    <img src="https://i.imgur.com/nUnjTTg.png"/>
-    <img src="https://i.imgur.com/s7nechI.png"/>
-    <img src="https://i.imgur.com/ZZdsQmJ.png"/>
+    <img src="https://fishstrap.app/img/Showcase.png"/>
 <p>
 
 ----
