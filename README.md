@@ -47,7 +47,7 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
  
  *More changes coming soon!*
  
-## Screenshots
+## Showcase
 <p align="center">
     <img src="https://fishstrap.app/img/Showcase.png"/>
 <p>
