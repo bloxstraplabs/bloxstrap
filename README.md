@@ -7,6 +7,10 @@
     <img src="https://github.com/returnrqt/bloxstrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="420">
 </p>
 
+<p align="center">
+    <img src="https://fishstrap.app/img/Showcase.png"/>
+<p>
+
 <div align="center">
 
 [![License][shield-repo-license]][repo-license]
@@ -46,12 +50,6 @@ Found any bugs? Submit an [issue](https://github.com/returnrqt/bloxstrap/issues)
     - Custom bootstrapper themes
  
  *More changes coming soon!*
- 
-## Showcase
-<p align="center">
-    <img src="https://fishstrap.app/img/Showcase.png"/>
-<p>
-
 ----
 ### Considering a switch? [Download it here](https://github.com/returnrqt/bloxstrap/releases).
 
