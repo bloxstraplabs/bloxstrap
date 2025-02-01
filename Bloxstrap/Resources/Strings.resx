@@ -1466,8 +1466,8 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Sends detailed ping information to the Roblox console.</value>
   </data>
   <data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
-    <value>Launching failed due to missing client.
-		Please enable Roblox upgrades.</value>
+    <value>Upgrades were disabled with missing client.
+	To prevent issues upgrading will continue.</value>
   </data>
   <data name="ContextMenu.PlayerLogs.Title" xml:space="preserve">
     <value>Player logs</value>

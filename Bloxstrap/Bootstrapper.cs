@@ -730,10 +730,9 @@ namespace Bloxstrap
                 Thread.Sleep(2000);
             }
 
-            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory) && false)
+            if (CancelUpgrade && !Directory.Exists(_latestVersionDirectory))
             {
                 Frontend.ShowMessageBox(Strings.Bootstrapper_Dialog_NoUpgradeWithoutClient, MessageBoxImage.Error, MessageBoxButton.OK);
-                App.Terminate();
             }
             else if (CancelUpgrade)
             {
