@@ -6,9 +6,11 @@ using Wpf.Ui.Appearance;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
 
+#if !DEBUG_ROSLYN_PUBLISH
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
+#endif
 
 using Bloxstrap.Integrations;
 
@@ -90,11 +92,13 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             // this is done to register the context menu wrapper as a tool window so it doesnt appear in the alt+tab switcher
             // https://stackoverflow.com/a/551847/11852173
 
+#if !DEBUG_ROSLYN_PUBLISH
             HWND hWnd = (HWND)new WindowInteropHelper(this).Handle;
 
             int exStyle = PInvoke.GetWindowLong(hWnd, WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE);
             exStyle |= 0x00000080; //NativeMethods.WS_EX_TOOLWINDOW;
             PInvoke.SetWindowLong(hWnd, WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, exStyle);
+#endif
         }
 
         private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
