@@ -19,7 +19,6 @@ namespace Bloxstrap.Models.Persistable
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
-        public bool RenameClientToEuroTrucks2 { get; set; } = false;
         public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox//Player");
         public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
         public string ChannelHash { get; set; } = "";
