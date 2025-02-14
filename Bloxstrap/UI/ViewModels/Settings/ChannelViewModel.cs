@@ -32,7 +32,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             try
             {
-                ClientVersion info = await Deployment.GetInfo(false, channel);
+                ClientVersion info = await Deployment.GetInfo(channel);
 
                 ShowChannelWarning = info.IsBehindDefaultChannel;
                 OnPropertyChanged(nameof(ShowChannelWarning));
@@ -97,6 +97,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.UpdateRoblox;
             set => App.Settings.Prop.UpdateRoblox = value;
+        }
+
+        public IReadOnlyDictionary<string, ChannelChangeMode> ChannelChangeModes => new Dictionary<string, ChannelChangeMode>
+        {
+            { Strings.Menu_Channel_ChangeAction_Automatic, ChannelChangeMode.Automatic },
+            { Strings.Menu_Channel_ChangeAction_Prompt, ChannelChangeMode.Prompt },
+            { Strings.Menu_Channel_ChangeAction_Ignore, ChannelChangeMode.Ignore },
+        };
+
+        public string SelectedChannelChangeMode
+        {
+            get => ChannelChangeModes.FirstOrDefault(x => x.Value == App.Settings.Prop.ChannelChangeMode).Key;
+            set => App.Settings.Prop.ChannelChangeMode = ChannelChangeModes[value];
         }
 
         public bool ForceRobloxReinstallation

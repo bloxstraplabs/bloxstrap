@@ -1504,4 +1504,29 @@ Please join Bloxshade discord server for more information</value>
   <data name="Menu.Deployment.Channel.OutOfDate" xml:space="preserve">
     <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
   </data>
+	<data name="Bootstrapper.Dialog.ChannelOutOfDate" xml:space="preserve">
+    <value>The channel you're currently on ({0}) is out of date, and appears to no longer be receiving updates.\n
+Would you like to switch to the default channel ({1})?</value>
+  </data>
+	<data name="Menu.Channel.ChangeAction.Title" xml:space="preserve">
+    <value>Automatic channel change action</value>
+  </data>
+	<data name="Menu.Channel.ChangeAction.Description" xml:space="preserve">
+    <value>Roblox or Fishstrap may try to change your preferred channel.</value>
+  </data>
+	<data name="Menu.Channel.ChangeAction.Automatic" xml:space="preserve">
+    <value>Change automatically</value>
+  </data>
+	<data name="Menu.Channel.ChangeAction.Prompt" xml:space="preserve">
+    <value>Always prompt</value>
+  </data>
+	<data name="Menu.Channel.ChangeAction.Ignore" xml:space="preserve">
+    <value>Never change</value>
+  </data>
+	<data name="Bootstrapper.Bootstrapper.Dialog.PromptChannelChange" xml:space="preserve">
+    <value>Roblox is attempting to set your channel to {0}, however your current preferred channel is {1}.
+
+
+Would you like to switch your preferred channel to {0}?</value>
+  </data>
 </root>

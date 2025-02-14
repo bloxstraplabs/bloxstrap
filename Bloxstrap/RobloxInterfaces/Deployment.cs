@@ -141,7 +141,7 @@ namespace Bloxstrap.RobloxInterfaces
             return location;
         }
 
-        public static async Task<ClientVersion> GetInfo(bool? isUpgrade = false, string ? channel = null)
+        public static async Task<ClientVersion> GetInfo(string ? channel = null)
         {
             const string LOG_IDENT = "Deployment::GetInfo";
 

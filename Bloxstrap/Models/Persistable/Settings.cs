@@ -19,8 +19,9 @@ namespace Bloxstrap.Models.Persistable
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
-        public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox//Player");
-        public string Channel { get; set; } = Bloxstrap.RobloxInterfaces.Deployment.DefaultChannel;
+        public string ClientPath { get; set; } = Path.Combine(Paths.Base, "Roblox//Player"); // why is it here
+        public string Channel { get; set; } = RobloxInterfaces.Deployment.DefaultChannel;
+        public ChannelChangeMode ChannelChangeMode = ChannelChangeMode.Automatic;
         public string ChannelHash { get; set; } = "";
         public string DownloadingStringFormat { get; set; } = Strings.Bootstrapper_Status_Downloading + " {0} - {1}MB / {2}MB";
         public string? SelectedCustomTheme { get; set; } = null;

@@ -24,6 +24,7 @@ using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
+using System.Threading.Channels;
 
 namespace Bloxstrap
 {
@@ -274,13 +275,55 @@ namespace Bloxstrap
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
-            if (match.Groups.Count == 2)
+            // CHANNEL CHANGE MODE
+
+            void EnrollChannel()
             {
-                Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
+                if (match.Groups.Count == 2)
+                {
+                    Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
+                }
+                else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
+                {
+                    Deployment.Channel = value.ToLowerInvariant();
+                }
             }
-            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
+
+            switch (App.Settings.Prop.ChannelChangeMode)
             {
-                Deployment.Channel = value.ToLowerInvariant();
+                case ChannelChangeMode.Automatic:
+                    App.Logger.WriteLine(LOG_IDENT, "Enrolling into channel");
+
+                    EnrollChannel();
+                    break;
+                case ChannelChangeMode.Prompt:
+                    App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
+
+                    if (
+                        (!match.Success || match.Groups.Count != 2)
+                        && 
+                        match.Groups[1].Value == App.Settings.Prop.Channel
+                        )
+                    {
+                        App.Logger.WriteLine(LOG_IDENT,"Channel is either equal or incorrectly formatted");
+                        break;
+                    }
+
+                    string DisplayChannel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
+
+                    var Result = Frontend.ShowMessageBox(
+                    String.Format(Strings.Bootstrapper_Bootstrapper_Dialog_PromptChannelChange,
+                    DisplayChannel, App.Settings.Prop.Channel),
+                    MessageBoxImage.Question,
+                    MessageBoxButton.YesNo
+                    );
+
+                    if (Result == MessageBoxResult.Yes)
+                        EnrollChannel();
+                    break;
+                case ChannelChangeMode.Ignore:
+                    App.Logger.WriteLine(LOG_IDENT, "Ignoring channel enrollment");
+                    break;
             }
 
             if (String.IsNullOrEmpty(Deployment.Channel))
@@ -288,27 +331,44 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
 
-            if (!Deployment.IsDefaultChannel)
-                App.SendStat("robloxChannel", Deployment.Channel);
-
             ClientVersion clientVersion;
 
             try
             {
-                clientVersion = await Deployment.GetInfo();
+                clientVersion = await Deployment.GetInfo(Deployment.Channel);
             }
-            catch (InvalidChannelException ex)
+            catch (HttpResponseException ex)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
+                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
+                    throw;
 
+                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a build does not exist for {App.Settings.Prop.Channel}");
                 Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
+                clientVersion = await Deployment.GetInfo(Deployment.Channel);
             }
 
             if (clientVersion.IsBehindDefaultChannel)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
+                MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
+                {
+                    ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
+                        String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
+                        MessageBoxImage.Warning,
+                        MessageBoxButton.YesNo
+                    ),
+                    ChannelChangeMode.Automatic => MessageBoxResult.Yes,
+                    ChannelChangeMode.Ignore => MessageBoxResult.No,
+                    _ => MessageBoxResult.None
+                };
 
+                if (action == MessageBoxResult.Yes)
+                {
+                    App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
+
+                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo(Deployment.Channel);
+                }
+                
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo();
             }
@@ -323,7 +383,7 @@ namespace Bloxstrap
 
             _versionPackageManifest = new(pkgManifestData);
         }
-
+        
         private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
