@@ -91,8 +91,6 @@ namespace Bloxstrap
 
         private void SetStatus(string message)
         {
-            App.Logger.WriteLine("Bootstrapper::SetStatus", message);
-
             message = message.Replace("{product}", AppData.ProductName);
 
             if (Dialog is not null)
