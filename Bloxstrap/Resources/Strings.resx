@@ -1492,11 +1492,10 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Ansel support is required for shaders.</value>
   </data>
   <data name="Dialog.Bloxshade.ThankYou" xml:space="preserve">
-    <value>Bloxshade is no longer supported</value>
+    <value>Thank you for using Bloxshade with Fishstrap</value>
   </data>
   <data name="Dialog.Bloxshade.Setting" xml:space="preserve">
-    <value>Due to recent Roblox update Ansel is no longer supported
-Please join Bloxshade discord server for more information</value>
+    <value>Ansel support has been enabled</value>
   </data>
   <data name="Common.Profiles" xml:space="preserve">
     <value>Profiles</value>
@@ -1504,26 +1503,26 @@ Please join Bloxshade discord server for more information</value>
   <data name="Menu.Deployment.Channel.OutOfDate" xml:space="preserve">
     <value>This channel is out of date, and is likely no longer being updated. Please use another channel.</value>
   </data>
-	<data name="Bootstrapper.Dialog.ChannelOutOfDate" xml:space="preserve">
+  <data name="Bootstrapper.Dialog.ChannelOutOfDate" xml:space="preserve">
     <value>The channel you're currently on ({0}) is out of date, and appears to no longer be receiving updates.\n
 Would you like to switch to the default channel ({1})?</value>
   </data>
-	<data name="Menu.Channel.ChangeAction.Title" xml:space="preserve">
+  <data name="Menu.Channel.ChangeAction.Title" xml:space="preserve">
     <value>Automatic channel change action</value>
   </data>
-	<data name="Menu.Channel.ChangeAction.Description" xml:space="preserve">
+  <data name="Menu.Channel.ChangeAction.Description" xml:space="preserve">
     <value>Roblox or Fishstrap may try to change your preferred channel.</value>
   </data>
-	<data name="Menu.Channel.ChangeAction.Automatic" xml:space="preserve">
+  <data name="Menu.Channel.ChangeAction.Automatic" xml:space="preserve">
     <value>Change automatically</value>
   </data>
-	<data name="Menu.Channel.ChangeAction.Prompt" xml:space="preserve">
+  <data name="Menu.Channel.ChangeAction.Prompt" xml:space="preserve">
     <value>Always prompt</value>
   </data>
-	<data name="Menu.Channel.ChangeAction.Ignore" xml:space="preserve">
+  <data name="Menu.Channel.ChangeAction.Ignore" xml:space="preserve">
     <value>Never change</value>
   </data>
-	<data name="Bootstrapper.Bootstrapper.Dialog.PromptChannelChange" xml:space="preserve">
+  <data name="Bootstrapper.Bootstrapper.Dialog.PromptChannelChange" xml:space="preserve">
     <value>Roblox is attempting to set your channel to {0}, however your current preferred channel is {1}.
 
 
