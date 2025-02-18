@@ -67,8 +67,6 @@ namespace Bloxstrap
 
         private int _appPid = 0;
 
-        private int totalPackageSize = 0;
-
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
@@ -867,14 +865,6 @@ namespace Bloxstrap
 
             foreach (var package in _versionPackageManifest)
             {
-                if (package.Name == "WebView2RuntimeInstaller.zip")
-                    continue;
-
-                totalPackageSize += package.Size;
-            }
-
-            foreach (var package in _versionPackageManifest)
-            {
                 if (_cancelTokenSource.IsCancellationRequested)
                     return;
 
@@ -1311,9 +1301,9 @@ namespace Bloxstrap
                         _totalDownloadedBytes += bytesRead;
                         SetStatus(
                             String.Format(App.Settings.Prop.DownloadingStringFormat, 
-                            package.Name, 
-                            _totalDownloadedBytes / 1048576,
-                            totalPackageSize / 1048576
+                            package.Name,
+                            totalBytesRead / 1048576,
+                            _versionPackageManifest.Sum(package => package.PackedSize) / 1048576
                             ));
                         UpdateProgressBar();
                     }
