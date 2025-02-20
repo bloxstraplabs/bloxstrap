@@ -1181,10 +1181,11 @@ namespace Bloxstrap
             try
             {
                 // as of 2.8.6.7 its disabled due to byfron :(
-                //bool RobloxPlayerBeta = File.Exists(Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"));
+                // its not idiot
+                bool RobloxPlayerBeta = File.Exists(Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"));
                 bool eurotrucks2 = File.Exists(Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"));
 
-                //bool Rename = App.Settings.Prop.RenameClientToEuroTrucks2;
+                bool Rename = App.Settings.Prop.RenameClientToEuroTrucks2;
 
                 // renaming to robloxplayerbeta
                 if (eurotrucks2)
@@ -1195,13 +1196,13 @@ namespace Bloxstrap
                         );
                 }
                 // renaming to eurotrucks2
-                //else if (RobloxPlayerBeta && Rename)
-                //{
-                //    File.Move(
-                //        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"),
-                //        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
-                //    );
-                //}
+                else if (RobloxPlayerBeta && Rename)
+                {
+                    File.Move(
+                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"),
+                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
+                    );
+                }
             } 
             catch (Exception ex)
             {

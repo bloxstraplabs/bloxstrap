@@ -1033,8 +1033,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Due to recent Roblox update Ansel is no longer supported
-        ///Please join Bloxshade discord server for more information.
+        ///   Looks up a localized string similar to Ansel support has been enabled.
         /// </summary>
         public static string Dialog_Bloxshade_Setting {
             get {
@@ -1043,7 +1042,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxshade is no longer supported.
+        ///   Looks up a localized string similar to Thank you for using Bloxshade with Fishstrap.
         /// </summary>
         public static string Dialog_Bloxshade_ThankYou {
             get {
