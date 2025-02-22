@@ -2868,6 +2868,17 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Going above 240 FPS is not recommended, as this change may cause issues and worsen performance.
+        ///
+        ///[Click to learn more]({0}).
+        /// </summary>
+        public static string Menu_FastFlags_240FPSWarning {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.240FPSWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Control how specific Roblox engine parameters and features are configured..
         /// </summary>
         public static string Menu_FastFlags_Description {

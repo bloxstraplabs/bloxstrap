@@ -3,6 +3,7 @@
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Enums.FlagPresets;
+using System.Windows;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using Wpf.Ui.Mvvm.Contracts;
 
@@ -50,7 +51,22 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public int FramerateLimit
         {
             get => int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x) ? x : 0;
-            set => App.FastFlags.SetPreset("Rendering.Framerate", value == 0 ? null : value);
+            set {
+                App.FastFlags.SetPreset("Rendering.Framerate", value == 0 ? null : value);
+                if (value > 240)
+                {
+                    Frontend.ShowMessageBox(
+                        String.Format(Strings.Menu_FastFlags_240FPSWarning, "https://github.com/bloxstraplabs/bloxstrap/wiki/Why-you-can't-(or-shouldn't)-go-faster-than-240-FPS"),
+                        MessageBoxImage.Warning,
+                        MessageBoxButton.OK
+                        );
+                    // already done & commited (note to future me)
+                    App.FastFlags.SetPreset("Rendering.LimitFramerate", "False");
+                } else if (value <= 240)
+                {
+                    App.FastFlags.SetPreset("Rendering.LimitFramerate", null);
+                }
+            }
         }
 
         public IReadOnlyDictionary<MSAAMode, string?> MSAALevels => FastFlagManager.MSAAModes;

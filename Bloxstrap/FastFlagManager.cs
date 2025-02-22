@@ -27,8 +27,11 @@ namespace Bloxstrap
             { "Debug.FlagState", "FStringDebugShowFlagState"},
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
 
-            // Presets and stuff
+            // FPS
+            { "Rendering.LimitFramerate", "FFlagTaskSchedulerLimitTargetFpsTo2402" }, // i might reconcider this
             { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
+
+            // Presets and stuff
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },

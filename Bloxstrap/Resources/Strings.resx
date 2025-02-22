@@ -1528,4 +1528,9 @@ Would you like to switch to the default channel ({1})?</value>
 
 Would you like to switch your preferred channel to {0}?</value>
   </data>
+  <data name="Menu.FastFlags.240FPSWarning" xml:space="preserve">
+    <value>Going above 240 FPS is not recommended, as this change may cause issues and worsen performance.
+
+[Click to learn more]({0})</value>
+  </data>
 </root>
