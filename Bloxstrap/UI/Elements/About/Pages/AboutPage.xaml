@@ -98,6 +98,7 @@
             <controls:Expander Grid.Column="0" Margin="0,0,4,0" HeaderIcon="Code24" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_Code}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[return_request](https://github.com/returnrqt)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Alexa](https://github.com/GoingCrazyDude/)" />
                     <controls:MarkdownTextBlock MarkdownText="[pizzaboxer](https://github.com/pizzaboxer)" />
                     <controls:MarkdownTextBlock MarkdownText="[Matt](https://github.com/bluepilledgreat)" />
                     <controls:MarkdownTextBlock MarkdownText="[GSczbfXn](https://github.com/ZFkQSZ3GxWFy6bthZ)" />
@@ -122,7 +123,8 @@
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[kezcn](https://www.roblox.com/users/4401881748/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[bloodraven](https://github.com/bloodrvn)" />
-                    <controls:MarkdownTextBlock MarkdownText="[lachine](https://github.com/lachine1)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Skylan](https://github.com/Skylan031/)" />
+                    <controls:MarkdownTextBlock MarkdownText="[cam1494](https://github.com/cam1494)" />
                     <controls:MarkdownTextBlock MarkdownText="[he3als](https://github.com/he3als)" />
                     <controls:MarkdownTextBlock MarkdownText="[NikSavchenk0](https://github.com/NikSavchenk0)" />
                     <controls:MarkdownTextBlock MarkdownText="[carter0nline](https://github.com/carter0nline)" />
@@ -145,6 +147,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[Encythe](https://github.com/Encythe)" />
                     <controls:MarkdownTextBlock MarkdownText="[hugo9655](https://github.com/hugo9655)" />
                     <controls:MarkdownTextBlock MarkdownText="[CubesterYT](https://github.com/CubesterYT)" />
+                    <controls:MarkdownTextBlock MarkdownText="[lachine](https://github.com/lachine1)" />
                     <controls:MarkdownTextBlock MarkdownText="[TheRealSpriteMan1337](https://github.com/TheRealSpriteMan1337)" />
                     <controls:MarkdownTextBlock MarkdownText="[ms-gitblox](https://github.com/ms-gitblox)" />
                     <controls:MarkdownTextBlock MarkdownText="[Luximoz](https://github.com/Luximoz)" />
