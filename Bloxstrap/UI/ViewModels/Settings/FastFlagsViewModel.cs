@@ -1,11 +1,13 @@
 ﻿using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
+using SharpDX.DXGI;
 
 using Bloxstrap.Enums.FlagPresets;
 using System.Windows;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using Wpf.Ui.Mvvm.Contracts;
+using System.Windows.Documents;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -93,6 +95,21 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPresetEnum("Rendering.Mode", value.ToString(), "True");
                 App.FastFlags.SetPreset("Rendering.Mode.DisableD3D11", DisableD3D11.Contains(value) ? "True" : null);
             }
+        }
+
+        public IReadOnlyDictionary<string, string?>? GPUs
+        {
+            get => GetGPUs();
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.PreferredGPU", value);
+            }
+        }
+
+        public string SelectedGPU
+        {
+            get => App.FastFlags.GetPreset("Rendering.PreferredGPU") ?? "Automatic";
+            set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value);
         }
 
         public bool FixDisplayScaling
@@ -273,6 +290,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 RequestPageReloadEvent?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        public static IReadOnlyDictionary<string, string?> GetGPUs()
+        {
+            Dictionary<string, string?> GPUs = new();
+
+            GPUs.Add("Automatic", null);
+
+            using (var factory = new Factory1())
+            {
+                for (int i = 0; i < factory.GetAdapterCount1(); i++)
+                {
+                    var GPU = factory.GetAdapter1(i);
+
+                    var Name = GPU.Description;
+                    GPUs.Add(Name.Description, Name.Description);
+                }
+            }
+
+            return GPUs;
         }
     }
 }

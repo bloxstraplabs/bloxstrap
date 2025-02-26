@@ -46,6 +46,9 @@ namespace Bloxstrap
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
             { "Rendering.FixHighlights", "FFlagHighlightOutlinesOnMobile"},
 
+            // Preferred GPU
+            { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
+
             // Lighting technology
             { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
             { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
