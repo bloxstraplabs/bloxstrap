@@ -100,16 +100,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public IReadOnlyDictionary<string, string?>? GPUs
         {
             get => GetGPUs();
-            set
-            {
-                App.FastFlags.SetPreset("Rendering.PreferredGPU", value);
-            }
+            set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value);
         }
 
         public string SelectedGPU
         {
             get => App.FastFlags.GetPreset("Rendering.PreferredGPU") ?? "Automatic";
-            set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value);
+            set => App.FastFlags.SetPreset("Rendering.PreferredGPU", value == "Automatic" ? null : value);
         }
 
         public bool FixDisplayScaling
