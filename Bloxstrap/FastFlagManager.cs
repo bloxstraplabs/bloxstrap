@@ -283,6 +283,8 @@ namespace Bloxstrap
             return mapping.First().Key;
         }
 
+        public bool IsPreset(string Flag) => PresetFlags.Values.Any(v => v.ToLower() == Flag.ToLower());
+
         public override void Save()
         {
             // convert all flag values to strings before saving

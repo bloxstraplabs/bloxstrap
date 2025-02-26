@@ -349,7 +349,23 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void ExportJSONButton_Click(object sender, RoutedEventArgs e)
         {
-            string json = JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true });
+            Dictionary<string, object> FFlagsForExporting = new Dictionary<string, object>();
+
+            var IncludePresetsDialog = Frontend.ShowMessageBox(
+                Strings.Menu_FastFlagEditor_ExportJson_IncludePresets,
+                MessageBoxImage.Question, 
+                MessageBoxButton.YesNo
+                );
+
+            foreach (var Flag in App.FastFlags.Prop)
+            {
+                if (App.FastFlags.IsPreset(Flag.Key) && IncludePresetsDialog != MessageBoxResult.Yes) 
+                    continue;
+
+                FFlagsForExporting.Add(Flag.Key, Flag.Value);
+            }
+
+            string json = JsonSerializer.Serialize(FFlagsForExporting, new JsonSerializerOptions { WriteIndented = true });
             Clipboard.SetDataObject(json);
             Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_JsonCopiedToClipboard, MessageBoxImage.Information);
         }

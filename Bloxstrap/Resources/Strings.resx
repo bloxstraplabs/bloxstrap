@@ -1539,4 +1539,7 @@ Would you like to switch your preferred channel to {0}?</value>
   <data name="Menu.FastFlags.Presets.PreferredGPU.Description" xml:space="preserve">
     <value>Select the GPU that Roblox will use for rendering. Useful if you have 2 or more GPUs on your PC.</value>
   </data>
+  <data name="Menu.FastFlagEditor.ExportJson.IncludePresets" xml:space="preserve">
+    <value>Would you like to include preset FFlags?</value>
+  </data>
 </root>
