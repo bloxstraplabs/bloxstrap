@@ -1379,7 +1379,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Roblox Menu</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.IngameMenu.Description" xml:space="preserve">
-    <value>Debloat Roblox menu with custom toggles</value>
+    <value>Debloat Roblox menu with FFlags</value>
   </data>
   <data name="Common.Deployment" xml:space="preserve">
     <value>Deployment</value>
@@ -1393,32 +1393,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Title" xml:space="preserve">
     <value>Language selector</value>
   </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Title" xml:space="preserve">
-    <value>Haptics button</value>
-  </data>
   <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Title" xml:space="preserve">
     <value>Framerate cap</value>
   </data>
   <data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
     <value>Chat translation</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Description" xml:space="preserve">
-    <value>Allows to disable VR mode toggle.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description" xml:space="preserve">
-    <value>Hides the button for submitting feedback on translation quality.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.Haptics.Description" xml:space="preserve">
-    <value>Disables haptic feedback features, such as vibrations for controllers.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Description" xml:space="preserve">
-    <value>Removes FPS presets from the menu.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description" xml:space="preserve">
-    <value>Allows players to disable interface translation.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description" xml:space="preserve">
-    <value>Disables automatic translation of chat messages.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
     <value>Flag state</value>

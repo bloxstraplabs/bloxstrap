@@ -2942,7 +2942,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Debloat Roblox menu with custom toggles.
+        ///   Looks up a localized string similar to Debloat Roblox menu with FFlags.
         /// </summary>
         public static string Menu_FastFlags_Presets_Categories_IngameMenu_Description {
             get {
@@ -3140,29 +3140,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disables automatic translation of chat messages..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Chat translation.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_ChatTranslation_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Removes FPS presets from the menu..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_Framerate_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Framerate.Description", resourceCulture);
             }
         }
         
@@ -3176,33 +3158,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disables haptic feedback features, such as vibrations for controllers..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_Haptics_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Haptics.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Haptics button.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_Haptics_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.Haptics.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Allows players to disable interface translation..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Language selector.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_LanguageSelector_Title {
@@ -3212,29 +3167,11 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hides the button for submitting feedback on translation quality..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Feedback button.
         /// </summary>
         public static string Menu_FastFlags_Presets_IngameMenu_SoothsayerCheck_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Allows to disable VR mode toggle..
-        /// </summary>
-        public static string Menu_FastFlags_Presets_IngameMenu_VRToggle_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.IngameMenu.VRToggle.Description", resourceCulture);
             }
         }
         
