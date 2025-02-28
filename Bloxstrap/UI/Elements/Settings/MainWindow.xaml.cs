@@ -39,10 +39,12 @@ namespace Bloxstrap.UI.Elements.Settings
 
             RootNavigation.SelectedPageIndex = LastPage;
 
-            RootNavigation.Navigated += SaveNavigation;
+            RootNavigation.Navigated += SaveNavigation!;
 
-            void SaveNavigation(INavigation? sender, RoutedNavigationEventArgs? e)
+            void SaveNavigation(object? sender, RoutedNavigationEventArgs? e)
             {
+                if (sender == null || e == null) return;
+
                 App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
             }
         }
