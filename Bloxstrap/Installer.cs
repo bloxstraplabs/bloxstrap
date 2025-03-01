@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Bloxstrap.AppData;
 using Microsoft.Win32;
 
 namespace Bloxstrap
@@ -250,7 +251,8 @@ namespace Bloxstrap
             }
             else
             {
-                string playerPath = Path.Combine((string)playerFolder, App.Settings.Prop.RenameClientToEuroTrucks2 ? "eurotrucks2.exe" : "RobloxPlayerBeta.exe");
+                bool AnselApp = File.Exists(Path.Combine((string)playerFolder, App.RobloxAnselAppName));
+                string playerPath = Path.Combine((string)playerFolder, AnselApp ? App.RobloxAnselAppName : "RobloxPlayerBeta.exe");
 
                 WindowsRegistry.RegisterPlayer(playerPath, "%1");
             }

@@ -283,7 +283,7 @@ namespace Bloxstrap
                     // get process name
                     string ProcessName = "RobloxPlayerBeta";
                     if (App.Settings.Prop.RenameClientToEuroTrucks2)
-                        ProcessName = "eurotrucks2"; // ansel supports
+                        ProcessName = App.RobloxAnselAppName; // ansel supports
                     App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name \"{ProcessName}\".exe, running Fishstrap in background.");
 
                     // now yield until the processes are closed

@@ -60,7 +60,11 @@ namespace Bloxstrap
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
 
-        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => 
+            String.IsNullOrEmpty(AppData.State.VersionGuid) ||
+            !File.Exists(AppData.ExecutablePath) ||
+            !AppData.ExecutablePath.Contains(":\\"); // fix standalone eurotrucks2.exe bug
+
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -380,7 +384,7 @@ namespace Bloxstrap
             _versionPackageManifest = new(pkgManifestData);
         }
         
-        private void StartRoblox()
+        private async void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
@@ -396,6 +400,9 @@ namespace Bloxstrap
                         $"robloxLocale:{match.Groups[1].Value}", 
                         StringComparison.OrdinalIgnoreCase);
             }
+
+            if ((!File.Exists(AppData.ExecutablePath) || !AppData.ExecutablePath.Contains(":\\")) && !_noConnection)
+                await UpgradeRoblox(); // calling it here isnt smart
 
             var startInfo = new ProcessStartInfo()
             {
@@ -1180,18 +1187,19 @@ namespace Bloxstrap
 
             try
             {
+                string AnselName = App.RobloxAnselAppName;
                 // as of 2.8.6.7 its disabled due to byfron :(
                 // its not idiot
                 bool RobloxPlayerBeta = File.Exists(Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"));
-                bool eurotrucks2 = File.Exists(Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"));
+                bool Ansel = File.Exists(Path.Combine(_latestVersionDirectory, AnselName));
 
                 bool Rename = App.Settings.Prop.RenameClientToEuroTrucks2;
 
                 // renaming to robloxplayerbeta
-                if (eurotrucks2)
+                if (Ansel)
                 {
                     File.Move(
-                            Path.Combine(_latestVersionDirectory, "eurotrucks2.exe"),
+                            Path.Combine(_latestVersionDirectory, AnselName),
                             Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe")
                         );
                 }
@@ -1200,7 +1208,7 @@ namespace Bloxstrap
                 {
                     File.Move(
                         Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"),
-                        Path.Combine(_latestVersionDirectory, "eurotrucks2.exe")
+                        Path.Combine(_latestVersionDirectory, AnselName)
                     );
                 }
             } 
