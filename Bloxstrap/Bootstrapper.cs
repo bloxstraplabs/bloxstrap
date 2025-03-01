@@ -302,7 +302,7 @@ namespace Bloxstrap
                     if (
                         (!match.Success || match.Groups.Count != 2)
                         && 
-                        match.Groups[1].Value == App.Settings.Prop.Channel
+                        match.Groups[2].Value != App.Settings.Prop.Channel
                         )
                     {
                         App.Logger.WriteLine(LOG_IDENT,"Channel is either equal or incorrectly formatted");
