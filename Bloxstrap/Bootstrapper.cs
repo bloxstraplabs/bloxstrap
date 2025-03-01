@@ -58,6 +58,7 @@ namespace Bloxstrap
         private double _taskbarProgressIncrement;
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
+        private bool _packageExtractionSuccess = true;
 
         private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
@@ -78,7 +79,15 @@ namespace Bloxstrap
 
             // https://github.com/icsharpcode/SharpZipLib/blob/master/src/ICSharpCode.SharpZipLib/Zip/FastZip.cs/#L669-L680
             // exceptions don't get thrown if we define events without actually binding to the failure events. probably a bug. ¯\_(ツ)_/¯
-            _fastZipEvents.FileFailure += (_, e) => throw e.Exception;
+            _fastZipEvents.FileFailure += (_, e) =>
+            {
+                // only give a pass to font files (no idea whats wrong with them)
+                if (!e.Name.EndsWith(".ttf"))
+                    throw e.Exception;
+
+                App.Logger.WriteLine("FastZipEvents::OnFileFailure", $"Failed to extract {e.Name}");
+                _packageExtractionSuccess = false;
+            };
             _fastZipEvents.DirectoryFailure += (_, e) => throw e.Exception;
             _fastZipEvents.ProcessFile += (_, e) => e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
 
@@ -221,6 +230,8 @@ namespace Bloxstrap
                 }
             }
 
+            bool allModificationsApplied = true;
+
             if (!_noConnection)
             {
                 if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
@@ -231,7 +242,7 @@ namespace Bloxstrap
 
                 // we require deployment details for applying modifications for a worst case scenario,
                 // where we'd need to restore files from a package that isn't present on disk and needs to be redownloaded
-                await ApplyModifications();
+                allModificationsApplied = await ApplyModifications();
             }
 
             // check registry entries for every launch, just in case the stock bootstrapper changes it back
@@ -245,7 +256,15 @@ namespace Bloxstrap
                 await mutex.ReleaseAsync();
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelTokenSource.IsCancellationRequested)
+            {
+                // show some balloon tips
+                if (!_packageExtractionSuccess)
+                    Frontend.ShowBalloonTip("Failed to extract files", "Some content may be missing. Please force a Roblox reinstallation in settings.", ToolTipIcon.Warning);
+                else if (!allModificationsApplied)
+                    Frontend.ShowBalloonTip("Failed to apply modifications", "Not all modifications will be present with the current launch.", ToolTipIcon.Warning);
+
                 StartRoblox();
+            }
 
             await mutex.ReleaseAsync();
 
@@ -927,9 +946,11 @@ namespace Bloxstrap
             _isInstalling = false;
         }
 
-        private async Task ApplyModifications()
+        private async Task<bool> ApplyModifications()
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
+
+            bool success = true;
 
             SetStatus(Strings.Bootstrapper_Status_ApplyingModifications);
 
@@ -1006,7 +1027,7 @@ namespace Bloxstrap
             foreach (string file in Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories))
             {
                 if (_cancelTokenSource.IsCancellationRequested)
-                    return;
+                    return true;
 
                 // get relative directory path
                 string relativeFile = file.Substring(Paths.Modifications.Length + 1);
@@ -1038,10 +1059,18 @@ namespace Bloxstrap
                 Directory.CreateDirectory(Path.GetDirectoryName(fileVersionFolder)!);
 
                 Filesystem.AssertReadOnly(fileVersionFolder);
-                File.Copy(fileModFolder, fileVersionFolder, true);
-                Filesystem.AssertReadOnly(fileVersionFolder);
-
-                App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} has been copied to the version folder");
+                try
+                {
+                    File.Copy(fileModFolder, fileVersionFolder, true);
+                    Filesystem.AssertReadOnly(fileVersionFolder);
+                    App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} has been copied to the version folder");
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to apply modification ({relativeFile})");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                    success = false;
+                }
             }
 
             // the manifest is primarily here to keep track of what files have been
@@ -1088,7 +1117,7 @@ namespace Bloxstrap
                 if (package is not null)
                 {
                     if (_cancelTokenSource.IsCancellationRequested)
-                        return;
+                        return true;
 
                     await DownloadPackage(package);
                     ExtractPackage(package, entry.Value);
@@ -1099,6 +1128,11 @@ namespace Bloxstrap
             App.State.Save();
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
+
+            if (!success)
+                App.Logger.WriteLine(LOG_IDENT, "Failed to apply all modifications");
+
+            return success;
         }
 
         private async Task DownloadPackage(Package package)
