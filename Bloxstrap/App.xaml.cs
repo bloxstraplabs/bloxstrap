@@ -190,13 +190,6 @@ namespace Bloxstrap
             {
                 Logger.WriteLine(LOG_IDENT, $"Detected unsupported Windows version ({Environment.OSVersion.Version}).");
 
-                if (Settings.Prop.IgnoreWindows78Deprecation)
-                {
-                    Logger.WriteLine(LOG_IDENT, "IgnoreWindows78Deprecation flag enabled. Skipping deprecation message.");
-                    Logger.WriteLine(LOG_IDENT, "================= DO NOT REQUEST FOR SUPPORT. YOU WILL BE IGNORED. =================");
-                    return;
-                }
-
                 if (!LaunchSettings.QuietFlag.Active)
                     Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
 
