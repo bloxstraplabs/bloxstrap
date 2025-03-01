@@ -68,7 +68,7 @@
 
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <Grid Margin="0,8,0,0">
+        <Grid Margin="0,8,0,0" MinHeight="325">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -109,7 +109,11 @@
                 </Grid>
                 <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <ui:TextBox Margin="0,4,0,0" PlaceholderText="{Binding Source='/k echo {0}', Converter={StaticResource StringFormatConverter}, ConverterParameter={x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
-                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
+                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_SpecifyGame}" IsChecked="{Binding SelectedCustomIntegration.SpecifyGame, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_GameID}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Visibility="{Binding SelectedCustomIntegration.SpecifyGame, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <ui:TextBox Margin="0,4,0,0" PlaceholderText="1818" Text="{Binding SelectedCustomIntegration.GameID}" Visibility="{Binding SelectedCustomIntegration.SpecifyGame, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoCloseOnGame}" IsChecked="{Binding SelectedCustomIntegration.AutoCloseOnGame, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SelectedCustomIntegration.SpecifyGame, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding SelectedCustomIntegration.SpecifyGame, Converter={StaticResource InverseBooleanToVisibilityConverter}}" />
             </StackPanel>
             <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock.Style>
