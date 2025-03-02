@@ -118,19 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nebyl schopen automaticky aktulizovat na verzi {0}. Prosím aktualizujte ručně stažením a spuštěním z webové stránky.</value>
+    <value>Bloxstrap nebyl schopen se automaticky aktualizovat na verzi {0}. Prosím aktualizujte ručně stažením a spuštěním z webové stránky.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox už běží, a spouštění další objektů se roblox zavře. Opravdu chcete pokračovat se spuštění?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Něco pravděpodobně brání Bloxstrapu připojení k internetu.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox může být právě teď mimo provoz. Další informace viz {0}.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Vypršel časový limit připojení, což může znamenat špatné připojení k internetu nebo zablokování brány firewall.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Nelze navázat připojení, což pravděpodobně naznačuje špatné připojení k internetu nebo firewall block. Pokud je připojení v pořádku, ujistěte se, že váš antivirus neblokuje Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>První si musíš nainstalovat Bloxstrap než odinstaluješ.</value>
@@ -178,8 +175,8 @@
     <value>Bloxstrap byl úspěšně odinstalován</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox teď běží, ale musí být zavřen, před tím, než odinstalujete Bloxstrap.
-Chtěli by jste teď zavřít Roblox?</value>
+    <value>Roblox právě běží, ale musí být zavřen, před tím, než odinstalujete Bloxstrap.
+Chtěli nyní zavřít Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox potřebuje použití komponentů Windows Media Foundation. Vypadá, že vam chybí, nejspíše protože používáte Windows edici N. Prosíme nejdříve je nainstalujte, až po té pusťte Roblox.</value>
@@ -283,7 +280,7 @@ Klikněte pro více informací</value>
     <value>Chyba připojení</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap není schopen se připojit k {0}u</value>
+    <value>Bloxstrap není schopen se připojit k {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -515,7 +512,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Zeptat se k potvrzení při spouštění další instance Roblox</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigurovat co Bloxstrap by měl udělat při spuštění Roblox.</value>
+    <value>Konfigurovat co by měl Bloxstrap udělat při spuštění Robloxu.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox se přeinstaluje při dalším spuštení.</value>
@@ -684,7 +681,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Povolit připojení k aktivitě</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Zobrazí Roblox účet na kterém hrajete na vašém profilu Discord.</value>
+    <value>Zobrazí na kterém Roblox účtu hráte na vašém profilu Discord.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
     <value>Zobrazit účet Robloxu</value>
@@ -717,7 +714,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Nakonfigurujte další funkcionality vedle Robloxu.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox se úplně zavře, když opustíte hru, místo aby vás pustil zpět do aplikace.</value>
+    <value>Roblox se zcela zavře, když opustíte hru namísto návratu do aplikace. [Rozbije některé věci!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Nevypínejte na desktopovou aplikaci</value>
@@ -757,7 +754,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Vyberte font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Velikost písma může být změněna v tabu Fast Flags.</value>
+    <value>Velikost písma může být změněna v nastavení enginu.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Soubor, který jste vybrali, zřejmě není platným souborem fontu.</value>
@@ -906,6 +903,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>soubory JSON</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Záznam pro '{0}' není platný, protože hodnota musí být logická (buď 'True' nebo 'False')</value>
@@ -1029,7 +1027,7 @@ Bloxstrap byl nainstalován na "{1}".</value>
     <value>Nakonfigurovat nastavení</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>Máte problem?</value>
+    <value>Máte problém?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
     <value>Pro pomoc se podívejte na Wiki</value>
@@ -1101,22 +1099,25 @@ Opravdu chcete pokračovat?</value>
     <value>Roblox se nepodařilo spustit.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox se spadl.</value>
+    <value>Roblox spadl.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Přečtěte si prosím následující pomocné informace, které se otevřou ve vašem webovém prohlížeči, až zavřete tento dialog.</value>
+    <value>Pro informace o tom, proč k tomu může docházet a jak to lze vyřešit, si přečtěte [tento článek s nápovědou]({0}).
+
+Zkontrolujte, zda Roblox funguje [s původním spouštěčem]({1}). Pokud nefunguje, problém není způsoben Bloxstrapem. Pokud ano, podívejte se na článek s nápovědou.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepodařilo se načíst data kvůli chybám internetové sítě.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>Našítání, počkejte prosím...</value>
+    <value>Načítání, počkejte prosím...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
     <value>Podporovatelé</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Toto jsou lidé, kteří momentálně podporují Bloxstrap skrze [Ko-fi]({0}). Obrovské díky všem zde!</value>
+    <value>Tohle jsou lidé, kteří podpořili Bloxstrap skrz Ko-fi. Velký dík všem zde!
+Každá osoba je zařazena podle celkového závazku.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Nezdařilo se načíst vaše nastavení. Byly obnoveny na výchozí konfiguraci.</value>
@@ -1180,6 +1181,9 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
     <value>Extrahovat ikony Robloxu do složky</value>
   </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Umožňuje používat rozsah Roblox ikon Bloxstrapu pro zástupce. [Podívej se jak na to.]({0})</value>
+  </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap není schopen zapisovat do registru Windows. Antivirus pravděpodobně zasahuje a způsobuje problémy. Prosím zkontrolujte, zda nemáte nic, co by omezilo funkci Bloxstrapu.</value>
   </data>
@@ -1225,12 +1229,42 @@ Chcete zapnout testovací režim?</value>
     <value>Instalovat</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Podpořte nás na Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Ikony</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Spustit Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Verze {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap se pokusil aktualizovat Roblox, ale nemůže, protože soubory Robloxu jsou stále používány.
+
+Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spusťte.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Archiv Zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Exportovat</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Exportovat diagnostická data</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Shromažďujte informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Konfigurace Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Všechny bloxstrap logy</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

@@ -179,6 +179,8 @@ namespace Bloxstrap
             }
 #endif
 
+            App.AssertWindowsOSVersion();
+
             // ensure only one instance of the bootstrapper is running at the time
             // so that we don't have stuff like two updates happening simultaneously
 
@@ -298,14 +300,6 @@ namespace Bloxstrap
             catch (InvalidChannelException ex)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
-            }
-
-            if (clientVersion.IsBehindDefaultChannel)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because it's behind production");
 
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo();
@@ -665,7 +659,7 @@ namespace Bloxstrap
                     {
                         Directory.Delete(dir, true);
                     }
-                    catch (IOException ex)
+                    catch (Exception ex)
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {dir}");
                         App.Logger.WriteException(LOG_IDENT, ex);
@@ -693,6 +687,28 @@ namespace Bloxstrap
             }
         }
 
+        private static void KillRobloxPlayers()
+        {
+            const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
+
+            List<Process> processes = new List<Process>();
+            processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
+
+            foreach (Process process in processes)
+            {
+                try
+                {
+                    process.Kill();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id}");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+        }
+
         private async Task UpgradeRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
@@ -707,6 +723,24 @@ namespace Bloxstrap
             Directory.CreateDirectory(Paths.Versions);
 
             _isInstalling = true;
+
+            // make sure nothing is running before continuing upgrade
+            if (!IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
+                KillRobloxPlayers();
+
+            // get a fully clean install
+            if (Directory.Exists(_latestVersionDirectory))
+            {
+                try
+                {
+                    Directory.Delete(_latestVersionDirectory, true);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
 
             Directory.CreateDirectory(_latestVersionDirectory);
 

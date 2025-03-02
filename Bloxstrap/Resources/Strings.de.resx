@@ -123,14 +123,11 @@
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox ist gerade geöffnet und wird beim Starten eines neuen Fensters geschlossen. Bist du dir sicher, dass du fortfahren möchtest?</value>
   </data>
-  <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Irgendetwas hindert Bloxstrap daran, sich mit dem Internet zu verbinden.</value>
-  </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Roblox könnte aktuell nicht erreichbar sein. Siehe dir {0} für mehr Informationen an.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Die Verbindung wurde wegen einer Zeitüberschreitung unterbrochen, was entweder auf eine schlechte Internetverbindung oder einen Firewall-Block hinweist.</value>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Es konnte keine Verbindung hergestellt werden, was wahrscheinlich auf eine schlechte Internetverbindung oder eine Firewall-Blockade hinweist. Sollte das Problem nicht bei deiner Internetverbindung liegen, könnte es sein, dass Bloxstrap durch dein Antivirus blockiert wird.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Du musst zuerst Bloxstrap installieren, bevor du es deinstallierst.</value>
@@ -178,7 +175,7 @@
     <value>Bloxstrap wurde erfolgreich deinstalliert</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox ist im Moment geöffnet und muss geschlossen werden, um Bloxstrap zu deinstallieren. Möchtest du Roblox jetzt schließen?</value>
+    <value>Roblox läuft derzeit, muss jedoch geschlossen werden, bevor Bloxstrap deinstalliert werden kann. Möchtest du Roblox jetzt schließen?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox erfordert die Nutzung von Windows Media Foundation Komponenten. Es sieht so aus, als ob sie bei dir fehlen, wahrscheinlich weil du eine N Edition von Windows verwendest. Bitte installiere sie zuerst und starte anschließend Roblox.</value>
@@ -717,7 +714,7 @@ Wenn du 'Nein' wählst, wird diese Warnung ignoriert und die Installation fortge
     <value>Konfiguriere zusätzliche Funktionalität für Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox wird vollständig geschlossen, wenn du ein Spiel verlässt, anstatt dich zur App zurückzubringen.</value>
+    <value>Roblox wird vollständig geschlossen, wenn du ein Spiel verlässt, anstatt zur App zurückzukehren. [Dies wird einige Dinge beeinträchtigen!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Nicht zur Desktop-App zurückkehren</value>
@@ -757,7 +754,7 @@ Wenn du 'Nein' wählst, wird diese Warnung ignoriert und die Installation fortge
     <value>Schriftart auswählen...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Schriftartgröße kann im Fast Flags Fenster angepasst werden.</value>
+    <value>Die Schriftgröße kann im Tab 'Engine-Einstellungen' angepasst werden.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Die von dir gewählte Datei scheint keine gültige Schriftdatei zu sein.</value>
@@ -906,6 +903,7 @@ Wenn du 'Nein' wählst, wird diese Warnung ignoriert und die Installation fortge
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
     <value>JSON Dateien</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
     <value>Die Eingabe für '{0}' ist nicht gültig, da der Wert ein Boolean sein muss (entweder 'True' oder 'False')</value>
@@ -1104,7 +1102,9 @@ Bist du sicher, dass du fortfahren möchtest?</value>
     <value>Roblox ist abgestürzt.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Bitte lese die folgenden Hilfestellungen, welche sich nach dem Schließen des Dialogs in deinem Webbrowser öffnen.</value>
+    <value>Für Informationen warum dies passieren könnte und wie es behoben werden kann, lese bitte [diesen Hilfeartikel]({0}).
+
+Prüfe, ob Roblox mit [dem ursprünglichen Launcher]({1}) funktioniert. Wenn nicht, liegt das Problem nicht bei Bloxstrap. Wenn doch, greife bitte auf den Hilfeartikel zurück.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Daten konnten aufgrund eines Netzwerkfehlers nicht geladen werden.</value>
@@ -1116,7 +1116,8 @@ Bist du sicher, dass du fortfahren möchtest?</value>
     <value>Supporter</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Dies sind die Leute, die Bloxstrap aktuell durch [Ko-fi]({0}) unterstützen. Ein herzliches Dankeschön an alle hier!</value>
+    <value>Dies sind die Personen die Bloxstrap über Ko-fi unterstützt haben. Ein riesiges Dankeschön an alle hier!
+Jede Person hier ist nach ihrem gesamten Beitrag eingestuft.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Deine Einstellungen konnten nicht geladen werden. Sie wurden auf die Standardkonfiguration zurückgesetzt.</value>
@@ -1228,12 +1229,42 @@ Möchtest du den Testmodus aktivieren?</value>
     <value>Installieren</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-  <data name="LaunchMenu.Donate" xml:space="preserve">
-    <value>Supporte uns auf Ko-fi!</value>
-    <comment>Call-to-action button</comment>
-  </data>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Icons</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studio starten</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap hat versucht, Roblox zu aktualisieren, kann dies jedoch nicht, da die Dateien von Roblox noch verwendet werden.
+
+Bitte schließe alle Anwendungen, die möglicherweise auf die Dateien von Roblox zugreifen, und starte die App neu.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip Archiv</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Exportieren</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Diagnosedaten exportieren</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Speichere informationen, welche online hochgeladen werden können, um bei der Problemlösung zu helfen.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap Konfiguration</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Alle Bloxstrap Protokolle</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>
