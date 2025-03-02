@@ -93,7 +93,7 @@ namespace Bloxstrap.Integrations
             }
 
             _activeIntegrations.Clear();
-
+            _activityWatcher.Dispose();
             GC.SuppressFinalize(this);
         }
     }
