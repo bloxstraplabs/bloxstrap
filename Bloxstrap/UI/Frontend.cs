@@ -83,5 +83,17 @@ namespace Bloxstrap.UI
                 return messagebox.Result;
             }));
         }
+
+        public static void ShowBalloonTip(string title, string message, System.Windows.Forms.ToolTipIcon icon = System.Windows.Forms.ToolTipIcon.None, int timeout = 5)
+        {
+            var notifyIcon = new System.Windows.Forms.NotifyIcon
+            {
+                Icon = Properties.Resources.IconBloxstrap,
+                Text = App.ProjectName,
+                Visible = true
+            };
+
+            notifyIcon.ShowBalloonTip(timeout, title, message, icon);
+        }
     }
 }
