@@ -384,7 +384,7 @@ namespace Bloxstrap
             _versionPackageManifest = new(pkgManifestData);
         }
         
-        private async void StartRoblox()
+        private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
@@ -401,8 +401,8 @@ namespace Bloxstrap
                         StringComparison.OrdinalIgnoreCase);
             }
 
-            if ((!File.Exists(AppData.ExecutablePath) || !AppData.ExecutablePath.Contains(":\\")) && !_noConnection)
-                await UpgradeRoblox(); // calling it here isnt smart
+            //if ((!File.Exists(AppData.ExecutablePath) || !AppData.ExecutablePath.Contains(":\\")) && !_noConnection)
+            //    await UpgradeRoblox(); // calling it here isnt smart
 
             var startInfo = new ProcessStartInfo()
             {

@@ -69,6 +69,16 @@ namespace Bloxstrap.AppData
                 merged[entry.Key] = entry.Value;
 
             PackageDirectoryMap = merged;
+
+            string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxAnselAppName };
+            
+            foreach (var entry in Names) 
+            {
+                if (File.Exists(Path.Combine(Directory, entry))) 
+                {
+                    ExecutableName = entry;
+                }
+            }
         }
     }
 }
