@@ -25,6 +25,7 @@ using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 using ICSharpCode.SharpZipLib.Zip;
 using System.Threading.Channels;
+using System.Windows.Controls;
 
 namespace Bloxstrap
 {
@@ -383,8 +384,8 @@ namespace Bloxstrap
 
             _versionPackageManifest = new(pkgManifestData);
         }
-        
-        private void StartRoblox()
+
+        private async void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
@@ -401,12 +402,26 @@ namespace Bloxstrap
                         StringComparison.OrdinalIgnoreCase);
             }
 
-            //if ((!File.Exists(AppData.ExecutablePath) || !AppData.ExecutablePath.Contains(":\\")) && !_noConnection)
-            //    await UpgradeRoblox(); // calling it here isnt smart
+            string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
+            string ResolvedName = null!;
+
+            foreach (string Name in Names) {
+                string Directory = Path.Combine((string)AppData.Directory, Name);
+                if (File.Exists(Directory))
+                {
+                    ResolvedName = Name;
+                }
+            }
+
+            if (String.IsNullOrEmpty(ResolvedName))
+            {
+                //throw new Exception(ResolvedName);
+                //await UpgradeRoblox();
+            }
 
             var startInfo = new ProcessStartInfo()
             {
-                FileName = AppData.ExecutablePath,
+                FileName = Path.Combine(AppData.Directory, ResolvedName),
                 Arguments = _launchCommandLine,
                 WorkingDirectory = AppData.Directory
             };
@@ -1009,6 +1024,38 @@ namespace Bloxstrap
 
             App.State.Save();
 
+            App.Logger.WriteLine(LOG_IDENT, "Checking for eurotrucks2.exe toggle");
+
+            try
+            {
+                string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
+                string ExecutableName = null!;
+
+                if (!App.Settings.Prop.RenameClientToEuroTrucks2)
+                    return;
+
+                foreach (string Name in Names)
+                {
+                    string Directory = Path.Combine((string)AppData.Directory, Name);
+                    if (File.Exists(Directory))
+                    {
+                        ExecutableName = Name;
+                    }
+                }
+
+                if (ExecutableName == App.RobloxPlayerAppName || ExecutableName == App.RobloxStudioAppName)
+                {
+                    File.Move(
+                        Path.Combine(_latestVersionDirectory, ExecutableName),
+                        Path.Combine(_latestVersionDirectory, App.RobloxAnselAppName)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to update client! " + ex.Message);
+            }
+
             _isInstalling = false;
         }
 
@@ -1182,40 +1229,6 @@ namespace Bloxstrap
 
             App.State.Prop.ModManifest = modFolderFiles;
             App.State.Save();
-
-            App.Logger.WriteLine(LOG_IDENT,"Checking for eurotrucks2.exe toggle");
-
-            try
-            {
-                string AnselName = App.RobloxAnselAppName;
-                // as of 2.8.6.7 its disabled due to byfron :(
-                // its not idiot
-                bool RobloxPlayerBeta = File.Exists(Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"));
-                bool Ansel = File.Exists(Path.Combine(_latestVersionDirectory, AnselName));
-
-                bool Rename = App.Settings.Prop.RenameClientToEuroTrucks2;
-
-                // renaming to robloxplayerbeta
-                if (Ansel)
-                {
-                    File.Move(
-                            Path.Combine(_latestVersionDirectory, AnselName),
-                            Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe")
-                        );
-                }
-                // renaming to eurotrucks2
-                else if (RobloxPlayerBeta && Rename)
-                {
-                    File.Move(
-                        Path.Combine(_latestVersionDirectory, "RobloxPlayerBeta.exe"),
-                        Path.Combine(_latestVersionDirectory, AnselName)
-                    );
-                }
-            } 
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to update client! " + ex.Message);
-            }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
         }

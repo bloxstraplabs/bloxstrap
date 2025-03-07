@@ -24,8 +24,8 @@ namespace Bloxstrap
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/returnrqt/fishstrap/issues/new";
 
-        public const string RobloxPlayerAppName = "RobloxPlayerBeta";
-        public const string RobloxStudioAppName = "RobloxStudioBeta";
+        public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
+        public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
         // one day ill add studio support
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 

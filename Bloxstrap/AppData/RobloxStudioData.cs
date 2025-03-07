@@ -8,7 +8,7 @@
 
         public string RegistryName => "RobloxStudio";
 
-        public override string ExecutableName => "RobloxStudioBeta.exe";
+        public override string ExecutableName => App.Settings.Prop.RenameClientToEuroTrucks2 ? App.RobloxAnselAppName : App.RobloxStudioAppName;
 
         public override AppState State => App.State.Prop.Studio;
 
