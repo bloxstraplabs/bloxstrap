@@ -61,7 +61,7 @@ namespace Bloxstrap
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
 
-        private bool _mustUpgrade => 
+        private bool _mustUpgrade =>
             String.IsNullOrEmpty(AppData.State.VersionGuid) ||
             !File.Exists(AppData.ExecutablePath) ||
             !AppData.ExecutablePath.Contains(":\\"); // fix standalone eurotrucks2.exe bug
@@ -145,15 +145,15 @@ namespace Bloxstrap
                 message += $"\n\n{Strings.Dialog_Connectivity_RobloxUpgradeSkip}";
 
             Frontend.ShowConnectivityDialog(
-                String.Format(Strings.Dialog_Connectivity_UnableToConnect, "Roblox"), 
-                message, 
+                String.Format(Strings.Dialog_Connectivity_UnableToConnect, "Roblox"),
+                message,
                 _mustUpgrade ? MessageBoxImage.Error : MessageBoxImage.Warning,
                 exception);
 
             if (_mustUpgrade)
                 App.Terminate(ErrorCode.ERROR_CANCELLED);
         }
-        
+
         public async Task Run()
         {
             const string LOG_IDENT = "Bootstrapper::Run";
@@ -172,7 +172,7 @@ namespace Bloxstrap
 
             if (connectionResult is not null)
                 HandleConnectionError(connectionResult);
-            
+
 #if (!DEBUG || DEBUG_UPDATER) && !QA_BUILD
             if (App.Settings.Prop.CheckForUpdates && !App.LaunchSettings.UpgradeFlag.Active)
             {
@@ -302,11 +302,11 @@ namespace Bloxstrap
 
                     if (
                         (!match.Success || match.Groups.Count != 2)
-                        && 
+                        &&
                         match.Groups[2].Value != App.Settings.Prop.Channel
                         )
                     {
-                        App.Logger.WriteLine(LOG_IDENT,"Channel is either equal or incorrectly formatted");
+                        App.Logger.WriteLine(LOG_IDENT, "Channel is either equal or incorrectly formatted");
                         break;
                     }
 
@@ -369,7 +369,7 @@ namespace Bloxstrap
                     App.Settings.Prop.Channel = Deployment.DefaultChannel;
                     clientVersion = await Deployment.GetInfo(Deployment.Channel);
                 }
-                
+
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo();
             }
@@ -397,15 +397,16 @@ namespace Bloxstrap
 
                 if (match.Groups.Count == 2)
                     _launchCommandLine = _launchCommandLine.Replace(
-                        "robloxLocale:en_us", 
-                        $"robloxLocale:{match.Groups[1].Value}", 
+                        "robloxLocale:en_us",
+                        $"robloxLocale:{match.Groups[1].Value}",
                         StringComparison.OrdinalIgnoreCase);
             }
 
             string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
             string ResolvedName = null!;
 
-            foreach (string Name in Names) {
+            foreach (string Name in Names)
+            {
                 string Directory = Path.Combine((string)AppData.Directory, Name);
                 if (File.Exists(Directory))
                 {
@@ -415,8 +416,7 @@ namespace Bloxstrap
 
             if (String.IsNullOrEmpty(ResolvedName))
             {
-                //throw new Exception(ResolvedName);
-                //await UpgradeRoblox();
+                await UpgradeRoblox();
             }
 
             var startInfo = new ProcessStartInfo()
@@ -488,7 +488,7 @@ namespace Bloxstrap
             if (String.IsNullOrEmpty(logFileName))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Unable to identify log file");
-               // Frontend.ShowPlayerErrorDialog();
+                // Frontend.ShowPlayerErrorDialog();
                 return;
             }
             else
@@ -536,10 +536,10 @@ namespace Bloxstrap
             {
                 using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
 
-                var watcherData = new WatcherData 
-                { 
-                    ProcessId = _appPid, 
-                    LogFile = logFileName, 
+                var watcherData = new WatcherData
+                {
+                    ProcessId = _appPid,
+                    LogFile = logFileName,
                     AutoclosePids = autoclosePids
                 };
 
@@ -550,7 +550,7 @@ namespace Bloxstrap
                 if (App.LaunchSettings.TestModeFlag.Active)
                     args += " -testmode";
 
-                if (ipl.IsAcquired||true)
+                if (ipl.IsAcquired || true)
                     Process.Start(Paths.Process, args);
             }
 
@@ -618,13 +618,13 @@ namespace Bloxstrap
 
             App.SoftTerminate(ErrorCode.ERROR_CANCELLED);
         }
-#endregion
+        #endregion
 
         #region App Install
         private async Task<bool> CheckForUpdates()
         {
             const string LOG_IDENT = "Bootstrapper::CheckForUpdates";
-            
+
             // don't update if there's another instance running (likely running in the background)
             // i don't like this, but there isn't much better way of doing it /shrug
             if (Process.GetProcessesByName(App.ProjectName).Length > 1)
@@ -676,7 +676,7 @@ namespace Bloxstrap
                 Directory.CreateDirectory(Paths.TempUpdates);
 
                 App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
-                
+
                 if (!File.Exists(downloadLocation))
                 {
                     var response = await App.HttpClient.GetAsync(asset.BrowserDownloadUrl);
@@ -706,7 +706,7 @@ namespace Bloxstrap
                 App.Settings.Save();
 
                 new InterProcessLock("AutoUpdater");
-                
+
                 Process.Start(startInfo);
 
                 return true;
@@ -1236,7 +1236,7 @@ namespace Bloxstrap
         private async Task DownloadPackage(Package package)
         {
             string LOG_IDENT = $"Bootstrapper::DownloadPackage.{package.Name}";
-            
+
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
 
@@ -1322,7 +1322,7 @@ namespace Bloxstrap
 
                         _totalDownloadedBytes += bytesRead;
                         SetStatus(
-                            String.Format(App.Settings.Prop.DownloadingStringFormat, 
+                            String.Format(App.Settings.Prop.DownloadingStringFormat,
                             package.Name,
                             totalBytesRead / 1048576,
                             _versionPackageManifest.Sum(package => package.PackedSize) / 1048576

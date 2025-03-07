@@ -1521,4 +1521,7 @@ Would you like to switch your preferred channel to {0}?</value>
   <data name="Menu.FastFlagEditor.ExportJson.IncludePresets" xml:space="preserve">
     <value>Would you like to include preset FFlags?</value>
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox no longer supports Windows 7 or 8.1. To continue playing Roblox, please upgrade to Windows 10 or newer.</value>
+  </data>
 </root>
