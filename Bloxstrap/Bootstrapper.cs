@@ -74,6 +74,8 @@ namespace Bloxstrap
         #region Core
         public Bootstrapper(LaunchMode launchMode)
         {
+            App.Terminate();
+            
             _launchMode = launchMode;
 
             // https://github.com/icsharpcode/SharpZipLib/blob/master/src/ICSharpCode.SharpZipLib/Zip/FastZip.cs/#L669-L680
