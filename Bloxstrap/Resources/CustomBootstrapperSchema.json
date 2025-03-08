@@ -11,12 +11,16 @@
 				"Width": "double",
 				"HorizontalAlignment": "HorizontalAlignment",
 				"VerticalAlignment": "VerticalAlignment",
-				"ZIndex": "int",
 				"RenderTransform": "Transform",
 				"LayoutTransform": "Transform",
 				"Opacity": "double",
 				"OpacityMask": "Brush",
-				"RenderTransformOrigin": "Point"
+				"RenderTransformOrigin": "Point",
+				"Panel.ZIndex": "int",
+				"Grid.Row": "int",
+				"Grid.RowSpan": "int",
+				"Grid.Column": "int",
+				"Grid.ColumnSpan": "int"
 			}
 		},
 		"Control": {
@@ -38,7 +42,9 @@
 			"SuperClass": "Control",
 			"IsCreatable": true,
 			"Attributes": {
+				"Version": "int",
 				"Theme": "Theme",
+				"IgnoreTitleBarInset": "bool",
 				"Title": "string",
 				"WindowBackdropType": "BackgroundType",
 				"WindowCornerPreference": "WindowCornerPreference",
@@ -112,6 +118,18 @@
 			"IsCreatable": true,
 			"Attributes": {}
 		},
+		"MediaElement": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"Source": "Uri",
+				"Volume": "double",
+				"UnloadedBehaviour": "MediaState",
+				"LoadedBehaviour": "MediaState"
+			}
+		},
 		"Image": {
 			"SuperClass": "FrameworkElement",
 			"IsCreatable": true,
@@ -121,6 +139,48 @@
 				"Source": "ImageSource",
 				"IsAnimated": "bool",
 				"RepeatBehaviour": "string"
+			}
+		},
+		"Grid": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"RowDefinitions": "object",
+				"ColumnDefinitions": "object"
+			}
+		},
+		"StackPanel": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Orientation": "Orientation"
+			}
+		},
+		"Border": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Background": "Brush",
+				"BorderBrush": "Brush",
+				"BorderThickness": "Thickness",
+				"Padding": "Thickness",
+				"CornerRadius": "CornerRadius"
+			}
+		},
+		"RowDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Height": "GridLength",
+				"MinHeight": "double",
+				"MaxHeight": "double"
+			}
+		},
+		"ColumnDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Width": "GridLength",
+				"MinWidth": "double",
+				"MaxWidth": "double"
 			}
 		},
 		"ScaleTransform": {
@@ -229,6 +289,36 @@
 				"StrokeThickness": "double"
 			}
 		},
+		"SvgViewbox": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"SvgSource": "string",
+				"Source": "Uri",
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection"
+			}
+		},
+		"SvgIcon": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"SvgSource": "string",
+				"Source": "Uri",
+				"Fill": "Brush",
+				"Stroke": "Brush"
+			}
+		},
+		"SvgBitmap": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"SvgSource": "string",
+				"UriSource": "Uri"
+			}
+		},
 		"Path": {
 			"SuperClass": "Shape",
 			"IsCreatable": true,
@@ -298,15 +388,26 @@
 		"Color": {},
 		"Data": {},
 		"Figures": {},
+		"Uri": {},
 		"Geometry": {},
 		"ImageSource": {},
 		"Transform": { "CanHaveElement": true },
 		"FontFamily": {},
+		"GridLength": {},
 		"Visibility": {
 			"Values": [
 				"Visible",
 				"Hidden",
 				"Collapsed"
+			]
+		},
+		"MediaState": {
+			"Values": [
+				"Play",
+				"Stop",
+				"Close",
+				"Manual",
+				"Pause"
 			]
 		},
 		"WindowCornerPreference": {
@@ -502,6 +603,12 @@
 			"Values": [
 				"Performance",
 				"Quality"
+			]
+		},
+		"Orientation": {
+			"Values": [
+				"Horizontal",
+				"Vertical"
 			]
 		}
 	}

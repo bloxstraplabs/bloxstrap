@@ -44,10 +44,16 @@
             TextChanged="OnCodeChanged"
             Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}"/>
 
+        <ui:Button
+            Grid.Row="2"
+            Margin="10"
+            Command="{Binding Path=OpenThemeFolderCommand, Mode=OneTime}"
+            Content="Open Theme Folder" />
+
         <Grid
             Grid.Row="2"
             Margin="10"
-            HorizontalAlignment="Center">
+            HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -55,17 +61,23 @@
 
             <ui:Button
                 Grid.Column="0"
-                Margin="0,0,5,0"
-                HorizontalAlignment="Center"
+                Margin="0,0,4,0"
                 Command="{Binding Path=PreviewCommand, Mode=OneTime}"
                 Content="Preview" />
 
             <ui:Button
                 Grid.Column="1"
-                Margin="5,0,0,0"
-                HorizontalAlignment="Center"
+                Margin="4,0,0,0"
+                Appearance="Primary"
                 Command="{Binding Path=SaveCommand, Mode=OneTime}"
                 Content="Save" />
         </Grid>
+
+        <ui:Snackbar
+            x:Name="Snackbar"
+            Grid.RowSpan="3"
+            Margin="200,0,200,20"
+            Panel.ZIndex="9"
+            Timeout="3000" />
     </Grid>
 </base:WpfUiWindow>

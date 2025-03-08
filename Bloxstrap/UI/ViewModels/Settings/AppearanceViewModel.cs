@@ -89,8 +89,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public BootstrapperStyle Dialog
         {
             get => App.Settings.Prop.BootstrapperStyle;
-            set => App.Settings.Prop.BootstrapperStyle = value;
+            set
+            {
+                App.Settings.Prop.BootstrapperStyle = value;
+                OnPropertyChanged(nameof(CustomThemesExpanded)); // TODO: only fire when needed
+            }
         }
+
+        public bool CustomThemesExpanded => App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.CustomDialog;
 
         public ObservableCollection<BootstrapperIconEntry> Icons { get; set; } = new();
 
