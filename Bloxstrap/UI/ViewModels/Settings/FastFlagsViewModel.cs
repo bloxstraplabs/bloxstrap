@@ -291,19 +291,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public static IReadOnlyDictionary<string, string?> GetGPUs()
         {
+            const string LOG_IDENT = "FFlagPresets::GetGPUs";
             Dictionary<string, string?> GPUs = new();
 
             GPUs.Add("Automatic", null);
 
-            using (var factory = new Factory1())
+            try
             {
-                for (int i = 0; i < factory.GetAdapterCount1(); i++)
+                using (var factory = new Factory1())
                 {
-                    var GPU = factory.GetAdapter1(i);
+                    for (int i = 0; i < factory.GetAdapterCount1(); i++)
+                    {
+                        var GPU = factory.GetAdapter1(i);
 
-                    var Name = GPU.Description;
-                    GPUs.Add(Name.Description, Name.Description);
+                        var Name = GPU.Description;
+                        GPUs.Add(Name.Description, Name.Description);
+                    }
                 }
+            }
+            catch (Exception ex) {
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to get GPU names: {ex.Message}");
             }
 
             return GPUs;
