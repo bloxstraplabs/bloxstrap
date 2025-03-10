@@ -88,7 +88,7 @@
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_About_Licenses_MIT}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </StackPanel>
             </ui:CardAction>
-            <ui:CardAction Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/sharpdx/SharpDX/blob/master/LICENSE">
+            <ui:CardAction Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,8,0,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/returnrqt/fishstrap/blob/main/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="13" Text="Fishstrap" />
                     <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_About_Licenses_MIT}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
