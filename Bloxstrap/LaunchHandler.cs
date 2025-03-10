@@ -280,10 +280,13 @@ namespace Bloxstrap
                         App.FinalizeExceptionHandling(t.Exception);
                 }
                 if (mutex != null) {
+                    // we do .Split(".") because the names have .exe extension
+                    // getprocessbyname doesnt support .exe extensions
+
                     // get process name
-                    string ProcessName = "RobloxPlayerBeta";
+                    string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
                     if (App.Settings.Prop.RenameClientToEuroTrucks2)
-                        ProcessName = App.RobloxAnselAppName; // ansel supports
+                        ProcessName = App.RobloxAnselAppName.Split(".")[0]; // ansel supports
                     App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name \"{ProcessName}\".exe, running Fishstrap in background.");
 
                     // now yield until the processes are closed
