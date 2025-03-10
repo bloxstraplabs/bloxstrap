@@ -338,14 +338,44 @@ namespace Bloxstrap
             {
                 clientVersion = await Deployment.GetInfo(Deployment.Channel);
             }
-            catch (HttpResponseException ex)
+            catch (InvalidChannelException ex)
             {
-                if (ex.ResponseMessage.StatusCode != HttpStatusCode.NotFound)
-                    throw;
+                // copied from v2.5.4
+                // we are keeping similar logic just updated for newer apis
 
-                App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a build does not exist for {App.Settings.Prop.Channel}");
+                // If channel does not exist
+                if (ex.StatusCode == HttpStatusCode.NotFound)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                }
+                // If channel is not available to the user (private/internal release channel)
+                else if (ex.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because {App.Settings.Prop.Channel} is restricted for public use.");
+
+                    // Only prompt if user has channel switching mode set to something other than Automatic.
+                    if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
+                    {
+                        Frontend.ShowMessageBox(
+                            String.Format(
+                                Strings.Boostrapper_Dialog_UnauthroizedChannel,
+                                Deployment.Channel,
+                                Deployment.DefaultChannel
+                            ),
+                            MessageBoxImage.Information
+                        );
+                    }
+                }
+                else
+                {
+                    throw;
+                }
+
                 Deployment.Channel = Deployment.DefaultChannel;
                 clientVersion = await Deployment.GetInfo(Deployment.Channel);
+
+                App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                App.Settings.Save();
             }
 
             if (clientVersion.IsBehindDefaultChannel)

@@ -161,6 +161,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The channel you&apos;re currently on ({0}) has now been restricted from public use. You will now be on the default channel ({1})..
+        /// </summary>
+        public static string Boostrapper_Dialog_UnauthroizedChannel {
+            get {
+                return ResourceManager.GetString("Boostrapper.Dialog.UnauthroizedChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fishstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
         /// </summary>
         public static string Bootstrapper_AutoUpdateFailed {
@@ -2575,6 +2584,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Channel_RobloxUpgrades_Description {
             get {
                 return ResourceManager.GetString("Menu.Channel.RobloxUpgrades.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fetching latest deploy info, please wait....
+        /// </summary>
+        public static string Menu_Channel_Switcher_Fetching {
+            get {
+                return ResourceManager.GetString("Menu.Channel.Switcher.Fetching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified channel either doesn&apos;t exist or is private.
+        /// </summary>
+        public static string Menu_Channel_Switcher_Unauthroized {
+            get {
+                return ResourceManager.GetString("Menu.Channel.Switcher.Unauthroized", resourceCulture);
             }
         }
         
