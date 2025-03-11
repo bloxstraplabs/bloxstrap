@@ -147,7 +147,7 @@ namespace Bloxstrap.UI.Elements.Editor
             _viewModel.ThemeSavedCallback = ThemeSavedCallback;
             _viewModel.Directory = directory;
             _viewModel.Name = name;
-            _viewModel.Title = $"Editing \"{name}\"";
+            _viewModel.Title = string.Format(Strings.CustomTheme_Editor_Title, name);
             _viewModel.Code = themeContents;
 
             DataContext = _viewModel;
@@ -173,9 +173,9 @@ namespace Bloxstrap.UI.Elements.Editor
         private void ThemeSavedCallback(bool success, string message)
         {
             if (success)
-                Snackbar.Show("Settings saved!", message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
+                Snackbar.Show(Strings.CustomTheme_Editor_Save_Success, message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
             else
-                Snackbar.Show("Error", message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
+                Snackbar.Show(Strings.CustomTheme_Editor_Save_Error, message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
         }
 
         private static string ToCRLF(string text)
@@ -194,7 +194,7 @@ namespace Bloxstrap.UI.Elements.Editor
             if (!_viewModel.CodeChanged)
                 return;
 
-            var result = Frontend.ShowMessageBox($"Save changes to {_viewModel.Name}?", MessageBoxImage.Information, MessageBoxButton.YesNoCancel);
+            var result = Frontend.ShowMessageBox(string.Format(Strings.CustomTheme_Editor_ConfirmSave, _viewModel.Name), MessageBoxImage.Information, MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Cancel)
             {
                 e.Cancel = true;

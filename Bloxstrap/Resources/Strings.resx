@@ -1366,4 +1366,25 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="CustomTheme.ElementTypeCreationFailed" xml:space="preserve">
     <value>{0} failed to create {1}: {2}</value>
   </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>Editing "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Theme successfully saved!</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>An error occurred while saving your theme.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>Save changes to {0}?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Open Theme Directory</value>
+  </data>
 </root>
