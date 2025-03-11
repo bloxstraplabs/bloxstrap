@@ -119,6 +119,12 @@ namespace Bloxstrap
                     continue;
                 }
 
+                if (flag.Active)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Tried to set {identifier} flag twice");
+                    continue;
+                }
+
                 flag.Active = true;
 
                 if (i < Args.Length - 1 && Args[i+1] is string nextArg && !nextArg.StartsWith('-'))
