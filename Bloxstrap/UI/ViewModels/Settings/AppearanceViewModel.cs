@@ -177,7 +177,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             catch (Exception ex)
             {
                 App.Logger.WriteException("AppearanceViewModel::DeleteCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to delete custom theme {SelectedCustomTheme}: {ex.Message}", MessageBoxImage.Error);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_DeleteFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
                 return;
             }
 
@@ -207,7 +207,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             catch (Exception ex)
             {
                 App.Logger.WriteException("AppearanceViewModel::RenameCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to rename custom theme {SelectedCustomTheme}: {ex.Message}", MessageBoxImage.Error);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_RenameFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
                 return;
             }
 

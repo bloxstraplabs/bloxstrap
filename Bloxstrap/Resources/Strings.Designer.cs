@@ -487,6 +487,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Common_Edit {
+            get {
+                return ResourceManager.GetString("Common.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Common_Export {
@@ -645,6 +654,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Presets {
             get {
                 return ResourceManager.GetString("Common.Presets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Common_Rename {
+            get {
+                return ResourceManager.GetString("Common.Rename", resourceCulture);
             }
         }
         
@@ -2389,6 +2407,33 @@ namespace Bloxstrap.Resources {
         public static string Menu_Appearance_CustomisationTitle_Title {
             get {
                 return ResourceManager.GetString("Menu.Appearance.CustomisationTitle.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to delete custom theme {0}: {1}.
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_DeleteFailed {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.DeleteFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No custom theme selected..
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_NoneSelected {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.NoneSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to rename custom theme {0}: {1}.
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_RenameFailed {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.RenameFailed", resourceCulture);
             }
         }
         

@@ -1430,4 +1430,19 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Failed to setup custom bootstrapper: {0}.
 Defaulting to Fluent.</value>
   </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>No custom theme selected.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Failed to delete custom theme {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Failed to rename custom theme {0}: {1}</value>
+  </data>
 </root>
