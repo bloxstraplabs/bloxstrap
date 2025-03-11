@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+﻿using Windows.UI.ViewManagement;
 
 namespace Bloxstrap.Extensions
 {
@@ -9,9 +9,9 @@ namespace Bloxstrap.Extensions
             if (dialogTheme != Theme.Default)
                 return dialogTheme;
 
-            using var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize");
-
-            if (key?.GetValue("AppsUseLightTheme") is int value && value == 0)
+            var settings = new UISettings();
+            var background = settings.GetColorValue(UIColorType.Background);
+            if (((5 * background.G) + (2 * background.R) + background.B) < (8 * 128))
                 return Theme.Dark;
 
             return Theme.Light;
