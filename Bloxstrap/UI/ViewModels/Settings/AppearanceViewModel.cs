@@ -4,13 +4,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
+using ICSharpCode.SharpZipLib.Zip;
 
 using Microsoft.Win32;
 
 using Bloxstrap.UI.Elements.Settings;
 using Bloxstrap.UI.Elements.Editor;
 using Bloxstrap.UI.Elements.Dialogs;
-using System.Xml.Linq;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -25,6 +25,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand DeleteCustomThemeCommand => new RelayCommand(DeleteCustomTheme);
         public ICommand RenameCustomThemeCommand => new RelayCommand(RenameCustomTheme);
         public ICommand EditCustomThemeCommand => new RelayCommand(EditCustomTheme);
+        public ICommand ExportCustomThemeCommand => new RelayCommand(ExportCustomTheme);
 
         private void PreviewBootstrapper()
         {
@@ -223,6 +224,48 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 return;
 
             new BootstrapperEditorWindow(SelectedCustomTheme).ShowDialog();
+        }
+
+        private void ExportCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            var dialog = new SaveFileDialog
+            {
+                FileName = $"{SelectedCustomTheme}.zip",
+                Filter = $"{Strings.FileTypes_ZipArchive}|*.zip"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            string themeDir = Path.Combine(Paths.CustomThemes, SelectedCustomTheme);
+
+            using var memStream = new MemoryStream();
+            using var zipStream = new ZipOutputStream(memStream);
+
+            foreach (var filePath in Directory.EnumerateFiles(themeDir, "*.*", SearchOption.AllDirectories))
+            {
+                string relativePath = filePath[(themeDir.Length + 1)..];
+
+                var entry = new ZipEntry(relativePath);
+                entry.DateTime = DateTime.Now;
+
+                zipStream.PutNextEntry(entry);
+
+                using var fileStream = File.OpenRead(filePath);
+                fileStream.CopyTo(zipStream);
+            }
+
+            zipStream.CloseEntry();
+            zipStream.Finish();
+            memStream.Position = 0;
+
+            using var outputStream = File.OpenWrite(dialog.FileName);
+            memStream.CopyTo(outputStream);
+
+            Process.Start("explorer.exe", $"/select,\"{dialog.FileName}\"");
         }
 
         private void PopulateCustomThemes()
