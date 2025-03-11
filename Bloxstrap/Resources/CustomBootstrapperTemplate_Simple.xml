@@ -1,4 +1,4 @@
-﻿<BloxstrapCustomBootstrapper Version="0" Height="320" Width="520" IgnoreTitleBarInset="True" Theme="Default" Margin="30">
+﻿<BloxstrapCustomBootstrapper Version="1" Height="320" Width="520" IgnoreTitleBarInset="True" Theme="Default" Margin="30">
 	<!-- Find more custom bootstrapper examples at https://github.com/bloxstraplabs/custom-bootstrapper-examples -->
 	<TitleBar Title="" ShowMinimize="False" ShowClose="False" />
 

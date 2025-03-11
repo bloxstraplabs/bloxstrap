@@ -5,7 +5,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     public partial class CustomDialog
     {
-        const int Version = 0;
+        const int Version = 1;
 
         private class DummyFrameworkElement : FrameworkElement { }
 
@@ -78,6 +78,25 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 dialog.ElementGrid.Children.Add(uiElement);
         }
 
+        private static void AssertThemeVersion(string? versionStr)
+        {
+            if (string.IsNullOrEmpty(versionStr))
+                throw new Exception("BloxstrapCustomBootstrapper version is not set");
+
+            if (!uint.TryParse(versionStr, out uint version))
+                throw new Exception("BloxstrapCustomBootstrapper version is not a number");
+
+            switch (version)
+            {
+                case Version:
+                    break;
+                case 0: // Themes made between Oct 19, 2024 to Mar 11, 2025 (on the feature/custom-bootstrappers branch)
+                    throw new Exception($"BloxstrapCustomBootstrapper version {version} is no longer supported");
+                default:
+                    throw new Exception($"BloxstrapCustomBootstrapper version {version} is not recognised");
+            }
+        }
+
         private void HandleXmlBase(XElement xml)
         {
             if (_initialised)
@@ -86,8 +105,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (xml.Name != "BloxstrapCustomBootstrapper")
                 throw new Exception("XML root is not a BloxstrapCustomBootstrapper");
 
-            if (xml.Attribute("Version")?.Value != Version.ToString())
-                throw new Exception("Unknown BloxstrapCustomBootstrapper version");
+            AssertThemeVersion(xml.Attribute("Version")?.Value);
 
             if (xml.Descendants().Count() > MaxElements)
                 throw new Exception($"Custom bootstrappers can have a maximum of {MaxElements} elements");
