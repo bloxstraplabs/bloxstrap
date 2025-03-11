@@ -259,9 +259,9 @@ namespace Bloxstrap
             {
                 // show some balloon tips
                 if (!_packageExtractionSuccess)
-                    Frontend.ShowBalloonTip("Failed to extract files", "Some content may be missing. Please force a Roblox reinstallation in settings.", ToolTipIcon.Warning);
+                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ExtractionFailed_Title, Strings.Bootstrapper_ExtractionFailed_Message, ToolTipIcon.Warning);
                 else if (!allModificationsApplied)
-                    Frontend.ShowBalloonTip("Failed to apply modifications", "Not all modifications will be present with the current launch.", ToolTipIcon.Warning);
+                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ModificationsFailed_Title, Strings.Bootstrapper_ModificationsFailed_Message, ToolTipIcon.Warning);
 
                 StartRoblox();
             }

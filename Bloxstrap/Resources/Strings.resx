@@ -1267,4 +1267,16 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>All Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Failed to extract all files</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Some content may be missing. Force a Roblox reinstallation in settings to fix this.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Failed to apply all modifications</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Not all modifications will be present in the current launch.</value>
+  </data>
 </root>
