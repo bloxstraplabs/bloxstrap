@@ -1171,6 +1171,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blank.
+        /// </summary>
+        public static string Enums_CustomThemeTemplate_Blank {
+            get {
+                return ResourceManager.GetString("Enums.CustomThemeTemplate.Blank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple.
+        /// </summary>
+        public static string Enums_CustomThemeTemplate_Simple {
+            get {
+                return ResourceManager.GetString("Enums.CustomThemeTemplate.Simple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Catmoji.
         /// </summary>
         public static string Enums_EmojiType_Catmoji {

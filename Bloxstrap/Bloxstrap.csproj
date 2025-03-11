@@ -31,7 +31,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\CustomBootstrapperSchema.json" />
-    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate.xml" />
+    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Blank.xml" />
+    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Simple.xml" />
     <EmbeddedResource Include="Resources\Icon2008.ico" />
     <EmbeddedResource Include="Resources\Icon2011.ico" />
     <EmbeddedResource Include="Resources\Icon2017.ico" />

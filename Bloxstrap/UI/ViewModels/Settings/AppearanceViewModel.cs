@@ -9,6 +9,8 @@ using Microsoft.Win32;
 
 using Bloxstrap.UI.Elements.Settings;
 using Bloxstrap.UI.Elements.Editor;
+using Bloxstrap.UI.Elements.Dialogs;
+using System.Xml.Linq;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -131,31 +133,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        private string CreateCustomThemeName()
-        {
-            int count = Directory.GetDirectories(Paths.CustomThemes).Count();
-
-            string name = $"Custom Theme {count + 1}";
-
-            // TODO: this sucks
-            if (Directory.Exists(Path.Combine(Paths.CustomThemes, name))) // DUCK
-                name += " " + Random.Shared.Next(1, 100000).ToString(); // easy
-
-            return name;
-        }
-
-        private void CreateCustomThemeStructure(string name)
-        {
-            string dir = Path.Combine(Paths.CustomThemes, name);
-            Directory.CreateDirectory(dir);
-
-            string themeFilePath = Path.Combine(dir, "Theme.xml");
-
-            string templateContent = Encoding.UTF8.GetString(Resource.Get("CustomBootstrapperTemplate.xml").Result);
-
-            File.WriteAllText(themeFilePath, templateContent);
-        }
-
         private void DeleteCustomThemeStructure(string name)
         {
             string dir = Path.Combine(Paths.CustomThemes, name);
@@ -171,24 +148,20 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void AddCustomTheme()
         {
-            string name = CreateCustomThemeName();
+            var dialog = new AddCustomThemeDialog();
+            dialog.ShowDialog();
 
-            try
+            if (dialog.Created)
             {
-                CreateCustomThemeStructure(name);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteException("AppearanceViewModel::AddCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to create custom theme: {ex.Message}", MessageBoxImage.Error);
-                return;
-            }
+                CustomThemes.Add(dialog.ThemeName);
+                SelectedCustomThemeIndex = CustomThemes.Count - 1;
 
-            CustomThemes.Add(name);
-            SelectedCustomThemeIndex = CustomThemes.Count - 1;
+                OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+                OnPropertyChanged(nameof(IsCustomThemeSelected));
 
-            OnPropertyChanged(nameof(SelectedCustomThemeIndex));
-            OnPropertyChanged(nameof(IsCustomThemeSelected));
+                if (dialog.OpenEditor)
+                    EditCustomTheme();
+            }
         }
 
         private void DeleteCustomTheme()
