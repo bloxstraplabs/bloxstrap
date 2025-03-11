@@ -87,7 +87,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             if (string.IsNullOrEmpty(_viewModel.Name))
             {
-                _viewModel.NameError = "Name cannot be empty";
+                _viewModel.NameError = Strings.CustomTheme_Add_Errors_NameEmpty;
                 return false;
             }
 
@@ -98,16 +98,16 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 switch (validationResult)
                 {
                     case PathValidator.ValidationResult.IllegalCharacter:
-                        _viewModel.NameError = "Name contains illegal characters";
+                        _viewModel.NameError = Strings.CustomTheme_Add_Errors_NameIllegalCharacters;
                         break;
                     case PathValidator.ValidationResult.ReservedFileName:
-                        _viewModel.NameError = "Name cannot be used";
+                        _viewModel.NameError = Strings.CustomTheme_Add_Errors_NameReserved;
                         break;
                     default:
                         App.Logger.WriteLine(LOG_IDENT, $"Got unhandled PathValidator::ValidationResult {validationResult}");
                         Debug.Assert(false);
 
-                        _viewModel.NameError = "Unknown error";
+                        _viewModel.NameError = Strings.CustomTheme_Add_Errors_Unknown;
                         break;
                 }
 
@@ -118,7 +118,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
             string path = Path.Combine(Paths.CustomThemes, _viewModel.Name, "Theme.xml");
             if (File.Exists(path))
             {
-                _viewModel.NameError = "Name is already in use";
+                _viewModel.NameError = Strings.CustomTheme_Add_Errors_NameTaken;
                 return false;
             }    
 
@@ -131,7 +131,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             if (!_viewModel.FilePath.EndsWith(".zip"))
             {
-                _viewModel.FileError = "File must be a ZIP";
+                _viewModel.FileError = Strings.CustomTheme_Add_Errors_FileNotZip;
                 return false;
             }
 
@@ -153,7 +153,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
                 if (!foundThemeFile)
                 {
-                    _viewModel.FileError = "Theme file could not be found in the ZIP file";
+                    _viewModel.FileError = Strings.CustomTheme_Add_Errors_ZipMissingThemeFile;
                     return false;
                 }
 
@@ -164,7 +164,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 App.Logger.WriteLine(LOG_IDENT, "Got invalid data");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                _viewModel.FileError = "Invalid or corrupted ZIP file";
+                _viewModel.FileError = Strings.CustomTheme_Add_Errors_ZipInvalidData;
                 return false;
             }
         }

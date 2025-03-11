@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
 
             <ui:TitleBar
-                Title="Add Custom Theme"
+                Title="{x:Static resources:Strings.CustomTheme_Add_Title}"
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Padding="8"
@@ -43,7 +43,7 @@
                 Grid.Row="1"
                 Margin="16"
                 SelectedIndex="{Binding Path=SelectedTab, Mode=TwoWay}">
-                <TabItem Header="Create New">
+                <TabItem Header="{x:Static resources:Strings.Common_CreateNew}">
                     <Grid Grid.Row="1" Margin="16">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -93,7 +93,7 @@
                             Grid.Column="0"
                             MinWidth="100"
                             VerticalAlignment="Center"
-                            Text="Template" />
+                            Text="{x:Static resources:Strings.Common_Template}" />
 
                         <ComboBox
                             Grid.Row="1"
@@ -108,7 +108,7 @@
                         </ComboBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Import">
+                <TabItem Header="{x:Static resources:Strings.Common_Import}">
                     <Grid Margin="11">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />

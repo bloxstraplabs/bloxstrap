@@ -442,6 +442,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        public static string Common_CreateNew {
+            get {
+                return ResourceManager.GetString("Common.CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
         public static string Common_Custom {
@@ -492,6 +501,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Help {
             get {
                 return ResourceManager.GetString("Common.Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import.
+        /// </summary>
+        public static string Common_Import {
+            get {
+                return ResourceManager.GetString("Common.Import", resourceCulture);
             }
         }
         
@@ -685,6 +703,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Template.
+        /// </summary>
+        public static string Common_Template {
+            get {
+                return ResourceManager.GetString("Common.Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
         public static string Common_Value {
@@ -844,6 +871,87 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_ServerInformation_Type {
             get {
                 return ResourceManager.GetString("ContextMenu.ServerInformation.Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File must be a ZIP.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_FileNotZip {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.FileNotZip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be empty.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameEmpty {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name contains illegal characters.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameIllegalCharacters {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameIllegalCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be used.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameReserved {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name is already in use.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameTaken {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_Unknown {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid or corrupted ZIP file.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_ZipInvalidData {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.ZipInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme file could not be found in the ZIP file.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_ZipMissingThemeFile {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.ZipMissingThemeFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Custom Theme.
+        /// </summary>
+        public static string CustomTheme_Add_Title {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Title", resourceCulture);
             }
         }
         
