@@ -152,6 +152,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Roblox no longer supports Windows 7 or 8.1. To continue playing Roblox, please upgrade to Windows 10 or newer..
+        /// </summary>
+        public static string App_OSDeprecation_Win7_81 {
+            get {
+                return ResourceManager.GetString("App.OSDeprecation.Win7_81", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website..
         /// </summary>
         public static string Bootstrapper_AutoUpdateFailed {
@@ -166,6 +175,24 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_ConfirmLaunch {
             get {
                 return ResourceManager.GetString("Bootstrapper.ConfirmLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some content may be missing. Force a Roblox reinstallation in settings to fix this..
+        /// </summary>
+        public static string Bootstrapper_ExtractionFailed_Message {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ExtractionFailed.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to extract all files.
+        /// </summary>
+        public static string Bootstrapper_ExtractionFailed_Title {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ExtractionFailed.Title", resourceCulture);
             }
         }
         
@@ -195,6 +222,24 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_JsonManagerSaveFailed {
             get {
                 return ResourceManager.GetString("Bootstrapper.JsonManagerSaveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not all modifications will be present in the current launch..
+        /// </summary>
+        public static string Bootstrapper_ModificationsFailed_Message {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ModificationsFailed.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to apply all modifications.
+        /// </summary>
+        public static string Bootstrapper_ModificationsFailed_Title {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ModificationsFailed.Title", resourceCulture);
             }
         }
         
