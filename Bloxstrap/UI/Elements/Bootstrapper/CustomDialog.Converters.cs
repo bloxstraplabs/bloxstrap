@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
@@ -37,7 +38,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
+                throw new CustomThemeException(ex, "CustomTheme.ElementAttributeConversionError", xmlElement.Name, attributeName, ex.Message);
             }
         }
 
@@ -82,7 +83,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new Exception($"{element.Name} has invalid {attributeName}: {ex.Message}", ex);
+                throw new CustomThemeException(ex, "CustomTheme.ElementAttributeConversionError", element.Name, attributeName, ex.Message);
             }
         }
     }

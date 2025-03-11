@@ -848,6 +848,222 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom dialog has already been initialised.
+        /// </summary>
+        public static string CustomTheme_DialogAlreadyInitialised {
+            get {
+                return ResourceManager.GetString("CustomTheme.DialogAlreadyInitialised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} uses blacklisted scheme {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeBlacklistedUriScheme {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeBlacklistedUriScheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} has invalid {1}: {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeConversionError {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeConversionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} is not a valid {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeInvalidType {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeInvalidType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Element {0} is missing the {1} attribute.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMissing {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} is missing it&apos;s child.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMissingChild {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMissingChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} can only have one child.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMultipleChildren {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMultipleChildren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} can only have one {1} defined.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMultipleDefinitions {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMultipleDefinitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} must be larger than {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMustBeLargerThanMin {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMustBeLargerThanMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} must be smaller than {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeMustBeSmallerThanMax {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeMustBeSmallerThanMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} could not be parsed into a {2}.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeParseError {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeParseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} {2} is null.
+        /// </summary>
+        public static string CustomTheme_ElementAttributeParseErrorNull {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementAttributeParseErrorNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cannot have a child of {1}.
+        /// </summary>
+        public static string CustomTheme_ElementInvalidChild {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementInvalidChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} can only have one child.
+        /// </summary>
+        public static string CustomTheme_ElementMultipleChildren {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementMultipleChildren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} failed to create {1}: {2}.
+        /// </summary>
+        public static string CustomTheme_ElementTypeCreationFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.ElementTypeCreationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme XML root is not {0}.
+        /// </summary>
+        public static string CustomTheme_InvalidRoot {
+            get {
+                return ResourceManager.GetString("CustomTheme.InvalidRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}..
+        /// </summary>
+        public static string CustomTheme_TooManyElements {
+            get {
+                return ResourceManager.GetString("CustomTheme.TooManyElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown element {0}.
+        /// </summary>
+        public static string CustomTheme_UnknownElement {
+            get {
+                return ResourceManager.GetString("CustomTheme.UnknownElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Unknown {1} {2}.
+        /// </summary>
+        public static string CustomTheme_UnknownEnumValue {
+            get {
+                return ResourceManager.GetString("CustomTheme.UnknownEnumValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version is not a number.
+        /// </summary>
+        public static string CustomTheme_VersionNotNumber {
+            get {
+                return ResourceManager.GetString("CustomTheme.VersionNotNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version {1} is not recognised.
+        /// </summary>
+        public static string CustomTheme_VersionNotRecognised {
+            get {
+                return ResourceManager.GetString("CustomTheme.VersionNotRecognised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version is not set.
+        /// </summary>
+        public static string CustomTheme_VersionNotSet {
+            get {
+                return ResourceManager.GetString("CustomTheme.VersionNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version {1} is no longer supported.
+        /// </summary>
+        public static string CustomTheme_VersionNotSupported {
+            get {
+                return ResourceManager.GetString("CustomTheme.VersionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to parse the theme file: {0}.
+        /// </summary>
+        public static string CustomTheme_XMLParseFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.XMLParseFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Fast Flag.
         /// </summary>
         public static string Dialog_AddFastFlag_Title {
