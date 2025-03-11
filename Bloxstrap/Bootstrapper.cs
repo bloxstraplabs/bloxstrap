@@ -358,7 +358,7 @@ namespace Bloxstrap
                     {
                         Frontend.ShowMessageBox(
                             String.Format(
-                                Strings.Boostrapper_Dialog_UnauthroizedChannel,
+                                Strings.Boostrapper_Dialog_UnauthorizedChannel,
                                 Deployment.Channel,
                                 Deployment.DefaultChannel
                             ),

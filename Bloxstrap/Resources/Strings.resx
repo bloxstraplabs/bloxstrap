@@ -1524,13 +1524,13 @@ Would you like to switch your preferred channel to {0}?</value>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
     <value>Roblox no longer supports Windows 7 or 8.1. To continue playing Roblox, please upgrade to Windows 10 or newer.</value>
   </data>
-  <data name="Boostrapper.Dialog.UnauthroizedChannel" xml:space="preserve">
+  <data name="Boostrapper.Dialog.UnauthorizedChannel" xml:space="preserve">
 	<value>The channel you're currently on ({0}) has now been restricted from public use. You will now be on the default channel ({1}).</value>
   </data>
   <data name="Menu.Channel.Switcher.Fetching" xml:space="preserve">
 	<value>Fetching latest deploy info, please wait...</value>
   </data>
-  <data name="Menu.Channel.Switcher.Unauthroized" xml:space="preserve">
+  <data name="Menu.Channel.Switcher.Unauthorized" xml:space="preserve">
 	<value>The specified channel either doesn't exist or is private</value>
   </data>
   <data name="Installer.FailedToImportSettings" xml:space="preserve">

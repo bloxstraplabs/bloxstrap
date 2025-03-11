@@ -54,7 +54,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 // channels that dont exist also throw HttpStatusCode.Unauthorized
                 if (ex.StatusCode == HttpStatusCode.Unauthorized)
-                    ChannelInfoLoadingText = Strings.Menu_Channel_Switcher_Unauthroized;
+                    ChannelInfoLoadingText = Strings.Menu_Channel_Switcher_Unauthorized;
                 else
                     ChannelInfoLoadingText = $"An http error has occured ({ex.StatusCode})"; // i dont think we need strings for errors
 

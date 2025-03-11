@@ -163,9 +163,9 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to The channel you&apos;re currently on ({0}) has now been restricted from public use. You will now be on the default channel ({1})..
         /// </summary>
-        public static string Boostrapper_Dialog_UnauthroizedChannel {
+        public static string Boostrapper_Dialog_UnauthorizedChannel {
             get {
-                return ResourceManager.GetString("Boostrapper.Dialog.UnauthroizedChannel", resourceCulture);
+                return ResourceManager.GetString("Boostrapper.Dialog.UnauthorizedChannel", resourceCulture);
             }
         }
         
@@ -2628,9 +2628,9 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to The specified channel either doesn&apos;t exist or is private.
         /// </summary>
-        public static string Menu_Channel_Switcher_Unauthroized {
+        public static string Menu_Channel_Switcher_Unauthorized {
             get {
-                return ResourceManager.GetString("Menu.Channel.Switcher.Unauthroized", resourceCulture);
+                return ResourceManager.GetString("Menu.Channel.Switcher.Unauthorized", resourceCulture);
             }
         }
         
