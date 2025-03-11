@@ -662,7 +662,28 @@ namespace Bloxstrap
         #endregion
 
         #region Roblox Install
-        private void CleanupVersionsFolder()
+        private static bool TryDeleteRobloxInDirectory(string dir)
+        {
+            string clientPath = Path.Combine(dir, "RobloxPlayerBeta.exe");
+            if (!File.Exists(dir))
+            {
+                clientPath = Path.Combine(dir, "RobloxStudioBeta.exe");
+                if (!File.Exists(dir))
+                    return true; // ok???
+            }
+
+            try
+            {
+                File.Delete(clientPath);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static void CleanupVersionsFolder()
         {
             const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
 
@@ -672,6 +693,11 @@ namespace Bloxstrap
 
                 if (dirName != App.State.Prop.Player.VersionGuid && dirName != App.State.Prop.Studio.VersionGuid)
                 {
+                    // check if it's still being used first
+                    // we dont want to accidentally delete the files of a running roblox instance
+                    if (!TryDeleteRobloxInDirectory(dir))
+                        continue;
+
                     try
                     {
                         Directory.Delete(dir, true);
