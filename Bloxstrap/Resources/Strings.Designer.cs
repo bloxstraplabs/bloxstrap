@@ -1154,6 +1154,25 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No custom theme selected.
+        /// </summary>
+        public static string CustomTheme_Errors_NoThemeSelected {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.NoThemeSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to setup custom bootstrapper: {0}.
+        ///Defaulting to Fluent..
+        /// </summary>
+        public static string CustomTheme_Errors_SetupFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.SetupFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Theme XML root is not {0}.
         /// </summary>
         public static string CustomTheme_InvalidRoot {

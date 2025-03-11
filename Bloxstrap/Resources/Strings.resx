@@ -1423,4 +1423,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
     <value>Invalid or corrupted ZIP file</value>
   </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>No custom theme selected</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Failed to setup custom bootstrapper: {0}.
+Defaulting to Fluent.</value>
+  </data>
 </root>
