@@ -32,6 +32,10 @@ namespace Bloxstrap
         
         public LaunchFlag StudioFlag    { get; } = new("studio");
 
+        public LaunchFlag VersionFlag   { get; } = new("version");
+
+        public LaunchFlag ChannelFlag   { get; } = new("channel");
+
 #if DEBUG
         public bool BypassUpdateCheck => true;
 #else
@@ -85,6 +89,13 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, "Got Roblox player argument");
                     RobloxLaunchMode = LaunchMode.Player;
                     RobloxLaunchArgs = arg;
+                    startIdx = 1;
+                }
+                else if (arg.StartsWith("version-"))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Got version argument");
+                    VersionFlag.Active = true;
+                    VersionFlag.Data = arg;
                     startIdx = 1;
                 }
             }

@@ -288,12 +288,17 @@ namespace Bloxstrap
             using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
             var match = Regex.Match(
-                App.LaunchSettings.RobloxLaunchArgs, 
-                "channel:([a-zA-Z0-9-_]+)", 
+                App.LaunchSettings.RobloxLaunchArgs,
+                "channel:([a-zA-Z0-9-_]+)",
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
-            if (match.Groups.Count == 2)
+            if (App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data))
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Channel set to {App.LaunchSettings.ChannelFlag.Data} from arguments");
+                Deployment.Channel = App.LaunchSettings.ChannelFlag.Data.ToLowerInvariant();
+            }
+            else if (match.Groups.Count == 2)
             {
                 Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
             }
@@ -310,23 +315,32 @@ namespace Bloxstrap
             if (!Deployment.IsDefaultChannel)
                 App.SendStat("robloxChannel", Deployment.Channel);
 
-            ClientVersion clientVersion;
-
-            try
+            if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
-                clientVersion = await Deployment.GetInfo();
+                ClientVersion clientVersion;
+
+                try
+                {
+                    clientVersion = await Deployment.GetInfo();
+                }
+                catch (InvalidChannelException ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
+
+                    Deployment.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo();
+                }
+
+                key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+
+                _latestVersionGuid = clientVersion.VersionGuid;
             }
-            catch (InvalidChannelException ex)
+            else
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
+                App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
+                _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
             }
 
-            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
-
-            _latestVersionGuid = clientVersion.VersionGuid;
             _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
