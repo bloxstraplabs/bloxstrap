@@ -139,6 +139,9 @@ namespace Bloxstrap
                 }
             }
 
+            if (VersionFlag.Active)
+                RobloxLaunchMode = LaunchMode.Unknown; // determine in bootstrapper
+
             if (PlayerFlag.Active)
                 ParsePlayer(PlayerFlag.Data);
             else if (StudioFlag.Active)

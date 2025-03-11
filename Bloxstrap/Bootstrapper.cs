@@ -45,8 +45,8 @@ namespace Bloxstrap
         private readonly FastZipEvents _fastZipEvents = new();
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private readonly IAppData AppData;
-        private readonly LaunchMode _launchMode;
+        private IAppData AppData;
+        private LaunchMode _launchMode;
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private string _latestVersionGuid = null!;
@@ -91,6 +91,11 @@ namespace Bloxstrap
             _fastZipEvents.DirectoryFailure += (_, e) => throw e.Exception;
             _fastZipEvents.ProcessFile += (_, e) => e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
 
+            SetupAppData();
+        }
+
+        private void SetupAppData()
+        {
             AppData = IsStudioLaunch ? new RobloxStudioData() : new RobloxPlayerData();
             Deployment.BinaryType = AppData.BinaryType;
         }
@@ -347,6 +352,18 @@ namespace Bloxstrap
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             _versionPackageManifest = new(pkgManifestData);
+
+            // this can happen if version is set through arguments
+            if (_launchMode == LaunchMode.Unknown)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Identifying launch mode from package manifest");
+
+                bool isPlayer = _versionPackageManifest.Exists(x => x.Name == "RobloxApp.zip");
+                App.Logger.WriteLine(LOG_IDENT, $"isPlayer: {isPlayer}");
+
+                _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
+                SetupAppData(); // we need to set it up again
+            }
         }
 
         private void StartRoblox()
