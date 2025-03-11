@@ -1771,6 +1771,26 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to import Bloxstrap settings.
+        ///
+        ///{0}.
+        /// </summary>
+        public static string Installer_FailedToImportSettings {
+            get {
+                return ResourceManager.GetString("Installer.FailedToImportSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import settings from Bloxstrap.
+        /// </summary>
+        public static string Installer_ImportSettings {
+            get {
+                return ResourceManager.GetString("Installer.ImportSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fishstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
         ///
         ///Please manually delete Fishstrap.exe from the install location or try restarting your system, and then retry installation afterwards..
@@ -1823,6 +1843,15 @@ namespace Bloxstrap.Resources {
         public static string Installer_Install_Title {
             get {
                 return ResourceManager.GetString("Installer.Install.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap installation was not found..
+        /// </summary>
+        public static string Installer_InstallationNotFound {
+            get {
+                return ResourceManager.GetString("Installer.InstallationNotFound", resourceCulture);
             }
         }
         

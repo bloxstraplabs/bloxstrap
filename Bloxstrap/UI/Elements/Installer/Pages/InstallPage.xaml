@@ -56,6 +56,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
             <controls:OptionControl Grid.Column="0" Margin="0,0,4,0"
                 Header="{x:Static resources:Strings.Common_Shortcuts_Desktop}">
                 <ui:ToggleSwitch IsChecked="{Binding CreateDesktopShortcuts, Mode=TwoWay}" />
@@ -65,6 +71,13 @@
             Header="{x:Static resources:Strings.Common_Shortcuts_StartMenu}">
                 <ui:ToggleSwitch IsChecked="{Binding CreateStartMenuShortcuts, Mode=TwoWay}" />
             </controls:OptionControl>
+
+            <controls:OptionControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,4,0"
+    Header="{x:Static resources:Strings.Installer_ImportSettings}">
+                <ui:ToggleSwitch IsChecked="{Binding ImportSettings, Mode=TwoWay}" IsEnabled="{Binding ImportSettingsEnabled, Mode=OneWay}" />
+            </controls:OptionControl>
+
+            <ui:InfoBar Grid.Row="2" Grid.ColumnSpan="2" Margin="0,8,0,0" Padding="8" Title="{x:Static resources:Strings.Installer_InstallationNotFound}" IsOpen="{Binding ShowNotFound, Mode=OneWay}" Severity="Warning" IsClosable="False" />
         </Grid>
     </StackPanel>
 </ui:UiPage>

@@ -1533,4 +1533,15 @@ Would you like to switch your preferred channel to {0}?</value>
   <data name="Menu.Channel.Switcher.Unauthroized" xml:space="preserve">
 	<value>The specified channel either doesn't exist or is private</value>
   </data>
+  <data name="Installer.FailedToImportSettings" xml:space="preserve">
+	<value>Failed to import Bloxstrap settings.
+
+{0}</value>
+  </data>
+  <data name="Installer.ImportSettings" xml:space="preserve">
+	<value>Import settings from Bloxstrap</value>
+  </data>
+  <data name="Installer.InstallationNotFound" xml:space="preserve">
+	<value>Bloxstrap installation was not found.</value>
+  </data>
 </root>

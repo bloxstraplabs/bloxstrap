@@ -46,6 +46,22 @@ namespace Bloxstrap.UI.ViewModels.Installer
             set => installer.CreateStartMenuShortcuts = value;
         }
 
+        public bool ImportSettings
+        {
+            get => installer.ImportSettings;
+            set => installer.ImportSettings = value;
+        }
+
+        public bool ImportSettingsEnabled
+        {
+            get => Directory.Exists(installer.BloxstrapInstallDirectory);
+        }
+
+        public bool ShowNotFound // im lazy
+        {
+            get => !Directory.Exists(installer.BloxstrapInstallDirectory);
+        }
+
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
 
         public ICommand ResetInstallLocationCommand => new RelayCommand(ResetInstallLocation);
