@@ -150,7 +150,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 }
                 catch (Exception ex)
                 {
-                    throw new CustomThemeException(ex, "CustomTheme.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
+                    throw new CustomThemeException(ex, "CustomTheme.Errors.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
                 }
 
                 imageBrush.ImageSource = bitmapImage;
@@ -217,7 +217,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             var first = brushElement.FirstNode as XElement;
             if (first == null)
-                throw new CustomThemeException("CustomTheme.ElementAttributeMissingChild", xmlElement.Name, name);
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMissingChild", xmlElement.Name, name);
 
             var brush = HandleXml<Brush>(dialog, first);
             uiElement.SetValue(dependencyProperty, brush);
@@ -620,7 +620,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     }
                     catch (Exception ex)
                     {
-                        throw new CustomThemeException(ex, "CustomTheme.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
+                        throw new CustomThemeException(ex, "CustomTheme.Errors.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
                     }
 
                     image.Source = bitmapImage;
@@ -693,7 +693,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 if (element.Name == "Grid.RowDefinitions")
                 {
                     if (rowsSet)
-                        throw new CustomThemeException("CustomTheme.ElementAttributeMultipleDefinitions", "Grid", "RowDefinitions");
+                        throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleDefinitions", "Grid", "RowDefinitions");
                     rowsSet = true;
 
                     HandleXmlElement_Grid_RowDefinitions(grid, dialog, element);
@@ -701,7 +701,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 else if (element.Name == "Grid.ColumnDefinitions")
                 {
                     if (columnsSet)
-                        throw new CustomThemeException("CustomTheme.ElementAttributeMultipleDefinitions", "Grid", "ColumnDefinitions");
+                        throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleDefinitions", "Grid", "ColumnDefinitions");
                     columnsSet = true;
 
                     HandleXmlElement_Grid_ColumnDefinitions(grid, dialog, element);
@@ -760,7 +760,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (children.Any())
             {
                 if (children.Count() > 1)
-                    throw new CustomThemeException("CustomTheme.ElementMultipleChildren", "Border");
+                    throw new CustomThemeException("CustomTheme.Errors.ElementMultipleChildren", "Border");
 
                 border.Child = HandleXml<UIElement>(dialog, children.First());
             }

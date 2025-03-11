@@ -38,7 +38,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new CustomThemeException(ex, "CustomTheme.ElementAttributeConversionError", xmlElement.Name, attributeName, ex.Message);
+                throw new CustomThemeException(ex, "CustomTheme.Errors.ElementAttributeConversionError", xmlElement.Name, attributeName, ex.Message);
             }
         }
 
@@ -83,7 +83,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new CustomThemeException(ex, "CustomTheme.ElementAttributeConversionError", element.Name, attributeName, ex.Message);
+                throw new CustomThemeException(ex, "CustomTheme.Errors.ElementAttributeConversionError", element.Name, attributeName, ex.Message);
             }
         }
     }

@@ -59,11 +59,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
         {
             if (!_elementHandlerMap.ContainsKey(xmlElement.Name.ToString()))
-                throw new CustomThemeException("CustomTheme.UnknownElement", xmlElement.Name);
+                throw new CustomThemeException("CustomTheme.Errors.UnknownElement", xmlElement.Name);
 
             var element = _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
             if (element is not T)
-                throw new CustomThemeException("CustomTheme.ElementInvalidChild", xmlElement.Parent!.Name, xmlElement.Name);
+                throw new CustomThemeException("CustomTheme.Errors.ElementInvalidChild", xmlElement.Parent!.Name, xmlElement.Name);
 
             return (T)element;
         }
@@ -81,34 +81,34 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static void AssertThemeVersion(string? versionStr)
         {
             if (string.IsNullOrEmpty(versionStr))
-                throw new CustomThemeException("CustomTheme.VersionNotSet", "BloxstrapCustomBootstrapper");
+                throw new CustomThemeException("CustomTheme.Errors.VersionNotSet", "BloxstrapCustomBootstrapper");
 
             if (!uint.TryParse(versionStr, out uint version))
-                throw new CustomThemeException("CustomTheme.VersionNotNumber", "BloxstrapCustomBootstrapper");
+                throw new CustomThemeException("CustomTheme.Errors.VersionNotNumber", "BloxstrapCustomBootstrapper");
 
             switch (version)
             {
                 case Version:
                     break;
                 case 0: // Themes made between Oct 19, 2024 to Mar 11, 2025 (on the feature/custom-bootstrappers branch)
-                    throw new CustomThemeException("CustomTheme.VersionNotSupported", "BloxstrapCustomBootstrapper", version);
+                    throw new CustomThemeException("CustomTheme.Errors.VersionNotSupported", "BloxstrapCustomBootstrapper", version);
                 default:
-                    throw new CustomThemeException("CustomTheme.VersionNotRecognised", "BloxstrapCustomBootstrapper", version);
+                    throw new CustomThemeException("CustomTheme.Errors.VersionNotRecognised", "BloxstrapCustomBootstrapper", version);
             }
         }
 
         private void HandleXmlBase(XElement xml)
         {
             if (_initialised)
-                throw new CustomThemeException("CustomTheme.DialogAlreadyInitialised");
+                throw new CustomThemeException("CustomTheme.Errors.DialogAlreadyInitialised");
 
             if (xml.Name != "BloxstrapCustomBootstrapper")
-                throw new CustomThemeException("CustomTheme.InvalidRoot", "BloxstrapCustomBootstrapper");
+                throw new CustomThemeException("CustomTheme.Errors.InvalidRoot", "BloxstrapCustomBootstrapper");
 
             AssertThemeVersion(xml.Attribute("Version")?.Value);
 
             if (xml.Descendants().Count() > MaxElements)
-                throw new CustomThemeException("CustomTheme.TooManyElements", MaxElements, xml.Descendants().Count());
+                throw new CustomThemeException("CustomTheme.Errors.TooManyElements", MaxElements, xml.Descendants().Count());
 
             _initialised = true;
 
@@ -134,7 +134,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new CustomThemeException(ex, "CustomTheme.XMLParseFailed", ex.Message);
+                throw new CustomThemeException(ex, "CustomTheme.Errors.XMLParseFailed", ex.Message);
             }
 
             HandleXmlBase(xml);
