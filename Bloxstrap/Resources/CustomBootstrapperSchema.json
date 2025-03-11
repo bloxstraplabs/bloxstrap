@@ -1,0 +1,521 @@
+{
+	"Elements": {
+		"FrameworkElement": {
+			"IsCreatable": false,
+			"Attributes": {
+				"Name": "string",
+				"Visibility": "Visibility",
+				"IsEnabled": "bool",
+				"Margin": "Thickness",
+				"Height": "double",
+				"Width": "double",
+				"HorizontalAlignment": "HorizontalAlignment",
+				"VerticalAlignment": "VerticalAlignment",
+				"RenderTransform": "Transform",
+				"LayoutTransform": "Transform",
+				"Opacity": "double",
+				"OpacityMask": "Brush",
+				"RenderTransformOrigin": "Point",
+				"Panel.ZIndex": "int",
+				"Grid.Row": "int",
+				"Grid.RowSpan": "int",
+				"Grid.Column": "int",
+				"Grid.ColumnSpan": "int"
+			}
+		},
+		"Control": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": false,
+			"Attributes": {
+				"Padding": "Thickness",
+				"BorderThickness": "Thickness",
+				"Foreground": "Brush",
+				"Background": "Brush",
+				"BorderBrush": "Brush",
+				"FontSize": "double",
+				"FontWeight": "FontWeight",
+				"FontStyle": "FontStyle",
+				"FontFamily": "FontFamily"
+			}
+		},
+		"BloxstrapCustomBootstrapper": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"Version": "int",
+				"Theme": "Theme",
+				"Title": "string",
+				"IgnoreTitleBarInset": "bool",
+				"WindowCornerPreference": "WindowCornerPreference"
+			}
+		},
+		"TitleBar": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"ShowMinimize": "bool",
+				"ShowClose": "bool",
+				"Title": "string"
+			}
+		},
+		"Button": {
+			"SuperClass": "Control",
+			"IsCreatable": true,
+			"Attributes": {
+				"Content": "object"
+			}
+		},
+		"RangeBase": {
+			"SuperClass": "Control",
+			"IsCreatable": false,
+			"Attributes": {
+				"Value": "double",
+				"Maximum": "double"
+			}
+		},
+		"ProgressBar": {
+			"SuperClass": "RangeBase",
+			"IsCreatable": true,
+			"Attributes": {
+				"IsIndeterminate": "bool",
+				"CornerRadius": "CornerRadius",
+				"IndicatorCornerRadius": "CornerRadius"
+			}
+		},
+		"ProgressRing": {
+			"SuperClass": "RangeBase",
+			"IsCreatable": true,
+			"Attributes": {
+				"IsIndeterminate": "bool"
+			}
+		},
+		"TextBlock": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Text": "string",
+				"Foreground": "Brush",
+				"Background": "Brush",
+				"FontSize": "double",
+				"FontWeight": "FontWeight",
+				"FontStyle": "FontStyle",
+				"FontFamily": "FontFamily",
+				"LineHeight": "double",
+				"LineStackingStrategy": "LineStackingStrategy",
+				"TextAlignment": "TextAlignment",
+				"TextTrimming": "TextTrimming",
+				"TextWrapping": "TextWrapping",
+				"TextDecorations": "TextDecorations",
+				"IsHyphenationEnabled": "bool",
+				"BaselineOffset": "double",
+				"Padding": "Thickness"
+			}
+		},
+		"MarkdownTextBlock": {
+			"SuperClass": "TextBlock",
+			"IsCreatable": true,
+			"Attributes": {}
+		},
+		"Image": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"Source": "ImageSource",
+				"IsAnimated": "bool"
+			}
+		},
+		"Grid": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"RowDefinitions": "object",
+				"ColumnDefinitions": "object"
+			}
+		},
+		"StackPanel": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Orientation": "Orientation"
+			}
+		},
+		"Border": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Background": "Brush",
+				"BorderBrush": "Brush",
+				"BorderThickness": "Thickness",
+				"Padding": "Thickness",
+				"CornerRadius": "CornerRadius"
+			}
+		},
+		"RowDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Height": "GridLength",
+				"MinHeight": "double",
+				"MaxHeight": "double"
+			}
+		},
+		"ColumnDefinition": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Width": "GridLength",
+				"MinWidth": "double",
+				"MaxWidth": "double"
+			}
+		},
+		"ScaleTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"ScaleX": "double",
+				"ScaleY": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"SkewTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"AngleX": "double",
+				"AngleY": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"RotateTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Angle": "double",
+				"CenterX": "double",
+				"CenterY": "double"
+			}
+		},
+		"TranslateTransform": {
+			"IsCreatable": true,
+			"Attributes": {
+				"X": "double",
+				"Y": "double"
+			}
+		},
+		"Brush": {
+			"IsCreatable": false,
+			"Attributes": {
+				"Opacity": "double"
+			}
+		},
+		"SolidColorBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"Color": "Color"
+			}
+		},
+		"ImageBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"AlignmentX": "AlignmentX",
+				"AlignmentY": "AlignmentY",
+				"Stretch": "Stretch",
+				"TileMode": "TileMode",
+				"ViewboxUnits": "BrushMappingMode",
+				"ViewportUnits": "BrushMappingMode",
+				"Viewbox": "Rect",
+				"Viewport": "Rect",
+				"ImageSource": "ImageSource"
+			}
+		},
+		"LinearGradientBrush": {
+			"SuperClass": "Brush",
+			"IsCreatable": true,
+			"Attributes": {
+				"StartPoint": "Point",
+				"EndPoint": "Point",
+				"ColorInterpolationMode": "ColorInterpolationMode",
+				"MappingMode": "BrushMappingMode",
+				"SpreadMethod": "GradientSpreadMethod"
+			}
+		},
+		"GradientStop": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Color": "Color",
+				"Offset": "double"
+			}
+		},
+		"Shape": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": false,
+			"Attributes": {
+				"Fill": "Brush",
+				"Stroke": "Brush",
+				"Stretch": "Stretch",
+				"StrokeDashCap": "PenLineCap",
+				"StrokeDashOffset": "double",
+				"StrokeEndLineCap": "PenLineCap",
+				"StrokeLineJoin": "PenLineJoin",
+				"StrokeMiterLimit": "double",
+				"StrokeStartLineCap": "PenLineCap",
+				"StrokeThickness": "double"
+			}
+		},
+		"Ellipse": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {}
+		},
+		"Line": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {
+				"X1": "double",
+				"X2": "double",
+				"Y1": "double",
+				"Y2": "double"
+			}
+		},
+		"Rectangle": {
+			"SuperClass": "Shape",
+			"IsCreatable": true,
+			"Attributes": {
+				"RadiusX": "double",
+				"RadiusY": "double"
+			}
+		},
+		"BlurEffect": {
+			"IsCreatable": true,
+			"Attributes": {
+				"KernelType": "KernelType",
+				"Radius": "double",
+				"RenderingBias": "RenderingBias"
+			}
+		},
+		"DropShadowEffect": {
+			"IsCreatable": true,
+			"Attributes": {
+				"BlurRadius": "double",
+				"Direction": "double",
+				"Opacity": "double",
+				"ShadowDepth": "double",
+				"RenderingBias": "RenderingBias",
+				"Color": "Color"
+			}
+		}
+	},
+	"Types": {
+		"string": {},
+		"bool": {
+			"Values": [
+				"True",
+				"False"
+			]
+		},
+		"int": {},
+		"double": {},
+		"object": { "CanHaveElement": true },
+		"Thickness": {},
+		"Rect": {},
+		"Point": {},
+		"CornerRadius": {},
+		"Brush": { "CanHaveElement": true },
+		"Color": {},
+		"ImageSource": {},
+		"Transform": { "CanHaveElement": true },
+		"FontFamily": {},
+		"GridLength": {},
+		"Visibility": {
+			"Values": [
+				"Visible",
+				"Hidden",
+				"Collapsed"
+			]
+		},
+		"HorizontalAlignment": {
+			"Values": [
+				"Left",
+				"Center",
+				"Right",
+				"Stretch"
+			]
+		},
+		"VerticalAlignment": {
+			"Values": [
+				"Top",
+				"Center",
+				"Bottom",
+				"Stretch"
+			]
+		},
+		"Theme": {
+			"Values": [
+				"Default",
+				"Dark",
+				"Light"
+			]
+		},
+		"FontWeight": {
+			"Values": [
+				"Thin",
+				"ExtraLight",
+				"UltraLight",
+				"Medium",
+				"Normal",
+				"Regular",
+				"DemiBold",
+				"SemiBold",
+				"Bold",
+				"ExtraBold",
+				"UltraBold",
+				"Black",
+				"Heavy",
+				"ExtraBlack",
+				"ExtraHeavy"
+			]
+		},
+		"FontStyle": {
+			"Values": [
+				"Normal",
+				"Italic",
+				"Oblique"
+			]
+		},
+		"LineStackingStrategy": {
+			"Values": [
+				"BlockLineHeight",
+				"MaxHeight"
+			]
+		},
+		"TextAlignment": {
+			"Values": [
+				"Left",
+				"Right",
+				"Center",
+				"Justify"
+			]
+		},
+		"TextTrimming": {
+			"Values": [
+				"None",
+				"CharacterEllipsis",
+				"WordEllipsis"
+			]
+		},
+		"TextWrapping": {
+			"Values": [
+				"WrapWithOverflow",
+				"NoWrap",
+				"Wrap"
+			]
+		},
+		"TextDecorations": {
+			"Values": [
+				"Baseline",
+				"OverLine",
+				"Strikethrough",
+				"Underline"
+			]
+		},
+		"Stretch": {
+			"Values": [
+				"None",
+				"Fill",
+				"Uniform",
+				"UniformToFill"
+			]
+		},
+		"StretchDirection": {
+			"Values": [
+				"UpOnly",
+				"DownOnly",
+				"Both"
+			]
+		},
+		"AlignmentX": {
+			"Values": [
+				"Left",
+				"Center",
+				"Right"
+			]
+		},
+		"AlignmentY": {
+			"Values": [
+				"Top",
+				"Center",
+				"Bottom"
+			]
+		},
+		"TileMode": {
+			"Values": [
+				"None",
+				"FlipX",
+				"FlipY",
+				"FlipXY",
+				"Tile"
+			]
+		},
+		"BrushMappingMode": {
+			"Values": [
+				"Absolute",
+				"RelativeToBoundingBox"
+			]
+		},
+		"ColorInterpolationMode": {
+			"Values": [
+				"ScRgbLinearInterpolation",
+				"SRgbLinearInterpolation"
+			]
+		},
+		"GradientSpreadMethod": {
+			"Values": [
+				"Pad",
+				"Reflect",
+				"Repeat"
+			]
+		},
+		"PenLineCap": {
+			"Values": [
+				"Flat",
+				"Square",
+				"Round",
+				"Triangle"
+			]
+		},
+		"PenLineJoin": {
+			"Values": [
+				"Miter",
+				"Bevel",
+				"Round"
+			]
+		},
+		"KernelType": {
+			"Values": [
+				"Gaussian",
+				"Box"
+			]
+		},
+		"RenderingBias": {
+			"Values": [
+				"Performance",
+				"Quality"
+			]
+		},
+		"Orientation": {
+			"Values": [
+				"Horizontal",
+				"Vertical"
+			]
+		},
+		"WindowCornerPreference": {
+			"Values": [
+				"Default",
+				"DoNotRound",
+				"Round",
+				"RoundSmall"
+			]
+		}
+	}
+}

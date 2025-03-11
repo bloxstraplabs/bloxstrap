@@ -25,9 +25,14 @@
     <Resource Include="Resources\MessageBox\Information.png" />
     <Resource Include="Resources\MessageBox\Question.png" />
     <Resource Include="Resources\MessageBox\Warning.png" />
+    <EmbeddedResource Include="UI\Style\Editor-Theme-Dark.xshd" />
+    <EmbeddedResource Include="UI\Style\Editor-Theme-Light.xshd" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\CustomBootstrapperSchema.json" />
+    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Blank.xml" />
+    <EmbeddedResource Include="Resources\CustomBootstrapperTemplate_Simple.xml" />
     <EmbeddedResource Include="Resources\Icon2008.ico" />
     <EmbeddedResource Include="Resources\Icon2011.ico" />
     <EmbeddedResource Include="Resources\Icon2017.ico" />
@@ -49,6 +54,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
     <PackageReference Include="Markdig" Version="0.40.0" />
@@ -59,6 +65,7 @@
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+    <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>

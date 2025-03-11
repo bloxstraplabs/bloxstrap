@@ -58,6 +58,32 @@ namespace Bloxstrap.UI
             });
         }
 
+        private static IBootstrapperDialog GetCustomBootstrapper()
+        {
+            const string LOG_IDENT = "Frontend::GetCustomBootstrapper";
+
+            Directory.CreateDirectory(Paths.CustomThemes);
+
+            try
+            {
+                if (App.Settings.Prop.SelectedCustomTheme == null)
+                    throw new CustomThemeException("CustomTheme.Errors.NoThemeSelected");
+
+                CustomDialog dialog = new CustomDialog();
+                dialog.ApplyCustomTheme(App.Settings.Prop.SelectedCustomTheme);
+                return dialog;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                if (!App.LaunchSettings.QuietFlag.Active)
+                    ShowMessageBox(string.Format(Strings.CustomTheme_Errors_SetupFailed, ex.Message), MessageBoxImage.Error);
+
+                return GetBootstrapperDialog(BootstrapperStyle.FluentDialog);
+            }
+        }
+
         public static IBootstrapperDialog GetBootstrapperDialog(BootstrapperStyle style)
         {
             return style switch
@@ -70,6 +96,7 @@ namespace Bloxstrap.UI
                 BootstrapperStyle.ByfronDialog => new ByfronDialog(),
                 BootstrapperStyle.FluentDialog => new FluentDialog(false),
                 BootstrapperStyle.FluentAeroDialog => new FluentDialog(true),
+                BootstrapperStyle.CustomDialog => GetCustomBootstrapper(),
                 _ => new FluentDialog(false)
             };
         }
