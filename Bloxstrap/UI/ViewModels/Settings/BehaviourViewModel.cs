@@ -14,11 +14,11 @@
             set => App.Settings.Prop.ForceRobloxLanguage = value;
         }
 
+        public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+
         public bool ForceRobloxReinstallation
         {
-            // wouldnt it be better to check old version guids?
-            // what about fresh installs?
-            get => App.State.Prop.ForceReinstall || (String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid));
+            get => App.State.Prop.ForceReinstall || IsRobloxInstallationMissing;
             set => App.State.Prop.ForceReinstall = value;
         }
     }
