@@ -400,10 +400,19 @@ namespace Bloxstrap
 
         private bool IsEligibleForBackgroundUpdate()
         {
-            // TODO: storage check
+            const string LOG_IDENT = "Bootstrapper::IsEligibleForBackgroundUpdate";
 
             if (App.LaunchSettings.BackgroundUpdaterFlag.Active || _mustUpgrade || IsStudioLaunch)
                 return false;
+
+            // at least 3GB of free space
+            const long minimumFreeSpace = 3_000_000_000;
+            long space = Filesystem.GetFreeDiskSpace(Paths.Base);
+            if (space < minimumFreeSpace)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"User has {space} free space, at least {minimumFreeSpace} is required");
+                return false;
+            }
 
             if (_latestVersion == default) // todo: check if this even works
                 return false;
