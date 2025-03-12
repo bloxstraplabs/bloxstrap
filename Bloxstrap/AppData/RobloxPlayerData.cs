@@ -14,7 +14,7 @@ namespace Bloxstrap.AppData
         public string BinaryType => "WindowsPlayer";
 
         public string RegistryName => "RobloxPlayer";
-        public override string ExecutableName => App.Settings.Prop.RenameClientToEuroTrucks2 ? App.RobloxAnselAppName : App.RobloxPlayerAppName;
+        public override string ExecutableName => App.RobloxPlayerAppName;
         public override AppState State => App.State.Prop.Player;
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

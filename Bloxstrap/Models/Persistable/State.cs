@@ -6,8 +6,6 @@ namespace Bloxstrap.Models.Persistable
     {
         public bool TestModeWarningShown { get; set; } = false;
 
-        public bool ShowBloxshadeWarning { get; set; } = false;
-
         public bool IgnoreOutdatedChannel { get; set; } = false;
 
         public bool WatcherRunning { get; set; } = false;
