@@ -14,6 +14,12 @@
             set => App.Settings.Prop.ForceRobloxLanguage = value;
         }
 
+        public bool BackgroundUpdates
+        {
+            get => App.Settings.Prop.BackgroundUpdatesEnabled;
+            set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
+        }
+
         public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public bool ForceRobloxReinstallation

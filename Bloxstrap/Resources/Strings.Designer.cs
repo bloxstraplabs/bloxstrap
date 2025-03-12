@@ -2546,6 +2546,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Roblox in the background instead of waiting for Roblox to finish updating before being able to play Roblox. Not preferable for slow networks..
+        /// </summary>
+        public static string Menu_Behaviour_BackgroundUpdates_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BackgroundUpdates.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background Updates.
+        /// </summary>
+        public static string Menu_Behaviour_BackgroundUpdates_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BackgroundUpdates.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prevent against closures of your existing game from accidentally launching another one..
         /// </summary>
         public static string Menu_Behaviour_ConfirmLaunches_Description {

@@ -408,6 +408,12 @@ namespace Bloxstrap
                 return false;
             }
 
+            if (!App.Settings.Prop.BackgroundUpdatesEnabled)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Background updates disabled");
+                return false;
+            }
+
             if (IsStudioLaunch)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not eligible: Studio launch");
