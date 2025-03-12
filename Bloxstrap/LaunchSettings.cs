@@ -36,7 +36,7 @@ namespace Bloxstrap
 
         public LaunchFlag ChannelFlag   { get; } = new("channel");
 
-        public LaunchFlag ForceFlag   { get; } = new("force");
+        public LaunchFlag ForceFlag     { get; } = new("force");
 
 #if DEBUG
         public bool BypassUpdateCheck => true;
