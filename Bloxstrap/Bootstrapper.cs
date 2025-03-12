@@ -61,7 +61,7 @@ namespace Bloxstrap
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
-        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -229,6 +229,7 @@ namespace Bloxstrap
             {
                 App.Settings.Load();
                 App.State.Load();
+                App.RobloxState.Load();
             }
 
             if (!_noConnection)
@@ -784,7 +785,7 @@ namespace Bloxstrap
             {
                 string dirName = Path.GetFileName(dir);
 
-                if (dirName != App.State.Prop.Player.VersionGuid && dirName != App.State.Prop.Studio.VersionGuid)
+                if (dirName != App.RobloxState.Prop.Player.VersionGuid && dirName != App.RobloxState.Prop.Studio.VersionGuid)
                 {
                     Filesystem.AssertReadOnlyDirectory(dir);
 
@@ -1020,8 +1021,8 @@ namespace Bloxstrap
 
             var allPackageHashes = new List<string>();
 
-            allPackageHashes.AddRange(App.State.Prop.Player.PackageHashes.Values);
-            allPackageHashes.AddRange(App.State.Prop.Studio.PackageHashes.Values);
+            allPackageHashes.AddRange(App.RobloxState.Prop.Player.PackageHashes.Values);
+            allPackageHashes.AddRange(App.RobloxState.Prop.Studio.PackageHashes.Values);
 
             if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
@@ -1050,7 +1051,7 @@ namespace Bloxstrap
 
             AppData.State.Size = distributionSize;
 
-            int totalSize = App.State.Prop.Player.Size + App.State.Prop.Studio.Size;
+            int totalSize = App.RobloxState.Prop.Player.Size + App.RobloxState.Prop.Studio.Size;
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
@@ -1060,6 +1061,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
             App.State.Save();
+            App.RobloxState.Save();
 
             _isInstalling = false;
         }
@@ -1212,7 +1214,7 @@ namespace Bloxstrap
 
             var fileRestoreMap = new Dictionary<string, List<string>>();
 
-            foreach (string fileLocation in App.State.Prop.ModManifest)
+            foreach (string fileLocation in App.RobloxState.Prop.ModManifest)
             {
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
@@ -1257,8 +1259,8 @@ namespace Bloxstrap
                 }
             }
 
-            App.State.Prop.ModManifest = modFolderFiles;
-            App.State.Save();
+            App.RobloxState.Prop.ModManifest = modFolderFiles;
+            App.RobloxState.Save();
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
 
