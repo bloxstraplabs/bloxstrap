@@ -220,6 +220,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (result == null)
                 throw new Exception($"{xmlElement.Name} {name} Uri is null");
 
+            if (result.Scheme != "file")
+                throw new Exception($"{xmlElement.Name} most be linked to a file");
+
             return new GetImageSourceDataResult { Uri = result };
         }
 
