@@ -47,6 +47,7 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
 - Extras
   - Save last opened settings page
   - Custom bootstrapper themes
+  - Importing settings from Bloxstrap
 
 ### *More changes coming soon!*
 
