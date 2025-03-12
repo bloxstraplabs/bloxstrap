@@ -49,6 +49,7 @@ namespace Bloxstrap
         private LaunchMode _launchMode;
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
+        private Version? _latestVersion = null;
         private string _latestVersionGuid = null!;
         private string _latestVersionDirectory = null!;
         private PackageManifest _versionPackageManifest = null!;
@@ -70,6 +71,9 @@ namespace Bloxstrap
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
+
+        public string MutexName { get; set; } = "Bloxstrap-Bootstrapper";
+        public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
         #region Core
@@ -198,22 +202,24 @@ namespace Bloxstrap
             // ensure only one instance of the bootstrapper is running at the time
             // so that we don't have stuff like two updates happening simultaneously
 
-            bool mutexExists = false;
+            bool mutexExists = Utilities.DoesMutexExist(MutexName);
 
-            try
+            if (mutexExists)
             {
-                Mutex.OpenExisting("Bloxstrap-Bootstrapper").Close();
-                App.Logger.WriteLine(LOG_IDENT, "Bloxstrap-Bootstrapper mutex exists, waiting...");
-                SetStatus(Strings.Bootstrapper_Status_WaitingOtherInstances);
-                mutexExists = true;
-            }
-            catch (Exception)
-            {
-                // no mutex exists
+                if (!QuitIfMutexExists)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"{MutexName} mutex exists, waiting...");
+                    SetStatus(Strings.Bootstrapper_Status_WaitingOtherInstances);
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"{MutexName} mutex exists, exiting!");
+                    return;
+                }
             }
 
             // wait for mutex to be released if it's not yet
-            await using var mutex = new AsyncMutex(false, "Bloxstrap-Bootstrapper");
+            await using var mutex = new AsyncMutex(false, MutexName);
             await mutex.AcquireAsync(_cancelTokenSource.Token);
 
             _mutex = mutex;
@@ -237,12 +243,35 @@ namespace Bloxstrap
                 }
             }
 
+            CleanupVersionsFolder(); // cleanup after background updater
+
             bool allModificationsApplied = true;
 
             if (!_noConnection)
             {
                 if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
-                    await UpgradeRoblox();
+                {
+                    bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
+                    if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+                        backgroundUpdaterMutexOpen = false; // we want to actually update lol
+
+                    App.Logger.WriteLine(LOG_IDENT, $"Background updater running: {backgroundUpdaterMutexOpen}");
+
+                    if (backgroundUpdaterMutexOpen && _mustUpgrade)
+                    {
+                        // I am Forced Upgrade, killer of Background Updates
+                        Utilities.KillBackgroundUpdater();
+                        backgroundUpdaterMutexOpen = false;
+                    }
+                   
+                    if (!backgroundUpdaterMutexOpen)
+                    {
+                        if (IsEligibleForBackgroundUpdate())
+                            StartBackgroundUpdater();
+                        else
+                            await UpgradeRoblox();
+                    }
+                }
 
                 if (_cancelTokenSource.IsCancellationRequested)
                     return;
@@ -339,11 +368,13 @@ namespace Bloxstrap
                 key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
                 _latestVersionGuid = clientVersion.VersionGuid;
+                _latestVersion = Utilities.ParseVersionSafe(clientVersion.Version);
             }
             else
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
                 _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
+                // we can't determine the version
             }
 
             _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
@@ -364,6 +395,31 @@ namespace Bloxstrap
                 _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
                 SetupAppData(); // we need to set it up again
             }
+        }
+
+        private bool IsEligibleForBackgroundUpdate()
+        {
+            // TODO: storage check
+
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || _mustUpgrade || IsStudioLaunch)
+                return false;
+
+            if (_latestVersion == default) // todo: check if this even works
+                return false;
+
+            Version? currentVersion = Utilities.GetRobloxVersion(AppData);
+            if (currentVersion == default)
+                return false;
+
+            // always normally upgrade for downgrades
+            if (currentVersion.Minor > _latestVersion.Minor)
+                return false;
+
+            // only background update if we're:
+            // - one major update behind
+            // - the same major update
+            int diff = _latestVersion.Minor - currentVersion.Minor;
+            return diff == 0 || diff == 1;
         }
 
         private void StartRoblox()
@@ -718,6 +774,12 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
 
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Background updater tried to cleanup, stopping!");
+                return;
+            }
+
             foreach (string dir in Directory.GetDirectories(Paths.Versions))
             {
                 string dirName = Path.GetFileName(dir);
@@ -801,11 +863,11 @@ namespace Bloxstrap
             _isInstalling = true;
 
             // make sure nothing is running before continuing upgrade
-            if (!IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
+            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active && !IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
                 KillRobloxPlayers();
 
             // get a fully clean install
-            if (Directory.Exists(_latestVersionDirectory))
+            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active && Directory.Exists(_latestVersionDirectory))
             {
                 try
                 {
@@ -1000,6 +1062,21 @@ namespace Bloxstrap
             App.State.Save();
 
             _isInstalling = false;
+        }
+
+        private static void StartBackgroundUpdater()
+        {
+            const string LOG_IDENT = "Bootstrapper::StartBackgroundUpdater";
+
+            if (Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater"))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Background updater already running");
+                return;
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, "Starting background updater");
+
+            Process.Start(Paths.Process, "-backgroundupdater");
         }
 
         private async Task<bool> ApplyModifications()

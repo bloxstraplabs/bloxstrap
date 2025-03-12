@@ -4,6 +4,7 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 
 using Bloxstrap.UI.Elements.Dialogs;
+using Bloxstrap.Enums;
 
 namespace Bloxstrap
 {
@@ -57,6 +58,11 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
+            }
+            else if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening background updater");
+                LaunchBackgroundUpdater();
             }
             else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
             {
@@ -294,6 +300,52 @@ namespace Bloxstrap
 
                 App.Terminate();
             });
+        }
+
+        public static void LaunchBackgroundUpdater()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchBackgroundUpdater";
+
+            // Activate some LaunchFlags we need
+            App.LaunchSettings.QuietFlag.Active = true;
+            App.LaunchSettings.NoLaunchFlag.Active = true;
+
+            App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
+            App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
+            {
+                MutexName = "Bloxstrap-BackgroundUpdaterKillEvent",
+                QuitIfMutexExists = true
+            };
+
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            Task.Run(() =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Started event waiter");
+                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdater"))
+                    handle.WaitOne();
+
+                App.Logger.WriteLine(LOG_IDENT, "Received close event, killing it all!");
+                App.Bootstrapper.Cancel();
+            }, cts.Token);
+
+            Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
+                cts.Cancel(); // stop event waiter
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
+
+            App.Logger.WriteLine(LOG_IDENT, "Exiting");
         }
     }
 }
