@@ -787,7 +787,8 @@ namespace Bloxstrap
 
                 if (dirName != App.RobloxState.Prop.Player.VersionGuid && dirName != App.RobloxState.Prop.Studio.VersionGuid)
                 {
-                    Filesystem.AssertReadOnlyDirectory(dir);
+                    // TODO: this is too expensive
+                    //Filesystem.AssertReadOnlyDirectory(dir);
 
                     // check if it's still being used first
                     // we dont want to accidentally delete the files of a running roblox instance
