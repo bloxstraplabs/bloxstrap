@@ -285,8 +285,6 @@ namespace Bloxstrap
 
                     // get process name
                     string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
-                    if (App.Settings.Prop.RenameClientToEuroTrucks2)
-                        ProcessName = App.RobloxAnselAppName.Split(".")[0]; // ansel supports
                     App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name {ProcessName}.exe, running Fishstrap in background.");
 
                     // now yield until the processes are closed
@@ -339,13 +337,6 @@ namespace Bloxstrap
         public static void LaunchBloxshadeConfig()
         {
             const string LOG_IDENT = "LaunchHandler::LaunchBloxshade";
-
-            // ansel setting
-            App.Settings.Prop.RenameClientToEuroTrucks2 = true;
-            App.Settings.Save();
-
-            App.State.Prop.ShowBloxshadeWarning = true;
-            App.State.Save();
 
             App.Logger.WriteLine(LOG_IDENT, "Showing unsupported warning");
 

@@ -28,10 +28,5 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.ForceRobloxLanguage;
             set => App.Settings.Prop.ForceRobloxLanguage = value;
         }
-        public bool RenameClientToEurotrucks2
-        {
-            get => App.Settings.Prop.RenameClientToEuroTrucks2;
-            set => App.Settings.Prop.RenameClientToEuroTrucks2 = value;
-        }
     }
 }

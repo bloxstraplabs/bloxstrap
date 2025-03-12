@@ -64,7 +64,7 @@ namespace Bloxstrap
         private bool _mustUpgrade =>
             String.IsNullOrEmpty(AppData.State.VersionGuid) ||
             !File.Exists(AppData.ExecutablePath) ||
-            !AppData.ExecutablePath.Contains(":\\"); // fix standalone eurotrucks2.exe bug
+            !AppData.ExecutablePath.Contains(":\\");
 
         private bool _noConnection = false;
 
@@ -227,6 +227,18 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
+                // we are checking if eurotrucks2 exists in client directory
+                if (
+                    File.Exists(Path.Combine(AppData.Directory, App.RobloxAnselAppName))
+                    )
+                {
+                    Frontend.ShowMessageBox(
+                        Strings.Bootstrapper_Dialog_AnselDisabled,
+                        MessageBoxImage.Warning
+                    );
+                    await UpgradeRoblox();
+                }
+
                 if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
                     await UpgradeRoblox();
 
@@ -801,7 +813,6 @@ namespace Bloxstrap
                 appFlagsKey.DeleteValueSafe(oldClientLocation);
             }
         }
-
         private static void KillRobloxPlayers()
         {
             const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
@@ -1055,37 +1066,38 @@ namespace Bloxstrap
 
             App.State.Save();
 
-            App.Logger.WriteLine(LOG_IDENT, "Checking for eurotrucks2.exe toggle");
+            // as of v2.9.1.1 its disabled
+            //App.Logger.WriteLine(LOG_IDENT, "Checking for eurotrucks2.exe toggle");
 
-            try
-            {
-                string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
-                string ExecutableName = null!;
+            //try
+            //{
+            //    string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
+            //    string ExecutableName = null!;
 
-                if (!App.Settings.Prop.RenameClientToEuroTrucks2)
-                    return;
+            //    if (!App.Settings.Prop.RenameClientToEuroTrucks2)
+            //        return;
 
-                foreach (string Name in Names)
-                {
-                    string Directory = Path.Combine((string)AppData.Directory, Name);
-                    if (File.Exists(Directory))
-                    {
-                        ExecutableName = Name;
-                    }
-                }
+            //    foreach (string Name in Names)
+            //    {
+            //        string Directory = Path.Combine((string)AppData.Directory, Name);
+            //        if (File.Exists(Directory))
+            //        {
+            //            ExecutableName = Name;
+            //        }
+            //    }
 
-                if (ExecutableName == App.RobloxPlayerAppName || ExecutableName == App.RobloxStudioAppName)
-                {
-                    File.Move(
-                        Path.Combine(_latestVersionDirectory, ExecutableName),
-                        Path.Combine(_latestVersionDirectory, App.RobloxAnselAppName)
-                    );
-                }
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Failed to update client! " + ex.Message);
-            }
+            //    if (ExecutableName == App.RobloxPlayerAppName || ExecutableName == App.RobloxStudioAppName)
+            //    {
+            //        File.Move(
+            //            Path.Combine(_latestVersionDirectory, ExecutableName),
+            //            Path.Combine(_latestVersionDirectory, App.RobloxAnselAppName)
+            //        );
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    App.Logger.WriteLine(LOG_IDENT, "Failed to update client! " + ex.Message);
+            //}
 
             _isInstalling = false;
         }

@@ -26,11 +26,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         {
             DataContext = new BehaviourViewModel();
             InitializeComponent();
-
-            if (App.State.Prop.ShowBloxshadeWarning)
-            {
-                AnselBanner.IsOpen = true;
-            }
         }
 
         private void ToggleSwitch_Checked(object sender, RoutedEventArgs e)
