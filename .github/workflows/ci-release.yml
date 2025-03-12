@@ -50,6 +50,7 @@ jobs:
           draft: true
           files: Fishstrap-${{ github.ref_name }}.exe
           name: Fishstrap ${{ github.ref_name }}
+          fail_on_unmatched_files: true
 
   release-test:
     needs: build
@@ -72,3 +73,4 @@ jobs:
           draft: true
           files: Fishstrap-${{ github.ref_name }}.exe
           name: Fishstrap ${{ github.ref_name }}
+          fail_on_unmatched_files: true
