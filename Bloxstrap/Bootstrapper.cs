@@ -808,6 +808,7 @@ namespace Bloxstrap
 
             List<Process> processes = new List<Process>();
             processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName("eurotrucks2"));
             processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
 
             foreach (Process process in processes)
