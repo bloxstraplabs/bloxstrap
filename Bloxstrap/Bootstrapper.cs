@@ -1259,8 +1259,17 @@ namespace Bloxstrap
                 }
             }
 
-            App.RobloxState.Prop.ModManifest = modFolderFiles;
-            App.RobloxState.Save();
+            // make sure we're not overwriting a new update
+            // if we're the background update process, always overwrite
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || !App.RobloxState.HasFileOnDiskChanged())
+            {
+                App.RobloxState.Prop.ModManifest = modFolderFiles;
+                App.RobloxState.Save();
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, "RobloxState disk mismatch, not saving ModManifest");
+            }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
 
