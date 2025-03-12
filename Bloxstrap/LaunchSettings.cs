@@ -32,6 +32,12 @@ namespace Bloxstrap
         
         public LaunchFlag StudioFlag    { get; } = new("studio");
 
+        public LaunchFlag VersionFlag   { get; } = new("version");
+
+        public LaunchFlag ChannelFlag   { get; } = new("channel");
+
+        public LaunchFlag ForceFlag     { get; } = new("force");
+
 #if DEBUG
         public bool BypassUpdateCheck => true;
 #else
@@ -87,6 +93,13 @@ namespace Bloxstrap
                     RobloxLaunchArgs = arg;
                     startIdx = 1;
                 }
+                else if (arg.StartsWith("version-"))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Got version argument");
+                    VersionFlag.Active = true;
+                    VersionFlag.Data = arg;
+                    startIdx = 1;
+                }
             }
 
             // parse
@@ -108,6 +121,12 @@ namespace Bloxstrap
                     continue;
                 }
 
+                if (flag.Active)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Tried to set {identifier} flag twice");
+                    continue;
+                }
+
                 flag.Active = true;
 
                 if (i < Args.Length - 1 && Args[i+1] is string nextArg && !nextArg.StartsWith('-'))
@@ -121,6 +140,9 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"Identifier '{identifier}' is active");
                 }
             }
+
+            if (VersionFlag.Active)
+                RobloxLaunchMode = LaunchMode.Unknown; // determine in bootstrapper
 
             if (PlayerFlag.Active)
                 ParsePlayer(PlayerFlag.Data);

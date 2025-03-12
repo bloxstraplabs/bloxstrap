@@ -45,8 +45,8 @@ namespace Bloxstrap
         private readonly FastZipEvents _fastZipEvents = new();
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private readonly IAppData AppData;
-        private readonly LaunchMode _launchMode;
+        private IAppData AppData = default!;
+        private LaunchMode _launchMode;
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private string _latestVersionGuid = null!;
@@ -60,7 +60,7 @@ namespace Bloxstrap
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
-        private bool _mustUpgrade => String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -91,6 +91,11 @@ namespace Bloxstrap
             _fastZipEvents.DirectoryFailure += (_, e) => throw e.Exception;
             _fastZipEvents.ProcessFile += (_, e) => e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
 
+            SetupAppData();
+        }
+
+        private void SetupAppData()
+        {
             AppData = IsStudioLaunch ? new RobloxStudioData() : new RobloxPlayerData();
             Deployment.BinaryType = AppData.BinaryType;
         }
@@ -288,12 +293,17 @@ namespace Bloxstrap
             using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
 
             var match = Regex.Match(
-                App.LaunchSettings.RobloxLaunchArgs, 
-                "channel:([a-zA-Z0-9-_]+)", 
+                App.LaunchSettings.RobloxLaunchArgs,
+                "channel:([a-zA-Z0-9-_]+)",
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
-            if (match.Groups.Count == 2)
+            if (App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data))
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Channel set to {App.LaunchSettings.ChannelFlag.Data} from arguments");
+                Deployment.Channel = App.LaunchSettings.ChannelFlag.Data.ToLowerInvariant();
+            }
+            else if (match.Groups.Count == 2)
             {
                 Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
             }
@@ -310,29 +320,50 @@ namespace Bloxstrap
             if (!Deployment.IsDefaultChannel)
                 App.SendStat("robloxChannel", Deployment.Channel);
 
-            ClientVersion clientVersion;
-
-            try
+            if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
-                clientVersion = await Deployment.GetInfo();
+                ClientVersion clientVersion;
+
+                try
+                {
+                    clientVersion = await Deployment.GetInfo();
+                }
+                catch (InvalidChannelException ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
+
+                    Deployment.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo();
+                }
+
+                key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+
+                _latestVersionGuid = clientVersion.VersionGuid;
             }
-            catch (InvalidChannelException ex)
+            else
             {
-                App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
+                App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
+                _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
             }
 
-            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
-
-            _latestVersionGuid = clientVersion.VersionGuid;
             _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             _versionPackageManifest = new(pkgManifestData);
+
+            // this can happen if version is set through arguments
+            if (_launchMode == LaunchMode.Unknown)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Identifying launch mode from package manifest");
+
+                bool isPlayer = _versionPackageManifest.Exists(x => x.Name == "RobloxApp.zip");
+                App.Logger.WriteLine(LOG_IDENT, $"isPlayer: {isPlayer}");
+
+                _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
+                SetupAppData(); // we need to set it up again
+            }
         }
 
         private void StartRoblox()
@@ -930,20 +961,23 @@ namespace Bloxstrap
             allPackageHashes.AddRange(App.State.Prop.Player.PackageHashes.Values);
             allPackageHashes.AddRange(App.State.Prop.Studio.PackageHashes.Values);
 
-            foreach (string hash in cachedPackageHashes)
+            if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
-                if (!allPackageHashes.Contains(hash))
+                foreach (string hash in cachedPackageHashes)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
-                        
-                    try
+                    if (!allPackageHashes.Contains(hash))
                     {
-                        File.Delete(Path.Combine(Paths.Downloads, hash));
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
-                        App.Logger.WriteException(LOG_IDENT, ex);
+                        App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
+
+                        try
+                        {
+                            File.Delete(Path.Combine(Paths.Downloads, hash));
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
             }
