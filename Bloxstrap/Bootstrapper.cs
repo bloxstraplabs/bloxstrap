@@ -402,34 +402,67 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::IsEligibleForBackgroundUpdate";
 
-            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || _mustUpgrade || IsStudioLaunch)
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Is the background updater process");
                 return false;
+            }
+
+            if (IsStudioLaunch)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Studio launch");
+                return false;
+            }
+
+            if (_mustUpgrade)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Must upgrade is true");
+                return false;
+            }
 
             // at least 3GB of free space
             const long minimumFreeSpace = 3_000_000_000;
             long space = Filesystem.GetFreeDiskSpace(Paths.Base);
             if (space < minimumFreeSpace)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"User has {space} free space, at least {minimumFreeSpace} is required");
+                App.Logger.WriteLine(LOG_IDENT, $"Not eligible: User has {space} free space, at least {minimumFreeSpace} is required");
                 return false;
             }
 
-            if (_latestVersion == default) // todo: check if this even works
+            if (_latestVersion == default)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Latest version is undefined");
                 return false;
+            }
 
             Version? currentVersion = Utilities.GetRobloxVersion(AppData);
             if (currentVersion == default)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Current version is undefined");
                 return false;
+            }
 
             // always normally upgrade for downgrades
             if (currentVersion.Minor > _latestVersion.Minor)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Downgrade");
                 return false;
+            }
 
             // only background update if we're:
             // - one major update behind
             // - the same major update
             int diff = _latestVersion.Minor - currentVersion.Minor;
-            return diff == 0 || diff == 1;
+            if (diff == 0 || diff == 1)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Eligible");
+                return true;
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Not eligible: Major version diff is {diff}");
+                return false;
+            }
         }
 
         private void StartRoblox()
