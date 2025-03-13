@@ -1449,6 +1449,6 @@ Defaulting to Fluent.</value>
     <value>Background Updates</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Update Roblox in the background instead of waiting for Roblox to finish updating before being able to play Roblox. Not preferable for slow networks.</value>
+    <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required.</value>
   </data>
 </root>
