@@ -313,7 +313,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
             App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
             {
-                MutexName = "Bloxstrap-BackgroundUpdaterKillEvent",
+                MutexName = "Bloxstrap-BackgroundUpdater",
                 QuitIfMutexExists = true
             };
 
@@ -322,7 +322,7 @@ namespace Bloxstrap
             Task.Run(() =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Started event waiter");
-                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdater"))
+                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent"))
                     handle.WaitOne();
 
                 App.Logger.WriteLine(LOG_IDENT, "Received close event, killing it all!");
