@@ -1064,7 +1064,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} {1} is not a valid {2}.
+        ///   Looks up a localized string similar to {0}.{1} is not a valid {2}.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeInvalidType {
             get {
@@ -1100,7 +1100,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} can only have one {1} defined.
+        ///   Looks up a localized string similar to .
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMultipleDefinitions {
             get {
@@ -1109,7 +1109,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} {1} must be larger than {2}.
+        ///   Looks up a localized string similar to {0}.{1} must be larger than {2}.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMustBeLargerThanMin {
             get {
@@ -1118,7 +1118,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} {1} must be smaller than {2}.
+        ///   Looks up a localized string similar to {0}.{1} must be smaller than {2}.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMustBeSmallerThanMax {
             get {
@@ -1191,7 +1191,7 @@ namespace Bloxstrap.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Failed to setup custom bootstrapper: {0}.
-        ///Defaulting to Fluent..
+        ///Defaulting to {1}..
         /// </summary>
         public static string CustomTheme_Errors_SetupFailed {
             get {
@@ -1218,7 +1218,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} Unknown {1} {2}.
+        ///   Looks up a localized string similar to {0} Unknown {1} &apos;{2}&apos;.
         /// </summary>
         public static string CustomTheme_Errors_UnknownEnumValue {
             get {
