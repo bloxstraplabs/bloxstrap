@@ -1100,7 +1100,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {0} can only have one {1} defined.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMultipleDefinitions {
             get {

@@ -1357,7 +1357,8 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
-    <value />
+    <value>{0} can only have one {1} defined</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
     <value>{0}.{1} can only have one child</value>
