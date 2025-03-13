@@ -43,14 +43,21 @@ namespace Bloxstrap
 #endif
             { "hr", "Hrvatski" }, // Croatian
             { "hu", "Magyar" }, // Hungarian
+#if QA_BUILD
+            { "is", "Icelandic" }, // Icelandic (TODO: translate string)
+#endif
             { "id", "Bahasa Indonesia" }, // Indonesian
             { "it", "Italiano" }, // Italian
             { "ja", "日本語" }, // Japanese
             { "ko", "한국어" }, // Korean
+#if QA_BUILD
+            { "lv", "Latvian" }, // Latvian (TODO: translate string)
+#endif
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
             { "nl", "Nederlands" }, // Dutch
 #if QA_BUILD
+            { "et", "Estonian" }, // Estonian (TODO: translate string)
             { "no", "Bokmål" }, // Norwegian
 #endif
             { "pl", "Polski" }, // Polish
