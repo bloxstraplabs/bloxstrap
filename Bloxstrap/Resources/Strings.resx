@@ -127,7 +127,7 @@
     <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
 	<data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Bloxstrap.</value>
+    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Fishstrap.</value>
   </data>
 	<data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>You must first install Bloxstrap before uninstalling.</value>
@@ -175,7 +175,7 @@
     <value>Fishstrap has successfully uninstalled</value>
   </data>
 	<data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?</value>
+    <value>Roblox is currently running, but must be closed before uninstalling Fishstrap. Would you like to close Roblox now?</value>
   </data>
 	<data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
@@ -914,7 +914,7 @@ Some text might not be translated to preferred language.</value>
     <value>The entry for '{0}' is not valid as the value must be a number</value>
   </data>
 	<data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>No log file will be written for this launch because Bloxstrap is unable to write to the folder at '{0}'</value>
+    <value>No log file will be written for this launch because Fishstrap is unable to write to the folder at '{0}'</value>
   </data>
 	<data name="Common.Default" xml:space="preserve">
     <value>Default</value>
@@ -1105,7 +1105,7 @@ Are you sure you want to continue?</value>
 	<data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>For information about why this could be happening and how this can be resolved, please read [this help article]({0}).
 
-Check if Roblox works with [the original launcher]({1}). If it doesn't, then this isn't a Bloxstrap issue. If it does, then refer to the help article.</value>
+Check if Roblox works with [the original launcher]({1}). If it doesn't, then this isn't a Fishstrap issue. If it does, then refer to the help article.</value>
   </data>
 	<data name="Common.NetworkError" xml:space="preserve">
     <value>Could not load data because of a network error.</value>
@@ -1148,7 +1148,7 @@ Every person here is ranked by their overall pledge.</value>
     <value>For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied.</value>
   </data>
 	<data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
+    <value>Because Roblox needs to be installed or upgraded, Fishstrap cannot continue.</value>
   </data>
 	<data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>Fishstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
