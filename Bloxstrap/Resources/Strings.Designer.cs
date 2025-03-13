@@ -2555,7 +2555,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Background Updates.
+        ///   Looks up a localized string similar to Background updates.
         /// </summary>
         public static string Menu_Behaviour_BackgroundUpdates_Title {
             get {

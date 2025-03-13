@@ -1446,7 +1446,7 @@ Defaulting to Fluent.</value>
     <value>Failed to rename custom theme {0}: {1}</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Background Updates</value>
+    <value>Background updates</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
     <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required.</value>
