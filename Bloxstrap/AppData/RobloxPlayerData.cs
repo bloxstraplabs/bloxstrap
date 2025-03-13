@@ -16,7 +16,7 @@ namespace Bloxstrap.AppData
 
         public override string ExecutableName => "RobloxPlayerBeta.exe";
 
-        public override AppState State => App.State.Prop.Player;
+        public override AppState State => App.RobloxState.Prop.Player;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {
