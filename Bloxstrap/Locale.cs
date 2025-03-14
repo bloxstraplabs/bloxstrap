@@ -51,7 +51,7 @@ namespace Bloxstrap
             { "ja", "日本語" }, // Japanese
             { "ko", "한국어" }, // Korean
 #if QA_BUILD
-            { "lv", "Latvian" }, // Latvian (TODO: translate string)
+            { "lv", "Latviešu" }, // Latvian
 #endif
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
