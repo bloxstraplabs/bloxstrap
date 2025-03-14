@@ -1082,7 +1082,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}.{1} is missing it&apos;s child.
+        ///   Looks up a localized string similar to {0}.{1} is missing its child.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMissingChild {
             get {
