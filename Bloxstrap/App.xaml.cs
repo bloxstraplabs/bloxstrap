@@ -42,7 +42,7 @@ namespace Bloxstrap
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
-        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid);
+        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -53,6 +53,8 @@ namespace Bloxstrap
         public static readonly JsonManager<Settings> Settings = new();
 
         public static readonly JsonManager<State> State = new();
+
+        public static readonly JsonManager<RobloxState> RobloxState = new();
 
         public static readonly FastFlagManager FastFlags = new();
 
@@ -181,6 +183,22 @@ namespace Bloxstrap
             }
         }
 
+        public static void AssertWindowsOSVersion()
+        {
+            const string LOG_IDENT = "App::AssertWindowsOSVersion";
+
+            int major = Environment.OSVersion.Version.Major;
+            if (major < 10) // Windows 10 and newer only
+            {
+                Logger.WriteLine(LOG_IDENT, $"Detected unsupported Windows version ({Environment.OSVersion.Version}).");
+
+                if (!LaunchSettings.QuietFlag.Active)
+                    Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
+
+                Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
+            }
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
@@ -212,6 +230,8 @@ namespace Bloxstrap
                 userAgent += $" (Build {Convert.ToBase64String(Encoding.UTF8.GetBytes(BuildMetadata.Machine))})";
 #endif
             }
+
+            Logger.WriteLine(LOG_IDENT, $"OSVersion: {Environment.OSVersion}");
 
             Logger.WriteLine(LOG_IDENT, $"Loaded from {Paths.Process}");
             Logger.WriteLine(LOG_IDENT, $"Temp path is {Paths.Temp}");
@@ -292,6 +312,7 @@ namespace Bloxstrap
             {
                 Logger.Initialize(true);
                 Logger.WriteLine(LOG_IDENT, "Not installed, launching the installer");
+                AssertWindowsOSVersion(); // prevent new installs from unsupported operating systems
                 LaunchHandler.LaunchInstaller();
             }
             else
@@ -317,6 +338,7 @@ namespace Bloxstrap
 
                 Settings.Load();
                 State.Load();
+                RobloxState.Load();
                 FastFlags.Load();
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))

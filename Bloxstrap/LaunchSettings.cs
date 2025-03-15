@@ -12,25 +12,33 @@ namespace Bloxstrap
 {
     public class LaunchSettings
     {
-        public LaunchFlag MenuFlag      { get; } = new("preferences,menu,settings");
+        public LaunchFlag MenuFlag              { get; } = new("preferences,menu,settings");
 
-        public LaunchFlag WatcherFlag   { get; } = new("watcher");
+        public LaunchFlag WatcherFlag           { get; } = new("watcher");
 
-        public LaunchFlag QuietFlag     { get; } = new("quiet");
+        public LaunchFlag BackgroundUpdaterFlag { get; } = new("backgroundupdater");
 
-        public LaunchFlag UninstallFlag { get; } = new("uninstall");
+        public LaunchFlag QuietFlag             { get; } = new("quiet");
 
-        public LaunchFlag NoLaunchFlag  { get; } = new("nolaunch");
+        public LaunchFlag UninstallFlag         { get; } = new("uninstall");
+
+        public LaunchFlag NoLaunchFlag          { get; } = new("nolaunch");
         
-        public LaunchFlag TestModeFlag  { get; } = new("testmode");
+        public LaunchFlag TestModeFlag          { get; } = new("testmode");
 
-        public LaunchFlag NoGPUFlag     { get; } = new("nogpu");
+        public LaunchFlag NoGPUFlag             { get; } = new("nogpu");
 
-        public LaunchFlag UpgradeFlag   { get; } = new("upgrade");
+        public LaunchFlag UpgradeFlag           { get; } = new("upgrade");
         
-        public LaunchFlag PlayerFlag    { get; } = new("player");
+        public LaunchFlag PlayerFlag            { get; } = new("player");
         
-        public LaunchFlag StudioFlag    { get; } = new("studio");
+        public LaunchFlag StudioFlag            { get; } = new("studio");
+
+        public LaunchFlag VersionFlag           { get; } = new("version");
+
+        public LaunchFlag ChannelFlag           { get; } = new("channel");
+
+        public LaunchFlag ForceFlag             { get; } = new("force");
 
 #if DEBUG
         public bool BypassUpdateCheck => true;
@@ -87,6 +95,13 @@ namespace Bloxstrap
                     RobloxLaunchArgs = arg;
                     startIdx = 1;
                 }
+                else if (arg.StartsWith("version-"))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Got version argument");
+                    VersionFlag.Active = true;
+                    VersionFlag.Data = arg;
+                    startIdx = 1;
+                }
             }
 
             // parse
@@ -108,11 +123,18 @@ namespace Bloxstrap
                     continue;
                 }
 
+                if (flag.Active)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Tried to set {identifier} flag twice");
+                    continue;
+                }
+
                 flag.Active = true;
 
                 if (i < Args.Length - 1 && Args[i+1] is string nextArg && !nextArg.StartsWith('-'))
                 {
                     flag.Data = nextArg;
+                    i++;
                     App.Logger.WriteLine(LOG_IDENT, $"Identifier '{identifier}' is active with data");
                 }
                 else
@@ -120,6 +142,9 @@ namespace Bloxstrap
                     App.Logger.WriteLine(LOG_IDENT, $"Identifier '{identifier}' is active");
                 }
             }
+
+            if (VersionFlag.Active)
+                RobloxLaunchMode = LaunchMode.Unknown; // determine in bootstrapper
 
             if (PlayerFlag.Active)
                 ParsePlayer(PlayerFlag.Data);

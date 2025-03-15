@@ -4,10 +4,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
+using ICSharpCode.SharpZipLib.Zip;
 
 using Microsoft.Win32;
 
 using Bloxstrap.UI.Elements.Settings;
+using Bloxstrap.UI.Elements.Editor;
+using Bloxstrap.UI.Elements.Dialogs;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -17,6 +20,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand PreviewBootstrapperCommand => new RelayCommand(PreviewBootstrapper);
         public ICommand BrowseCustomIconLocationCommand => new RelayCommand(BrowseCustomIconLocation);
+
+        public ICommand AddCustomThemeCommand => new RelayCommand(AddCustomTheme);
+        public ICommand DeleteCustomThemeCommand => new RelayCommand(DeleteCustomTheme);
+        public ICommand RenameCustomThemeCommand => new RelayCommand(RenameCustomTheme);
+        public ICommand EditCustomThemeCommand => new RelayCommand(EditCustomTheme);
+        public ICommand ExportCustomThemeCommand => new RelayCommand(ExportCustomTheme);
 
         private void PreviewBootstrapper()
         {
@@ -51,6 +60,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             foreach (var entry in BootstrapperIconEx.Selections)
                 Icons.Add(new BootstrapperIconEntry { IconType = entry });
+
+            PopulateCustomThemes();
         }
 
         public IEnumerable<Theme> Themes { get; } = Enum.GetValues(typeof(Theme)).Cast<Theme>();
@@ -78,8 +89,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public BootstrapperStyle Dialog
         {
             get => App.Settings.Prop.BootstrapperStyle;
-            set => App.Settings.Prop.BootstrapperStyle = value;
+            set
+            {
+                App.Settings.Prop.BootstrapperStyle = value;
+                OnPropertyChanged(nameof(CustomThemesExpanded)); // TODO: only fire when needed
+            }
         }
+
+        public bool CustomThemesExpanded => App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.CustomDialog;
 
         public ObservableCollection<BootstrapperIconEntry> Icons { get; set; } = new();
 
@@ -116,5 +133,183 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 OnPropertyChanged(nameof(Icons));
             }
         }
+
+        private void DeleteCustomThemeStructure(string name)
+        {
+            string dir = Path.Combine(Paths.CustomThemes, name);
+            Directory.Delete(dir, true);
+        }
+
+        private void RenameCustomThemeStructure(string oldName, string newName)
+        {
+            string oldDir = Path.Combine(Paths.CustomThemes, oldName);
+            string newDir = Path.Combine(Paths.CustomThemes, newName);
+            Directory.Move(oldDir, newDir);
+        }
+
+        private void AddCustomTheme()
+        {
+            var dialog = new AddCustomThemeDialog();
+            dialog.ShowDialog();
+
+            if (dialog.Created)
+            {
+                CustomThemes.Add(dialog.ThemeName);
+                SelectedCustomThemeIndex = CustomThemes.Count - 1;
+
+                OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+                OnPropertyChanged(nameof(IsCustomThemeSelected));
+
+                if (dialog.OpenEditor)
+                    EditCustomTheme();
+            }
+        }
+
+        private void DeleteCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            try
+            {
+                DeleteCustomThemeStructure(SelectedCustomTheme);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("AppearanceViewModel::DeleteCustomTheme", ex);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_DeleteFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
+                return;
+            }
+
+            CustomThemes.Remove(SelectedCustomTheme);
+
+            if (CustomThemes.Any())
+            {
+                SelectedCustomThemeIndex = CustomThemes.Count - 1;
+                OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+            }
+
+            OnPropertyChanged(nameof(IsCustomThemeSelected));
+        }
+
+        private void RenameCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            if (SelectedCustomTheme == SelectedCustomThemeName)
+                return;
+
+            try
+            {
+                RenameCustomThemeStructure(SelectedCustomTheme, SelectedCustomThemeName);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("AppearanceViewModel::RenameCustomTheme", ex);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_RenameFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
+                return;
+            }
+
+            int idx = CustomThemes.IndexOf(SelectedCustomTheme);
+            CustomThemes[idx] = SelectedCustomThemeName;
+
+            SelectedCustomThemeIndex = idx;
+            OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+        }
+
+        private void EditCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            new BootstrapperEditorWindow(SelectedCustomTheme).ShowDialog();
+        }
+
+        private void ExportCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            var dialog = new SaveFileDialog
+            {
+                FileName = $"{SelectedCustomTheme}.zip",
+                Filter = $"{Strings.FileTypes_ZipArchive}|*.zip"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            string themeDir = Path.Combine(Paths.CustomThemes, SelectedCustomTheme);
+
+            using var memStream = new MemoryStream();
+            using var zipStream = new ZipOutputStream(memStream);
+
+            foreach (var filePath in Directory.EnumerateFiles(themeDir, "*.*", SearchOption.AllDirectories))
+            {
+                string relativePath = filePath[(themeDir.Length + 1)..];
+
+                var entry = new ZipEntry(relativePath);
+                entry.DateTime = DateTime.Now;
+
+                zipStream.PutNextEntry(entry);
+
+                using var fileStream = File.OpenRead(filePath);
+                fileStream.CopyTo(zipStream);
+            }
+
+            zipStream.CloseEntry();
+            zipStream.Finish();
+            memStream.Position = 0;
+
+            using var outputStream = File.OpenWrite(dialog.FileName);
+            memStream.CopyTo(outputStream);
+
+            Process.Start("explorer.exe", $"/select,\"{dialog.FileName}\"");
+        }
+
+        private void PopulateCustomThemes()
+        {
+            string? selected = App.Settings.Prop.SelectedCustomTheme;
+
+            Directory.CreateDirectory(Paths.CustomThemes);
+
+            foreach (string directory in Directory.GetDirectories(Paths.CustomThemes))
+            {
+                if (!File.Exists(Path.Combine(directory, "Theme.xml")))
+                    continue; // missing the main theme file, ignore
+
+                string name = Path.GetFileName(directory);
+                CustomThemes.Add(name);
+            }
+
+            if (selected != null)
+            {
+                int idx = CustomThemes.IndexOf(selected);
+
+                if (idx != -1)
+                {
+                    SelectedCustomThemeIndex = idx;
+                    OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+                }
+                else
+                {
+                    SelectedCustomTheme = null;
+                }
+            }
+        }
+
+        public string? SelectedCustomTheme
+        {
+            get => App.Settings.Prop.SelectedCustomTheme;
+            set => App.Settings.Prop.SelectedCustomTheme = value;
+        }
+
+        public string SelectedCustomThemeName { get; set; } = "";
+
+        public int SelectedCustomThemeIndex { get; set; }
+
+        public ObservableCollection<string> CustomThemes { get; set; } = new();
+        public bool IsCustomThemeSelected => SelectedCustomTheme is not null;
     }
 }
