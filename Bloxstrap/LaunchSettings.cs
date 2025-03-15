@@ -57,8 +57,6 @@ namespace Bloxstrap
         /// </summary>
         public string[] Args { get; private set; }
 
-        private readonly Dictionary<string, LaunchFlag> _flagMap = new();
-
         public LaunchSettings(string[] args)
         {
             const string LOG_IDENT = "LaunchSettings::LaunchSettings";
@@ -68,6 +66,8 @@ namespace Bloxstrap
 #endif
 
             Args = args;
+
+            Dictionary<string, LaunchFlag> flagMap = new();
 
             // build flag map
             foreach (var prop in this.GetType().GetProperties())
@@ -79,7 +79,7 @@ namespace Bloxstrap
                     continue;
 
                 foreach (string identifier in flag.Identifiers.Split(','))
-                    _flagMap.Add(identifier, flag);
+                    flagMap.Add(identifier, flag);
             }
 
             int startIdx = 0;
@@ -119,7 +119,7 @@ namespace Bloxstrap
 
                 string identifier = arg[1..];
 
-                if (!_flagMap.TryGetValue(identifier, out LaunchFlag? flag) || flag is null)
+                if (!flagMap.TryGetValue(identifier, out LaunchFlag? flag) || flag is null)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Unknown argument: {identifier}");
                     continue;
