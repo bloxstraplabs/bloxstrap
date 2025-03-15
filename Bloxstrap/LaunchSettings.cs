@@ -61,7 +61,7 @@ namespace Bloxstrap
 
         public LaunchSettings(string[] args)
         {
-            const string LOG_IDENT = "LaunchSettings";
+            const string LOG_IDENT = "LaunchSettings::LaunchSettings";
 
 #if DEBUG
             App.Logger.WriteLine(LOG_IDENT, $"Launched with arguments: {string.Join(' ', args)}");
