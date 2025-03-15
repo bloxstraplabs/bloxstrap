@@ -44,7 +44,7 @@ namespace Bloxstrap
             { "hr", "Hrvatski" }, // Croatian
             { "hu", "Magyar" }, // Hungarian
 #if QA_BUILD
-            { "is", "Icelandic" }, // Icelandic (TODO: translate string)
+            { "is", "Íslenska" }, // Icelandic
 #endif
             { "id", "Bahasa Indonesia" }, // Indonesian
             { "it", "Italiano" }, // Italian
