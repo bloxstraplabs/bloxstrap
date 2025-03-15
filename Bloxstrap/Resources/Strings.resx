@@ -1483,4 +1483,8 @@ Defaulting to {1}.</value>
   <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
     <value>Find more custom bootstrapper examples at {0}</value>
   </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Custom Theme {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
 </root>

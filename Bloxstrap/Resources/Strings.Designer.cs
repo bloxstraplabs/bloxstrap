@@ -974,6 +974,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Theme {0}.
+        /// </summary>
+        public static string CustomTheme_DefaultName {
+            get {
+                return ResourceManager.GetString("CustomTheme.DefaultName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save changes to {0}?.
         /// </summary>
         public static string CustomTheme_Editor_ConfirmSave {
