@@ -1136,6 +1136,8 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
+            App.State.Prop.ForceReinstall = false;
+
             App.State.Save();
             App.RobloxState.Save();
 
