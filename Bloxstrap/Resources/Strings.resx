@@ -1487,4 +1487,10 @@ Defaulting to {1}.</value>
     <value>Custom Theme {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Allow multi-instance launching</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
+  </data>
 </root>

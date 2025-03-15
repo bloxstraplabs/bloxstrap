@@ -3426,6 +3426,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously..
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow multi-instance launching.
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When in-game, you&apos;ll be able to see where your server is located via [ipinfo.io]({0})..
         /// </summary>
         public static string Menu_Integrations_QueryServerLocation_Description {

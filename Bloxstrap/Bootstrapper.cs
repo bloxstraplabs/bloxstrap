@@ -471,21 +471,48 @@ namespace Bloxstrap
             }
         }
 
+        private static void LaunchMultiInstanceWatcher()
+        {
+            const string LOG_IDENT = "Bootstrapper::LaunchMultiInstanceWatcher";
+
+            if (Utilities.DoesMutexExist("ROBLOX_singletonMutex"))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Roblox singleton mutex already exists");
+                return;
+            }
+
+            using EventWaitHandle initEventHandle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-MultiInstanceWatcherInitialisationFinished");
+            Process.Start(Paths.Process, "-multiinstancewatcher");
+
+            bool initSuccess = initEventHandle.WaitOne(TimeSpan.FromSeconds(2));
+            if (initSuccess)
+                App.Logger.WriteLine(LOG_IDENT, "Initialisation finished signalled, continuing.");
+            else
+                App.Logger.WriteLine(LOG_IDENT, "Did not receive the initialisation finished signal, continuing.");
+        }
+
         private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
-            if (_launchMode == LaunchMode.Player && App.Settings.Prop.ForceRobloxLanguage)
+            if (_launchMode == LaunchMode.Player)
             {
-                var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+                // this needs to be done before roblox launches
+                if (App.Settings.Prop.MultiInstanceLaunching)
+                    LaunchMultiInstanceWatcher();
 
-                if (match.Groups.Count == 2)
-                    _launchCommandLine = _launchCommandLine.Replace(
-                        "robloxLocale:en_us", 
-                        $"robloxLocale:{match.Groups[1].Value}", 
-                        StringComparison.OrdinalIgnoreCase);
+                if (App.Settings.Prop.ForceRobloxLanguage)
+                {
+                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+
+                    if (match.Groups.Count == 2)
+                        _launchCommandLine = _launchCommandLine.Replace(
+                            "robloxLocale:en_us",
+                            $"robloxLocale:{match.Groups[1].Value}",
+                            StringComparison.OrdinalIgnoreCase);
+                }
             }
 
             var startInfo = new ProcessStartInfo()

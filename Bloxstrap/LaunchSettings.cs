@@ -12,33 +12,35 @@ namespace Bloxstrap
 {
     public class LaunchSettings
     {
-        public LaunchFlag MenuFlag              { get; } = new("preferences,menu,settings");
+        public LaunchFlag MenuFlag                  { get; } = new("preferences,menu,settings");
 
-        public LaunchFlag WatcherFlag           { get; } = new("watcher");
+        public LaunchFlag WatcherFlag               { get; } = new("watcher");
 
-        public LaunchFlag BackgroundUpdaterFlag { get; } = new("backgroundupdater");
+        public LaunchFlag MultiInstanceWatcherFlag  { get; } = new("multiinstancewatcher");
 
-        public LaunchFlag QuietFlag             { get; } = new("quiet");
+        public LaunchFlag BackgroundUpdaterFlag     { get; } = new("backgroundupdater");
 
-        public LaunchFlag UninstallFlag         { get; } = new("uninstall");
+        public LaunchFlag QuietFlag                 { get; } = new("quiet");
 
-        public LaunchFlag NoLaunchFlag          { get; } = new("nolaunch");
+        public LaunchFlag UninstallFlag             { get; } = new("uninstall");
+
+        public LaunchFlag NoLaunchFlag              { get; } = new("nolaunch");
         
-        public LaunchFlag TestModeFlag          { get; } = new("testmode");
+        public LaunchFlag TestModeFlag              { get; } = new("testmode");
 
-        public LaunchFlag NoGPUFlag             { get; } = new("nogpu");
+        public LaunchFlag NoGPUFlag                 { get; } = new("nogpu");
 
-        public LaunchFlag UpgradeFlag           { get; } = new("upgrade");
+        public LaunchFlag UpgradeFlag               { get; } = new("upgrade");
         
-        public LaunchFlag PlayerFlag            { get; } = new("player");
+        public LaunchFlag PlayerFlag                { get; } = new("player");
         
-        public LaunchFlag StudioFlag            { get; } = new("studio");
+        public LaunchFlag StudioFlag                { get; } = new("studio");
 
-        public LaunchFlag VersionFlag           { get; } = new("version");
+        public LaunchFlag VersionFlag               { get; } = new("version");
 
-        public LaunchFlag ChannelFlag           { get; } = new("channel");
+        public LaunchFlag ChannelFlag               { get; } = new("channel");
 
-        public LaunchFlag ForceFlag             { get; } = new("force");
+        public LaunchFlag ForceFlag                 { get; } = new("force");
 
 #if DEBUG
         public bool BypassUpdateCheck => true;
