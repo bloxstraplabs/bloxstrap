@@ -194,11 +194,47 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void RenameCustomTheme()
         {
-            if (SelectedCustomTheme is null)
+            const string LOG_IDENT = "AppearanceViewModel::RenameCustomTheme";
+
+            if (SelectedCustomTheme is null || SelectedCustomTheme == SelectedCustomThemeName)
                 return;
 
-            if (SelectedCustomTheme == SelectedCustomThemeName)
+            if (string.IsNullOrEmpty(SelectedCustomThemeName))
+            {
+                Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameEmpty, MessageBoxImage.Error);
                 return;
+            }
+
+            var validationResult = PathValidator.IsFileNameValid(SelectedCustomThemeName);
+
+            if (validationResult != PathValidator.ValidationResult.Ok)
+            {
+                switch (validationResult)
+                {
+                    case PathValidator.ValidationResult.IllegalCharacter:
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameIllegalCharacters, MessageBoxImage.Error);
+                        break;
+                    case PathValidator.ValidationResult.ReservedFileName:
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameReserved, MessageBoxImage.Error);
+                        break;
+                    default:
+                        App.Logger.WriteLine(LOG_IDENT, $"Got unhandled PathValidator::ValidationResult {validationResult}");
+                        Debug.Assert(false);
+
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_Unknown, MessageBoxImage.Error);
+                        break;
+                }
+
+                return;
+            }
+
+            // better to check for the file instead of the directory so broken themes can be overwritten
+            string path = Path.Combine(Paths.CustomThemes, SelectedCustomThemeName, "Theme.xml");
+            if (File.Exists(path))
+            {
+                Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameTaken, MessageBoxImage.Error);
+                return;
+            }
 
             try
             {
@@ -206,7 +242,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
             catch (Exception ex)
             {
-                App.Logger.WriteException("AppearanceViewModel::RenameCustomTheme", ex);
+                App.Logger.WriteException(LOG_IDENT, ex);
                 Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_RenameFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
                 return;
             }
