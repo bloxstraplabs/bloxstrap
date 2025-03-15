@@ -57,7 +57,7 @@ namespace Bloxstrap
             { "ms", "Malay" }, // Malay
             { "nl", "Nederlands" }, // Dutch
 #if QA_BUILD
-            { "et", "Estonian" }, // Estonian (TODO: translate string)
+            { "et", "Eesti Keel" }, // Estonian
             { "no", "Bokmål" }, // Norwegian
 #endif
             { "pl", "Polski" }, // Polish
