@@ -1272,6 +1272,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Examples of custom bootstrappers can be found at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.MoreExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put UI elements here.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_UIElements {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.UIElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find more custom bootstrapper examples at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Simple_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Simple.MoreExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Fast Flag.
         /// </summary>
         public static string Dialog_AddFastFlag_Title {

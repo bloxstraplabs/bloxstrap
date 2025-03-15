@@ -76,7 +76,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             string themeFilePath = Path.Combine(dir, "Theme.xml");
 
-            string templateContent = Encoding.UTF8.GetString(Resource.Get(template.GetFileName()).Result);
+            string templateContent = template.GetFileContents();
 
             File.WriteAllText(themeFilePath, templateContent);
         }
