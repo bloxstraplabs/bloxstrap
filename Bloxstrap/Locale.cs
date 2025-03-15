@@ -71,7 +71,7 @@ namespace Bloxstrap
             { "vi", "Tiếng Việt" }, // Vietnamese
             { "zh-CN", "中文 (简体)" }, // Chinese Simplified
 #if QA_BUILD
-            { "zh-HK", "中文 (廣東話)" }, // Chinese Traditional, Hong Kong
+            { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
 #endif
             { "zh-TW", "中文 (繁體)" } // Chinese Traditional
         };
