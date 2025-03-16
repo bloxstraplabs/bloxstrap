@@ -294,11 +294,14 @@ namespace Bloxstrap
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelTokenSource.IsCancellationRequested)
             {
-                // show some balloon tips
-                if (!_packageExtractionSuccess)
-                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ExtractionFailed_Title, Strings.Bootstrapper_ExtractionFailed_Message, ToolTipIcon.Warning);
-                else if (!allModificationsApplied)
-                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ModificationsFailed_Title, Strings.Bootstrapper_ModificationsFailed_Message, ToolTipIcon.Warning);
+                if (!App.LaunchSettings.QuietFlag.Active)
+                {
+                    // show some balloon tips
+                    if (!_packageExtractionSuccess)
+                        Frontend.ShowBalloonTip(Strings.Bootstrapper_ExtractionFailed_Title, Strings.Bootstrapper_ExtractionFailed_Message, ToolTipIcon.Warning);
+                    else if (!allModificationsApplied)
+                        Frontend.ShowBalloonTip(Strings.Bootstrapper_ModificationsFailed_Title, Strings.Bootstrapper_ModificationsFailed_Message, ToolTipIcon.Warning);
+                }
 
                 StartRoblox();
             }
