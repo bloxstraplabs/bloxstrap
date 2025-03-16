@@ -20,12 +20,12 @@ namespace Bloxstrap.Extensions
                 case CustomThemeTemplate.Blank:
                     {
                         string moreText = string.Format(Strings.CustomTheme_Templates_Blank_MoreExamples, EXAMPLES_URL);
-                        return string.Format(contents, Strings.CustomTheme_Templates_Blank_UIElements, moreText);
+                        return contents.Replace("{0}", Strings.CustomTheme_Templates_Blank_UIElements).Replace("{1}", moreText);
                     }
                 case CustomThemeTemplate.Simple:
                     {
                         string moreText = string.Format(Strings.CustomTheme_Templates_Simple_MoreExamples, EXAMPLES_URL);
-                        return string.Format(contents, moreText);
+                        return contents.Replace("{0}", moreText);
                     }
                 default:
                     Debug.Assert(false);
