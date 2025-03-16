@@ -1037,6 +1037,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your theme has been saved!.
+        /// </summary>
+        public static string CustomTheme_Editor_Save_Success_Description {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save.Success.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editing &quot;{0}&quot;.
         /// </summary>
         public static string CustomTheme_Editor_Title {

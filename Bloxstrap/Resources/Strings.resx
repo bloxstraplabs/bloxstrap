@@ -1493,4 +1493,7 @@ Defaulting to {1}.</value>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Your theme has been saved!</value>
+  </data>
 </root>

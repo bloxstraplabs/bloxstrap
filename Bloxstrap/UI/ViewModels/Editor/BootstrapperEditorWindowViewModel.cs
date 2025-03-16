@@ -64,7 +64,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
             {
                 File.WriteAllText(path, Code);
                 CodeChanged = false;
-                ThemeSavedCallback.Invoke(true, "Your theme has been saved!");
+                ThemeSavedCallback.Invoke(true, Strings.CustomTheme_Editor_Save_Success_Description);
             }
             catch (Exception ex)
             {
