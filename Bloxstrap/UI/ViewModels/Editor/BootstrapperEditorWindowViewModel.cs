@@ -50,7 +50,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
                 App.Logger.WriteLine(LOG_IDENT, "Failed to preview custom theme");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                Frontend.ShowMessageBox($"Failed to preview theme: {ex.Message}", MessageBoxImage.Error, MessageBoxButton.OK);
+                Frontend.ShowMessageBox(string.Format(Strings.CustomTheme_Editor_Errors_PreviewFailed, ex.Message), MessageBoxImage.Error, MessageBoxButton.OK);
             }
         }
 

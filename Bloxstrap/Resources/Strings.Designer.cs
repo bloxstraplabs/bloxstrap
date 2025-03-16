@@ -188,7 +188,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to extract all files.
+        ///   Looks up a localized string similar to Failed to extract files.
         /// </summary>
         public static string Bootstrapper_ExtractionFailed_Title {
             get {
@@ -235,7 +235,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to apply all modifications.
+        ///   Looks up a localized string similar to Failed to apply modifications.
         /// </summary>
         public static string Bootstrapper_ModificationsFailed_Title {
             get {
@@ -992,6 +992,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to preview theme: {0}.
+        /// </summary>
+        public static string CustomTheme_Editor_Errors_PreviewFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Errors.PreviewFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Theme Directory.
         /// </summary>
         public static string CustomTheme_Editor_OpenThemeDirectory {
@@ -1218,7 +1227,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}..
+        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}.
         /// </summary>
         public static string CustomTheme_Errors_TooManyElements {
             get {
