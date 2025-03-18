@@ -859,6 +859,12 @@ namespace Bloxstrap
                 return;
             }
 
+            if (!Directory.Exists(Paths.Versions))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Versions directory does not exist, skipping cleanup.");
+                return;
+            }
+
             foreach (string dir in Directory.GetDirectories(Paths.Versions))
             {
                 string dirName = Path.GetFileName(dir);
