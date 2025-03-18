@@ -36,9 +36,8 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
   - Roblox menu customization
   - More presets
 - Channels
-  - Channel changer
   - Cancelling Roblox upgrades
-  - Deployment channel changer
+  - Channel changer
 - Bootstrapper
   - Multi-instance launching
 - Appearance
