@@ -69,7 +69,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public void SaveAndLaunchSettings()
         {
             SaveSettings();
-            LaunchHandler.LaunchRoblox(LaunchMode.Player);
+            if (!App.LaunchSettings.TestModeFlag.Active) // test mode already launches an instance
+                LaunchHandler.LaunchRoblox(LaunchMode.Player);
+
+            CloseWindow();
         }
     }
 }
