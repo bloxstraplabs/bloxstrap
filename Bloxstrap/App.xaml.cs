@@ -65,6 +65,20 @@ namespace Bloxstrap
         );
 
         private static bool _showingExceptionDialog = false;
+
+        private static string? _webUrl = null;
+        public static string WebUrl
+        {
+            get {
+                if (_webUrl != null)
+                    return _webUrl;
+
+                string url = ConstructBloxstrapWebUrl();
+                if (Settings.Loaded) // only cache if settings are done loading
+                    _webUrl = url;
+                return url;
+            }
+        }
         
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
@@ -126,6 +140,15 @@ namespace Bloxstrap
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
         }
 
+        public static string ConstructBloxstrapWebUrl()
+        {
+            // dont let user switch web environment if debug mode is not on
+            if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
+                return $"bloxstraplabs.com";
+
+            return $"web-{Settings.Prop.WebEnvironment.GetDescription()}.bloxstraplabs.com";
+        }
+
         public static async Task<GithubRelease?> GetLatestRelease()
         {
             const string LOG_IDENT = "App::GetLatestRelease";
@@ -157,7 +180,7 @@ namespace Bloxstrap
 
             try
             {
-                await HttpClient.GetAsync($"https://bloxstraplabs.com/metrics/post?key={key}&value={value}");
+                await HttpClient.GetAsync($"https://{WebUrl}/metrics/post?key={key}&value={value}");
             }
             catch (Exception ex)
             {
@@ -173,7 +196,7 @@ namespace Bloxstrap
             try
             {
                 await HttpClient.PostAsync(
-                    $"https://bloxstraplabs.com/metrics/post-exception", 
+                    $"https://{WebUrl}/metrics/post-exception", 
                     new StringContent(Logger.AsDocument)
                 );
             }
@@ -346,6 +369,9 @@ namespace Bloxstrap
                     Settings.Prop.Locale = "nil";
                     Settings.Save();
                 }
+
+                Logger.WriteLine(LOG_IDENT, $"Developer mode: {Settings.Prop.DeveloperMode}");
+                Logger.WriteLine(LOG_IDENT, $"Web environment: {Settings.Prop.WebEnvironment}");
 
                 Locale.Set(Settings.Prop.Locale);
 

@@ -13,6 +13,8 @@ namespace Bloxstrap
         /// </summary>
         public string? LastFileHash { get; private set; }
 
+        public bool Loaded { get; set; } = false;
+
         public virtual string ClassName => typeof(T).Name;
 
         public virtual string FileLocation => Path.Combine(Paths.Base, $"{ClassName}.json");
@@ -35,6 +37,7 @@ namespace Bloxstrap
                     throw new ArgumentNullException("Deserialization returned null");
 
                 Prop = settings;
+                Loaded = true;
                 LastFileHash = MD5Hash.FromString(contents);
 
                 App.Logger.WriteLine(LOG_IDENT, "Loaded successfully!");

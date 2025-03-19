@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Win32;
@@ -7,6 +8,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class BloxstrapViewModel : NotifyPropertyChangedViewModel
     {
+        public WebEnvironment[] WebEnvironments => Enum.GetValues<WebEnvironment>();
+
         public bool UpdateCheckingEnabled
         {
             get => App.Settings.Prop.CheckForUpdates;
@@ -18,6 +21,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.EnableAnalytics;
             set => App.Settings.Prop.EnableAnalytics = value;
         }
+
+        public WebEnvironment WebEnvironment
+        {
+            get => App.Settings.Prop.WebEnvironment;
+            set => App.Settings.Prop.WebEnvironment = value;
+        }
+
+        public Visibility WebEnvironmentVisibility => App.Settings.Prop.DeveloperMode ? Visibility.Visible : Visibility.Collapsed;
 
         public bool ShouldExportConfig { get; set; } = true;
 
