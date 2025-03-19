@@ -29,6 +29,7 @@
             <ui:ToggleSwitch IsChecked="{Binding AnalyticsEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <!-- This does not need i18n as this is locked behind "Developer Mode" -->
         <controls:OptionControl
             Visibility="{Binding Path=WebEnvironmentVisibility, Mode=OneTime}"
             Header="Web environment" 
