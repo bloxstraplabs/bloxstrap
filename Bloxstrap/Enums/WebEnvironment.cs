@@ -15,7 +15,7 @@ namespace Bloxstrap.Enums
         Integration,
 
         [Description("matt")]
-        Matt,
+        IntegrationMatt,
 
         [Description("local")]
         Local
