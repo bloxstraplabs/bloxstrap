@@ -11,14 +11,14 @@ namespace Bloxstrap.Enums
         [Description("stage")]
         Staging,
 
-        [Description("int")]
-        Integration,
+        [Description("dev")]
+        Dev,
 
         [Description("pizza")]
-        IntegrationPizza,
+        DevPizza,
 
         [Description("matt")]
-        IntegrationMatt,
+        DevMatt,
 
         [Description("local")]
         Local
