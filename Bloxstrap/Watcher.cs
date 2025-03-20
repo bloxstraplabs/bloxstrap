@@ -9,12 +9,14 @@ namespace Bloxstrap
         private readonly InterProcessLock _lock = new("Watcher");
 
         private readonly WatcherData? _watcherData;
-        
+
         private readonly NotifyIconWrapper? _notifyIcon;
 
         public readonly ActivityWatcher? ActivityWatcher;
 
         public readonly DiscordRichPresence? RichPresence;
+
+        public readonly IntegrationWatcher? IntegrationWatcher;
 
         public Watcher()
         {
@@ -63,6 +65,8 @@ namespace Bloxstrap
 
                 if (App.Settings.Prop.UseDiscordRichPresence)
                     RichPresence = new(ActivityWatcher);
+
+                IntegrationWatcher = new IntegrationWatcher(ActivityWatcher);
             }
 
             _notifyIcon = new(this);
@@ -122,6 +126,7 @@ namespace Bloxstrap
         {
             App.Logger.WriteLine("Watcher::Dispose", "Disposing Watcher");
 
+            IntegrationWatcher?.Dispose();
             _notifyIcon?.Dispose();
             RichPresence?.Dispose();
 
