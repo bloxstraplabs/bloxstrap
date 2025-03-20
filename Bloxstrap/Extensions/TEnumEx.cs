@@ -7,11 +7,11 @@ namespace Bloxstrap.Extensions
     {
         public static string? GetDescription<TEnum>(this TEnum e)
         {
-            string? enumName = e.ToString();
+            string? enumName = e?.ToString();
             if (enumName == null)
                 return null;
 
-            FieldInfo? field = e.GetType().GetField(enumName);
+            FieldInfo? field = e?.GetType().GetField(enumName);
             if (field == null)
                 return null;
 
