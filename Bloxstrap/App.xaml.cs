@@ -144,9 +144,19 @@ namespace Bloxstrap
         {
             // dont let user switch web environment if debug mode is not on
             if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
-                return $"bloxstraplabs.com";
+                return "bloxstraplabs.com";
 
-            return $"web-{Settings.Prop.WebEnvironment.GetDescription()}.bloxstraplabs.com";
+            string? sub = Settings.Prop.WebEnvironment.GetDescription();
+            return $"web-{sub}.bloxstraplabs.com";
+        }
+
+        public static bool CanSendLogs()
+        {
+            // non developer mode always uses production
+            if (!Settings.Prop.DeveloperMode || Settings.Prop.WebEnvironment == WebEnvironment.Production)
+                return IsProductionBuild;
+
+            return true;
         }
 
         public static async Task<GithubRelease?> GetLatestRelease()
@@ -190,7 +200,7 @@ namespace Bloxstrap
 
         public static async void SendLog()
         {
-            if (!Settings.Prop.EnableAnalytics || !IsProductionBuild)
+            if (!Settings.Prop.EnableAnalytics || !CanSendLogs())
                 return;
 
             try
