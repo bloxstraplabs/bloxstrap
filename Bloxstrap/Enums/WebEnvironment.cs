@@ -14,6 +14,9 @@ namespace Bloxstrap.Enums
         [Description("int")]
         Integration,
 
+        [Description("pizza")]
+        IntegrationPizza,
+
         [Description("matt")]
         IntegrationMatt,
 
