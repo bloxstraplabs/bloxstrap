@@ -5,5 +5,5 @@
 	<Image Source="{Icon}" Height="100" Width="100" HorizontalAlignment="Center" Margin="0,15,0,0" />
 	<TextBlock HorizontalAlignment="Center" Name="StatusText" FontSize="20" Margin="0,170,0,0" />
 	<ProgressBar Width="450" Height="12" Name="PrimaryProgressBar" HorizontalAlignment="Center" Margin="0,200,0,0" />
-	<Button Content="Cancel" Name="CancelButton" HorizontalAlignment="Center" Margin="0,225,0,0" Height="30" Width="100" />
+	<Button Content="{Common.Cancel}" Name="CancelButton" HorizontalAlignment="Center" Margin="0,225,0,0" Height="30" Width="100" />
 </BloxstrapCustomBootstrapper>
