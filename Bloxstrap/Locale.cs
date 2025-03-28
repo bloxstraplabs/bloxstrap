@@ -57,6 +57,9 @@ namespace Bloxstrap
             { "no", "Bokmål" }, // Norwegian
 #endif
             { "pl", "Polski" }, // Polish
+#if QA_BUILD
+            { "pt-PT", "Portugese (European)" }, // Portuguese
+#endif
             { "pt-BR", "Português (Brasil)" }, // Portuguese, Brazilian
             { "ro", "Română" }, // Romanian
             { "ru", "Русский" }, // Russian
