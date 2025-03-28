@@ -22,13 +22,11 @@ namespace Bloxstrap
             { "bg", "Български" }, // Bulgarian
 #if QA_BUILD
             { "bn", "বাংলা" }, // Bengali
-            { "bs", "Bosanski" }, // Bosnian
 #endif
+            { "bs", "Bosanski" }, // Bosnian
             { "cs", "Čeština" }, // Czech
             { "de", "Deutsch" }, // German
-#if QA_BUILD
             { "da", "Dansk" }, // Danish
-#endif
             { "es-ES", "Español" }, // Spanish
 #if QA_BUILD
             { "el", "Ελληνικά" }, // Greek
@@ -50,9 +48,7 @@ namespace Bloxstrap
             { "it", "Italiano" }, // Italian
             { "ja", "日本語" }, // Japanese
             { "ko", "한국어" }, // Korean
-#if QA_BUILD
             { "lv", "Latviešu" }, // Latvian
-#endif
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
             { "nl", "Nederlands" }, // Dutch
@@ -70,9 +66,7 @@ namespace Bloxstrap
             { "uk", "Українська" }, // Ukrainian
             { "vi", "Tiếng Việt" }, // Vietnamese
             { "zh-CN", "中文 (简体)" }, // Chinese Simplified
-#if QA_BUILD
             { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
-#endif
             { "zh-TW", "中文 (繁體)" } // Chinese Traditional
         };
 
