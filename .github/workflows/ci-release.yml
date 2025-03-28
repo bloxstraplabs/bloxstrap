@@ -21,7 +21,7 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
 
     - name: Publish
       run: dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c Release --self-contained false .\Bloxstrap\Bloxstrap.csproj
