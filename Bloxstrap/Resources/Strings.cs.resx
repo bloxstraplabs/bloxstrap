@@ -148,7 +148,7 @@
     <value>Instaluje se {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>Instaluje se WebView2, vyčkejte prosím...</value>
+    <value>Instaluje se WebView2, počkejte prosím...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
     <value>Startuje se {product}...</value>
@@ -161,7 +161,7 @@
     <value>Získávání nejnovější verze Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>Čeká se na ostatní objekty...</value>
+    <value>Čekání na další instance...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
     <value>Náhled stylu - Klikněte na tlačítko X v pravém horním rohu pro zavření</value>
@@ -176,16 +176,16 @@
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
     <value>Roblox právě běží, ale musí být zavřen, před tím, než odinstalujete Bloxstrap.
-Chtěli nyní zavřít Roblox?</value>
+Chcete nyní zavřít Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox potřebuje použití komponentů Windows Media Foundation. Vypadá, že vam chybí, nejspíše protože používáte Windows edici N. Prosíme nejdříve je nainstalujte, až po té pusťte Roblox.</value>
+    <value>Roblox vyžaduje použití komponentů Windows Media Foundation. Zdá se, že vám chybí tyto komponenty, pravděpodobně proto, že používáte edici N systému Windows. Nejprve je nainstalujte a poté spusťte Roblox.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
     <value>Přidat jednu</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Prohlížet</value>
+    <value>Procházet</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
     <value>Zrušit</value>
@@ -194,22 +194,22 @@ Chtěli nyní zavřít Roblox?</value>
     <value>Zavřít</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Smazat</value>
+    <value>Odstranit</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
     <value>Discord Rich Presence</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Pomoc</value>
+    <value>Nápověda</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Importovat JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>Otevřít soubor log</value>
+    <value>Otevřít logový soubor</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Rozmanitý</value>
+    <value>Různé</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
     <value>Jméno</value>
@@ -227,7 +227,7 @@ Chtěli nyní zavřít Roblox?</value>
     <value>Předvolby</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Restart</value>
+    <value>Obnovit</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
@@ -243,16 +243,16 @@ Chtěli nyní zavřít Roblox?</value>
     <value>Zavřít Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Opravdu chcete ukončit Roblox? Tím bude proces násilně ukončen.</value>
+    <value>Určitě chcete Roblox zavřít? Tohle nuceně proces ukončí.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Kopírovat pozvánku přímého odkazu</value>
+    <value>Kopírovat přímou pozvánku do aplikace</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Zkopírovat Objekt ID</value>
+    <value>Zkopírovat ID instance</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>Objekt ID</value>
+    <value>ID instance</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Lokace</value>
@@ -376,7 +376,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Privátní server</value>
+    <value>Soukromý server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
     <value>Veřejný server</value>
@@ -403,10 +403,10 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Kód</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Tohle jsou ti lidé, kteří významně přispěli a pomohli z Bloxstrap udělat to, čím je teď.</value>
+    <value>Tohle jsou lidé, kteří významně přispěli a pomohli z Bloxstrapu udělat to, čím je teď.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Nápady vlastností</value>
+    <value>Nápady funkcí</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
     <value>Zvláštní poděkování</value>
@@ -436,7 +436,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Nahlásit chybu</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>O</value>
+    <value>O Bloxstrapu</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Verze {0}</value>
@@ -479,7 +479,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Konfigurovat vzhled Bloxstrapu.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Globální Téma</value>
+    <value>Globální motiv</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
     <value>Vyberte, jakou ikonu by to mělo používat.</value>
@@ -500,7 +500,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Vzhled</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automaticky kontroluje a aktualizuje se když se spouští Roblox.</value>
+    <value>Bloxstrap se automaticky aktualizuje při spuštění Robloxu.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automaticky aktualizovat Bloxstrap</value>
@@ -611,7 +611,7 @@ NEPOUŽÍVEJTE tohle aby jste importovali velké "Fast flags" listy udělané os
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [exkluzivní celá obrazovka] ({0}) je automaticky nastavena ve výchozím nastavení zmáčknutím Alt+Enter.</value>
+    <value>Direct3D [exkluzivní celá obrazovka]({0}) je automaticky nastavena ve výchozím nastavení zmáčknutím Alt+Enter.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Vybraná verze escape nabídky</value>
@@ -626,7 +626,7 @@ NEPOUŽÍVEJTE tohle aby jste importovali velké "Fast flags" listy udělané os
     <value>Nastavte na 0 pro výchozí, pokud chcete používat nativní Fps unlocker v Robloxu.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Limit frekvence</value>
+    <value>Omezení snímků</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
     <value>Přepíná se pomocí [klávesových zkratek]({0}). Funguje pouze, pokud jste ve [skupině Bloxstrap na Robloxu]({1}).</value>
@@ -681,10 +681,10 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Povolit připojení k aktivitě</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Zobrazí na kterém Roblox účtu hráte na vašém profilu Discord.</value>
+    <value>Zobrazí na kterém Roblox účtu hrajete na vašem Discord profilu.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Zobrazit účet Robloxu</value>
+    <value>Zobrazit Roblox účet</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Umístění aplikace</value>
@@ -699,7 +699,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Spusťte Argumenty</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox právě běží!</value>
+    <value>Roblox je spuštěn!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>Nová integrace</value>
@@ -714,10 +714,10 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Nakonfigurujte další funkcionality vedle Robloxu.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox se zcela zavře, když opustíte hru namísto návratu do aplikace. [Rozbije některé věci!]({0})</value>
+    <value>Roblox se úplně zavře, když opustíte hru, namísto návratu do menu. [Rozbije některé věci!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>Nevypínejte na desktopovou aplikaci</value>
+    <value>Neukončovat do menu</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
     <value>Povoluje Bloxstrap, aby detektoval, jaké hry na Robloxu hraješ. Určité funkce mohou vyžadovat toto.</value>
@@ -738,7 +738,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Ve hře budete moci zjistit, kde se váš server nachází, pomocí [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>Umístění dotazovacího serveru</value>
+    <value>Zjistit umístění serveru</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integrace</value>
@@ -877,7 +877,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Úroveň 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>Úroveň 3 (Nejvštší)</value>
+    <value>Úroveň 3 (Největší)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
     <value>Vypnout stíny hráčů</value>
@@ -964,10 +964,10 @@ Instalační proces bude rychlý a jednoduchý a po instalaci budete moci nakonf
     <value>Vyberte, kam chcete nainstalovat</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox bude také nainstalován na tuto cestu. Změňte toto nastavení, pokud preferujete instalovat všechny své hry na samotstatný disk. Jinak je doporučeno toto nastavení zachovat.</value>
+    <value>Roblox bude také nainstalován na tuto cestu. Změňte toto nastavení, pokud preferujete instalovat všechny své hry na samostatný disk. Jinak je doporučeno toto nastavení zachovat.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>Nalezena existující data. Vaše mody a nastavení budou obnoveny.</value>
+    <value>Nalezena existující data. Vaše módy a nastavení budou obnoveny.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
     <value>Zkratky</value>
@@ -1003,7 +1003,7 @@ Co chcete udělat?</value>
     <value>Odinstalovat Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěčtě Robloxu, pokud je stále nainstalován.
+    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěče Robloxu, pokud je stále nainstalován.
 
 Pokud odinstalujete nebo přeinstalujete, protože máte problémy s Robloxem, přečtěte si nejprve [tuto stránku pomoci]({0}).
 
@@ -1045,7 +1045,7 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>Tohle jsou obecné zkratky, které zobrazí spouštěcí nabídku s vícemi možnostmi. Zkratky pro konkrétní funkce mohou být vytvořeny později v nastavení.</value>
+    <value>Tohle jsou obecné zkratky, které zobrazí spouštěcí nabídku s více možnostmi. Zkratky pro konkrétní funkce mohou být vytvořeny později v nastavení.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
     <value>Nakonfigurujte, jak může být Bloxstrap snadno spuštěn.</value>
@@ -1054,7 +1054,7 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
     <value>Obecný</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>Toto jsou zkratky, které zobrazí spouštěcí nabídku s vícemi možnostmi.</value>
+    <value>Toto jsou zkratky, které zobrazí spouštěcí nabídku s více možnostmi.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
     <value>Funkce</value>
@@ -1063,16 +1063,16 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
     <value>Vytvořte zkratky pro rychlý přístup k určitým funkcím. Tyto zkratky budou všechny umístěny na plochu.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Připojeno k privátnímu serveru</value>
+    <value>Připojeno k soukromému serveru</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
     <value>Připojeno k rezervovanému serveru</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>Emoji mod nelze v tuto chvíli použít.</value>
+    <value>Mód pro vlastní emoji nemůže být v tuto chvíli použit.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>Prosím počkejte, až instalace dokončí.</value>
+    <value>Prosím počkejte, až se instalace dokončí.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Prosím počkejte, až se odinstalace dokončí.</value>
@@ -1096,7 +1096,7 @@ Mohou nastat problémy a vaše nastavení mohou být změněny. Doporučuje se p
 Opravdu chcete pokračovat?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox se nepodařilo spustit.</value>
+    <value>Roblox se nepodařil spustit.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
     <value>Roblox spadl.</value>
@@ -1161,10 +1161,10 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
     <value>Spravovat nastavení kompatibility</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>Konfigurace parametrů aplikace, jako je škálování DPI a [optimizace pro rozlišení celé obrazovky]({0}).</value>
+    <value>Konfigurace parametrů aplikace, jako je škálování DPI a [optimalizace pro rozlišení celé obrazovky]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox již nebyl nainstalován. Před použitím této možnosti spusťte Bloxstrap alespoň jednou.</value>
+    <value>Roblox ještě nebyl nainstalován. Před použitím této možnosti musíte spustit Bloxstrap alespoň jednou.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Opravdu chcete zrušit instalaci?</value>
@@ -1239,6 +1239,9 @@ Chcete zapnout testovací režim?</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Verze {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Vlastní</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Bloxstrap se pokusil aktualizovat Roblox, ale nemůže, protože soubory Robloxu jsou stále používány.
 
@@ -1257,14 +1260,243 @@ Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spu
     <value>Exportovat diagnostická data</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Shromažďujte informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
+    <value>Shromáždit informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Konfigurace Bloxstrap</value>
+    <value>Konfigurace Bloxstrapu</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Všechny bloxstrap logy</value>
+    <value>Všechny Bloxstrap logy</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox již nepodporuje Windows 7 ani 8.1. Pokud chcete dále hrát Roblox, aktualizujte prosím na Windows 10 nebo novější.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Extrahování souborů se nezdařilo</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Některý obsah může chybět. Přeinstalujte Roblox v nastavení pro opravení.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Nepodařilo se použít modifikace</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Ne všechny modifikace budou přítomny při aktuálním spuštění.</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Licence Apache 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>Prázdný</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>Jednoduchý</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>XML root motivu není {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>Vlastní dialog byl již inicializován</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>Vlastní bootstrappery mohou mít maximálně {0} elementů, mám {1}</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>{0} verze není nastavena</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>{0} verze není číslo</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} verze {1} již není podporována</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} verze {1} nebyla rozpoznána</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} nemůže mít potomka {1}</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>Neznámý element {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>Nepodařilo se zpracovat soubor motivu: {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} má neplatný {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>Elementu {0} chybí atribut {1}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} není platný {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} musí být větší než {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} musí být menší než {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} má neznámý {1} '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} může mít pouze jeden {1} definovaný</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} může mít pouze jednoho potomka</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} může mít pouze jednoho potomka</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} chybí potomek</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} nelze zpracovat do {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} je null</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} používá zablokované schéma {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} se nepodařilo vytvořit {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>Upravování "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Motiv byl úspěšně uložen!</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>Došlo k chybě při ukládání motivu.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>Uložit změny do {0}?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Náhled</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Otevřít složku motivů</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Vytvořit nový</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importovat</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>Přidat vlastní motiv</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>Šablona</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>Název nemůže být prázdný</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>Název obsahuje nepovolené znaky</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>Název nelze použít</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>Neznámá chyba</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>Název je již používán</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>Soubor musí být ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>Soubor motivu nebyl nalezen v ZIP archivu</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>Neplatný nebo poškozený ZIP soubor</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>Není vybrán žádný vlastní motiv</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Nepodařilo se zprovoznit vlastní bootstrapper: {0}.
+Používám motiv {1}.</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>Není vybrán žádný vlastní motiv.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Přejmenovat</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Nepodařilo se odstranit vlastní motiv {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Nepodařilo se přejmenovat vlastní šablonu {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Aktualizace v pozadí</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Aktualizuje Roblox v pozadí místo čekání. Není doporučeno pro pomalé sítě. Alespoň 3GB volného úložiště je potřeba, aby tato funkce fungovala.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Sem vložte prvky UI</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Příklady vlastních bootstrapperů naleznete na {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Najděte více příkladů vlastních bootstrapperů na {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Vlastní motiv {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Povolit spouštění více instancí</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Umožňuje mít více než jednu Roblox instanci otevřenou zároveň.</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Váš motiv byl uložen!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Nezdařilo se zobrazit náhled motivu: {0}</value>
   </data>
 </root>
