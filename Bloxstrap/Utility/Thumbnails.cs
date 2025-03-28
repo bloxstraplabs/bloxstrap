@@ -92,8 +92,8 @@ namespace Bloxstrap.Utility
 
             if (response.State == "Pending")
                 App.Logger.WriteLine(LOG_IDENT, $"{response.TargetId} is still pending");
-            else if (item.State == "Error")
-                App.Logger.WriteLine(LOG_IDENT, $"{item.TargetId} got error code {item.ErrorCode} ({item.ErrorMessage})");
+            else if (response.State == "Error")
+                App.Logger.WriteLine(LOG_IDENT, $"{response.TargetId} got error code {response.ErrorCode} ({response.ErrorMessage})");
             else if (response.State != "Completed")
                 App.Logger.WriteLine(LOG_IDENT, $"{response.TargetId} got \"{response.State}\"");
 
