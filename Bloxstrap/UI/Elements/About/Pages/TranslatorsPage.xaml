@@ -38,82 +38,133 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="lunar" />
-                <TextBlock Text="DanyCraftCZ" />
-                <TextBlock Text="filip55561" />
-                <TextBlock Text="Franklin_Surten" />
-                <TextBlock Text="jasperholo" />
-                <TextBlock Text="imluk" />
-                <TextBlock Text="letoek" />
+                <!-- Exclude: TEAM_LILA (only keep for German) -->
                 <TextBlock Text="nexpid" />
-                <TextBlock Text="noobkid4545" />
-                <TextBlock Text="radim776" />
-                <TextBlock Text="Rummyffff" />
+                <TextBlock Text="GAMEROBOTOPTV" />
+                <TextBlock Text="imluk" />
+                <TextBlock Text="Franklin_Surten" />
+                <TextBlock Text="filip55561" />
+                <TextBlock Text="DanyCraftCZ" />
+                <TextBlock Text="jasperholo" />
                 <TextBlock Text="Vinittyy" />
+                <TextBlock Text="Rummyffff" />
+                <TextBlock Text="jankoesar007" />
+                <TextBlock Text="css" />
+                <TextBlock Text="Galaxy_Gangster6" />
+                <TextBlock Text="Chusaak" />
+                <TextBlock Text="noobkid4545" />
+                <TextBlock Text="Roobatus" />
+                <TextBlock Text="offxev" />
+                <TextBlock Text="zyquinx" />
 
-                <!-- <TextBlock Text="Dansk" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock Text="Momslayer98" />
-                        <TextBlock Text="SirBlue" /> -->
+                <TextBlock Text="Dansk" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <!-- Exclude: Flemish, TEAM_LILA (only keep for German) -->
+                <TextBlock Text="YumaIsMe" />
+                <TextBlock Text="Kasper100" />
+                <TextBlock Text="H4T_K1D" />
+                <TextBlock Text="SirBlue" />
+                <TextBlock Text="VV1" />
+                <TextBlock Text="Stiefanek" />
+                <TextBlock Text="systime" />
+                <TextBlock Text="chachilling" />
 
                 <TextBlock Text="Deutsch" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="Agent_Phoenix" />
                 <TextBlock Text="avoidr" />
-                <TextBlock Text="hcjohnsgd" />
-                <TextBlock Text="hxmbt" />
-                <TextBlock Text="kale123" />
-                <TextBlock Text="Marvin_Chu" />
-                <TextBlock Text="nzxt_xll" />
+                <TextBlock Text="TEAM_LILA" />
                 <TextBlock Text="Nlx095" />
                 <TextBlock Text="Ph1lwtf" />
                 <TextBlock Text="sxckqerz" />
-                <TextBlock Text="TEAM_LILA" />
                 <TextBlock Text="xDevoidx" />
+                <TextBlock Text="Leonistdeutscher" />
+                <TextBlock Text="Marvin_Chu" />
+                <TextBlock Text="nzxt_xll" />
+                <TextBlock Text="hxmbt" />
+                <TextBlock Text="kale123" />
+                <TextBlock Text="Agent_Phoenix" />
+                <TextBlock Text="hcjohnsgd" />
+                <TextBlock Text="vawmpira" />
+                <TextBlock Text="ydbossz" />
 
                 <TextBlock Text="Español" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="4Xisty" />
-                <TextBlock Text="adrigamer278yt" />
-                <TextBlock Text="Botkid" />
-                <TextBlock Text="casparrulo" />
-                <TextBlock Text="colocky" />
-                <TextBlock Text="D0N-B0T" />
-                <TextBlock Text="Dasp" />
-                <TextBlock Text="Dam20" />
-                <TextBlock Text="devyyxn" />
-                <TextBlock Text="elmichixd1234567890" />
-                <TextBlock Text="ItzzExcel" />
-                <TextBlock Text="Ilayhlinda" />
-                <TextBlock Text="Ilushiouss" />
-                <TextBlock Text="jayces." />
-                <TextBlock Text="kroesufos" />
-                <TextBlock Text="LaiyLiod" />
-                <TextBlock Text="lyalekin" />
-                <TextBlock Text="NezumiDS" />
-                <TextBlock Text="NimuruDP" />
-                <TextBlock Text="NescafeCL" />
-                <TextBlock Text="purplemanta6754" />
-                <TextBlock Text="Sw7gger" />
+                <TextBlock Text="Urzy" />
                 <TextBlock Text="sxckqerz" />
                 <TextBlock Text="Syngio" />
-                <TextBlock Text="Urzy" />
+                <TextBlock Text="NescafeCL" />
+                <TextBlock Text="Ilushiouss" />
+                <TextBlock Text="devyyxn" />
+                <TextBlock Text="LaiyLiod" />
+                <TextBlock Text="Dasp" />
+                <TextBlock Text="lyalekin" />
+                <TextBlock Text="D0N-B0T" />
+                <TextBlock Text="Botkid" />
+                <TextBlock Text="Sw7gger" />
+                <TextBlock Text="ItzzExcel" />
+                <TextBlock Text="Dam20" />
+                <TextBlock Text="purplemanta6754" />
+                <TextBlock Text="Ilayhlinda" />
+                <TextBlock Text="NimuruDP" />
                 <TextBlock Text="ZakaHaceCosas" />
+                <TextBlock Text="adrigamer278yt" />
+                <TextBlock Text="NezumiDS" />
+                <TextBlock Text="kroesufos" />
+                <TextBlock Text="colocky" />
+                <TextBlock Text="4xxxxxsss" />
+                <TextBlock Text="dgc0312" />
+                <TextBlock Text="pwns" />
+                <TextBlock Text="casparrulo" />
+                <TextBlock Text="Mikat0" />
+                <TextBlock Text="shadow.lugia" />
+                <TextBlock Text="Solise" />
+                <TextBlock Text="elmichixd1234567890" />
+                <TextBlock Text="Sewing_" />
+                <TextBlock Text="PXRXNOIXXX" />
+                <TextBlock Text="Brunoxete" />
+                <TextBlock Text="Thosebells" />
+                <TextBlock Text="Neymallll" />
+                <TextBlock Text="ecobotteam789" />
+                <TextBlock Text="alexisrnld23" />
+                <TextBlock Text="jayces." />
 
                 <TextBlock Text="Français" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <TextBlock Text="At0zDx" />
+                <TextBlock Text="l_ornoir" />
+                <TextBlock Text="Kogabloxian" />
+                <TextBlock Text="Marcssebaa" />
+                <TextBlock Text="Mugetsu4737" />
+                <TextBlock Text="KLP_World" />
+                <TextBlock Text="built4aiming" />
+                <TextBlock Text="Subsical" />
+                <TextBlock Text="Waza80" />
+                <TextBlock Text="thatsirwaffles" />
+                <TextBlock Text="tyundrai" />
+                <TextBlock Text="Zeyroxrblx" />
+                <TextBlock Text="MommySernox" />
+                <TextBlock Text="StraiF" />
+                <TextBlock Text="owentempest8" />
+                <TextBlock Text="Beezled" />
+                <TextBlock Text="hapatapa_" />
+                <TextBlock Text="hahaloserz360" />
+                <TextBlock Text="yobye48" />
+                <TextBlock Text="Notolix" />
+                <TextBlock Text="jh27" />
+                <TextBlock Text="infinuts" />
+
                 <TextBlock Text="At0zDx" />
                 <TextBlock Text="Beezled" />
                 <TextBlock Text="built4aiming" />
@@ -152,6 +203,8 @@
                 <TextBlock Text="e7leo" />
                 <TextBlock Text="SoudBlox" />
                 <TextBlock Text="Nayottamaa" />
+                <TextBlock Text="loominatrx" />
+                <TextBlock Text="iLusion3431" />
                 <TextBlock Text="rifirsyad" />
                 <TextBlock Text="AriaP" />
                 <TextBlock Text="Linerly" />
@@ -171,8 +224,11 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="DipsiTheCreeper" />
+                <!-- Exclude: Flemish -->
                 <TextBlock Text="Koyroii" />
+                <TextBlock Text="Royex" />
+                <TextBlock Text="dipsithecreeper" />
+                <TextBlock Text="ElekCro" />
                 <TextBlock Text="Nemznja" />
 
                 <TextBlock Text="Italiano" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
@@ -180,100 +236,123 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="andreartificialwerewolf" />
-                <TextBlock Text="crow_zxcr" />
-                <TextBlock Text="devyyxn" />
-                <TextBlock Text="domenicoiacono" />
-                <TextBlock Text="hulabulaseop" />
                 <TextBlock Text="lord_moth" />
-                <TextBlock Text="loridori" />
                 <TextBlock Text="Lupo01" />
-                <TextBlock Text="Mishen" />
-                <TextBlock Text="Mogunars" />
-                <TextBlock Text="noocciolina" />
-                <TextBlock Text="pave08" />
-                <TextBlock Text="Seme_" />
-                <TextBlock Text="spectrumbruh" />
                 <TextBlock Text="the.silly.cat" />
-
+                <TextBlock Text="Mogunars" />
+                <TextBlock Text="crow_zxcr" />
+                <TextBlock Text="loridori" />
+                <TextBlock Text="domenicoiacono" />
+                <TextBlock Text="Mishen" />
+                <TextBlock Text="speedlorenzo12" />
+                <TextBlock Text="pave08" />
+                <TextBlock Text="noocciolina" />
+                <TextBlock Text="Seme_" />
+                <TextBlock Text="andreartificialwerewolf" />
+                <TextBlock Text="spectrumbruh" />
+                <TextBlock Text="hulabulaseop" />
+                <TextBlock Text="devyyxn" />
 
                 <TextBlock Text="Lietuvių" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="cr0000142" />
-                <TextBlock Text="Duexo" />
-                <TextBlock Text="jessethedev" />
                 <TextBlock Text="Vac31." />
+                <TextBlock Text="jessethedev" />
+                <TextBlock Text="Duexo" />
+                <TextBlock Text="cr0000142" />
+                <TextBlock Text="invenot" />
+                <TextBlock Text="CrynTox" />
 
                 <TextBlock Text="Magyar" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="DynoPlays" />
-                <TextBlock Text="Elotomka" />
+                <!-- Exclude: Flemish -->
                 <TextBlock Text="xM4rk1" />
+                <TextBlock Text="Elotomka" />
+                <TextBlock Text="DynoPlays" />
 
                 <TextBlock Text="Polski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="Eztaru" />
-                <TextBlock Text="lunar" />
-                <TextBlock Text="markontm" />
                 <TextBlock Text="my5q" />
-                <TextBlock Text="nemzik2137" />
+                <TextBlock Text="css" />
                 <TextBlock Text="plexar" />
+                <TextBlock Text="markontm" />
+                <TextBlock Text="fewtimessold" />
+                <TextBlock Text="nemzik2137" />
+                <TextBlock Text="lachine" />
+                <TextBlock Text="Eztaru" />
+                <TextBlock Text="r.efil" />
+                <TextBlock Text="Kanibal02" />
+                <TextBlock Text="Maks7594" />
 
                 <TextBlock Text="Português (Brasil)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <TextBlock Text="hnter" />
                 <TextBlock Text="anormalevis" />
                 <TextBlock Text="ErisvaldoBalbino" />
                 <TextBlock Text="G3xneric" />
-                <TextBlock Text="hnter" />
-                <TextBlock Text="issei_" />
-                <TextBlock Text="iyto.lk" />
-                <TextBlock Text="jhermesn" />
-                <TextBlock Text="JorgeDaPelada" />
-                <TextBlock Text="LwgoDev" />
-                <TextBlock Text="nunk7" />
-                <TextBlock Text="peke7374" />
-                <TextBlock Text="SeeF" />
-                <TextBlock Text="SnoowAce" />
-                <TextBlock Text="Snowzin1" />
                 <TextBlock Text="storm930" />
+                <TextBlock Text="issei_." />
                 <TextBlock Text="toofastforboo" />
-                <TextBlock Text="VMOICE" />
+                <TextBlock Text="jhermesn" />
+                <TextBlock Text="nunk7" />
+                <TextBlock Text="iyto.lk" />
+                <TextBlock Text="Snowzin11" />
+                <TextBlock Text="lwgospersonal" />
+                <TextBlock Text="SeeF" />
+                <TextBlock Text="CarBluGStudio" />
+                <TextBlock Text="JorgeDaPelada" />
+                <TextBlock Text="peke7374" />
                 <TextBlock Text="Ye4" />
                 <TextBlock Text="ZaPeZaPe" />
+                <TextBlock Text="VMOICE" />
+                <TextBlock Text="ruik" />
+                <TextBlock Text="seknkayo" />
+                <TextBlock Text="octothl" />
+                <TextBlock Text="Wh1teFl4me" />
+                <TextBlock Text="SnoowAce" />
+                <TextBlock Text="RayKKitsune" />
 
                 <TextBlock Text="Română" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="Externalkinetics" />
-                <TextBlock Text="MonochromeAlex" />
-                <TextBlock Text="PlayerValley" />
-                <TextBlock Text="Smuki" />
+                <!-- Exclude: valleyofplayers & playervalley-alt (new username: valleyofmoreplayers) -->
                 <TextBlock Text="theflopperguy" />
+                <TextBlock Text="valleyofmoreplayers" />
+                <TextBlock Text="MonochromeAlex" />
+                <TextBlock Text="Externalkinetics" />
+                <TextBlock Text="arsenijveselov77" />
+                <TextBlock Text="lucah1337" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="M1000" />
+                <TextBlock Text="enffinity" />
+                <TextBlock Text="CabralCD" />
+                <TextBlock Text="jes3d" />
+                <TextBlock Text="Smuki" />
+                <TextBlock Text="Tzipirigu" />
 
                 <TextBlock Text="Suomi" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <TextBlock Text="SomePinglord" />
+                <TextBlock Text="jes3d" />
                 <TextBlock Text="gelaxiz" />
-                <TextBlock Text="jes5" />
                 <TextBlock Text="Niko_" />
                 <TextBlock Text="retromaxwell" />
-                <TextBlock Text="SomePinglord" />
                 <TextBlock Text="xxsheepx" />
 
                 <TextBlock Text="Filipino" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
@@ -285,8 +364,8 @@
                 <TextBlock Text="faxixing" />
                 <TextBlock Text="shadow01148" />
                 <TextBlock Text="Reyvenosaur" />
-                <TextBlock Text="RobiTheRobloxer" />
                 <TextBlock Text="alphjection" />
+                <TextBlock Text="RobiTheRobloxer" />
                 <TextBlock Text="FlaminDaPotato" />
                 <TextBlock Text="Noblefrix" />
                 <TextBlock Text="pureyourself123" />
@@ -296,6 +375,13 @@
                 <TextBlock Text="Wantonpres" />
                 <TextBlock Text="hankskyjames777" />
                 <TextBlock Text="ElectricPH" />
+
+                <TextBlock Text="Latviešu" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="RealWindy" />
             </StackPanel>
 
             <StackPanel Grid.Column="2">
@@ -304,19 +390,46 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="acevvxa" />
-                <TextBlock Text="Axellse" />
-                <TextBlock Text="CroppingFlea479" />
-                <TextBlock Text="FishySpelar" />
+                <TextBlock Text="AxellseOnGithub" />
                 <TextBlock Text="PineappleSnackz" />
-                <TextBlock Text="simonixen" />
+                <TextBlock Text="CroppingFlea479" />
                 <TextBlock Text="thatgurkangurk" />
+                <TextBlock Text="Intancote" />
+                <TextBlock Text="acevvxa" />
+                <TextBlock Text="FishySpelar" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="simonixen" />
+                <TextBlock Text="IJustBiel" />
+                <TextBlock Text="Krinkov" />
 
                 <TextBlock Text="Tiếng Việt" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <!-- Exclude: Flemish -->
+                <TextBlock Text="SonThanhVN" />
+                <TextBlock Text="Veiiorra" />
+                <TextBlock Text="Limer1" />
+                <TextBlock Text="ItsPoofy" />
+                <TextBlock Text="Letrunk" />
+                <TextBlock Text="quanmequankk" />
+                <TextBlock Text="Elytronn" />
+                <TextBlock Text="fox810891" /> <!-- Pretty sure this is "REMOVED_USER" -->
+                <TextBlock Text="teaanguyenn" />
+                <TextBlock Text="j7x6" />
+                <TextBlock Text="alexking2068" />
+                <TextBlock Text="NguyenDat208" />
+                <TextBlock Text="SomeRandomGuy175" />
+                <TextBlock Text="makayu203332" />
+                <TextBlock Text="thanhphomgdep" />
+                <TextBlock Text="vmkhoi" />
+                <TextBlock Text="PhucZu" />
+                <TextBlock Text="tnhung2011" />
+                <TextBlock Text="Dude317" />
+                <TextBlock Text="phandinhtung653" />
+                <TextBlock Text="ntthanng" />
+
                 <TextBlock Text="alexking2068" />
                 <TextBlock Text="baterblx" />
                 <TextBlock Text="Elytronn" />
@@ -339,43 +452,56 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="canny19133" />
-                <TextBlock Text="cfors55" />
-                <TextBlock Text="drakfreddy" />
-                <TextBlock Text="enisify" />
-                <TextBlock Text="jayces." />
-                <TextBlock Text="josephisticated" />
-                <TextBlock Text="Karan0" />
-                <TextBlock Text="kerimkerimmech" />
-                <TextBlock Text="nyatie" />
-                <TextBlock Text="PixelArmy" />
-                <TextBlock Text="plants8332" />
-                <TextBlock Text="r02" />
-                <TextBlock Text="siyamicik" />
                 <TextBlock Text="slideglide" />
+                <TextBlock Text="plants8332" />
+                <TextBlock Text="PixelArmy" />
+                <TextBlock Text="enisify" />
+                <TextBlock Text="drakfreddy" />
+                <TextBlock Text="canny19133" />
+                <TextBlock Text="ydbossz" />
+                <TextBlock Text="BATINHAN" />
+                <TextBlock Text="cfors55" />
                 <TextBlock Text="Wanwood" />
-                <TextBlock Text="ydboss" />
+                <TextBlock Text="r02" />
+                <TextBlock Text="Karan0" />
+                <TextBlock Text="jayces." />
+                <TextBlock Text="dark42342" />
+                <TextBlock Text="siyamicik" />
+                <TextBlock Text="red.sky.fell" />
+                <TextBlock Text="toaste3d" />
+                <TextBlock Text="xenerq" />
+                <TextBlock Text="verysecretusername" />
+                <TextBlock Text="kerimkerimmech" />
+                <TextBlock Text="josephisticated" />
 
                 <TextBlock Text="Українська" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="5070" />
+                <!-- Exclude: Flemish, sickpig912 -->
                 <TextBlock Text="9zh" />
-                <TextBlock Text="andrey3569s" />
+                <TextBlock Text="5070" />
+                <TextBlock Text="maksimvlad7" />
                 <TextBlock Text="DexterBloxxer" />
                 <TextBlock Text="Externalkinetics" />
-                <TextBlock Text="maksimvlad7" />
+                <TextBlock Text="ryz4308" />
+                <TextBlock Text="werinq" />
+                <TextBlock Text="andrey3569s" />
+                <TextBlock Text="mongoose_0" />
 
-                <!--<TextBlock Text="Bosanski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                <TextBlock Text="Bosanski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="Cortex_1" />
+                <TextBlock Text="Renidk" />
+                <TextBlock Text="Lowatz" />
                 <TextBlock Text="Nemznja" />
-                <TextBlock Text="Ren" />-->
+                <TextBlock Text="Cortex_1" />
+                <TextBlock Text="secon40" />
+                <TextBlock Text="toaste3d" />
+                <TextBlock Text="CrimsonWasntHere" />
 
                 <TextBlock Text="Български" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -383,51 +509,71 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Text="GrafitNiki" />
-                <TextBlock Text="sidefrappe" />
+                <TextBlock Text="SideFrappe" />
+                <TextBlock Text="harrypapyrus5" />
+                <TextBlock Text="quintex" />
+                <TextBlock Text="GrafitNiki" />
+                <TextBlock Text="balls32535" />
+                <TextBlock Text="boza.kosmata" />
+                <TextBlock Text="silly_cat" />
 
                 <TextBlock Text="Русский" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="3tcy" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="andBroz" />
-                <TextBlock Text="AnonymousDudeLOL123" />
-                <TextBlock Text="aperna_of_the_ticks" />
-                <TextBlock Text="arsenijveselov77" />
-                <TextBlock Text="Art3mLapa" />
-                <TextBlock Text="cub-has-injected" />
-                <TextBlock Text="dallyuser" />
-                <TextBlock Text="Dr1mG" />
-                <TextBlock Text="Externalkinetics" />
-                <TextBlock Text="fxstyxx" />
-                <TextBlock Text="Gustodd4202" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="harababura" />
-                <TextBlock Text="ImperialRhyme" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="IStoleYourCheese" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="khat7" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="jayshooze" />
-                <TextBlock Text="kostyan" />
-                <TextBlock Text="Maks" />
+                <TextBlock Text="IStoleYourCheese" />
+                <TextBlock Text="Skylan031" />
                 <TextBlock Text="Naveandice" />
-                <TextBlock Text="niktoyou" />
                 <TextBlock Text="nurgament2" />
-                <TextBlock Text="poflexim" />
-                <TextBlock Text="Prob1rka" />
-                <TextBlock Text="Provo" />
-                <TextBlock Text="Quenevelly" />
-                <TextBlock Text="sally13249" />
-                <TextBlock Text="simmon8800" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="Skylan031" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
+                <TextBlock Text="Gustodd4202" />
+                <TextBlock Text="XonaShera" />
+                <TextBlock Text="costacaffeine" />
                 <TextBlock Text="Spuffio" />
-                <TextBlock Text="StraiF" />
+                <TextBlock Text="Maks-gaming" />
+                <TextBlock Text="khat7" />
+                <TextBlock Text="rockie" />
+                <TextBlock Text="Quenevelly" />
+                <TextBlock Text="poflexim" />
+                <TextBlock Text="aperna_of_the_ticks" />
+                <TextBlock Text="IDDQD_1337" />
+                <TextBlock Text="3tcy" />
+                <TextBlock Text="harababura" />
+                <TextBlock Text="Kostyan7" />
+                <TextBlock Text="zor9na90000" />
+                <TextBlock Text="simmon8800" />
+                <TextBlock Text="Voxel." />
+                <TextBlock Text="Ziio123" />
                 <TextBlock Text="StrayCatSimb" />
+                <TextBlock Text="dallyuser" />
+                <TextBlock Text="AnonymousDudeLOL123" />
+                <TextBlock Text="fxstyxx" />
+                <TextBlock Text="Provo" />
+                <TextBlock Text="andBroz" />
+                <TextBlock Text="alexneonwithglue" />
+                <TextBlock Text="Prob1rka" />
+                <TextBlock Text="Art3mLapa" />
+                <TextBlock Text="cherkash" />
+                <TextBlock Text="cub-has-injected" />
+                <TextBlock Text="Externalkinetics" />
+                <TextBlock Text="Dr1mG" />
+                <TextBlock Text="sally13249" />
+                <TextBlock Text="StraiF" />
+                <TextBlock Text="Klino4ek" />
+                <TextBlock Text="rusmers10" />
                 <TextBlock Text="TheSkout001" />
                 <TextBlock Text="trashers" />
-                <TextBlock Text="Voxel" />
-                <TextBlock Text="XonaShera" Foreground="{DynamicResource SystemFillColorCriticalBrush}" />
-                <TextBlock Text="Ziio123" />
-                <TextBlock Text="zor9na90000" />
+                <TextBlock Text="CMETAHOB" />
+                <TextBlock Text="koliablo1999" />
+                <TextBlock Text="Juljina" />
+                <TextBlock Text="Dimonello" />
+                <TextBlock Text="raymanchrome" />
+                <TextBlock Text="daithj_waikrrr" />
+                <TextBlock Text="AALLLAJ" />
+                <TextBlock Text="Disco" />
+                <TextBlock Text="jaroslavzarochintcev" />
+                <TextBlock Text="its-mrarsikk" />
+                <TextBlock Text="mongoose_0" />
             </StackPanel>
 
             <StackPanel Grid.Column="3">
@@ -446,19 +592,25 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="busguesjshbahsj" />
-                <TextBlock Text="cq2i" />
-                <TextBlock Text="FarisAmgad" />
-                <TextBlock Text="Mehrath" />
-                <TextBlock Text="mostafagamingx1" />
-                <TextBlock Text="projectp774" />
                 <TextBlock Text="RoRed" />
-                <TextBlock Text="Sakupen" />
-                <TextBlock Text="streoic" />
-                <TextBlock Text="uvq18" />
+                <TextBlock Text="mmiky" />
+                <TextBlock Text="cq2i" />
+                <TextBlock Text="mostafagamingx1" />
+                <TextBlock Text="busguesjshbahsj" />
                 <TextBlock Text="wyfast" />
-                <TextBlock Text="xyplexy" />
+                <TextBlock Text="projectp774" />
                 <TextBlock Text="Zida" />
+                <TextBlock Text="axui77" />
+                <TextBlock Text="FarisAmgad" />
+                <TextBlock Text="streoic" />
+                <TextBlock Text="Mehrath" />
+                <TextBlock Text="uvq18" />
+                <TextBlock Text="theskyisthelimit" />
+                <TextBlock Text="Sakupen" />
+                <TextBlock Text="UltraYousfin" />
+                <TextBlock Text="xyplexy" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="infinuts" />
 
                 <!--<TextBlock Text="বাংলা" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -476,12 +628,15 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Text="._bonus_." />
-                <TextBlock Text="arthurwagon" />
-                <TextBlock Text="marc15772" />
-                <TextBlock Text="punnavice" />
+                <TextBlock Text="mxtinnawr" />
                 <TextBlock Text="rachapol.pat" />
-                <TextBlock Text="Sem1z" />
                 <TextBlock Text="xAom" />
+                <TextBlock Text="Sem1z" />
+                <TextBlock Text="punnavice" />
+                <TextBlock Text="marc15772" />
+                <TextBlock Text="sigmaligma" />
+                <TextBlock Text="jarmonxd" />
+                <TextBlock Text="frailfraill" />
 
                 <TextBlock Text="한국어" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -489,17 +644,19 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Text="bacon1295" />
+                <TextBlock Text="Forado" />
                 <TextBlock Text="yuzegh" />
                 <TextBlock Text="NightPlay" />
-                <TextBlock Text="luz3n" />
                 <TextBlock Text="NoUserName" />
                 <TextBlock Text="hellta" />
+                <TextBlock Text="jhki" />
                 <TextBlock Text="swaggytendencies" />
                 <TextBlock Text="oprx64" />
                 <TextBlock Text="Star_Moon" />
                 <TextBlock Text="asd123456fghqwerty" />
                 <TextBlock Text="ADVI50R" />
                 <TextBlock Text="xsinew" />
+                <TextBlock Text="Lish_RBLX" />
                 <TextBlock Text="sk92376053" />
 
                 <TextBlock Text="中文 (简体)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
@@ -509,35 +666,49 @@
                 </TextBlock>
                 <TextBlock Text="14TQD" />
                 <TextBlock Text="Aling00" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="ersn_cerror" />
                 <TextBlock Text="Clock" />
-                <TextBlock Text="crimarz" />
                 <TextBlock Text="edwardcole3715" />
-                <TextBlock Text="ERSN_CERROR" />
                 <TextBlock Text="Typel" />
                 <TextBlock Text="yuhaodatt" />
+                <TextBlock Text="bookermon" />
+                <TextBlock Text="BBasilio2001" />
+                <TextBlock Text="Kirxvil" />
+                <TextBlock Text="Mishen" />
+                <TextBlock Text="crimarz" />
 
-                <!--<TextBlock Text="中文 (廣東話)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                <TextBlock Text="中文 (香港)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <!-- Exclude: Flemish, TEAM_LILA (only keep for German) -->
                 <TextBlock Text="henrychu1125" />
+                <TextBlock Text="BBasilio2001" />
                 <TextBlock Text="kitzure" />
+                <TextBlock Text="hallow" />
+                <TextBlock Text="Clock" />
+                <TextBlock Text="Shhh_op" />
                 <TextBlock Text="Kimina898" />
-                <TextBlock Text="shhh_op" />-->
 
                 <TextBlock Text="中文 (繁體)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
-                <TextBlock Text="14TQD" />
-                <TextBlock Text="DOM1Chan" />
-                <TextBlock Text="DXuwu" />
-                <TextBlock Text="ImLoadingUuU" />
-                <TextBlock Text="kitzure" />
                 <TextBlock Text="Kimina898" />
+                <TextBlock Text="L55_Rh120" />
+                <TextBlock Text="yuzegh" />
+                <TextBlock Text="DXuwu" />
+                <TextBlock Text="kitzure" />
+                <TextBlock Text="BBasilio2001" />
+                <TextBlock Text="ImLoadingUuU" />
+                <TextBlock Text="DOM1Chan" />
                 <TextBlock Text="superchuckhamsterlover" />
+                <TextBlock Text="EZbacon" />
+                <TextBlock Text="14TQD" />
+                <TextBlock Text="nathanielrosemain" />
 
                 <TextBlock Text="日本語" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                     <TextBlock.Foreground>
@@ -545,8 +716,10 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Text="MintJapan" />
-                <TextBlock Text="mtmtyu" />
                 <TextBlock Text="pimeja7" />
+                <TextBlock Text="alisaka" />
+                <TextBlock Text="MrT-tak" />
+                <TextBlock Text="mtmtyu" />
                 <TextBlock Text="yixhuaa" />
 
                 <TextBlock Text="فارسی" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
@@ -555,8 +728,9 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <TextBlock Text="Mvtbh" />
+                <TextBlock Text="Notorious_popcat" />
                 <TextBlock Text="sadrakalantari4" />
-                <TextBlock Text="VioletBrains" />
+                <TextBlock Text="VioletBrains" /> <!-- Listed as REMOVED_USER in Crowdin -->
                 <TextBlock Text="ahmadahmadi3312300" />
 
                 <TextBlock Text="Nederlands" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
@@ -564,18 +738,18 @@
                         <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                     </TextBlock.Foreground>
                 </TextBlock>
+                <!-- Exclude: Flemish -->
                 <TextBlock Text="ydbossz" />
                 <TextBlock Text="Miwwzy" />
-                <TextBlock Text="Flemish" />
-                <TextBlock Text="4Yuri" />
                 <TextBlock Text="pikminmario500" />
+                <TextBlock Text="4Yuri" />
                 <TextBlock Text="Quickvision1" />
                 <TextBlock Text="m.arefe69420" />
                 <TextBlock Text="Cosmix" />
                 <TextBlock Text="smarttubed" />
                 <TextBlock Text="SwecII" />
                 <TextBlock Text="yuzegh" />
-                <TextBlock Text="Ardaniho" />
+                <TextBlock Text="Ardaninho" />
                 <TextBlock Text="LeventGameing" />
 
                 <TextBlock Text="Malay" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">

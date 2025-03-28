@@ -118,207 +118,207 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nu a putut actualiza automat la versiunea {0}. Vă rugăm să îl actualizați manual descărcând-ul și rulând-ul de pe site.</value>
+    <value>Bloxstrap kunne ikke automatisk opdatere til version {0}. Opdater det manuelt ved at downloade og køre det fra hjemmesiden.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Roblox rulează în acest moment, și lansând o altă instanță îl va închide. Ești sigur că vrei să continui lansarea?</value>
+    <value>Roblox kører i øjeblikket, og opstart af en anden instans vil lukke den. Er du sikker på, at du vil fortsætte med at starte?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox poate să fie în mentenanță acum. Vezi {0} pentru mai multe informații.</value>
+    <value>Roblox kan være nede lige nu. Se {0} for mere information.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Nu s-a putut realiza conexiunea, ceea ce poate indica o conexiune slabă la internet sau un blocaj firewall. Dacă aveți o conexiune în regulă, vă rugăm să vă asigurați că antivirusul nu blochează Bloxstrap.</value>
+    <value>Der kunne ikke oprettes en forbindelse, hvilket sandsynligvis indikerer en dårlig internetforbindelse eller en firewall-blok. Hvis din forbindelse er fin, skal du sikre dig, at din antivirus ikke blokerer Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Trebuie să instalați Bloxstrap înainte de a îl dezinstala.</value>
+    <value>Du skal først installere Bloxstrap før du afinstallere.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nu are suficient spațiu pe disc pentru a descărca și instala Roblox. Eliberați spațiu pe disc și încercați din nou.</value>
+    <value>Bloxstrap har ikke nok disk rum for at downloade og installere Roblox. Vær venlig at fri op noget plads på din disk og prøv igen.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>Se aplică modificări la Roblox...</value>
+    <value>Tilføjer Roblox modifikationer...</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>Se configurează {product}...</value>
+    <value>Konfigurere {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>Se conectează la Roblox...</value>
+    <value>Forbinder til Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
-    <value>{product} se instalează...</value>
+    <value>Installere {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>WebView2 se instalează, vă rugam să așteptați...</value>
+    <value>Installere WebView2, vær venlig at vente...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>{product} se pornește...</value>
+    <value>Starter {product}...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>{product} se actualizează...</value>
+    <value>Opgradere {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Se obține cel mai nou Bloxstrap...</value>
+    <value>Finder den nyeste Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>Așteptând pentru celelalte instanțe...</value>
+    <value>Venter på andre instanser...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
-    <value>Previzualizare stil - Apasă pe butonul X din dreapta sus pentru a închide</value>
+    <value>Stil forhåndsvisning - Tryk på X knappen oppe i højre for at lukke</value>
     <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
   </data>
   <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
-    <value>Previzualizare stil - Apasă pe Anulare pentru a închide</value>
+    <value>Stil forhåndsvisning - Tryk afmeld for at lukke</value>
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap a fost dezinstalat cu succes</value>
+    <value>Bloxstrap har succesfuldt afinstalleret</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox rulează, dar va trebui să fie închis înainte de a dezinstala Bloxstrap. Ai vrea să închizi Roblox acum?</value>
+    <value>Roblox er i gang med at køre, men er nød til at være lukket før afinstalleringen af Bloxstrap. Vil du gerne lukke Roblox nu?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Roblox depinde de componentele Windows Media Foundation. Computerului dvs. lipsesc aceste componente, cel mai probabil fiindcă folosiți o versiune N a Windows. Vă rugăm să le instalați, și apoi lansați Roblox.</value>
+    <value>Roblox kræver brugen af Windows Media Foundation komponenter. Du ser ud til at mangle dem, sandsynligvis fordi du bruger en N-udgave af Windows. Installér dem først, og start derefter Roblox.</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>Adaugă un singur</value>
+    <value>Tilføj enkelt</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
-    <value>Navighează</value>
+    <value>Søg</value>
   </data>
   <data name="Common.Cancel" xml:space="preserve">
-    <value>Anulează</value>
+    <value>Afmeld</value>
   </data>
   <data name="Common.Close" xml:space="preserve">
-    <value>Închide</value>
+    <value>Luk</value>
   </data>
   <data name="Common.Delete" xml:space="preserve">
-    <value>Șterge</value>
+    <value>Slet</value>
   </data>
   <data name="Common.DiscordRichPresence" xml:space="preserve">
-    <value>Discord Rich Presence</value>
+    <value>Discord status (Rich Presence)</value>
   </data>
   <data name="Common.Help" xml:space="preserve">
-    <value>Ajutor</value>
+    <value>Hjælp</value>
   </data>
   <data name="Common.ImportJson" xml:space="preserve">
-    <value>Importă JSON</value>
+    <value>Importer JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
-    <value>Deschide fișierul de jurnal</value>
+    <value>Åbn logfil</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
-    <value>Diverse</value>
+    <value>Andet</value>
   </data>
   <data name="Common.Name" xml:space="preserve">
-    <value>Nume</value>
+    <value>Navn</value>
   </data>
   <data name="Common.New" xml:space="preserve">
-    <value>Nou</value>
+    <value>Ny</value>
   </data>
   <data name="Common.No" xml:space="preserve">
-    <value>Nu</value>
+    <value>Nej</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
-    <value>Presetări</value>
+    <value>Forudindstillinger</value>
   </data>
   <data name="Common.Reset" xml:space="preserve">
-    <value>Resetează</value>
+    <value>Nulstil</value>
     <comment>In the context of resetting something to a default value</comment>
   </data>
   <data name="Common.Value" xml:space="preserve">
-    <value>Valoare</value>
+    <value>Værdi</value>
   </data>
   <data name="Common.Warning" xml:space="preserve">
-    <value>Avertizare</value>
+    <value>Advarsel</value>
   </data>
   <data name="Common.Yes" xml:space="preserve">
-    <value>Da</value>
+    <value>Ja</value>
   </data>
   <data name="ContextMenu.CloseRoblox" xml:space="preserve">
-    <value>Închide Roblox</value>
+    <value>Luk Roblox</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Ești sigur că vrei să închizi Roblox? Procesul va fi forțat să se închidă.</value>
+    <value>Er du sikker på, at du vil lukke Roblox? Dette vil afslutte processen.</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
-    <value>Copiază link-ul de invitație</value>
+    <value>Kopier invitations-deeplink</value>
   </data>
   <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
-    <value>Copiază ID-ul instanței</value>
+    <value>Kopier Instans ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
-    <value>ID-ul instanței</value>
+    <value>Instans ID</value>
   </data>
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
-    <value>Locație</value>
+    <value>Lokation</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
-    <value>Situat în {0}
-Apasă pentru mai multe informații</value>
+    <value>Lokation: {0}
+Klik for mere information</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
-    <value>Conectat la un server public</value>
+    <value>Tilsluttet til offentlig server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
-    <value>Informații despre server</value>
+    <value>Serverinformation</value>
   </data>
   <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
-    <value>Tip</value>
+    <value>Type</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>Adaugă Fast Flag</value>
+    <value>Tilføj FastFlag</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>Mai multe informații:</value>
+    <value>Flere oplysninger:</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
-    <value>Eroare de conexiune</value>
+    <value>Forbindelsesfejl</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap nu se poate conecta la {0}</value>
+    <value>Bloxstrap kan ikke oprette forbindelse til {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>Copiază conținuturile înregistrărilor</value>
+    <value>Kopiér logindhold</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>O excepție a avut loc în timp ce Bloxstrap a rulat</value>
+    <value>En undtagelse opstod under kørsel af Bloxstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Verificați mai întâi [Wiki-ul de Bloxstrap]({0}) pentru a vedea dacă problema a fost deja abordată cu o soluție.
+    <value>Tjek [Bloxstrap Wiki]({0}) først for at se, om dette problem allerede er blevet løst med en rettelse.
 
-Dacă nu, atunci vă rugăm să raportați această eroare printr-o [problemă GitHub]({1}) împreună cu o copie a fișierului jurnal care a fost creat.</value>
+Hvis ikke, bedes du rapportere denne undtagelse gennem et [GitHub problem]({1}) sammen med en kopi af den logfil, der blev oprettet.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Excepție Bloxstrap</value>
+    <value>Bloxstrap Undtagelse</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
-    <value>Personalizat</value>
+    <value>Tilpasset</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>Începutul lui 2015</value>
+    <value>Tidligt 2015</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>Sfârșitul lui 2015</value>
+    <value>Sent 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Byfron Fals (2023)</value>
+    <value>Falsk Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Clasic)</value>
+    <value>Bloxstrap (Klassisk)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Sticlă)</value>
+    <value>Bloxstrap (Glas)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>Legacy (2008 - 2011)</value>
+    <value>Arv (2008 - 2011)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>Legacy (2011 - 2014)</value>
+    <value>Arv (2011 - 2014)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>Roblox (~2014)</value>
@@ -327,16 +327,16 @@ Dacă nu, atunci vă rugăm să raportați această eroare printr-o [problemă G
     <value>Vista (2008 - 2011)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (Cartoony)</value>
+    <value>2006 (Tegneserie)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (Angular)</value>
+    <value>2013 (Vinkelformet)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
-    <value>Catmoji</value>
+    <value>Kattemoji</value>
   </data>
   <data name="Enums.EmojiType.Default" xml:space="preserve">
-    <value>Implicit (Twemoji)</value>
+    <value>Standardindstilling (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
     <value>Windows 10</value>
@@ -357,16 +357,16 @@ Dacă nu, atunci vă rugăm să raportați această eroare printr-o [problemă G
     <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Ales de joc</value>
+    <value>Valgt af spil</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Faza 3)</value>
+    <value>Future (Fase 3)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Faza 2)</value>
+    <value>Shadow Map (Fase 2)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Faza 1)</value>
+    <value>Voxel (Fase 1)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -375,1128 +375,1127 @@ Dacă nu, atunci vă rugăm să raportați această eroare printr-o [problemă G
     <value>Direct3D 11</value>
   </data>
   <data name="Enums.ServerType.Private" xml:space="preserve">
-    <value>Server privat</value>
+    <value>Privat server</value>
   </data>
   <data name="Enums.ServerType.Public" xml:space="preserve">
-    <value>Server public</value>
+    <value>Offentlig server</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Server rezervat</value>
+    <value>Reserveret server</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
-    <value>Întunecat</value>
+    <value>Mørk</value>
   </data>
   <data name="Enums.Theme.Light" xml:space="preserve">
-    <value>Luminos</value>
+    <value>Lyst</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap a fost actualizat la v{0}</value>
+    <value>Bloxstrap er blevet opgraderet til v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Versiunea de Bloxstrap pe care ați lansat-o este diferită de versiunea pe care o aveți instalată în prezent.
-Doriți să actualizați versiunea instalată în prezent?</value>
+    <value>Den version af Bloxstrap, du har startet, er forskellig fra den version, du har installeret i øjeblikket.
+Vil du gerne opgradere din nuværende installerede version?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
-    <value>Contributori</value>
+    <value>Bidragydere</value>
   </data>
   <data name="Menu.About.Contributors.Code" xml:space="preserve">
-    <value>Cod</value>
+    <value>Kode</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Aceștia sunt oamenii care au adus contribuții notabile la Bloxstrap, ajutând la transformarea acestuia în ceea ce este.</value>
+    <value>Dette er de mennesker, der har ydet bemærkelsesværdige bidrag til Bloxstrap og hjulpet med at gøre det til det, det er.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
-    <value>Idei de funcții</value>
+    <value>Funktion idéer</value>
   </data>
   <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
-    <value>Mulțumiri speciale</value>
+    <value>Specielt tak</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>Un inițializator alternativ pentru Roblox cu o mulțime de funcții suplimentare.</value>
+    <value>En alternativ bootstrapper til Roblox med en masse ekstra funktioner.</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Server de Discord</value>
+    <value>Discord server</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>Depozit GitHub</value>
+    <value>GitHub arkiv</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
-    <value>Ajutor și Informații</value>
+    <value>Hjælp og information</value>
   </data>
   <data name="Menu.About.Licenses" xml:space="preserve">
-    <value>Licențe</value>
+    <value>Licenser</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>Licența BSD 2-Clause</value>
+    <value>BSD 2-klausul licens</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>Licența MIT</value>
+    <value>MIT licens</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>Raportează o problemă</value>
+    <value>Rapporter et problem</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>Despre</value>
+    <value>Om</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
-    <value>Versiunea {0}</value>
+    <value>Version {0}</value>
     <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
   </data>
   <data name="Menu.AllFiles" xml:space="preserve">
-    <value>Toate fișierele</value>
+    <value>Alle filer</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>Vă rugăm să rețineți că nu toate modificările se vor aplica imediat până când nu închideți toate instanțele Roblox deschise în prezent.</value>
+    <value>Bemærk, at ikke alle dine ændringer vil gælde med det samme, før du lukker alle åbne Roblox-instanser.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap rulează deja</value>
+    <value>Bloxstrap kører allerede</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>Poți să-l faci să arate diferit, tradițional sau chiar ca în Roblox.</value>
+    <value>Du kan få det til at se anderledes ud, retro eller bare som Roblox.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
-    <value>Inițializator</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>Configurați alte opțiuni diverse care pot fi personalizate.</value>
+    <value>Konfigurer andre forskellige indstillinger, der kan tilpasses.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
-    <value>Personalizare</value>
+    <value>Tilpasning</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>Trebuie să fie un fișier .ico multidimensional cu dimensiuni cuprinse între 16px și 128px. Setați pictograma ca fiind „Personalizat” pentru a o utiliza.</value>
+    <value>Skal være en multi-size .ico-fil med størrelserne 16px til 128px. Indstil ikonet til 'Tilpasset' for at bruge det.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
-    <value>Pictogramă personalizată</value>
+    <value>Tilpasset ikon</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
-    <value>Textul care apare ca titlu al inițializator-ului.</value>
+    <value>Den tekst, der vises som titel på bootstrapperen.</value>
   </data>
   <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
-    <value>Titlu</value>
+    <value>Titel</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Schimbă cum Bloxstrap arată.</value>
+    <value>Konfigurer, hvordan Bloxstrap skal se ud.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
-    <value>Tema Globală</value>
+    <value>Globalt tema</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>Alegeți ce pictogramă trebuie să folosească.</value>
+    <value>Vælg, hvilket ikon den skal bruge.</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
-    <value>Pictogramă</value>
+    <value>Ikon</value>
   </data>
   <data name="Menu.Appearance.Preview" xml:space="preserve">
-    <value>Previzualizare</value>
+    <value>Forhåndsvisning</value>
   </data>
   <data name="Menu.Appearance.Style.Description" xml:space="preserve">
-    <value>Alegeți cum ar trebui să arate. Tematica întunecată nu se aplică la Legacy/Vista.</value>
+    <value>Vælg, hvordan det skal se ud. Mørkt tema gælder ikke for Legacy/Vista.</value>
   </data>
   <data name="Menu.Appearance.Style.Title" xml:space="preserve">
     <value>Stil</value>
   </data>
   <data name="Menu.Appearance.Title" xml:space="preserve">
-    <value>Aparență</value>
+    <value>Udseende</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap va verifica și se va actualiza automat la deschiderea Roblox.</value>
+    <value>Bloxstrap vil automatisk tjekke og opdatere sig selv, når Roblox startes.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Actualizează Bloxstrap automat</value>
+    <value>Opdater automatisk Bloxstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
-    <value>Previne închiderea jocului tău de la deschiderea accidentală a altuia.</value>
+    <value>Undgå, at lukninger af dit eksisterende spil ved et uheld starter et andet.</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>Cere confirmarea utilizatorului când se deschide altă instanță de Roblox</value>
+    <value>Bed om at bekræfte, når du starter en anden Roblox instans</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configurează ce ar trebui să facă Bloxstrap când pornești Roblox.</value>
+    <value>Indstil hvad Bloxstrap skal gøre, når du starter Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>Roblox va fi instalat proaspăt la următoarea lansare.</value>
+    <value>Roblox vil blive installeret frisk ved næste start.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
-    <value>Forțați reinstalarea Roblox</value>
+    <value>Gennemtving Roblox geninstallation</value>
   </data>
   <data name="Menu.Behaviour.Title" xml:space="preserve">
-    <value>Comportament</value>
+    <value>Bootstrapper</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>Adaugă nou</value>
+    <value>Tilføj ny</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
-    <value>Există deja o intrare pentru acest nume de indicator.</value>
+    <value>En post for dette flag-navn eksisterer allerede.</value>
   </data>
   <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
-    <value>Înapoi</value>
+    <value>Tilbage</value>
   </data>
   <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
-    <value>Utilizarea greșită poate duce la instabilitate sau la evenimente neașteptate.</value>
+    <value>Misbrug af dette kan føre til ustabilitet eller uventede ting sker.</value>
     <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
   </data>
   <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
-    <value>Folosește cu prudență.</value>
+    <value>Brug med forsigtighed.</value>
   </data>
   <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
-    <value>Unele Flag-uri pe care încercați să le importați au deja valori stabilite. Doriți să le înlocuiți valorile actuale cu cele definite în cadrul importului?
+    <value>Nogle af de flag, du forsøger at importere, har allerede fastsat værdier. Vil du overskrive deres nuværende værdier med dem, der er defineret i importen?
 
-Există {0} definiții contradictorii ale flagurilor:
+Der er {0} modstridende flagdefinitioner:
 {1}</value>
     <comment>{0} is a number, {1} is a comma-separated list</comment>
   </data>
   <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
-    <value>Șterge selectat</value>
+    <value>Slet valgte</value>
   </data>
   <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
-    <value>Gestionați-vă propriile Fast Flags. Faceți dublu clic pe o coloană pentru a o edita.</value>
+    <value>Administrer dine egne fast flager. Dobbeltklik på en kolonne for at redigere.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
-    <value>Exportă JSON</value>
+    <value>Eksportér JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>Intrarea pentru „{0}” nu este validă deoarece numele poate conține numai litere, numere si sublinieri</value>
+    <value>Posten for '{0}' er ugyldig, da navnet kun kan indeholde bogstaver, tal og understregninger</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>JSON-ul pe care l-ați introdus nu pare a fi valid. Vă rugăm să verificați și să încercați din nou.
+    <value>Den JSON, du har indtastet, ser ikke ud til at være gyldig. Dobbelttjek den og prøv igen.
 
-Mai multe informații:
+Flere oplysninger:
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>Intrarea pentru „{0}” nu este validă deoarece numele trebuie să înceapă cu FFlag, DFInt, etc</value>
+    <value>Indgangen for '{0}' er ugyldig, da navnet skal starte med FFlag, DFInt, osv.</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>Copiat în clipboard.</value>
+    <value>Kopieret til clipboard.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>Se pare că importați o configurație foarte mare. Ar trebui să importați numai configurații pe care le înțelegeți pe deplin. NU introduceți pe nevăzute configurații realizate de alte persoane. Dacă veți continua, este foarte probabil să vă confruntați cu probleme de stabilitate și să vă confruntați cu schimbări neașteptate.
+    <value>Du synes at importere en meget stor konfiguration. Du bør kun importere konfigurationer, som du fuldt ud forstår. Indsæt IKKE blindt konfigurationer lavet af andre mennesker. Hvis du fortsætter, vil du sandsynligvis ende med stabilitetsproblemer og støde på uventede ændringer.
 
-Ești sigur că vrei sa continui?</value>
+Er du sikker på, at du vil fortsætte?</value>
   </data>
   <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
-    <value>Caută</value>
+    <value>Søg</value>
   </data>
   <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
-    <value>Afișează presetări</value>
+    <value>Vis forudindstillede flag</value>
   </data>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
-    <value>Editor de Fast Flag-uri</value>
+    <value>Fast Flag redigering</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Înapoi</value>
+    <value>Gå tilbage</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Știu ce fac</value>
+    <value>Jeg ved, hvad jeg laver</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Știi ce faci?</value>
+    <value>Ved du, hvad du gør?</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flag-urile sunt extrem de puternice, fiind menite să fie folosite numai de inginerii Roblox. Deși pot fi foarte folositoare, configurându-le manual poate să cauzeze probleme serioase de stabilitate și funcționalitate. NU folosiți editorul dacă nu știți ce faceți.
+    <value>Fast flag er ekstremt kraftfulde, da de er beregnet til kun at blive brugt af Roblox ingeniører. Mens de kan være meget nyttige, manuelt at konfigurere dem kan forårsage alvorlige problemer med stabilitet og funktionalitet. Brug IKKE editoren, hvis du er usikker på, hvad du laver.
 
-NU folosiți acest editor pentru a importa „liste de flag-uri” făcute de alte persoane care vă promit o îmbunătățire în performanță și altele. Acestea sunt supuse problemelor menționate mai devreme și vor cauza probleme fiindcă nu vei știi în totalitate ce schimbă. Dacă erai pe cale să faci asta, ÎNTOARCE-TE.</value>
+Brug IKKE dette til at importere store "flag lister" lavet af andre mennesker, der lover at forbedre ydeevnen eller sådanne. De er omfattet af førnævnte spørgsmål og de vil give problemer for dig, da du ikke vil være fuldt ud klar over, hvad de ændrer sig. Hvis du skulle til at gøre det, GÅ TILBAGE.</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>Controlați modul în care sunt configurați parametrii și caracteristicile specifice ale sistemului Roblox.</value>
+    <value>Kontroller, hvordan specifikke Roblox engine parametre og funktioner er konfigureret.</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>Gestionați-vă propriile Fast Flags. Folosiți cu prudență.</value>
+    <value>Administrer dine egne Fast Flags. Brug med forsigtighed.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Aflați mai multe despre Fast Flags, ce fac aceste presetări și cum să le folosiți.</value>
+    <value>Læs mere om Fast Flags, hvad disse forudindstillinger gør, og hvordan du bruger dem.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>Direct3D [fullscreen exclusiv]({0}) folosind Alt+Enter este activat în mod implicit.</value>
+    <value>Direct3D [eksklusiv fullscreen]({0}) ved brug af Alt+Enter er aktiveret som standard.</value>
   </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versiunea preferată a meniului de escape</value>
+    <value>Foretrukken escape menu version</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox reduce calitatea de randare după modul în care afișajul dvs. este dimensionat în Windows.</value>
+    <value>Roblox reducerer din renderingskvalitet afhængigt af, hvordan dit display skaleres i Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
-    <value>Păstrează calitatea redării cu scalarea afișajului</value>
+    <value>Bevar gengivelseskvalitet med visningsskalering</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Setați la 0 pentru setările implicite dacă doriți să utilizați deblocarea nativă a framerate-ului Roblox.</value>
+    <value>Sæt til 0 for standardindstillinger, hvis du vil bruge Roblox' oprindelige framerate oplåsning.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Limită de FPS</value>
+    <value>Framerate grænse</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Comută cu [comenzi rapide de tastatură]({0}). Funcționează numai dacă vă aflați în [grupul Bloxstrap]({1}).</value>
+    <value>Slået til med [tastaturgenveje]({0}). Virker kun, hvis du er i [Bloxstrap gruppen]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Permite capacitatea de a ascunde GUI-uri</value>
+    <value>Aktiver evne til at skjule GUI'er</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Opțiunea aleasă va fi forțat în toate jocurile. [Atenție, pot cauza probleme de iluminare!]({0})</value>
+    <value>Valgt en vil blive aktiveret i alle spil. [Pas på, kan forårsage belysningsproblemer!]({0})</value>
   </data>
   <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tehnologie de iluminat preferată</value>
+    <value>Foretrukne belysningsteknologi</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
-    <value>Modul de rendering</value>
+    <value>Gengivelsestilstand</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Setările Engine-ului</value>
+    <value>Engine Indstillinger</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
-    <value>Fișiere de font</value>
+    <value>Skrifttype filer</value>
   </data>
   <data name="Menu.IconFiles" xml:space="preserve">
-    <value>Fișiere de pictograme</value>
+    <value>Ikon filer</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap nu poate fi instalat aici. Te rog să alegi o locație diferită, sau rezumă-te la a folosi locația implicită apăsând butonul de reset.</value>
+    <value>Bloxstrap kan ikke blive installeret her. Vælg venlight en anden placering eller brug standard placeringen ved at klikke nulstil knappen.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Dosarul în care ai ales să instalezi Bloxstrap există deja și NU este gol. Este recomandat ca Bloxstrap să fie instalat în propriul folder independent.
+    <value>Mappen som du har valgt at installere Bloxstrap eksistere alleredde og er ikke tom. Det anbefales kraftigt, at Bloxstrap installeres i en selvstændig mappe.
 
-Se recomandă schimbarea la următoarea locație:
+Ændring til følgende placering er foreslået: 
 {0}
 
-Dorești să treci la locația sugerată?
-Selectarea „Nu” va ignora acest avertisment și va continua instalarea.</value>
+Vil du ændre den til foreslåede placering?
+Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen fortsætter.</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
-    <value>Trebuie să setezi o locație de instalare</value>
+    <value>Du skal angive en installering placering</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nu are acces de scriere la locația de instalare pe care ai selectat-o. Te rugăm să alegi o altă locație.</value>
+    <value>Bloxstrap har ikke skriveadgang til den valgte installationsplacering. Vælg venligst en anden placering.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
-    <value>Urmărirea activității</value>
+    <value>Aktivitetssporing</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
-    <value>Permite oricui să se alăture jocului în care te afli in prezent prin profilul tău de Discord.</value>
+    <value>Gør det muligt for alle at deltage i det spil, du er i, via din Discord profil.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
-    <value>Permite participarea la activitate</value>
+    <value>Tillad deltagelse i aktivitet</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
-    <value>Afișează contul Roblox cu care te joci pe profilul tău de Discord.</value>
+    <value>Viser den Roblox profil, du spiller med, på din Discord profil.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
-    <value>Afișează contul Roblox</value>
+    <value>Vis Roblox Profil</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
-    <value>Locația aplicației</value>
+    <value>Applikation Placering</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Închidere automată când Roblox se închide</value>
+    <value>Lukker automatisk, når Roblox lukker</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
-    <value>Aici poți avea alte programe să se lanseze cu Roblox automat.</value>
+    <value>Her kan du få andre programmer til at starte automatisk sammen med Roblox.</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
-    <value>Argumente de lansare</value>
+    <value>Start Argumenter</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>Roblox rulează!</value>
+    <value>Roblox kører!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
-    <value>Integrare nouă</value>
+    <value>Ny Integration</value>
   </data>
   <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
-    <value>Nicio integrare selectată, te rog să selectezi sau să adaugi una nouă</value>
+    <value>Ingen integration vælg venligst eller tilføj en ny.</value>
   </data>
   <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
-    <value>Integrări personalizate</value>
+    <value>Brugerdefinerede Integrationer</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>Configurați funcționalități adiționale pentru a merge alături de Roblox.</value>
+    <value>Konfigurer yderligere funktionalitet til at køre sammen med Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox se va închide complet când ieși dintr-un joc în loc să te întorci în aplicație. [Va strica unele lucruri!]({0})</value>
+    <value>Roblox vil lukke helt, når du forlader et spil i stedet for at gå tilbage til appen. [Vil ødelægge nogle ting!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
-    <value>Nu ieși în aplicația de desktop</value>
+    <value>Afslut ikke til desktop app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Permite ca Bootstrap să detecteze ce joc de pe Roblox joci. Anumite funcții pot necesita setarea asta.</value>
+    <value>Giver mulighed for Bloxstrap at opdage hvad Roblox spil du spiller. Visse funktioner kan kræve dette.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
-    <value>Activează urmărirea activității</value>
+    <value>Aktiver aktivitetssporing</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>Această opțiune necesită activarea urmăririi activității și ca aplicația Discord pentru desktop să fie instalată și să ruleze. [Descoperă mai multe]({0}).</value>
+    <value>Denne funktion kræver, at aktivitetssporing er aktiveret, og at Discord skrivebords-appen er installeret og kører. [Find ud af mere]({0}).</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
-    <value>Jocul Roblox pe care îl joci va fi afișat pe profilul tău de Discord. [Nu funcționează?]({0})</value>
+    <value>Det Roblox spil du spiller vil blive vist på din Discord profil. [Virker ikke?]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>Afișează activitatea jocului</value>
+    <value>Vis spilaktivitet</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>Când ești în joc, vei putea vedea unde se află serverul tău prin [ipinfo.io]({0}).</value>
+    <value>Når du er i spil, kan du se, hvor din server er placeret via [ipinfo.io]({0}).</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
-    <value>Caută locația serverului</value>
+    <value>Forespørg serverplacering</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
-    <value>Integrații</value>
+    <value>Integrationer</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>Gestionați și aplicați modificări la clientul jocului Roblox.</value>
+    <value>Administrer og anvend fil mods til Roblox spil klient.</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
-    <value>Vezi informații despre utilizarea și crearea de mod-uri.</value>
+    <value>Se mere om styring og oprettelse af mods.</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
-    <value>Alege un font...</value>
+    <value>Vælg skrifttype...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Mărimea fontului poate fi ajustată în tab-ul Setările Engine-ului.</value>
+    <value>Skrifttypestørrelse kan justeres i fanen Hurtig Flags.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
-    <value>Fișierul ales nu pare să fie un fișier font valid.</value>
+    <value>Filen du har valgt ser ikke ud til at være en gyldig skrifttypefil.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
-    <value>Șterge fontul aplicat</value>
+    <value>Fjern anvendt skrifttype</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
-    <value>Folosește font customizat</value>
+    <value>Brug tilpasset skrifttype</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
-    <value>Gestionați modurile personalizate Roblox aici.</value>
+    <value>Administrer brugerdefinerede Roblox-mods her.</value>
   </data>
   <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
-    <value>Deschide fișierul de Modificări</value>
+    <value>Åbn mappen Mods</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>Alegeți ce tip de emoji ar trebui să folosească Roblox.</value>
+    <value>Vælg, hvilken type emoji Roblox skal bruge.</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
-    <value>Tipuri de Emoji preferate</value>
+    <value>Foretrukken emoji type</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
-    <value>Alegeți între două cursoare clasice de Roblox.</value>
+    <value>Vælg mellem to klassiske Roblox-markørstile.</value>
   </data>
   <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
-    <value>Cursorul mouse-ului</value>
+    <value>Mus markør</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>Aduceți înapoi vechiul editorului de avatare folosit în aplicația Roblox înainte de 2020.</value>
+    <value>Bring den gamle avatar-editorbaggrund tilbage, som blev brugt i Roblox-appen før 2020.</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
-    <value>Folosește vechiul editor de avatare</value>
+    <value>Brug den gamle baggrund fra avatar editoren</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>O încercare de adus înapoi aproximative sunetele caracterelor folosite înainte de 2014.</value>
+    <value>Et forsøg på at tilbagebringe de lyde til din karakter, der anvendes før 2014.</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
-    <value>Emulează sunetele vechi ale caracterelor</value>
+    <value>Efterlign gamle karakterlyde</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Aduce înapoi sunetul clasic „oof” al morții.</value>
+    <value>Bringe tilbage den klassiske 'oof' død lyd.</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Folosește sunetul de moarte vechi</value>
+    <value>Brug gammel dødlyd</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
-    <value>Mod-uri</value>
+    <value>Mods</value>
   </data>
   <data name="Menu.MoreInfo" xml:space="preserve">
-    <value>Apasă pentru mai multe informații despre această opțiune.</value>
+    <value>Klik for mere information om denne indstilling.</value>
   </data>
   <data name="Menu.Save" xml:space="preserve">
-    <value>Salvează</value>
+    <value>Gem</value>
   </data>
   <data name="Menu.SettingsSaved.Message" xml:space="preserve">
-    <value>Schimbările vor fi puse în efect următoarea dată când vei lansa Roblox.</value>
+    <value>Ændringer vil træde i kraft, næste gang du starter Roblox.</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>Setările au fost salvate!</value>
+    <value>Indstillinger gemt!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Setări Bloxstrap</value>
+    <value>Bloxstrap Indstillinger</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
-    <value>Alege limba preferită</value>
+    <value>Vælg foretrukket sprog</value>
   </data>
   <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
-    <value>Alege o limbă înainte să continui cu instalația.</value>
+    <value>Vælg et sprog, før du fortsætter med installationen.</value>
   </data>
   <data name="Menu.Appearance.Language.Title" xml:space="preserve">
-    <value>Limbă</value>
+    <value>Sprog</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>O relansare este necesară pentru schimbările să aibă efect.</value>
+    <value>En genstart er nødvendig for at ændringerne træder i kraft.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Permiteți folosirea limbilor Roblox nesuportate</value>
+    <value>Tillad brug af ikke-understøttede Roblox sprog</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Se aplică numai jocurilor lansate de pe site-ul Roblox.</value>
+    <value>Gælder kun for spil kørt fra Roblox hjemmeside.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (V4 + UI Nou)</value>
+    <value>2023 (V4 + Nyt Layout)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
-    <value>Randare și grafică</value>
+    <value>Rendering og grafik</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Interfața de utilizator și Model</value>
+    <value>Brugerinterface og Layout</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Permiteți Bloxstrap să gestioneze Fast Flag-urile</value>
+    <value>Tillad Bloxstrap at administrere Hurtig Flag</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>Dezactivarea acestei opțiuni va împiedica aplicarea la Roblox a oricărui lucru configurat aici.</value>
+    <value>Deaktivering af dette vil forhindre alt konfigureret her i at blive anvendt på Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
-    <value>Calitatea anti-aliasing (MSAA)</value>
+    <value>Antialiasing quality (MSAA)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Dezactivați efectele de post-procesare</value>
+    <value>Deaktiver efterbehandlingseffekter</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Dezactivați bara de titlu full-screen</value>
+    <value>Deaktivér fuldskærm titelbar</value>
   </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Oprește afișarea acestuia ori de câte ori mutați mouse-ul în partea de sus a ecranului.</value>
+    <value>Stopper det fra at vise, når du flytter musen til toppen af skærmen.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
-    <value>Calitate de textură</value>
+    <value>Teksturens kvalitet</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
-    <value>Nivelul 0 (Cel mai scăzut)</value>
+    <value>Niveau 0 (laveste)</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
-    <value>Nivelul 1</value>
+    <value>Niveau 1</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
-    <value>Nivelul 2</value>
+    <value>Niveau 2</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
-    <value>Nivelul 3 (Cel mai ridicat)</value>
+    <value>Niveau 3 (højeste)</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Dezactivați umbrele jucătorului</value>
+    <value>Deaktivér spiller-skygger</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Dimensiunea fontului</value>
+    <value>Skriftstørrelse</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Valoarea implicită este 1. Ajustați dacă folosiți un font customizat.</value>
+    <value>Standardværdi er 1. Justér hvis du bruger en brugerdefineret skrifttype.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Dezactivați texturile terenului</value>
+    <value>Deaktivér terræn teksturer</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap nu poate să descarce Roblox</value>
+    <value>Bloxstrap kunne ikke downloade Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>Roblox nu poate fi descărcat în acest moment. Vă rugăm să citiți următoarea pagină de ajutor pentru mai multe informații: {0}</value>
+    <value>Roblox kan ikke downloades på nuværende tidspunkt. Læs venligst følgende hjælpeside for mere information: {0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
-    <value>Importă din fișier</value>
+    <value>Importer fra fil</value>
   </data>
   <data name="FileTypes.JSONFiles" xml:space="preserve">
-    <value>Fișiere JSON</value>
+    <value>JSON filer</value>
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>Intrarea pentru „{0}” nu este validă deoarece valoarea trebuie să fie un boolean (fie „True” sau „False”)</value>
+    <value>Indtastningen for '{0}' er ikke gyldig, da værdien skal være en boolesk (enten 'True' eller 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Intrarea pentru „{0}” nu este validă, deoarece valoarea trebuie să fie un număr</value>
+    <value>Indtastningen for '{0}' er ikke gyldig, da værdien skal være et tal.</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Nu va fi scris niciun fișier jurnal pentru această lansare deoarece Bloxstrap nu poate scrie în folderul de la „{0}”</value>
+    <value>Der vil ikke blive skrevet en logfil for denne opstart, da Bloxstrap ikke kan skrive til mappen på '{0}'.</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
-    <value>Implicit</value>
+    <value>Standard</value>
   </data>
   <data name="Common.Automatic" xml:space="preserve">
-    <value>Automat</value>
+    <value>Automatisk</value>
   </data>
   <data name="Common.SystemDefault" xml:space="preserve">
-    <value>Prestabilit de sistem</value>
+    <value>System standard</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>Intrarea pentru '{0}' nu este validă deoarece filtrul de loc nu este formatat corect.</value>
+    <value>Indtastningen for '{0}' er ikke gyldig, da stedfilteret ikke er formateret korrekt.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Instalatorul Bloxstrap</value>
+    <value>Bloxstrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>Bun venit</value>
+    <value>Velkommen</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>Instalează</value>
+    <value>Installér</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
-    <value>Completare</value>
+    <value>Fuldførelse</value>
   </data>
   <data name="Common.Navigation.Back" xml:space="preserve">
-    <value>Înapoi</value>
+    <value>Tilbage</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>Înainte</value>
+    <value>Næste</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Vă mulțumim că ați descărcat Bloxstrap. 
+    <value>Tak fordi du har downloadet Bloxstrap.
 
-Singurele site-uri oficiale de pe care se poate descărca Bloxstrap sunt {0} și {1}, așa că vă rugăm să verificați dacă l-ați obținut dintr-o sursă oficială.
+De eneste officielle websteder, hvor du kan downloade Bloxstrap fra, er {0} og {1}, så sørg for at verificere, at du har hentet det fra en officiel kilde.
 
-Acest proces de instalare va fi rapid și simplu, și veți putea configura oricare dintre setările Bloxstrap după instalare.</value>
+Denne installationsproces vil være hurtig og enkel, og du vil kunne konfigurere alle Bloxstrap's indstillinger efter installationen.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>Vă rugăm să faceți clic pe "Înainte" pentru a continua.</value>
+    <value>Klik 'Næste' for at fortsætte.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Încerci să instalezi versiunea {0} de Bloxstrap, dar ultima versiune disponibilă este {1}. Dorești să o descarci?</value>
+    <value>Du forsøger at installere version {0} af Bloxstrap, men den nyeste tilgængelige version er {1}. Vil du downloade den?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
-    <value>Alege unde să instalezi</value>
+    <value>Vælg hvor der skal installeres</value>
   </data>
   <data name="Installer.Install.Location.Text" xml:space="preserve">
-    <value>Roblox va fi instalat și în această locație. Schimbați asta dacă preferi să instalezi toate jocurile pe un disc separat. În caz contrar, este recomandat să lași setarea așa cum este.</value>
+    <value>Roblox vil også blive installeret på denne sti. Skift dette, hvis du foretrækker at installere alle dine spil til et separat drev. Ellers anbefales det, at du holder dette, som det er.</value>
   </data>
   <data name="Installer.Install.Location.DataFound" xml:space="preserve">
-    <value>Date existente au fost găsite. Modurile și setările tale vor fi restaurate.</value>
+    <value>Eksisterende data fundet. Dine mods og indstillinger vil blive gendannet.</value>
   </data>
   <data name="Common.Shortcuts" xml:space="preserve">
-    <value>Comenzi rapide</value>
+    <value>Genveje</value>
   </data>
   <data name="Common.Shortcuts.Desktop" xml:space="preserve">
-    <value>Pictogramă de pe desktop</value>
+    <value>Skrivebord Ikon</value>
   </data>
   <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
-    <value>Pictogramă în meniul Start</value>
+    <value>Start Menu ikon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap a fost instalat cu succes.
+    <value>Bloxstrap er blevet installeret med succes.
 
-Roblox nu a fost încă instalat; acest lucru se va întâmpla atunci când îl lansezi pentru prima dată cu Bloxstrap. Totuși, înainte de a face asta, s-ar putea să vrei să configurezi mai întâi setările Bloxstrap.
+Roblox er endnu ikke blevet installeret, det vil ske, når du starter det første gang med Bloxstrap. Før du gør det, kan det dog være en god idé at konfigurere Bloxstrap's indstillinger først.
 
-De asemenea, evită să folosești comanda rapidă "Roblox Player" pentru a lansa Roblox, deoarece Bloxstrap nu va porni cu Roblox. Dacă nu vezi Bloxstrap când lansezi de pe site, lansează o dată Roblox cu Bloxstrap de pe desktop pentru a rezolva problema.
+Undgå også at bruge "Roblox Player"-genvejen til at starte Roblox, da Bloxstrap ikke vil starte sammen med Roblox. Hvis du ikke ser Bloxstrap, når du starter fra websiden, så start blot Roblox med Bloxstrap én gang fra skrivebordet for at løse problemet.
 
-Ce ai vrea să faci?</value>
+Hvad vil du gerne gøre?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configurează setările Bloxstrap</value>
+    <value>Konfigurer Bloxstrap's indstillinger</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>Personalizează folosind toate funcțiile care sunt oferite</value>
+    <value>Justér alle de funktioner, det har at tilbyde</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
-    <value>Instalează și lansează Roblox</value>
+    <value>Installer og start Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>Te va duce în aplicația de desktop odată ce totul este finalizat</value>
+    <value>Vil sende dig videre til desktop-appen, når alt er færdigt.</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Dezinstalează Bloxstrap</value>
+    <value>Afinstallere Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Dezinstalarea va elimina Bloxstrap de pe sistemul tău și va reconfigura automat launcher-ul Roblox implicit, dacă acesta este încă instalat.
+    <value>Afinstallering vil fjerne Bloxstrap fra dit system, og automatisk omkonfigurere standard Roblox launcher hvis det stadig er installeret.
 
-Dacă dezinstalezi sau reinstalezi din cauza unor probleme cu Roblox, citește mai întâi această [pagină de ajutor]({0}).
+Hvis du afinstallerer eller geninstallerer fordi du har problemer med Roblox, så læs [denne hjælpeside] ({0}) første.
 
-Procesul de dezinstalare s-ar putea să nu poată curăța complet fișierele, așa că va fi necesar să ștergi manual fișierele rămase în locul unde a fost instalat Bloxstrap.
+Afinstallationsprocessen kan muligvis ikke rydde op i sig selv, så du kan have brug for manuelt rydde op resterende filer, hvor Bloxstrap blev installeret.
 
-Bloxstrap a fost instalat la „{1}”.</value>
+Bloxstrap blev installeret ved "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>Păstrează-mi setările și modurile</value>
+    <value>Behold mine indstillinger og mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Vor fi păstrate acolo unde a fost instalat Bloxstrap și vor fi restaurate automat la o reinstalare.</value>
+    <value>De vil blive bevaret, hvor Bloxstrap blev installeret, og vil automatisk blive gendannet på en geninstallation.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
-    <value>Dezinstalează</value>
+    <value>Afinstaller</value>
   </data>
   <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>Lansează Roblox</value>
+    <value>Start Roblox</value>
   </data>
   <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>Configurează setările</value>
+    <value>Konfigurér indstillinger</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>Aveți o problemă?</value>
+    <value>Har du et problem?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>Vezi Wiki-ul pentru ajutor</value>
+    <value>Se Wiki for hjælp</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
-    <value>În prezent, nu ai instalat runtime-ul WebView2. Unele funcții Roblox nu vor funcționa corect fără acesta, cum ar fi aplicația de desktop. Vrei să-l descarci acum?</value>
+    <value>Du har i øjeblikket ikke WebView2 runtime installeret. Nogle Roblox funktioner vil ikke fungere korrekt uden det, såsom desktop app. Vil du downloade det nu?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nu a putut crea comenzi rapide pentru Desktop și meniul de Pornire. Încearcă să le creezi mai târziu în setări.</value>
+    <value>Bloxstrap kunne ikke oprette genveje til Desktop og Start menuen. Prøv at oprette dem senere gennem indstillingerne.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Verificați mai întâi [Bloxstrap Wiki]({0}) pentru a vedea dacă această problemă a fost deja rezolvată printr-o soluție.
+    <value>Tjek [Bloxstrap Wiki]({0}) først for at se, om dette problem allerede er blevet løst med en rettelse.
 
-Dacă nu, atunci vă rugăm să raportați această excepție deținătorilor acestei bifurcații. NU raportați acest lucru pe problemele GitHub ale Bloxstrap-ului, deoarece acesta este un element neoficial.</value>
+Hvis ikke, bedes du at rapportere denne undtagelse til vedligeholderne af denne Fork. Rapporter IKKE dette til Bloxstrap's GitHub problemer, da dette er en uofficiel opbygning.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
-    <value>Acestea sunt comenzi rapide generale care afișează un meniu de lansare cu mai multe opțiuni. Comenzile rapide pentru funcții specifice pot fi create ulterior în setări.</value>
+    <value>Disse er generelle genveje, der viser en multi-valgs startmenu. Genveje for specifikke funktioner kan oprettes senere i indstillingerne.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configurați cum Bloxstrap poate fi lansat rapid.</value>
+    <value>Konfigurer hvordan Bloxstrap let kan startes.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
-    <value>General</value>
+    <value>Generelt</value>
   </data>
   <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
-    <value>Acestea sunt scurtăturile care afișează meniul de lansare cu mai multe opțiuni.</value>
+    <value>Disse er genveje, der åbner startmenuen med flere valgmuligheder.</value>
   </data>
   <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
-    <value>Funcție</value>
+    <value>Funktion</value>
   </data>
   <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
-    <value>Creați comenzi rapide pentru acces rapid la funcții specifice. Toate acestea vor fi plasate pe Desktop.</value>
+    <value>Opret genveje for hurtig adgang til specifikke funktioner. Disse vil alle blive placeret på skrivebordet.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
-    <value>Conectat la un server privat</value>
+    <value>Tilsluttet privat server</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Conectat la un server rezervat</value>
+    <value>Tilsluttet til reserveret server</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
-    <value>Mod-ul emoji nu poate fi aplicat momentan.</value>
+    <value>Emoji mod kan ikke anvendes på nuværende tidspunkt.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
-    <value>Așteptați ca instalarea să se termine.</value>
+    <value>Vent venligst på at installationen er færdig.</value>
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
-    <value>Așteptați ca dezinstalarea să se termine.</value>
+    <value>Vent venligst på at afinstallationen er færdig.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Despre Bloxstrap</value>
+    <value>Om Bloxstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
-    <value>Licențe</value>
+    <value>Licenser</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
   </data>
   <data name="About.Translators.Title" xml:space="preserve">
-    <value>Traducători</value>
+    <value>Oversættere</value>
   </data>
   <data name="Menu.UnsavedChanges" xml:space="preserve">
-    <value>Aveți modificări nesalvate. Sigur doriți să închideți fără să salvați?</value>
+    <value>Du har ugemte ændringer. Er du sikker på, at du vil lukke uden at gemme?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Versiunea Bloxstrap pe care ați lansat-o este mai veche decât versiunea instalată în prezent.
-Pot apărea probleme și setările dumneavoastră pot fi modificate. Se recomandă o reinstalare.
-Sunteți sigur că doriți să continuați?</value>
+    <value>Den version af Bloxstrap, du har kørt, er ældre end den version, du i øjeblikket har installeret.
+Problemer kan forekomme og dine indstillinger kan blive ændret. En geninstallation anbefales.
+Er du sikker på, at du vil fortsætte?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Lansarea Roblox a eșuat.</value>
+    <value>Roblox kunne ikke startes.</value>
   </data>
   <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox s-a prăbușit.</value>
+    <value>Roblox har crashet.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Pentru informații despre motivul pentru care acest lucru se poate întâmpla și cum poate fi rezolvat, vă rugăm să citiți [acest articol pentru ajutor]({0}).
+    <value>For information om, hvorfor dette kan ske, og hvordan dette kan løses, læs venligst [denne hjælpeartikel]({0}).
 
-Verifică dacă Roblox funcționează cu [launcher-ul original]({1}). Dacă nu, atunci aceasta nu este o problemă legată de Bloxstrap. Dacă funcționează, consultă articolul pentru ajutor.</value>
+Tjek om Roblox virker med [den oprindelige launcher]({1}). Hvis det ikke gør det, så er dette ikke et Bloxstrap problem. Hvis det gør, så henvises til hjælpeartiklen.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
-    <value>Nu s-au putut încărca date din cauza unei erori de rețea.</value>
+    <value>Kunne ikke indlæse data på grund af en netværksfejl.</value>
   </data>
   <data name="Common.Loading" xml:space="preserve">
-    <value>Se încarcă, vă rugăm să așteptați...</value>
+    <value>Indlæser, vent venligst...</value>
   </data>
   <data name="About.Supporters.Title" xml:space="preserve">
-    <value>Susținători</value>
+    <value>Støttere</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Acestea sunt persoanele care au susținut Bloxstrap prin Ko-fi. Un mare mulțumesc tuturor celor de aici!  
-Fiecare persoană este clasată în funcție de contribuția totală.</value>
+    <value>Det er de mennesker, der har støttet Bloxstrap gennem Ko-fi. En massiv tak til alle her!
+Hver person her er rangeret efter deres samlede løfte.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
-    <value>Setările tale nu au putut fi încărcate. Acestea au fost restabilite la configurația implicită.</value>
+    <value>Dine indstillinger kunne ikke indlæses. De er blevet nulstillet til standardindstillingen.</value>
   </data>
   <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
-    <value>Fast Flag-urile tale nu au putut fi încărcate. Acestea au fost restabilite la configurația implicită.</value>
+    <value>Dine hurtige flag kunne ikke indlæses. De er blevet nulstillet til standardindstillingen.</value>
   </data>
   <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
-    <value>Istoricul jocurilor</value>
+    <value>Spil historik</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>Reîntoarceți</value>
+    <value>Rejoin</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>Jocul tău curent nu va apărea pe prezența ta Discord pentru că a apărut o eroare la încărcarea informațiilor jocului.</value>
+    <value>Dit nuværende spil vil ikke vises på din Discord-status, fordi der opstod en fejl, da spillets information blev indlæst.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
-    <value>Istoricul jocurilor este înregistrat doar pentru sesiunea curentă Roblox. Jocurile vor apărea aici pe măsură ce le părăsiți sau vă teleportați în interiorul lor. Nu în toate serverele veți putea să vă reîntoarceți.</value>
+    <value>Spilhistorikken er kun optaget for din nuværende Roblox-session. Spil vil blive vist her, når du forlader dem eller teleporterer i dem. Ikke alle servere vil kunne tilsluttes tilbage til.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>Locația serverului nu a putut fi solicitată. Este posibil să vă alăturați jocurilor prea repede.</value>
+    <value>Serverplaceringen kunne ikke forespørges. Du deltager måske i spil for hurtig.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
-    <value>Vă rugăm să încercați mai târziu.</value>
+    <value>Forsøg igen senere.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
-    <value>Pentru această lansare, Roblox nu va fi verificat pentru actualizări, iar modificările la mod-uri nu vor fi aplicate.</value>
+    <value>Ved denne opstart vil Roblox ikke blive tjekket for opdateringer, og ændringer til mods vil ikke blive anvendt.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Deoarece Roblox trebuie instalat sau actualizat, Bloxstrap nu poate continua.</value>
+    <value>Da Roblox skal installeres eller opgraderes, kan Bloxstrap ikke fortsætte.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap a fost instalat în această locație înainte și este încă prezent, dar instalatorul nu poate suprascrie vechiul executabil. 
+    <value>Bloxstrap er blevet installeret på denne placering før og er stadig til stede, men installationsprogrammet kan ikke overskrive den gamle eksekverbare. 
 
-Vă rugăm să ștergeți manual Bloxstrap.exe din locația de instalare sau să încercați să reporniți sistemul, și apoi reîncercați instalarea.</value>
+Slet venligst Bloxstrap.exe manuelt fra installationsplaceringen eller prøv at genstarte dit system, og prøv derefter at genstarte installationen bagefter.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
-    <value>Indisponibil</value>
+    <value>Ikke tilgængelig</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
-    <value>Gestionați setările de compatibilitate</value>
+    <value>Administrer kompatibilitetsindstillinger</value>
   </data>
   <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
-    <value>Configurați parametrii aplicației, cum ar fi comportamentul de scalare DPI și [optimizări pe tot ecranul]({0}).</value>
+    <value>Konfigurere applikationsparametre såsom DPI skalering adfærd og [fuldskærm optimeringer]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox nu a fost încă instalat. Vă rugăm să porniți Roblox folosind Bloxstrap cel puțin o dată înainte de a încerca să folosiți această opțiune.</value>
+    <value>Roblox er endnu ikke installeret. Start Roblox ved hjælp af Bloxstrap mindst én gang før du forsøger at bruge denne indstilling.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
-    <value>Sunteți sigur că doriți să anulați instalarea?</value>
+    <value>Er du sikker på, at du vil annullere installationen?</value>
   </data>
   <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
-    <value>Salvarea {0} a eșuat: {1}</value>
+    <value>Kunne ikke gemme {0}: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>Pictograma de inițializator aleasă nu a putut fi încărcată.
+    <value>Det valgte bootstrapper ikon kunne ikke indlæses.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Extrage pictogramele Roblox în dosar</value>
+    <value>Udpak Roblox ikoner til mappe</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Vă permite să utilizați pictogramele Roblox din Bloxstrap pentru scurtăturile dvs. [Vezi cum.]({0})</value>
+    <value>Tillader dig at bruge Bloxstraps sortiment af Roblox-ikoner til dine genveje. [Se hvordan.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap nu poate scrie în Registrul Windows. Un antivirus probabil interferă și cauzează probleme. Vă rugăm să verificați pentru a vă asigura că nu există nimic care să restricționeze funcționarea Bloxstrap.</value>
+    <value>Bloxstrap er ude af stand til at skrive til registreringsdatabasen i Windows. En antivirus vil sandsynligvis forstyrre og forårsage problemer. Tjek venligst for at sikre, at der ikke er noget, der vil begrænse Bloxstrap's operation.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>Lunar</value>
+    <value>Månedligt</value>
   </data>
   <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>Unic</value>
+    <value>Enkeltstående</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configurați opțiunile legate de comportamentul Bloxstrap-ului.</value>
+    <value>Konfigurer indstillinger relateret til Bloxstraps opførsel.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>Activează trimiterea de date analitice</value>
+    <value>Aktiver afsendelse af analyser</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>Este anonimă și fără intenții rele, vă promitem. Pentru a vedea ce colectăm și de ce, vedeți [politica noastră de confidențialitate]({0}).</value>
+    <value>Det er anonymt, og der er intet ondt, vi lover. For indsigt i, hvad vi indsamler og hvorfor, se vores [privatlivspolitik]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
-    <value>Analitică</value>
+    <value>Analyse</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
-    <value>Resetează totul la valorile implicite</value>
+    <value>Nulstil alt til standardindstillinger</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Raportați o excepție</value>
+    <value>Rapporter undtagelse</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>Modul de testare</value>
+    <value>Test-tilstand</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>Modul de testare facilitează testarea iterativă a modului în care setările dvs. afectează Roblox.
+    <value>Testtilstand gør det nemmere at teste, hvordan dine indstillinger påvirker Roblox iterativt.
 
-Cât timp este activat, acesta va lansa automat Roblox după închiderea setărilor și va redeschide setările după închiderea Roblox, într-un ciclu până când îl dezactivați.
+Når den er aktiveret, vil den automatisk starte Roblox efter lukning af Indstillinger og åbne Indstillinger igen efter lukning af Roblox, i en cyklus, indtil du deaktiverer den.
 
-Doriți să activați modul de testare?</value>
+Vil du aktivere testtilstand?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Toate traducerile Bloxstrap sunt realizate prin [Crowdin]({0}). Toții listat aici sunt oameni care s-au oferit cu generozitate ca voluntari să își ofere timpul și efortul pentru a ajuta la localizarea Bloxstrap. Mulțumiri masive tuturor celor de aici!</value>
+    <value>Alle Bloxstraps oversættelser er crowdsourced via [Crowdin]({0}). Alle, der er nævnt her, er personer, der generøst har brugt deres tid og kræfter på at hjælpe med at lokalisere Bloxstrap. En kæmpe tak til alle her!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
-    <value>Instalează</value>
+    <value>Installér</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
   <data name="Paths.Icons" xml:space="preserve">
-    <value>Pictograme</value>
+    <value>Ikoner</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Lansează Roblox Studio</value>
+    <value>Start Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Versiunea {0}</value>
+    <value>Version {0}</value>
   </data>
   <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
-    <value>Personalizat</value>
+    <value>Tilpasset</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap a încercat să actualizeze Roblox, dar nu poate fiindcă fișierele Roblox sunt în folosință.
+    <value>Bloxstrap forsøgte at opgradere Roblox, men kan ikke fordi Roblox' filer stadig er i brug.
 
-Vă rugăm să închideți orice aplicație care poate folosi fișierele Roblox, și să relansați.</value>
+Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Arhivă Zip</value>
+    <value>Zip-arkiv</value>
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
   <data name="Common.Export" xml:space="preserve">
-    <value>Exportă</value>
+    <value>Eksport</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
-    <value>Exportă date de diagnosticare</value>
+    <value>Eksport diagnostiske data</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Adună informații care pot fi încărcate online pentru a rezolva o problemă pe care o întâmpini.</value>
+    <value>Saml oplysninger, der kan uploades online for at fejlfinde et problem, du har.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Configurare Bloxstrap</value>
+    <value>Bloxstrap konfiguration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Toate jurnalele Bloxstrap</value>
+    <value>Alle Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox nu mai suportă Windows 7 sau 8.1. Pentru a continua să joci Roblox, te rugăm să actualizezi la Windows 10 sau mai nou.</value>
+    <value>Roblox understøtter ikke længere Windows 7 eller 8.1. For at fortsætte med at spille Roblox, bedes du opgradere til Windows 10 eller nyere.</value>
   </data>
   <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Extragerea fișierelor a eșuat</value>
+    <value>Kunne ikke udpakke filer</value>
   </data>
   <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Este posibil ca unele conținuturi să lipsească. Forțează o reinstalare a Roblox din setări pentru a rezolva acest lucru.</value>
+    <value>Noget indhold kan mangle. Tving en Roblox geninstallation i indstillinger for at løse dette.</value>
   </data>
   <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Aplicarea modificărilor a eșuat</value>
+    <value>Kunne ikke anvende ændringer</value>
   </data>
   <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Nu toate modificările vor fi prezente în lansarea curentă.</value>
+    <value>Ikke alle ændringer vil være til stede i den nuværende lancering.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Licență Apache 2.0</value>
+    <value>Apache Licens 2,0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
-    <value>Gol</value>
+    <value>Blank</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
-    <value>Simplu</value>
+    <value>Simpel</value>
   </data>
   <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
-    <value>Rădăcina temei XML nu este {0}</value>
+    <value>Tema XML root er ikke {0}</value>
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
-    <value>Dialogul personalizat a fost inițializat deja</value>
+    <value>Tilpasset dialog er allerede initialiseret</value>
   </data>
   <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
-    <value>Inițializatoare personalizate pot avea maxim {0} elemente, s-au obținut {1}</value>
+    <value>Tilpassede bootstrappers kan kun have et maksimum af {0} elementer, fik {1}</value>
     <comment>{0} and {1} are numbers</comment>
   </data>
   <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
-    <value>Versiunea {0} nu este setată</value>
+    <value>{0} version er ikke angivet</value>
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
-    <value>Versiunea {0} nu este un număr</value>
+    <value>{0} version er ikke et tal</value>
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
-    <value>{0} versiunea {1} nu mai este suportată</value>
+    <value>{0} version {1} understøttes ikke længere</value>
     <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
   </data>
   <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
-    <value>{0} versiunea {1} nu este recunoscută</value>
+    <value>{0} version {1} er ikke genkendt</value>
     <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
   </data>
   <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
-    <value>Elementul {0} nu poate avea un element de tipul {1}</value>
+    <value>{0} kan ikke have et barn af {1}</value>
     <comment>{0} and {1} are element names (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
-    <value>Element necunoscut {0}</value>
+    <value>Ukendt element {0}</value>
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
-    <value>Nu s-a reușit analizarea fișierului de temă: {0}</value>
+    <value>Kunne ikke parse temafilen: {0}</value>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
-    <value>{0} are {1} invalid: {2}</value>
+    <value>{0} har ugyldig {1}: {2}</value>
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
-    <value>Elementul {0} îi lipsește atributul {1}</value>
+    <value>Element {0} mangler {1} attributten</value>
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
-    <value>{0}.{1} nu este valid {2}</value>
+    <value>{0}.{1} er ikke en gyldig {2}</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
-    <value>{0}.{1} trebuie să fie mai mare decât {2}</value>
+    <value>{0}.{1} skal være større end {2}</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
-    <value>{0}.{1} trebuie să fie mai mic decât {2}</value>
+    <value>{0}.{1} skal være mindre end {2}</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
   </data>
   <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
-    <value>{0} {1} Necunoscut '{2}'</value>
+    <value>{0} Ukendt {1} '{2}'</value>
     <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
-    <value>{0} poate avea definit doar un singur {1}</value>
+    <value>{0} kan kun have en {1} defineret</value>
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
-    <value>{0}.{1} poate avea doar un singur element</value>
+    <value>{0}.{1} kan kun have et barn</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
-    <value>{0} poate avea doar un singur element</value>
+    <value>{0} kan kun have et barn</value>
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
-    <value>{0}.{1} își lipsește elementul</value>
+    <value>{0}.{1} mangler sit barn</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
-    <value>{0}.{1} nu a putut fi prelucrat într-un {2}</value>
+    <value>{0}.{1} kunne ikke parses til en {2}</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
-    <value>{0}.{1} {2} este nul</value>
+    <value>{0}.{1} {2} er null</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
-    <value>{0}.{1} folosește o schemă de pe lista neagră {2}</value>
+    <value>{0}.{1} bruger blacklistet skema {2}</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
-    <value>{0} nu a reușit să creeze {1}: {2}</value>
+    <value>{0} kunne ikke oprette {1}: {2}</value>
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
   </data>
   <data name="CustomTheme.Editor.Title" xml:space="preserve">
-    <value>Se Editează „{0}”</value>
+    <value>Redigerer "{0}"</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
-    <value>Tema a fost salvată cu succes!</value>
+    <value>Tema gemt!</value>
   </data>
   <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
-    <value>A apărut o eroare la salvarea temei tale.</value>
+    <value>Der opstod en fejl under gemmelse af dit tema.</value>
   </data>
   <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
-    <value>Vrei să salvezi modificările la {0}?</value>
+    <value>Gem ændringer til {0}?</value>
   </data>
   <data name="CustomTheme.Editor.Save" xml:space="preserve">
-    <value>Salvare</value>
+    <value>Gem</value>
   </data>
   <data name="CustomTheme.Editor.Preview" xml:space="preserve">
-    <value>Previzualizare</value>
+    <value>Forhåndsvisning</value>
   </data>
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
-    <value>Deschide directorul de teme</value>
+    <value>Åben Temamappe</value>
   </data>
   <data name="Common.CreateNew" xml:space="preserve">
-    <value>Creează</value>
+    <value>Opret ny</value>
   </data>
   <data name="Common.Import" xml:space="preserve">
-    <value>Importă</value>
+    <value>Importer</value>
   </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
-    <value>Adaugă temă personalizată</value>
+    <value>Tilføj Tilpasset Tema</value>
   </data>
   <data name="Common.Template" xml:space="preserve">
-    <value>Șablon</value>
+    <value>Skabelon</value>
   </data>
   <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
-    <value>Numele nu poate fi gol</value>
+    <value>Navnet må ikke være tomt</value>
   </data>
   <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
-    <value>Numele conține caractere nepermise</value>
+    <value>Navnet indeholder ulovlige tegn</value>
   </data>
   <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
-    <value>Numele nu poate fi folosit</value>
+    <value>Navnet kan ikke bruges</value>
   </data>
   <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
-    <value>Eroare necunoscută</value>
+    <value>Ukendt fejl</value>
   </data>
   <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
-    <value>Numele este deja utilizat</value>
+    <value>Navnet er allerede i brug</value>
   </data>
   <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
-    <value>Fișierul trebuie să fie un ZIP</value>
+    <value>Filen skal være en ZIP</value>
   </data>
   <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
-    <value>Fișierul temei nu a putut fi găsit în fișierul ZIP</value>
+    <value>Temafil kunne ikke findes i ZIP-filen</value>
   </data>
   <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
-    <value>Fișier ZIP invalid sau corupt</value>
+    <value>Ugyldig eller beskadiget ZIP-fil</value>
   </data>
   <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
-    <value>Nicio temă personalizată selectată</value>
+    <value>Intet tilpasset tema valgt</value>
   </data>
   <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
-    <value>Nu s-a putut seta inițializatorul: {0}.
-Setat implicit la {1}.</value>
+    <value>Kunne ikke opsætte tilpasset bootstrapper: {0}. Standardindstilles til {1}.</value>
     <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
   </data>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
-    <value>Nicio temă personalizată selectată.</value>
+    <value>Intet tilpasset tema valgt.</value>
   </data>
   <data name="Common.Rename" xml:space="preserve">
-    <value>Redenumire</value>
+    <value>Omdøb</value>
   </data>
   <data name="Common.Edit" xml:space="preserve">
-    <value>Editează</value>
+    <value>Rediger</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
-    <value>Nu s-a putut șterge tema personalizată {0}: {1}</value>
+    <value>Kunne ikke slette tilpasset tema {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
-    <value>Nu s-a putut redenumi tema personalizată {0}: {1}</value>
+    <value>Kunne ikke omdøbe tilpasset tema {0}: {1}</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Actualizare în fundal</value>
+    <value>Baggrundsopdateringer</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Actualizați Roblox în fundal in loc să așteptați. Nu este recomandat pentru rețele slabe. Aveți nevoie de minim 3GB de spațiu de stocare pentru această proprietate sa meargă.</value>
+    <value>Opdater Roblox i baggrunden i stedet for at vente. Ikke anbefalet for langsomme netværk. Mindst 3GB af ledig lagerplads kræves for at denne funktion kan fungere.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
-    <value>Puneți elementele UI aici</value>
+    <value>Sæt UI elementer her</value>
   </data>
   <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
-    <value>Exemple de inițializatoare personalizate pot fi găsite la {0}</value>
+    <value>Eksempler på tilpassede bootstrappers kan findes på {0}</value>
   </data>
   <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
-    <value>Găsiți mai multe exemple personalizate de inițializatoare la {0}</value>
+    <value>Find flere tilpassede bootstrapper eksempler på {0}</value>
   </data>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
-    <value>Temă personalizată {0}</value>
+    <value>Tilpasset Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Permite lansarea mai multor instanțe</value>
+    <value>Tillad multi-instans opstart</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Permite deschiderea simultană a mai multor instanțe de client Roblox.</value>
+    <value>Tillader at have mere end en Roblox spil klient instans åben samtidigt.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Tematica dvs. a fost salvată!</value>
+    <value>Dit tema er gemt!</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Nu s-a putut previzualiza tematica: {0}</value>
+    <value>Kunne ikke forhåndsvise tema: {0}</value>
   </data>
 </root>

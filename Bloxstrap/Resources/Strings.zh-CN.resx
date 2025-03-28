@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap 目前无法自动更新至 v{0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Bloxstrap。</value>
+    <value>Bloxstrap 目前无法自动更新至 {0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Bloxstrap。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 当前正在运行中，打开另一个 Roblox 进程后将会关闭它。
@@ -185,7 +185,7 @@
     <value>Roblox 需要使用 “Windows Media Foundation” 组件才能启动；您似乎缺少它们，可能是因为您使用的是 N 版本的 Windows；请先安装它们后再尝试重新启动 Roblox。</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
-    <value>添加单个</value>
+    <value>添加单项</value>
   </data>
   <data name="Common.Browse" xml:space="preserve">
     <value>浏览</value>
@@ -529,7 +529,7 @@
     <value>启动器</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
-    <value>添加新的</value>
+    <value>新增</value>
   </data>
   <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
     <value>关于此 Flag 名称的条目已存在。</value>
@@ -561,7 +561,7 @@
     <value>导出 JSON</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能包含字母、数字和下划线。</value>
+    <value>您输入的内容「{0}」无效；其内容只能包含字母、数字和下划线。</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
     <value>您输入的 JSON 似乎无效；请仔细检查后并重试。
@@ -571,7 +571,7 @@
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容必须以 “FFlag”、“DFInt” 等开头才能生效。</value>
+    <value>您输入的内容「{0}」无效；其内容必须以 “FFlag”、“DFInt” 等开头才能生效。</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
     <value>已复制到剪贴板。</value>
@@ -667,7 +667,7 @@
     <value>您选择安装 Bloxstrap 的文件夹已经存在且不为空文件夹；强烈建议将 Bloxstrap 安装到其自己的独立文件夹中。
 
 建议更改为以下位置：
-“{0}”
+「{0}」
 
 是否更改为建议的位置？
 选择 “否” 将忽略此警告并继续安装。</value>
@@ -745,7 +745,7 @@
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
     <value>当您加入游戏时，您将会收到当前服务器具体信息的通知；通知将不会在 “全屏独占” 时显示。
-（由 [ipinfo.io]({0}) 提供技术支持）</value>
+（您可以通过 [ipinfo.io]({0}) 来获取您当前所处服务器的位置信息）</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>允许接收服务器具体信息通知</value>
@@ -916,14 +916,14 @@
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能为布尔值。(“True” 或 “False”)</value>
+    <value>您输入的内容「{0}」无效；其内容只能为布尔值。(“True” 或 “False”)</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；其内容只能为数字才能生效。</value>
+    <value>您输入的内容「{0}」无效；其内容只能为数字才能生效。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>由于 Bloxstrap 无法写入 “{0}” 文件夹；因此本次启动不会写入任何日志文件。</value>
+    <value>由于 Bloxstrap 无法写入位于「{0}」的文件夹，本次启动将不会生成日志文件</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>默认</value>
@@ -935,7 +935,7 @@
     <value>系统默认</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>您输入的内容 “{0}” 无效；因为游戏过滤器的格式不正确。</value>
+    <value>您输入的内容「{0}」无效；因为游戏过滤器的格式不正确。</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Bloxstrap 安装程序</value>
@@ -1025,7 +1025,7 @@
 卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Bloxstrap 时残留的文件。
 
 Bloxstrap 的安装路径是：
-“{1}”</value>
+「{1}」</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的 Bloxstrap 设置 和 Roblox 模组 (Mods)</value>
@@ -1262,6 +1262,9 @@ Bloxstrap 的安装路径是：
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>版本 {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>自定义</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Bloxstrap 目前无法更新 Roblox；因为当前 Roblox 的文件被占用。
 
@@ -1289,5 +1292,234 @@ Bloxstrap 的安装路径是：
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>所有 Bloxstrap 日志</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox 已停止支持 Windows 7 及 8.1 系统；若需继续畅玩，请与时俱进升级至 Windows 10 或更高版本。</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>解压文件失败</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>部分内容可能缺失；请前往设置强制重新安装 Roblox 以解决此问题。</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>应用修改失败</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>并非所有修改都会在本次启动中生效。</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache 许可证 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>空白</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>简约</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>主题 XML 的根元素不是 {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>自定义对话框已初始化</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>自定义启动器最多只能包含 {0} 个元素，但实际提供了 {1} 个</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>{0} 版本未设置</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>{0} 版本不是数字</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} 版本 {1} 已不再受支持</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} 版本 {1} 无法识别</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} 不能包含 {1} 作为子元素</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>未知元素 {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>无法解析主题文件：{0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} 的 {1} 无效：{2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>元素 {0} 缺少 {1} 属性</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} 不是一个有效的 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} 必须大于 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} 必须小于 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} 存在未知的 {1} 值「{2}」</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} 只能定义一个 {1}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} 只能包含一个子元素</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} 只能包含一个子元素</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} 缺少子元素</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} 无法解析为 {2} 类型</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} 的 {2} 值为空</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} 使用了被列入黑名单的协议 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} 创建 {1} 失败：{2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>正在编辑「{0}」</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>主题保存成功！</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>保存主题时发生错误。</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>是否保存对 {0} 的更改？</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>打开主题目录</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>添加自定义主题</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>名称不能为空</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>该名称包含非法字符</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>该名称不可用</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>未知错误</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>该名称已被占用</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>文件必须是 ZIP 格式</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>ZIP 文件中未找到主题文件</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>ZIP 文件无效或损坏</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>未选择任何自定义主题</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>无法设置自定义启动器：{0}.
+正在回退至 {1}。</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>未选择自定义主题。</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>无法删除自定义主题 {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>无法重命名自定义主题 {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>后台更新</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>无需等待即可在后台更新 Roblox；不推荐在网速较慢的情况下使用。此功能需要至少 3GB 的可用存储空间。</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>在此放置 UI 元素</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>您可在 {0} 找到自定义启动器示例</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>访问 {0} 探索更多自定义启动器示例</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>自定义主题 {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>允许游戏多开 (多开器)</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>允许同时运行多个 Roblox 游戏客户端进程。</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>您的主题已保存！</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>无法预览主题：{0}</value>
   </data>
 </root>
