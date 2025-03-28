@@ -58,11 +58,14 @@ namespace Bloxstrap
 #endif
             { "pl", "Polski" }, // Polish
 #if QA_BUILD
-            { "pt-PT", "Portugese (European)" }, // Portuguese
+            { "pt-PT", "Portugese (European)" }, // Portuguese (TODO: translate)
 #endif
             { "pt-BR", "Português (Brasil)" }, // Portuguese, Brazilian
             { "ro", "Română" }, // Romanian
             { "ru", "Русский" }, // Russian
+#if QA_BUILD
+            { "sr-CS", "Serbian (Latin)" }, // Serbian (TODO: translate)
+#endif
             { "sv-SE", "Svenska" }, // Swedish
             { "th", "ภาษาไทย" }, // Thai
             { "tr", "Türkçe" }, // Turkish
