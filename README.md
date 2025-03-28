@@ -83,3 +83,7 @@ Bloxstrap uses the [WPF UI](https://github.com/lepoco/wpfui) library for the use
 [crowdin-project]: https://crowdin.com/project/bloxstrap
 [discord-invite]:  https://discord.gg/nKjV3mGq6R
 [tenor-gif]:       https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif
+
+## Code signing policy
+
+Thanks to [SignPath.io](https://signpath.io/) for providing a free code signing service, and the [SignPath Foundation](https://signpath.org/) for providing the free code signing certificate.

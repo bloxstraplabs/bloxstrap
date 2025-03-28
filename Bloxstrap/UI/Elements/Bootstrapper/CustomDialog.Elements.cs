@@ -416,7 +416,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper_Fake(CustomDialog dialog, XElement xmlElement)
         {
             // this only exists to error out the theme if someone tries to use two BloxstrapCustomBootstrappers
-            throw new Exception($"{xmlElement.Parent!.Name} cannot have a child of {xmlElement.Name}");
+            throw new CustomThemeException("CustomTheme.Errors.ElementInvalidChild", xmlElement.Parent!.Name, xmlElement.Name);
         }
 
         private static DummyFrameworkElement HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)

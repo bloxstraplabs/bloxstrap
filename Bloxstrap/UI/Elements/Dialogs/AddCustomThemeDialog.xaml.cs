@@ -39,11 +39,12 @@ namespace Bloxstrap.UI.Elements.Dialogs
         {
             int count = Directory.GetDirectories(Paths.CustomThemes).Count();
 
-            string name = $"Custom Theme {count + 1}";
+            int i = count + 1;
+            string name = string.Format(Strings.CustomTheme_DefaultName, i);
 
             // TODO: this sucks
             if (File.Exists(GetThemePath(name)))
-                name += " " + Random.Shared.Next(1, 100000).ToString(); // easy
+                name = string.Format(Strings.CustomTheme_DefaultName, $"{i}-{Random.Shared.Next(1, 100000)}"); // easy
 
             return name;
         }
@@ -76,7 +77,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             string themeFilePath = Path.Combine(dir, "Theme.xml");
 
-            string templateContent = Encoding.UTF8.GetString(Resource.Get(template.GetFileName()).Result);
+            string templateContent = template.GetFileContents();
 
             File.WriteAllText(themeFilePath, templateContent);
         }

@@ -1274,13 +1274,13 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Roblox no longer supports Windows 7 or 8.1. To continue playing Roblox, please upgrade to Windows 10 or newer.</value>
   </data>
   <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Failed to extract all files</value>
+    <value>Failed to extract files</value>
   </data>
   <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
     <value>Some content may be missing. Force a Roblox reinstallation in settings to fix this.</value>
   </data>
   <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Failed to apply all modifications</value>
+    <value>Failed to apply modifications</value>
   </data>
   <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
     <value>Not all modifications will be present in the current launch.</value>
@@ -1302,7 +1302,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Custom dialog has already been initialised</value>
   </data>
   <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
-    <value>Custom bootstrappers can only have a maximum of {0} elements, got {1}.</value>
+    <value>Custom bootstrappers can only have a maximum of {0} elements, got {1}</value>
     <comment>{0} and {1} are numbers</comment>
   </data>
   <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
@@ -1369,7 +1369,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <comment>{0} is the element name (e.g. Button)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
-    <value>{0}.{1} is missing it's child</value>
+    <value>{0}.{1} is missing its child</value>
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
@@ -1473,5 +1473,30 @@ Defaulting to {1}.</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
     <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Put UI elements here</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Examples of custom bootstrappers can be found at {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Find more custom bootstrapper examples at {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Custom Theme {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Allow multi-instance launching</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Your theme has been saved!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Failed to preview theme: {0}</value>
   </data>
 </root>

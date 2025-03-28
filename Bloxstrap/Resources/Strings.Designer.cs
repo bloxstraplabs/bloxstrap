@@ -188,7 +188,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to extract all files.
+        ///   Looks up a localized string similar to Failed to extract files.
         /// </summary>
         public static string Bootstrapper_ExtractionFailed_Title {
             get {
@@ -235,7 +235,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to apply all modifications.
+        ///   Looks up a localized string similar to Failed to apply modifications.
         /// </summary>
         public static string Bootstrapper_ModificationsFailed_Title {
             get {
@@ -974,11 +974,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Theme {0}.
+        /// </summary>
+        public static string CustomTheme_DefaultName {
+            get {
+                return ResourceManager.GetString("CustomTheme.DefaultName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save changes to {0}?.
         /// </summary>
         public static string CustomTheme_Editor_ConfirmSave {
             get {
                 return ResourceManager.GetString("CustomTheme.Editor.ConfirmSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to preview theme: {0}.
+        /// </summary>
+        public static string CustomTheme_Editor_Errors_PreviewFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Errors.PreviewFailed", resourceCulture);
             }
         }
         
@@ -1024,6 +1042,15 @@ namespace Bloxstrap.Resources {
         public static string CustomTheme_Editor_Save_Success {
             get {
                 return ResourceManager.GetString("CustomTheme.Editor.Save.Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your theme has been saved!.
+        /// </summary>
+        public static string CustomTheme_Editor_Save_Success_Description {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save.Success.Description", resourceCulture);
             }
         }
         
@@ -1082,7 +1109,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}.{1} is missing it&apos;s child.
+        ///   Looks up a localized string similar to {0}.{1} is missing its child.
         /// </summary>
         public static string CustomTheme_Errors_ElementAttributeMissingChild {
             get {
@@ -1200,7 +1227,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}..
+        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}.
         /// </summary>
         public static string CustomTheme_Errors_TooManyElements {
             get {
@@ -1268,6 +1295,33 @@ namespace Bloxstrap.Resources {
         public static string CustomTheme_Errors_XMLParseFailed {
             get {
                 return ResourceManager.GetString("CustomTheme.Errors.XMLParseFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Examples of custom bootstrappers can be found at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.MoreExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put UI elements here.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_UIElements {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.UIElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find more custom bootstrapper examples at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Simple_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Simple.MoreExamples", resourceCulture);
             }
         }
         
@@ -3386,6 +3440,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_EnableActivityTracking_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.EnableActivityTracking.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously..
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow multi-instance launching.
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Title", resourceCulture);
             }
         }
         
