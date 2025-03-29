@@ -25,7 +25,7 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
 
 ---
 
-## Differences from Bloxstrap
+## Key differences from Bloxstrap
 
 - Integrations
   - Player logs - Players leaving/joining server
@@ -38,13 +38,11 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
 - Channels
   - Cancelling Roblox upgrades
   - Channel changer
-- Bootstrapper
-  - Multi-instance launching
+  - Channel changer action
 - Appearance
   - Customizable downloading status
 - Extras
   - Save last opened settings page
-  - Custom bootstrapper themes
   - Importing settings from Bloxstrap
 
 ### *More changes coming soon!*
