@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Bloxstrap (Release) (${{ github.sha }})
-        path: .\Bloxstrap\bin\Release\net6.0-windows\win-x64\publish\*
+        path: .\Bloxstrap\bin\Release\net6.0-windows10.0.17763.0\win-x64\publish\*
 
   release:
     needs: build
