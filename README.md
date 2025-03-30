@@ -36,10 +36,6 @@ Bloxstrap is only supported for PCs running Windows.
 
 **A:** No, it shouldn't. Bloxstrap doesn't interact with the Roblox client in the same way that exploits do. [Read more about that here.](https://github.com/bloxstraplabs/bloxstrap/wiki/Why-it's-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap)
 
-**Q: Why was multi-instance launching removed?**
-
-**A:** It was removed starting with v2.6.0 for the [reasons stated here](https://github.com/bloxstraplabs/bloxstrap/wiki/Plans-to-remove-multi%E2%80%90instance-launching-from-Bloxstrap). It may be added back in the future when there are less issues with doing so.
-
 ## Features
 
 - Hassle-free Discord Rich Presence to let your friends know what you're playing at a glance
