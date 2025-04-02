@@ -409,6 +409,7 @@ namespace Bloxstrap
                 if (!ipl.IsAcquired)
                 {
                     App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not obtain singleton mutex)");
+                    Utilities.ShellExecute(App.ProjectDownloadLink);
                     return;
                 }
             }
@@ -432,6 +433,7 @@ namespace Bloxstrap
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to update! (Could not get write permissions after 10 tries/5 seconds)");
                         App.Logger.WriteException(LOG_IDENT, ex);
+                        Utilities.ShellExecute(App.ProjectDownloadLink);
                         return;
                     }
 
