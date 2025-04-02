@@ -110,6 +110,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[Redusofficial](https://github.com/Redusofficial)" />
                     <controls:MarkdownTextBlock MarkdownText="[srthMD](https://github.com/srthMD)" />
                     <controls:MarkdownTextBlock MarkdownText="[axellse](https://github.com/axellse)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Otsako](https://github.com/pikminmario500)" />
                 </StackPanel>
             </controls:Expander>
 
@@ -140,6 +141,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[TheRealSpriteMan1337](https://github.com/TheRealSpriteMan1337)" />
                     <controls:MarkdownTextBlock MarkdownText="[ms-gitblox](https://github.com/ms-gitblox)" />
                     <controls:MarkdownTextBlock MarkdownText="[Luximoz](https://github.com/Luximoz)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Lezetho](https://github.com/lezetho)" />
                 </StackPanel>
             </controls:Expander>
 
@@ -152,6 +154,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[apprehensions](https://github.com/apprehensions)" />
                     <controls:MarkdownTextBlock MarkdownText="[axellse](https://github.com/axellse)" />
                     <controls:MarkdownTextBlock MarkdownText="[BlueOutside](https://github.com/BlueOutside)" />
+                    <controls:MarkdownTextBlock MarkdownText="[virtualengi](https://github.com/UnlikeDogVirtual3532)" />
                 </StackPanel>
             </controls:Expander>
         </Grid>

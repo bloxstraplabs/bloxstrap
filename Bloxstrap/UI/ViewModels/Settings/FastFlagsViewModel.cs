@@ -104,7 +104,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate1"), out int x) ? x : 0;
             set {
                 App.FastFlags.SetPreset("Rendering.Framerate1", value == 0 ? null : value);
-                App.FastFlags.SetPreset("Rendering.Framerate2", value == 0 ? null : "True");
+                App.FastFlags.SetPreset("Rendering.Framerate2", value == 0 ? null : "False");
             }
         }
 
