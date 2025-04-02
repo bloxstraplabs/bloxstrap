@@ -241,7 +241,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public static bool DisableVCBetaBadge
         {
-            get => App.FastFlags.GetPreset("Network.DisableTelemetry1") == "False";
+            get => App.FastFlags.GetPreset("UI.DisableVCBetaBadge1") == "False";
             set {
                 App.FastFlags.SetPreset("UI.DisableVCBetaBadge1", value ? "False" : null);
                 App.FastFlags.SetPreset("UI.DisableVCBetaBadge2", value ? "False" : null);
@@ -257,19 +257,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public static bool BetterHaptics
         {
             get => App.FastFlags.GetPreset("UI.BetterHaptics") == "True";
-            set => App.FastFlags.SetPreset("UI.BetterHaptics", value ? "True" : null);
+            set => App.FastFlags.SetPreset("Misc.BetterHaptics", value ? "True" : null);
         }
 
         public static bool BetterTrackpadScroll
         {
-            get => App.FastFlags.GetPreset("UI.BetterTrackpadScroll") == "True";
-            set => App.FastFlags.SetPreset("UI.BetterTrackpadScroll", value ? "True" : null);
+            get => App.FastFlags.GetPreset("Misc.BetterTrackpadScroll") == "True";
+            set => App.FastFlags.SetPreset("Misc.BetterTrackpadScroll", value ? "True" : null);
         }
 
         public static bool DisableVC
         {
-            get => App.FastFlags.GetPreset("UI.DisableVC") == "False";
-            set => App.FastFlags.SetPreset("UI.DisableVC", value ? "False" : null);
+            get => App.FastFlags.GetPreset("Misc.DisableVC") == "False";
+            set => App.FastFlags.SetPreset("Misc.DisableVC", value ? "False" : null);
         }
 
         public static bool ImproveRaycast
