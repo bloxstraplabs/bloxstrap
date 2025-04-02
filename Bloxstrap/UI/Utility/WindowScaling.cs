@@ -5,7 +5,9 @@ namespace Bloxstrap.UI.Utility
 {
     public static class WindowScaling
     {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         public static double ScaleFactor => Screen.PrimaryScreen.Bounds.Width / SystemParameters.PrimaryScreenWidth;
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         public static int GetScaledNumber(int number)
         {

@@ -4,16 +4,20 @@ using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Contracts;
 using Wpf.Ui.Mvvm.Services;
+using Windows.UI.ViewManagement;
 
 namespace Bloxstrap.UI.Elements.Base
 {
     public abstract class WpfUiWindow : UiWindow
     {
         private readonly IThemeService _themeService = new ThemeService();
+        private UISettings _settings;
 
         public WpfUiWindow()
         {
             ApplyTheme();
+            _settings = new UISettings();
+            _settings.ColorValuesChanged += ColorValuesChanged;
         }
 
         public void ApplyTheme()
@@ -42,6 +46,14 @@ namespace Bloxstrap.UI.Elements.Base
             }
 
             base.OnSourceInitialized(e);
+        }
+
+        private async void ColorValuesChanged(UISettings sender, object args)
+        {
+            await Dispatcher.InvokeAsync(() =>
+            {
+                ApplyTheme();
+            });
         }
     }
 }

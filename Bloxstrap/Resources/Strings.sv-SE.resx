@@ -499,28 +499,28 @@ Vill du uppdatera din nuvarande installerade version?</value>
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>Utseende</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap kommer automatiskt uppdatera sig själv när Roblox startas.</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Title" xml:space="preserve">
     <value>Automatiskt uppdatera Bloxstrap</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Description" xml:space="preserve">
     <value>Förhindra stängningar av ditt befintliga spel från av att misstag har startat ett annat.</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Title" xml:space="preserve">
     <value>Bekräfta när du startar en annan Roblox instans</value>
   </data>
-  <data name="Menu.Behaviour.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Description" xml:space="preserve">
     <value>Konfigurera vad Bloxstrap ska göra när Roblox startas.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox kommer ominstalleras nästa uppstart.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>Tvinga Robloxominstallation</value>
   </data>
-  <data name="Menu.Behaviour.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Title" xml:space="preserve">
     <value>Startprogram</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
@@ -831,10 +831,10 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>En omstart krävs för att dina ändringar ska träda i kraft.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>Tillåt användning av Roblox-språk som inte stöds</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>Gäller endast spel som startas från Roblox-webbsidan.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
@@ -1468,10 +1468,10 @@ Använder {1} istället.</value>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Det gick inte att byta namn på eget tema {0}: {1}</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Title" xml:space="preserve">
     <value>Bakgrundsuppdateringar</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Description" xml:space="preserve">
     <value>Uppdatera Roblox i bakgrunden istället för att vänta. Rekommenderas inte för långsamma nätverk. Minst 3 GB ledigt lagringsutrymme krävs för att den här funktionen ska fungera.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">

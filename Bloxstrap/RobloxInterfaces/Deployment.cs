@@ -142,6 +142,9 @@
             if (String.IsNullOrEmpty(channel))
                 channel = Channel;
 
+            if (App.Settings.Prop.CustomChannel != "")
+                channel = App.Settings.Prop.CustomChannel;
+
             bool isDefaultChannel = String.Compare(channel, DefaultChannel, StringComparison.OrdinalIgnoreCase) == 0;
 
             App.Logger.WriteLine(LOG_IDENT, $"Getting deploy info for channel {channel}");

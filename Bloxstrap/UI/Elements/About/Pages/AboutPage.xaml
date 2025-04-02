@@ -53,7 +53,7 @@
             <ui:Anchor Margin="0,0,0,8" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/nKjV3mGq6R" />
         </WrapPanel>
 
-        <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
+        <StackPanel>
             <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
 
             <Grid Column="0" Margin="0,8,0,0">

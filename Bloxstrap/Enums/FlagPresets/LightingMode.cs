@@ -5,6 +5,7 @@
         Default,
         Voxel,
         ShadowMap,
-        Future
+        Future,
+        Unified
     }
 }

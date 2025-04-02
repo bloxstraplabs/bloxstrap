@@ -499,28 +499,28 @@
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>외관</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap이 Roblox가 실행될 때 자동으로 확인하고 업데이트합니다.</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Title" xml:space="preserve">
     <value>Bloxstrap 자동으로 업데이트하기</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Description" xml:space="preserve">
     <value>게임을 하던 도중 실수로 다른 게임을 실행해서 꺼지는 것을 방지합니다.</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Title" xml:space="preserve">
     <value>다른 Roblox 인스턴스를 실행하기 전에 묻기</value>
   </data>
-  <data name="Menu.Behaviour.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Description" xml:space="preserve">
     <value>Roblox 실행 시 Bloxstrap이 수행할 작업을 설정하세요.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox가 다음 실행 때 새로 설치됩니다.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>Roblox 강제 재설치</value>
   </data>
-  <data name="Menu.Behaviour.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Title" xml:space="preserve">
     <value>부트스트래퍼</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
@@ -831,10 +831,10 @@
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>변경 사항을 적용하려면 다시 시작해야 합니다.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>지원되지 않는 Roblox 언어 사용 허용</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>Roblox 웹사이트에서 실행한 게임에만 적용됩니다.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
@@ -1468,10 +1468,10 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>사용자 지정 테마 {0} 이름 변경에 실패했습니다: {1}</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Title" xml:space="preserve">
     <value>백그라운드 업데이트</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Description" xml:space="preserve">
     <value>기다리는 대신 백그라운드에서 Roblox를 업데이트합니다. 느린 네트워크 환경에서는 권장되지 않습니다. 이 기능이 작동하려면 최소 3GB의 저장 공간이 필요합니다.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">

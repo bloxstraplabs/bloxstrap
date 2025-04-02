@@ -498,28 +498,28 @@
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>外觀</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap 在啟動 Roblox 時會自動進行檢查目前版本並且更新（如果有的話）。</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Title" xml:space="preserve">
     <value>自動更新Bloxstrap</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Description" xml:space="preserve">
     <value>防止因意外啟動另一個Roblox程式而導致當前運行的程式被關閉。</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Title" xml:space="preserve">
     <value>在啟動另一個 Roblox 程式時顯示的確認訊息</value>
   </data>
-  <data name="Menu.Behaviour.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Description" xml:space="preserve">
     <value>設定 Bloxstrap 在啟動 Roblox 時應執行的操作。</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox會在下次啟動時進行重新安裝。</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>強制重新安裝Roblox</value>
   </data>
-  <data name="Menu.Behaviour.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Title" xml:space="preserve">
     <value>啟動器</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
@@ -831,10 +831,10 @@
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>重新啟動Bloxstrap以讓變更生效。</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>允許使用Roblox官方不支援的語言</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>只適用於從Roblox網站啟動的遊戲。</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
@@ -1470,10 +1470,10 @@ Bloxstrap 安裝在 "{1}"。</value>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>無法重命名自訂主題 {0}: {1}</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Title" xml:space="preserve">
     <value>背景更新</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Description" xml:space="preserve">
     <value>無需等待即可在背景更新 Roblox。不建議在網速較慢的情況下使用此功能。此功能至少需要 3 GB 的可用儲存空間才能正常運作。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">

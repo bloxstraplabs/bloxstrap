@@ -6,8 +6,8 @@ body:
     attributes:
       value: |
         ### **Preliminary instructions**
-        - Please first check to see if your idea has already been suggested. You can check by [searching all previous issues](https://github.com/pizzaboxer/bloxstrap/issues?q=is%3Aissue).
-        - If your feature suggestion is to do with Roblox itself, please consider that what's possible is heavily constrained by what [FastFlags](https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags) are available.
+        - Please first check to see if your idea has already been suggested. You can check by [searching all previous issues](https://github.com/pikminmario500/bloxstrap/issues?q=is%3Aissue).
+        - If your feature suggestion is to do with Roblox itself, please consider that what's possible is heavily constrained by what [FastFlags](https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags) are available.
         - Don't ask for support on Linux or Mac. That's not happening anytime soon, sorry.
   - type: checkboxes
     id: terms

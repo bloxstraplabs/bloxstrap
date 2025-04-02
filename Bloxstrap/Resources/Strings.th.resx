@@ -499,28 +499,28 @@
   <data name="Menu.Appearance.Title" xml:space="preserve">
     <value>การแสดงผล</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Description" xml:space="preserve">
     <value>Bloxstrap จะเช็คและอัพเดทโดยอัตโนมัติเมื่อเปิด Roblox อีกครั้ง</value>
   </data>
-  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.AutoUpdate.Title" xml:space="preserve">
     <value>อัพเดท Bloxstrap โดยอัตโนมัติ</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Description" xml:space="preserve">
     <value>ป้องกันการปิดเกมโดยไม่ได้ตั้งใจจากการเปิดใหม่อีกหน้าต่าง</value>
   </data>
-  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ConfirmLaunches.Title" xml:space="preserve">
     <value>ถามให้แน่ใจเมื่อมีการเปิด Roblox ใหม่อีกหน้าต่างนึง</value>
   </data>
-  <data name="Menu.Behaviour.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Description" xml:space="preserve">
     <value>กำหนดสิ่งที่ Bloxstrap ควรทำเมื่อเปิด Roblox</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox จะติดตั้งใหม่อีกครั้งเมื่อกดเล่นครั้งต่อไป</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>บังคับให้ Roblox ติดตั้งใหม่อีกครั้ง</value>
   </data>
-  <data name="Menu.Behaviour.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Title" xml:space="preserve">
     <value>บูทสแตรปเปอร์</value>
   </data>
   <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
@@ -830,10 +830,10 @@
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>จำเป็นต้องเปิดเกมใหม่เพื่อทำให้การเปลี่ยนแปลงมีผล</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>อนุญาตให้ใช้ภาษาที่ Roblox ไม่รองรับได้</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>ใช้กับเพียงเกมที่เปิดจากเว็บไซต์ Roblox เท่านั้น</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
@@ -1462,10 +1462,10 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>ไม่สามารถเปลี่ยนชื่อธีมกําหนดเองได้ {0}: {1}</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Title" xml:space="preserve">
     <value>อัพเดทในพื้นหลัง</value>
   </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.BackgroundUpdates.Description" xml:space="preserve">
     <value>อัพเดท Roblox ในพื้นหลังระหว่างรอ ไม่แนะนำสำหรับเครือข่ายที่ช้าเกินไป ต้องมีพื้นที่เก็บข้อมูลอย่างน้อย 3GB เพื่อให้ฟีเจอร์นี้ทำงานได้อย่างสมบูรณ์.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">

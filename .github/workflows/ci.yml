@@ -1,0 +1,82 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      with:
+        submodules: true
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@main
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Publish
+      run: |
+        dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c ${{ matrix.configuration }} --self-contained false .\Bloxstrap\Bloxstrap.csproj
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@main
+      with:
+        name: Bloxstrap (${{ matrix.configuration }})
+        path: |
+          .\Bloxstrap\bin\${{ matrix.configuration }}\net8.0-windows10.0.17763.0\win-x64\publish\*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+  
+    - name: Get short version of commit hash
+      run: |
+        echo "shortcommithash=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+    - name: Download x64 release artifact
+      uses: actions/download-artifact@main
+      with:
+        name: Bloxstrap (Release)
+        path: x64-Release
+
+    - name: Download x64 debug artifact
+      uses: actions/download-artifact@main
+      with:
+        name: Bloxstrap (Debug)
+        path: x64-Debug
+
+    - name: Rename artifacts
+      run: |
+        mv x64-Release/Bloxstrap.exe Bloxstrap-${{ env.shortcommithash }}-Release.exe
+        mv x64-Debug/Bloxstrap.exe Bloxstrap-${{ env.shortcommithash }}-Debug.exe
+
+    - name: Delete old release
+      uses: dev-drprasad/delete-older-releases@master
+      with:
+        keep_latest: 0
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Release
+      uses: softprops/action-gh-release@master
+      with:
+        draft: false
+        make_latest: true
+        files: |
+          Bloxstrap-${{ env.shortcommithash }}-Release.exe
+          Bloxstrap-${{ env.shortcommithash }}-Debug.exe
+        name: Build ${{ env.shortcommithash }}
+        tag_name: ${{ env.shortcommithash }}
+        generate_release_notes: true

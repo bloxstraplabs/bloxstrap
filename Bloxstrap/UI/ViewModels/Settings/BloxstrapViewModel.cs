@@ -10,10 +10,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
     {
         public WebEnvironment[] WebEnvironments => Enum.GetValues<WebEnvironment>();
 
+        public bool IsMainBranch => App.BuildMetadata.CommitRef == "branch/main";
         public bool UpdateCheckingEnabled
         {
-            get => App.Settings.Prop.CheckForUpdates;
+            get => App.Settings.Prop.CheckForUpdates || IsMainBranch;
             set => App.Settings.Prop.CheckForUpdates = value;
+        }
+
+        public bool UseLogger
+        {
+            get => App.Settings.Prop.UseLogger;
+            set => App.Settings.Prop.UseLogger = value;
         }
 
         public bool AnalyticsEnabled
@@ -97,6 +104,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 using var fileStream = File.OpenRead(file);
                 fileStream.CopyTo(zipStream);
             }
+        }
+
+        public bool UseLoggerEnabled
+        {
+            get => App.Settings.Prop.UseLogger;
+            set => App.Settings.Prop.UseLogger = value;
         }
     }
 }

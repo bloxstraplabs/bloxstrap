@@ -26,30 +26,29 @@ namespace Bloxstrap.UI.Elements.Dialogs
             if (!App.Logger.Initialized)
                 LocateLogFileButton.Content = Strings.Dialog_Exception_CopyLogContents;
 
-            string repoUrl = $"https://github.com/{App.ProjectRepository}";
-            string wikiUrl = $"{repoUrl}/wiki";
+            string wikiUrl = $"{App.ProjectRepository}/wiki";
 
             string title = HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}");
             string log = HttpUtility.UrlEncode(App.Logger.AsDocument);
 
-            string issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml&title={title}&log={log}";
+            string issueUrl = $"{App.ProjectSupportLink}?template=bug_report.yaml&title={title}&log={log}&version={App.ShortCommitHash}";
 
             if (issueUrl.Length > MAX_GITHUB_URL_LENGTH)
             {
                 // url is way too long for github. remove the log parameter.
-                issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml&title={title}";
+                issueUrl = $"{App.ProjectSupportLink}?template=bug_report.yaml&title={title}&version={App.ShortCommitHash}";
 
                 if (issueUrl.Length > MAX_GITHUB_URL_LENGTH)
-                    issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml"; // bruh
+                    issueUrl = $"{App.ProjectSupportLink}?template=bug_report.yaml&version={App.ShortCommitHash}"; // bruh
             }
 
             string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
 
-            if (!App.IsActionBuild && !App.BuildMetadata.Machine.Contains("pizzaboxer", StringComparison.Ordinal))
+            if (!App.IsActionBuild)
                 helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
 
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
-            VersionText.Text = String.Format(Strings.Dialog_Exception_Version, App.Version);
+            VersionText.Text = String.Format(Strings.Dialog_Exception_Version, App.ShortCommitHash);
 
             ReportExceptionButton.Click += (_, _) => Utilities.ShellExecute(issueUrl);
 

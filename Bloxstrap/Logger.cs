@@ -14,67 +14,69 @@
 
         public string AsDocument => String.Join('\n', History);
 
-        public void Initialize(bool useTempDir = false)
+        public void Initialize(bool useTempDir = false, bool forceInitialize = false)
         {
             const string LOG_IDENT = "Logger::Initialize";
 
-            string directory = useTempDir ? Path.Combine(Paths.TempLogs) : Path.Combine(Paths.Base, "Logs");
-            string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
-            string filename = $"{App.ProjectName}_{timestamp}.log";
-            string location = Path.Combine(directory, filename);
-
-            WriteLine(LOG_IDENT, $"Initializing at {location}");
-
-            if (Initialized)
+            if (App.Settings.Prop.UseLogger || forceInitialize)
             {
-                WriteLine(LOG_IDENT, "Failed to initialize because logger is already initialized");
-                return;
-            }
+                string directory = useTempDir ? Path.Combine(Paths.TempLogs) : Path.Combine(Paths.Base, "Logs");
+                string timestamp = DateTime.UtcNow.ToString("yyyyMMdd'T'HHmmss'Z'");
+                string filename = $"{App.ProjectName}_{timestamp}.log";
+                string location = Path.Combine(directory, filename);
 
-            Directory.CreateDirectory(directory);
+                WriteLine(LOG_IDENT, $"Initializing at {location}");
 
-            if (File.Exists(location))
-            {
-                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
-                return;
-            }
-
-            try
-            {
-                _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
-            }
-            catch (IOException)
-            {
-                WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
-                return;
-            }
-            catch (UnauthorizedAccessException)
-            {
-                if (NoWriteMode)
+                if (Initialized)
+                {
+                    WriteLine(LOG_IDENT, "Failed to initialize because logger is already initialized");
                     return;
+                }
 
-                WriteLine(LOG_IDENT, $"Failed to initialize because Bloxstrap cannot write to {directory}");
+                Directory.CreateDirectory(directory);
 
-                Frontend.ShowMessageBox(
-                    String.Format(Strings.Logger_NoWriteMode, directory), 
-                    System.Windows.MessageBoxImage.Warning, 
-                    System.Windows.MessageBoxButton.OK
-                );
+                if (File.Exists(location))
+                {
+                    WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+                    return;
+                }
 
-                NoWriteMode = true;
+                try
+                {
+                    _filestream = File.Open(location, FileMode.Create, FileAccess.Write, FileShare.Read);
+                }
+                catch (IOException)
+                {
+                    WriteLine(LOG_IDENT, "Failed to initialize because log file already exists");
+                    return;
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    if (NoWriteMode)
+                        return;
 
-                return;
+                    WriteLine(LOG_IDENT, $"Failed to initialize because Bloxstrap cannot write to {directory}");
+
+                    Frontend.ShowMessageBox(
+                        String.Format(Strings.Logger_NoWriteMode, directory), 
+                        System.Windows.MessageBoxImage.Warning, 
+                        System.Windows.MessageBoxButton.OK
+                    );
+
+                    NoWriteMode = true;
+
+                    return;
+                }
+
+                Initialized = true;
+
+                if (History.Count > 0)
+                    WriteToLog(string.Join("\r\n", History));
+
+                WriteLine(LOG_IDENT, "Finished initializing!");
+
+                FileLocation = location;
             }
-            
-
-            Initialized = true;
-
-            if (History.Count > 0)
-                WriteToLog(string.Join("\r\n", History));
-
-            WriteLine(LOG_IDENT, "Finished initializing!");
-
-            FileLocation = location;
 
             // clean up any logs older than a week
             if (Paths.Initialized && Directory.Exists(Paths.Logs))
@@ -118,6 +120,9 @@
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
             string hresult = "0x" + ex.HResult.ToString("X8");
+
+            if (!App.Settings.Prop.UseLogger)
+                Initialize(false, true);
 
             WriteLine($"[{identifier}] ({hresult}) {ex}");
 

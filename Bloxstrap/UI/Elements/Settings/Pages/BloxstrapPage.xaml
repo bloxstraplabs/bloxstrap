@@ -11,7 +11,7 @@
       d:DataContext="{d:DesignInstance Type=models:BloxstrapViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="BehaviourPage"
+      Title="BloxstrapPage"
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
@@ -21,6 +21,12 @@
             Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="Enable logging"
+            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">
+            <ui:ToggleSwitch IsChecked="{Binding UseLogger, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
@@ -76,5 +82,13 @@
                 <CheckBox Grid.Column="1" Name="ShouldExportLogs" Content="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_ExportLogs}" IsChecked="{Binding ShouldExportLogs}" />
             </Grid>
         </ui:CardExpander>
+
+        <TextBlock Text="Fork" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl 
+            Header="Enable logging"
+            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">
+            <ui:ToggleSwitch IsChecked="{Binding UseLoggerEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

@@ -18,11 +18,11 @@ namespace Bloxstrap
 #else
         public const string ProjectName = "Bloxstrap";
 #endif
-        public const string ProjectOwner = "Bloxstrap";
-        public const string ProjectRepository = "bloxstraplabs/bloxstrap";
-        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
+        public const string ProjectOwner = "pikminmario500";
+        public const string ProjectRepository = $"https://github.com/{ProjectOwner}/bloxstrap";
+        public const string ProjectDownloadLink = $"{ProjectRepository}/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
-        public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
+        public const string ProjectSupportLink = $"{ProjectRepository}/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
@@ -38,9 +38,9 @@ namespace Bloxstrap
 
         public static Bootstrapper? Bootstrapper { get; set; } = null!;
 
-        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
+        public static string? ShortCommitHash;
 
-        public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
+        public static bool IsActionBuild => !String.IsNullOrEmpty(BuildMetadata.CommitRef);
 
         public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
@@ -154,7 +154,7 @@ namespace Bloxstrap
         {
             // non developer mode always uses production
             if (!Settings.Prop.DeveloperMode || Settings.Prop.WebEnvironment == WebEnvironment.Production)
-                return IsProductionBuild;
+                return IsActionBuild;
 
             return true;
         }
@@ -165,7 +165,7 @@ namespace Bloxstrap
 
             try
             {
-                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
+                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectOwner}/bloxstrap/releases/latest");
 
                 if (releaseInfo is null || releaseInfo.Assets is null)
                 {
@@ -240,18 +240,24 @@ namespace Bloxstrap
 
             base.OnStartup(e);
 
-            Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
+            if (!IsActionBuild)
+                ShortCommitHash = "Custom";
+            else
+                ShortCommitHash = BuildMetadata.CommitHash[..7];
 
-            string userAgent = $"{ProjectName}/{Version}";
+#if DEBUG
+            Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName}-Debug {ShortCommitHash}");
+#else
+            Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName}-Release {ShortCommitHash}");
+#endif
+
+            string userAgent = $"{ProjectName}/{ShortCommitHash}";
 
             if (IsActionBuild)
             {
                 Logger.WriteLine(LOG_IDENT, $"Compiled {BuildMetadata.Timestamp.ToFriendlyString()} from commit {BuildMetadata.CommitHash} ({BuildMetadata.CommitRef})");
 
-                if (IsProductionBuild)
-                    userAgent += $" (Production)";
-                else
-                    userAgent += $" (Artifact {BuildMetadata.CommitHash}, {BuildMetadata.CommitRef})";
+                userAgent += $" (Artifact {BuildMetadata.CommitHash}, {BuildMetadata.CommitRef})";
             }
             else
             {
@@ -361,15 +367,16 @@ namespace Bloxstrap
                     File.Copy(Paths.Process, Paths.Application);
                 }
 
+                Settings.Load();
+
                 Logger.Initialize(LaunchSettings.UninstallFlag.Active);
 
-                if (!Logger.Initialized && !Logger.NoWriteMode)
+                if (!Logger.Initialized && !Logger.NoWriteMode && Settings.Prop.UseLogger)
                 {
                     Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
                     Terminate();
                 }
 
-                Settings.Load();
                 State.Load();
                 RobloxState.Load();
                 FastFlags.Load();

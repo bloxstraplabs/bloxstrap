@@ -15,6 +15,7 @@
         Title="{x:Static resources:Strings.Dialog_Connectivity_Title}"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Mica"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

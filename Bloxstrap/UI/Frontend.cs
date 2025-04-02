@@ -29,8 +29,8 @@ namespace Bloxstrap.UI
 
             string info = String.Format(
                 Strings.Dialog_PlayerError_HelpInformation,
-                $"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch",
-                $"https://github.com/{App.ProjectRepository}/wiki/Switching-between-Roblox-and-Bloxstrap"
+                $"{App.ProjectHelpLink}/Roblox-crashes-or-does-not-launch",
+                $"{App.ProjectHelpLink}/Switching-between-Roblox-and-Bloxstrap"
             );
 
             ShowMessageBox($"{topLine}\n\n{info}", MessageBoxImage.Error);

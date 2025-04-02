@@ -1,17 +1,4 @@
-﻿// To debug the automatic updater:
-// - Uncomment the definition below
-// - Publish the executable
-// - Launch the executable (click no when it asks you to upgrade)
-// - Launch Roblox (for testing web launches, run it from the command prompt)
-// - To re-test the same executable, delete it from the installation folder
-
-// #define DEBUG_UPDATER
-
-#if DEBUG_UPDATER
-#warning "Automatic updater debugging is enabled"
-#endif
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Data;
 using System.Windows;
 using System.Windows.Forms;
@@ -187,8 +174,8 @@ namespace Bloxstrap
             if (connectionResult is not null)
                 HandleConnectionError(connectionResult);
             
-#if (!DEBUG || DEBUG_UPDATER) && !QA_BUILD
-            if (App.Settings.Prop.CheckForUpdates && !App.LaunchSettings.UpgradeFlag.Active)
+#if !DEBUG && !QA_BUILD
+            if (App.Settings.Prop.CheckForUpdates && !App.LaunchSettings.UpgradeFlag.Active && App.IsActionBuild)
             {
                 bool updatePresent = await CheckForUpdates();
                 
@@ -734,16 +721,15 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Checking for updates...");
 
-#if !DEBUG_UPDATER
             var releaseInfo = await App.GetLatestRelease();
 
             if (releaseInfo is null)
                 return false;
 
-            var versionComparison = Utilities.CompareVersions(App.Version, releaseInfo.TagName);
+            string version = releaseInfo.TagName;
 
             // check if we aren't using a deployed build, so we can update to one if a new version comes out
-            if (App.IsProductionBuild && versionComparison == VersionComparison.Equal || versionComparison == VersionComparison.GreaterThan)
+            if (App.IsActionBuild && App.ShortCommitHash == version)
             {
                 App.Logger.WriteLine(LOG_IDENT, "No updates found");
                 return false;
@@ -752,29 +738,17 @@ namespace Bloxstrap
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
 
-            string version = releaseInfo.TagName;
-#else
-            string version = App.Version;
-#endif
-
             SetStatus(Strings.Bootstrapper_Status_UpgradingBloxstrap);
 
             try
             {
-#if DEBUG_UPDATER
-                string downloadLocation = Path.Combine(Paths.TempUpdates, "Bloxstrap.exe");
-
-                Directory.CreateDirectory(Paths.TempUpdates);
-
-                File.Copy(Paths.Process, downloadLocation, true);
-#else
-                var asset = releaseInfo.Assets![0];
+                var asset = releaseInfo.Assets![1];
 
                 string downloadLocation = Path.Combine(Paths.TempUpdates, asset.Name);
 
                 Directory.CreateDirectory(Paths.TempUpdates);
 
-                App.Logger.WriteLine(LOG_IDENT, $"Downloading {releaseInfo.TagName}...");
+                App.Logger.WriteLine(LOG_IDENT, $"Downloading {version}...");
                 
                 if (!File.Exists(downloadLocation))
                 {
@@ -783,7 +757,6 @@ namespace Bloxstrap
                     await using var fileStream = new FileStream(downloadLocation, FileMode.OpenOrCreate, FileAccess.Write);
                     await response.Content.CopyToAsync(fileStream);
                 }
-#endif
 
                 App.Logger.WriteLine(LOG_IDENT, $"Starting {version}...");
 
@@ -1476,7 +1449,7 @@ namespace Bloxstrap
 
                         Frontend.ShowConnectivityDialog(
                             Strings.Dialog_Connectivity_UnableToDownload,
-                            String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, "[https://github.com/bloxstraplabs/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox](https://github.com/bloxstraplabs/bloxstrap/wiki/Bloxstrap-is-unable-to-download-Roblox)"),
+                            String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, $"[{App.ProjectHelpLink}/Bloxstrap-is-unable-to-download-Roblox]({App.ProjectHelpLink}/Bloxstrap-is-unable-to-download-Roblox)"),
                             MessageBoxImage.Error,
                             ex
                         );

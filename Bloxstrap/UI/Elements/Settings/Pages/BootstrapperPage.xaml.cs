@@ -18,13 +18,13 @@ using Bloxstrap.UI.ViewModels.Settings;
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
     /// <summary>
-    /// Interaction logic for BehaviourPage.xaml
+    /// Interaction logic for BootstrapperPage.xaml
     /// </summary>
-    public partial class BehaviourPage
+    public partial class BootstrapperPage
     {
-        public BehaviourPage()
+        public BootstrapperPage()
         {
-            DataContext = new BehaviourViewModel();
+            DataContext = new BootstrapperViewModel();
             InitializeComponent();
         }
 

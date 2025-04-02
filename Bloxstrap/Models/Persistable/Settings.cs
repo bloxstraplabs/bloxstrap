@@ -35,5 +35,11 @@ namespace Bloxstrap.Models.Persistable
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
+
+
+
+        // fork configuration
+        public bool UseLogger { get; set; } = false;
+        public string CustomChannel { get; set; } = "";
     }
 }

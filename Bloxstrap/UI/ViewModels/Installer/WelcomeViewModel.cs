@@ -22,9 +22,9 @@
 
             if (releaseInfo is not null)
             {
-                if (Utilities.CompareVersions(App.Version, releaseInfo.TagName) == VersionComparison.LessThan)
+                if (App.ShortCommitHash != releaseInfo.TagName && App.IsActionBuild)
                 {
-                    VersionNotice = String.Format(Strings.Installer_Welcome_UpdateNotice, App.Version, releaseInfo.TagName.Replace("v", ""));
+                    VersionNotice = String.Format(Strings.Installer_Welcome_UpdateNotice, App.ShortCommitHash, releaseInfo.TagName);
                     OnPropertyChanged(nameof(VersionNotice));
                 }
             }

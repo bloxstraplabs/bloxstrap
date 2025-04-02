@@ -195,7 +195,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             string resourceName = text[1..^1];
 
             if (resourceName == "Version")
-                return App.Version;
+                return App.ShortCommitHash;
 
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
