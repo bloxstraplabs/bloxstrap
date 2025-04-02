@@ -363,6 +363,12 @@ namespace Bloxstrap
             if (!File.Exists(Paths.Application) || Paths.Process == Paths.Application)
                 return;
 
+            // 2.0.0 downloads updates to <BaseFolder>/Updates so lol
+             bool isAutoUpgrade = App.LaunchSettings.UpgradeFlag.Active
+                 || Paths.Process.StartsWith(Path.Combine(Paths.Base, "Updates"))
+                 || Paths.Process.StartsWith(Path.Combine(Paths.LocalAppData, "Temp"))
+                 || Paths.Process.StartsWith(Paths.TempUpdates);
+
             var existingVer = FileVersionInfo.GetVersionInfo(Paths.Application).ProductVersion;
             var currentVer = FileVersionInfo.GetVersionInfo(Paths.Process).ProductVersion;
 
@@ -371,24 +377,28 @@ namespace Bloxstrap
 
             if (currentVer is not null && existingVer is not null && Utilities.CompareVersions(currentVer, existingVer) == VersionComparison.LessThan)
             {
-                var resultVer = Frontend.ShowMessageBox(
+                var result = Frontend.ShowMessageBox(
                     Strings.InstallChecker_VersionLessThanInstalled,
                     MessageBoxImage.Question,
                     MessageBoxButton.YesNo
                 );
 
-                if (resultVer != MessageBoxResult.Yes)
+                if (result != MessageBoxResult.Yes)
                     return;
             }
 
-            var result = Frontend.ShowMessageBox(
-                Strings.InstallChecker_VersionDifferentThanInstalled,
-                MessageBoxImage.Question,
-                MessageBoxButton.YesNo
-            );
+            // silently upgrade version if the command line flag is set or if we're launching from an auto update
+            if (!isAutoUpgrade)
+            {
+                var result = Frontend.ShowMessageBox(
+                    Strings.InstallChecker_VersionDifferentThanInstalled,
+                    MessageBoxImage.Question,
+                    MessageBoxButton.YesNo
+                );
 
-            if (result != MessageBoxResult.Yes)
-                return;
+                if (result != MessageBoxResult.Yes)
+                    return;
+            }
 
             App.Logger.WriteLine(LOG_IDENT, "Doing upgrade");
 
@@ -503,6 +513,20 @@ namespace Bloxstrap
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)
                 {
+                    if (isAutoUpgrade)
+                    {
+                        if (App.LaunchSettings.Args.Length == 0)
+                            App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
+ 
+                        string? query = App.LaunchSettings.Args.FirstOrDefault(x => x.Contains("roblox"));
+ 
+                        if (query is not null)
+                        {
+                            App.LaunchSettings.RobloxLaunchMode = LaunchMode.Player;
+                            App.LaunchSettings.RobloxLaunchArgs = query;
+                        }
+                    }
+
                     string oldDesktopPath = Path.Combine(Paths.Desktop, "Play Roblox.lnk");
                     string oldStartPath = Path.Combine(Paths.WindowsStartMenu, "Bloxstrap");
 
@@ -588,7 +612,7 @@ namespace Bloxstrap
             App.SendStat("installAction", "upgrade");
 
             Frontend.ShowMessageBox(
-                string.Format(Strings.InstallChecker_Updated, currentVer),
+                string.Format(Strings.InstallChecker_Updated, App.ShortCommitHash),
                 MessageBoxImage.Information,
                 MessageBoxButton.OK
             );
