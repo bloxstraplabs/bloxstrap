@@ -256,7 +256,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         // Misc
         public static bool BetterHaptics
         {
-            get => App.FastFlags.GetPreset("UI.BetterHaptics") == "True";
+            get => App.FastFlags.GetPreset("Misc.BetterHaptics") == "True";
             set => App.FastFlags.SetPreset("Misc.BetterHaptics", value ? "True" : null);
         }
 
@@ -274,8 +274,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public static bool ImproveRaycast
         {
-            get => App.FastFlags.GetPreset("Rendering.ImproveRaycast") == "True";
-            set => App.FastFlags.SetPreset("Rendering.ImproveRaycast", value ? "True" : null);
+            get => App.FastFlags.GetPreset("Misc.ImproveRaycast") == "True";
+            set => App.FastFlags.SetPreset("Misc.ImproveRaycast", value ? "True" : null);
         }
 
         public static bool NoAFKKick

@@ -17,12 +17,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.CheckForUpdates = value;
         }
 
-        public bool UseLogger
-        {
-            get => App.Settings.Prop.UseLogger;
-            set => App.Settings.Prop.UseLogger = value;
-        }
-
         public bool AnalyticsEnabled
         {
             get => App.Settings.Prop.EnableAnalytics;
@@ -106,7 +100,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public bool UseLoggerEnabled
+        public bool UseLogger
         {
             get => App.Settings.Prop.UseLogger;
             set => App.Settings.Prop.UseLogger = value;

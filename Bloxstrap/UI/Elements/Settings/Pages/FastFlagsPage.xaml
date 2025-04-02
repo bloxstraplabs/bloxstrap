@@ -33,7 +33,7 @@
         <TextBlock Text="Network" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
-            Header="Disable Ads">
+            Header="Disable ads">
             <ui:ToggleSwitch IsChecked="{Binding DisableAds, Mode=TwoWay}" />
         </controls:OptionControl>
 

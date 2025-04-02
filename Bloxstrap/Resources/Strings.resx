@@ -1499,4 +1499,16 @@ Defaulting to {1}.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Failed to preview theme: {0}</value>
   </data>
+  <data name="Enums.FlagPresets.LightingMode.Unified" xml:space="preserve">
+    <value>Unified</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.OpenGL" xml:space="preserve">
+    <value>OpenGL</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.Vulkan" xml:space="preserve">
+    <value>Vulkan</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.Metal" xml:space="preserve">
+    <value>Metal</value>
+  </data>
 </root>

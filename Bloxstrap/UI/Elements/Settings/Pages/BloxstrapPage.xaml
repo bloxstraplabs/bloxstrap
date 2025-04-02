@@ -23,11 +23,6 @@
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <controls:OptionControl 
-            Header="Enable logging"
-            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">
-            <ui:ToggleSwitch IsChecked="{Binding UseLogger, Mode=TwoWay}" />
-        </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Bloxstrap_Analytics_Title}"
@@ -87,8 +82,7 @@
 
         <controls:OptionControl 
             Header="Enable logging"
-            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">
-            <ui:ToggleSwitch IsChecked="{Binding UseLoggerEnabled, Mode=TwoWay}" />
+            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">            <ui:ToggleSwitch IsChecked="{Binding UseLogger, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

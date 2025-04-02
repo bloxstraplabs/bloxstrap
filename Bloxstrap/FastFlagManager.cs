@@ -121,7 +121,7 @@ namespace Bloxstrap
 
             { "Misc.DisableVC", "DFFlagVoiceChat4" },
 
-            { "Rendering.ImproveRaycast", "FFlagUserRaycastPerformanceImprovements" },
+            { "Misc.ImproveRaycast", "FFlagUserRaycastPerformanceImprovements" },
 
             { "Misc.NoAFKKick", "DFFlagDebugDisableTimeoutDisconnect" },
         };
