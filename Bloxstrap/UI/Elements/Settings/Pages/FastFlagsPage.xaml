@@ -38,6 +38,11 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Header="Disable telemetry">
+            <ui:ToggleSwitch IsChecked="{Binding DisableTelemetry, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
             Header="No unrequired connections">
             <ui:ToggleSwitch IsChecked="{Binding NoUnrequiredConnections, Mode=TwoWay}" />
         </controls:OptionControl>

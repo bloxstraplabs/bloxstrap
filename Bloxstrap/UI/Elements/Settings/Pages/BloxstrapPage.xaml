@@ -23,6 +23,11 @@
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl 
+            Header="Enable logging"
+            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">
+            <ui:ToggleSwitch IsChecked="{Binding UseLogger, Mode=TwoWay}" />
+        </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Bloxstrap_Analytics_Title}"
@@ -77,12 +82,5 @@
                 <CheckBox Grid.Column="1" Name="ShouldExportLogs" Content="{x:Static resources:Strings.Menu_Bloxstrap_ExportData_ExportLogs}" IsChecked="{Binding ShouldExportLogs}" />
             </Grid>
         </ui:CardExpander>
-
-        <TextBlock Text="Fork" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-
-        <controls:OptionControl 
-            Header="Enable logging"
-            Description="Allow Bloxstrap to write logs for troubleshooting purposes.">            <ui:ToggleSwitch IsChecked="{Binding UseLogger, Mode=TwoWay}" />
-        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>
