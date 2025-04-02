@@ -36,7 +36,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void OpenAbout() => new MainWindow().ShowDialog();
 
-        private void CloseWindow() => RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
+        private void CloseWindow() {            
+            Process.Start(Paths.Process);
+
+            RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
+        }
 
         private void SaveSettings()
         {
