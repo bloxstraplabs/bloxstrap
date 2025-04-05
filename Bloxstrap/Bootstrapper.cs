@@ -168,39 +168,28 @@ namespace Bloxstrap
                 App.Terminate(ErrorCode.ERROR_CANCELLED);
         }
 
-        private void HandlePrivateChannelLaunch()
+        private void CopyBloxstrapToRobloxLocation()
         {
-            const string LOG_IDENT = "Bootstrapper::HandlePrivateChannelLaunch";
+            const string LOG_IDENT = "Bootstrapper::CopyBloxstrapToRobloxLocation";
 
             string path = Path.Combine(_latestVersionDirectory, AppData.RobloxInstallerExecutableName);
-            if (Deployment.PrivateChannel)
+            if (File.Exists(path))
             {
-                if (File.Exists(path))
-                {
-                    string versionCopyHash = MD5Hash.FromFile(path);
-                    string processHash = MD5Hash.FromFile(Paths.Process);
+                string versionCopyHash = MD5Hash.FromFile(path);
+                string processHash = MD5Hash.FromFile(Paths.Process);
 
-                    if (versionCopyHash != processHash)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Installer in version directory is not the same as the current process ({versionCopyHash} =/= {processHash})");
-                        App.Logger.WriteLine(LOG_IDENT, "Copying...");
-                        File.Copy(Paths.Process, path, true);
-                    }
-                }
-                else
+                if (versionCopyHash != processHash)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Copying Bloxstrap into the installation folder as {AppData.RobloxInstallerExecutableName}");
-                    App.Logger.WriteLine(LOG_IDENT, "There is a spy among us...");
-                    File.Copy(Paths.Process, path);
+                    App.Logger.WriteLine(LOG_IDENT, $"Installer in version directory is not the same as the current process ({versionCopyHash} =/= {processHash})");
+                    App.Logger.WriteLine(LOG_IDENT, "Copying...");
+                    File.Copy(Paths.Process, path, true);
                 }
             }
             else
             {
-                if (File.Exists(path))
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting {AppData.RobloxInstallerExecutableName} from the version directory");
-                    File.Delete(path);
-                }
+                App.Logger.WriteLine(LOG_IDENT, $"Copying Bloxstrap into the installation folder as {AppData.RobloxInstallerExecutableName}");
+                App.Logger.WriteLine(LOG_IDENT, "There is a spy among us...");
+                File.Copy(Paths.Process, path);
             }
         }
         
@@ -320,7 +309,7 @@ namespace Bloxstrap
                 allModificationsApplied = await ApplyModifications();
             }
 
-            HandlePrivateChannelLaunch();
+            CopyBloxstrapToRobloxLocation();
 
             // check registry entries for every launch, just in case the stock bootstrapper changes it back
 
