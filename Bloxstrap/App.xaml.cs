@@ -313,6 +313,7 @@ namespace Bloxstrap
             if (IsRobloxInstallerPath(Paths.Process, out string? truePath))
             {
                 Process.Start(truePath, e.Args);
+                Terminate(ErrorCode.ERROR_SUCCESS);
                 return;
             }
 
