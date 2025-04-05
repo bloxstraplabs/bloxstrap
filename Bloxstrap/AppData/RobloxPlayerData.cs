@@ -18,6 +18,8 @@ namespace Bloxstrap.AppData
 
         public override AppState State => App.RobloxState.Prop.Player;
 
+        public string RobloxInstallerExecutableName => "RobloxPlayerInstaller.exe";
+
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {
             { "RobloxApp.zip", @"" }

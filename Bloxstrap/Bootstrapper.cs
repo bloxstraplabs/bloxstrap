@@ -167,6 +167,42 @@ namespace Bloxstrap
             if (_mustUpgrade)
                 App.Terminate(ErrorCode.ERROR_CANCELLED);
         }
+
+        private void HandlePrivateChannelLaunch()
+        {
+            const string LOG_IDENT = "Bootstrapper::HandlePrivateChannelLaunch";
+
+            string path = Path.Combine(_latestVersionDirectory, AppData.RobloxInstallerExecutableName);
+            if (Deployment.PrivateChannel)
+            {
+                if (File.Exists(path))
+                {
+                    string versionCopyHash = MD5Hash.FromFile(path);
+                    string processHash = MD5Hash.FromFile(Paths.Process);
+
+                    if (versionCopyHash != processHash)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Installer in version directory is not the same as the current process ({versionCopyHash} =/= {processHash})");
+                        App.Logger.WriteLine(LOG_IDENT, "Copying...");
+                        File.Copy(Paths.Process, path, true);
+                    }
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Copying Bloxstrap into the installation folder as {AppData.RobloxInstallerExecutableName}");
+                    App.Logger.WriteLine(LOG_IDENT, "There is a spy among us...");
+                    File.Copy(Paths.Process, path);
+                }
+            }
+            else
+            {
+                if (File.Exists(path))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Deleting {AppData.RobloxInstallerExecutableName} from the version directory");
+                    File.Delete(path);
+                }
+            }
+        }
         
         public async Task Run()
         {
@@ -250,7 +286,9 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
-                if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                // for private channels, the roblox client will relaunch us with the proper arguments
+                // so avoid an unnecessary update if roblox is already installed
+                if ((!Deployment.PrivateChannel && AppData.State.VersionGuid != _latestVersionGuid) || _mustUpgrade)
                 {
                     bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
                     if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
@@ -281,6 +319,8 @@ namespace Bloxstrap
                 // where we'd need to restore files from a package that isn't present on disk and needs to be redownloaded
                 allModificationsApplied = await ApplyModifications();
             }
+
+            HandlePrivateChannelLaunch();
 
             // check registry entries for every launch, just in case the stock bootstrapper changes it back
 
@@ -365,6 +405,12 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Resetting channel from {Deployment.Channel} because {ex.StatusCode}");
 
+                    if (ex.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Enabling private channel launch mode");
+                        Deployment.PrivateChannel = true;
+                    }
+
                     Deployment.Channel = Deployment.DefaultChannel;
                     clientVersion = await Deployment.GetInfo();
                 }
@@ -426,6 +472,12 @@ namespace Bloxstrap
             if (_mustUpgrade)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not eligible: Must upgrade is true");
+                return false;
+            }
+
+            if (Deployment.PrivateChannel)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Private channel launch");
                 return false;
             }
 

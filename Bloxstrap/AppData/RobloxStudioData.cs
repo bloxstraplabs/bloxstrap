@@ -12,6 +12,8 @@
 
         public override AppState State => App.RobloxState.Prop.Studio;
 
+        public string RobloxInstallerExecutableName => "RobloxStudioInstaller.exe";
+
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {
             { "RobloxStudio.zip",                @"" },

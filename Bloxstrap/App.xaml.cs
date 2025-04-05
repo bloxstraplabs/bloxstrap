@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Shell;
@@ -232,6 +233,37 @@ namespace Bloxstrap
             }
         }
 
+        /// <summary>
+        /// This should only ever return true if we're launched from the Roblox installer path, created by the private channel launch
+        /// </summary>
+        private static bool IsRobloxInstallerPath(string path, [NotNullWhen(true)] out string? truePath)
+        {
+            truePath = null;
+
+            DirectoryInfo info = new DirectoryInfo(path);
+            if (info.Name != "RobloxPlayerInstaller.exe" && info.Name != "RobloxStudioInstaller.exe")
+                return false;
+
+            DirectoryInfo? versionDir = info.Parent;
+            if (versionDir == null || !versionDir.Name.StartsWith("version-", StringComparison.Ordinal))
+                return false;
+
+            DirectoryInfo? versionsDir = versionDir.Parent;
+            if (versionsDir == null || versionsDir.Name != "Versions")
+                return false;
+
+            DirectoryInfo? bloxstrapDir = versionsDir.Parent;
+            if (bloxstrapDir == null)
+                return false;
+
+            string bloxstrapPath = Path.Combine(bloxstrapDir.FullName, "Bloxstrap.exe");
+            if (!File.Exists(bloxstrapPath))
+                return false;
+
+            truePath = bloxstrapPath;
+            return true;
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             const string LOG_IDENT = "App::OnStartup";
@@ -276,6 +308,13 @@ namespace Bloxstrap
 
             HttpClient.Timeout = TimeSpan.FromSeconds(30);
             HttpClient.DefaultRequestHeaders.Add("User-Agent", userAgent);
+
+            // make sure we're in the correct place
+            if (IsRobloxInstallerPath(Paths.Process, out string? truePath))
+            {
+                Process.Start(truePath, e.Args);
+                return;
+            }
 
             LaunchSettings = new LaunchSettings(e.Args);
 

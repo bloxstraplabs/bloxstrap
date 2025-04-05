@@ -14,6 +14,8 @@
 
         string ExecutablePath { get; }
 
+        string RobloxInstallerExecutableName { get; }
+
         AppState State { get; }
 
         IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }

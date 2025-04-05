@@ -3,12 +3,17 @@
     public static class Deployment
     {
         public const string DefaultChannel = "production";
-        
+
         private const string VersionStudioHash = "version-012732894899482c";
 
-        public static string Channel = DefaultChannel;
+        public static string Channel { get; set; } = DefaultChannel;
 
-        public static string BinaryType = "WindowsPlayer";
+        /// <summary>
+        /// Copies Bloxstrap into the Roblox installation folder to allow for private channel support.
+        /// </summary>
+        public static bool PrivateChannel { get; set; } = false;
+
+        public static string BinaryType { get; set; } = "WindowsPlayer";
 
         public static bool IsDefaultChannel => Channel.Equals(DefaultChannel, StringComparison.OrdinalIgnoreCase);
         
