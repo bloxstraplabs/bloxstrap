@@ -9,14 +9,19 @@
              xmlns:resources="clr-namespace:Bloxstrap.Resources"
              mc:Ignorable="d"
              Title="{x:Static resources:Strings.About_Title}"
-             Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              MinWidth="740"
              Width="740"
              Height="440"
              ExtendsContentIntoTitleBar="True"
              WindowBackdropType="Mica"
              WindowStartupLocation="CenterScreen">
-    <Grid>
+	<Grid>
+		<Grid.Background>
+			<LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+				<GradientStop Offset="0.10" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
+				<GradientStop Offset="0.85" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
+			</LinearGradientBrush>
+		</Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
