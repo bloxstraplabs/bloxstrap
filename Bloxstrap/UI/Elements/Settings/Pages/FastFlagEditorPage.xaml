@@ -42,22 +42,22 @@
 
         <ui:TextBox x:Name="SearchTextBox" Grid.Row="3" Margin="0,0,0,16" Icon="Search32" PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}" TextChanged="SearchTextBox_TextChanged" />
 
-        <DataGrid Name="DataGrid" Grid.Row="4" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" CanUserReorderColumns="False">
+		<DataGrid Name="DataGrid" Grid.Row="4" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" CanUserReorderColumns="False" BorderBrush="{DynamicResource TertiaryBackgroundColor}" BorderThickness="2">
             <DataGrid.Style>
                 <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
-                    <Setter Property="Background" Value="Transparent" />
-                    <Setter Property="BorderThickness" Value="0" />
-                </Style>
+					<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
+					<Setter Property="BorderThickness" Value="2" />
+				</Style>
             </DataGrid.Style>
             
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="{DynamicResource ControlFillColorTertiaryBrush}" />
+					<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
                     <Setter Property="Height" Value="32" />
-                    <Setter Property="Padding" Value="8,0,8,0" />
-                    <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
-                    <Setter Property="BorderThickness" Value="1" />
-                </Style>
+					<Setter Property="Padding" Value="8,0,8,0" />
+					<Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+				</Style>
             </DataGrid.ColumnHeaderStyle>
 
             <DataGrid.CellStyle>
