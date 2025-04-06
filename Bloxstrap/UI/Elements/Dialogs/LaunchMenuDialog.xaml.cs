@@ -38,9 +38,10 @@ namespace Bloxstrap.UI.Elements.Dialogs
             InitializeComponent();
             Random Chance = new();
             if (Chance.Next(0, 10000) == 1)
-            {
                 LaunchTitle.Text = "Fishtrap";
-            }
+
+            if (Chance.Next(0, 100000) == 1)
+                LaunchTitle.Text = "Sealstrap";
         }
     }
 }
