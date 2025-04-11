@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+using System.Drawing;
+using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 
@@ -12,6 +13,7 @@ namespace Bloxstrap.Extensions
         {
             using MemoryStream stream = new();
             icon.Save(stream);
+            stream.Seek(0, SeekOrigin.Begin);
 
             if (handleException)
             {
@@ -22,7 +24,7 @@ namespace Bloxstrap.Extensions
                 catch (Exception ex)
                 {
                     App.Logger.WriteException("IconEx::GetImageSource", ex);
-                    Frontend.ShowMessageBox(String.Format(Strings.Dialog_IconLoadFailed, ex.Message));
+                    Frontend.ShowMessageBox(string.Format(Strings.Dialog_IconLoadFailed, ex.Message));
                     return BootstrapperIcon.IconBloxstrap.GetIcon().GetImageSource(false);
                 }
             }
