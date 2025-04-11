@@ -1,8 +1,4 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bloxstrap.AppData
 {
@@ -18,9 +14,9 @@ namespace Bloxstrap.AppData
 
         public override AppState State => App.RobloxState.Prop.Player;
 
-        public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
+        public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; } = new Dictionary<string, string>
         {
-            { "RobloxApp.zip", @"" }
+            { "RobloxApp.zip", string.Empty }
         };
     }
 }
