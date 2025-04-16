@@ -179,6 +179,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
         }
 
         // Rendering.Terrain
+        public static bool NoGrass
+        {
+            get => App.FastFlags.GetPreset("Rendering.Terrain.NoGrass1") == "0";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.Terrain.NoGrass1", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.Terrain.NoGrass2", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.Terrain.NoGrass3", value ? "0" : null);
+            }
+        }
+
         public static bool DisableTerrainTextures
         {
             get => App.FastFlags.GetPreset("Rendering.Terrain.NoTextures") == "0";

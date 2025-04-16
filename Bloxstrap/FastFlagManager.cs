@@ -85,6 +85,10 @@ namespace Bloxstrap
             { "Rendering.OcclusionCulling", "DFFlagUseVisBugChecks" },
 
             // Rendering.Terrain
+            { "Rendering.Terrain.NoGrass1", "FIntFRMMinGrassDistance" },
+            { "Rendering.Terrain.NoGrass2", "FIntFRMMaxGrassDistance" },
+            { "Rendering.Terrain.NoGrass3", "FIntRenderGrassDetailStrands" },
+
             { "Rendering.Terrain.NoTextures", "FIntTerrainArraySliceSize" },
 
             { "Rendering.Terrain.Smooth", "FFlagDebugRenderingSetDeterministic" },

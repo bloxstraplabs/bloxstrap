@@ -164,6 +164,11 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Header="No grass">
+            <ui:ToggleSwitch IsChecked="{Binding NoGrass, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableTerrainTextures_Title}">
             <ui:ToggleSwitch IsChecked="{Binding DisableTerrainTextures, Mode=TwoWay}" />
         </controls:OptionControl>
