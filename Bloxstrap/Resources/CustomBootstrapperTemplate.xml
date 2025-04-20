@@ -1,4 +1,4 @@
-﻿<BloxstrapCustomBootstrapper Version="0" Height="320" Width="500" AllowTransparency="False" WindowBackdropType="Disable" WindowCornerPreference="Default">
+﻿<BloxstrapCustomBootstrapper Version="1" Height="320" Width="500" AllowTransparency="False" WindowBackdropType="Disable" WindowCornerPreference="Default">
 	<!-- Put UI elements here -->
 	<!-- Examples of custom bootstrappers can be found at https://github.com/returnrqt/custom-bootstrapper-examples -->
 </BloxstrapCustomBootstrapper>

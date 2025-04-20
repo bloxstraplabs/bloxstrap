@@ -5,7 +5,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 {
     public partial class CustomDialog
     {
-        const int Version = 0;
+        const int Version = 1;
 
         private class DummyFrameworkElement : FrameworkElement { }
 
