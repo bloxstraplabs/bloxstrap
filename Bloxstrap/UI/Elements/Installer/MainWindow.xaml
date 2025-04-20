@@ -13,17 +13,12 @@
         d:DataContext="{d:DesignInstance dmodels:MainWindowViewModel, IsDesignTimeCreatable=True}"
         Title="{x:Static resources:Strings.Installer_Title}"
         Height="540" Width="840" MinWidth="840"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
         WindowBackdropType="Mica"
         WindowStartupLocation="CenterScreen">
-	<Grid>
-		<Grid.Background>
-			<LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-				<GradientStop Offset="0.10" Color="{DynamicResource WindowBackgroundColorPrimary}"/>
-				<GradientStop Offset="0.85" Color="{DynamicResource WindowBackgroundColorSecondary}"/>
-			</LinearGradientBrush>
-		</Grid.Background>
-		<Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
