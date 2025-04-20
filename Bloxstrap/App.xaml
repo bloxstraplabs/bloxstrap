@@ -15,35 +15,7 @@
                 <ResourceDictionary x:Name="Default" Source="UI/Style/Default.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <!--pls dont touch this without informing me 🥺 -Alexa-->
-
-            <!--Color scheme-->
-			<Color x:Key="fish-blue-50">#f1f8fe</Color>
-			<Color x:Key="fish-blue-100">#e2f1fc</Color>
-			<Color x:Key="fish-blue-200">#bee3f9</Color>
-			<Color x:Key="fish-blue-300">#84cdf5</Color>
-			<Color x:Key="fish-blue-400">#42b2ee</Color>
-			<Color x:Key="fish-blue-500">#1a99dd</Color>
-			<Color x:Key="fish-blue-600">#0d7abc</Color>
-			<Color x:Key="fish-blue-700">#0c6198</Color>
-			<Color x:Key="fish-blue-800">#0e537e</Color>
-			<Color x:Key="fish-blue-900">#114467</Color>
-			<Color x:Key="fish-blue-950">#0c2c45</Color>
-
-            <!--Brushes-->
-			<SolidColorBrush x:Key="fish-blue-brush-50">#f1f8fe</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-100">#e2f1fc</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-200">#bee3f9</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-300">#84cdf5</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-400">#42b2ee</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-500">#1a99dd</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-600">#0d7abc</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-700">#0c6198</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-800">#0e537e</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-900">#114467</SolidColorBrush>
-			<SolidColorBrush x:Key="fish-blue-brush-950">#0c2c45</SolidColorBrush>
-
-			<FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
+            <FontFamily x:Key="Rubik">pack://application:,,,/Resources/Fonts/#Rubik Light</FontFamily>
 
             <Style TargetType="Hyperlink">
                 <Style.Triggers>
@@ -66,7 +38,7 @@
 
             <converters:StringFormatConverter x:Key="StringFormatConverter" />
             <converters:RangeConverter x:Key="RangeConverter" />
-			<converters:EnumNameConverter x:Key="EnumNameConverter" />
-		</ResourceDictionary>
+            <converters:EnumNameConverter x:Key="EnumNameConverter" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

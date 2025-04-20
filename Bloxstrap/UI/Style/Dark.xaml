@@ -1,13 +1,5 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="NewTextEditorBackground" Color="#2D2D2D" />
     <SolidColorBrush x:Key="NewTextEditorForeground" Color="White" />
-	<SolidColorBrush x:Key="NewTextEditorLink" Color="#3A9CEA" />
-	<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#58000000" />
-	<SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#9b0c2c45" />
-	<SolidColorBrush x:Key="TertiaryBackgroundColor" Color="#0b0b09" />
-	<Color x:Key="ControlFillColorDefault">#8C000000</Color>
-	<Color x:Key="WindowBackgroundColorPrimary">#0c6198</Color>
-	<Color x:Key="WindowBackgroundColorSecondary">Black</Color>
-	<SolidColorBrush x:Key="WindowBackgroundColorBrushPrimary" Color="#0c6198"/>
-	<SolidColorBrush x:Key="WindowBackgroundColorBrushSecondary" Color="Black"/>
+    <SolidColorBrush x:Key="NewTextEditorLink" Color="#3A9CEA" />
 </ResourceDictionary>
