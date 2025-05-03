@@ -32,7 +32,7 @@
 
             <Image x:Name="Image1" Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
             <Image x:Name="Image2" Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Source="pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/Matt.png" RenderOptions.BitmapScalingMode="HighQuality" Opacity="0" />
-            
+
             <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -138,7 +138,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[nakoyasha](https://github.com/nakoyasha)" />
                     <controls:MarkdownTextBlock MarkdownText="[exurd](https://github.com/exurd)" />
                     <controls:MarkdownTextBlock MarkdownText="[0xFE0F](https://github.com/0xFE0F)" />
-                    <controls:MarkdownTextBlock MarkdownText="[Tezos](https://github.com/GoingCrazyDude)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Alexa](https://github.com/GoingCrazyDude)" />
                     <controls:MarkdownTextBlock MarkdownText="[CfwSky](https://www.roblox.com/users/129425241/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[ruubloo](https://www.roblox.com/users/158082266/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[toyoda165](https://www.roblox.com/users/923416649/profile)" />
@@ -166,6 +166,9 @@
                     <controls:MarkdownTextBlock MarkdownText="[NetSoftworks](https://github.com/netsoftwork)" />
                     <controls:MarkdownTextBlock MarkdownText="[BlueOutside](https://github.com/BlueOutside)" />
                     <controls:MarkdownTextBlock MarkdownText="[Naveandice](https://github.com/Naveandice)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Skylan](https://github.com/Skylan031)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Xaurchark](https://github.com/nicolasfp1)" />
+                    <controls:MarkdownTextBlock MarkdownText="[c_llie](https://discord.com/users/1053052072779583488)" />
                 </StackPanel>
             </controls:Expander>
         </Grid>
