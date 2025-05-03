@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyko automatiškai atnaujinti į {0} versiją. Atnaujinkite ją rankiniu būdu atsisiųsdami ir paleisdami iš svetainės.</value>
+    <value>„Fishstrap“ nepavyko automatiškai atnaujinti į {0} versiją. Atnaujinkite ją rankiniu būdu atsisiųsdami ir paleisdami iš svetainės.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>„Roblox“ šiuo metu paleista, o paleidus kitą serverį jis bus uždarytas. Ar tikrai norite tęsti paleidimą?</value>
@@ -127,13 +127,13 @@
     <value>„Roblox“ šiuo metu gali būti neveikiantis. Žiūrėkite {0} dėl daugiau informacijos.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Ryšio užmegzti nepavyko, o tai greičiausiai reiškia prastą interneto ryšį arba užkardos blokavimą. Jei ryšys veikia gerai, įsitikinkite, kad jūsų antivirusinė programa neblokuoja „Bloxstrap“.</value>
+    <value>Ryšio užmegzti nepavyko, o tai greičiausiai reiškia prastą interneto ryšį arba užkardos blokavimą. Jei ryšys veikia gerai, įsitikinkite, kad jūsų antivirusinė programa neblokuoja „Fishstrap“.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Prieš išdiegdami „Bloxstrap“, pirmiausia turite įdiegti „Bloxstrap“.</value>
+    <value>Prieš išdiegdami „Fishstrap“, pirmiausia turite įdiegti „Fishstrap“.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>„Bloxstrap“ neturi pakankamai vietos diske, kad galėtų atsisiųsti ir įdiegti „Roblox“. Atlaisvinkite šiek tiek vietos diske ir bandykite dar kartą.</value>
+    <value>„Fishstrap“ neturi pakankamai vietos diske, kad galėtų atsisiųsti ir įdiegti „Roblox“. Atlaisvinkite šiek tiek vietos diske ir bandykite dar kartą.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Taikomos „Roblox“ modifikacijos...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Atnaujinamas „{product}“...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Gaunamas naujausias „Bloxstrap“...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>Gaunamas naujausias „Fishstrap“...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Laukiama kitų serverių...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>„Bloxstrap“ buvo sėkmingai išdiegtas</value>
+    <value>„Fishstrap“ buvo sėkmingai išdiegtas</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>„Roblox“ šiuo metu paleista, bet prieš išdiegiant „Bloxstrap“ turi būti uždarytas. Ar norėtumėte dabar uždaryti „Roblox“?</value>
+    <value>„Roblox“ šiuo metu paleista, bet prieš išdiegiant „Fishstrap“ turi būti uždarytas. Ar norėtumėte dabar uždaryti „Roblox“?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>„Roblox“ reikia naudoti „Windows Media Foundation“ komponentus. Atrodo, kad jų trūksta, greičiausiai dėl to, kad naudojate „Windows“ N laidą. Pirmiausia juos įdiekite, tada paleiskite „Roblox“.</value>
@@ -279,22 +279,22 @@ Spustelėkite norėdami gauti daugiau informacijos.</value>
     <value>Ryšio klaida</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyksta prisijungti prie {0}.</value>
+    <value>„Fishstrap“ nepavyksta prisijungti prie {0}.</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopijuoti žurnalo turinį</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Įvyko išimtis paleidžiant „Bloxstrap“</value>
+    <value>Įvyko išimtis paleidžiant „Fishstrap“</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Pirmiausia patikrinkite [„Bloxstrap“ viki]({0}), kad sužinotumėte, ar ši problema jau išspręsta.
+    <value>Pirmiausia patikrinkite [„Fishstrap“ viki]({0}), kad sužinotumėte, ar ši problema jau išspręsta.
 
 Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu su sukurto žurnalo failo kopija.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>„Bloxstrap“ išimtis</value>
+    <value>„Fishstrap“ išimtis</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Pasirinktinis</value>
@@ -309,10 +309,10 @@ Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu 
     <value>Netikras „Byfron“ (2023 m.)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>„Bloxstrap“ (klasikinis)</value>
+    <value>„Fishstrap“ (klasikinis)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>„Bloxstrap“ (stiklinis)</value>
+    <value>„Fishstrap“ (stiklinis)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>„Legacy“ (2008-2011 m.)</value>
@@ -390,10 +390,10 @@ Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu 
     <value>Šviesi</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>„Bloxstrap“ buvo atnaujintas į v{0}.</value>
+    <value>„Fishstrap“ buvo atnaujintas į v{0}.</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Paleista „Bloxstrap“ versija skiriasi nuo šiuo metu įdiegtos versijos.
+    <value>Paleista „Fishstrap“ versija skiriasi nuo šiuo metu įdiegtos versijos.
 Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -403,7 +403,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Programuotojai</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Tai – žmonės, kurie labai prisidėjo indėlį į „Bloxstrap“ ir padėjo jai tapti tuo, kuo ji yra.</value>
+    <value>Tai – žmonės, kurie labai prisidėjo indėlį į „Fishstrap“ ir padėjo jai tapti tuo, kuo ji yra.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Funkcijų idėjos</value>
@@ -449,7 +449,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Atkreipkite dėmesį, kad ne visi pakeitimai bus taikomi iš karto, kol neuždarysite visų šiuo metu atidarytų „Roblox“ serverių.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>„Bloxstrap“ jau paleista</value>
+    <value>„Fishstrap“ jau paleista</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Galite padaryti jį kitaip, retro ar net kaip „Roblox“.</value>
@@ -476,7 +476,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Pavadinimas</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfigūruokite, kaip turėtų atrodyti „Bloxstrap“.</value>
+    <value>Konfigūruokite, kaip turėtų atrodyti „Fishstrap“.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Visuotinė tema</value>
@@ -500,10 +500,10 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Išvaizda</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>„Bloxstrap“ automatiškai patikrins ir atnaujins save paleidus „Roblox“.</value>
+    <value>„Fishstrap“ automatiškai patikrins ir atnaujins save paleidus „Roblox“.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatiškai atnaujinti „Bloxstrap“</value>
+    <value>Automatiškai atnaujinti „Fishstrap“</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Užkirskite kelią atsitiktiniam esamo žaidimo uždarymui, kad netyčia nebūtų paleistas kitas žaidimas.</value>
@@ -512,7 +512,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Raginti patvirtinti paleidžiant kitą „Roblox“ serverį</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigūruokite, ką „Bloxstrap“ turėtų daryti paleidžiant „Roblox“.</value>
+    <value>Konfigūruokite, ką „Fishstrap“ turėtų daryti paleidžiant „Roblox“.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Kitą kartą paleidus „Roblox“ bus įdiegta nauja.</value>
@@ -629,7 +629,7 @@ Nenaudokite jo importuoti didelių kitų žmonių sudarytų „gairelių sąraš
     <value>Kadrų dažnio riba</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Perjungta su [spartiečiais klavišais]({0}). Veikia tik jei esate [„Bloxstrap“ grupėje]({1}).</value>
+    <value>Perjungta su [spartiečiais klavišais]({0}). Veikia tik jei esate [„Fishstrap“ grupėje]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Įjungti galimybę paslėpti grafinės sąsajas</value>
@@ -653,10 +653,10 @@ Nenaudokite jo importuoti didelių kitų žmonių sudarytų „gairelių sąraš
     <value>Piktogramų failai</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Čia negalima įdiegti „Bloxstrap“. Pasirinkite kitą vietą arba naudokite numatytąją vietą spustelėdami mygtuką Atkurti.</value>
+    <value>Čia negalima įdiegti „Fishstrap“. Pasirinkite kitą vietą arba naudokite numatytąją vietą spustelėdami mygtuką Atkurti.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Aplankas, į kurį pasirinkote įdiegti „Bloxstrap“, jau egzistuoja ir nėra tuščias. Labai rekomenduojama „Bloxstrap“ įdiegti į atskirą aplanką.
+    <value>Aplankas, į kurį pasirinkote įdiegti „Fishstrap“, jau egzistuoja ir nėra tuščias. Labai rekomenduojama „Fishstrap“ įdiegti į atskirą aplanką.
 
 Siūloma pakeisti šią vietą:
 {0}
@@ -669,7 +669,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Turite nustatyti diegimo vietą.</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>„Bloxstrap“ neturi rašymo prieigos prie pasirinktos diegimo vietos. Pasirinkite kitą vietą.</value>
+    <value>„Fishstrap“ neturi rašymo prieigos prie pasirinktos diegimo vietos. Pasirinkite kitą vietą.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Veiklos sekimas</value>
@@ -720,7 +720,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Neišeiti iki darbalaukio programos</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Leidžia „Bloxstrap“ nustatyti, kokį „Roblox“ žaidimą žaidžiate. Tam tikroms funkcijoms to gali prireikti.</value>
+    <value>Leidžia „Fishstrap“ nustatyti, kokį „Roblox“ žaidimą žaidžiate. Tam tikroms funkcijoms to gali prireikti.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Įjungti veiklos sekimą</value>
@@ -817,7 +817,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Nustatymai išsaugoti!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>„Bloxstrap“ nustatymai</value>
+    <value>„Fishstrap“ nustatymai</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Pasirinkite pageidaujamą kalbą</value>
@@ -847,7 +847,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Naudotojo sąsaja ir išdėstymas</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Leisti „Bloxstrap“ tvarkyti „Fast Flags“</value>
+    <value>Leisti „Fishstrap“ tvarkyti „Fast Flags“</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Išjungus šią funkciją, „Roblox“ nebus taikoma jokia čia sukonfigūruota funkcija.</value>
@@ -892,7 +892,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Išjungti vietovės tekstūras</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyksta atsisiųsti „Roblox“</value>
+    <value>„Fishstrap“ nepavyksta atsisiųsti „Roblox“</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>„Roblox“ šiuo metu atsisiųsti negalima. Skaitykite toliau esantį pagalbos puslapį dėl papildomos informacijos: {0}</value>
@@ -913,7 +913,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Elementas „{0}“ netinkamas, nes reikšmė turi būti skaičius.</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Šis paleidimas nebus įrašytas į žurnalą, nes „Bloxstrap“ nepavyksta įrašyti į aplanką adresu „{0}“.</value>
+    <value>Šis paleidimas nebus įrašytas į žurnalą, nes „Fishstrap“ nepavyksta įrašyti į aplanką adresu „{0}“.</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Numatytasis</value>
@@ -928,7 +928,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Elementas „{0}“ netinkamas, nes vietos filtras suformatuotas neteisingai.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>„Bloxstrap“ diegyklė</value>
+    <value>„Fishstrap“ diegyklė</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Sveiki atvykę</value>
@@ -947,18 +947,18 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Toliau</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Dėkojame, kad atsisiuntėte „Bloxstrap“. 
+    <value>Dėkojame, kad atsisiuntėte „Fishstrap“. 
 
-Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „Bloxstrap“, yra {0} ir {1}, todėl patikrinkite, ar ją gavote iš oficialaus šaltinio.
+Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „Fishstrap“, yra {0} ir {1}, todėl patikrinkite, ar ją gavote iš oficialaus šaltinio.
 
-Šis diegimo procesas bus greitas ir paprastas, o įdiegus galėsite konfigūruoti bet kokius „Bloxstrap“ nustatymus.</value>
+Šis diegimo procesas bus greitas ir paprastas, o įdiegus galėsite konfigūruoti bet kokius „Fishstrap“ nustatymus.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Spustelėkite Toliau, kad tęstumėte.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Bandote įdiegti {0} „Bloxstrap“ versiją, bet naujausia versija yra {1}. Ar norėtumėte ją atsisiųsti?</value>
+    <value>Bandote įdiegti {0} „Fishstrap“ versiją, bet naujausia versija yra {1}. Ar norėtumėte ją atsisiųsti?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pasirinkite, kur įdiegti</value>
@@ -979,16 +979,16 @@ Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „Bloxstrap�
     <value>Pradžios meniu piktograma</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>„Bloxstrap“ sėkmingai įdiegta.
+    <value>„Fishstrap“ sėkmingai įdiegta.
 
-„Roblox“ dar neįdiegtas, tai įvyks, kai pirmą kartą jį paleisite su „Bloxstrap“. Tačiau prieš tai galbūt norėsite pirmiausia sukonfigūruoti „Bloxstrap“ nustatymus.
+„Roblox“ dar neįdiegtas, tai įvyks, kai pirmą kartą jį paleisite su „Fishstrap“. Tačiau prieš tai galbūt norėsite pirmiausia sukonfigūruoti „Fishstrap“ nustatymus.
 
-Be to, venkite naudoti „Roblox Player“ nuorodą „Roblox“ paleisti, nes „Bloxstrap“ nebus paleista kartu su „Roblox“. Jei paleidžiant iš svetainės nematote, kad rodomas „Bloxstrap“, tiesiog vieną kartą paleiskite „Roblox“ su „Bloxstrap“ iš darbalaukio, kad tai išspręstumėte.
+Be to, venkite naudoti „Roblox Player“ nuorodą „Roblox“ paleisti, nes „Fishstrap“ nebus paleista kartu su „Roblox“. Jei paleidžiant iš svetainės nematote, kad rodomas „Fishstrap“, tiesiog vieną kartą paleiskite „Roblox“ su „Fishstrap“ iš darbalaukio, kad tai išspręstumėte.
 
 Ką norėtumėte daryti?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigūruoti „Bloxstrap“ nustatymus</value>
+    <value>Konfigūruoti „Fishstrap“ nustatymus</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Derinkite visas siūlomas funkcijas</value>
@@ -1000,22 +1000,22 @@ Ką norėtumėte daryti?</value>
     <value>Kai viskas bus atlikta, pateksite į darbalaukio programą</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Išdiegti „Bloxstrap“</value>
+    <value>Išdiegti „Fishstrap“</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Išdiegus bus pašalinta „Bloxstrap“ iš sistemos ir automatiškai perkonfigūruota numatytoji „Roblox“ paleidyklė, jei ji vis dar įdiegta.
+    <value>Išdiegus bus pašalinta „Fishstrap“ iš sistemos ir automatiškai perkonfigūruota numatytoji „Roblox“ paleidyklė, jei ji vis dar įdiegta.
 
 Jei išdiegiate arba iš naujo įdiegiate, nes turite problemų su „Roblox“, pirmiausia perskaitykite [šį pagalbos puslapį]({0}).
 
-Išdiegimo procesas gali nesugebėti visiškai išvalyti, todėl gali tekti rankiniu būdu valyti likusius failus, kuriuose buvo įdiegta „Bloxstrap“.
+Išdiegimo procesas gali nesugebėti visiškai išvalyti, todėl gali tekti rankiniu būdu valyti likusius failus, kuriuose buvo įdiegta „Fishstrap“.
 
-„Bloxstrap“ buvo įdiegta vietoje „{1}“.</value>
+„Fishstrap“ buvo įdiegta vietoje „{1}“.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Išlaikyti mano nustatymus ir modifikacijas</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Jie bus saugomi ten, kur buvo įdiegta „Bloxstrap“, ir bus automatiškai atkurti įdiegus iš naujo.</value>
+    <value>Jie bus saugomi ten, kur buvo įdiegta „Fishstrap“, ir bus automatiškai atkurti įdiegus iš naujo.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Išdiegti</value>
@@ -1036,19 +1036,19 @@ Išdiegimo procesas gali nesugebėti visiškai išvalyti, todėl gali tekti rank
     <value>Šiuo metu neturite įdiegę „WebView2“ vykdyklės. Be jos kai kurios „Roblox“ funkcijos, pavyzdžiui, darbalaukio programa, neveiks tinkamai. Ar norėtumėte ją atsisiųsti dabar?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyko sukurti darbalaukio ir pradžios meniu nuorodų. Bandykite juos sukurti vėliau per nustatymus.</value>
+    <value>„Fishstrap“ nepavyko sukurti darbalaukio ir pradžios meniu nuorodų. Bandykite juos sukurti vėliau per nustatymus.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Pirmiausia patikrinkite [„Bloxstrap“ viki]({0}), kad sužinotumėte, ar ši problema jau išspręsta.
+    <value>Pirmiausia patikrinkite [„Fishstrap“ viki]({0}), kad sužinotumėte, ar ši problema jau išspręsta.
 
-Jei ne, praneškite apie šią išimtį šios atšakos prižiūrėtojams. NEPRANEŠKITE apie tai „Bloxstrap“ „GitHub“ problemoms, nes tai – neoficialus darinys.</value>
+Jei ne, praneškite apie šią išimtį šios atšakos prižiūrėtojams. NEPRANEŠKITE apie tai „Fishstrap“ „GitHub“ problemoms, nes tai – neoficialus darinys.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Tai – bendrosios nuorodos, kurios iškelia daugiapasirinkimų paleidimo meniu. Konkrečių funkcijų nuorodas galima sukurti vėliau nustatymuose.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Konfigūruokite, kaip galima lengvai paleisti „Bloxstrap“.</value>
+    <value>Konfigūruokite, kaip galima lengvai paleisti „Fishstrap“.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Bendrieji</value>
@@ -1078,7 +1078,7 @@ Jei ne, praneškite apie šią išimtį šios atšakos prižiūrėtojams. NEPRAN
     <value>Palaukite, kol išdiegimas bus baigtas.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Apie „Bloxstrap“</value>
+    <value>Apie „Fishstrap“</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencijos</value>
@@ -1091,7 +1091,7 @@ Jei ne, praneškite apie šią išimtį šios atšakos prižiūrėtojams. NEPRAN
     <value>Turite neišsaugotų pakeitimų. Ar tikrai norite uždaryti neišsaugojus?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Paleista „Bloxstrap“ versija yra senesnė už šiuo metu įdiegtą versiją.
+    <value>Paleista „Fishstrap“ versija yra senesnė už šiuo metu įdiegtą versiją.
 Gali kilti problemų ir gali būti pakeisti jūsų nustatymai. Rekomenduojama iš naujo įdiegti.
 Ar tikrai norite tęsti?</value>
   </data>
@@ -1104,7 +1104,7 @@ Ar tikrai norite tęsti?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Informacijos apie tai, kodėl taip gali atsitikti ir kaip tai išspręsti, skaitykite [šiame pagalbos straipsnyje]({0}).
 
-Patikrinkite, ar „Roblox“ veikia su [originalia paleidyklė]({1}). Jei neveikia, vadinasi, tai nėra „Bloxstrap“ problema. Jei veikia, skaitykite pagalbos straipsnį.</value>
+Patikrinkite, ar „Roblox“ veikia su [originalia paleidyklė]({1}). Jei neveikia, vadinasi, tai nėra „Fishstrap“ problema. Jei veikia, skaitykite pagalbos straipsnį.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepavyko įkelti duomenų dėl tinklo klaidos.</value>
@@ -1116,7 +1116,7 @@ Patikrinkite, ar „Roblox“ veikia su [originalia paleidyklė]({1}). Jei nevei
     <value>Palaikytojai</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Tai – žmonės, kurie palaikė „Bloxstrap“ per „Ko-fi“. Didelis dėkui visiems čia esantiems!
+    <value>Tai – žmonės, kurie palaikė „Fishstrap“ per „Ko-fi“. Didelis dėkui visiems čia esantiems!
 Kiekvienas čia esantis žmogus vertinamas pagal bendrą pažadą.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1147,12 +1147,12 @@ Kiekvienas čia esantis žmogus vertinamas pagal bendrą pažadą.</value>
     <value>Šiam paleidimui „Roblox“ nebus tikrinama, ar nėra atnaujinimų, ir modifikacijų pakeitimai nebus taikomi.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Kadangi „Roblox“ reikia įdiegti arba atnaujinti, „Bloxstrap“ negalima tęsti.</value>
+    <value>Kadangi „Roblox“ reikia įdiegti arba atnaujinti, „Fishstrap“ negalima tęsti.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>„Bloxstrap“ į šią vietą buvo įdiegta anksčiau ir vis dar yra, bet diegyklė negali perrašyti senos vykdomosios programos. 
+    <value>„Fishstrap“ į šią vietą buvo įdiegta anksčiau ir vis dar yra, bet diegyklė negali perrašyti senos vykdomosios programos. 
 
-Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš naujo paleisti sistemą, o po to dar kartą bandykite įdiegti.</value>
+Rankiniu būdu ištrinkite Fishstrap.exe iš diegimo vietos arba bandykite iš naujo paleisti sistemą, o po to dar kartą bandykite įdiegti.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Nepasiekiama</value>
@@ -1164,7 +1164,7 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Konfigūruokite programos parametrus, pavyzdžiui, DPI mastelio keitimo elgseną ir [viso ekrano optimizavimą]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>„Roblox“ kol kas neįdiegta. Prieš bandydami naudoti šią parinktį, bent kartą paleiskite „Roblox“ naudojant „Bloxstrap“.</value>
+    <value>„Roblox“ kol kas neįdiegta. Prieš bandydami naudoti šią parinktį, bent kartą paleiskite „Roblox“ naudojant „Fishstrap“.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Ar tikrai norite atšaukti diegimą?</value>
@@ -1182,10 +1182,10 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Išskleisti „Roblox“ piktogramas į aplanką</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Leidžia naudoti „Bloxstrap“ „Roblox“ piktogramų asortimentą savo nuorodoms. [Žiūrėti, kaip.]({0})</value>
+    <value>Leidžia naudoti „Fishstrap“ „Roblox“ piktogramų asortimentą savo nuorodoms. [Žiūrėti, kaip.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>„Bloxstrap“ negali įrašyti į „Windows“ registrą. Greičiausiai trukdo antivirusinė programa ir sukelia problemų. Patikrinkite, ar nėra nieko, kas ribotų „Bloxstrap“ veikimą.</value>
+    <value>„Fishstrap“ negali įrašyti į „Windows“ registrą. Greičiausiai trukdo antivirusinė programa ir sukelia problemų. Patikrinkite, ar nėra nieko, kas ribotų „Fishstrap“ veikimą.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mėnesinis</value>
@@ -1193,13 +1193,13 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Vienkartinis</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigūruokite parinktis, susijusias su pačios „Bloxstrap“ elgsena.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Konfigūruokite parinktis, susijusias su pačios „Fishstrap“ elgsena.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>Įjungti analitikos siuntimą</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Tai – anonimiška ir nieko blogo, pažadame. Apie tai, ką ir kodėl renkame, žiūrėkite mūsų [privatumo politiką]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1223,7 +1223,7 @@ Kai režimas įjungtas, jis automatiškai paleis „Roblox“ uždarius nustatym
 Ar norėtumėte įjungti bandymo režimą?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Visi „Bloxstrap“ vertimai sutelktinti per [„Crowdin“]({0}). Visi čia išvardyti žmonės dosniai savanoriškai skyrė savo laiką ir pastangas, kad padėtų lokalizuoti „Bloxstrap“. Didelis dėkui visiems esantiems čia!</value>
+    <value>Visi „Fishstrap“ vertimai sutelktinti per [„Crowdin“]({0}). Visi čia išvardyti žmonės dosniai savanoriškai skyrė savo laiką ir pastangas, kad padėtų lokalizuoti „Fishstrap“. Didelis dėkui visiems esantiems čia!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Diegti</value>
@@ -1234,7 +1234,7 @@ Ar norėtumėte įjungti bandymo režimą?</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Greičiausiai kažkas trukdo „Bloxstrap“ prisijungti prie interneto.</value>
+    <value>Greičiausiai kažkas trukdo „Fishstrap“ prisijungti prie interneto.</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>Ryšys nutrūko, o tai gali reikšti prastą interneto ryšį arba užkardos blokavimą.</value>
@@ -1265,7 +1265,7 @@ Ar norėtumėte įjungti bandymo režimą?</value>
     <value>{0} versija</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>„Bloxstrap“ bandė atnaujinti „Roblox“, bet negali, nes „Roblox“ failai vis dar naudojami.
+    <value>„Fishstrap“ bandė atnaujinti „Roblox“, bet negali, nes „Roblox“ failai vis dar naudojami.
 
 Uždarykite visas programas, kurios gali naudoti „Roblox“ failus, ir paleiskite iš naujo.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1276,6 +1276,6 @@ Uždarykite visas programas, kurios gali naudoti „Roblox“ failus, ir paleisk
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Eksportuoti</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>لم يتمكن Bloxstrap من التحديث تلقائيًا إلى الإصدار {0}. يرجى تحديثه يدوياً عن طريق تنزيله وتشغيله من الموقع.</value>
+    <value>لم يتمكن Fishstrap من التحديث تلقائيًا إلى الإصدار {0}. يرجى تحديثه يدوياً عن طريق تنزيله وتشغيله من الموقع.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox قيد التشغيل حاليًا، وسيؤدي هذا إلى إغلاق النافذة الحالية. هل أنت متأكد أنك تريد مواصلة التشغيل؟</value>
@@ -127,13 +127,13 @@
     <value>قد يكون Roblox معطلاً في الوقت الحالي. راجع {0} لمزيد من المعلومات.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>لا يمكن انشاء اتصال, و هو على الأرجح يشير إلى اتصال إنترنت ضعيف أو حظر من جدار الحماية. إذا كان اتصالك بالإنترنت جيدا, يرجى التحقق من أن مكافح الفيروسات الخاص بك لا يحظر Bloxstrap.</value>
+    <value>لا يمكن انشاء اتصال, و هو على الأرجح يشير إلى اتصال إنترنت ضعيف أو حظر من جدار الحماية. إذا كان اتصالك بالإنترنت جيدا, يرجى التحقق من أن مكافح الفيروسات الخاص بك لا يحظر Fishstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>يجب تحميل بلوكس ستراب  قبل حذفه.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>لا يحتوي Bloxstrap على مساحة كافية على القرص لتنزيل Roblox وتثبيته. الرجاء تحرير بعض مساحة القرص والمحاولة مرة أخرى.</value>
+    <value>لا يحتوي Fishstrap على مساحة كافية على القرص لتنزيل Roblox وتثبيته. الرجاء تحرير بعض مساحة القرص والمحاولة مرة أخرى.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>يتم تطبيق تعديلات Roblox...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>جار تحديث {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>يتم اخذ اخر نسخه من Bloxstrap...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>يتم اخذ اخر نسخه من Fishstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>جار انتظار الحالات الأخرى...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>تم إزالة Bloxstrap بنجاح</value>
+    <value>تم إزالة Fishstrap بنجاح</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox قيد التشغيل حالياً، ولكن يجب إغلاقها قبل إلغاء تثبيت Bloxstrap. هل ترغب في إغلاق Roblox الآن؟</value>
+    <value>Roblox قيد التشغيل حالياً، ولكن يجب إغلاقها قبل إلغاء تثبيت Fishstrap. هل ترغب في إغلاق Roblox الآن؟</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>تطلب Roblox أستخدام مكونات Windows Media Foundation. المكونات المطلوبة ليست موجودة، في الأغلب لأنك تستخدم نسخة N من Windows. يرجى تنزيلها أولاً، ثم فتح Roblox.</value>
@@ -279,14 +279,14 @@
     <value>خطأ في الاتصال</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap غير قادر على الاتصال ب {0}</value>
+    <value>Fishstrap غير قادر على الاتصال ب {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>انسخ محتويات السجل</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>حدث استثناء خلال تشغيل Bloxstrap</value>
+    <value>حدث استثناء خلال تشغيل Fishstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>تحقق من [Bloxstrap Wiki]({0}) أولاً لمعرفة ما إذا كانت هذه المشكلة قد تمت معالجتها بالفعل بإصلاحها.
@@ -294,7 +294,7 @@
 إذا لم يكن الأمر كذلك، فيرجى الإبلاغ عن هذا الاستثناء من خلال [مشكلة GitHub]({1}) مع نسخة من ملف السجل الذي تم إنشاؤه.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>استثناء Bloxstrap</value>
+    <value>استثناء Fishstrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>مخصص</value>
@@ -309,10 +309,10 @@
     <value>Byfron مزيفة (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (كلاسيكية)</value>
+    <value>Fishstrap (كلاسيكية)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (زجاج)</value>
+    <value>Fishstrap (زجاج)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>تراثي (2008 - 2011)</value>
@@ -390,10 +390,10 @@
     <value>فاتح</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>تم تحديث Bloxstrap إلى إصدار {0}</value>
+    <value>تم تحديث Fishstrap إلى إصدار {0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>يختلف إصدار Bloxstrap الذي قمت بتشغيله عن الإصدار الذي قمت بتثبيته حاليًا.
+    <value>يختلف إصدار Fishstrap الذي قمت بتشغيله عن الإصدار الذي قمت بتثبيته حاليًا.
 هل ترغب في تحديث الإصدار المثبت حاليًا؟</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -403,7 +403,7 @@
     <value>الكود</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>هؤلاء هم الأشخاص الذين قدموا مساهمات ملحوظة في Bloxstrap، مما ساعد في جعلها على ما هي عليه الآن.</value>
+    <value>هؤلاء هم الأشخاص الذين قدموا مساهمات ملحوظة في Fishstrap، مما ساعد في جعلها على ما هي عليه الآن.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>أفكار مستقبلية</value>
@@ -449,7 +449,7 @@
     <value>يرجى ملاحظة أنه لن يتم تطبيق جميع تغييراتك على الفور إلى أن تقوم بإغلاق جميع نوافذ Roblox المفتوحة حاليًا.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap قيد التشغيل بالفعل</value>
+    <value>Fishstrap قيد التشغيل بالفعل</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>يمكنك جعلها تبدو مختلفة أو قديمة أو حتى مثل Roblox تمامًا.</value>
@@ -476,7 +476,7 @@
     <value>العنوان</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>قم بتعديل شكل Bloxstrap.</value>
+    <value>قم بتعديل شكل Fishstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>المظهر العالمي</value>
@@ -500,10 +500,10 @@
     <value>المظهر</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>سوف يقوم Bloxstrap بالتحقق من نفسه وتحديثه تلقائيًا عند تشغيل Roblox.</value>
+    <value>سوف يقوم Fishstrap بالتحقق من نفسه وتحديثه تلقائيًا عند تشغيل Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>تحديث Bloxstrap تلقائياً</value>
+    <value>تحديث Fishstrap تلقائياً</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>منع إغلاق لعبتك الحالية من تشغيل لُعْبَة أخرى عن طريق الخطأ.</value>
@@ -512,7 +512,7 @@
     <value>مطالبة للتأكيد عند إطلاق مثيل مطالبة للتأكيد عند إطلاق مثيل آخر ل Roblox</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>ضبط ما يجب أن يفعله Bloxstrap عند بدء تشغيل Roblox.</value>
+    <value>ضبط ما يجب أن يفعله Fishstrap عند بدء تشغيل Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>سيتم تثبيت Roblox من جديد عند الإطلاق التالي.</value>
@@ -627,7 +627,7 @@
     <value>حد معدل الإطارات (FPS)</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>يتم تفعيله باستخدام [اختصارات لوحة المفاتيح]({0}). يعمل فقط إذا كنت في [مجموعة Bloxstrap في Roblox]({1}).</value>
+    <value>يتم تفعيله باستخدام [اختصارات لوحة المفاتيح]({0}). يعمل فقط إذا كنت في [مجموعة Fishstrap في Roblox]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>القدرة على إخفاء واجهات المستخدم</value>
@@ -651,10 +651,10 @@
     <value>ملفات الإيقونات</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>لا يمكن تثبيت Bloxstrap هنا. يرجى اختيار موقع مختلف، أو اللجوء إلى استخدام الموقع الأصلي عن طريق النقر على زر إعادة الضبط.</value>
+    <value>لا يمكن تثبيت Fishstrap هنا. يرجى اختيار موقع مختلف، أو اللجوء إلى استخدام الموقع الأصلي عن طريق النقر على زر إعادة الضبط.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>المجلد الذي اخترته لتثبيت Bloxstrap موجود فعلًا وليس فارغًا. يوصى بشدة بتثبيت Bloxstrap في المجلد المستقل الخاص به.
+    <value>المجلد الذي اخترته لتثبيت Fishstrap موجود فعلًا وليس فارغًا. يوصى بشدة بتثبيت Fishstrap في المجلد المستقل الخاص به.
 
 يقترح التغيير إلى الموقع التالي:
 {0}
@@ -667,7 +667,7 @@
     <value>يجب عليك اختيار موقع للتثبيت</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>لا يتمتع Bloxstrap بحق الوصول للكتابة إلى موقع التثبيت الذي حددته. الرجاء اختيار موقع آخر.</value>
+    <value>لا يتمتع Fishstrap بحق الوصول للكتابة إلى موقع التثبيت الذي حددته. الرجاء اختيار موقع آخر.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>تتبع النشاط</value>
@@ -718,7 +718,7 @@
     <value>عدم الخروج إلى تطبيق Roblox</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>يسمح لـ Bloxstrap باكتشاف لُعْبَة Roblox التي تلعبها. قد تتطلب بعض الميزات ذلك.</value>
+    <value>يسمح لـ Fishstrap باكتشاف لُعْبَة Roblox التي تلعبها. قد تتطلب بعض الميزات ذلك.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>تفعيل تتبع النشاط</value>
@@ -815,7 +815,7 @@
     <value>تم حفظ الإعدادات!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>إعدادات Bloxstrap</value>
+    <value>إعدادات Fishstrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>اختر اللغة المفضلة</value>
@@ -845,7 +845,7 @@
     <value>واجهة المستخدم والتخطيط</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>السماح لBloxstrap لادارة FastFlags</value>
+    <value>السماح لFishstrap لادارة FastFlags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>إيقاف هذا يمنع تطبيق أي شيء تم تكوينه هنا على Roblox.</value>
@@ -890,7 +890,7 @@
     <value>تعطيل الملمس التضاريس</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap غير قادر على تحميل Roblox</value>
+    <value>Fishstrap غير قادر على تحميل Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>لا يمكن تنزيل Roblox في هذا الوقت. يرجى قراءة صفحة المساعدة التالية لمزيد من المعلومات: {0}</value>
@@ -911,7 +911,7 @@
     <value>الإدخال ل '{0}' غير صالح لأن القيمة يجب أن تكون رقم</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>لن يتم كتابة أي ملف السجل لهذا التشغيل لأن Bloxstrap غير قادر على الكتابة إلى المجلد الموجود في '{0}'</value>
+    <value>لن يتم كتابة أي ملف السجل لهذا التشغيل لأن Fishstrap غير قادر على الكتابة إلى المجلد الموجود في '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>الأصلي</value>
@@ -926,7 +926,7 @@
     <value>الإدخال لـ '{0}' غير صالح لأن فلتر المكان غير منسق بشكل صحيح.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>مثبت Bloxstrap</value>
+    <value>مثبت Fishstrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>مرحبًا</value>
@@ -945,18 +945,18 @@
     <value>التالي</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>شكرًا لك على تنزيل Bloxstrap.
+    <value>شكرًا لك على تنزيل Fishstrap.
 
-المواقع الرسمية التي يمكنك تنزيل Bloxstrap منها هي {0} أو {1}. يرجى التأكد من أنك نزلتها من مصدر رسمي.
+المواقع الرسمية التي يمكنك تنزيل Fishstrap منها هي {0} أو {1}. يرجى التأكد من أنك نزلتها من مصدر رسمي.
 
-ستكون عملية التثبيت هذه سريعة وبسيطة، وستتمكن من تضبيط أي من إعدادات Bloxstrap بعد التثبيت.</value>
+ستكون عملية التثبيت هذه سريعة وبسيطة، وستتمكن من تضبيط أي من إعدادات Fishstrap بعد التثبيت.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>الرجاء النقر فوق 'التالي' للمتابعة.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>أنت تحاول تثبيت الإصدار {0} من Bloxstrap، ولكن أحدث إصدار متاح هو {1}. هل ترغب في تحميله؟</value>
+    <value>أنت تحاول تثبيت الإصدار {0} من Fishstrap، ولكن أحدث إصدار متاح هو {1}. هل ترغب في تحميله؟</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>اختر مكان التثبيت</value>
@@ -977,16 +977,16 @@
     <value>أيقونة قائمة ابدأ</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>تم تثبيت Bloxstrap.
+    <value>تم تثبيت Fishstrap.
 
-لم يتم تثبيت Roblox بعد، وسيحدث ذلك عند تشغيله باستخدام Bloxstrap للمرة الأولى. ومع ذلك، قبل القيام بذلك، قد ترغب في تكوين إعدادات Bloxstrap أولاً.
+لم يتم تثبيت Roblox بعد، وسيحدث ذلك عند تشغيله باستخدام Fishstrap للمرة الأولى. ومع ذلك، قبل القيام بذلك، قد ترغب في تكوين إعدادات Fishstrap أولاً.
 
-تجنب أيضًا استخدام اختصار "Roblox Player" لتشغيل Roblox، حيث لن يتم تشغيل Bloxstrap مع Roblox. إذا لم تشاهد Bloxstrap يظهر عند التشغيل من موقع الويب، فما عليك سوى تشغيل Roblox باستخدام Bloxstrap مرة واحدة من سطح المكتب لإصلاح المشكلة.
+تجنب أيضًا استخدام اختصار "Roblox Player" لتشغيل Roblox، حيث لن يتم تشغيل Fishstrap مع Roblox. إذا لم تشاهد Fishstrap يظهر عند التشغيل من موقع الويب، فما عليك سوى تشغيل Roblox باستخدام Fishstrap مرة واحدة من سطح المكتب لإصلاح المشكلة.
 
 ماذا تريد أن تفعل؟</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>ضبط إعدادات Bloxstrap</value>
+    <value>ضبط إعدادات Fishstrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>تعديل مع جميع الميزات التي يجب أن يقدمها</value>
@@ -998,22 +998,22 @@
     <value>سيتم إيقافك في تطبيق سطح المكتب بمجرد الانتهاء من كل شيء</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>إلغاء تثبيت Bloxstrap</value>
+    <value>إلغاء تثبيت Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>سيؤدي إلغاء التثبيت إلى المسح Bloxstrap من نظامك، وإعادة تكوين مشغل Roblox الافتراضي تلقائيًا إذا كان لا يزال مثبتًا.
+    <value>سيؤدي إلغاء التثبيت إلى المسح Fishstrap من نظامك، وإعادة تكوين مشغل Roblox الافتراضي تلقائيًا إذا كان لا يزال مثبتًا.
 
 إذا كنت تقوم بإلغاء التثبيت أو إعادة التثبيت لأنك تواجه مشكلات مع Roblox، فاقرأ [صفحة المساعدة هذه]({0}) أولاً.
 
-قد لا تتمكن عملية إلغاء التثبيت من تنظيف نفسها بالكامل، لذا قد تحتاج إلى تنظيف الملفات المتبقية يدويًا حيث تم تثبيت Bloxstrap.
+قد لا تتمكن عملية إلغاء التثبيت من تنظيف نفسها بالكامل، لذا قد تحتاج إلى تنظيف الملفات المتبقية يدويًا حيث تم تثبيت Fishstrap.
 
-تم تثبيت Bloxstrap في "{1}".</value>
+تم تثبيت Fishstrap في "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>احتفظ بإعداداتي و تعديلاتي</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>سيتم إبقائهم حيث تم تثبيت Bloxstrap، وسيتم إعادتهم تلقائيا عند إعادة التثبيت.</value>
+    <value>سيتم إبقائهم حيث تم تثبيت Fishstrap، وسيتم إعادتهم تلقائيا عند إعادة التثبيت.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>إلغاء التثبيت</value>
@@ -1034,19 +1034,19 @@
     <value>ليس لديك حاليا وقت تشغيل WebView2. لن تعمل بعض ميزات Roblox بدونها، مثل تطبيق سطح المكتب. هل ترغب في تنزيله الآن؟</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>لم يتمكن Bloxstrap من إنشاء اختصارات لقائمة سطح المكتب وبدء التشغيل. حاول إنشاءها لاحقاً من خلال الإعدادات.</value>
+    <value>لم يتمكن Fishstrap من إنشاء اختصارات لقائمة سطح المكتب وبدء التشغيل. حاول إنشاءها لاحقاً من خلال الإعدادات.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>تحقق من [Bloxstrap Wiki]({0}) أولاً لمعرفة ما إذا كانت هذه المشكلة قد عولجت بالفعل مع إصلاح.
 
-إن لم يكن الأمر كذلك، فيرجى الإبلاغ عن هذا الاستثناء إلى مشرفي هذه الفورك. لا تبلغ عن هذا إلى مشاكل Bloxstrap's GitHub، لأن هذا مبنى غير مسؤول.</value>
+إن لم يكن الأمر كذلك، فيرجى الإبلاغ عن هذا الاستثناء إلى مشرفي هذه الفورك. لا تبلغ عن هذا إلى مشاكل Fishstrap's GitHub، لأن هذا مبنى غير مسؤول.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>هذه اختصارات عامة تثير قائمة إطلاق متعددة الخيارات. يمكن إنشاء اختصارات لوظائف محددة في وقت لاحق في الإعدادات.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>تعديل كيفية تشغيل Bloxstrap بسهولة.</value>
+    <value>تعديل كيفية تشغيل Fishstrap بسهولة.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>عام</value>
@@ -1076,7 +1076,7 @@
     <value>الرجاء الانتظار حتى ينتهي إلغاء التثبيت.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>حول Bloxstrap</value>
+    <value>حول Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>التراخيص</value>
@@ -1089,7 +1089,7 @@
     <value>لديك تغييرات غير محفوظة. هل أنت متأكد من أنك تريد الإغلاق دون الحفظ؟</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>الإصدار من Bloxstrap الذي قمت بتشغيله أقدم من الإصدار الذي قمت بتثبيته الأن.
+    <value>الإصدار من Fishstrap الذي قمت بتشغيله أقدم من الإصدار الذي قمت بتثبيته الأن.
 قد تحدث مشاكل وقد يتم تغيير إعداداتك. يوصى بإعادة التثبيت.
 هل أنت متأكد من أنك تريد المتابعة؟</value>
   </data>
@@ -1102,7 +1102,7 @@
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>للحصول على معلومات عن السبب الذي من أجله يمكن أن يحدث هذا وكيف يمكن حله، يرجى قراءة [هذه المادة المساعدة]({0}).
 
-تحقق مما إذا كان Roblox يعمل مع [المشغل الأصلي]({1}). إذا لم يكن الأمر كذلك، فهذا ليس مشكلة Bloxstrap. إذا كان الأمر كذلك، فيرجى الرجوع إلى مقالة المساعدة.</value>
+تحقق مما إذا كان Roblox يعمل مع [المشغل الأصلي]({1}). إذا لم يكن الأمر كذلك، فهذا ليس مشكلة Fishstrap. إذا كان الأمر كذلك، فيرجى الرجوع إلى مقالة المساعدة.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>تعذر تحميل البيانات بسبب خطأ في الشبكة.</value>
@@ -1114,7 +1114,7 @@
     <value>الداعمين</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>هؤلاء هم الأشخاص الذين دعموا Bloxstrap من خلال Ko-fi. شكرًا جزيلاً للجميع هنا!
+    <value>هؤلاء هم الأشخاص الذين دعموا Fishstrap من خلال Ko-fi. شكرًا جزيلاً للجميع هنا!
 يتم تصنيف كل شخص هنا حسب تعهده الإجمالي.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1145,12 +1145,12 @@
     <value>لهذا الاطلاق، لن يتم التحقق من Roblox للتحديثات، ولن يتم تطبيق التغييرات على المودات.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>لا يمكن متابعة Bloxstrap, لأن Roblox بحاجة إلى تثبيت أو ترقية.</value>
+    <value>لا يمكن متابعة Fishstrap, لأن Roblox بحاجة إلى تثبيت أو ترقية.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>تم تثبيت Bloxstrap إلى هذا الموقع من قبل ولا يزال موجودا، ولكن المثبت لا يمكنه الكتابة فوق قابلة التنفيذ القديمة. 
+    <value>تم تثبيت Fishstrap إلى هذا الموقع من قبل ولا يزال موجودا، ولكن المثبت لا يمكنه الكتابة فوق قابلة التنفيذ القديمة. 
 
-الرجاء حذف Bloxstrap.exe يدويًا من موقع التثبيت أو محاولة إعادة تشغيل النظام، ثم إعادة محاولة التثبيت بعد ذلك.</value>
+الرجاء حذف Fishstrap.exe يدويًا من موقع التثبيت أو محاولة إعادة تشغيل النظام، ثم إعادة محاولة التثبيت بعد ذلك.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>غير متوفر</value>
@@ -1162,7 +1162,7 @@
     <value>تكوين معلمات التطبيق مثل سلوك قياس إدارة شؤون الإعلام و [تحسينات ملء الشاشة]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>لم يتم تثبيت Roblox بعد. الرجاء تشغيل Roblox باستخدام Bloxstrap مرة واحدة في الأقل قبل محاولة استخدام هذا الاختيار.</value>
+    <value>لم يتم تثبيت Roblox بعد. الرجاء تشغيل Roblox باستخدام Fishstrap مرة واحدة في الأقل قبل محاولة استخدام هذا الاختيار.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد إلغاء التثبيت؟</value>
@@ -1180,10 +1180,10 @@
     <value>استخراج أيقونات Roblox للمجلد</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>يسمح لك باستخدام مجموعة أيقونات Bloxstrap من Roblox للاختصارات الخاصة بك. [انظر كيف.]({0})</value>
+    <value>يسمح لك باستخدام مجموعة أيقونات Fishstrap من Roblox للاختصارات الخاصة بك. [انظر كيف.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap غير قادر على الكتابة إلى سجل ويندوز. من المحتمل أن تتدخل مكافحة الفيروسات وتسبب مشكلات. الرجاء التحقق للتأكد من عدم وجود أي شيء من شأنه أن يقيد عملية Bloxstrap.</value>
+    <value>Fishstrap غير قادر على الكتابة إلى سجل ويندوز. من المحتمل أن تتدخل مكافحة الفيروسات وتسبب مشكلات. الرجاء التحقق للتأكد من عدم وجود أي شيء من شأنه أن يقيد عملية Fishstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>شهرياً</value>
@@ -1191,13 +1191,13 @@
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>مرة واحدة</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>تكوين الخيارات المتعلقة بسلوك Bloxstrap.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>تكوين الخيارات المتعلقة بسلوك Fishstrap.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>تمكين إرسال التحليلات</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>إنه مجهول وما فيه شر، أوعدكم! للحصول على نظرة ثاقبة حول ما نجمعه و لماذا, راجع [الPrivacy Policy]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1221,7 +1221,7 @@
 هل ترغب في تمكين وضع الاختبار؟</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>جميع ترجمات Bloxstrap مزدحمة من خلال [Crowdin]({0}). كل الأشخاص المذكورين هنا هم المتطوعين الذين تطوعوا بذلوا جهدهم ووقتهم للمساعدة في توطين Bloxstrap. شكراً جزيلاً للجميع هنا!</value>
+    <value>جميع ترجمات Fishstrap مزدحمة من خلال [Crowdin]({0}). كل الأشخاص المذكورين هنا هم المتطوعين الذين تطوعوا بذلوا جهدهم ووقتهم للمساعدة في توطين Fishstrap. شكراً جزيلاً للجميع هنا!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>تثبيت</value>
@@ -1232,7 +1232,7 @@
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>من المحتمل أن يمنع Bloxstrap من الاتصال بالإنترنت.</value>
+    <value>من المحتمل أن يمنع Fishstrap من الاتصال بالإنترنت.</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>انتهت مهلة الاتصال، الذي يمكن أن يشير إلى ضعف الاتصال بالإنترنت أو إلى كتلة جدار الحماية.</value>
@@ -1263,7 +1263,7 @@
     <value>الإصدار {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>حاول Bloxstrap ترقية Roblox ولكن لا يمكن أن يكون لأن ملفات Roblox لا تزال قيد الاستخدام.
+    <value>حاول Fishstrap ترقية Roblox ولكن لا يمكن أن يكون لأن ملفات Roblox لا تزال قيد الاستخدام.
 
 الرجاء إغلاق أي تطبيقات قد تستخدم ملفات Roblox، وإعادة التشغيل.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1274,6 +1274,6 @@
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>تصدير</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

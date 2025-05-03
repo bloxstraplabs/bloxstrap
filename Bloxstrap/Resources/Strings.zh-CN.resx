@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap 目前无法自动更新至 v{0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Bloxstrap。</value>
+    <value>Fishstrap 目前无法自动更新至 v{0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Fishstrap。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 当前正在运行中，打开另一个 Roblox 进程后将会关闭它。
@@ -129,10 +129,10 @@
     <value>Roblox 的服务器目前可能已经熟透了；请参阅 {0} 来了解更多信息。</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>目前无法建立网络连接，这可能表明网络连接不畅或被防火墙阻止；如果连接正常，请确保您的杀毒软件没有阻止 Bloxstrap 访问 Internet。</value>
+    <value>目前无法建立网络连接，这可能表明网络连接不畅或被防火墙阻止；如果连接正常，请确保您的杀毒软件没有阻止 Fishstrap 访问 Internet。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>你必须先安装 Bloxstrap 后才能卸载。(难不成你想卸载安装包？)</value>
+    <value>你必须先安装 Fishstrap 后才能卸载。(难不成你想卸载安装包？)</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>当前所使用的磁盘空间不足以下载和安装 Roblox；请释放一些磁盘空间后再重试。</value>
@@ -159,8 +159,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>正在更新 {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>正在获取最新版本的 Bloxstrap...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>正在获取最新版本的 Fishstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>正在等待其他 Roblox 进程退出...</value>
@@ -174,10 +174,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap 已成功卸载</value>
+    <value>Fishstrap 已成功卸载</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox 当前正在运行中，但在卸载 Bloxstrap 之前必须将其关闭。
+    <value>Roblox 当前正在运行中，但在卸载 Fishstrap 之前必须将其关闭。
 
 您想现在关闭 Roblox 吗？</value>
   </data>
@@ -283,14 +283,14 @@
     <value>连接错误</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap 无法连接至 {0}</value>
+    <value>Fishstrap 无法连接至 {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>复制日志内容</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>运行 Bloxstrap 时发生了异常</value>
+    <value>运行 Fishstrap 时发生了异常</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>请先浏览 [Bloxstrap Wiki]({0})，看看这个问题是否已经得到解决。
@@ -298,7 +298,7 @@
 如果没有，请通过 [GitHub Issues]({1}) 来报告此异常；并附上所创建的日志文件副本。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap 出现异常</value>
+    <value>Fishstrap 出现异常</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>自定义</value>
@@ -313,10 +313,10 @@
     <value>仿 Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (经典)</value>
+    <value>Fishstrap (经典)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (透明)</value>
+    <value>Fishstrap (透明)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>经典 (2008 - 2011)</value>
@@ -394,10 +394,10 @@
     <value>浅色</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap 现已更新至 v{0}</value>
+    <value>Fishstrap 现已更新至 v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>您启动的 Bloxstrap 版本与您当前已安装的版本并不一致。
+    <value>您启动的 Fishstrap 版本与您当前已安装的版本并不一致。
 您是否要更新当前已安装的版本？</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -407,7 +407,7 @@
     <value>代码贡献者</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>这是那些曾经为 Bloxstrap 贡献了许多帮助的贡献者们；没有他们，发展到如今绝无可能。</value>
+    <value>这是那些曾经为 Fishstrap 贡献了许多帮助的贡献者们；没有他们，发展到如今绝无可能。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>特色功能贡献者</value>
@@ -453,7 +453,7 @@
     <value>请注意；在您关闭所有 Roblox 程序之前，并非所有更改都会立即生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap 已经在运行中</value>
+    <value>Fishstrap 已经在运行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>您可以自由更改此启动器的 UI 风格。例如复古；又或者跟原版 Roblox 的风格完全一样！</value>
@@ -480,13 +480,13 @@
     <value>标题</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>您可以在此处更改 Bloxstrap 的部分 UI。</value>
+    <value>您可以在此处更改 Fishstrap 的部分 UI。</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>全局主题</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>为 Bloxstrap 选择一个图标。</value>
+    <value>为 Fishstrap 选择一个图标。</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
     <value>图标</value>
@@ -504,10 +504,10 @@
     <value>个性化</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>当您启动 Roblox 时，Bloxstrap 将会自动检查其本身并进行更新。</value>
+    <value>当您启动 Roblox 时，Fishstrap 将会自动检查其本身并进行更新。</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>自动更新 Bloxstrap</value>
+    <value>自动更新 Fishstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>防止因意外启动另外一个 Roblox 进程从而导致您当前正在进行的进程被关闭。</value>
@@ -516,7 +516,7 @@
     <value>在启动另一个 Roblox 进程时提示确认信息</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>您可以在此处配置 Bloxstrap 在启动时应执行的操作。</value>
+    <value>您可以在此处配置 Fishstrap 在启动时应执行的操作。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>启用此选项后 Roblox 将会在下次启动时进行全新安装。
@@ -636,7 +636,7 @@
     <value>帧率上限</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>使用 [键盘快捷键]({0}) 来切换；只有当您在加入 [Bloxstrap 群组]({1}) 后才会生效。</value>
+    <value>使用 [键盘快捷键]({0}) 来切换；只有当您在加入 [Fishstrap 群组]({1}) 后才会生效。</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>启用 隐藏/显示 GUI 的功能</value>
@@ -661,10 +661,10 @@
     <value>图标文件</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap 无法在此处安装；请选择在其他位置安装，或点击 “重置” 按钮来使用其默认安装路径。</value>
+    <value>Fishstrap 无法在此处安装；请选择在其他位置安装，或点击 “重置” 按钮来使用其默认安装路径。</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>您选择安装 Bloxstrap 的文件夹已经存在且不为空文件夹；强烈建议将 Bloxstrap 安装到其自己的独立文件夹中。
+    <value>您选择安装 Fishstrap 的文件夹已经存在且不为空文件夹；强烈建议将 Fishstrap 安装到其自己的独立文件夹中。
 
 建议更改为以下位置：
 “{0}”
@@ -677,7 +677,7 @@
     <value>您必须选择一个安装位置</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap 对您当前选择的安装路径没有写入权限；请选择其他可用的位置。</value>
+    <value>Fishstrap 对您当前选择的安装路径没有写入权限；请选择其他可用的位置。</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>游戏跟踪</value>
@@ -729,7 +729,7 @@
     <value>禁止 Roblox 在离开游戏时退回到主界面</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>启用此选项将会允许 Bloxstrap 检测您当前玩的 Roblox 游戏；某些功能可能需要这项功能打开。</value>
+    <value>启用此选项将会允许 Fishstrap 检测您当前玩的 Roblox 游戏；某些功能可能需要这项功能打开。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>启用游戏跟踪</value>
@@ -800,7 +800,7 @@
     <value>使用旧的 虚拟形象 (Avatar) 编辑器背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>启用此选项后；Bloxstrap 将会试图大致还原 2014 年之前使用的 Roblox 人物音效。</value>
+    <value>启用此选项后；Fishstrap 将会试图大致还原 2014 年之前使用的 Roblox 人物音效。</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>模拟旧的 Roblox 人物音效</value>
@@ -827,7 +827,7 @@
     <value>设置已保存！</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 设置</value>
+    <value>Fishstrap 设置</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>选择启动器应用的语言</value>
@@ -839,7 +839,7 @@
     <value>语言</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>您需要重启 Bloxstrap 才能使更改生效。</value>
+    <value>您需要重启 Fishstrap 才能使更改生效。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
     <value>允许使用 Roblox 官方不支持的语言</value>
@@ -857,7 +857,7 @@
     <value>UI 和布局</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>允许 Bloxstrap 管理 Fast Flags</value>
+    <value>允许 Fishstrap 管理 Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>禁用此选项将会阻止在此配置的任何内容应用于 Roblox。</value>
@@ -902,7 +902,7 @@
     <value>禁用地形材质</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap 无法下载 Roblox</value>
+    <value>Fishstrap 无法下载 Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox 目前无法下载，请阅读此页面以获取详细信息：{0}</value>
@@ -923,7 +923,7 @@
     <value>您输入的内容 “{0}” 无效；其内容只能为数字才能生效。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>由于 Bloxstrap 无法写入 “{0}” 文件夹；因此本次启动不会写入任何日志文件。</value>
+    <value>由于 Fishstrap 无法写入 “{0}” 文件夹；因此本次启动不会写入任何日志文件。</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>默认</value>
@@ -938,13 +938,13 @@
     <value>您输入的内容 “{0}” 无效；因为游戏过滤器的格式不正确。</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap 安装程序</value>
+    <value>Fishstrap 安装程序</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>欢迎</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
-    <value>安装 Bloxstrap</value>
+    <value>安装 Fishstrap</value>
     <comment>Refers to "Install" as a verb</comment>
   </data>
   <data name="Installer.Completion.Title" xml:space="preserve">
@@ -957,19 +957,19 @@
     <value>下一步</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>感谢您下载 Bloxstrap。
+    <value>感谢您下载 Fishstrap。
 
-! 获取 Bloxstrap 的 唯一 官方网站 是 {0} 和 {1}；因此请确保启动器是从 官方渠道 获取的 !
-（注：一般只有使用真正意义上的 注入器 作弊才会导致封号 (Bloxstrap 只是在 外部 修改 并未在游戏内修改任何内容)）
+! 获取 Fishstrap 的 唯一 官方网站 是 {0} 和 {1}；因此请确保启动器是从 官方渠道 获取的 !
+（注：一般只有使用真正意义上的 注入器 作弊才会导致封号 (Fishstrap 只是在 外部 修改 并未在游戏内修改任何内容)）
 
-安装过程简单明了；安装完成后，您将可以对 Bloxstrap 的任何设置进行配置。</value>
+安装过程简单明了；安装完成后，您将可以对 Fishstrap 的任何设置进行配置。</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>请点击 “下一步” 以继续。</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>您正在尝试安装 Bloxstrap v{0}；目前最新版本是 Bloxstrap v{1}。
+    <value>您正在尝试安装 Fishstrap v{0}；目前最新版本是 Fishstrap v{1}。
 您想下载最新版本吗？</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
@@ -992,18 +992,18 @@
     <value>“开始”菜单图标</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap 目前已成功安装到你的电脑上。
+    <value>Fishstrap 目前已成功安装到你的电脑上。
 
-但是 Roblox 尚未安装；这将会在您首次使用 Bloxstrap 启动 Roblox 时发生。
-不过，在此之前；您可能会想先调整 Bloxstrap 的设置。
+但是 Roblox 尚未安装；这将会在您首次使用 Fishstrap 启动 Roblox 时发生。
+不过，在此之前；您可能会想先调整 Fishstrap 的设置。
 
-此外，请避免 使用默认 Roblox 启动器 “Roblox Player” 快捷方式 来启动 Roblox；因为 Bloxstrap 不会与 Roblox 一起启动。
-如果您尝试从 网页端 启动 Roblox 时并未显示 Bloxstrap，只需用 Bloxstrap 启动一次 Roblox 即可解决。
+此外，请避免 使用默认 Roblox 启动器 “Roblox Player” 快捷方式 来启动 Roblox；因为 Fishstrap 不会与 Roblox 一起启动。
+如果您尝试从 网页端 启动 Roblox 时并未显示 Fishstrap，只需用 Fishstrap 启动一次 Roblox 即可解决。
 
 您想要做什么？</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>更改 Bloxstrap 的设置</value>
+    <value>更改 Fishstrap 的设置</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>利用启动器提供的所有功能进行调整。</value>
@@ -1015,23 +1015,23 @@
     <value>一切就绪后，您将会跳转到 Roblox 桌面客户端。</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>卸载 Bloxstrap</value>
+    <value>卸载 Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>卸载后，Bloxstrap 将会从系统中移除；并自动重新配置 Roblox 原版启动器。
+    <value>卸载后，Fishstrap 将会从系统中移除；并自动重新配置 Roblox 原版启动器。
 
 如果您卸载重装的原因是 Roblox 的问题，请先阅读 [此帮助页]({0})。
 
-卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Bloxstrap 时残留的文件。
+卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Fishstrap 时残留的文件。
 
-Bloxstrap 的安装路径是：
+Fishstrap 的安装路径是：
 “{1}”</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>保留我的 Bloxstrap 设置 和 Roblox 模组 (Mods)</value>
+    <value>保留我的 Fishstrap 设置 和 Roblox 模组 (Mods)</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>它们将会保存在 Bloxstrap 安装的位置；重新安装时则会自动恢复。</value>
+    <value>它们将会保存在 Fishstrap 安装的位置；重新安装时则会自动恢复。</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>卸载</value>
@@ -1053,19 +1053,19 @@ Bloxstrap 的安装路径是：
 您想现在下载它吗？</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap 目前无法在 桌面 和 “开始”菜单 创建快捷方式；请尝试稍后通过设置手动创建快捷方式。</value>
+    <value>Fishstrap 目前无法在 桌面 和 “开始”菜单 创建快捷方式；请尝试稍后通过设置手动创建快捷方式。</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>请先在 [Bloxstrap Wiki]({0}) 检索这个问题是否已被修复。
 
-如果没有，请向此 社区分支 的维护者报告这个问题。切勿将此异常向 Bloxstrap 官方 GitHub Issues 报告；因为这是一个非官方版本。</value>
+如果没有，请向此 社区分支 的维护者报告这个问题。切勿将此异常向 Fishstrap 官方 GitHub Issues 报告；因为这是一个非官方版本。</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>这些是调出 “多选启动菜单” 的通用快捷方式；稍后可以在设置中创建特定功能的快捷方式。</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>您可以在此处配置 Bloxstrap 的快捷启动方式。</value>
+    <value>您可以在此处配置 Fishstrap 的快捷启动方式。</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>通用类</value>
@@ -1095,7 +1095,7 @@ Bloxstrap 的安装路径是：
     <value>请等待卸载完成。</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>关于 Bloxstrap</value>
+    <value>关于 Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>许可证</value>
@@ -1108,7 +1108,7 @@ Bloxstrap 的安装路径是：
     <value>您有未保存的更改；您确定要在不保存的情况下关闭吗？</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>您启动的 Bloxstrap 版本早于您当前安装的版本。
+    <value>您启动的 Fishstrap 版本早于您当前安装的版本。
 可能会出现问题，您的设置也可能被更改；建议重新安装。
 您确定要继续吗？</value>
   </data>
@@ -1122,7 +1122,7 @@ Bloxstrap 的安装路径是：
     <value>有关可能会出现这种情况的原因以及解决方法，请参阅 [此帮助页]({0})。
 
 请检查 Roblox 是否能在 [原版启动器]({1}) 中运行。
-如果不能，则这不是 Bloxstrap 的问题；如果可以，那么请参阅帮助文章以获取详细信息。</value>
+如果不能，则这不是 Fishstrap 的问题；如果可以，那么请参阅帮助文章以获取详细信息。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>由于网络错误，数据无法加载。</value>
@@ -1134,7 +1134,7 @@ Bloxstrap 的安装路径是：
     <value>赞助者</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>这些目前是通过 Ko-fi 来支持 Bloxstrap 的赞助者；在此衷心感谢协助 Bloxstrap 发展的赞助者们！
+    <value>这些目前是通过 Ko-fi 来支持 Fishstrap 的赞助者；在此衷心感谢协助 Fishstrap 发展的赞助者们！
 （在此处的每一个人都按其总认捐额来排名）</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1165,12 +1165,12 @@ Bloxstrap 的安装路径是：
     <value>此次启动将不会检查 Roblox 更新，对模组的更改也将不会被应用。</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>由于 Roblox 需要安装或更新，Bloxstrap 目前无法继续执行。</value>
+    <value>由于 Roblox 需要安装或更新，Fishstrap 目前无法继续执行。</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap 此前已安装到此位置，且安装文件仍然存在；但安装程序无法覆盖旧的可执行文件。
+    <value>Fishstrap 此前已安装到此位置，且安装文件仍然存在；但安装程序无法覆盖旧的可执行文件。
 
-请从安装位置 手动删除 “Bloxstrap.exe” 或尝试 重新启动系统，最后再重试安装 Bloxstrap。</value>
+请从安装位置 手动删除 “Fishstrap.exe” 或尝试 重新启动系统，最后再重试安装 Fishstrap。</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>暂不可用</value>
@@ -1182,7 +1182,7 @@ Bloxstrap 的安装路径是：
     <value>您可以在此处配置应用程序参数；例如 “DPI 缩放行为”，以及 “[全屏优化]({0})”。</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox 尚未安装；在尝试使用此选项之前，请至少使用 Bloxstrap 启动一次 Roblox。</value>
+    <value>Roblox 尚未安装；在尝试使用此选项之前，请至少使用 Fishstrap 启动一次 Roblox。</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>您确定要取消安装吗？</value>
@@ -1197,16 +1197,16 @@ Bloxstrap 的安装路径是：
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>提取 Roblox 图标至 Bloxstrap 安装目录</value>
+    <value>提取 Roblox 图标至 Fishstrap 安装目录</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>启用此选项后将会在 Bloxstrap 安装根目录上创建一个名为 “已提取的图标” 的文件夹。
+    <value>启用此选项后将会在 Fishstrap 安装根目录上创建一个名为 “已提取的图标” 的文件夹。
 （此选项允许您获取 Roblox 图标文件以便快捷应用于快捷方式）[如何应用？]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap 目前无法写入 Windows 注册表；可能是杀毒软件的干扰导致了问题。
+    <value>Fishstrap 目前无法写入 Windows 注册表；可能是杀毒软件的干扰导致了问题。
 
-请检查以确保没有任何东西会限制 Bloxstrap 的运行。</value>
+请检查以确保没有任何东西会限制 Fishstrap 的运行。</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>月度捐赠者</value>
@@ -1214,14 +1214,14 @@ Bloxstrap 的安装路径是：
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>单次捐赠者</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>您可以在此处配置 Bloxstrap 本身行为相关的选项。</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>您可以在此处配置 Fishstrap 本身行为相关的选项。</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>允许发送分析数据</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>Bloxstrap 承诺所有收集的数据都是匿名无害的。若要了解我们为什么而收集；请参阅我们的 [隐私政策]({0})。</value>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Fishstrap 承诺所有收集的数据都是匿名无害的。若要了解我们为什么而收集；请参阅我们的 [隐私政策]({0})。</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>分析数据</value>
@@ -1237,7 +1237,7 @@ Bloxstrap 的安装路径是：
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>“测试模式” 是一种可以更方便地反复测试 Bloxstrap 特定设置对 Roblox 造成影响的功能。
+    <value>“测试模式” 是一种可以更方便地反复测试 Fishstrap 特定设置对 Roblox 造成影响的功能。
 （例如微调 设置/FFlags 后可以更方便地调试具体参数对 Roblox 造成的影响）
 
 启用后，它将会在每次关闭设置后自动启动 Roblox；而关闭 Roblox 则会重新打开设置。
@@ -1246,7 +1246,7 @@ Bloxstrap 的安装路径是：
 您想启用 “测试模式” 吗？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Bloxstrap 的所有翻译都是由 [Crowdin]({0}) 来众包；在此处列出的每一个人都是慷慨地自愿贡献自己的时间和精力来帮助 本地化 Bloxstrap 的人。因此向每一个人的贡献表示衷心的感谢！</value>
+    <value>Fishstrap 的所有翻译都是由 [Crowdin]({0}) 来众包；在此处列出的每一个人都是慷慨地自愿贡献自己的时间和精力来帮助 本地化 Fishstrap 的人。因此向每一个人的贡献表示衷心的感谢！</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>安装</value>
@@ -1257,7 +1257,7 @@ Bloxstrap 的安装路径是：
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>某些东西可能正在阻止 Bloxstrap 连接至互联网。</value>
+    <value>某些东西可能正在阻止 Fishstrap 连接至互联网。</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>连接超时；可能表明当前网络连接不畅或被防火墙阻止。</value>
@@ -1288,9 +1288,9 @@ Bloxstrap 的安装路径是：
     <value>版本 {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap 目前无法更新 Roblox；因为当前 Roblox 的文件被占用。
+    <value>Fishstrap 目前无法更新 Roblox；因为当前 Roblox 的文件被占用。
 
-请关闭任何可能正在占用 Roblox 文件的应用程序，然后重启 Bloxstrap。</value>
+请关闭任何可能正在占用 Roblox 文件的应用程序，然后重启 Fishstrap。</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1299,6 +1299,6 @@ Bloxstrap 的安装路径是：
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>导出</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

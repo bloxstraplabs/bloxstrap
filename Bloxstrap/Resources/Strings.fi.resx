@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap ei pystynyt automaattisesti päivittämään versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla ja suorittamalla sen verkkosivulta.</value>
+    <value>Fishstrap ei pystynyt automaattisesti päivittämään versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla ja suorittamalla sen verkkosivulta.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox on tällä hetkellä käynnissä, ja toisen instanssin käynnistäminen tulee sulkemaan aiemman. Oletko varma, että haluat jatkaa?</value>
@@ -127,13 +127,13 @@
     <value>Roblox saattaa olla tällä hetkellä alhaalla. Katso {0} saadaksesi lisätietoja.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Yhteyttä ei voitu luoda, mikä todennäköisesti merkitsee huonoa internetyhteyttä tai palomuurin estoon. Jos yhteytesi on kunnossa, varmista, ettei virustentorjuntasi estä Bloxstrapia.</value>
+    <value>Yhteyttä ei voitu luoda, mikä todennäköisesti merkitsee huonoa internetyhteyttä tai palomuurin estoon. Jos yhteytesi on kunnossa, varmista, ettei virustentorjuntasi estä Fishstrapia.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Sinun pitää asentaa Bloxstrap ennen poistamista.</value>
+    <value>Sinun pitää asentaa Fishstrap ennen poistamista.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrapilla ei ole tarpeeksi levytilaa ladatakseen ja asentaakseen Robloxin. Vapauta levytilaa ja yritä uudelleen.</value>
+    <value>Fishstrapilla ei ole tarpeeksi levytilaa ladatakseen ja asentaakseen Robloxin. Vapauta levytilaa ja yritä uudelleen.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Asetetaan Roblox-muunnoksia...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Päivitetään {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Haetaan uusinta Bloxstrap-versiota...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>Haetaan uusinta Fishstrap-versiota...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Odotetaan muita instansseja...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap poistettiin onnistuneesti</value>
+    <value>Fishstrap poistettiin onnistuneesti</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox on tällä hetkellä käynnissä, mutta se pitää sulkea ennen Bloxstrapin poistamista. Haluatko sulkea Robloxin nyt?</value>
+    <value>Roblox on tällä hetkellä käynnissä, mutta se pitää sulkea ennen Fishstrapin poistamista. Haluatko sulkea Robloxin nyt?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox vaatii Windows Media Foundation -komponentit. Sinulla ei näytä olevan niitä, todennäköisesti koska käytät N-versiota Windowsista. Asenna ne ensin, ja sitten käynnistä Roblox.</value>
@@ -279,22 +279,22 @@ Klikkaa saadaksesi lisätietoja</value>
     <value>Yhteysvirhe</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap ei voi yhdistää kohteeseen {0}</value>
+    <value>Fishstrap ei voi yhdistää kohteeseen {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopioi lokin sisältö</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Ilmestyi poikkeus Bloxstrapin suorittaessa</value>
+    <value>Ilmestyi poikkeus Fishstrapin suorittaessa</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Tarkista ensin [Bloxstrapin Wiki]({0}) nähdäksesi, onko tämä ongelma jo korjattu.
+    <value>Tarkista ensin [Fishstrapin Wiki]({0}) nähdäksesi, onko tämä ongelma jo korjattu.
 
 Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1}) kautta ja liitä mukana kopio luodusta lokitiedostosta.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap-poikkeus</value>
+    <value>Fishstrap-poikkeus</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Mukautettu</value>
@@ -309,10 +309,10 @@ Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1
     <value>Feikki Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klassinen)</value>
+    <value>Fishstrap (Klassinen)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Lasi)</value>
+    <value>Fishstrap (Lasi)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Vanha (2008 - 2011)</value>
@@ -390,10 +390,10 @@ Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1
     <value>Vaalea</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap on päivitetty versioon v{0}</value>
+    <value>Fishstrap on päivitetty versioon v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Bloxstrapin versio, jonka käynnistit, eroaa asennetusta versiosta.
+    <value>Fishstrapin versio, jonka käynnistit, eroaa asennetusta versiosta.
 Haluatko päivittää tällä hetkellä asennetun version?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -403,7 +403,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Koodi</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Nämä ovat henkilöitä, jotka ovat tehneet huomattavia avustuksia Bloxstrapiin ja auttaneet tekemään siitä sen mikä se on.</value>
+    <value>Nämä ovat henkilöitä, jotka ovat tehneet huomattavia avustuksia Fishstrapiin ja auttaneet tekemään siitä sen mikä se on.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Ominaisuusideoita</value>
@@ -449,7 +449,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Huomioi, etteivät kaikki muutoksesi astu voimaan, kunnes suljet kaikki käynnissä olevat Roblox-instanssit.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap on jo käynnissä</value>
+    <value>Fishstrap on jo käynnissä</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Voit saada sen näyttämään erilaiselta, retrolta, tai jopa juuri kuin Robloxilta.</value>
@@ -476,7 +476,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Otsikko</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Määritä, miltä Bloxstrapin pitäisi näyttää.</value>
+    <value>Määritä, miltä Fishstrapin pitäisi näyttää.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Yleinen teema</value>
@@ -500,10 +500,10 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Ulkonäkö</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automaattisesti tarkistaa ja päivittää itsensä, kun Roblox avataan.</value>
+    <value>Fishstrap automaattisesti tarkistaa ja päivittää itsensä, kun Roblox avataan.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Päivitä Bloxstrap automaattisesti</value>
+    <value>Päivitä Fishstrap automaattisesti</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Estä valmiiksi käynnissä olevan pelin sulkemisen sen takia, että vahingossa käynnistit toisen.</value>
@@ -512,7 +512,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Kysy varmistusta ennen kuin käynnistät toisen Roblox-instanssin</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Määritä, mitä Bloxstrapin pitäisi tehdä käynnistäessään Robloxin.</value>
+    <value>Määritä, mitä Fishstrapin pitäisi tehdä käynnistäessään Robloxin.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox asennetaan uudelleen seuraavan käynnistyksen yhteydessä.</value>
@@ -629,7 +629,7 @@ Haluatko varmasti jatkaa?</value>
     <value>Kuvataajuuden rajoitus</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Vaihda käyttämällä [näppäinyhdistelmiä]({0}). Toimii vain, jos olet [Bloxstrap Roblox-ryhmässä]({1}).</value>
+    <value>Vaihda käyttämällä [näppäinyhdistelmiä]({0}). Toimii vain, jos olet [Fishstrap Roblox-ryhmässä]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Antaa sinun piilottaa pelin GUI:t</value>
@@ -653,10 +653,10 @@ Haluatko varmasti jatkaa?</value>
     <value>Kuvaketiedostot</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrapia ei voi asentaa tänne. Valitse toinen kansio, tai käytä oletuskansiota painamalla 'nollaa' nappia.</value>
+    <value>Fishstrapia ei voi asentaa tänne. Valitse toinen kansio, tai käytä oletuskansiota painamalla 'nollaa' nappia.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Kansio jonka valitsit asentaaksesi Bloxstrapin on jo olemassa ja EI ole tyhjä. On hyvin suositeltua Bloxstrapin olla asennettuna omaan kansioonsa
+    <value>Kansio jonka valitsit asentaaksesi Fishstrapin on jo olemassa ja EI ole tyhjä. On hyvin suositeltua Fishstrapin olla asennettuna omaan kansioonsa
 
 Vaihtaminen tähän kansioon on suositeltua:
 {0}
@@ -669,7 +669,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Sinun täytyy asettaa asennussijainti</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrapilla ei ole kirjoituslupaa valitsemaasi asennussijaintiin. Ole hyvä ja valitse toinen kansio.</value>
+    <value>Fishstrapilla ei ole kirjoituslupaa valitsemaasi asennussijaintiin. Ole hyvä ja valitse toinen kansio.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Aktiivisuusseuranta</value>
@@ -720,7 +720,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Älä poistu työpöytäsovellukseen</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Antaa Bloxstrapin tunnistaa, missä Roblox pelissä olet. Tietyt ominaisuudet voivat vaatia tämän.</value>
+    <value>Antaa Fishstrapin tunnistaa, missä Roblox pelissä olet. Tietyt ominaisuudet voivat vaatia tämän.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Ota käyttöön toiminnan seuranta</value>
@@ -817,7 +817,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Asetukset tallennettu!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrapin asetukset</value>
+    <value>Fishstrapin asetukset</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Valitse tahdottu kieli</value>
@@ -847,7 +847,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Käyttöliittymä ja asettelu</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Salli Bloxstrapin hallita Fast Flageja</value>
+    <value>Salli Fishstrapin hallita Fast Flageja</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Tämän käytöstä poistaminen estää minkään täällä konfiguroidun vaikuttamasta Robloxiin.</value>
@@ -892,7 +892,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Poista maaston tekstuurit käytöstä</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap ei voi ladata Robloxia</value>
+    <value>Fishstrap ei voi ladata Robloxia</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Robloxia ei voi ladata tällä hetkellä. Ole hyvä ja lue seuraava ohjesivu saadaksesi lisätietoja: {0}</value>
@@ -913,7 +913,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Merkintä flagille '{0}' ei kelpaa, koska arvon pitää olla numero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Lokitiedostoa ei tulla kirjoittamaan tälle käynnistykselle, koska Bloxstrap ei voi kirjoittaa kansioon '{0}'</value>
+    <value>Lokitiedostoa ei tulla kirjoittamaan tälle käynnistykselle, koska Fishstrap ei voi kirjoittaa kansioon '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Oletus</value>
@@ -928,7 +928,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Merkintä flagille '{0}' ei ole kelvollinen, koska pelisuodatin ei ole muotoiltu oikein.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrapin asennusohjelma</value>
+    <value>Fishstrapin asennusohjelma</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Tervetuloa</value>
@@ -947,18 +947,18 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Seuraava</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Kiitos, että latasit Bloxstrapin.
+    <value>Kiitos, että latasit Fishstrapin.
 
-Ainoat viralliset sivustot, joista Bloxstrapin voi ladata, ovat {0} ja {1}, joten tarkista, että latasit sen virallisesta lähteestä.
+Ainoat viralliset sivustot, joista Fishstrapin voi ladata, ovat {0} ja {1}, joten tarkista, että latasit sen virallisesta lähteestä.
 
-Tämä asennusprosessi tulee olemaan nopea ja yksinkertainen, ja voit konfiguroida kaikkia Bloxstrapin asetuksia asennuksen jälkeen.</value>
+Tämä asennusprosessi tulee olemaan nopea ja yksinkertainen, ja voit konfiguroida kaikkia Fishstrapin asetuksia asennuksen jälkeen.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Klikkaa 'Seuraava' jatkaaksesi.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Yrität asentaa Bloxstrapin versiota {0}, mutta viimeisin versio on {1}. Haluaisitko ladata sen?</value>
+    <value>Yrität asentaa Fishstrapin versiota {0}, mutta viimeisin versio on {1}. Haluaisitko ladata sen?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Valitse, mihin asennetaan</value>
@@ -979,16 +979,16 @@ Tämä asennusprosessi tulee olemaan nopea ja yksinkertainen, ja voit konfiguroi
     <value>Käynnistysvalikon kuvake</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap asennettiin onnistuneesti.
+    <value>Fishstrap asennettiin onnistuneesti.
 
-Roblox ei ole vielä asennettu, se tapahtuu vasta, kun käynnistät sen Bloxstrapin avulla ensimmäisen kerran. Kuitenkin ennen kuin teet näin, saattaisit tahtoa määrittää Bloxstrapin asetukset ensin.
+Roblox ei ole vielä asennettu, se tapahtuu vasta, kun käynnistät sen Fishstrapin avulla ensimmäisen kerran. Kuitenkin ennen kuin teet näin, saattaisit tahtoa määrittää Fishstrapin asetukset ensin.
 
-Muuten, vältä käyttämästä "Roblox Player" -pikakuvaketta käynnistääksesi Robloxin, koska Bloxstrap ei silloin käynnisty Robloxin mukana. Jos et näe Bloxstrapin ilmestyvän käynnistäessä pelin verkkosivustolta, käynnistä Roblox Bloxstrapin avulla työpöydältä kerran korjataksesi sen.
+Muuten, vältä käyttämästä "Roblox Player" -pikakuvaketta käynnistääksesi Robloxin, koska Fishstrap ei silloin käynnisty Robloxin mukana. Jos et näe Fishstrapin ilmestyvän käynnistäessä pelin verkkosivustolta, käynnistä Roblox Fishstrapin avulla työpöydältä kerran korjataksesi sen.
 
 Mitä tahtoisit tehdä?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Määritä Bloxstrapin asetukset</value>
+    <value>Määritä Fishstrapin asetukset</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Säädä sen tarjoamia ominaisuuksia</value>
@@ -1000,22 +1000,22 @@ Mitä tahtoisit tehdä?</value>
     <value>Pudottaa sinut työpöytäsovellukseen, kun kaikki on valmista</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Poista Bloxstrapin asennus</value>
+    <value>Poista Fishstrapin asennus</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Asennuksen poistaminen poistaa Bloxstrapin järjestelmästäsi ja automaattisesti uudelleenmäärittää Robloxin vakiokäynnistysohjelman, jos se on vielä asennettuna.
+    <value>Asennuksen poistaminen poistaa Fishstrapin järjestelmästäsi ja automaattisesti uudelleenmäärittää Robloxin vakiokäynnistysohjelman, jos se on vielä asennettuna.
 
 Jos poistat asennuksen tai asennat uudelleen, koska koet ongelmia Robloxin kanssa, lue [tämä tukisivu]({0}) ensin.
 
-Poistoprosessi ei saata pystyä siivoamaan itsensä täysin, joten sinun täytyy mahdollisesti siivota jäljelle jääneet tiedostot Bloxstrapin asennussijainnista.
+Poistoprosessi ei saata pystyä siivoamaan itsensä täysin, joten sinun täytyy mahdollisesti siivota jäljelle jääneet tiedostot Fishstrapin asennussijainnista.
 
-Bloxstrap asennettiin polkuun "{1}".</value>
+Fishstrap asennettiin polkuun "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Säilytä asetukseni ja modini</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Ne pidetään siellä, missä Bloxstrap asennettiin ja palautetaan uudelleenasennuksen yhteydessä.</value>
+    <value>Ne pidetään siellä, missä Fishstrap asennettiin ja palautetaan uudelleenasennuksen yhteydessä.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Poista asennus</value>
@@ -1036,19 +1036,19 @@ Bloxstrap asennettiin polkuun "{1}".</value>
     <value>Sinulla ei tällä hetkellä ole WebView2-ajoympäristöä asennettuna. Jotkin Robloxin ominaisuudet, kuten työpöytäohjelma, eivät toimi ilman sitä. Haluaisitko ladata sen nyt?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap ei pystynyt luomaan pikakuvakkeita työpöydälle ja aloitusvalikkoon. Yritä luoda ne myöhemmin asetuksista.</value>
+    <value>Fishstrap ei pystynyt luomaan pikakuvakkeita työpöydälle ja aloitusvalikkoon. Yritä luoda ne myöhemmin asetuksista.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Tarkista [Bloxstrapin wiki]({0}) ensin nähdäksesi, onko tämä ongelma jo ratkaistu korjauksella.
+    <value>Tarkista [Fishstrapin wiki]({0}) ensin nähdäksesi, onko tämä ongelma jo ratkaistu korjauksella.
 
-Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. ÄLÄ raportoi tätä Bloxstrapin GitHub-issueihin, koska tämä on epävirallinen koontiversio.</value>
+Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. ÄLÄ raportoi tätä Fishstrapin GitHub-issueihin, koska tämä on epävirallinen koontiversio.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Nämä ovat yleisiä pikakuvakkeita, jotka tuovat esiin monivalintaisen käynnistysvalikon. Pikakuvakkeet tietyille toiminnoille voidaan luoda myöhemmin asetuksista.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Määritä, miten Bloxstrap voidaan käynnistää helposti.</value>
+    <value>Määritä, miten Fishstrap voidaan käynnistää helposti.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Yleinen</value>
@@ -1078,7 +1078,7 @@ Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. Ä
     <value>Odota, että asennuksen poisto on valmis.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Tietoja Bloxstrapista</value>
+    <value>Tietoja Fishstrapista</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisenssit</value>
@@ -1091,7 +1091,7 @@ Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. Ä
     <value>Sinulla on tallentamattomia muutoksia. Oletko varma, että tahdot sulkea tallentamatta?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Käynnistämäsi Bloxstrap-versio on vanhempi kuin versio, joka sinulla on tällä hetkenä asennettuna.
+    <value>Käynnistämäsi Fishstrap-versio on vanhempi kuin versio, joka sinulla on tällä hetkenä asennettuna.
 Ongelmia voi esiintyä ja asetuksesi saattavat muuttua. Uudelleenasennus on suositeltavaa.
 Oletko varma, että tahdot jatkaa?</value>
   </data>
@@ -1104,7 +1104,7 @@ Oletko varma, että tahdot jatkaa?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Saadaksesi tietoa siitä, miksi tämä saattaisi tapahtua ja kuinka sen voi ratkaista, lue [tämä ohjeartikkeli}({0}).
 
-Tarkista, toimiiko Roblox [alkuperäisellä käynnistysohjelmalla]({1}). Jos ei, tämä ei ole vika Bloxstrapissa. Jos toimii, viittaa ohjeartikkeliin.</value>
+Tarkista, toimiiko Roblox [alkuperäisellä käynnistysohjelmalla]({1}). Jos ei, tämä ei ole vika Fishstrapissa. Jos toimii, viittaa ohjeartikkeliin.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Dataa ei voitu ladata verkkovirheen vuoksi.</value>
@@ -1116,7 +1116,7 @@ Tarkista, toimiiko Roblox [alkuperäisellä käynnistysohjelmalla]({1}). Jos ei,
     <value>Tukijat</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Nämä henkilöt ovat tukeneet Bloxstrapia Ko-fin kautta. Suuret kiitokset kaikille, ketkä olevat tässä!
+    <value>Nämä henkilöt ovat tukeneet Fishstrapia Ko-fin kautta. Suuret kiitokset kaikille, ketkä olevat tässä!
 Jokainen henkilö tässä on sijoitettu kokonaislahjoituksensa mukaisesti.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1147,12 +1147,12 @@ Jokainen henkilö tässä on sijoitettu kokonaislahjoituksensa mukaisesti.</valu
     <value>Tänä käynnistyksenä Robloxin päivityksiä ei tarkisteta, eivätkä muutokset modeihin astu voimaan.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Koska Roblox on asennettava tai päivitettävä, Bloxstrap ei voi jatkaa.</value>
+    <value>Koska Roblox on asennettava tai päivitettävä, Fishstrap ei voi jatkaa.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap on asennettu tähän sijaintiin ennen ja on edelleen läsnä, mutta asennusohjelma ei voi korvata vanhaa ohjelmaa.
+    <value>Fishstrap on asennettu tähän sijaintiin ennen ja on edelleen läsnä, mutta asennusohjelma ei voi korvata vanhaa ohjelmaa.
 
-Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnistä järjestelmäsi uudelleen ja yritä sitten asentaa uudelleen.</value>
+Ole hyvä ja poista Fishstrap.exe manuaalisesti asennussijainnista tai käynnistä järjestelmäsi uudelleen ja yritä sitten asentaa uudelleen.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Ei saatavilla</value>
@@ -1164,7 +1164,7 @@ Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnist
     <value>Määritä sovellusparametreja, kuten DPI-skaalauksen käyttäytymistä ja [koko näytön tilan optimointeja]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Robloxia ei ole vielä asennettu. Käynnistä Roblox Bloxstrapilla ainakin kerran ennen kuin yrität käyttää tätä asetusta.</value>
+    <value>Robloxia ei ole vielä asennettu. Käynnistä Roblox Fishstrapilla ainakin kerran ennen kuin yrität käyttää tätä asetusta.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Oletko varma, että haluat peruuttaa asennuksen?</value>
@@ -1182,10 +1182,10 @@ Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnist
     <value>Vie Roblox-kuvakkeet kansioon</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Antaa sinun käyttää Bloxstrapin Roblox-ikonien valikoimaa pikakuvakkeissasi. [Katso, miten.]({0})</value>
+    <value>Antaa sinun käyttää Fishstrapin Roblox-ikonien valikoimaa pikakuvakkeissasi. [Katso, miten.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap ei pysty kirjoittamaan Windowsin rekisteriin. Antivirusohjelma todennäköisesti häiritsee ja aiheuttaa ongelmia. Ole hyvä ja tarkista, ettei ole mitään, joka rajoittaisi Bloxstrapin toimintaa.</value>
+    <value>Fishstrap ei pysty kirjoittamaan Windowsin rekisteriin. Antivirusohjelma todennäköisesti häiritsee ja aiheuttaa ongelmia. Ole hyvä ja tarkista, ettei ole mitään, joka rajoittaisi Fishstrapin toimintaa.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Kuukausittainen</value>
@@ -1193,13 +1193,13 @@ Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnist
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Kertamaksu</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Määritä Bloxstrapin käyttäytymiseen liittyviä asetuksia.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Määritä Fishstrapin käyttäytymiseen liittyviä asetuksia.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>Ota analytiikan lähetys käyttöön</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Se on anonyymiä eikä mitään pahaa, lupaamme. Lisätietoja siitä, mitä me keräämme ja miksi löytyy [yksityisyyskäytännöstämme]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1223,7 +1223,7 @@ Kun se on päällä, se käynnistää Robloxin automaattisesti, kun suljet asetu
 Haluaisitko ottaa testaustilan käyttöön?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Kaikki Bloxstrapin käännökset joukkoistetaan [Crowdinin]({0}) kautta. Täällä listatut henkilöt ovat anteliaasti ja vapaaehtoisesti tarjonneet aikaansa ja vaivaansa auttaakseen Bloxstrapin lokalisoinnissa. Suuret kiitokset kaikille täällä oleville!</value>
+    <value>Kaikki Fishstrapin käännökset joukkoistetaan [Crowdinin]({0}) kautta. Täällä listatut henkilöt ovat anteliaasti ja vapaaehtoisesti tarjonneet aikaansa ja vaivaansa auttaakseen Fishstrapin lokalisoinnissa. Suuret kiitokset kaikille täällä oleville!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Asentaa</value>
@@ -1234,7 +1234,7 @@ Haluaisitko ottaa testaustilan käyttöön?</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Jokin todennäköisesti estää Bloxstrapia yhdistämästä internetiin.</value>
+    <value>Jokin todennäköisesti estää Fishstrapia yhdistämästä internetiin.</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>Yhteys aikakatkaistiin, mikä voisi merkitä huonoa internetyhteyttä tai palomuurin estoa.</value>
@@ -1265,9 +1265,9 @@ Haluaisitko ottaa testaustilan käyttöön?</value>
     <value>Versio {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap yritti päivittää Robloxin, mutta ei voi, koska Robloxin tiedostot ovat vielä käytössä.
+    <value>Fishstrap yritti päivittää Robloxin, mutta ei voi, koska Robloxin tiedostot ovat vielä käytössä.
 
-Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja käynnistä Bloxstrap sitten uudelleen.</value>
+Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja käynnistä Fishstrap sitten uudelleen.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1276,6 +1276,6 @@ Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja kä
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Vie</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

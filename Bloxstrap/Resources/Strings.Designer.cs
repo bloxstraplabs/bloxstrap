@@ -70,7 +70,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
+        ///   Looks up a localized string similar to These are the people who&apos;ve supported Fishstrap through Ko-fi. A massive thank you to everyone here!
         ///Every person here is ranked by their overall pledge..
         /// </summary>
         public static string About_Supporters_Description {
@@ -98,7 +98,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap supporters.
+        ///   Looks up a localized string similar to Fishstrap supporters.
         /// </summary>
         public static string About_Supporters_Title {
             get {
@@ -116,7 +116,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All of Bloxstrap&apos;s translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Bloxstrap. A massive thank you to everyone here!.
+        ///   Looks up a localized string similar to All of Fishstrap&apos;s translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Fishstrap. A massive thank you to everyone here!.
         /// </summary>
         public static string About_Translators_Description {
             get {
@@ -241,7 +241,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must first install Bloxstrap before uninstalling..
+        ///   Looks up a localized string similar to You must first install Fishstrap before uninstalling..
         /// </summary>
         public static string Bootstrapper_FirstRunUninstall {
             get {
@@ -351,9 +351,9 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Getting the latest Fishstrap....
         /// </summary>
-        public static string Bootstrapper_Status_UpgradingBloxstrap {
+        public static string Bootstrapper_Status_UpgradingFishstrap {
             get {
-                return ResourceManager.GetString("Bootstrapper.Status.UpgradingBloxstrap", resourceCulture);
+                return ResourceManager.GetString("Bootstrapper.Status.UpgradingFishstrap", resourceCulture);
             }
         }
         
@@ -1858,7 +1858,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap installation was not found..
+        ///   Looks up a localized string similar to Fishstrap installation was not found..
         /// </summary>
         public static string Installer_InstallationNotFound {
             get {
@@ -2024,7 +2024,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who have made notable contributions to Bloxstrap/Fishstrap, helping make it what it is..
+        ///   Looks up a localized string similar to These are the people who have made notable contributions to Fishstrap/Bloxstrap, helping make it what it is..
         /// </summary>
         public static string Menu_About_Contributors_Description {
             get {
@@ -2051,7 +2051,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A Bloxstrap fork..
+        ///   Looks up a localized string similar to A Bloxstrap Fork..
         /// </summary>
         public static string Menu_About_Description {
             get {
@@ -2489,69 +2489,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It&apos;s anonymous and nothing evil, promise. For insight on what Bloxstrap collects and why, see Bloxstrap&apos;s [privacy policy]({0})..
-        /// </summary>
-        public static string Menu_Bloxstrap_Analytics_Description {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.Analytics.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable sending of analytics to Bloxstrap.
-        /// </summary>
-        public static string Menu_Bloxstrap_Analytics_Title {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.Analytics.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure options related to Fishstrap&apos;s behaviour itself..
-        /// </summary>
-        public static string Menu_Bloxstrap_Description {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gather information that can be uploaded online to troubleshoot a problem you&apos;re having..
-        /// </summary>
-        public static string Menu_Bloxstrap_ExportData_Description {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap configuration.
-        /// </summary>
-        public static string Menu_Bloxstrap_ExportData_ExportConfig {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.ExportConfig", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to All Bloxstrap logs.
-        /// </summary>
-        public static string Menu_Bloxstrap_ExportData_ExportLogs {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.ExportLogs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Export diagnostic data.
-        /// </summary>
-        public static string Menu_Bloxstrap_ExportData_Title {
-            get {
-                return ResourceManager.GetString("Menu.Bloxstrap.ExportData.Title", resourceCulture);
             }
         }
         
@@ -3383,6 +3320,69 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s anonymous and nothing evil, promise. For insight on what Fishstrap collects and why, see Fishstrap&apos;s [privacy policy]({0})..
+        /// </summary>
+        public static string Menu_Fishstrap_Analytics_Description {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.Analytics.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable sending of analytics to Fishstrap.
+        /// </summary>
+        public static string Menu_Fishstrap_Analytics_Title {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.Analytics.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure options related to Fishstrap&apos;s behaviour itself..
+        /// </summary>
+        public static string Menu_Fishstrap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather information that can be uploaded online to troubleshoot a problem you&apos;re having..
+        /// </summary>
+        public static string Menu_Fishstrap_ExportData_Description {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.ExportData.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fishstrap configuration.
+        /// </summary>
+        public static string Menu_Fishstrap_ExportData_ExportConfig {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.ExportData.ExportConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Fishstrap logs.
+        /// </summary>
+        public static string Menu_Fishstrap_ExportData_ExportLogs {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.ExportData.ExportLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export diagnostic data.
+        /// </summary>
+        public static string Menu_Fishstrap_ExportData_Title {
+            get {
+                return ResourceManager.GetString("Menu.Fishstrap.ExportData.Title", resourceCulture);
             }
         }
         

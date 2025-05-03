@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nebyl schopen se automaticky aktualizovat na verzi {0}. Prosím aktualizujte ručně stažením a spuštěním z webové stránky.</value>
+    <value>Fishstrap nebyl schopen se automaticky aktualizovat na verzi {0}. Prosím aktualizujte ručně stažením a spuštěním z webové stránky.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox už běží, a spouštění další objektů se roblox zavře. Opravdu chcete pokračovat se spuštění?</value>
@@ -127,13 +127,13 @@
     <value>Roblox může být právě teď mimo provoz. Další informace viz {0}.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Nelze navázat připojení, což pravděpodobně naznačuje špatné připojení k internetu nebo firewall block. Pokud je připojení v pořádku, ujistěte se, že váš antivirus neblokuje Bloxstrap.</value>
+    <value>Nelze navázat připojení, což pravděpodobně naznačuje špatné připojení k internetu nebo firewall block. Pokud je připojení v pořádku, ujistěte se, že váš antivirus neblokuje Fishstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>První si musíš nainstalovat Bloxstrap než odinstaluješ.</value>
+    <value>První si musíš nainstalovat Fishstrap než odinstaluješ.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nemá dostatek volného místa na disku aby instaloval Roblox. Prosím uvolněte nějaké místo na disku a zkuste to znovu.</value>
+    <value>Fishstrap nemá dostatek volného místa na disku aby instaloval Roblox. Prosím uvolněte nějaké místo na disku a zkuste to znovu.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Aplikování Roblox modifikací...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Aktualizuje se {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Získávání nejnovější verze Bloxstrap...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>Získávání nejnovější verze Fishstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Čeká se na ostatní objekty...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap byl úspěšně odinstalován</value>
+    <value>Fishstrap byl úspěšně odinstalován</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox právě běží, ale musí být zavřen, před tím, než odinstalujete Bloxstrap.
+    <value>Roblox právě běží, ale musí být zavřen, před tím, než odinstalujete Fishstrap.
 Chtěli nyní zavřít Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
@@ -280,14 +280,14 @@ Klikněte pro více informací</value>
     <value>Chyba připojení</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap není schopen se připojit k {0}</value>
+    <value>Fishstrap není schopen se připojit k {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopírovat log obsah</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Došlo k výjimce při běžení Bloxstrapu</value>
+    <value>Došlo k výjimce při běžení Fishstrapu</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>Nejprve zkontrolujte [Bloxstrap Wiki]({0}), zda byl tento problém již vyřešen opravou.
@@ -295,7 +295,7 @@ Klikněte pro více informací</value>
 Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) spolu s kopií log souboru, který byl vytvořen.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap výjimka</value>
+    <value>Fishstrap výjimka</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Vlastní</value>
@@ -310,10 +310,10 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Falešný Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klasický)</value>
+    <value>Fishstrap (Klasický)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Sklo)</value>
+    <value>Fishstrap (Sklo)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -391,10 +391,10 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Světlý</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap byl aktualizován na v{0}</value>
+    <value>Fishstrap byl aktualizován na v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Verze Bloxstrapu kterou jste spustili je jiná než tu kterou máte instalovanou. Chcete aktualizovat vaší instalovanou verzi?</value>
+    <value>Verze Fishstrapu kterou jste spustili je jiná než tu kterou máte instalovanou. Chcete aktualizovat vaší instalovanou verzi?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Přispěvatelé</value>
@@ -403,7 +403,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Kód</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Tohle jsou ti lidé, kteří významně přispěli a pomohli z Bloxstrap udělat to, čím je teď.</value>
+    <value>Tohle jsou ti lidé, kteří významně přispěli a pomohli z Fishstrap udělat to, čím je teď.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Nápady vlastností</value>
@@ -449,7 +449,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Prosíme poznamenejte si, že všechny vaše změny se aplikují ihned až zavřete všechny otevřené instance Roblox.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap již běží</value>
+    <value>Fishstrap již běží</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Můžete tomu změnit vzhled, aby to vypadalo jinak, retro, nebo prostě jako Roblox.</value>
@@ -476,7 +476,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Název</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfigurovat vzhled Bloxstrapu.</value>
+    <value>Konfigurovat vzhled Fishstrapu.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globální Téma</value>
@@ -500,10 +500,10 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Vzhled</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automaticky kontroluje a aktualizuje se když se spouští Roblox.</value>
+    <value>Fishstrap automaticky kontroluje a aktualizuje se když se spouští Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automaticky aktualizovat Bloxstrap</value>
+    <value>Automaticky aktualizovat Fishstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevence proti uzavření vaší existující hry při omylnému spuštění další.</value>
@@ -512,7 +512,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Zeptat se k potvrzení při spouštění další instance Roblox</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigurovat co by měl Bloxstrap udělat při spuštění Robloxu.</value>
+    <value>Konfigurovat co by měl Fishstrap udělat při spuštění Robloxu.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox se přeinstaluje při dalším spuštení.</value>
@@ -629,7 +629,7 @@ NEPOUŽÍVEJTE tohle aby jste importovali velké "Fast flags" listy udělané os
     <value>Limit frekvence</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Přepíná se pomocí [klávesových zkratek]({0}). Funguje pouze, pokud jste ve [skupině Bloxstrap na Robloxu]({1}).</value>
+    <value>Přepíná se pomocí [klávesových zkratek]({0}). Funguje pouze, pokud jste ve [skupině Fishstrap na Robloxu]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Povolit možnost skrýt GUI</value>
@@ -653,10 +653,10 @@ NEPOUŽÍVEJTE tohle aby jste importovali velké "Fast flags" listy udělané os
     <value>Ikonové soubory</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap zde nelze nainstalovat. Zvolte prosím jiné umístění nebo se uchylte k použití výchozího umístění kliknutím na tlačítko reset.</value>
+    <value>Fishstrap zde nelze nainstalovat. Zvolte prosím jiné umístění nebo se uchylte k použití výchozího umístění kliknutím na tlačítko reset.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Složka do které jste se rozhodli nainstalovat Bloxstrap již existuje a NENÍ prázdná. Je důrazně doporučeno aby byl Bloxstrap nainstalován do své vlastní nezávislé složky.
+    <value>Složka do které jste se rozhodli nainstalovat Fishstrap již existuje a NENÍ prázdná. Je důrazně doporučeno aby byl Fishstrap nainstalován do své vlastní nezávislé složky.
 
 Je navrhováno změnit umístění do následujícího umístění:
 {0}
@@ -669,7 +669,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Musíš si nastavit lokaci pro instalaci</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nemá přístup k zápisu do umístění instalace kterou jste vybrali. Vyberte prosím jiné umístění.</value>
+    <value>Fishstrap nemá přístup k zápisu do umístění instalace kterou jste vybrali. Vyberte prosím jiné umístění.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Trackování aktivity</value>
@@ -720,7 +720,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Nevypínejte na desktopovou aplikaci</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Povoluje Bloxstrap, aby detektoval, jaké hry na Robloxu hraješ. Určité funkce mohou vyžadovat toto.</value>
+    <value>Povoluje Fishstrap, aby detektoval, jaké hry na Robloxu hraješ. Určité funkce mohou vyžadovat toto.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Povolit trackování aktivity</value>
@@ -817,7 +817,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Nastavení bylo uloženo!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Nastavení Bloxstrapu</value>
+    <value>Nastavení Fishstrapu</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Použít preferovaný jazyk</value>
@@ -847,7 +847,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Uživatelské Rozhrání a rozložení</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Dovolit Bloxstrap spravovat Fast Flags</value>
+    <value>Dovolit Fishstrap spravovat Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Vypnutí tohoto nastavení zakáže použití vlastní konfigurace v Robloxu.</value>
@@ -892,7 +892,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Vypnout terénové textury</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap nemůže stáhnout Roblox</value>
+    <value>Fishstrap nemůže stáhnout Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox nemůže být v tuto dobu nainstalovaný. Prosím přečtěte si tuto stránku pro pomoc a více informací: {0}</value>
@@ -913,7 +913,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Záznam pro '{0}' není platný, protože hodnota musí být číslo</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Žádný log soubor nebude zapsán pro toto spuštění, protože Bloxstrap nemůže zapisovat do složky v '{0}'</value>
+    <value>Žádný log soubor nebude zapsán pro toto spuštění, protože Fishstrap nemůže zapisovat do složky v '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Výchozí</value>
@@ -928,7 +928,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Položka '{0}' není platná, protože "place filter" nemá správný formát.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Instalátor Bloxstrapu</value>
+    <value>Instalátor Fishstrapu</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Vítejte</value>
@@ -947,18 +947,18 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <value>Další</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Děkujeme za stažení Bloxstrapu. 
+    <value>Děkujeme za stažení Fishstrapu. 
 
-Jediné oficiální stránky pro stažení Bloxstrapu jsou {0} a {1}, takže prosím ověřte, zda jste jej stáhli z oficiálního zdroje.
+Jediné oficiální stránky pro stažení Fishstrapu jsou {0} a {1}, takže prosím ověřte, zda jste jej stáhli z oficiálního zdroje.
 
-Instalační proces bude rychlý a jednoduchý a po instalaci budete moci nakonfigurovat jakékoliv nastavení Bloxstrapu.</value>
+Instalační proces bude rychlý a jednoduchý a po instalaci budete moci nakonfigurovat jakékoliv nastavení Fishstrapu.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Pro pokračování klikněte na tlačítko 'Další'.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Pokoušíte se nainstalovat verzi {0} Bloxstrapu, ale nejnovější dostupná verze je {1}. Chcete ji stáhnout?</value>
+    <value>Pokoušíte se nainstalovat verzi {0} Fishstrapu, ale nejnovější dostupná verze je {1}. Chcete ji stáhnout?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Vyberte, kam chcete nainstalovat</value>
@@ -979,19 +979,19 @@ Instalační proces bude rychlý a jednoduchý a po instalaci budete moci nakonf
     <value>Ikona v Start menu</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap byl úspěšně nainstalován.
+    <value>Fishstrap byl úspěšně nainstalován.
 
-Roblox ještě nebyl nainstalován, k čemuž dojde při prvním spuštění Bloxstrapu. Než to uděláte, možná budete chtít nejdříve nakonfigurovat Bloxstrap.
+Roblox ještě nebyl nainstalován, k čemuž dojde při prvním spuštění Fishstrapu. Než to uděláte, možná budete chtít nejdříve nakonfigurovat Fishstrap.
 
-Nepoužívejte také zkratku "Roblox Player" pro spuštění Robloxu, protože Bloxstrap nebude spuštěn s Robloxem. Pokud se nespustí Bloxstrap při spuštění z webové stránky, jednoduše spusťte Bloxstrap jednou z plochy, abyste to opravili.
+Nepoužívejte také zkratku "Roblox Player" pro spuštění Robloxu, protože Fishstrap nebude spuštěn s Robloxem. Pokud se nespustí Fishstrap při spuštění z webové stránky, jednoduše spusťte Fishstrap jednou z plochy, abyste to opravili.
 
 Co chcete udělat?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Nakonfigurovat nastavení Bloxstrapu</value>
+    <value>Nakonfigurovat nastavení Fishstrapu</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
-    <value>Pohrajte si se všemi funkcemi Bloxstrapu</value>
+    <value>Pohrajte si se všemi funkcemi Fishstrapu</value>
   </data>
   <data name="Installer.Completion.Launch.Title" xml:space="preserve">
     <value>Instalovat a spustit Roblox</value>
@@ -1000,22 +1000,22 @@ Co chcete udělat?</value>
     <value>Hodí vás do desktopové aplikace Robloxu po dokončení</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Odinstalovat Bloxstrap</value>
+    <value>Odinstalovat Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěčtě Robloxu, pokud je stále nainstalován.
+    <value>Odinstalace odstraní Fishstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěčtě Robloxu, pokud je stále nainstalován.
 
 Pokud odinstalujete nebo přeinstalujete, protože máte problémy s Robloxem, přečtěte si nejprve [tuto stránku pomoci]({0}).
 
-Odinstalace možná nebude moct odstranit všechny data sama, takže možná budete muset ručně vyčistit zbylé soubory po Bloxstrapu.
+Odinstalace možná nebude moct odstranit všechny data sama, takže možná budete muset ručně vyčistit zbylé soubory po Fishstrapu.
 
-Bloxstrap byl nainstalován na "{1}".</value>
+Fishstrap byl nainstalován na "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Uložit moje nastavení a módy</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Zůstanou uchovány na instalačním místě Bloxstrapu, a budou automaticky obnoveny při přeinstalaci.</value>
+    <value>Zůstanou uchovány na instalačním místě Fishstrapu, a budou automaticky obnoveny při přeinstalaci.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Odinstalovat</value>
@@ -1036,19 +1036,19 @@ Bloxstrap byl nainstalován na "{1}".</value>
     <value>Nemáte momentálně nainstalovaný WebView2 runtime. Různé funkce Robloxu nebudou bez něj fungovat správně, jako například desktopová aplikace. Chcete jej nyní stáhnout?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nebyl schopen vytvořit zkratky na ploše a v menu Start. Zkuste je vytvořit později v nastavení.</value>
+    <value>Fishstrap nebyl schopen vytvořit zkratky na ploše a v menu Start. Zkuste je vytvořit později v nastavení.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Nejprve zkontrolujte [Bloxstrapovou Wiki]({0}), jestli náhodou váš problém nebyl již vyřešen.
+    <value>Nejprve zkontrolujte [Fishstrapovou Wiki]({0}), jestli náhodou váš problém nebyl již vyřešen.
 
-Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE tuto chybu do GitHub repozitáře Bloxstrapu, protože toto je neoficiální build.</value>
+Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE tuto chybu do GitHub repozitáře Fishstrapu, protože toto je neoficiální build.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Tohle jsou obecné zkratky, které zobrazí spouštěcí nabídku s vícemi možnostmi. Zkratky pro konkrétní funkce mohou být vytvořeny později v nastavení.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Nakonfigurujte, jak může být Bloxstrap snadno spuštěn.</value>
+    <value>Nakonfigurujte, jak může být Fishstrap snadno spuštěn.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Obecný</value>
@@ -1078,7 +1078,7 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
     <value>Prosím počkejte, až se odinstalace dokončí.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>O Bloxstrapu</value>
+    <value>O Fishstrapu</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licence</value>
@@ -1091,7 +1091,7 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
     <value>Máte neuložené změny. Opravdu chcete ukončit bez uložení?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Verze Bloxstrapu, kterou jste spustili, je starší než ta, kterou máte právě nainstalovanou.
+    <value>Verze Fishstrapu, kterou jste spustili, je starší než ta, kterou máte právě nainstalovanou.
 Mohou nastat problémy a vaše nastavení mohou být změněny. Doporučuje se přeinstalovat.
 Opravdu chcete pokračovat?</value>
   </data>
@@ -1104,7 +1104,7 @@ Opravdu chcete pokračovat?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Pro informace o tom, proč k tomu může docházet a jak to lze vyřešit, si přečtěte [tento článek s nápovědou]({0}).
 
-Zkontrolujte, zda Roblox funguje [s původním spouštěčem]({1}). Pokud nefunguje, problém není způsoben Bloxstrapem. Pokud ano, podívejte se na článek s nápovědou.</value>
+Zkontrolujte, zda Roblox funguje [s původním spouštěčem]({1}). Pokud nefunguje, problém není způsoben Fishstrapem. Pokud ano, podívejte se na článek s nápovědou.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepodařilo se načíst data kvůli chybám internetové sítě.</value>
@@ -1116,7 +1116,7 @@ Zkontrolujte, zda Roblox funguje [s původním spouštěčem]({1}). Pokud nefung
     <value>Podporovatelé</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Tohle jsou lidé, kteří podpořili Bloxstrap skrz Ko-fi. Velký dík všem zde!
+    <value>Tohle jsou lidé, kteří podpořili Fishstrap skrz Ko-fi. Velký dík všem zde!
 Každá osoba je zařazena podle celkového závazku.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1147,12 +1147,12 @@ Každá osoba je zařazena podle celkového závazku.</value>
     <value>Pro toto spuštění nebude Roblox kontrolován pro aktualizace a změny v módech nebudou aplikovány.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Jelikož Roblox musí být nainstalován nebo potřebuje aktualizaci, Bloxstrap nemůže pokračovat.</value>
+    <value>Jelikož Roblox musí být nainstalován nebo potřebuje aktualizaci, Fishstrap nemůže pokračovat.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap byl nainstalován na toto místo a je stále přítomen, ale instalátor nemůže přepsat starý.exe soubor. 
+    <value>Fishstrap byl nainstalován na toto místo a je stále přítomen, ale instalátor nemůže přepsat starý.exe soubor. 
 
-Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste restartovat systém a poté zkuste instalaci znovu.</value>
+Prosím manuálně smažte Fishstrap.exe z instalačního místa nebo zkuste restartovat systém a poté zkuste instalaci znovu.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Není k dispozici</value>
@@ -1164,7 +1164,7 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
     <value>Konfigurace parametrů aplikace, jako je škálování DPI a [optimizace pro rozlišení celé obrazovky]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox již nebyl nainstalován. Před použitím této možnosti spusťte Bloxstrap alespoň jednou.</value>
+    <value>Roblox již nebyl nainstalován. Před použitím této možnosti spusťte Fishstrap alespoň jednou.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Opravdu chcete zrušit instalaci?</value>
@@ -1182,10 +1182,10 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
     <value>Extrahovat ikony Robloxu do složky</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Umožňuje používat rozsah Roblox ikon Bloxstrapu pro zástupce. [Podívej se jak na to.]({0})</value>
+    <value>Umožňuje používat rozsah Roblox ikon Fishstrapu pro zástupce. [Podívej se jak na to.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap není schopen zapisovat do registru Windows. Antivirus pravděpodobně zasahuje a způsobuje problémy. Prosím zkontrolujte, zda nemáte nic, co by omezilo funkci Bloxstrapu.</value>
+    <value>Fishstrap není schopen zapisovat do registru Windows. Antivirus pravděpodobně zasahuje a způsobuje problémy. Prosím zkontrolujte, zda nemáte nic, co by omezilo funkci Fishstrapu.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Měsíčně</value>
@@ -1193,13 +1193,13 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Jednorázově</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigurace možností souvisejících se samotným chováním Bloxstrapu.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Konfigurace možností souvisejících se samotným chováním Fishstrapu.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>Povolit odesílání analytiky</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Je to anonymní a nic zlého, přísaháme. Pokud vás zajímá co sbíráme a proč, podívejte se na naše [zásady ochrany osobních údajů]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1223,7 +1223,7 @@ Pokud je zapnut, po zavření nastavení automaticky spustí Roblox a po zavřen
 Chcete zapnout testovací režim?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Všechny překlady Bloxstrapu jsou crowdsourcovány skrz [Crowdin]({0}). Všichni uvedení zde jsou lidé, kteří velkoryse dobrovolili svůj čas a snahu přeložit Bloxstrap. Obrovský dík všem!</value>
+    <value>Všechny překlady Fishstrapu jsou crowdsourcovány skrz [Crowdin]({0}). Všichni uvedení zde jsou lidé, kteří velkoryse dobrovolili svůj čas a snahu přeložit Fishstrap. Obrovský dík všem!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Instalovat</value>
@@ -1234,7 +1234,7 @@ Chcete zapnout testovací režim?</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Něco pravděpodobně brání Bloxstrapu připojení k internetu.</value>
+    <value>Něco pravděpodobně brání Fishstrapu připojení k internetu.</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>Vypršel časový limit připojení, což může znamenat špatné připojení k internetu nebo zablokování brány firewall.</value>
@@ -1265,7 +1265,7 @@ Chcete zapnout testovací režim?</value>
     <value>Verze {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap se pokusil aktualizovat Roblox, ale nemůže, protože soubory Robloxu jsou stále používány.
+    <value>Fishstrap se pokusil aktualizovat Roblox, ale nemůže, protože soubory Robloxu jsou stále používány.
 
 Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spusťte.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1276,6 +1276,6 @@ Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spu
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Exportovat</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

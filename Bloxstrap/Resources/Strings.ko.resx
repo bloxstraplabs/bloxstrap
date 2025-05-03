@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap을 버전 {0}으로 자동 업데이트하지 못했습니다. 웹사이트에서 다운로드하고 실행하여 수동으로 업데이트하세요.</value>
+    <value>Fishstrap을 버전 {0}으로 자동 업데이트하지 못했습니다. 웹사이트에서 다운로드하고 실행하여 수동으로 업데이트하세요.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox가 현재 실행 중이며 다른 인스턴스를 실행하면 종료됩니다. 계속 진행하시겠습니까?</value>
@@ -127,13 +127,13 @@
     <value>Roblox 서버가 다운되었을 수도 있습니다. 자세한 정보는 {0}에서 확인하세요.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>연결에 실패했습니다. 이는 주로 인터넷 연결 상태가 좋지 않거나 방화벽으로 인한 차단을 뜻합니다. 연결에 문제가 없다면, 안티바이러스 프로그램이 Bloxstrap을 차단하고 있지는 않은지 확인해 주세요.</value>
+    <value>연결에 실패했습니다. 이는 주로 인터넷 연결 상태가 좋지 않거나 방화벽으로 인한 차단을 뜻합니다. 연결에 문제가 없다면, 안티바이러스 프로그램이 Fishstrap을 차단하고 있지는 않은지 확인해 주세요.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Bloxstrap을 제거하기 전에 먼저 설치해야 합니다.</value>
+    <value>Fishstrap을 제거하기 전에 먼저 설치해야 합니다.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 다운로드하고 설치하기에 충분한 디스크 공간이 없습니다. 디스크 공간을 확보한 후 다시 시도하세요.</value>
+    <value>Fishstrap이 Roblox를 다운로드하고 설치하기에 충분한 디스크 공간이 없습니다. 디스크 공간을 확보한 후 다시 시도하세요.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Roblox 수정 사항을 적용 중...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} 업그레이드 중...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>최신 Bloxstrap을 받는 중...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>최신 Fishstrap을 받는 중...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>다른 인스턴스를 기다리는 중...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap이 성공적으로 제거되었습니다</value>
+    <value>Fishstrap이 성공적으로 제거되었습니다</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox가 현재 실행 중입니다. Bloxstrap을 제거하려면 먼저 Roblox를 종료해야 합니다. 종료하시겠습니까?</value>
+    <value>Roblox가 현재 실행 중입니다. Fishstrap을 제거하려면 먼저 Roblox를 종료해야 합니다. 종료하시겠습니까?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox는 Windows Media Foundation 구성 요소를 필요로 합니다. N 버전의 Windows를 사용하고 있기 때문에 해당 항목이 누락된 것 같습니다. 먼저 해당 구성 요소를 설치한 후 Roblox를 실행하세요.</value>
@@ -279,22 +279,22 @@
     <value>연결 오류</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap이 {0}에 연결할 수 없습니다</value>
+    <value>Fishstrap이 {0}에 연결할 수 없습니다</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>로그 내용 복사</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxstrap 실행 중 예외 오류가 발생했습니다.</value>
+    <value>Fishstrap 실행 중 예외 오류가 발생했습니다.</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>[Bloxstrap 위키]({0})에서 이 문제에 대한 해결책이 있는지 확인하세요.
+    <value>[Fishstrap 위키]({0})에서 이 문제에 대한 해결책이 있는지 확인하세요.
 
 만약 해결책이 없다면, 생성된 로그 파일과 함께 [GitHub issue]({1})를 통해 이 오류를 보고해주세요.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap 예외 오류</value>
+    <value>Fishstrap 예외 오류</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>사용자 지정</value>
@@ -309,10 +309,10 @@
     <value>가짜 Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (클래식)</value>
+    <value>Fishstrap (클래식)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (투명)</value>
+    <value>Fishstrap (투명)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -390,10 +390,10 @@
     <value>밝은 테마</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap이 v{0} (으)로 업그레이드되었습니다.</value>
+    <value>Fishstrap이 v{0} (으)로 업그레이드되었습니다.</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>실행한 Bloxstrap 버전이 현재 설치된 버전과 다릅니다.
+    <value>실행한 Fishstrap 버전이 현재 설치된 버전과 다릅니다.
 현재 설치된 버전을 업그레이드하시겠습니까?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -403,7 +403,7 @@
     <value>코드</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>현재의 Bloxstrap을 만드는 데 큰 도움을 주신 분들입니다.</value>
+    <value>현재의 Fishstrap을 만드는 데 큰 도움을 주신 분들입니다.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>아이디어 제공</value>
@@ -449,7 +449,7 @@
     <value>현재 실행 중인 Roblox 인스턴스를 전부 닫기 전까지는 몇몇 변경 사항이 적용되지 않을 수도 있습니다.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap이 이미 실행 중입니다.</value>
+    <value>Fishstrap이 이미 실행 중입니다.</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>부트스트래퍼를 다른 모습으로, 레트로하게, 심지어는 Roblox처럼 꾸밀 수 있습니다.</value>
@@ -476,7 +476,7 @@
     <value>이름</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Bloxstrap을 원하는 대로 꾸미세요.</value>
+    <value>Fishstrap을 원하는 대로 꾸미세요.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>전역 테마</value>
@@ -500,10 +500,10 @@
     <value>외관</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap이 Roblox가 실행될 때 자동으로 확인하고 업데이트합니다.</value>
+    <value>Fishstrap이 Roblox가 실행될 때 자동으로 확인하고 업데이트합니다.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Bloxstrap 자동으로 업데이트하기</value>
+    <value>Fishstrap 자동으로 업데이트하기</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>게임을 하던 도중 실수로 다른 게임을 실행해서 꺼지는 것을 방지합니다.</value>
@@ -512,7 +512,7 @@
     <value>다른 Roblox 인스턴스를 실행하기 전에 묻기</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Roblox 실행 시 Bloxstrap이 수행할 작업을 설정하세요.</value>
+    <value>Roblox 실행 시 Fishstrap이 수행할 작업을 설정하세요.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox가 다음 실행 때 새로 설치됩니다.</value>
@@ -628,7 +628,7 @@
     <value>초당 프레임 제한</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[단축키]({0})로 전환 가능합니다. [Bloxstrap 그룹]({1})에 가입한 경우에만 작동합니다.</value>
+    <value>[단축키]({0})로 전환 가능합니다. [Fishstrap 그룹]({1})에 가입한 경우에만 작동합니다.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUI 숨기기 기능 켜기</value>
@@ -652,10 +652,10 @@
     <value>아이콘 파일</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap을 여기에 설치할 수 없습니다. 다른 위치를 선택하거나 초기화 버튼을 클릭하여 기본 경로를 사용하세요.</value>
+    <value>Fishstrap을 여기에 설치할 수 없습니다. 다른 위치를 선택하거나 초기화 버튼을 클릭하여 기본 경로를 사용하세요.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>선택한 Bloxstrap 설치 폴더가 이미 존재하며 비어 있지 않습니다. Bloxstrap은 독립된 폴더에 설치하는 것을 권장합니다.
+    <value>선택한 Fishstrap 설치 폴더가 이미 존재하며 비어 있지 않습니다. Fishstrap은 독립된 폴더에 설치하는 것을 권장합니다.
 
 다음 위치로 변경하는 것이 좋습니다:
 {0}
@@ -668,7 +668,7 @@
     <value>설치 경로를 설정해야 합니다.</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap은 선택한 설치 경로에 대한 접근 권한이 없습니다. 다른 위치를 선택해 주세요.</value>
+    <value>Fishstrap은 선택한 설치 경로에 대한 접근 권한이 없습니다. 다른 위치를 선택해 주세요.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>활동 추적</value>
@@ -720,7 +720,7 @@
     <value>데스크톱 앱으로 나가지 않기</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Bloxstrap이 당신이 어떤 Roblox 게임을 플레이하는지 감지할 수 있도록 허용합니다. 특정 기능에는 이 설정이 필요할 수 있습니다.</value>
+    <value>Fishstrap이 당신이 어떤 Roblox 게임을 플레이하는지 감지할 수 있도록 허용합니다. 특정 기능에는 이 설정이 필요할 수 있습니다.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>활동 추적 켜기</value>
@@ -817,7 +817,7 @@
     <value>설정 저장 완료!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+    <value>Fishstrap 설정</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>언어를 선택하세요</value>
@@ -847,7 +847,7 @@
     <value>UI 및 레이아웃</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Bloxstrap이 Fast Flag를 관리하도록 허용</value>
+    <value>Fishstrap이 Fast Flag를 관리하도록 허용</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>이 기능을 비활성화하면 여기서 설정한 모든 항목이 Roblox에 적용되지 않습니다.</value>
@@ -892,7 +892,7 @@
     <value>지형 텍스처 비활성화</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 다운로드할 수 없습니다</value>
+    <value>Fishstrap이 Roblox를 다운로드할 수 없습니다</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>지금은 Roblox를 다운로드할 수 없습니다. 자세한 내용은 다음 페이지를 읽어보세요: {0}</value>
@@ -913,7 +913,7 @@
     <value>입력된 값 '{0}'이 유효하지 않습니다. 값은 숫자만 들어갈 수 있습니다.</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Bloxstrap이 '{0}' 폴더에 작성할 수 없어 이번 실행에 로그 파일이 작성되지 않습니다.</value>
+    <value>Fishstrap이 '{0}' 폴더에 작성할 수 없어 이번 실행에 로그 파일이 작성되지 않습니다.</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>기본</value>
@@ -928,7 +928,7 @@
     <value>입력된 값 '{0}'이 유효하지 않습니다. 게임 필터 값이 제대로 입력되어야 합니다.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap 설치 프로그램</value>
+    <value>Fishstrap 설치 프로그램</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>환영합니다</value>
@@ -947,18 +947,18 @@
     <value>다음</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Bloxstrap를 다운로드해 주셔서 감사합니다.
+    <value>Fishstrap를 다운로드해 주셔서 감사합니다.
 
-Bloxstrap을 다운로드할 수 있는 공식 웹사이트는 {0}과 {1}뿐이므로, 공식 출처에서 다운로드했는지 확인해 주세요.
+Fishstrap을 다운로드할 수 있는 공식 웹사이트는 {0}과 {1}뿐이므로, 공식 출처에서 다운로드했는지 확인해 주세요.
 
-설치 과정은 빠르고 간단하며, 설치 후 Bloxstrap의 설정을 구성할 수 있습니다.</value>
+설치 과정은 빠르고 간단하며, 설치 후 Fishstrap의 설정을 구성할 수 있습니다.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>'다음'을 눌러 계속 진행해주세요.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>버전 {0}의 Bloxstrap을 설치하려고 계시지만 최신 버전은 {1}입니다. 다운로드하시겠습니까?</value>
+    <value>버전 {0}의 Fishstrap을 설치하려고 계시지만 최신 버전은 {1}입니다. 다운로드하시겠습니까?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>설치할 위치를 선택하세요</value>
@@ -979,16 +979,16 @@ Bloxstrap을 다운로드할 수 있는 공식 웹사이트는 {0}과 {1}뿐이�
     <value>시작 메뉴 아이콘</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap이 성공적으로 설치되었습니다.
+    <value>Fishstrap이 성공적으로 설치되었습니다.
 
-Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때 설치되지만, 그 전에 먼저 Bloxstrap의 설정을 구성하는 것이 좋습니다.
+Roblox는 아직 설치되지 않았습니다. Fishstrap을 처음 실행할 때 설치되지만, 그 전에 먼저 Fishstrap의 설정을 구성하는 것이 좋습니다.
 
-또한, "Roblox Player" 바로 가기로 Roblox를 실행하면 Bloxstrap이 같이 실행되지 않으므로 사용하지 말아주세요. 웹사이트에서 Roblox를 실행할 때 Bloxstrap이 보이지 않는다면 컴퓨터에서 Bloxstrap으로 Roblox를 한 번 실행하시면 고쳐집니다.
+또한, "Roblox Player" 바로 가기로 Roblox를 실행하면 Fishstrap이 같이 실행되지 않으므로 사용하지 말아주세요. 웹사이트에서 Roblox를 실행할 때 Fishstrap이 보이지 않는다면 컴퓨터에서 Fishstrap으로 Roblox를 한 번 실행하시면 고쳐집니다.
 
 무엇을 하시겠습니까?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Bloxstrap 설정하기</value>
+    <value>Fishstrap 설정하기</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>제공되는 모든 기능으로 조정하기</value>
@@ -1000,22 +1000,22 @@ Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때
     <value>모든 작업이 완료되면 프로그램을 실행합니다</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Bloxstrap 제거하기</value>
+    <value>Fishstrap 제거하기</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>제거하면 시스템에서 Bloxstrap이 제거되고, 기존의 Roblox가 아직 설치되어 있는 경우 자동으로 재구성됩니다.
+    <value>제거하면 시스템에서 Fishstrap이 제거되고, 기존의 Roblox가 아직 설치되어 있는 경우 자동으로 재구성됩니다.
 
 Roblox에 문제가 있어서 제거하거나 재설치하는 경우 먼저 [도움말]({0})을 읽어보세요.
 
 설치된 위치에서 일부 파일을 완전히 제거할 수 없을 수도 있습니다. 따라서, 설치된 위치에 남은 파일을 수동으로 제거해야 할 수도 있습니다.
 
-Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
+Fishstrap이 “{1}”에 설치되어 있습니다.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>설정 및 모드 유지하기</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Bloxstrap이 설치된 위치에 보관되며, 재설치 시 자동으로 복원됩니다.</value>
+    <value>Fishstrap이 설치된 위치에 보관되며, 재설치 시 자동으로 복원됩니다.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>제거</value>
@@ -1036,19 +1036,19 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>현재 WebView2 런타임이 설치되어 있지 않습니다. 이 런타임이 없으면 데스크톱 애플리케이션과 같은 일부 Roblox 기능이 제대로 작동하지 않습니다. 지금 다운로드하시겠습니까?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap에서 데스크톱 및 시작 메뉴에 대한 바로 가기를 만들 수 없었습니다. 나중에 설정을 통해 생성해 보세요.</value>
+    <value>Fishstrap에서 데스크톱 및 시작 메뉴에 대한 바로 가기를 만들 수 없었습니다. 나중에 설정을 통해 생성해 보세요.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>[Bloxstrap Wiki]({0}) 에서 이 문제가 이미 수정으로 해결되었는지 먼저 확인해 주세요.
 
-그렇지 않은 경우 이 포크의 관리자에게 이 오류를 보고해 주세요. 이 포크는 비공식 빌드이므로 Bloxstrap's GitHub issues에 보고하지 마세요.</value>
+그렇지 않은 경우 이 포크의 관리자에게 이 오류를 보고해 주세요. 이 포크는 비공식 빌드이므로 Fishstrap's GitHub issues에 보고하지 마세요.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>이는 다중 선택 실행 메뉴를 불러오는 일반적인 바로 가기입니다. 특정 기능에 대한 바로 가기는 나중에 설정에서 만들 수 있습니다.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Bloxstrap을 쉽게 실행할 수 있는 방법을 구성합니다.</value>
+    <value>Fishstrap을 쉽게 실행할 수 있는 방법을 구성합니다.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>일반</value>
@@ -1078,7 +1078,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>제거가 완료될 때까지 기다려주세요.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Bloxstrap 정보</value>
+    <value>Fishstrap 정보</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>라이선스</value>
@@ -1091,7 +1091,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>저장되지 않은 변경사항이 있습니다. 저장하지 않고 닫으시겠습니까?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>실행한 Bloxstrap의 버전이 현재 설치한 버전보다 오래된 버전입니다.
+    <value>실행한 Fishstrap의 버전이 현재 설치한 버전보다 오래된 버전입니다.
 문제가 발생하고 설정이 변경될 수 있습니다. 재설치가 권장됩니다.
 계속하시겠습니까?</value>
   </data>
@@ -1104,7 +1104,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>이 문제가 왜 일어나는지, 그리고 해결하는 방법을 알아보시려면 [이 도움말 문서]({0})을 참조하세요.
 
-[기존 Roblox 런처]({1})로 문제가 해결되는지 확인하세요. 그렇지 않으면, 이는 Bloxstrap의 문제가 아닙니다. 만약 그렇다면, 도움말 문서를 참조하세요.</value>
+[기존 Roblox 런처]({1})로 문제가 해결되는지 확인하세요. 그렇지 않으면, 이는 Fishstrap의 문제가 아닙니다. 만약 그렇다면, 도움말 문서를 참조하세요.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>네트워크 오류로 인해 데이터를 로드할 수 없습니다.</value>
@@ -1116,7 +1116,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>후원자</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>이 분들은 Ko-fi를 통해 Bloxstrap을 지원해주신 분들입니다. 모두 감사를 전합니다!
+    <value>이 분들은 Ko-fi를 통해 Fishstrap을 지원해주신 분들입니다. 모두 감사를 전합니다!
 여기 계신 모든 분들은 후원금에 따라 순위가 매겨집니다.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1147,12 +1147,12 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>이번에 시작할 때, Roblox의 업그레이드를 확인하지 않으며 모드에 대한 변경 사항도 적용되지 않습니다.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Roblox를 설치하거나 업그레이드해야 하므로 Bloxstrap이 계속할 수 없습니다.</value>
+    <value>Roblox를 설치하거나 업그레이드해야 하므로 Fishstrap이 계속할 수 없습니다.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap이 이전에 이 위치에 설치되었으며 여전히 존재하지만, 설치 관리자가 이전 실행 파일을 덮어쓸 수 없습니다. 
+    <value>Fishstrap이 이전에 이 위치에 설치되었으며 여전히 존재하지만, 설치 관리자가 이전 실행 파일을 덮어쓸 수 없습니다. 
 
-설치 위치에서 Bloxstrap.exe를 수동으로 삭제하거나 시스템을 다시 시작한 다음 설치를 다시 시도해 보세요.</value>
+설치 위치에서 Fishstrap.exe를 수동으로 삭제하거나 시스템을 다시 시작한 다음 설치를 다시 시도해 보세요.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>사용할 수 없음</value>
@@ -1164,7 +1164,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>DPI 크기 조정 동작 및 [전체 화면 최적화]({0})와 같은 애플리케이션 매개 변수를 구성합니다.</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox가 아직 설치되지 않았습니다. 이 옵션을 사용하기 전에 Bloxstrap을 사용하여 Roblox를 한 번 이상 실행해 보세요.</value>
+    <value>Roblox가 아직 설치되지 않았습니다. 이 옵션을 사용하기 전에 Fishstrap을 사용하여 Roblox를 한 번 이상 실행해 보세요.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>설치를 취소하시겠습니까?</value>
@@ -1182,10 +1182,10 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>Roblox 아이콘을 폴더로 추출하기</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Bloxstrap의 다양한 Roblox 아이콘을 바로 가기에 사용할 수 있습니다. [어떻게 할 수 있는지 알아보세요.]({0})</value>
+    <value>Fishstrap의 다양한 Roblox 아이콘을 바로 가기에 사용할 수 있습니다. [어떻게 할 수 있는지 알아보세요.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap이 Windows 레지스트리 작성에 실패했습니다. 안티바이러스의 방해로 인해 문제가 발생할 가능성이 높습니다. Bloxstrap의 작동을 제한할 수 있는 요인이 있는지 확인해 주세요.</value>
+    <value>Fishstrap이 Windows 레지스트리 작성에 실패했습니다. 안티바이러스의 방해로 인해 문제가 발생할 가능성이 높습니다. Fishstrap의 작동을 제한할 수 있는 요인이 있는지 확인해 주세요.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>매달 후원</value>
@@ -1193,13 +1193,13 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>일회성 후원</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Bloxstrap의 동작과 관련된 옵션을 구성</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Fishstrap의 동작과 관련된 옵션을 구성</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>사용 진단 정보 전송 활성화</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>전송되는 정보는 전부 익명이며 악의적인 목적이 아닙니다. 저희가 수집하는 항목과 이유에 대한 자세한 내용은 [개인정보 처리방침]({0})을 확인해 주세요.</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1223,7 +1223,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
 테스트 모드를 활성화하시겠습니까?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Bloxstrap의 모든 번역은 [Crowdin]({0})을 통해 크라우드소싱됩니다. 여기 적힌 모든 사람들은 Bloxstrap의 번역을 위해 시간과 노력을 아끼지 않고 도와주신 분들입니다. 모두 진심으로 감사드립니다!</value>
+    <value>Fishstrap의 모든 번역은 [Crowdin]({0})을 통해 크라우드소싱됩니다. 여기 적힌 모든 사람들은 Fishstrap의 번역을 위해 시간과 노력을 아끼지 않고 도와주신 분들입니다. 모두 진심으로 감사드립니다!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>설치</value>
@@ -1240,7 +1240,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>버전 {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap이 Roblox를 업데이트하려고 했으나 현재 Roblox의 파일이 사용 중입니다.
+    <value>Fishstrap이 Roblox를 업데이트하려고 했으나 현재 Roblox의 파일이 사용 중입니다.
 
 Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 실행해 주세요.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1251,20 +1251,20 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>내보내기</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
     <value>진단 데이터 내보내기</value>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.Description" xml:space="preserve">
     <value>온라인으로 업로드가 가능한 정보를 수집하여 겪고 계신 문제를 해결하세요.</value>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+  <data name="Menu.Fishstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Fishstrap 설정</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>모든 Bloxstrap 로그</value>
+  <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>모든 Fishstrap 로그</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

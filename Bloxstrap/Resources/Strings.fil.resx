@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Hindi nagkukusang nag update ang Bloxstrap sa version {0}. Pakiusap na i-update mo ng manu-mano sa pag-download at pagtakbo nito sa website.</value>
+    <value>Hindi nagkukusang nag update ang Fishstrap sa version {0}. Pakiusap na i-update mo ng manu-mano sa pag-download at pagtakbo nito sa website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Nakabukas pa rin ang Roblox, at ang pag-launch ng iba pang instance ay isasarado ito. Sigurado ka bang gusto mong ituloy ang pag-launch?</value>
@@ -127,10 +127,10 @@
     <value>Maaring down ngayon ang Roblox. Tignan dito sa {0} para sa ibang impormasyon.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Hindi makagawa ng connection, ibig sabihin nito ay mahina ang internet connection o isang firewall block. Kapag ang iyong connection ay ayos, i-ensure na ang iyong antivirus ay hindi binablock ang Bloxstrap.</value>
+    <value>Hindi makagawa ng connection, ibig sabihin nito ay mahina ang internet connection o isang firewall block. Kapag ang iyong connection ay ayos, i-ensure na ang iyong antivirus ay hindi binablock ang Fishstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Kailangan mo munang i-install ang Bloxstrap bago mo ito i-uninstall.</value>
+    <value>Kailangan mo munang i-install ang Fishstrap bago mo ito i-uninstall.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Walang sapat na disk space para mag-install ng Roblox. Maaring mag-delete ng mga files upang magkaroon ng disk space at subukan muli.</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Mag-uupgrade ng {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Kinukuha ang latest Bloxstrap...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>Kinukuha ang latest Fishstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Naghihintay ng ibang instances...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Natanggal na ang Bloxstrap</value>
+    <value>Natanggal na ang Fishstrap</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Tumatakbo ang Roblox, pero kailangan i-close bago tangalin ang Bloxstrap. Gusto mo ba i-sarado ang Roblox ngayon?</value>
+    <value>Tumatakbo ang Roblox, pero kailangan i-close bago tangalin ang Fishstrap. Gusto mo ba i-sarado ang Roblox ngayon?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Kinakailangan ng Roblox na gumamit ng Windows Media Foundation components. Mukhang ang mga components ay nawawala sa iyong system, dahil siguro ikaw ay gumagamit ng N edition ng Windows. Maaring i-install muna ang mga components, tapos i-launch ang Roblox.</value>
@@ -279,14 +279,14 @@ Pindutin para sa marami pang impormasyon</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Hindi maka-konek ang Bloxstrap sa {0}</value>
+    <value>Hindi maka-konek ang Fishstrap sa {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopyahin ang log contents</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>May exception na nangyari habang pinapatakbo ang Bloxstrap</value>
+    <value>May exception na nangyari habang pinapatakbo ang Fishstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>Suriin muna ang [Bloxstrap Wiki]({0}) upang makita kung itong problema ay meron nang paraan ng pag-aayos.
@@ -294,7 +294,7 @@ Pindutin para sa marami pang impormasyon</value>
 Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang kopya ng log file na nilikha.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Exception</value>
+    <value>Fishstrap Exception</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Custom</value>
@@ -309,10 +309,10 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>Fishstrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>Fishstrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -390,10 +390,10 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Light</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Na-upgrade na ang Bloxstrap sa v{0}</value>
+    <value>Na-upgrade na ang Fishstrap sa v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Ang bersyon ng Bloxstrap na iyong sinimulan ay magkaiba sa bersyon na iyong ininstall. Gusto mo ba i-upgrade ang kasalukuyang naka-install na bersyon?</value>
+    <value>Ang bersyon ng Fishstrap na iyong sinimulan ay magkaiba sa bersyon na iyong ininstall. Gusto mo ba i-upgrade ang kasalukuyang naka-install na bersyon?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Mga Kontribyutor</value>
@@ -402,7 +402,7 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Ito ang mga tao na nagbigay ng mahalagang kontribusyon sa Bloxstrap, na tumulong upang maging ganito ang Bloxstrap.</value>
+    <value>Ito ang mga tao na nagbigay ng mahalagang kontribusyon sa Fishstrap, na tumulong upang maging ganito ang Fishstrap.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Mga tampok na ideya</value>
@@ -448,7 +448,7 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Tandaan, hindi lahat ng pagbabago ay agad na maga-apply hangga't hindi pa naisasa ang lahat ng bukas na Roblox instances.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Ang Bloxstrap ay kasalukuyang tumatakbo</value>
+    <value>Ang Fishstrap ay kasalukuyang tumatakbo</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Maaari mong gawin itong magmukhang iba, retro, o kahit na tulad lamang ng Roblox.</value>
@@ -475,7 +475,7 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Title</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>I-configure kung paano dapat magmukha ang Bloxstrap.</value>
+    <value>I-configure kung paano dapat magmukha ang Fishstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Global Theme</value>
@@ -499,10 +499,10 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>Appearance</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Awtomatikong susuriin at ia-update ng Bloxstrap ang sarili nito kapag magsisimula na ang Roblox.</value>
+    <value>Awtomatikong susuriin at ia-update ng Fishstrap ang sarili nito kapag magsisimula na ang Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Awtomatikong i-update ang Bloxstrap</value>
+    <value>Awtomatikong i-update ang Fishstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Pigilan ang pagsasara ng kasalukuyang laro mo mula sa aksidenteng pagbukas ng isa pa.</value>
@@ -511,7 +511,7 @@ Kung hindi, paki ulat itong pagbubukod, gamit ang [GitHub issue]({1}) kasama ang
     <value>I-prompt upang kumpirmahin kapag mag-launch ng iba pang Roblox instance</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>I-configure kung ano ang dapat gawin ng Bloxstrap kapag ito'y binubuksan.</value>
+    <value>I-configure kung ano ang dapat gawin ng Fishstrap kapag ito'y binubuksan.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Ang Roblox ay mai-install nang bago sa susunod na bubuksan ito.</value>
@@ -627,7 +627,7 @@ HUWAG gagamitin ito upang mag-import ng mga malalaking "flag lists" na gawa ng i
     <value>Framerate Limit</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled kasama ang [keyboard shortcuts]({0}). Gumagana lang kapag ikaw ay nasa [Bloxstrap group]({1}).</value>
+    <value>Toggled kasama ang [keyboard shortcuts]({0}). Gumagana lang kapag ikaw ay nasa [Fishstrap group]({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Paganahin ang kakayahang itago ang mga GUIs</value>
@@ -651,10 +651,10 @@ HUWAG gagamitin ito upang mag-import ng mga malalaking "flag lists" na gawa ng i
     <value>Icon files</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Hindi maaring i-install ang Bloxstrap dito. Mangyaring pumili ng ibang location, o mapilitang gamitin ang Default location sa pamamagitan ng pagpindot ng reset button.</value>
+    <value>Hindi maaring i-install ang Fishstrap dito. Mangyaring pumili ng ibang location, o mapilitang gamitin ang Default location sa pamamagitan ng pagpindot ng reset button.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Ang iyong piniling folder upang i-install ang bloxstrap ay umiiral na at HINDI walang laman. Ito ay malakas na ni rerecommenda para ma install ang Bloxstrap sa kanyang independent na folder.
+    <value>Ang iyong piniling folder upang i-install ang Fishstrap ay umiiral na at HINDI walang laman. Ito ay malakas na ni rerecommenda para ma install ang Fishstrap sa kanyang independent na folder.
 
 Iminumungkahi na palitan ito sa:
 {0}
@@ -667,7 +667,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Kinakailangan mo mag-set ang install location</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Ang Bloxstrap ay walang write access sa iyong install location na pinili. Mangyari pumili ng ibang location.</value>
+    <value>Ang Fishstrap ay walang write access sa iyong install location na pinili. Mangyari pumili ng ibang location.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Activity tracking</value>
@@ -718,7 +718,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Huwag lumabas sa desktop app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Pahintulutan ang Bloxstrap na matukoy kung anong larong Roblox ang iyong nilalaro. Maaaring kailanganin ito ng ilang partikular na feature.</value>
+    <value>Pahintulutan ang Fishstrap na matukoy kung anong larong Roblox ang iyong nilalaro. Maaaring kailanganin ito ng ilang partikular na feature.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Paganahin ang activity tracking</value>
@@ -815,7 +815,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Nai-save na ang settings!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Settings</value>
+    <value>Fishstrap Settings</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Pumili ng gustong wika</value>
@@ -845,7 +845,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>User Interface at Layout</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Payagin ang Bloxstrap na i-manage ang Fast Flags</value>
+    <value>Payagin ang Fishstrap na i-manage ang Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Sa pag disable nito ay ang mga na-configure dito ay hindi gagana sa Roblox.</value>
@@ -890,7 +890,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>I-disable ang terrain textures</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Hindi maka-download ng Roblox ang Bloxstrap</value>
+    <value>Hindi maka-download ng Roblox ang Fishstrap</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Hindi ma-download ang Roblox ngayon oras na ito. Basahin ang following help page para sa idadag na impormasyon: {0}</value>
@@ -911,7 +911,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Ang entry para sa '{0}' ay hindi tama sapagkat ang value ay dapat isang numero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Walang magagawang log file para sa launch na ito dahil ang Bloxstrap ay hindi makapag-gawa nito sa folder na '{0}'</value>
+    <value>Walang magagawang log file para sa launch na ito dahil ang Fishstrap ay hindi makapag-gawa nito sa folder na '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Default</value>
@@ -926,7 +926,7 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Ang entry na {0} ay hindi tama dahil ang place filter ay hindi naka-format ng maayos.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Installer</value>
+    <value>Fishstrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Maligayang pagdating</value>
@@ -945,18 +945,18 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
     <value>Sunod</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Salamat sa pag-download ng Bloxstrap.
+    <value>Salamat sa pag-download ng Fishstrap.
 
-Ang mga opisyal na websites na makukuha para ma-download ang Bloxstrap ay nandito sa {0} at {1}, kaya’t pakiusap lang na i-verify mo na nakuha mo siya sa opisyal na source.
+Ang mga opisyal na websites na makukuha para ma-download ang Fishstrap ay nandito sa {0} at {1}, kaya’t pakiusap lang na i-verify mo na nakuha mo siya sa opisyal na source.
 
-Ang proseso ng installation ay mabilis at simple lang, at ikaw ang magaayos ng kahit anong mga settings ng Bloxstrap pagkatapos ng installation.</value>
+Ang proseso ng installation ay mabilis at simple lang, at ikaw ang magaayos ng kahit anong mga settings ng Fishstrap pagkatapos ng installation.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Paki click ang 'Next' upang magpatuloy.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Sinubukan mong i-install ang version {0} ng Bloxstrap, pero ang latest version ay {1}. Gusto mo ba itong i-download?</value>
+    <value>Sinubukan mong i-install ang version {0} ng Fishstrap, pero ang latest version ay {1}. Gusto mo ba itong i-download?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Piliin kung saan i-install</value>
@@ -977,16 +977,16 @@ Ang proseso ng installation ay mabilis at simple lang, at ikaw ang magaayos ng k
     <value>Start Menu na icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Nai-install ng matagumpay ang Bloxstrap.
+    <value>Nai-install ng matagumpay ang Fishstrap.
 
-Hindi pa nainstall ang Roblox, yan ang mangyayari kapag nilaunch mo gamit ang Bloxstrap sa unahang pagkakataon.
+Hindi pa nainstall ang Roblox, yan ang mangyayari kapag nilaunch mo gamit ang Fishstrap sa unahang pagkakataon.
 
-Gayundin, iwasang paggamit ng "Roblox Player" shortcut para i-launch ang Roblox, dahil hindi la-launch ang Bloxstrap kasama ang Roblox. Kung hindi mo nakitang lumilitaw ang Bloxstrap kapag nag-lalaunch siya galing sa website, i-launch mo yung Roblox kasama ang Bloxstrap ng isang beses galing sa desktop para ayusin ito.
+Gayundin, iwasang paggamit ng "Roblox Player" shortcut para i-launch ang Roblox, dahil hindi la-launch ang Fishstrap kasama ang Roblox. Kung hindi mo nakitang lumilitaw ang Fishstrap kapag nag-lalaunch siya galing sa website, i-launch mo yung Roblox kasama ang Fishstrap ng isang beses galing sa desktop para ayusin ito.
 
 Ano ang gusto mong gawin?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>I-configure mga Bloxstrap settings</value>
+    <value>I-configure mga Fishstrap settings</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>I-tweak ang lahat ng features na inaalok nito</value>
@@ -998,22 +998,22 @@ Ano ang gusto mong gawin?</value>
     <value>Ilalagay ka sa loob ng desktop app kapag tapos na lahat</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>I-uninstall ang Bloxstrap</value>
+    <value>I-uninstall ang Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Matatanggal ang Bloxstrap sa iyong systema kapag na-uninstall mo, at kukusang i-configure ang default na Roblox launcher kung naka install pa rin.
+    <value>Matatanggal ang Fishstrap sa iyong systema kapag na-uninstall mo, at kukusang i-configure ang default na Roblox launcher kung naka install pa rin.
 
 Kung ikaw ay mag-uninstall o mag-reinstall dahil mayroon kang issues sa Roblox, basahin mo [itong help page]({0}) muna.
 
-Ang proseso sa pag-uninstall ay maaaring hindi ganap na malinis ang sarili, kaya kailangan mong linisin ang natitirang files kung saan na-install ang Bloxstrap.
+Ang proseso sa pag-uninstall ay maaaring hindi ganap na malinis ang sarili, kaya kailangan mong linisin ang natitirang files kung saan na-install ang Fishstrap.
 
-Na-installed ang Bloxstrap sa "{1}".</value>
+Na-installed ang Fishstrap sa "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>I-tabi ang aking settings at mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Matatabi din ito kung saan na-install ang Bloxstrap, at mababalik din sa pag-reinstall.</value>
+    <value>Matatabi din ito kung saan na-install ang Fishstrap, at mababalik din sa pag-reinstall.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
@@ -1034,19 +1034,19 @@ Na-installed ang Bloxstrap sa "{1}".</value>
     <value>Hindi mo pa nainstall ang WebView2 runtime. Hindi gagana ng maayos ang mga Roblox features kung wala pa yan, katulad ng desktop app. Gusto mong I-download ito ngayon?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Hindi kaya ng Bloxstrap na gumawa ng shortcuts para sa Desktop at Start Menu. Subukan mong gawin ito sa ibang pagkakataon sa mga settings.</value>
+    <value>Hindi kaya ng Fishstrap na gumawa ng shortcuts para sa Desktop at Start Menu. Subukan mong gawin ito sa ibang pagkakataon sa mga settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Tumingin sa [Bloxstrap Wiki]({0}) muna para makita kung itong problema ay tinutugunan ng pag-aayos.
 
-Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong i-report ito sa GitHub issues ng Bloxstrap, dahil ito ang unofficial build.</value>
+Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong i-report ito sa GitHub issues ng Fishstrap, dahil ito ang unofficial build.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ito ang mga pangkalahatang mga shortcuts na ilabas ang multi-choice launch menu. Ang mga shortcuts para sa mga tiyak na functions ay magagawa din sa susunod sa loob ng settings.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>I-configure kung paano madaling i-launch ang Bloxstrap.</value>
+    <value>I-configure kung paano madaling i-launch ang Fishstrap.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>General</value>
@@ -1076,7 +1076,7 @@ Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong 
     <value>Paki antaying tapusin ang uninstallation.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Tungkol sa Bloxstrap</value>
+    <value>Tungkol sa Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Mga lisensya</value>
@@ -1089,7 +1089,7 @@ Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong 
     <value>Meron kang nabago at hindi pa naka-save. Sigurado ka bang gusto mo isara nang hindi naka-save?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Ang version ng Bloxstrap na nabuksan mo ay mas matanda kaysa sa version na install mo ngayon.
+    <value>Ang version ng Fishstrap na nabuksan mo ay mas matanda kaysa sa version na install mo ngayon.
 Mayroong issues na mangyayari at yung settings mo ay maiiba. Ang pag-reinstall ay rekomendado.
 Sigurado kang gusto mo bang ituloy?</value>
   </data>
@@ -1102,7 +1102,7 @@ Sigurado kang gusto mo bang ituloy?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Para sa impormasyon kung bakit ito nangyayari at kung paano ito ayusin, pakibasa po [ng help article]({0})
 
-Tingnan kung nagana ang Roblox gamit ang [original launcher]({1}). Kapag hindi, ito ay hindi problema ng Bloxstrap. Kapag nagana, pakitingin sa help article.</value>
+Tingnan kung nagana ang Roblox gamit ang [original launcher]({1}). Kapag hindi, ito ay hindi problema ng Fishstrap. Kapag nagana, pakitingin sa help article.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Hindi makapag load ng data dahil sa network error.</value>
@@ -1114,7 +1114,7 @@ Tingnan kung nagana ang Roblox gamit ang [original launcher]({1}). Kapag hindi, 
     <value>Mga Tagasupporta</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Ito ang mga tao na nag suporta sa Bloxstrap gamit ang Ko-fi. Maraming salamat para sa lahat ng nandito! Lahat ng tao na nandito ay naka rank gamit ang kanilang overall pledge.</value>
+    <value>Ito ang mga tao na nag suporta sa Fishstrap gamit ang Ko-fi. Maraming salamat para sa lahat ng nandito! Lahat ng tao na nandito ay naka rank gamit ang kanilang overall pledge.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Ang settings mo ay hindi makaload. Naka-reset na sa dating pagsasaayos.</value>
@@ -1144,12 +1144,12 @@ Tingnan kung nagana ang Roblox gamit ang [original launcher]({1}). Kapag hindi, 
     <value>Para sa launch nito, hindi makatingin ang Roblox para sa mga upgrades, at mga pagkakaiba sa mods ay hindi ilalapat.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Dahil kailangan ng Roblox na maginstall o magupgrade, hindi makapagtuloy ang Bloxstrap.</value>
+    <value>Dahil kailangan ng Roblox na maginstall o magupgrade, hindi makapagtuloy ang Fishstrap.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Ang Bloxstrap ay naka install sa isang lokasyon dati at andito pa rin, pero hindi ma-overwrite ng installer ang dating executable.
+    <value>Ang Fishstrap ay naka install sa isang lokasyon dati at andito pa rin, pero hindi ma-overwrite ng installer ang dating executable.
 
-Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart ang systema, at ulitin mo yung installation pagkatapos.</value>
+Pakialisin mismo ang Fishstrap.exe sa install location o subukan mong i-restart ang systema, at ulitin mo yung installation pagkatapos.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Hindi magagamit</value>
@@ -1161,7 +1161,7 @@ Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart 
     <value>I-configure ang mga application parameters kagaya ng DPI scaling behaviour at [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Hindi pa nakainstall ang Roblox. Paki-launch mo yung Roblox gamit ng Bloxstrap kahit minsan lang bago subukang gamitin itong option.</value>
+    <value>Hindi pa nakainstall ang Roblox. Paki-launch mo yung Roblox gamit ng Fishstrap kahit minsan lang bago subukang gamitin itong option.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Sigurado ka bang gusto mo i-cancel ang pag install?</value>
@@ -1179,10 +1179,10 @@ Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart 
     <value>I-extract ang mga icon ng Roblox sa folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Binibigyang-daan kang gamitin yung Bloxstrap ang mga Roblox icons para sa iyong shortcuts. [Pakita kung paano.]({0})</value>
+    <value>Binibigyang-daan kang gamitin yung Fishstrap ang mga Roblox icons para sa iyong shortcuts. [Pakita kung paano.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Hindi makapagsulat sa Windows Registry ang Bloxstrap. Malamang ang antivirus ay nakialam at nagdudulot ng mga isyu. Pakitignan para sigurado na walang anumang bagay na pumipigil sa operasyon ng Bloxstrap.</value>
+    <value>Hindi makapagsulat sa Windows Registry ang Fishstrap. Malamang ang antivirus ay nakialam at nagdudulot ng mga isyu. Pakitignan para sigurado na walang anumang bagay na pumipigil sa operasyon ng Fishstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Buwanan</value>
@@ -1190,13 +1190,13 @@ Pakialisin mismo ang Bloxstrap.exe sa install location o subukan mong i-restart 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Isang beses</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>I-configure ang mga option na nanuugnay sa pag-uugali ng Bloxstrap mismo.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>I-configure ang mga option na nanuugnay sa pag-uugali ng Fishstrap mismo.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>I-enable ang pag-send ng analitiko</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Ito ay anonima lang at walang masama, promise. Para sa insight na anong kinokolekta namin at bakit, tignan mo ang aming [privacy policy]({0}).</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1216,7 +1216,7 @@ Habang naka-enable, kusang bubukas ang Roblox pagkatapos isara ang mga settings,
 Gusto mo bang i-enable ang "Test Mode"?</value>
   </data>
 	<data name="About.Translators.Description" xml:space="preserve">
-    <value>Lahat ng translations para sa Bloxstrap ay crowdsourced galing sa [Crowdin]({0}). Lahat nakalista dito ang mga tao na nakapagboluntaryo para sa oras at pagsisikap para tulungan i-localize at Bloxstrap. Malaking pasasalamat sa iyong lahat!</value>
+    <value>Lahat ng translations para sa Fishstrap ay crowdsourced galing sa [Crowdin]({0}). Lahat nakalista dito ang mga tao na nakapagboluntaryo para sa oras at pagsisikap para tulungan i-localize at Fishstrap. Malaking pasasalamat sa iyong lahat!</value>
   </data>
 	<data name="Common.Navigation.Install" xml:space="preserve">
     <value>I-install</value>
@@ -1233,7 +1233,7 @@ Gusto mo bang i-enable ang "Test Mode"?</value>
     <value>Version {0}</value>
   </data>
 	<data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Sinubukan ng Bloxstrap mag-upgrade ng Roblox pero hindi kaya kasi ginagamit pa ang mga file ng Roblox.
+    <value>Sinubukan ng Fishstrap mag-upgrade ng Roblox pero hindi kaya kasi ginagamit pa ang mga file ng Roblox.
 
 Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Roblox, at mag relaunch.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1244,20 +1244,20 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   </data>
 	<data name="Common.Export" xml:space="preserve">
     <value>I-export</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
-	<data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+	<data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
     <value>I-export ang diagnostic data</value>
   </data>
-	<data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+	<data name="Menu.Fishstrap.ExportData.Description" xml:space="preserve">
     <value>I-gather ang impormasyon na pwedeng I-upload online para ma-troubleshoot ang iyong nararanasan na problema.</value>
   </data>
-	<data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap configuration</value>
+	<data name="Menu.Fishstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Fishstrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-	<data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Lahat ng Bloxstrap logs</value>
+	<data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Lahat ng Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

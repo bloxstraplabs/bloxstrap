@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap tidak dapat mengemas kini secara automatik ke versi {0}. Sila kemas kini secara manual dengan memuat turun dan menjalankannya dari laman web GitHub.</value>
+    <value>Fishstrap tidak dapat mengemas kini secara automatik ke versi {0}. Sila kemas kini secara manual dengan memuat turun dan menjalankannya dari laman web GitHub.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Aplikasi Roblox sedang berjalan, membukanya sekali lagi akan menutup aplikasi tersebut. Adakah anda pasti ingin meneruskannya?</value>
@@ -127,13 +127,13 @@
     <value>Roblox mungkin mengalami masalah sekarang. Lihat {0} untuk maklumat lanjut. Sila cuba sebentar lagi.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Sambungan tidak dapat dibuat, berkemungkinan disebabkan oleh sambungan internet yang lemah atau sekatan oleh tembok api. Jika sambungan internet anda baik, pastikan perisian antivirus anda tidak menyekat Bloxstrap.</value>
+    <value>Sambungan tidak dapat dibuat, berkemungkinan disebabkan oleh sambungan internet yang lemah atau sekatan oleh tembok api. Jika sambungan internet anda baik, pastikan perisian antivirus anda tidak menyekat Fishstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Anda seharunys memasang Bloxstrap terlebih dahulu sebelum membuangnya.</value>
+    <value>Anda seharunys memasang Fishstrap terlebih dahulu sebelum membuangnya.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap tidak mempunyai ruang cakera yang cukup untuk memuat turun dan melakukan pemasangan Roblox. Sila bersihkan ruang cakera dan cuba lagi.</value>
+    <value>Fishstrap tidak mempunyai ruang cakera yang cukup untuk memuat turun dan melakukan pemasangan Roblox. Sila bersihkan ruang cakera dan cuba lagi.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Roblox sedang mengaplikasi modifikasi...</value>
@@ -157,8 +157,8 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} sedang dinaik taraf...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Mencuba mendapatkan aplikasi Bloxstrap terbaharu...</value>
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
+    <value>Mencuba mendapatkan aplikasi Fishstrap terbaharu...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Menunggu "instances" yang lain...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap telah berjaya dinyahpasang</value>
+    <value>Fishstrap telah berjaya dinyahpasang</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox sedang berjalan dan perlu ditutup sebelum Bloxstrap dapat dinyahpasang. Adakah anda ingin menutup Roblox sekarang?</value>
+    <value>Roblox sedang berjalan dan perlu ditutup sebelum Fishstrap dapat dinyahpasang. Adakah anda ingin menutup Roblox sekarang?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Rolox memerlukan komponen Windows Media Foundation. Kelihatan seperti anda tidak memilikinya kerana anda sedang menggunakan Windows versi N. Tolong memuat turun komponen tersebut sebelum membuka aplikasi Roblox.</value>
@@ -279,22 +279,22 @@ Klik untuk maklumat lanjut</value>
     <value>Sambungan ralat</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap tidak dapat disambungkan ke {0}</value>
+    <value>Fishstrap tidak dapat disambungkan ke {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Salin kandungan log</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Suatu ralat telah berlaku semasa menjalankan Bloxstrap</value>
+    <value>Suatu ralat telah berlaku semasa menjalankan Fishstrap</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Semak dahulu [Wiki Bloxstrap]({0}) untuk melihat jika masalah ini telah diselesaikan dengan pembaikan.
+    <value>Semak dahulu [Wiki Fishstrap]({0}) untuk melihat jika masalah ini telah diselesaikan dengan pembaikan.
 
 Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama dengan salinan fail log yang telah dibuat.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Ralat pada Bloxstrap</value>
+    <value>Ralat pada Fishstrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Guna ikon sendiri</value>
@@ -309,10 +309,10 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Byfron palsu (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klasik)</value>
+    <value>Fishstrap (Klasik)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Kaca)</value>
+    <value>Fishstrap (Kaca)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legasi (2008 - 2011)</value>
@@ -390,10 +390,10 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Cerah</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap telah dinaik taraf ke v{0}</value>
+    <value>Fishstrap telah dinaik taraf ke v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Versi Bloxstrap yang sedang berjalan adalah berbeza daripada versi yang telah dipasang. Adakah anda ingin memperbaharui versi yang telah dipasang?</value>
+    <value>Versi Fishstrap yang sedang berjalan adalah berbeza daripada versi yang telah dipasang. Adakah anda ingin memperbaharui versi yang telah dipasang?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Penyumbang</value>
@@ -402,7 +402,7 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Kod</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Berikut adalah individu yang telah memberi sumbangan besar kepada Bloxstrap, membantu membentuknya menjadi seperti yang ada sekarang.</value>
+    <value>Berikut adalah individu yang telah memberi sumbangan besar kepada Fishstrap, membantu membentuknya menjadi seperti yang ada sekarang.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Idea dan Fungsi</value>
@@ -448,7 +448,7 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Sila ambil perhatian bahawa bukan semua perubahan konfigurasi anda akan diterapkan serta-merta sehingga anda menutup semua instance Roblox yang sedang berjalan.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap sedang berjalan</value>
+    <value>Fishstrap sedang berjalan</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Anda boleh menukar penampilan untuk kelihatan berbeza, sama ada dalam gaya retro atau seperti Roblox yang biasa.</value>
@@ -475,7 +475,7 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Nama</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Tetapkan rupa bentuk Bloxstrap.</value>
+    <value>Tetapkan rupa bentuk Fishstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Tema Global</value>
@@ -499,10 +499,10 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Penampilan</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap akan automatik menyemak dan kemas kini secara sendirinya ketika Roblox dilancarkan.</value>
+    <value>Fishstrap akan automatik menyemak dan kemas kini secara sendirinya ketika Roblox dilancarkan.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Kemas kini Bloxstrap secara automatik</value>
+    <value>Kemas kini Fishstrap secara automatik</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Mengelakkan permainan yang sedang anda mainkan daripada tertutup apabila anda tidak sengaja membuka permainan baru.</value>
@@ -511,7 +511,7 @@ Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama den
     <value>Minta pengesahan sebelum melancarkan instance Roblox yang lain</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Tetapkan apa yang perlu dilakukan oleh Bloxstrap ketika Roblox dilancarkan.</value>
+    <value>Tetapkan apa yang perlu dilakukan oleh Fishstrap ketika Roblox dilancarkan.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox akan dipasang semula dalam keadaan baru pada pelancaran seterusnya.</value>
@@ -626,7 +626,7 @@ JANGAN mengimport sebarang senarai "Fast Flags" yang dibuat oleh pengguna lain y
     <value>Had kadar bingkai</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Diaktifkan menggunakan [pintasan papan kekunci]({0}). Fungsi ini hanya akan berfungsi jika anda berada dalam [kumpulan Bloxstrap] sahaja ({1}).</value>
+    <value>Diaktifkan menggunakan [pintasan papan kekunci]({0}). Fungsi ini hanya akan berfungsi jika anda berada dalam [kumpulan Fishstrap] sahaja ({1}).</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Aktifkan keupayaan untuk menyembunyikan GUI</value>
@@ -650,10 +650,10 @@ JANGAN mengimport sebarang senarai "Fast Flags" yang dibuat oleh pengguna lain y
     <value>Fail Ikon</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap tidak dapat dimuat turun disini. Sila ubah lokasinya atau menggunakan lokasi asal dengan menekan butang tetapan semula.</value>
+    <value>Fishstrap tidak dapat dimuat turun disini. Sila ubah lokasinya atau menggunakan lokasi asal dengan menekan butang tetapan semula.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Fail yang anda pilih untuk memasang Bloxstrap sudah wujud dan TIDAK kosong. Sangat disarankan untuk Bloxstrap dipasang ke dalam Fail tersendiri.
+    <value>Fail yang anda pilih untuk memasang Fishstrap sudah wujud dan TIDAK kosong. Sangat disarankan untuk Fishstrap dipasang ke dalam Fail tersendiri.
 
 Dicadangkan untuk menukar ke lokasi berikut:
 {0}
@@ -666,7 +666,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Anda perlu menetapkan lokasi muat turun</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap tidak mempunyai akses untuk muat turun pada lokasi yang anda pilih. Sila pilih lokasi lain.</value>
+    <value>Fishstrap tidak mempunyai akses untuk muat turun pada lokasi yang anda pilih. Sila pilih lokasi lain.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Penjejak aktiviti</value>
@@ -717,7 +717,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Jangan kembalikan saya ke aplikasi desktop</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Membolehkan untuk Bloxstrap mengesan permainan yang anda sedang mainkan di Roblox. Beberapa ciri lain juga memerlukan fungsi ini.</value>
+    <value>Membolehkan untuk Fishstrap mengesan permainan yang anda sedang mainkan di Roblox. Beberapa ciri lain juga memerlukan fungsi ini.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Membenarkan aktiviti penjejak</value>
@@ -814,7 +814,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Tetapan Disimpan!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Tetapan Bloxstrap</value>
+    <value>Tetapan Fishstrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Pilih bahasa pilihan</value>
@@ -844,7 +844,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Antaramuka Pengguna dan Susun Atur</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Benarkan Bloxstrap untuk mengurus "Fast Flags"</value>
+    <value>Benarkan Fishstrap untuk mengurus "Fast Flags"</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Melumpuhkan opsyen ini akan menghalang sebarang konfigurasi disini daripada diterapkan dalam Roblox.</value>
@@ -889,7 +889,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Nyahaktifkan tekstur permukaan rupa bumi</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap tidak dapat memuat turun Roblox</value>
+    <value>Fishstrap tidak dapat memuat turun Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox tidak dapat dimuat turun buat masa ini. Sila baca halaman bantuan berikut untuk mendapatkan maklumat lebih lanjut: {0}</value>
@@ -910,7 +910,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Entri untuk '{0}' tidak sah kerana nilai mestilah nombor</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Tiada fail log yang akan ditulis untuk pelancaran ini kerana Bloxstrap tidak dapat menulis ke folder '{0}'</value>
+    <value>Tiada fail log yang akan ditulis untuk pelancaran ini kerana Fishstrap tidak dapat menulis ke folder '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Asal</value>
@@ -925,7 +925,7 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Entri untuk '{0}' tidak sah kerana tidak diformatkan dengan betul.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Pemasangan Bloxstrap</value>
+    <value>Pemasangan Fishstrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Selamat Datang</value>
@@ -944,18 +944,18 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Seterusnya</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Terima kasih kerana memuat turun Bloxstrap.
+    <value>Terima kasih kerana memuat turun Fishstrap.
 
-Satu-satunya laman web rasmi untuk memuat turun Bloxstrap adalah {0} dan {1}, jadi sila pastikan anda memuat turunnya dari sumber yang rasmi.
+Satu-satunya laman web rasmi untuk memuat turun Fishstrap adalah {0} dan {1}, jadi sila pastikan anda memuat turunnya dari sumber yang rasmi.
 
-Proses pemasangan ini akan cepat dan mudah, dan anda boleh mengkonfigurasi tetapan Bloxstrap selepas pemasangan ini.</value>
+Proses pemasangan ini akan cepat dan mudah, dan anda boleh mengkonfigurasi tetapan Fishstrap selepas pemasangan ini.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Sila klik 'Seterusnya' untuk meneruskan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Anda cuba memasang Bloxstrap versi {0}, akan tetapi versi terbaru yang tersedia ialah {1}. Adakah anda ingin memuat turunnya?</value>
+    <value>Anda cuba memasang Fishstrap versi {0}, akan tetapi versi terbaru yang tersedia ialah {1}. Adakah anda ingin memuat turunnya?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pilih lokasi pemasangan</value>
@@ -976,16 +976,16 @@ Proses pemasangan ini akan cepat dan mudah, dan anda boleh mengkonfigurasi tetap
     <value>Ikon Start Menu</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap telah berjaya dipasang.
+    <value>Fishstrap telah berjaya dipasang.
 
-Roblox masih belum dipasang, dan ia akan dipasang apabila anda melancarkannya dengan Bloxstrap buat kali pertama. Namun, sebelum anda melakukannya, anda mungkin mahu mengkonfigurasi tetapan Bloxstrap terlebih dahulu.
+Roblox masih belum dipasang, dan ia akan dipasang apabila anda melancarkannya dengan Fishstrap buat kali pertama. Namun, sebelum anda melakukannya, anda mungkin mahu mengkonfigurasi tetapan Fishstrap terlebih dahulu.
 
-Selain itu, elakkan menggunakan pintasan "Roblox Player" untuk melancarkan Roblox, kerana Bloxstrap tidak akan dilancarkan bersama. Jika anda tidak melihat Bloxstrap muncul semasa melancarkan dari laman web, anda hanya perlu lancarkan Roblox dengan Bloxstrap sekali dari desktop untuk memperbaikinya.
+Selain itu, elakkan menggunakan pintasan "Roblox Player" untuk melancarkan Roblox, kerana Fishstrap tidak akan dilancarkan bersama. Jika anda tidak melihat Fishstrap muncul semasa melancarkan dari laman web, anda hanya perlu lancarkan Roblox dengan Fishstrap sekali dari desktop untuk memperbaikinya.
 
 Apa yang anda ingin lakukan?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigurasi tetapan Bloxstrap's</value>
+    <value>Konfigurasi tetapan Fishstrap's</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Ubah suai semua ciri yang ditawarkannya</value>
@@ -997,21 +997,21 @@ Apa yang anda ingin lakukan?</value>
     <value>Ia akan membawa anda kembali ke aplikasi desktop setelah semuanya selesai</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Nyahpasang Bloxstrap</value>
+    <value>Nyahpasang Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Menyahpasang Bloxstrap akan membuang Bloxstrap daripada sistem anda, dan juga secara automatik mengkonfigurasi semula Roblox sebagai pelancar asal, jika ia masih dipasang.
+    <value>Menyahpasang Fishstrap akan membuang Fishstrap daripada sistem anda, dan juga secara automatik mengkonfigurasi semula Roblox sebagai pelancar asal, jika ia masih dipasang.
 Jika anda sedang menghapus atau memasang semula kerana mengalami masalah dengan Roblox, sila baca [halaman bantuan]({0}) ini terlebih dahulu.
 
-Proses penghapusan pemasangan mungkin tidak dapat membersihkan sepenuhnya, jadi anda mungkin perlu membersihkan secara manual fail yang tertinggal di tempat Bloxstrap dipasang.
+Proses penghapusan pemasangan mungkin tidak dapat membersihkan sepenuhnya, jadi anda mungkin perlu membersihkan secara manual fail yang tertinggal di tempat Fishstrap dipasang.
 
-Bloxstrap telah dipasang di "{1}".</value>
+Fishstrap telah dipasang di "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Simpan tetapan dan mod saya</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Fail-fail anda akan disimpan di tempat Bloxstrap dipasang, dan akan dipulihkan secara automatik semasa pemasangan semula.</value>
+    <value>Fail-fail anda akan disimpan di tempat Fishstrap dipasang, dan akan dipulihkan secara automatik semasa pemasangan semula.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Nyahpasang</value>
@@ -1032,19 +1032,19 @@ Bloxstrap telah dipasang di "{1}".</value>
     <value>Anda tidak mempunyai WebView2 runtime yang terpasang. Beberapa ciri Roblox tidak akan berfungsi dengan baik tanpa itu, seperti aplikasi desktop. Adakah anda ingin memuat turunnya sekarang?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap tidak dapat membuat pintasan untuk desktop dan menu Start. Sila cuba lagi nanti melalui menu tetapan.</value>
+    <value>Fishstrap tidak dapat membuat pintasan untuk desktop dan menu Start. Sila cuba lagi nanti melalui menu tetapan.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Semak [Wiki Bloxstrap]({0}) terlebih dahulu untuk melihat jika masalah ini telah diatasi dengan penyelesaian.
+    <value>Semak [Wiki Fishstrap]({0}) terlebih dahulu untuk melihat jika masalah ini telah diatasi dengan penyelesaian.
 
-Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JANGAN laporkan isu ini kepada GitHub Bloxstrap, kerana ini adalah yang versi tidak rasmi.</value>
+Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JANGAN laporkan isu ini kepada GitHub Fishstrap, kerana ini adalah yang versi tidak rasmi.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ini adalah pintasan umum yang akan memaparkan menu pelancaran pelbagai pilihan. Pintasan untuk fungsi yang tertentu boleh dibuat kemudian dalam tetapan.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Menetapkan cara untuk Bloxstrap dilancarkan.</value>
+    <value>Menetapkan cara untuk Fishstrap dilancarkan.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Umum</value>
@@ -1074,7 +1074,7 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
     <value>Sila tunggu sehingga nyahpasang selesai.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Perihal Bloxstrap</value>
+    <value>Perihal Fishstrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisensi</value>
@@ -1087,7 +1087,7 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
     <value>Anda mempunyai perubahan yang tidak disimpan. Adakah anda pasti ingin menutup tanpa menyimpan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Versi Bloxstrap yang anda lancarkan adalah lebih lama daripada versi yang anda pasang sekarang. Masalah mungkin berlaku dan tetapan anda mungkin diubah. Pemasangan semula disyorkan. Adakah anda pasti ingin meneruskan?</value>
+    <value>Versi Fishstrap yang anda lancarkan adalah lebih lama daripada versi yang anda pasang sekarang. Masalah mungkin berlaku dan tetapan anda mungkin diubah. Pemasangan semula disyorkan. Adakah anda pasti ingin meneruskan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox tidak berjaya untuk dilancarkan.</value>
@@ -1097,7 +1097,7 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Untuk mengetahui punca masalah ini berlaku dan cara mengatasinya, sila rujuk [artikel bantuan] ini ({0}).
-Periksa sama ada Roblox berfungsi dengan [pelancar asal] ({1}). Jika tidak, ini bermaksud masalah tersebut tidak berkaitan dengan Bloxstrap. Jika ia berfungsi, sila rujuk semula artikel bantuan tersebut.</value>
+Periksa sama ada Roblox berfungsi dengan [pelancar asal] ({1}). Jika tidak, ini bermaksud masalah tersebut tidak berkaitan dengan Fishstrap. Jika ia berfungsi, sila rujuk semula artikel bantuan tersebut.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Data tidak dapat dimuat kerana ralat pada rangkaian.</value>
@@ -1109,7 +1109,7 @@ Periksa sama ada Roblox berfungsi dengan [pelancar asal] ({1}). Jika tidak, ini 
     <value>Sokongan</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Ini adalah individu yang telah menyokong Bloxstrap melalui Ko-fi. Terima kasih yang tidak terhingga kepada semua di sini!
+    <value>Ini adalah individu yang telah menyokong Fishstrap melalui Ko-fi. Terima kasih yang tidak terhingga kepada semua di sini!
 Setiap yang disenaraikan disini adalah mengikut jumlah sumbangan keseluruhan mereka.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1140,12 +1140,12 @@ Setiap yang disenaraikan disini adalah mengikut jumlah sumbangan keseluruhan mer
     <value>Untuk pelancaran ini, Roblox tidak akan diperiksa untuk kemas kini, dan tiada perubahan kepada mod yang akan diterapkan.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Bloxstrap tidak dapat diteruskan kerana Roblox perlu dipasang atau dikemas kini semula.</value>
+    <value>Fishstrap tidak dapat diteruskan kerana Roblox perlu dipasang atau dikemas kini semula.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap telah dipasang di lokasi ini sebelum ini dan masih ada, akan tetapi pemasang tidak dapat menggantikan fail executable lama.
+    <value>Fishstrap telah dipasang di lokasi ini sebelum ini dan masih ada, akan tetapi pemasang tidak dapat menggantikan fail executable lama.
 
-Sila buang fail Bloxstrap.exe secara manual dari lokasi pemasangan atau cuba mulakan semula sistem anda, dan kemudian cuba semula pemasangan selepas itu.</value>
+Sila buang fail Fishstrap.exe secara manual dari lokasi pemasangan atau cuba mulakan semula sistem anda, dan kemudian cuba semula pemasangan selepas itu.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Tidak tersedia</value>
@@ -1157,7 +1157,7 @@ Sila buang fail Bloxstrap.exe secara manual dari lokasi pemasangan atau cuba mul
     <value>Konfigurasi pada parameter aplikasi seperti tingkah laku skala DPI dan [pengoptimumam pada skrin penuh]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox masih belum dipasang. Sila lancarkan Roblox menggunakan Bloxstrap sekurang-kurangnya sekali sebelum mencuba menggunakan opsyen ini.</value>
+    <value>Roblox masih belum dipasang. Sila lancarkan Roblox menggunakan Fishstrap sekurang-kurangnya sekali sebelum mencuba menggunakan opsyen ini.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Adakah anda pasti ingin membatalkan pemasangan ini?</value>
@@ -1173,10 +1173,10 @@ Sila buang fail Bloxstrap.exe secara manual dari lokasi pemasangan atau cuba mul
     <value>Ekstrak ikon Roblox ke fail</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Membenarkan anda menggunakan pelbagai ikon Roblox Bloxstrap untuk pintasan anda. [Lihat bagaimana ia berfungsi.]({0})</value>
+    <value>Membenarkan anda menggunakan pelbagai ikon Roblox Fishstrap untuk pintasan anda. [Lihat bagaimana ia berfungsi.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap tidak dapat menulis ke Windows Registry, berkemungkinan antivirus sedang mengganggu dan menyebabkan masalah. Sila semak dan pastikan tiada apa-apa yang menghalang operasi Bloxstrap.</value>
+    <value>Fishstrap tidak dapat menulis ke Windows Registry, berkemungkinan antivirus sedang mengganggu dan menyebabkan masalah. Sila semak dan pastikan tiada apa-apa yang menghalang operasi Fishstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Bulanan</value>
@@ -1184,13 +1184,13 @@ Sila buang fail Bloxstrap.exe secara manual dari lokasi pemasangan atau cuba mul
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Sumbangan sekali</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigurasi opsyen yang berkaitan dengan tingkah laku Bloxstrap itu sendiri.</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Konfigurasi opsyen yang berkaitan dengan tingkah laku Fishstrap itu sendiri.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>Benarkan penghantaran analitik</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Untuk maklumat tentang apa yang kami kumpulkan dan sebabnya, rujuk dasar [privasi kami.]({0}). Ia adalah secara anonim dan tidak berniat jahat, kami janji.</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1214,7 +1214,7 @@ Semasa mod ini diaktifkan, ia akan melancarkan Roblox secara automatik selepas m
 Adakah anda ingin mengaktifkan mod pengujian?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Semua terjemahan Bloxstrap yang diperoleh adalah dengan kerjasama ramai melalui [Crowdin]({0}). Setiap individu yang disenaraikan di sini adalah mereka yang menyumbangkan masa dan juga usaha untuk membantu menjayakan penterjemahan Bloxstrap. Jutaan terima kasih kepada mereka semua di sini!</value>
+    <value>Semua terjemahan Fishstrap yang diperoleh adalah dengan kerjasama ramai melalui [Crowdin]({0}). Setiap individu yang disenaraikan di sini adalah mereka yang menyumbangkan masa dan juga usaha untuk membantu menjayakan penterjemahan Fishstrap. Jutaan terima kasih kepada mereka semua di sini!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Pasang</value>
@@ -1225,7 +1225,7 @@ Adakah anda ingin mengaktifkan mod pengujian?</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
-    <value>Kemungkinan ada sesuatu yang menghalang Bloxstrap daripada menyambung ke internet.</value>
+    <value>Kemungkinan ada sesuatu yang menghalang Fishstrap daripada menyambung ke internet.</value>
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>Sambungan anda telah tamat masa, yang mungkin menunjukkan bahawa sambungan internet anda yang lemah atau terdapat sekatan firewall.</value>
@@ -1256,7 +1256,7 @@ Adakah anda ingin mengaktifkan mod pengujian?</value>
     <value>Versi {0}</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap cuba menaik taraf Roblox tetapi gagal kerana fail Roblox sedang digunakan.
+    <value>Fishstrap cuba menaik taraf Roblox tetapi gagal kerana fail Roblox sedang digunakan.
 Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
@@ -1266,6 +1266,6 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Eksport</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
 </root>

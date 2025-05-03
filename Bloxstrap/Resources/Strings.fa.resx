@@ -133,7 +133,7 @@
     <value>شما باید بلاکسترپ را نصب داشته باشید که بتواند آنرا حذف نصب کنید.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap فضای کافی برای دانلود و نصب Roblox ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
+    <value>Fishstrap فضای کافی برای دانلود و نصب Roblox ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>در حال اعمال کردن تغییرات Roblox...</value>
@@ -157,7 +157,7 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>در حال به روز رسانی کردن {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
     <value>در حال گرفتن آخرین بلاکسترپ...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap با موفقیت حذف شد</value>
+    <value>Fishstrap با موفقیت حذف شد</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox در حال اجرا است؛ ولی قبل از حذف نصب Bloxstrap باید بسته شود. آیا میخواهید Roblox را الان بیندید?</value>
+    <value>Roblox در حال اجرا است؛ ولی قبل از حذف نصب Fishstrap باید بسته شود. آیا میخواهید Roblox را الان بیندید?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>روبلاکس نیاز به استفاده از اجزای بنیاد رسانه ویندوز می باشد. همانا این‌طور می باشد که آنها را ندارید؛ و ممکن است شما در حال استفاده از نسخهٔ «ن» ویندوز می باشید. اول آنها را نصب کرده، و بعد روبلاکس را اجرا کنید.</value>
@@ -1152,7 +1152,7 @@
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>بلاکسترپ قبلا در این مسیر نصب شده و هنوز در این مسیر وجود دارد، اما نصب کننده نمیتواند فایل اجرایی قدیمی را بازنویسی کند.
 
-لطفا به طور دستی "Bloxstrap.exe" را از مسیر نصب کننده پاک کنید و یا سیستم خود را خاموش و روشن کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
+لطفا به طور دستی "Fishstrap.exe" را از مسیر نصب کننده پاک کنید و یا سیستم خود را خاموش و روشن کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>در دسترس نیست</value>
@@ -1193,13 +1193,13 @@
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>یکبار</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
     <value>پیکربندی تنظیماتی به رفتار خود بلاکسترپ ربط دارد.</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
     <value>فعال سازی ارسال تجزیه و تحلیل</value>
   </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>این کار ناشناس است و هیچ چیز بدی نیست، قول میدهیم. برای اطلاعات بیشتر در مورد آنچه که جمع‌آوری می کنیم و چرا، به [خط مشی رازداری] ({0}) ما مراجعه کنید.</value>
   </data>
   <data name="Common.Analytics" xml:space="preserve">
@@ -1251,19 +1251,19 @@
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>صدور</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
     <value>صدور داده های تشخیصی</value>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.Description" xml:space="preserve">
     <value>برای مشکلی که دارید، اطلاعات عیب یابی را جمع‌آوری کنید که به صورت آنلاین آپلود شود.</value>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>پیکربندی بلاکسترپ</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>تمامی لاگ های بلاکسترپ</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
