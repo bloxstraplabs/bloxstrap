@@ -351,9 +351,9 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Getting the latest Fishstrap....
         /// </summary>
-        public static string Bootstrapper_Status_UpgradingFishstrap {
+        public static string Bootstrapper_Status_UpgradingBloxstrap {
             get {
-                return ResourceManager.GetString("Bootstrapper.Status.UpgradingFishstrap", resourceCulture);
+                return ResourceManager.GetString("Bootstrapper.Status.UpgradingBloxstrap", resourceCulture);
             }
         }
         

@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} güncelleniyor...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Fishstrap'in en yeni sürümü indiriliyor...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Diğer istemciler için bekleniliyor...</value>
   </data>
@@ -1190,15 +1187,6 @@ Lütfen manuel olarak yükleme yolundan Fishstrap.exe'yi silin veya sisteminizi 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Tek sefer</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Fishstrap'ın davranışı ile ilgili ayarları yapılandırın.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Analitikleri göndermeyi etkinleştir</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Hepsi anonim ve kötü bir şey değil, söz. Ne topladığımız ve neden topladığımız hakkında bilgi için [gizlilik politikamıza]({0}) bakın.</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analitikler</value>
   </data>
@@ -1230,6 +1218,26 @@ Test modu açmak ister misiniz?</value>
     <value>Simgeler</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studio'u başlat</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Sürüm {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap Roblox'u yükseltmeye çalıştı ancak başaramadı çünkü Roblox'un dosyaları hâlâ kullanımda.
+
+Lütfen Roblox'un dosyalarını kullanabilecek olan uygulamaları kapatın, ve tekrar başlatın.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip arşivi</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Dışa aktar</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Muhtemelen bir şey Fishstrap'ın internet'e bağlanmasına engel oluyor.</value>
   </data>
@@ -1255,24 +1263,16 @@ Test modu açmak ister misiniz?</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Roblox Studio'u başlat</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Fishstrap'in en yeni sürümü indiriliyor...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Sürüm {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Fishstrap'ın davranışı ile ilgili ayarları yapılandırın.</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap Roblox'u yükseltmeye çalıştı ancak başaramadı çünkü Roblox'un dosyaları hâlâ kullanımda.
-
-Lütfen Roblox'un dosyalarını kullanabilecek olan uygulamaları kapatın, ve tekrar başlatın.</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Analitikleri göndermeyi etkinleştir</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Zip arşivi</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>Dışa aktar</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Hepsi anonim ve kötü bir şey değil, söz. Ne topladığımız ve neden topladığımız hakkında bilgi için [gizlilik politikamıza]({0}) bakın.</value>
   </data>
 </root>

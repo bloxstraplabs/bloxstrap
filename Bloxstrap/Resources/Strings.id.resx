@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -156,9 +156,6 @@
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Memperbarui {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Mengunduh versi Fishstrap terbaru...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Menunggu untuk instansi lainnya...</value>
@@ -1193,15 +1190,6 @@ Tolong hapus Fishstrap.exe secara manual dari lokasi pemasangan atau coba untuk 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Sekali</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Atur opsi yang terkait dengan perilaku Fishstrap itu sendiri.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Aktifkan pengiriman analisa</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Ini anonim dan tidak digunakan untuk hal yang jahat, janji. Untuk wawasan tentang apa yang kami kumpulkan dan mengapa, lihat [kebijakan privasi]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analitik</value>
   </data>
@@ -1252,6 +1240,18 @@ Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncur
   <data name="Common.Export" xml:space="preserve">
     <value>Ekspor</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Mengunduh versi Fishstrap terbaru...</value>
+  </data>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Atur opsi yang terkait dengan perilaku Fishstrap itu sendiri.</value>
+  </data>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Aktifkan pengiriman analisa</value>
+  </data>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Ini anonim dan tidak digunakan untuk hal yang jahat, janji. Untuk wawasan tentang apa yang kami kumpulkan dan mengapa, lihat [kebijakan privasi]({0}).</value>
   </data>
   <data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
     <value>Ekspor data diagnostik</value>

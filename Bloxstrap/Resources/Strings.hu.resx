@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product} frissítése...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>A legújabb Fishstrap beszerzése...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Várakozás más példányokra...</value>
   </data>
@@ -1191,15 +1188,6 @@ Kérjük, manuálisan törölje a Fishstrap.exe fájlt a telepítési helyről, 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Egyszeri</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>A Fishstrap viselkedésével kapcsolatos beállítások konfigurálása.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Az analitika küldésének engedélyezése</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Névtelen és semmi rossz, ígérjük. Ha többet szeretne megtudni arról, hogy mit és miért gyűjtünk, olvassa el az [adatvédelmi szabályzatunkat]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analitika</value>
   </data>
@@ -1231,6 +1219,26 @@ Szeretné engedélyezni a teszt üzemmódot?</value>
     <value>Ikonok</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studio elindítása</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Verzió {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>A Fishstrap megpróbálta frissíteni a Robloxot, de nem tudja, mert a Roblox fájljai még mindig használatban vannak.
+
+Kérjük, zárjon be minden olyan alkalmazást, amely a Roblox fájljait használja, és indítsa újra.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip archívum</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Exportálás</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Valami valószínűleg megakadályozza, hogy a Fishstrap csatlakozzon az internethez.</value>
   </data>
@@ -1256,24 +1264,16 @@ Szeretné engedélyezni a teszt üzemmódot?</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Roblox Studio elindítása</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>A legújabb Fishstrap beszerzése...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Verzió {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>A Fishstrap viselkedésével kapcsolatos beállítások konfigurálása.</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>A Fishstrap megpróbálta frissíteni a Robloxot, de nem tudja, mert a Roblox fájljai még mindig használatban vannak.
-
-Kérjük, zárjon be minden olyan alkalmazást, amely a Roblox fájljait használja, és indítsa újra.</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Az analitika küldésének engedélyezése</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Zip archívum</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>Exportálás</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Névtelen és semmi rossz, ígérjük. Ha többet szeretne megtudni arról, hogy mit és miért gyűjtünk, olvassa el az [adatvédelmi szabályzatunkat]({0}).</value>
   </data>
 </root>

@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Надграждане на {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Вземане на най-новата версия на Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Изчакване на други инстанции...</value>
   </data>
@@ -1192,15 +1189,6 @@ Fishstrap е инсталиран на „{1}“.</value>
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Еднократно</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Конфигурирайте опции, свързани с поведението на Fishstrap.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Активирайте изпращането на аналитика</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Те са напълно анонимни. За информация върху какво събираме и защо. Вижте нашата [политика за поверителност]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Анализи</value>
   </data>
@@ -1232,6 +1220,26 @@ Fishstrap е инсталиран на „{1}“.</value>
     <value>Икони</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Стартирай Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Версия {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap се опита да актуализира Roblox, но бе неуспешен, защото файловете на Roblox все още се използват.
+
+Моля, затворете всички приложения, които може да ги ползват, и стартирайте отново.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip архив</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Експортирай</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Нещо пречи на Fishstrap да се свърже с интернет.</value>
   </data>
@@ -1257,24 +1265,16 @@ Fishstrap е инсталиран на „{1}“.</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Стартирай Roblox Studio</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Вземане на най-новата версия на Fishstrap...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Версия {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Конфигурирайте опции, свързани с поведението на Fishstrap.</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap се опита да актуализира Roblox, но бе неуспешен, защото файловете на Roblox все още се използват.
-
-Моля, затворете всички приложения, които може да ги ползват, и стартирайте отново.</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Активирайте изпращането на аналитика</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Zip архив</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>Експортирай</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Те са напълно анонимни. За информация върху какво събираме и защо. Вижте нашата [политика за поверителност]({0}).</value>
   </data>
 </root>

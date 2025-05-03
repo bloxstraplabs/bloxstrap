@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Uppgraderar {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Skaffar den nyaste Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Väntar på andra instanser...</value>
   </data>
@@ -1193,15 +1190,6 @@ Ta manuellt bort Fishstrap.exe från installationsplatsen eller försök starta 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Engångsdonationer</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Konfigurera alternativ relaterade till Fishstraps beteende i sig.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Skicka telemetri</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Det är anonymt och inget ont. För att se vad vi samlar in och varför, se vår [integritetspolicy]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Telemetri</value>
   </data>
@@ -1233,6 +1221,26 @@ Vill du aktivera testläge?</value>
     <value>Ikoner</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Starta Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap kunde inte uppdatera Roblox eftersom Roblox filer fortfarande används.
+
+Var vänlig och stäng applikationer som kan använda Roblox filer, och starta sedan om Fishstrap.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip-arkiv</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Exportera</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Någonting hindrar förmodligen Fishstrap från att ansluta till internet.</value>
   </data>
@@ -1258,24 +1266,16 @@ Vill du aktivera testläge?</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Starta Roblox Studio</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Skaffar den nyaste Fishstrap...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Version {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Konfigurera alternativ relaterade till Fishstraps beteende i sig.</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap kunde inte uppdatera Roblox eftersom Roblox filer fortfarande används.
-
-Var vänlig och stäng applikationer som kan använda Roblox filer, och starta sedan om Fishstrap.</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Skicka telemetri</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Zip-arkiv</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>Exportera</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Det är anonymt och inget ont. För att se vad vi samlar in och varför, se vår [integritetspolicy]({0}).</value>
   </data>
 </root>

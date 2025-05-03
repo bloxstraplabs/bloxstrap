@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>{product}を更新中...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Fishstrapの最新版を取得中...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>他のインスタンスを待機中...</value>
   </data>
@@ -1205,15 +1202,6 @@ Robloxが[正規のランチャー]({1})で動作するか確認してくださ�
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>一回払い</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Fishstrapの動作に関する設定を変更できます。</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>使用状況と診断情報を送信</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>匿名かつ悪意のない用途で使用されます。収集する内容とその理由は、[プライバシーポリシー]({0})を確認してください。</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>使用状況と診断情報</value>
   </data>
@@ -1246,6 +1234,26 @@ Robloxが[正規のランチャー]({1})で動作するか確認してくださ�
     <value>アイコン</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studioを起動</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Ver. {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Robloxのアプリファイルが使用中のため、Robloxを更新できませんでした。
+
+Robloxのアプリファイルを使用している可能性のあるアプリを閉じて、もう一度お試しください。</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>zip 形式</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>何らかの原因でFishstrapはインターネット接続を制限されています。</value>
   </data>
@@ -1271,24 +1279,16 @@ Robloxが[正規のランチャー]({1})で動作するか確認してくださ�
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Roblox Studioを起動</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Fishstrapの最新版を取得中...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Ver. {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Fishstrapの動作に関する設定を変更できます。</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Robloxのアプリファイルが使用中のため、Robloxを更新できませんでした。
-
-Robloxのアプリファイルを使用している可能性のあるアプリを閉じて、もう一度お試しください。</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>使用状況と診断情報を送信</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>zip 形式</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>エクスポート</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>匿名かつ悪意のない用途で使用されます。収集する内容とその理由は、[プライバシーポリシー]({0})を確認してください。</value>
   </data>
 </root>

@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Aggiornando {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Ricerca della versione più recente di Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>In attesa di altre istanze...</value>
   </data>
@@ -1194,15 +1191,6 @@ Assicurati che non ci sia nulla che possa limitare le operazioni di Fishstrap.</
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Una volta</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>Configura le opzioni a riguardo del comportamento di Fishstrap.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>Abilita l'invio delle statistiche</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>È anonimo e non è niente di male, promesso. Per informazioni su che cosa collezioniamo e perché, guarda la nostra [informativa sulla privacy]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Statistiche</value>
   </data>
@@ -1234,6 +1222,26 @@ Vuoi abilitare la modalità di prova?</value>
     <value>Icone</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Avvia Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Versione {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap ha provato ad aggiornare Roblox ma non può perché i file di Roblox sono ancora in uso.
+
+Si prega di chiudere tutte le applicazioni che potrebbero usare i file di Roblox e rilanciare.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Archivio zip</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Esportazione</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>È probabile che qualcosa stia impedendo a Fishstrap di connettersi a Internet.</value>
   </data>
@@ -1259,24 +1267,16 @@ Vuoi abilitare la modalità di prova?</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Avvia Roblox Studio</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Ricerca della versione più recente di Fishstrap...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>Versione {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>Configura le opzioni a riguardo del comportamento di Fishstrap.</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap ha provato ad aggiornare Roblox ma non può perché i file di Roblox sono ancora in uso.
-
-Si prega di chiudere tutte le applicazioni che potrebbero usare i file di Roblox e rilanciare.</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>Abilita l'invio delle statistiche</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>Archivio zip</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>Esportazione</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>È anonimo e non è niente di male, promesso. Per informazioni su che cosa collezioniamo e perché, guarda la nostra [informativa sulla privacy]({0}).</value>
   </data>
 </root>

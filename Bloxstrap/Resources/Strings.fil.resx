@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Mag-uupgrade ng {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>Kinukuha ang latest Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Naghihintay ng ibang instances...</value>
   </data>
@@ -1190,15 +1187,6 @@ Pakialisin mismo ang Fishstrap.exe sa install location o subukan mong i-restart 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Isang beses</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>I-configure ang mga option na nanuugnay sa pag-uugali ng Fishstrap mismo.</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>I-enable ang pag-send ng analitiko</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>Ito ay anonima lang at walang masama, promise. Para sa insight na anong kinokolekta namin at bakit, tignan mo ang aming [privacy policy]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analitika</value>
   </data>
@@ -1208,55 +1196,67 @@ Pakialisin mismo ang Fishstrap.exe sa install location o subukan mong i-restart 
   <data name="Dialog.Exception.Report" xml:space="preserve">
     <value>Report exception</value>
   </data>
-	<data name="Menu.TestMode.Prompt" xml:space="preserve">
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
     <value>Pinapadali ang "Test Mode" para paulit-ulit na masubok kung paano ina-apekto ang settings mo sa Roblox.
 
 Habang naka-enable, kusang bubukas ang Roblox pagkatapos isara ang mga settings, at bubuksan ulit ang mga settings pagkatapos isara ang Roblox, sa isang cycle hanggang sa i-disable mo ito.
 
 Gusto mo bang i-enable ang "Test Mode"?</value>
   </data>
-	<data name="About.Translators.Description" xml:space="preserve">
+  <data name="About.Translators.Description" xml:space="preserve">
     <value>Lahat ng translations para sa Fishstrap ay crowdsourced galing sa [Crowdin]({0}). Lahat nakalista dito ang mga tao na nakapagboluntaryo para sa oras at pagsisikap para tulungan i-localize at Fishstrap. Malaking pasasalamat sa iyong lahat!</value>
   </data>
-	<data name="Common.Navigation.Install" xml:space="preserve">
+  <data name="Common.Navigation.Install" xml:space="preserve">
     <value>I-install</value>
     <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
   </data>
-	<data name="Paths.Icons" xml:space="preserve">
+  <data name="Paths.Icons" xml:space="preserve">
     <value>Mga icon</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
-	<data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
     <value>I-launch ang Roblox Studio</value>
   </data>
-	<data name="Dialog.Exception.Version" xml:space="preserve">
+  <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
   </data>
-	<data name="Bootstrapper.FilesInUse" xml:space="preserve">
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Sinubukan ng Fishstrap mag-upgrade ng Roblox pero hindi kaya kasi ginagamit pa ang mga file ng Roblox.
 
 Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Roblox, at mag relaunch.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
-	<data name="FileTypes.ZipArchive" xml:space="preserve">
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
     <value>Zip archive</value>
     <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
   </data>
-	<data name="Common.Export" xml:space="preserve">
+  <data name="Common.Export" xml:space="preserve">
     <value>I-export</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
-	<data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Kinukuha ang latest Fishstrap...</value>
+  </data>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>I-configure ang mga option na nanuugnay sa pag-uugali ng Fishstrap mismo.</value>
+  </data>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>I-enable ang pag-send ng analitiko</value>
+  </data>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>Ito ay anonima lang at walang masama, promise. Para sa insight na anong kinokolekta namin at bakit, tignan mo ang aming [privacy policy]({0}).</value>
+  </data>
+  <data name="Menu.Fishstrap.ExportData.Title" xml:space="preserve">
     <value>I-export ang diagnostic data</value>
   </data>
-	<data name="Menu.Fishstrap.ExportData.Description" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.Description" xml:space="preserve">
     <value>I-gather ang impormasyon na pwedeng I-upload online para ma-troubleshoot ang iyong nararanasan na problema.</value>
   </data>
-	<data name="Menu.Fishstrap.ExportData.ExportConfig" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.ExportConfig" xml:space="preserve">
     <value>Fishstrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-	<data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
+  <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Lahat ng Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>

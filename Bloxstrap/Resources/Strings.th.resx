@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>กำลังอัพเกรด {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingFishstrap" xml:space="preserve">
-    <value>กำลังดาวน์โหลดเวอร์ชั่นล่าสุดของ Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>กำลังรออินสแตนซ์อื่นๆ...</value>
   </data>
@@ -1187,15 +1184,6 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>ครั้งเดียว</value>
   </data>
-  <data name="Menu.Fishstrap.Description" xml:space="preserve">
-    <value>กำหนดค่าเกี่ยวกับตัวเลือกที่เกี่ยวข้องกับพฤติกรรมของ Fishstrap เอง</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
-    <value>เปิดใช้งานการส่งข้อมูลวิเคราะห์</value>
-  </data>
-  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
-    <value>มันเป็นข้อมูลที่ไม่ระบุชื่อและไม่มีอะไรที่ไม่ดีแน่นอน สําหรับข้อมูลเกี่ยวกับสิ่งที่เรารวบรวมและเหตุผล โปรดดูที่ [นโยบายความเป็นส่วนตัวของเรา]({0})</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>วิเคราะห์</value>
   </data>
@@ -1227,6 +1215,26 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
     <value>ไอคอน</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>เปิด Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>เวอร์ชั่น {0}</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Fishstrap พยายามที่จะอัปเดต Roblox แต่ไม่สามารถทำได้เพราะมีไฟล์ของ Roblox ที่กำลังถูกใช้
+
+โปรดปิดแอปพลิเคชันที่กำลังใช้ไฟล์ของ Roblox แล้วลองใหม่อีกครั้ง</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>ไฟล์ซิป</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>ส่งออก</value>
+    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>มีบางอย่างที่อาจทำให้ Fishstrap ไม่สามารถเชื่อมต่อกับอินเทอร์เน็ตได้</value>
   </data>
@@ -1252,24 +1260,16 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>เปิด Roblox Studio</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>กำลังดาวน์โหลดเวอร์ชั่นล่าสุดของ Fishstrap...</value>
   </data>
-  <data name="Dialog.Exception.Version" xml:space="preserve">
-    <value>เวอร์ชั่น {0}</value>
+  <data name="Menu.Fishstrap.Description" xml:space="preserve">
+    <value>กำหนดค่าเกี่ยวกับตัวเลือกที่เกี่ยวข้องกับพฤติกรรมของ Fishstrap เอง</value>
   </data>
-  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap พยายามที่จะอัปเดต Roblox แต่ไม่สามารถทำได้เพราะมีไฟล์ของ Roblox ที่กำลังถูกใช้
-
-โปรดปิดแอปพลิเคชันที่กำลังใช้ไฟล์ของ Roblox แล้วลองใหม่อีกครั้ง</value>
-    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  <data name="Menu.Fishstrap.Analytics.Title" xml:space="preserve">
+    <value>เปิดใช้งานการส่งข้อมูลวิเคราะห์</value>
   </data>
-  <data name="FileTypes.ZipArchive" xml:space="preserve">
-    <value>ไฟล์ซิป</value>
-    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
-  </data>
-  <data name="Common.Export" xml:space="preserve">
-    <value>ส่งออก</value>
-    <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
+  <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
+    <value>มันเป็นข้อมูลที่ไม่ระบุชื่อและไม่มีอะไรที่ไม่ดีแน่นอน สําหรับข้อมูลเกี่ยวกับสิ่งที่เรารวบรวมและเหตุผล โปรดดูที่ [นโยบายความเป็นส่วนตัวของเรา]({0})</value>
   </data>
 </root>
