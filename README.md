@@ -34,7 +34,7 @@ Bloxstrap is only supported for PCs running Windows.
 
 **Q: Can using this get me banned?**
 
-**A:** No, it shouldn't. Bloxstrap doesn't interact with the Roblox client in the same way that exploits do. [Read more about that here.](https://github.com/bloxstraplabs/bloxstrap/wiki/Why-it's-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap)
+**A:** No, it shouldn't. Bloxstrap doesn't interact with the Roblox client in the same way that exploits do. However some games may disallow certain FastFlags to be abused (i.e. messing with the physics engine, turning on hitboxes) [For a full explanation read here.](https://github.com/bloxstraplabs/bloxstrap/wiki/Why-it's-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap)
 
 ## Features
 
