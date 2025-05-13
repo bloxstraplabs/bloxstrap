@@ -4,6 +4,7 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 
 using Bloxstrap.UI.Elements.Dialogs;
+using Bloxstrap.Integrations;
 
 namespace Bloxstrap
 {
@@ -329,6 +330,10 @@ namespace Bloxstrap
                     if (t.Exception is not null)
                         App.FinalizeExceptionHandling(t.Exception);
                 }
+
+                // shouldnt this be done after client closes?
+                if (App.Settings.Prop.CleanerOptions != CleanerOptions.Never)
+                    Cleaner.DoCleaning();
 
                 App.Terminate();
             });

@@ -1422,6 +1422,51 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Never.
+        /// </summary>
+        public static string Enums_CleanerOptions_Never {
+            get {
+                return ResourceManager.GetString("Enums.CleanerOptions.Never", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After 1 day.
+        /// </summary>
+        public static string Enums_CleanerOptions_OneDay {
+            get {
+                return ResourceManager.GetString("Enums.CleanerOptions.OneDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After 1 month.
+        /// </summary>
+        public static string Enums_CleanerOptions_OneMonth {
+            get {
+                return ResourceManager.GetString("Enums.CleanerOptions.OneMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After 1 week.
+        /// </summary>
+        public static string Enums_CleanerOptions_OneWeek {
+            get {
+                return ResourceManager.GetString("Enums.CleanerOptions.OneWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After 2 months.
+        /// </summary>
+        public static string Enums_CleanerOptions_TwoMonths {
+            get {
+                return ResourceManager.GetString("Enums.CleanerOptions.TwoMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2006 (Cartoony).
         /// </summary>
         public static string Enums_CursorType_From2006 {
@@ -2489,6 +2534,96 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files older than set amount will be deleted..
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Age_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Age.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When should the files get deleted.
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Age_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Age.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old downloads will be deleted..
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Cache_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Cache.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cache.
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Cache_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Cache.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fishstrap logs will be deleted..
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_IncludeBloxstrap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fishstrap logs.
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_IncludeBloxstrap_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old log files will be deleted..
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Logs_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Logs.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logs.
+        /// </summary>
+        public static string Menu_Bootstrapper_Cleaner_Logs_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.Cleaner.Logs.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fishstrap will remove old data to save on space.
+        /// </summary>
+        public static string Menu_Bootstrapper_CleanUp_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.CleanUp.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleaner.
+        /// </summary>
+        public static string Menu_Bootstrapper_CleanUp_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bootstrapper.CleanUp.Title", resourceCulture);
             }
         }
         

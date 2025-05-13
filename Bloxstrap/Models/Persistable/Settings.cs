@@ -26,6 +26,8 @@ namespace Bloxstrap.Models.Persistable
         public string? SelectedCustomTheme { get; set; } = null;
 
         // integration configuration
+        public CleanerOptions CleanerOptions { get; set; } = CleanerOptions.Never;
+        public List<string> CleanerDirectories { get; set; } = new List<string>();
         public bool EnableActivityTracking { get; set; } = true;
         public bool UseDiscordRichPresence { get; set; } = true;
         public bool HideRPCButtons { get; set; } = true;

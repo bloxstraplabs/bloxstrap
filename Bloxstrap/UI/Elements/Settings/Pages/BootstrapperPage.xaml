@@ -35,5 +35,49 @@ Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
 Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
             <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="True">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Bootstrapper_CleanUp_Title}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_Bootstrapper_CleanUp_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Age_Title}" 
+    Description="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Age_Description}">
+                    <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding CleanerOptions, Mode=OneTime}" Text="{Binding CleanerOption, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Cache_Title}" 
+    Description="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Cache_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding CleanerCache, Mode=TwoWay}" />
+                </controls:OptionControl>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Logs_Title}" 
+    Description="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_Logs_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding CleanerLogs, Mode=TwoWay}" />
+                </controls:OptionControl>
+                <controls:OptionControl 
+    Header="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_IncludeBloxstrap_Title}"
+    Description="{x:Static resources:Strings.Menu_Bootstrapper_Cleaner_IncludeBloxstrap_Description}">
+                    <ui:ToggleSwitch IsChecked="{Binding CleanerFishstrap, Mode=TwoWay}" />
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
     </StackPanel>
 </ui:UiPage>

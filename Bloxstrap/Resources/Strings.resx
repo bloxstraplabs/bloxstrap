@@ -1549,4 +1549,49 @@ You can no longer use Bloxshade with Fishstrap.</value>
     <value>All Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
+	<data name="Menu.Bootstrapper.CleanUp.Title" xml:space="preserve">
+    <value>Cleaner</value>
+  </data>
+	<data name="Menu.Bootstrapper.CleanUp.Description" xml:space="preserve">
+    <value>Fishstrap will remove old data to save on space</value>
+  </data>
+	<data name="Enums.CleanerOptions.Never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+	<data name="Enums.CleanerOptions.OneDay" xml:space="preserve">
+    <value>After 1 day</value>
+  </data>
+	<data name="Enums.CleanerOptions.OneWeek" xml:space="preserve">
+    <value>After 1 week</value>
+  </data>
+	<data name="Enums.CleanerOptions.OneMonth" xml:space="preserve">
+    <value>After 1 month</value>
+  </data>
+	<data name="Enums.CleanerOptions.TwoMonths" xml:space="preserve">
+    <value>After 2 months</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Age.Title" xml:space="preserve">
+    <value>When should the files get deleted</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Age.Description" xml:space="preserve">
+    <value>Files older than set amount will be deleted.</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Cache.Title" xml:space="preserve">
+    <value>Cache</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Cache.Description" xml:space="preserve">
+    <value>Old downloads will be deleted.</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Logs.Title" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.Logs.Description" xml:space="preserve">
+    <value>Old log files will be deleted.</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Title" xml:space="preserve">
+    <value>Fishstrap logs</value>
+  </data>
+	<data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Description" xml:space="preserve">
+    <value>Fishstrap logs will be deleted.</value>
+  </data>
 </root>
