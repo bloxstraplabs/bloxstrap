@@ -1368,7 +1368,7 @@ namespace Bloxstrap
                             String.Format(App.Settings.Prop.DownloadingStringFormat,
                             package.Name,
                             totalBytesRead / 1048576,
-                            _versionPackageManifest.Sum(package => package.PackedSize) / 1048576
+                            package.Size / 1048576
                             ));
                         UpdateProgressBar();
                     }
