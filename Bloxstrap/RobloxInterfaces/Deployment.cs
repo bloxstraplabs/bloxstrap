@@ -16,7 +16,7 @@ namespace Bloxstrap.RobloxInterfaces
 
         public static string BinaryType = "WindowsPlayer";
 
-        public static bool IsDefaultChannel => Channel.Equals(DefaultChannel, StringComparison.OrdinalIgnoreCase);
+        public static bool IsDefaultChannel => Channel.Equals(DefaultChannel, StringComparison.OrdinalIgnoreCase) || Channel.Equals("live", StringComparison.OrdinalIgnoreCase);
         
         public static string BaseUrl { get; private set; } = null!;
 
