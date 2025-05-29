@@ -294,7 +294,11 @@ namespace Bloxstrap
             {
                 if (match.Groups.Count == 2)
                 {
-                    Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
+                    string Channel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
+
+                    Deployment.Channel = Channel;
+                    App.Settings.Prop.Channel = Channel;
+                    App.Settings.Save();
                 }
                 else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
                 {
@@ -312,11 +316,12 @@ namespace Bloxstrap
                 case ChannelChangeMode.Prompt:
                     App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
 
-                    if (
-                        (!match.Success || match.Groups.Count != 2)
-                        &&
-                        match.Groups[2].Value != App.Settings.Prop.Channel
-                        )
+                    if
+                    (
+                    !match.Success ||
+                    match.Groups.Count != 2 ||
+                    match.Groups[1].Value.ToLowerInvariant() == Deployment.Channel
+                    )
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Channel is either equal or incorrectly formatted");
                         break;
