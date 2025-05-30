@@ -1517,7 +1517,7 @@ Would you like to switch your preferred channel to {0}?</value>
     <value>Import settings from Bloxstrap</value>
   </data>
   <data name="Installer.InstallationNotFound" xml:space="preserve">
-    <value>Fishstrap installation was not found.</value>
+    <value>Bloxstrap installation was not found.</value>
   </data>
   <data name="Bootstrapper.Dialog.AnselDisabled" xml:space="preserve">
     <value>Ansel is not supported.

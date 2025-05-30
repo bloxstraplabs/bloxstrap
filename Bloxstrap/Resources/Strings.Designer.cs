@@ -1903,7 +1903,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fishstrap installation was not found..
+        ///   Looks up a localized string similar to Bloxstrap installation was not found..
         /// </summary>
         public static string Installer_InstallationNotFound {
             get {
