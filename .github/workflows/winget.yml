@@ -1,0 +1,14 @@
+name: Publish to Winget
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal9/winget-releaser@main
+        with:
+          identifier: Fishstrap.Fishstrap
+          token: ${{ secrets.WINGET_TOKEN }}
