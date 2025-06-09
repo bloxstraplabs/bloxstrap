@@ -26,6 +26,9 @@ namespace Bloxstrap
             // Debug
             { "Debug.FlagState", "FStringDebugShowFlagState"},
             { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
+            
+            // Multi instance
+            { "Instances.WndCheck", "FLogWndProcessCheck" },
 
             // FPS
             { "Rendering.LimitFramerate", "FFlagTaskSchedulerLimitTargetFpsTo2402" }, // i might reconcider this

@@ -306,48 +306,57 @@ namespace Bloxstrap
                 }
             }
 
-            switch (App.Settings.Prop.ChannelChangeMode)
+            string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
+            bool IsRunning = Process.GetProcessesByName(ProcessName).Any();
+
+            if (!IsRunning)
             {
-                case ChannelChangeMode.Automatic:
-                    App.Logger.WriteLine(LOG_IDENT, "Enrolling into channel");
+                switch (App.Settings.Prop.ChannelChangeMode)
+                {
+                    case ChannelChangeMode.Automatic:
+                        App.Logger.WriteLine(LOG_IDENT, "Enrolling into channel");
 
-                    EnrollChannel();
-                    break;
-                case ChannelChangeMode.Prompt:
-                    App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
-
-                    if
-                    (
-                    !match.Success ||
-                    match.Groups.Count != 2 ||
-                    match.Groups[1].Value.ToLowerInvariant() == Deployment.Channel
-                    )
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Channel is either equal or incorrectly formatted");
-                        break;
-                    }
-
-                    string DisplayChannel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
-
-                    var Result = Frontend.ShowMessageBox(
-                    String.Format(Strings.Bootstrapper_Bootstrapper_Dialog_PromptChannelChange,
-                    DisplayChannel, App.Settings.Prop.Channel),
-                    MessageBoxImage.Question,
-                    MessageBoxButton.YesNo
-                    );
-
-                    if (Result == MessageBoxResult.Yes)
                         EnrollChannel();
-                    break;
-                case ChannelChangeMode.Ignore:
-                    App.Logger.WriteLine(LOG_IDENT, "Ignoring channel enrollment");
-                    break;
+                        break;
+                    case ChannelChangeMode.Prompt:
+                        App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
+
+                        if
+                        (
+                        !match.Success ||
+                        match.Groups.Count != 2 ||
+                        match.Groups[1].Value.ToLowerInvariant() == Deployment.Channel
+                        )
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Channel is either equal or incorrectly formatted");
+                            break;
+                        }
+
+                        string DisplayChannel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
+
+                        var Result = Frontend.ShowMessageBox(
+                        String.Format(Strings.Bootstrapper_Bootstrapper_Dialog_PromptChannelChange,
+                        DisplayChannel, App.Settings.Prop.Channel),
+                        MessageBoxImage.Question,
+                        MessageBoxButton.YesNo
+                        );
+
+                        if (Result == MessageBoxResult.Yes)
+                            EnrollChannel();
+                        break;
+                    case ChannelChangeMode.Ignore:
+                        App.Logger.WriteLine(LOG_IDENT, "Ignoring channel enrollment");
+                        break;
+                }
+
+                if (String.IsNullOrEmpty(Deployment.Channel))
+                    Deployment.Channel = Deployment.DefaultChannel;
+
+                App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
+            } else
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Multiple instances found, cancelling enrollments");
             }
-
-            if (String.IsNullOrEmpty(Deployment.Channel))
-                Deployment.Channel = Deployment.DefaultChannel;
-
-            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
 
             ClientVersion clientVersion;
 
