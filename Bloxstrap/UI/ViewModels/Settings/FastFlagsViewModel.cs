@@ -227,12 +227,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.TerrainTextureQuality", value ? "0" : null);
         }
 
-        public bool ChromeUI
-        {
-            get => App.FastFlags.GetPreset("UI.Menu.ChromeUI") != "False"; // its on by default so we have to do that
-            set => App.FastFlags.SetPreset("UI.Menu.ChromeUI", value);
-        }
-
         public bool VRToggle
         {
             get => App.FastFlags.GetPreset("Menu.VRToggles") != "False";

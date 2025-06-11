@@ -168,13 +168,6 @@
                     <ui:ToggleSwitch IsChecked="{Binding FullscreenTitlebarDisabled, Mode=TwoWay}" />
                 </controls:OptionControl>
 
-                <controls:OptionControl
-    Header="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Title}" 
-    Description="{x:Static resources:Strings.Menu_FastFlags_Presets_Chromeui_Description}"
-    HelpLink="https://devforum.roblox.com/t/updated-experience-controls-now-live/3215981">
-                    <ui:ToggleSwitch IsChecked="{Binding ChromeUI, Mode=TwoWay}" />
-                </controls:OptionControl>
-
                 <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_HideGuis_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#gui-hiding|https://www.roblox.com/groups/32380007/Bloxstrap'}" 
