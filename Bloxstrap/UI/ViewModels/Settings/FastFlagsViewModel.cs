@@ -28,8 +28,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
         // Network
         public static bool DisableAds
         {
-            get => App.FastFlags.GetPreset("Network.DisableAds") == "True";
-            set => App.FastFlags.SetPreset("Network.DisableAds", value ? "True" : null);
+            get => App.FastFlags.GetPreset("Network.DisableAds") == "False";
+            set => App.FastFlags.SetPreset("Network.DisableAds", value ? "False" : null);
         }
 
         public static bool DisableTelemetry
