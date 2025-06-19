@@ -67,7 +67,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
 
-        public System.Windows.Media.FontFamily CustomFontFont {
+        public System.Windows.Media.FontFamily CustomFontFont 
+        {
             get
             {
                 using (PrivateFontCollection collection = new PrivateFontCollection())
