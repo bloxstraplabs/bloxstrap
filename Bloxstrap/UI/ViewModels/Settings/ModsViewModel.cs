@@ -11,6 +11,8 @@ using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Models.SettingTasks;
 using Bloxstrap.AppData;
+using System.Windows.Media;
+using System.Drawing.Text;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -55,6 +57,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
+            OnPropertyChanged(nameof(CustomFontFont));
+            OnPropertyChanged(nameof(CustomFontName));
         }
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
@@ -62,6 +66,40 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public Visibility ChooseCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Collapsed : Visibility.Visible;
 
         public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
+
+        public System.Windows.Media.FontFamily CustomFontFont {
+            get
+            {
+                using (PrivateFontCollection collection = new PrivateFontCollection())
+                {
+                    Uri uri;
+                    if (TextFontTask.NewState == String.Empty)
+                    {
+                        uri = new Uri("pack://application:,,,/Resources/Fonts/Rubik-VariableFont_wght.ttf");
+                    } else
+                    {
+                        uri = new Uri(TextFontTask.NewState, UriKind.Absolute);
+                    }
+                    
+                    var fontFamilies = Fonts.GetFontFamilies(uri);
+                    return fontFamilies.First();
+                }
+            }
+        }
+
+        public string CustomFontName
+        {
+            get
+            {
+                if (TextFontTask.NewState == String.Empty)
+                {
+                    return String.Empty;
+                }
+
+                var fontFamily = CustomFontFont;
+                return fontFamily.FamilyNames.Values.First();
+            }
+        }
 
         public ICommand ManageCustomFontCommand => new RelayCommand(ManageCustomFont);
 
