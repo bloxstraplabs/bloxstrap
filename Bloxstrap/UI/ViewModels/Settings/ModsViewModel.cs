@@ -57,8 +57,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
             OnPropertyChanged(nameof(DeleteCustomFontVisibility));
-            OnPropertyChanged(nameof(CustomFontFont));
-            OnPropertyChanged(nameof(CustomFontName));
+            OnPropertyChanged(nameof(DeleteCustomFontFontFamily));
+            OnPropertyChanged(nameof(DeleteCustomFontFontName));
         }
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
@@ -67,7 +67,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
 
-        public System.Windows.Media.FontFamily CustomFontFont 
+        public System.Windows.Media.FontFamily DeleteCustomFontFontFamily
         {
             get
             {
@@ -88,7 +88,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        public string CustomFontName
+        public string DeleteCustomFontFontName
         {
             get
             {
@@ -97,8 +97,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     return String.Empty;
                 }
 
-                var fontFamily = CustomFontFont;
-                return fontFamily.FamilyNames.Values.First();
+                var fontFamily = DeleteCustomFontFontFamily;
+                return String.Join(" ", fontFamily.FamilyNames.Values);
             }
         }
 
