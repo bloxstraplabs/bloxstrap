@@ -46,7 +46,7 @@ namespace Bloxstrap
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
-        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid);
+        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -57,6 +57,8 @@ namespace Bloxstrap
         public static readonly JsonManager<Settings> Settings = new();
 
         public static readonly JsonManager<State> State = new();
+
+        public static readonly JsonManager<RobloxState> RobloxState = new();
 
         public static readonly FastFlagManager FastFlags = new();
 
@@ -307,6 +309,7 @@ namespace Bloxstrap
 
                 Settings.Load();
                 State.Load();
+                RobloxState.Load();
                 FastFlags.Load();
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))

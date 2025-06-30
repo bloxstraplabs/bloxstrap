@@ -22,13 +22,11 @@ namespace Bloxstrap
             { "bg", "Български" }, // Bulgarian
 #if QA_BUILD
             { "bn", "বাংলা" }, // Bengali
-            { "bs", "Bosanski" }, // Bosnian
 #endif
+            { "bs", "Bosanski" }, // Bosnian
             { "cs", "Čeština" }, // Czech
             { "de", "Deutsch" }, // German
-#if QA_BUILD
             { "da", "Dansk" }, // Danish
-#endif
             { "es-ES", "Español" }, // Spanish
 #if QA_BUILD
             { "el", "Ελληνικά" }, // Greek
@@ -43,29 +41,38 @@ namespace Bloxstrap
 #endif
             { "hr", "Hrvatski" }, // Croatian
             { "hu", "Magyar" }, // Hungarian
+#if QA_BUILD
+            { "is", "Íslenska" }, // Icelandic
+#endif
             { "id", "Bahasa Indonesia" }, // Indonesian
             { "it", "Italiano" }, // Italian
             { "ja", "日本語" }, // Japanese
             { "ko", "한국어" }, // Korean
+            { "lv", "Latviešu" }, // Latvian
             { "lt", "Lietuvių" }, // Lithuanian
             { "ms", "Malay" }, // Malay
             { "nl", "Nederlands" }, // Dutch
 #if QA_BUILD
+            { "et", "Eesti Keel" }, // Estonian
             { "no", "Bokmål" }, // Norwegian
 #endif
             { "pl", "Polski" }, // Polish
+#if QA_BUILD
+            { "pt-PT", "Portugese (European)" }, // Portuguese (TODO: translate)
+#endif
             { "pt-BR", "Português (Brasil)" }, // Portuguese, Brazilian
             { "ro", "Română" }, // Romanian
             { "ru", "Русский" }, // Russian
+#if QA_BUILD
+            { "sr-CS", "Serbian (Latin)" }, // Serbian (TODO: translate)
+#endif
             { "sv-SE", "Svenska" }, // Swedish
             { "th", "ภาษาไทย" }, // Thai
             { "tr", "Türkçe" }, // Turkish
             { "uk", "Українська" }, // Ukrainian
             { "vi", "Tiếng Việt" }, // Vietnamese
             { "zh-CN", "中文 (简体)" }, // Chinese Simplified
-#if QA_BUILD
-            { "zh-HK", "中文 (廣東話)" }, // Chinese Traditional, Hong Kong
-#endif
+            { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
             { "zh-TW", "中文 (繁體)" } // Chinese Traditional
         };
 

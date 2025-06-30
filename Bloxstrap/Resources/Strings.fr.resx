@@ -568,7 +568,7 @@ Plus d'informations :
     <value>Copié dans le presse-papier.</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
-    <value>Il semble que vous importiez une configuration très volumineuse. Vous devriez uniquement importer des configurations que vous comprenez parfaitement. NE collez PAS aveuglément des configurations créées par d'autres personnes. Si vous continuez, il est très probable que vous rencontriez des problèmes de stabilité et des changements inattendus.
+    <value>Vous semblez importer une configuration très volumineuse. Vous ne devriez importer que des configurations que vous comprenez pleinement. NE collez PAS aveuglément des configurations créées par d'autres personnes. Si vous continuez, vous aurez très probablement des problèmes de stabilité et rencontrerez des changements inattendus.
 
 Êtes-vous sûr de vouloir continuer ?</value>
   </data>
@@ -710,7 +710,7 @@ Sélectionner 'Non' ignorera cet avertissement et continuera l'installation.</va
     <value>Configurer des fonctionnalités supplémentaires à utiliser avec Roblox.</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
-    <value>Roblox se fermera entièrement lorsque vous quittez un jeu au lieu de retourner sur l'application. [Peut casser quelques choses !]({0})</value>
+    <value>Roblox va complètement fermer quand vous quittez un jeu au lieu de retourner à l'application. [Va casser certaines choses!]({0})</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
     <value>Ne pas quitter vers l'application</value>
@@ -750,7 +750,7 @@ Sélectionner 'Non' ignorera cet avertissement et continuera l'installation.</va
     <value>Choisir une police d'écriture...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>La taille de police peut être ajustée dans l'onglet Paramètres du moteur.</value>
+    <value>La taille de la police peut être ajustée dans l'onglet Paramètres du Moteur.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Le fichier que vous avez choisi ne semble pas être un fichier de police d'écriture valide.</value>
@@ -882,7 +882,7 @@ Sélectionner 'Non' ignorera cet avertissement et continuera l'installation.</va
     <value>Taille de la police d'écriture</value>
   </data>
   <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>La valeur par défaut est 0. Ajustez si vous utilisez une police d'écriture personnalisée.</value>
+    <value>La valeur par défaut est 1. Ajustez si vous utilisez une police personnalisée.</value>
   </data>
   <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
     <value>Désactiver les textures de terrain</value>
@@ -1098,9 +1098,9 @@ Des problèmes peuvent survenir et vos paramètres peuvent être modifiés. Une 
     <value>Roblox a planté.</value>
   </data>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Pour plus d'informations sur pourquoi cela pourrait se produire et comment le résoudre, veuillez lire [cet article d'aide]({0}).
+    <value>Pour des informations sur les raisons pour lesquelles cela pourrait se produire et comment cela peut être résolu, veuillez lire [cet article d'aide]({0}). 
 
-Vérifiez si Roblox fonctionne avec [le lanceur de base]({1}). S'il ne fonctionne pas, alors ce n'est pas un problème en lien avec Fishstrap. S'il fonctionne, veuillez vous référer à l'article d'aide.</value>
+Vérifiez si Roblox fonctionne avec [le lanceur d'origine]({1}). Si ce n'est pas le cas, alors ce n'est pas un problème de Fishstrap. Si c'est le cas, référez-vous à l'article d'aide.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Impossible de charger les données en raison d'une erreur réseau.</value>
@@ -1112,8 +1112,8 @@ Vérifiez si Roblox fonctionne avec [le lanceur de base]({1}). S'il ne fonctionn
     <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Voici les personnes qui ont soutenu Fishstrap via Ko-fi. Un grand merci à tout le monde ici !
-Chaque personne ici est classée par sa contribution globale.</value>
+    <value>Voici les personnes qui ont soutenu Bloxstrap via Ko-fi. Un énorme merci à tous ceux présents ici ! 
+Chaque personne ici est classée selon son engagement global.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Vos paramètres n'ont pas pu être chargés. Ils ont été réinitialisés.</value>
@@ -1134,7 +1134,7 @@ Chaque personne ici est classée par sa contribution globale.</value>
     <value>L'historique des jeux n'est enregistré que pour votre session Roblox actuelle. Les jeux apparaîtront ici au fur et à mesure que vous les quitterez ou changerez d'univers. Tous les serveurs ne seront pas rejoignables.</value>
   </data>
   <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
-    <value>L'emplacement du serveur n'a pas pu être interrogé. Vous rejoignez peut-être des expériences trop rapidement.</value>
+    <value>L'emplacement du serveur n'a pas pu être obtenu. Vous rejoignez peut-être des expériences trop rapidement.</value>
   </data>
   <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
     <value>Veuillez réessayer ultérieurement.</value>
@@ -1226,10 +1226,13 @@ Voulez-vous activer le mode test ?</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Personnalisé</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap a tenté de mettre Roblox à jour mais a échoué car des fichiers de Roblox sont utilisés.
+    <value>Fishstrap a essayé de mettre à jour Roblox mais ne peut pas car les fichiers de Roblox sont toujours en cours d'utilisation.
 
-Veuillez fermer toute application pouvant utiliser les fichiers de Roblox, et relancez.</value>
+Veuillez fermer toutes les applications qui pourraient utiliser les fichiers de Roblox, et relancer.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1245,6 +1248,9 @@ Veuillez fermer toute application pouvant utiliser les fichiers de Roblox, et re
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>La connexion a expiré, ce qui pourrait indiquer une mauvaise connexion Internet ou un blocage par un pare-feu.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Rassemble des informations qui peuvent être téléchargées en ligne pour dépanner un problème que vous rencontrez.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Menu.Channel.Description" type="System.Resources.ResXNullRef, System.Windows.Forms">
@@ -1276,5 +1282,238 @@ Veuillez fermer toute application pouvant utiliser les fichiers de Roblox, et re
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>C'est anonyme et rien de mal, promis. Pour avoir un aperçu de ce que nous recueillons et pourquoi, voyez notre [politique de confidentialité]({0}).</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Tous les logs de Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ne prend plus en charge Windows 7 ou 8.1. Pour continuer à jouer à Roblox, veuillez mettre à niveau vers Windows 10 ou version ultérieure.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Impossible d'extraire les fichiers</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Certains contenus peuvent être manquants. Forcez une réinstallation de Roblox dans les paramètres pour résoudre ce problème.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Échec de l'application des modifications</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Toutes les modifications ne seront pas présentes au lancement actuel.</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Licence Apache 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>Vide</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>La racine XML du thème n'est pas {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>Le dialogue personnalisé a déjà été initialisé</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>Les bootstrappers personnalisés peuvent seulement avoir qu'un maximum de {0} éléments, il y en a {1}</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>La version {0} n'est pas définie</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>La version {0} n'est pas un nombre</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>La version {0} {1} n'est plus prise en charge</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>La version {0} {1} n'est pas reconnue</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} ne peut pas avoir un enfant de {1}</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>Élément {0} inconnu</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>Échec de l'analyse du fichier du thème : {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} a un {1} invalide : {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>L'élément {0} ne contient pas l'attribut {1}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} n'est pas un {2} valide</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} doit être supérieur à {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} doit être inférieur à {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} {1} inconnu : '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} ne peut avoir qu'un seul {1} défini</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} ne peut avoir qu'un seul enfant</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} ne peut avoir qu'un seul enfant</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} manque son enfant</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} n'a pas pu être analysé en tant que {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} est nul</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} utilise le schéma interdit {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} n'a pas réussi à créer {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>Édition de "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Thème enregistré avec succès !</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>Une erreur s'est produite lors de l'enregistrement de votre thème.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>Enregistrer les modifications de {0} ?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Ouvrir le dossier du thème</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Créer un nouveau</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>Ajouter un thème personnalisé</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>Modèle</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>Le nom ne peut pas être vide</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>Le nom contient des caractères illégaux</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>Le nom ne peut pas être utilisé</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>Erreur inconnue</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>Le nom est déjà utilisé</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>Le fichier doit être un ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>Le fichier du thème n'a pas pu être trouvé dans le fichier ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>Fichier ZIP invalide ou corrompu</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>Aucun thème personnalisé sélectionné</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Échec de la configuration du bootstrapper personnalisé : {0}.
+Retour à la valeur par défaut {1}.</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>Aucun thème personnalisé sélectionné.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Renommer</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Échec de la suppression du thème personnalisé {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Impossible de renommer le thème personnalisé {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Mises à jour en arrière-plan</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Mettre à jour Roblox en arrière-plan au lieu d'attendre. Non recommandé pour les réseaux lents. Au moins 3 Go d'espace de stockage libre sont nécessaires pour que cette fonctionnalité fonctionne.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Mettez les éléments de l'interface utilisateur ici</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Des exemples de bootstrappers personnalisés peuvent être trouvé dans {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Trouvez plus d'exemples de bootstrapper personnalisés dans {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Thème personnalisé {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Permettre le lancement multi-instances</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Permet d'avoir plusieurs instances de client de jeu Roblox ouvertes simultanément.</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Votre thème a été sauvegardé !</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Impossible de prévisualiser le thème : {0}</value>
   </data>
 </root>

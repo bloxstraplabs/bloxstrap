@@ -12,13 +12,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
             
         }
 
-        public bool MultiInstances
+        public bool UpdateRoblox
         {
-            get => App.Settings.Prop.MultiInstanceLaunching;
-            set {
-                App.Settings.Prop.MultiInstanceLaunching = value;
-                App.FastFlags.SetPreset("Instances.WndCheck", value ? "0" : null);
-            }
+            get => App.Settings.Prop.UpdateRoblox;
+            set => App.Settings.Prop.UpdateRoblox = value;
         }
 
         public bool ConfirmLaunches
@@ -86,6 +83,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 else
                     CleanerItems.Remove("FishstrapLogs");
             }
+        }
+        public bool BackgroundUpdates
+        {
+            get => App.Settings.Prop.BackgroundUpdatesEnabled;
+            set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
+        }
+
+        public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+
+        public bool ForceRobloxReinstallation
+        {
+            get => App.State.Prop.ForceReinstall || IsRobloxInstallationMissing;
+            set => App.State.Prop.ForceReinstall = value;
         }
     }
 }

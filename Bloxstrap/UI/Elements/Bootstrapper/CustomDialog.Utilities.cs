@@ -27,7 +27,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 if (defaultValue != null)
                     return defaultValue;
 
-                throw new Exception($"Element {element.Name} is missing the {attributeName} attribute");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMissing", element.Name, attributeName);
             }
 
             return attribute.Value.ToString();
@@ -42,12 +42,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 if (defaultValue != null)
                     return (T)defaultValue;
 
-                throw new Exception($"Element {element.Name} is missing the {attributeName} attribute");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMissing", element.Name, attributeName);
             }
 
             T? parsed = ConvertValue<T>(attribute.Value);
             if (parsed == null)
-                throw new Exception($"{element.Name} {attributeName} is not a valid {typeof(T).Name}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeInvalidType", element.Name, attributeName, typeof(T).Name);
 
             return (T)parsed;
         }
@@ -64,7 +64,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             T? parsed = ConvertValue<T>(attribute.Value);
             if (parsed == null)
-                throw new Exception($"{element.Name} {attributeName} is not a valid {typeof(T).Name}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeInvalidType", element.Name, attributeName, typeof(T).Name);
 
             return (T)parsed;
         }
@@ -72,17 +72,17 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static void ValidateXmlElement(string elementName, string attributeName, int value, int? min = null, int? max = null)
         {
             if (min != null && value < min)
-                throw new Exception($"{elementName} {attributeName} must be larger than {min}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMustBeLargerThanMin", elementName, attributeName, min);
             if (max != null && value > max)
-                throw new Exception($"{elementName} {attributeName} must be smaller than {max}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax", elementName, attributeName, max);
         }
 
         private static void ValidateXmlElement(string elementName, string attributeName, double value, double? min = null, double? max = null)
         {
             if (min != null && value < min)
-                throw new Exception($"{elementName} {attributeName} must be larger than {min}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMustBeLargerThanMin", elementName, attributeName, min);
             if (max != null && value > max)
-                throw new Exception($"{elementName} {attributeName} must be smaller than {max}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax", elementName, attributeName, max);
         }
 
         // You can't do numeric only generics in .NET 6. The feature is exclusive to .NET 7+.
@@ -137,7 +137,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     return FontWeights.UltraBlack;
 
                 default:
-                    throw new Exception($"{element.Name} Unknown FontWeight {value}");
+                    throw new CustomThemeException("CustomTheme.Errors.UnknownEnumValue", element.Name, "FontWeight", value);
             }
         }
 
@@ -159,7 +159,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     return FontStyles.Oblique;
 
                 default:
-                    throw new Exception($"{element.Name} Unknown FontStyle {value}");
+                    throw new CustomThemeException("CustomTheme.Errors.UnknownEnumValue", element.Name, "FontStyle", value);
             }
         }
 
@@ -184,7 +184,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     return TextDecorations.Underline;
 
                 default:
-                    throw new Exception($"{element.Name} Unknown TextDecorations {value}");
+                    throw new CustomThemeException("CustomTheme.Errors.UnknownEnumValue", element.Name, "TextDecorations", value);
             }
         }
 
@@ -194,6 +194,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 return text; // can't be translated (not in the correct format)
 
             string resourceName = text[1..^1];
+
+            if (resourceName == "Version")
+                return App.Version;
+
             return Strings.ResourceManager.GetStringSafe(resourceName);
         }
 
@@ -202,6 +206,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (sourcePath == null)
                 return null;
 
+            // TODO: this is bad :(
             return sourcePath.Replace("theme://", $"{dialog.ThemeDir}\\");
         }
 
@@ -215,13 +220,13 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             path = GetFullPath(dialog, path)!;
 
             if (!Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out Uri? result))
-                throw new Exception($"{xmlElement.Name} failed to parse {name} as Uri");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeParseError", xmlElement.Name, name, "Uri");
 
             if (result == null)
-                throw new Exception($"{xmlElement.Name} {name} Uri is null");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeParseErrorNull", xmlElement.Name, name, "Uri");
 
             if (result.Scheme != "file")
-                throw new Exception($"{xmlElement.Name} most be linked to a file");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeBlacklistedUriScheme", xmlElement.Name, name, result.Scheme);
 
             return new GetImageSourceDataResult { Uri = result };
         }
@@ -276,13 +281,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             return Behaviour;
         }
-
         private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
         {
             var contentAttr = xmlElement.Attribute("Content");
             var contentElement = xmlElement.Element($"{xmlElement.Name}.Content");
             if (contentAttr != null && contentElement != null)
-                throw new Exception($"{xmlElement.Name} can only have one Content defined");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleDefinitions", xmlElement.Name, "Content");
 
             if (contentAttr != null)
                 return GetTranslatedText(contentAttr.Value);
@@ -292,11 +296,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             var children = contentElement.Elements();
             if (children.Count() > 1)
-                throw new Exception($"{xmlElement.Name}.Content can only have one child");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleChildren", xmlElement.Name, "Content");
 
             var first = contentElement.FirstNode as XElement;
             if (first == null)
-                throw new Exception($"{xmlElement.Name} Content is missing the content");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMissingChild", xmlElement.Name, "Content");
 
             var uiElement = HandleXml<UIElement>(dialog, first);
             return uiElement;
@@ -310,7 +314,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             var children = effectElement.Elements();
             if (children.Count() > 1)
-                throw new Exception($"{xmlElement.Name}.Effect can only have one child");
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleChildren", xmlElement.Name, "Effect");
 
             var child = children.FirstOrDefault();
             if (child == null)

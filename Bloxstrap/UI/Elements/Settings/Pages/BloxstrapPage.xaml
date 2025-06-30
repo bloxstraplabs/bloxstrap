@@ -15,7 +15,5 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,8" Text="how did u get here" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        
     </StackPanel>
 </ui:UiPage>

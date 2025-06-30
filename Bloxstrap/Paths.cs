@@ -46,8 +46,8 @@
             Integrations = Path.Combine(Base, "Integrations");
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
-            Roblox = Path.Combine(Base, "Roblox");
             CustomThemes = Path.Combine(Base, "CustomThemes");
+            Roblox = Path.Combine(Base, "Roblox");
 
             RobloxLogs = Path.Combine(Roblox, "logs");
             RobloxCache = Path.Combine(Path.GetTempPath(), "Roblox");

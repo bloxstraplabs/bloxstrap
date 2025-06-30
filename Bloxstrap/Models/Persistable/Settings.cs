@@ -10,20 +10,24 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public bool DeveloperMode { get; set; } = false;
         public bool CheckForUpdates { get; set; } = true;
         public bool ConfirmLaunches { get; set; } = true;
+        public bool MultiInstanceLaunching { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
         public bool EnableAnalytics { get; set; } = false;
         public bool UpdateRoblox { get; set; } = true;
-        public bool MultiInstanceLaunching { get; set; } = false;
         public string Channel { get; set; } = RobloxInterfaces.Deployment.DefaultChannel;
         public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
         public string ChannelHash { get; set; } = "";
         public string DownloadingStringFormat { get; set; } = Strings.Bootstrapper_Status_Downloading + " {0} - {1}MB / {2}MB";
         public string? SelectedCustomTheme { get; set; } = null;
+        public bool BackgroundUpdatesEnabled { get; set; } = false;
+        public bool DebugDisableVersionPackageCleanup { get; set; } = false;
 
         // integration configuration
         public CleanerOptions CleanerOptions { get; set; } = CleanerOptions.Never;

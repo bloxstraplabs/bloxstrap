@@ -5,6 +5,7 @@ using Windows.Win32.Foundation;
 
 using Bloxstrap.UI.Elements.Dialogs;
 using Bloxstrap.Integrations;
+using Bloxstrap.Enums;
 
 namespace Bloxstrap
 {
@@ -58,6 +59,16 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
+            }
+            else if (App.LaunchSettings.MultiInstanceWatcherFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening multi-instance watcher");
+                LaunchMultiInstanceWatcher();
+            }
+            else if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening background updater");
+                LaunchBackgroundUpdater();
             }
             else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
             {
@@ -210,8 +221,6 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
 
-            const string MutexName = "ROBLOX_singletonMutex";
-
             if (launchMode == LaunchMode.None)
                 throw new InvalidOperationException("No Roblox launch mode set");
 
@@ -253,22 +262,6 @@ namespace Bloxstrap
                 dialog.Bootstrapper = App.Bootstrapper;
             }
 
-            App.Logger.WriteLine(LOG_IDENT, $"Creating {MutexName}");
-
-            Mutex? mutex = null;
-            if (App.Settings.Prop.MultiInstanceLaunching)
-            {
-                try
-                {
-                    mutex = new Mutex(true, MutexName);
-                    App.Logger.WriteLine(LOG_IDENT, $"Created {MutexName}");
-                }
-                catch
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to create {MutexName}");
-                }
-            }
-
             Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
@@ -280,21 +273,6 @@ namespace Bloxstrap
                     if (t.Exception is not null)
                         App.FinalizeExceptionHandling(t.Exception);
                 }
-                if (mutex != null) {
-                    // we do .Split(".") because the names have .exe extension
-                    // getprocessbyname doesnt support .exe extensions
-
-                    // get process name
-                    string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
-                    App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name {ProcessName}.exe, running Fishstrap in background.");
-
-                    // now yield until the processes are closed
-                    while (Process.GetProcessesByName(ProcessName).Any())
-                        Thread.Sleep(5000);
-
-                    App.Logger.WriteLine(LOG_IDENT,"Every Roblox instance is closed, terminating the process");
-                }
-
 
                 App.Terminate();
             });
@@ -347,6 +325,74 @@ namespace Bloxstrap
 
             new BloxshadeDialog().ShowDialog();
             App.SoftTerminate();
+        }
+
+        public static void LaunchMultiInstanceWatcher()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchMultiInstanceWatcher";
+
+            App.Logger.WriteLine(LOG_IDENT, "Starting multi-instance watcher");
+
+            Task.Run(MultiInstanceWatcher.Run).ContinueWith(t =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Multi instance watcher task has finished");
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the multi-instance watcher");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
+        }
+
+        public static void LaunchBackgroundUpdater()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchBackgroundUpdater";
+
+            // Activate some LaunchFlags we need
+            App.LaunchSettings.QuietFlag.Active = true;
+            App.LaunchSettings.NoLaunchFlag.Active = true;
+
+            App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
+            App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
+            {
+                MutexName = "Bloxstrap-BackgroundUpdater",
+                QuitIfMutexExists = true
+            };
+
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            Task.Run(() =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Started event waiter");
+                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent"))
+                    handle.WaitOne();
+
+                App.Logger.WriteLine(LOG_IDENT, "Received close event, killing it all!");
+                App.Bootstrapper.Cancel();
+            }, cts.Token);
+
+            Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
+                cts.Cancel(); // stop event waiter
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
+
+            App.Logger.WriteLine(LOG_IDENT, "Exiting");
         }
     }
 }

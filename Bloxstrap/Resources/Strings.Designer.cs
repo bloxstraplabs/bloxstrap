@@ -230,6 +230,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Some content may be missing. Force a Roblox reinstallation in settings to fix this..
+        /// </summary>
+        public static string Bootstrapper_ExtractionFailed_Message {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ExtractionFailed.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to extract files.
+        /// </summary>
+        public static string Bootstrapper_ExtractionFailed_Title {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ExtractionFailed.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fishstrap tried to upgrade Roblox but can&apos;t because Roblox&apos;s files are still in use.
         ///
         ///Please close any applications that may be using Roblox&apos;s files, and relaunch..
@@ -255,6 +273,24 @@ namespace Bloxstrap.Resources {
         public static string Bootstrapper_JsonManagerSaveFailed {
             get {
                 return ResourceManager.GetString("Bootstrapper.JsonManagerSaveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not all modifications will be present in the current launch..
+        /// </summary>
+        public static string Bootstrapper_ModificationsFailed_Message {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ModificationsFailed.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to apply modifications.
+        /// </summary>
+        public static string Bootstrapper_ModificationsFailed_Title {
+            get {
+                return ResourceManager.GetString("Bootstrapper.ModificationsFailed.Title", resourceCulture);
             }
         }
         
@@ -484,6 +520,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        public static string Common_CreateNew {
+            get {
+                return ResourceManager.GetString("Common.CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
         public static string Common_Custom {
@@ -538,6 +583,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Common_Edit {
+            get {
+                return ResourceManager.GetString("Common.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
         public static string Common_Export {
@@ -561,6 +615,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Help {
             get {
                 return ResourceManager.GetString("Common.Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import.
+        /// </summary>
+        public static string Common_Import {
+            get {
+                return ResourceManager.GetString("Common.Import", resourceCulture);
             }
         }
         
@@ -718,6 +781,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Common_Rename {
+            get {
+                return ResourceManager.GetString("Common.Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string Common_Reset {
@@ -786,6 +858,15 @@ namespace Bloxstrap.Resources {
         public static string Common_SystemDefault {
             get {
                 return ResourceManager.GetString("Common.SystemDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template.
+        /// </summary>
+        public static string Common_Template {
+            get {
+                return ResourceManager.GetString("Common.Template", resourceCulture);
             }
         }
         
@@ -1030,6 +1111,439 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_ServerInformation_Type {
             get {
                 return ResourceManager.GetString("ContextMenu.ServerInformation.Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File must be a ZIP.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_FileNotZip {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.FileNotZip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be empty.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameEmpty {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name contains illegal characters.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameIllegalCharacters {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameIllegalCharacters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be used.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameReserved {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameReserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name is already in use.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_NameTaken {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.NameTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_Unknown {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid or corrupted ZIP file.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_ZipInvalidData {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.ZipInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme file could not be found in the ZIP file.
+        /// </summary>
+        public static string CustomTheme_Add_Errors_ZipMissingThemeFile {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Errors.ZipMissingThemeFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Custom Theme.
+        /// </summary>
+        public static string CustomTheme_Add_Title {
+            get {
+                return ResourceManager.GetString("CustomTheme.Add.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Theme {0}.
+        /// </summary>
+        public static string CustomTheme_DefaultName {
+            get {
+                return ResourceManager.GetString("CustomTheme.DefaultName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes to {0}?.
+        /// </summary>
+        public static string CustomTheme_Editor_ConfirmSave {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.ConfirmSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to preview theme: {0}.
+        /// </summary>
+        public static string CustomTheme_Editor_Errors_PreviewFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Errors.PreviewFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Theme Directory.
+        /// </summary>
+        public static string CustomTheme_Editor_OpenThemeDirectory {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.OpenThemeDirectory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string CustomTheme_Editor_Preview {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string CustomTheme_Editor_Save {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while saving your theme..
+        /// </summary>
+        public static string CustomTheme_Editor_Save_Error {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save.Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme successfully saved!.
+        /// </summary>
+        public static string CustomTheme_Editor_Save_Success {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save.Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your theme has been saved!.
+        /// </summary>
+        public static string CustomTheme_Editor_Save_Success_Description {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Save.Success.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editing &quot;{0}&quot;.
+        /// </summary>
+        public static string CustomTheme_Editor_Title {
+            get {
+                return ResourceManager.GetString("CustomTheme.Editor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom dialog has already been initialised.
+        /// </summary>
+        public static string CustomTheme_Errors_DialogAlreadyInitialised {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.DialogAlreadyInitialised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} uses blacklisted scheme {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeBlacklistedUriScheme {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeBlacklistedUriScheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} has invalid {1}: {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeConversionError {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeConversionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} is not a valid {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeInvalidType {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeInvalidType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Element {0} is missing the {1} attribute.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMissing {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} is missing its child.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMissingChild {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMissingChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} can only have one child.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMultipleChildren {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMultipleChildren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} can only have one {1} defined.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMultipleDefinitions {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMultipleDefinitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} must be larger than {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMustBeLargerThanMin {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMustBeLargerThanMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} must be smaller than {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeMustBeSmallerThanMax {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} could not be parsed into a {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeParseError {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeParseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.{1} {2} is null.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementAttributeParseErrorNull {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementAttributeParseErrorNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} cannot have a child of {1}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementInvalidChild {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementInvalidChild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} can only have one child.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementMultipleChildren {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementMultipleChildren", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} failed to create {1}: {2}.
+        /// </summary>
+        public static string CustomTheme_Errors_ElementTypeCreationFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.ElementTypeCreationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme XML root is not {0}.
+        /// </summary>
+        public static string CustomTheme_Errors_InvalidRoot {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.InvalidRoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No custom theme selected.
+        /// </summary>
+        public static string CustomTheme_Errors_NoThemeSelected {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.NoThemeSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to setup custom bootstrapper: {0}.
+        ///Defaulting to {1}..
+        /// </summary>
+        public static string CustomTheme_Errors_SetupFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.SetupFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom bootstrappers can only have a maximum of {0} elements, got {1}.
+        /// </summary>
+        public static string CustomTheme_Errors_TooManyElements {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.TooManyElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown element {0}.
+        /// </summary>
+        public static string CustomTheme_Errors_UnknownElement {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.UnknownElement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} Unknown {1} &apos;{2}&apos;.
+        /// </summary>
+        public static string CustomTheme_Errors_UnknownEnumValue {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.UnknownEnumValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version is not a number.
+        /// </summary>
+        public static string CustomTheme_Errors_VersionNotNumber {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.VersionNotNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version {1} is not recognised.
+        /// </summary>
+        public static string CustomTheme_Errors_VersionNotRecognised {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.VersionNotRecognised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version is not set.
+        /// </summary>
+        public static string CustomTheme_Errors_VersionNotSet {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.VersionNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} version {1} is no longer supported.
+        /// </summary>
+        public static string CustomTheme_Errors_VersionNotSupported {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.VersionNotSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to parse the theme file: {0}.
+        /// </summary>
+        public static string CustomTheme_Errors_XMLParseFailed {
+            get {
+                return ResourceManager.GetString("CustomTheme.Errors.XMLParseFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Examples of custom bootstrappers can be found at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.MoreExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put UI elements here.
+        /// </summary>
+        public static string CustomTheme_Templates_Blank_UIElements {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Blank.UIElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find more custom bootstrapper examples at {0}.
+        /// </summary>
+        public static string CustomTheme_Templates_Simple_MoreExamples {
+            get {
+                return ResourceManager.GetString("CustomTheme.Templates.Simple.MoreExamples", resourceCulture);
             }
         }
         
@@ -1481,6 +1995,24 @@ namespace Bloxstrap.Resources {
         public static string Enums_CursorType_From2013 {
             get {
                 return ResourceManager.GetString("Enums.CursorType.From2013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blank.
+        /// </summary>
+        public static string Enums_CustomThemeTemplate_Blank {
+            get {
+                return ResourceManager.GetString("Enums.CustomThemeTemplate.Blank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple.
+        /// </summary>
+        public static string Enums_CustomThemeTemplate_Simple {
+            get {
+                return ResourceManager.GetString("Enums.CustomThemeTemplate.Simple", resourceCulture);
             }
         }
         
@@ -2141,6 +2673,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apache License 2.0.
+        /// </summary>
+        public static string Menu_About_Licenses_Apache {
+            get {
+                return ResourceManager.GetString("Menu.About.Licenses.Apache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BSD 2-Clause License.
         /// </summary>
         public static string Menu_About_Licenses_BSD2 {
@@ -2303,6 +2844,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to delete custom theme {0}: {1}.
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_DeleteFailed {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.DeleteFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No custom theme selected..
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_NoneSelected {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.NoneSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to rename custom theme {0}: {1}.
+        /// </summary>
+        public static string Menu_Appearance_CustomThemes_RenameFailed {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CustomThemes.RenameFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure how Fishstrap should look..
         /// </summary>
         public static string Menu_Appearance_Description {
@@ -2416,6 +2984,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_AutoUpdate_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.AutoUpdate.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work..
+        /// </summary>
+        public static string Menu_Behaviour_BackgroundUpdates_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BackgroundUpdates.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background updates.
+        /// </summary>
+        public static string Menu_Behaviour_BackgroundUpdates_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BackgroundUpdates.Title", resourceCulture);
             }
         }
         
@@ -3749,6 +4335,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_EnableActivityTracking_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.EnableActivityTracking.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously..
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow multi-instance launching.
+        /// </summary>
+        public static string Menu_Integrations_MultiInstanceLaunching_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.MultiInstanceLaunching.Title", resourceCulture);
             }
         }
         

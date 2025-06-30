@@ -40,9 +40,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["LinearGradientBrush"] = HandleXmlElement_LinearGradientBrush,
             ["RadialGradientBrush"] = HandleXmlElement_RadialGradientBrush,
 
-            ["GradientStop"] = HandleXmlElement_GradientStop,
 
-            //["PathFigure"] = HandleXmlElement_PathGeometry,
+            ["GradientStop"] = HandleXmlElement_GradientStop,
 
             ["ScaleTransform"] = HandleXmlElement_ScaleTransform,
             ["SkewTransform"] = HandleXmlElement_SkewTransform,
@@ -68,11 +67,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
         {
             if (!_elementHandlerMap.ContainsKey(xmlElement.Name.ToString()))
-                throw new Exception($"Unknown element {xmlElement.Name}");
+                throw new CustomThemeException("CustomTheme.Errors.UnknownElement", xmlElement.Name);
 
             var element = _elementHandlerMap[xmlElement.Name.ToString()](dialog, xmlElement);
             if (element is not T)
-                throw new Exception($"{xmlElement.Parent!.Name} cannot have a child of {xmlElement.Name}");
+                throw new CustomThemeException("CustomTheme.Errors.ElementInvalidChild", xmlElement.Parent!.Name, xmlElement.Name);
 
             return (T)element;
         }
@@ -87,19 +86,37 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 dialog.ElementGrid.Children.Add(uiElement);
         }
 
+        private static void AssertThemeVersion(string? versionStr)
+        {
+            if (string.IsNullOrEmpty(versionStr))
+                throw new CustomThemeException("CustomTheme.Errors.VersionNotSet", "BloxstrapCustomBootstrapper");
+
+            if (!uint.TryParse(versionStr, out uint version))
+                throw new CustomThemeException("CustomTheme.Errors.VersionNotNumber", "BloxstrapCustomBootstrapper");
+
+            switch (version)
+            {
+                case Version:
+                    break;
+                case 0: // Themes made between Oct 19, 2024 to Mar 11, 2025 (on the feature/custom-bootstrappers branch)
+                    throw new CustomThemeException("CustomTheme.Errors.VersionNotSupported", "BloxstrapCustomBootstrapper", version);
+                default:
+                    throw new CustomThemeException("CustomTheme.Errors.VersionNotRecognised", "BloxstrapCustomBootstrapper", version);
+            }
+        }
+
         private void HandleXmlBase(XElement xml)
         {
             if (_initialised)
-                throw new Exception("Custom dialog has already been initialised");
+                throw new CustomThemeException("CustomTheme.Errors.DialogAlreadyInitialised");
 
             if (xml.Name != "BloxstrapCustomBootstrapper")
-                throw new Exception("XML root is not a BloxstrapCustomBootstrapper");
+                throw new CustomThemeException("CustomTheme.Errors.InvalidRoot", "BloxstrapCustomBootstrapper");
 
-            if (xml.Attribute("Version")?.Value != Version.ToString())
-                throw new Exception("Unknown BloxstrapCustomBootstrapper version");
+            AssertThemeVersion(xml.Attribute("Version")?.Value);
 
             if (xml.Descendants().Count() > MaxElements)
-                throw new Exception($"Custom bootstrappers can have a maximum of {MaxElements} elements");
+                throw new CustomThemeException("CustomTheme.Errors.TooManyElements", MaxElements, xml.Descendants().Count());
 
             _initialised = true;
 
@@ -125,7 +142,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new Exception($"XML parse failed: {ex.Message}", ex);
+                throw new CustomThemeException(ex, "CustomTheme.Errors.XMLParseFailed", ex.Message);
             }
 
             HandleXmlBase(xml);

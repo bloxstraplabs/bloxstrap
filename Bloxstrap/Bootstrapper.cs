@@ -11,21 +11,20 @@
 #warning "Automatic updater debugging is enabled"
 #endif
 
-using System.ComponentModel;
-using System.Data;
-using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Shell;
-
-using Microsoft.Win32;
-
 using Bloxstrap.AppData;
+using Bloxstrap.Models.APIs.Roblox;
 using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
-
 using ICSharpCode.SharpZipLib.Zip;
+using Microsoft.Win32;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics.Tracing;
 using System.Threading.Channels;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Shell;
 
 namespace Bloxstrap
 {
@@ -47,8 +46,8 @@ namespace Bloxstrap
         private readonly FastZipEvents _fastZipEvents = new();
         private readonly CancellationTokenSource _cancelTokenSource = new();
 
-        private readonly IAppData AppData;
-        private readonly LaunchMode _launchMode;
+        private IAppData AppData = default!;
+        private LaunchMode _launchMode;
 
         private string _launchCommandLine = App.LaunchSettings.RobloxLaunchArgs;
         private string _latestVersionGuid = null!;
@@ -60,11 +59,12 @@ namespace Bloxstrap
         private double _taskbarProgressIncrement;
         private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
+        private bool _packageExtractionSuccess = true;
 
         private bool _mustUpgrade =>
+            App.LaunchSettings.ForceFlag.Active ||
             String.IsNullOrEmpty(AppData.State.VersionGuid) ||
-            !File.Exists(AppData.ExecutablePath) ||
-            !AppData.ExecutablePath.Contains(":\\");
+            !File.Exists(AppData.ExecutablePath);
 
         private bool _noConnection = false;
 
@@ -75,6 +75,9 @@ namespace Bloxstrap
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
+
+        public string MutexName { get; set; } = "Bloxstrap-Bootstrapper";
+        public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
         #region Core
@@ -84,10 +87,21 @@ namespace Bloxstrap
 
             // https://github.com/icsharpcode/SharpZipLib/blob/master/src/ICSharpCode.SharpZipLib/Zip/FastZip.cs/#L669-L680
             // exceptions don't get thrown if we define events without actually binding to the failure events. probably a bug. ¯\_(ツ)_/¯
-            _fastZipEvents.FileFailure += (_, e) => throw e.Exception;
+            _fastZipEvents.FileFailure += (_, e) =>
+            {
+                // only give a pass to font files (no idea whats wrong with them)
+                if (!e.Name.EndsWith(".ttf"))
+                    throw e.Exception;
+
+                App.Logger.WriteLine("FastZipEvents::OnFileFailure", $"Failed to extract {e.Name}");
+                _packageExtractionSuccess = false;
+            };
             _fastZipEvents.DirectoryFailure += (_, e) => throw e.Exception;
             _fastZipEvents.ProcessFile += (_, e) => e.ContinueRunning = !_cancelTokenSource.IsCancellationRequested;
-
+            SetupAppData();
+        }
+        private void SetupAppData()
+        {
             AppData = IsStudioLaunch ? new RobloxStudioData() : new RobloxPlayerData();
             Deployment.BinaryType = AppData.BinaryType;
         }
@@ -225,6 +239,8 @@ namespace Bloxstrap
                 }
             }
 
+            bool allModificationsApplied = true;
+
             if (!_noConnection)
             {
                 // we are checking if eurotrucks2 exists in client directory
@@ -247,7 +263,7 @@ namespace Bloxstrap
 
                 // we require deployment details for applying modifications for a worst case scenario,
                 // where we'd need to restore files from a package that isn't present on disk and needs to be redownloaded
-                await ApplyModifications();
+                allModificationsApplied = await ApplyModifications();
             }
 
             // check registry entries for every launch, just in case the stock bootstrapper changes it back
@@ -261,7 +277,14 @@ namespace Bloxstrap
                 await mutex.ReleaseAsync();
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelTokenSource.IsCancellationRequested)
+            {
+                // show some balloon tips
+                if (!_packageExtractionSuccess)
+                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ExtractionFailed_Title, Strings.Bootstrapper_ExtractionFailed_Message, ToolTipIcon.Warning);
+                else if (!allModificationsApplied)
+                    Frontend.ShowBalloonTip(Strings.Bootstrapper_ModificationsFailed_Title, Strings.Bootstrapper_ModificationsFailed_Message, ToolTipIcon.Warning);
                 StartRoblox();
+            }
 
             await mutex.ReleaseAsync();
 
@@ -288,35 +311,34 @@ namespace Bloxstrap
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
             );
 
+            bool ChannelFlag = App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data);
+
             // CHANNEL CHANGE MODE
 
-            void EnrollChannel()
+            void EnrollChannel(string Channel = "production")
             {
-                if (match.Groups.Count == 2)
-                {
-                    string Channel = !String.IsNullOrEmpty(match.Groups[1].Value) ? match.Groups[1].Value : Deployment.DefaultChannel;
-
-                    Deployment.Channel = Channel;
-                    App.Settings.Prop.Channel = Channel;
-                    App.Settings.Save();
-                }
-                else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
-                {
-                    Deployment.Channel = value.ToLowerInvariant();
-                }
+                Deployment.Channel = Channel;
+                App.Settings.Prop.Channel = Channel;
+                App.Settings.Save();
             }
 
-            string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
-            bool IsRunning = Process.GetProcessesByName(ProcessName).Any();
+            void RevertChannel()
+            {
+                Deployment.Channel = Deployment.DefaultChannel;
+                App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                App.Settings.Save();
+            }
 
-            if (!IsRunning)
+            string EnrolledChannel = match.Groups.Count == 2 ? match.Groups[1].Value.ToLowerInvariant() : Deployment.DefaultChannel;
+
+            if (!ChannelFlag)
             {
                 switch (App.Settings.Prop.ChannelChangeMode)
                 {
                     case ChannelChangeMode.Automatic:
                         App.Logger.WriteLine(LOG_IDENT, "Enrolling into channel");
 
-                        EnrollChannel();
+                        EnrollChannel(EnrolledChannel);
                         break;
                     case ChannelChangeMode.Prompt:
                         App.Logger.WriteLine(LOG_IDENT, "Prompting channel enrollment");
@@ -342,103 +364,129 @@ namespace Bloxstrap
                         );
 
                         if (Result == MessageBoxResult.Yes)
-                            EnrollChannel();
+                            EnrollChannel(EnrolledChannel);
                         break;
                     case ChannelChangeMode.Ignore:
                         App.Logger.WriteLine(LOG_IDENT, "Ignoring channel enrollment");
                         break;
                 }
-
-                if (String.IsNullOrEmpty(Deployment.Channel))
-                    Deployment.Channel = Deployment.DefaultChannel;
-
-                App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
-            } else
+            }
+            else
             {
-                App.Logger.WriteLine(LOG_IDENT, "Multiple instances found, cancelling enrollments");
+                string ChannelFlagData = App.LaunchSettings.ChannelFlag.Data!;
+
+                if (!String.IsNullOrEmpty(ChannelFlagData))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Forcing channel {ChannelFlagData}");
+                    EnrollChannel(ChannelFlagData);
+                }
             }
 
-            ClientVersion clientVersion;
-
-            try
-            {
-                clientVersion = await Deployment.GetInfo(Deployment.Channel);
-            }
-            catch (InvalidChannelException ex)
-            {
-                // copied from v2.5.4
-                // we are keeping similar logic just updated for newer apis
-
-                // If channel does not exist
-                if (ex.StatusCode == HttpStatusCode.NotFound)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
-                }
-                // If channel is not available to the user (private/internal release channel)
-                else if (ex.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because {App.Settings.Prop.Channel} is restricted for public use.");
-
-                    // Only prompt if user has channel switching mode set to something other than Automatic.
-                    if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
-                    {
-                        Frontend.ShowMessageBox(
-                            String.Format(
-                                Strings.Boostrapper_Dialog_UnauthorizedChannel,
-                                Deployment.Channel,
-                                Deployment.DefaultChannel
-                            ),
-                            MessageBoxImage.Information
-                        );
-                    }
-                }
-                else
-                {
-                    throw;
-                }
-
+            if (String.IsNullOrEmpty(Deployment.Channel))
                 Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo(Deployment.Channel);
-
-                App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                App.Settings.Save();
-            }
-
-            if (clientVersion.IsBehindDefaultChannel)
-            {
-                MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
-                {
-                    ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
-                        String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
-                        MessageBoxImage.Warning,
-                        MessageBoxButton.YesNo
-                    ),
-                    ChannelChangeMode.Automatic => MessageBoxResult.Yes,
-                    ChannelChangeMode.Ignore => MessageBoxResult.No,
-                    _ => MessageBoxResult.None
-                };
-
-                if (action == MessageBoxResult.Yes)
-                {
-                    App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
-
-                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo(Deployment.Channel);
-                }
-
-                Deployment.Channel = Deployment.DefaultChannel;
-                clientVersion = await Deployment.GetInfo();
-            }
 
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
 
-            _latestVersionGuid = clientVersion.VersionGuid;
+            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
+
+            if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
+            {
+                ClientVersion clientVersion;
+
+                try
+                {
+                    clientVersion = await Deployment.GetInfo();
+                }
+                catch (InvalidChannelException ex)
+                {
+                    // copied from v2.5.4
+                    // we are keeping similar logic just updated for newer apis
+
+                    // If channel does not exist
+                    if (ex.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because a WindowsPlayer build does not exist for {App.Settings.Prop.Channel}");
+                        RevertChannel();
+                    }
+                    // If channel is not available to the user (private/internal release channel)
+                    else if (ex.StatusCode == HttpStatusCode.Unauthorized)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because {App.Settings.Prop.Channel} is restricted for public use.");
+
+                        // Only prompt if user has channel switching mode set to something other than Automatic.
+                        if (App.Settings.Prop.ChannelChangeMode != ChannelChangeMode.Automatic)
+                        {
+                            Frontend.ShowMessageBox(
+                                String.Format(
+                                    Strings.Boostrapper_Dialog_UnauthorizedChannel,
+                                    Deployment.Channel,
+                                    Deployment.DefaultChannel
+                                ),
+                                MessageBoxImage.Information
+                            );
+                        }
+                    }
+                    else
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Reverting enrolled channel to {Deployment.DefaultChannel} because of ${ex.StatusCode}");
+                        RevertChannel();
+                    }
+
+                    clientVersion = await Deployment.GetInfo();
+                }
+
+                if (clientVersion.IsBehindDefaultChannel)
+                {
+                    MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
+                    {
+                        ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
+                            String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
+                            MessageBoxImage.Warning,
+                            MessageBoxButton.YesNo
+                        ),
+                        ChannelChangeMode.Automatic => MessageBoxResult.Yes,
+                        ChannelChangeMode.Ignore => MessageBoxResult.No,
+                        _ => MessageBoxResult.None
+                    };
+
+                    if (action == MessageBoxResult.Yes)
+                    {
+                        App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
+
+                        App.Settings.Prop.Channel = Deployment.DefaultChannel;
+                        clientVersion = await Deployment.GetInfo(Deployment.Channel);
+                    }
+
+                    Deployment.Channel = Deployment.DefaultChannel;
+                    clientVersion = await Deployment.GetInfo();
+                }
+
+                _latestVersionGuid = clientVersion.VersionGuid;
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
+                _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
+            }
+
             _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
             string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
             var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
 
             _versionPackageManifest = new(pkgManifestData);
+
+            // this can happen if version is set through arguments
+            if (_launchMode == LaunchMode.Unknown)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Identifying launch mode from package manifest");
+
+                bool isPlayer = _versionPackageManifest.Exists(x => x.Name == "RobloxApp.zip");
+                App.Logger.WriteLine(LOG_IDENT, $"isPlayer: {isPlayer}");
+
+                _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
+                SetupAppData(); // we need to set it up again
+            }
         }
 
         private async void StartRoblox()
@@ -786,7 +834,31 @@ namespace Bloxstrap
 
         #region Roblox Install
 
-        private void CleanupVersionsFolder()
+        private static bool TryDeleteRobloxInDirectory(string dir)
+        {
+            string clientPath = Path.Combine(dir, App.RobloxPlayerAppName);
+
+            if (!File.Exists(dir))
+            {
+                clientPath = Path.Combine(dir, App.RobloxStudioAppName);
+
+                if (!File.Exists(dir))
+                    return true; // ok???
+                                 // no
+            }
+
+            try
+            {
+                File.Delete(clientPath);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static void CleanupVersionsFolder()
         {
             const string LOG_IDENT = "Bootstrapper::CleanupVersionsFolder";
 
@@ -794,8 +866,15 @@ namespace Bloxstrap
             {
                 string dirName = Path.GetFileName(dir);
 
-                if (dirName != App.State.Prop.Player.VersionGuid && dirName != App.State.Prop.Studio.VersionGuid)
+                if (dirName != App.RobloxState.Prop.Player.VersionGuid && dirName != App.RobloxState.Prop.Studio.VersionGuid)
                 {
+                    Filesystem.AssertReadOnlyDirectory(dir);
+
+                    // check if it's still being used first
+                    // we dont want to accidentally delete the files of a running roblox instance
+                    if (!TryDeleteRobloxInDirectory(dir))
+                        continue;
+
                     try
                     {
                         Directory.Delete(dir, true);
@@ -1042,23 +1121,28 @@ namespace Bloxstrap
 
             var allPackageHashes = new List<string>();
 
-            allPackageHashes.AddRange(App.State.Prop.Player.PackageHashes.Values);
-            allPackageHashes.AddRange(App.State.Prop.Studio.PackageHashes.Values);
+            allPackageHashes.AddRange(App.RobloxState.Prop.Player.PackageHashes.Values);
+            allPackageHashes.AddRange(App.RobloxState.Prop.Studio.PackageHashes.Values);
 
-            foreach (string hash in cachedPackageHashes)
+
+            if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
-                if (!allPackageHashes.Contains(hash))
+                foreach (string hash in cachedPackageHashes)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
+                    if (!allPackageHashes.Contains(hash))
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
 
-                    try
-                    {
-                        File.Delete(Path.Combine(Paths.Downloads, hash));
-                    }
-                    catch (Exception ex)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
-                        App.Logger.WriteException(LOG_IDENT, ex);
+
+                        try
+                        {
+                            File.Delete(Path.Combine(Paths.Downloads, hash));
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
+                            App.Logger.WriteException(LOG_IDENT, ex);
+                        }
                     }
                 }
             }
@@ -1069,7 +1153,7 @@ namespace Bloxstrap
 
             AppData.State.Size = distributionSize;
 
-            int totalSize = App.State.Prop.Player.Size + App.State.Prop.Studio.Size;
+            int totalSize = App.RobloxState.Prop.Player.Size + App.RobloxState.Prop.Studio.Size;
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
@@ -1116,9 +1200,11 @@ namespace Bloxstrap
             _isInstalling = false;
         }
 
-        private async Task ApplyModifications()
+        private async Task<bool> ApplyModifications()
         {
             const string LOG_IDENT = "Bootstrapper::ApplyModifications";
+
+            bool success = true;
 
             SetStatus(Strings.Bootstrapper_Status_ApplyingModifications);
 
@@ -1195,7 +1281,7 @@ namespace Bloxstrap
             foreach (string file in Directory.GetFiles(Paths.Modifications, "*.*", SearchOption.AllDirectories))
             {
                 if (_cancelTokenSource.IsCancellationRequested)
-                    return;
+                    return true;
 
                 // get relative directory path
                 string relativeFile = file.Substring(Paths.Modifications.Length + 1);
@@ -1227,10 +1313,17 @@ namespace Bloxstrap
                 Directory.CreateDirectory(Path.GetDirectoryName(fileVersionFolder)!);
 
                 Filesystem.AssertReadOnly(fileVersionFolder);
-                File.Copy(fileModFolder, fileVersionFolder, true);
-                Filesystem.AssertReadOnly(fileVersionFolder);
-
-                App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} has been copied to the version folder");
+                try {
+                    File.Copy(fileModFolder, fileVersionFolder, true);
+                    Filesystem.AssertReadOnly(fileVersionFolder);
+                    App.Logger.WriteLine(LOG_IDENT, $"{relativeFile} has been copied to the version folder");
+                } 
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to apply modification ({relativeFile})");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                    success = false;
+                }
             }
 
             // the manifest is primarily here to keep track of what files have been
@@ -1239,7 +1332,7 @@ namespace Bloxstrap
 
             var fileRestoreMap = new Dictionary<string, List<string>>();
 
-            foreach (string fileLocation in App.State.Prop.ModManifest)
+            foreach (string fileLocation in App.RobloxState.Prop.ModManifest)
             {
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
@@ -1277,7 +1370,7 @@ namespace Bloxstrap
                 if (package is not null)
                 {
                     if (_cancelTokenSource.IsCancellationRequested)
-                        return;
+                        return true;
 
                     await DownloadPackage(package);
                     ExtractPackage(package, entry.Value);
@@ -1288,6 +1381,10 @@ namespace Bloxstrap
             App.State.Save();
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");
+            if (!success)
+                App.Logger.WriteLine(LOG_IDENT, "Failed to apply all modifications");
+
+            return success;
         }
 
         private async Task DownloadPackage(Package package)

@@ -8,6 +8,7 @@
     xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Editor"
     xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Editor"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:Bloxstrap.Resources"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{Binding Path=Title, Mode=OneTime}"
     Width="1000"
@@ -16,6 +17,8 @@
                                      IsDesignTimeCreatable=True}"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
     ExtendsContentIntoTitleBar="True"
+    Closing="OnClosing"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
@@ -39,16 +42,14 @@
             Grid.Row="1"
             Margin="10,10,10,0"
             ShowLineNumbers="True"
-            
-            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-            TextChanged="OnCodeChanged"
-            Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}"/>
+            Style="{StaticResource NewTextEditor}"
+            SyntaxHighlighting="XML" />
 
         <ui:Button
             Grid.Row="2"
             Margin="10"
             Command="{Binding Path=OpenThemeFolderCommand, Mode=OneTime}"
-            Content="Open Theme Folder" />
+            Content="{x:Static resources:Strings.CustomTheme_Editor_OpenThemeDirectory}" />
 
         <Grid
             Grid.Row="2"
@@ -63,14 +64,14 @@
                 Grid.Column="0"
                 Margin="0,0,4,0"
                 Command="{Binding Path=PreviewCommand, Mode=OneTime}"
-                Content="Preview" />
+                Content="{x:Static resources:Strings.CustomTheme_Editor_Preview}" />
 
             <ui:Button
                 Grid.Column="1"
                 Margin="4,0,0,0"
                 Appearance="Primary"
                 Command="{Binding Path=SaveCommand, Mode=OneTime}"
-                Content="Save" />
+                Content="{x:Static resources:Strings.CustomTheme_Editor_Save}" />
         </Grid>
 
         <ui:Snackbar

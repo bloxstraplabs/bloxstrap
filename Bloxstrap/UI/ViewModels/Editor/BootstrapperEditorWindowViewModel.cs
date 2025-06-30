@@ -26,6 +26,8 @@ namespace Bloxstrap.UI.ViewModels.Editor
         public string Title { get; set; } = "Editing \"Custom Theme\"";
         public string Code { get; set; } = "";
 
+        public bool CodeChanged { get; set; } = false;
+
         private void Preview()
         {
             const string LOG_IDENT = "BootstrapperEditorWindowViewModel::Preview";
@@ -48,7 +50,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
                 App.Logger.WriteLine(LOG_IDENT, "Failed to preview custom theme");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                Frontend.ShowMessageBox($"Failed to preview theme: {ex.Message}", MessageBoxImage.Error, MessageBoxButton.OK);
+                Frontend.ShowMessageBox(string.Format(Strings.CustomTheme_Editor_Errors_PreviewFailed, ex.Message), MessageBoxImage.Error, MessageBoxButton.OK);
             }
         }
 
@@ -61,7 +63,8 @@ namespace Bloxstrap.UI.ViewModels.Editor
             try
             {
                 File.WriteAllText(path, Code);
-                ThemeSavedCallback.Invoke(true, "Your theme has been saved!");
+                CodeChanged = false;
+                ThemeSavedCallback.Invoke(true, Strings.CustomTheme_Editor_Save_Success_Description);
             }
             catch (Exception ex)
             {

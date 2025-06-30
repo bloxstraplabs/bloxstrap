@@ -4,11 +4,13 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
+using ICSharpCode.SharpZipLib.Zip;
 
 using Microsoft.Win32;
 
 using Bloxstrap.UI.Elements.Settings;
 using Bloxstrap.UI.Elements.Editor;
+using Bloxstrap.UI.Elements.Dialogs;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -23,6 +25,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand DeleteCustomThemeCommand => new RelayCommand(DeleteCustomTheme);
         public ICommand RenameCustomThemeCommand => new RelayCommand(RenameCustomTheme);
         public ICommand EditCustomThemeCommand => new RelayCommand(EditCustomTheme);
+        public ICommand ExportCustomThemeCommand => new RelayCommand(ExportCustomTheme);
 
         private void PreviewBootstrapper()
         {
@@ -134,31 +137,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
-        private string CreateCustomThemeName()
-        {
-            int count = Directory.GetDirectories(Paths.CustomThemes).Count();
-
-            string name = $"Custom Theme {count + 1}";
-
-            // TODO: this sucks
-            if (Directory.Exists(Path.Combine(Paths.CustomThemes, name))) // DUCK
-                name += " " + Random.Shared.Next(1, 100000).ToString(); // easy
-
-            return name;
-        }
-
-        private void CreateCustomThemeStructure(string name)
-        {
-            string dir = Path.Combine(Paths.CustomThemes, name);
-            Directory.CreateDirectory(dir);
-
-            string themeFilePath = Path.Combine(dir, "Theme.xml");
-
-            string templateContent = Encoding.UTF8.GetString(Resource.Get("CustomBootstrapperTemplate.xml").Result);
-
-            File.WriteAllText(themeFilePath, templateContent);
-        }
-
         private void DeleteCustomThemeStructure(string name)
         {
             string dir = Path.Combine(Paths.CustomThemes, name);
@@ -174,24 +152,20 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void AddCustomTheme()
         {
-            string name = CreateCustomThemeName();
+            var dialog = new AddCustomThemeDialog();
+            dialog.ShowDialog();
 
-            try
+            if (dialog.Created)
             {
-                CreateCustomThemeStructure(name);
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteException("AppearanceViewModel::AddCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to create custom theme: {ex.Message}", MessageBoxImage.Error);
-                return;
-            }
+                CustomThemes.Add(dialog.ThemeName);
+                SelectedCustomThemeIndex = CustomThemes.Count - 1;
 
-            CustomThemes.Add(name);
-            SelectedCustomThemeIndex = CustomThemes.Count - 1;
+                OnPropertyChanged(nameof(SelectedCustomThemeIndex));
+                OnPropertyChanged(nameof(IsCustomThemeSelected));
 
-            OnPropertyChanged(nameof(SelectedCustomThemeIndex));
-            OnPropertyChanged(nameof(IsCustomThemeSelected));
+                if (dialog.OpenEditor)
+                    EditCustomTheme();
+            }
         }
 
         private void DeleteCustomTheme()
@@ -206,7 +180,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             catch (Exception ex)
             {
                 App.Logger.WriteException("AppearanceViewModel::DeleteCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to delete custom theme {SelectedCustomTheme}: {ex.Message}", MessageBoxImage.Error);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_DeleteFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
                 return;
             }
 
@@ -223,11 +197,47 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void RenameCustomTheme()
         {
-            if (SelectedCustomTheme is null)
+            const string LOG_IDENT = "AppearanceViewModel::RenameCustomTheme";
+
+            if (SelectedCustomTheme is null || SelectedCustomTheme == SelectedCustomThemeName)
                 return;
 
-            if (SelectedCustomTheme == SelectedCustomThemeName)
+            if (string.IsNullOrEmpty(SelectedCustomThemeName))
+            {
+                Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameEmpty, MessageBoxImage.Error);
                 return;
+            }
+
+            var validationResult = PathValidator.IsFileNameValid(SelectedCustomThemeName);
+
+            if (validationResult != PathValidator.ValidationResult.Ok)
+            {
+                switch (validationResult)
+                {
+                    case PathValidator.ValidationResult.IllegalCharacter:
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameIllegalCharacters, MessageBoxImage.Error);
+                        break;
+                    case PathValidator.ValidationResult.ReservedFileName:
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameReserved, MessageBoxImage.Error);
+                        break;
+                    default:
+                        App.Logger.WriteLine(LOG_IDENT, $"Got unhandled PathValidator::ValidationResult {validationResult}");
+                        Debug.Assert(false);
+
+                        Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_Unknown, MessageBoxImage.Error);
+                        break;
+                }
+
+                return;
+            }
+
+            // better to check for the file instead of the directory so broken themes can be overwritten
+            string path = Path.Combine(Paths.CustomThemes, SelectedCustomThemeName, "Theme.xml");
+            if (File.Exists(path))
+            {
+                Frontend.ShowMessageBox(Strings.CustomTheme_Add_Errors_NameTaken, MessageBoxImage.Error);
+                return;
+            }
 
             try
             {
@@ -235,8 +245,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
             catch (Exception ex)
             {
-                App.Logger.WriteException("AppearanceViewModel::RenameCustomTheme", ex);
-                Frontend.ShowMessageBox($"Failed to rename custom theme {SelectedCustomTheme}: {ex.Message}", MessageBoxImage.Error);
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(string.Format(Strings.Menu_Appearance_CustomThemes_RenameFailed, SelectedCustomTheme, ex.Message), MessageBoxImage.Error);
                 return;
             }
 
@@ -255,6 +265,47 @@ namespace Bloxstrap.UI.ViewModels.Settings
             new BootstrapperEditorWindow(SelectedCustomTheme).ShowDialog();
         }
 
+        private void ExportCustomTheme()
+        {
+            if (SelectedCustomTheme is null)
+                return;
+
+            var dialog = new SaveFileDialog
+            {
+                FileName = $"{SelectedCustomTheme}.zip",
+                Filter = $"{Strings.FileTypes_ZipArchive}|*.zip"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            string themeDir = Path.Combine(Paths.CustomThemes, SelectedCustomTheme);
+
+            using var memStream = new MemoryStream();
+            using var zipStream = new ZipOutputStream(memStream);
+
+            foreach (var filePath in Directory.EnumerateFiles(themeDir, "*.*", SearchOption.AllDirectories))
+            {
+                string relativePath = filePath[(themeDir.Length + 1)..];
+
+                var entry = new ZipEntry(relativePath);
+                entry.DateTime = DateTime.Now;
+
+                zipStream.PutNextEntry(entry);
+
+                using var fileStream = File.OpenRead(filePath);
+                fileStream.CopyTo(zipStream);
+            }
+
+            zipStream.CloseEntry();
+            zipStream.Finish();
+            memStream.Position = 0;
+
+            using var outputStream = File.OpenWrite(dialog.FileName);
+            memStream.CopyTo(outputStream);
+
+            Process.Start("explorer.exe", $"/select,\"{dialog.FileName}\"");
+        }
         private void PopulateCustomThemes()
         {
             string? selected = App.Settings.Prop.SelectedCustomTheme;

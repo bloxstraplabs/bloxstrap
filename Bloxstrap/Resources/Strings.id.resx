@@ -124,13 +124,10 @@
     <value>Roblox sedang berjalan saat ini, dan menjalankan instansi Roblox baru akan menutup instansi Roblox yang sedang berjalan, apakah Anda yakin ingin tetap menjalankannya?</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox mungkin sedang gangguan saat ini. Lihat {0} untuk informasi lebih lanjut.</value>
+    <value>Roblox mungkin sedang mengalami gangguan saat ini. Lihat {0} untuk informasi lebih lanjut.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Koneksi tidak dapat dibuat, yang berarti adanya koneksi internet buruk atau pemblokiran tembok api. Jika koneksi tidak bermasalah, pastikan antivirus tidak memblokir Fishstrap.</value>
-  </data>
-  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Anda harus menginstal Fishstrap terlebih dahulu sebelum menghapus.</value>
+    <value>Koneksi tidak dapat dibuat, kemungkinan koneksi internet buruk atau pemblokiran firewall. Jika koneksi Anda tidak bermasalah, pastikan antivirus Anda tidak memblokir Fishstrap</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Fishstrap tidak memiliki ruang penyimpanan yang cukup untuk mengunduh dan menginstal Roblox. Tolong kosongkan beberapa ruang penyimpanan dan coba kembali.</value>
@@ -172,7 +169,7 @@
     <value>Fishstrap berhasil dihapus</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox sedang berjalan saat ini, namun harus ditutup sebelum menghapus Fishstrap. Apakah Anda yakin untuk menutup Roblox sekarang?</value>
+    <value>Roblox sedang berjalan saat ini, namun harus ditutup sebelum menghapus Fishstrap. Apakah Anda ingin menutup Roblox sekarang?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox membutuhkan penggunaan komponen Windows Media Foundation. Anda sepertinya tidak memilikinya, kemungkinan karena anda menggunakan edisi Windows N. Tolong install komponen tersebut, dan mulai Roblox kembali.</value>
@@ -378,7 +375,7 @@ Jika belym, Mohon laporkan masalah ini melalui [GitHub issue]({1}) bersama file 
     <value>Server publik</value>
   </data>
   <data name="Enums.ServerType.Reserved" xml:space="preserve">
-    <value>Server terdedikasi</value>
+    <value>Server khusus</value>
   </data>
   <data name="Enums.Theme.Dark" xml:space="preserve">
     <value>Gelap</value>
@@ -752,7 +749,7 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
     <value>Pilih font...</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Ukuran fon dapat diubah melalui tab Pengaturan Mesin.</value>
+    <value>Ukuran huruf dapat diubah melalui tab Pengaturan Mesin.</value>
   </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>File yang Anda pilih sepertinya bukan file font yang valid.</value>
@@ -956,7 +953,7 @@ Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Fishstrap se
     <value>Mohon klik 'Lanjut' untuk melanjutkan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Anda sedang mencoba memasang Fishstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin memasangnya?</value>
+    <value>Anda sedang mencoba memasang Fishstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin mengunduhnya?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pilih lokasi instalasi</value>
@@ -979,7 +976,7 @@ Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Fishstrap se
   <data name="Installer.Completion.Text" xml:space="preserve">
     <value>Fishstrap berhasil dipasang.
 
-Roblox belum terpasang, itu akan terjadi saat Anda menjalankannya dengan Fishstrap untuk pertama kalinya. Namun, sebelum Anda melakukannya, munkin Anda mau mengkonfigurasikan pengaturan Fishstrap terlebih dahulu.
+Roblox belum terpasang, itu akan terjadi saat Anda menjalankannya dengan Bloxstrap untuk pertama kalinya. Namun, sebelum Anda melakukannya, mungkin Anda ingin mengatur setelan Fishstrap terlebih dahulu.
 
 Juga, hindari menggunakan pintasan "Roblox Player" untuk menjalankan Roblox, karena Fishstrap tidak akan berjalan dengan roblox. Jika Anda tidak melihat Fishstrap saat menjalankannya menggunakan situs web, jalankan Roblox dengan Fishstrap sekali untuk memperbaikinya
 
@@ -1005,15 +1002,15 @@ Apa yang ingin Anda lakukan?</value>
 
 Jika Anda mencopot pemasangan atau memasang ulang karena mengalami masalah dengan Roblox, baca [halaman bantuan ini]({0}) terlebih dahulu.
 
-Proses pencopotan mungkin tidak dapat sepenuhnya membersihkan dirinya sendiri, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Fishstrap secara mandiri.
+Proses pencopotan mungkin tidak dapat sepenuhnya bersih, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Fishstrap secara mandiri.
 
 Fishstrap terpasang di "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
-    <value>Simpan pengaturan dan mods saya</value>
+    <value>Simpan pengaturan dan mod saya</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>File-file tersebut akan disimpan di lokasi tempat Fishstrap diinstal, dan akan secara otomatis dipulihkan saat diinstal ulang.</value>
+    <value>Berkas-berkas tersebut akan disimpan di lokasi tempat Fishstrap dipasang, dan akan secara otomatis dipulihkan saat dipasang ulang.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Hapus Instalasi</value>
@@ -1028,7 +1025,7 @@ Fishstrap terpasang di "{1}".</value>
     <value>Mempunyai masalah?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>Lihat Wiki untuk bantuan</value>
+    <value>Lihat wiki untuk bantuan</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
     <value>Saat ini Anda belum menginstal runtime WebView2. Beberapa fitur Roblox tidak akan berfungsi dengan baik tanpanya, seperti aplikasi desktop. Apakah Anda ingin mengunduhnya sekarang?</value>
@@ -1037,7 +1034,7 @@ Fishstrap terpasang di "{1}".</value>
     <value>Fishstrap tidak dapat membuat pintasan untuk Desktop dan Start menu. Coba membuatnya nanti melalui pengaturan.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Periksa [Bloxstrap Wiki]({0}) terlebih dahulu untuk melihat apakah masalah ini telah ditangani dengan solusi.
+    <value>Periksa [Wiki Bloxstrap]({0}) terlebih dahulu untuk melihat apakah masalah ini telah ditangani dengan solusi.
 
 Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN laporkan ini ke masalah GitHub Fishstrap, karena ini adalah versi yang tidak resmi.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
@@ -1046,7 +1043,7 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
     <value>Ini adalah pintasan umum yang memunculkan banyak pilihan menu peluncuran. Pintasan untuk fungsi khusus dapat dibuat nanti di pengaturan.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Atur bagaimana Fishstrap telah siap untuk diluncurkan.</value>
+    <value>Atur bagaimana Fishstrap dapat diluncurkan dengan mudah.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Umum</value>
@@ -1064,7 +1061,7 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
     <value>Terhubung ke server pribadi</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
-    <value>Terhubung ke server yang disediakan</value>
+    <value>Terhubung ke server yang dikhususkan</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
     <value>Mod emoji tidak dapat diterapkan saat ini.</value>
@@ -1089,8 +1086,8 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
     <value>Anda memiliki perubahan yang belum disimpan. Apakah Anda yakin ingin menutup tanpa menyimpan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Versi Fishstrap yang kamu jalankan adalah versi lama dari versi yang Anda sudah pasang.
-Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Melakukan pemasangan ulang direkomendasikan.
+    <value>Versi Fishstrap yang Anda jalankan adalah versi lama dari versi yang terpasang.
+Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Kami menyarankan Anda untuk melakukan pemasangan ulang.
 Apakah Anda yakin untuk melanjutkan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
@@ -1102,7 +1099,7 @@ Apakah Anda yakin untuk melanjutkan?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Untuk informasi lebih lanjut mengapa ini dapat terjadi dan cara memperbaikinya, silakan baca [artikel bantuan ini]({0}).
 
-Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti bukan masalah Fishstrap. Jika ya, rujuklah pada artikel bantuan.</value>
+Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti ini bukan masalah pada Fishstrap. Jika ya, rujuklah pada artikel bantuan.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Tidak dapat memuat data karena suatu masalah koneksi.</value>
@@ -1126,10 +1123,10 @@ Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti 
     <value>Riwayat permainan</value>
   </data>
   <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
-    <value>Join kembali</value>
+    <value>Bergabung kembali</value>
   </data>
   <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
-    <value>Game yang sedang Anda mainkan tidak akan muncul di presensi Discord Anda karena terjadi kesalahan saat memuat informasi game.</value>
+    <value>Permainan yang Anda mainkan saat ini tidak akan muncul di presensi Discord Anda karena terjadi kesalahan saat memuat informasi permainan.</value>
   </data>
   <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
     <value>Riwayat permainan hanya direkam untuk sesi Roblox Anda saat ini. Permainan akan muncul di sini saat Anda meninggalkannya atau berteleportasi di dalamnya. Tidak semua server dapat digabung kembali.</value>
@@ -1176,7 +1173,7 @@ Tolong hapus Fishstrap.exe secara manual dari lokasi pemasangan atau coba untuk 
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Keluarkan simbol Roblox ke direktori</value>
+    <value>Ekstrak ikon Roblox ke direktori</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
     <value>Memungkinkan Anda untuk menggunakan jangkauan Fishstrap dari simbol Roblox untuk pintasan Anda. [Lihat caranya.]({0})</value>
@@ -1227,6 +1224,9 @@ Apakah Anda ingin mengaktifkan mode uji coba?</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Versi {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Kustom</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Fishstrap mencoba meningkatkan Roblox tetapi tidak bisa karena berkas Roblox masih digunakan.
 
@@ -1266,5 +1266,234 @@ Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncur
   <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Semua log Fishstrap</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox tidak lagi mendukung Windows 7 atau 8,1. Untuk terus memainkan Roblox, harap perbarui ke Windows 10 atau yang lebih baru.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Gagal mengekstrak berkas</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Beberapa konten mungkin hilang. Paksa penginstalan ulang Roblox di pengaturan untuk memperbaikinya.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Gagal menerapkan modifikasi</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Tidak semua modifikasi akan ada di rilisan sekarang.</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Lisensi Apache 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>Kosong</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>Sederhana</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>Sumber dari tema XML bukanlah {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>Dialog kustom telah diinisialisasi</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>Bootstrapper kustom hanya boleh memiliki maksimal {0} elemen, terdapat {1} elemen</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>Versi {0} tidak diatur</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>Versi {0} bukanlah angka</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} Versi {1} tidak lagi didukung</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} Versi {1} tidak dikenali</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} tidak bisa memiliki anak dari {1}</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>Elemen tidak dikenal {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>Gagal mengurai berkas tema: {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} memiliki {1} yang tidak valid: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>Elemen {0} kehilangan atribut {1}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} bukan {2} yang valid</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} harus lebih besar dari {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} harus lebih kecil dari {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} Tidak diketahui {1} '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} hanya bisa memiliki satu {1} yang didefinisikan</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} hanya boleh memiliki satu anak</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} hanya boleh memiliki satu anak</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} hilang anaknya</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} tidak dapat diuraikan menjadi {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} ini kosong</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} menggunakan skema di daftar hitam {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} gagal membuat {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>Mengedit "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Tema berhasil disimpan!</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>Terjadi kesalahan saat menyimpan tema Anda.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>Simpan perubahan ke {0}?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Simpan</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Buka Direktori Tema</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Buat Baru</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Impor</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>Tambahkan Tema Kustom</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>Templat</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>Kolom nama tidak boleh kosong</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>Nama mengandung karakter yang tidak sah</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>Nama tidak bisa digunakan</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>Kesalahan tidak diketahui</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>Nama sudah digunakan</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>Berkas harus berupa ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>Berkas tema tidak dapat ditemukan dalam berkas ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>Berkas ZIP tidak valid atau rusak</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>Tidak ada tema kustom yang dipilih</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Gagal menyiapkan bootstrapper kustom: {0}.
+Beralih ke {1}.</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>Tidak ada tema kustom yang dipilih.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Ubah Nama</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Ubah</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Gagal menghapus tema kustom {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Gagal mengganti nama tema kustom {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Pembaruan latar belakang</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Perbarui Roblox di latar belakang daripada menunggu. Tidak disarankan untuk jaringan yang lambat. Setidaknya diperlukan ruang penyimpanan kosong sebesar 3GB agar fitur ini dapat berfungsi.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Letakkan elemen UI di sini</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Contoh bootstrapper kustom dapat ditemukan di {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Temukan lebih banyak contoh bootstrapper kustom di {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Tema Kustom {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Mengizinkan peluncuran multi-instansi</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Mengizinkan untuk membuka klien game Roblox lebih dari satu instani secara bersamaan.</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Temamu telah disimpan!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Gagal meninjau tema: {0}</value>
   </data>
 </root>

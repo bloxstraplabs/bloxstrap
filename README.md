@@ -49,7 +49,42 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
 
 ---
 
+<<<<<<< HEAD
 ### Considering a switch? [Download it here][repo-latest].
+=======
+**Q: Is this malware?**
+
+**A:** No. The source code here is viewable to all, and it'd be impossible for us to slip anything malicious into the downloads without anyone noticing. Just be sure you're downloading it from an official source. The only two official sources are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com).
+
+**Q: Can using this get me banned?**
+
+**A:** No, it shouldn't. Bloxstrap doesn't interact with the Roblox client in the same way that exploits do. [Read more about that here.](https://github.com/bloxstraplabs/bloxstrap/wiki/Why-it's-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap)
+
+## Features
+
+- Hassle-free Discord Rich Presence to let your friends know what you're playing at a glance
+- Simple support for modding of content files for customizability (death sound, mouse cursor, etc)
+- See where your server is geographically located (courtesy of [ipinfo.io](https://ipinfo.io))
+- Ability to configure graphics fidelity and UI experience
+
+## Installing
+Download the [latest release of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
+
+Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap) by running this in a Command Prompt window:
+```
+> winget install bloxstrap
+```
+
+You will also need the [.NET 6 Desktop Runtime](https://aka.ms/dotnet-core-applaunch?missing_runtime=true&arch=x64&rid=win11-x64&apphost_version=6.0.16&gui=true). If you don't already have it installed, you'll be prompted to install it anyway. Be sure to install Bloxstrap after you've installed this.
+
+It's not unlikely that Windows Smartscreen will show a popup when you run Bloxstrap for the first time. This happens because it's an unknown program, not because it's actually detected as being malicious. To dismiss it, just click on "More info" and then "Run anyway".
+
+Once installed, Bloxstrap is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
+
+## Code
+
+Bloxstrap uses the [WPF UI](https://github.com/lepoco/wpfui) library for the user interface design. We currently use and maintain our own fork of WPF UI at [bloxstraplabs/wpfui](https://github.com/bloxstraplabs/wpfui).
+>>>>>>> upstream/main
 
 
 [badge-repo-license]:    https://img.shields.io/github/license/returnrqt/fishstrap?style=flat-square
@@ -65,4 +100,14 @@ Found any bugs? [Submit an issue](https://github.com/returnrqt/fishstrap/issues/
 [repo-releases]: https://github.com/returnrqt/fishstrap/releases
 [repo-latest]:   https://github.com/returnrqt/fishstrap/releases/latest
 
+<<<<<<< HEAD
 [discord-invite]:  https://discord.gg/SRs5zb9BJd
+=======
+[crowdin-project]: https://crowdin.com/project/bloxstrap
+[discord-invite]:  https://discord.gg/nKjV3mGq6R
+[tenor-gif]:       https://media.tenor.com/FIkSGbGycmAAAAAd/manly-roblox.gif
+
+## Code signing policy
+
+Thanks to [SignPath.io](https://signpath.io/) for providing a free code signing service, and the [SignPath Foundation](https://signpath.org/) for providing the free code signing certificate.
+>>>>>>> upstream/main

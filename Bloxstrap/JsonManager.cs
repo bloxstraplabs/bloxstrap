@@ -10,6 +10,13 @@ namespace Bloxstrap
 
         public T Prop { get; set; } = new();
 
+        /// <summary>
+        /// The file hash when last retrieved from disk
+        /// </summary>
+        public string? LastFileHash { get; private set; }
+
+        public bool Loaded { get; set; } = false;
+
         public virtual string ClassName => typeof(T).Name;
         
         public virtual string ProfilesLocation => Path.Combine(Paths.Base, $"Profiles.json");
@@ -27,12 +34,16 @@ namespace Bloxstrap
 
             try
             {
-                T? settings = JsonSerializer.Deserialize<T>(File.ReadAllText(FileLocation));
+                string contents = File.ReadAllText(FileLocation);
+
+                T? settings = JsonSerializer.Deserialize<T>(contents);
 
                 if (settings is null)
                     throw new ArgumentNullException("Deserialization returned null");
 
                 Prop = settings;
+                Loaded = true;
+                LastFileHash = MD5Hash.FromString(contents);
 
                 App.Logger.WriteLine(LOG_IDENT, "Loaded successfully!");
             }
@@ -79,7 +90,11 @@ namespace Bloxstrap
 
             try
             {
-                File.WriteAllText(FileLocation, JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true }));
+                string contents = JsonSerializer.Serialize(Prop, new JsonSerializerOptions { WriteIndented = true });
+
+                File.WriteAllText(FileLocation, contents);
+
+                LastFileHash = MD5Hash.FromString(contents);
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
             {
@@ -95,6 +110,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Save complete!");
         }
 
+        // TODO fix this old mess, why is it in json manager??
         public void SaveProfile(string name)
         {
             string LOGGER_STRING = "SaveProfile::Profiles";
@@ -181,8 +197,16 @@ namespace Bloxstrap
                 App.FastFlags.Save();
             } catch (Exception ex)
             {
-                Frontend.ShowMessageBox(ex.Message,MessageBoxImage.Error);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// Is the file on disk different to the one deserialised during this session?
+        /// </summary>
+        public bool HasFileOnDiskChanged()
+        {
+            return LastFileHash != MD5Hash.FromFile(FileLocation);
         }
     }
 }

@@ -11,16 +11,16 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
         public string VersionText { get; init; }
         public string ChannelText { get; init; }
-        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string version, string channel) : base(dialog)
+        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
         {
             const int alpha = 128;
 
             WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
 
-            string RealVersion = String.IsNullOrEmpty(Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false)) ? "None" : Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false);
+            //string RealVersion = String.IsNullOrEmpty(Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false)) ? "None" : Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false);
 
-            VersionText = "Version: " + RealVersion;
-            ChannelText = "Bucket: " + channel;
+            VersionText = String.Format(Strings.Common_Channel + ":", "0.0.0.0");
+            ChannelText = String.Format(Strings.Common_Version + ":", "production");
 
             if (aero)
             {
