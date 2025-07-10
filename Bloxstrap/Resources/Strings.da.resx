@@ -1,0 +1,1501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
+    <value>Bloxstrap kunne ikke automatisk opdatere til version {0}. Opdater det manuelt ved at downloade og køre det fra hjemmesiden.</value>
+  </data>
+  <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
+    <value>Roblox kører i øjeblikket, og opstart af en anden instans vil lukke den. Er du sikker på, at du vil fortsætte med at starte?</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox kan være nede lige nu. Se {0} for mere information.</value>
+  </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Der kunne ikke oprettes en forbindelse, hvilket sandsynligvis indikerer en dårlig internetforbindelse eller en firewall-blok. Hvis din forbindelse er fin, skal du sikre dig, at din antivirus ikke blokerer Bloxstrap.</value>
+  </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>Du skal først installere Bloxstrap før du afinstallere.</value>
+  </data>
+  <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
+    <value>Bloxstrap har ikke nok disk rum for at downloade og installere Roblox. Vær venlig at fri op noget plads på din disk og prøv igen.</value>
+  </data>
+  <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
+    <value>Tilføjer Roblox modifikationer...</value>
+  </data>
+  <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
+    <value>Konfigurere {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
+    <value>Forbinder til Roblox...</value>
+  </data>
+  <data name="Bootstrapper.Status.Installing" xml:space="preserve">
+    <value>Installere {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
+    <value>Installere WebView2, vær venlig at vente...</value>
+  </data>
+  <data name="Bootstrapper.Status.Starting" xml:space="preserve">
+    <value>Starter {product}...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
+  </data>
+  <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
+    <value>Opgradere {product}...</value>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Finder den nyeste Bloxstrap...</value>
+  </data>
+  <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
+    <value>Venter på andre instanser...</value>
+  </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>Stil forhåndsvisning - Tryk på X knappen oppe i højre for at lukke</value>
+    <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>Stil forhåndsvisning - Tryk afmeld for at lukke</value>
+    <comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
+  <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
+    <value>Bloxstrap har succesfuldt afinstalleret</value>
+  </data>
+  <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
+    <value>Roblox er i gang med at køre, men er nød til at være lukket før afinstalleringen af Bloxstrap. Vil du gerne lukke Roblox nu?</value>
+  </data>
+  <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
+    <value>Roblox kræver brugen af Windows Media Foundation komponenter. Du ser ud til at mangle dem, sandsynligvis fordi du bruger en N-udgave af Windows. Installér dem først, og start derefter Roblox.</value>
+  </data>
+  <data name="Common.AddSingle" xml:space="preserve">
+    <value>Tilføj enkelt</value>
+  </data>
+  <data name="Common.Browse" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>Afmeld</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>Luk</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Common.DiscordRichPresence" xml:space="preserve">
+    <value>Discord status (Rich Presence)</value>
+  </data>
+  <data name="Common.Help" xml:space="preserve">
+    <value>Hjælp</value>
+  </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>Importer JSON</value>
+  </data>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Åbn logfil</value>
+  </data>
+  <data name="Common.Miscellaneous" xml:space="preserve">
+    <value>Andet</value>
+  </data>
+  <data name="Common.Name" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="Common.New" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="Common.No" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="Common.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common.Presets" xml:space="preserve">
+    <value>Forudindstillinger</value>
+  </data>
+  <data name="Common.Reset" xml:space="preserve">
+    <value>Nulstil</value>
+    <comment>In the context of resetting something to a default value</comment>
+  </data>
+  <data name="Common.Value" xml:space="preserve">
+    <value>Værdi</value>
+  </data>
+  <data name="Common.Warning" xml:space="preserve">
+    <value>Advarsel</value>
+  </data>
+  <data name="Common.Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="ContextMenu.CloseRoblox" xml:space="preserve">
+    <value>Luk Roblox</value>
+  </data>
+  <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
+    <value>Er du sikker på, at du vil lukke Roblox? Dette vil afslutte processen.</value>
+  </data>
+  <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
+    <value>Kopier invitations-deeplink</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
+    <value>Kopier Instans ID</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
+    <value>Instans ID</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
+    <value>Lokation</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
+    <value>Lokation: {0}
+Klik for mere information</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Tilsluttet til offentlig server</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
+    <value>Serverinformation</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
+    <value>Tilføj FastFlag</value>
+  </data>
+  <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
+    <value>Flere oplysninger:</value>
+  </data>
+  <data name="Dialog.Connectivity.Title" xml:space="preserve">
+    <value>Forbindelsesfejl</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
+    <value>Bloxstrap kan ikke oprette forbindelse til {0}</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
+  </data>
+  <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
+    <value>Kopiér logindhold</value>
+  </data>
+  <data name="Dialog.Exception.Info.1" xml:space="preserve">
+    <value>En undtagelse opstod under kørsel af Bloxstrap</value>
+  </data>
+  <data name="Dialog.Exception.Info.2" xml:space="preserve">
+    <value>Tjek [Bloxstrap Wiki]({0}) først for at se, om dette problem allerede er blevet løst med en rettelse.
+
+Hvis ikke, bedes du rapportere denne undtagelse gennem et [GitHub problem]({1}) sammen med en kopi af den logfil, der blev oprettet.</value>
+  </data>
+  <data name="Dialog.Exception.Title" xml:space="preserve">
+    <value>Bloxstrap Undtagelse</value>
+  </data>
+  <data name="Common.Custom" xml:space="preserve">
+    <value>Tilpasset</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
+    <value>Tidligt 2015</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
+    <value>Sent 2015</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
+    <value>Falsk Byfron (2023)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
+    <value>Bloxstrap (Klassisk)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
+    <value>Bloxstrap (Glas)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
+    <value>Arv (2008 - 2011)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
+    <value>Arv (2011 - 2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
+    <value>Roblox (~2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
+    <value>Vista (2008 - 2011)</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (Tegneserie)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (Vinkelformet)</value>
+  </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>Kattemoji</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>Standardindstilling (Twemoji)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>Windows 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>Windows 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>Windows 8</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
+    <value>2015 (V1)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
+    <value>2020 (V2)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
+    <value>2023 (V4)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
+    <value>Valgt af spil</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
+    <value>Future (Fase 3)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
+    <value>Shadow Map (Fase 2)</value>
+  </data>
+  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
+    <value>Voxel (Fase 1)</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
+    <value>Direct3D 10</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
+    <value>Direct3D 11</value>
+  </data>
+  <data name="Enums.ServerType.Private" xml:space="preserve">
+    <value>Privat server</value>
+  </data>
+  <data name="Enums.ServerType.Public" xml:space="preserve">
+    <value>Offentlig server</value>
+  </data>
+  <data name="Enums.ServerType.Reserved" xml:space="preserve">
+    <value>Reserveret server</value>
+  </data>
+  <data name="Enums.Theme.Dark" xml:space="preserve">
+    <value>Mørk</value>
+  </data>
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>Lyst</value>
+  </data>
+  <data name="InstallChecker.Updated" xml:space="preserve">
+    <value>Bloxstrap er blevet opgraderet til v{0}</value>
+  </data>
+  <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
+    <value>Den version af Bloxstrap, du har startet, er forskellig fra den version, du har installeret i øjeblikket.
+Vil du gerne opgradere din nuværende installerede version?</value>
+  </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>Bidragydere</value>
+  </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Menu.About.Contributors.Description" xml:space="preserve">
+    <value>Dette er de mennesker, der har ydet bemærkelsesværdige bidrag til Bloxstrap og hjulpet med at gøre det til det, det er.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>Funktion idéer</value>
+  </data>
+  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
+    <value>Specielt tak</value>
+  </data>
+  <data name="Menu.About.Description" xml:space="preserve">
+    <value>En alternativ bootstrapper til Roblox med en masse ekstra funktioner.</value>
+  </data>
+  <data name="Menu.About.DiscordServer" xml:space="preserve">
+    <value>Discord server</value>
+  </data>
+  <data name="Menu.About.GithubRepository" xml:space="preserve">
+    <value>GitHub arkiv</value>
+  </data>
+  <data name="Menu.About.HelpInformation" xml:space="preserve">
+    <value>Hjælp og information</value>
+  </data>
+  <data name="Menu.About.Licenses" xml:space="preserve">
+    <value>Licenser</value>
+  </data>
+  <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
+    <value>BSD 2-klausul licens</value>
+  </data>
+  <data name="Menu.About.Licenses.MIT" xml:space="preserve">
+    <value>MIT licens</value>
+  </data>
+  <data name="Menu.About.ReportIssue" xml:space="preserve">
+    <value>Rapporter et problem</value>
+  </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>Om</value>
+  </data>
+  <data name="Menu.About.Version" xml:space="preserve">
+    <value>Version {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>Alle filer</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>Bemærk, at ikke alle dine ændringer vil gælde med det samme, før du lukker alle åbne Roblox-instanser.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>Bloxstrap kører allerede</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>Du kan få det til at se anderledes ud, retro eller bare som Roblox.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>Bootstrapper</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
+    <value>Konfigurer andre forskellige indstillinger, der kan tilpasses.</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
+    <value>Tilpasning</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
+    <value>Skal være en multi-size .ico-fil med størrelserne 16px til 128px. Indstil ikonet til 'Tilpasset' for at bruge det.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>Tilpasset ikon</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
+    <value>Den tekst, der vises som titel på bootstrapperen.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Menu.Appearance.Description" xml:space="preserve">
+    <value>Konfigurer, hvordan Bloxstrap skal se ud.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>Globalt tema</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
+    <value>Vælg, hvilket ikon den skal bruge.</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
+    <value>Ikon</value>
+  </data>
+  <data name="Menu.Appearance.Preview" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+    <value>Vælg, hvordan det skal se ud. Mørkt tema gælder ikke for Legacy/Vista.</value>
+  </data>
+  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
+    <value>Stil</value>
+  </data>
+  <data name="Menu.Appearance.Title" xml:space="preserve">
+    <value>Udseende</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+    <value>Bloxstrap vil automatisk tjekke og opdatere sig selv, når Roblox startes.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+    <value>Opdater automatisk Bloxstrap</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+    <value>Undgå, at lukninger af dit eksisterende spil ved et uheld starter et andet.</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>Bed om at bekræfte, når du starter en anden Roblox instans</value>
+  </data>
+  <data name="Menu.Behaviour.Description" xml:space="preserve">
+    <value>Indstil hvad Bloxstrap skal gøre, når du starter Roblox.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+    <value>Roblox vil blive installeret frisk ved næste start.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+    <value>Gennemtving Roblox geninstallation</value>
+  </data>
+  <data name="Menu.Behaviour.Title" xml:space="preserve">
+    <value>Bootstrapper</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
+    <value>Tilføj ny</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
+    <value>En post for dette flag-navn eksisterer allerede.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
+    <value>Misbrug af dette kan føre til ustabilitet eller uventede ting sker.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
+    <value>Brug med forsigtighed.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
+    <value>Nogle af de flag, du forsøger at importere, har allerede fastsat værdier. Vil du overskrive deres nuværende værdier med dem, der er defineret i importen?
+
+Der er {0} modstridende flagdefinitioner:
+{1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
+    <value>Slet valgte</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
+    <value>Administrer dine egne fast flager. Dobbeltklik på en kolonne for at redigere.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>Eksportér JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
+    <value>Posten for '{0}' er ugyldig, da navnet kun kan indeholde bogstaver, tal og understregninger</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
+    <value>Den JSON, du har indtastet, ser ikke ud til at være gyldig. Dobbelttjek den og prøv igen.
+
+Flere oplysninger:
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
+    <value>Indgangen for '{0}' er ugyldig, da navnet skal starte med FFlag, DFInt, osv.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
+    <value>Kopieret til clipboard.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
+    <value>Du synes at importere en meget stor konfiguration. Du bør kun importere konfigurationer, som du fuldt ud forstår. Indsæt IKKE blindt konfigurationer lavet af andre mennesker. Hvis du fortsætter, vil du sandsynligvis ende med stabilitetsproblemer og støde på uventede ændringer.
+
+Er du sikker på, at du vil fortsætte?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
+    <value>Vis forudindstillede flag</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
+    <value>Fast Flag redigering</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
+    <value>Gå tilbage</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
+    <value>Jeg ved, hvad jeg laver</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
+    <value>Ved du, hvad du gør?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
+    <value>Fast flag er ekstremt kraftfulde, da de er beregnet til kun at blive brugt af Roblox ingeniører. Mens de kan være meget nyttige, manuelt at konfigurere dem kan forårsage alvorlige problemer med stabilitet og funktionalitet. Brug IKKE editoren, hvis du er usikker på, hvad du laver.
+
+Brug IKKE dette til at importere store "flag lister" lavet af andre mennesker, der lover at forbedre ydeevnen eller sådanne. De er omfattet af førnævnte spørgsmål og de vil give problemer for dig, da du ikke vil være fuldt ud klar over, hvad de ændrer sig. Hvis du skulle til at gøre det, GÅ TILBAGE.</value>
+  </data>
+  <data name="Menu.FastFlags.Description" xml:space="preserve">
+    <value>Kontroller, hvordan specifikke Roblox engine parametre og funktioner er konfigureret.</value>
+  </data>
+  <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
+    <value>Administrer dine egne Fast Flags. Brug med forsigtighed.</value>
+    <comment>Title is Menu.FastFlagEditor.Title</comment>
+  </data>
+  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
+    <value>Læs mere om Fast Flags, hvad disse forudindstillinger gør, og hvordan du bruger dem.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
+    <value>Direct3D [eksklusiv fullscreen]({0}) ved brug af Alt+Enter er aktiveret som standard.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Foretrukken escape menu version</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
+    <value>Roblox reducerer din renderingskvalitet afhængigt af, hvordan dit display skaleres i Windows.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
+    <value>Bevar gengivelseskvalitet med visningsskalering</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Sæt til 0 for standardindstillinger, hvis du vil bruge Roblox' oprindelige framerate oplåsning.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Framerate grænse</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Slået til med [tastaturgenveje]({0}). Virker kun, hvis du er i [Bloxstrap gruppen]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Aktiver evne til at skjule GUI'er</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Valgt en vil blive aktiveret i alle spil. [Pas på, kan forårsage belysningsproblemer!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Foretrukne belysningsteknologi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>Gengivelsestilstand</value>
+  </data>
+  <data name="Menu.FastFlags.Title" xml:space="preserve">
+    <value>Engine Indstillinger</value>
+  </data>
+  <data name="Menu.FontFiles" xml:space="preserve">
+    <value>Skrifttype filer</value>
+  </data>
+  <data name="Menu.IconFiles" xml:space="preserve">
+    <value>Ikon filer</value>
+  </data>
+  <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
+    <value>Bloxstrap kan ikke blive installeret her. Vælg venlight en anden placering eller brug standard placeringen ved at klikke nulstil knappen.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
+    <value>Mappen som du har valgt at installere Bloxstrap eksistere alleredde og er ikke tom. Det anbefales kraftigt, at Bloxstrap installeres i en selvstændig mappe.
+
+Ændring til følgende placering er foreslået: 
+{0}
+
+Vil du ændre den til foreslåede placering?
+Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen fortsætter.</value>
+    <comment>{0} is a file path</comment>
+  </data>
+  <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
+    <value>Du skal angive en installering placering</value>
+  </data>
+  <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
+    <value>Bloxstrap har ikke skriveadgang til den valgte installationsplacering. Vælg venligst en anden placering.</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
+    <value>Aktivitetssporing</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
+    <value>Gør det muligt for alle at deltage i det spil, du er i, via din Discord profil.</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
+    <value>Tillad deltagelse i aktivitet</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Viser den Roblox profil, du spiller med, på din Discord profil.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Vis Roblox Profil</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
+    <value>Applikation Placering</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
+    <value>Lukker automatisk, når Roblox lukker</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
+    <value>Her kan du få andre programmer til at starte automatisk sammen med Roblox.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>Start Argumenter</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
+    <value>Roblox kører!</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
+    <value>Ny Integration</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
+    <value>Ingen integration vælg venligst eller tilføj en ny.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
+    <value>Brugerdefinerede Integrationer</value>
+  </data>
+  <data name="Menu.Integrations.Description" xml:space="preserve">
+    <value>Konfigurer yderligere funktionalitet til at køre sammen med Roblox.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
+    <value>Roblox vil lukke helt, når du forlader et spil i stedet for at gå tilbage til appen. [Vil ødelægge nogle ting!]({0})</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
+    <value>Afslut ikke til desktop app</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
+    <value>Giver mulighed for Bloxstrap at opdage hvad Roblox spil du spiller. Visse funktioner kan kræve dette.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
+    <value>Aktiver aktivitetssporing</value>
+  </data>
+  <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
+    <value>Denne funktion kræver, at aktivitetssporing er aktiveret, og at Discord skrivebords-appen er installeret og kører. [Find ud af mere]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>Det Roblox spil du spiller vil blive vist på din Discord profil. [Virker ikke?]({0})</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>Vis spilaktivitet</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Når du er i spil, kan du se, hvor din server er placeret via [ipinfo.io]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Forespørg serverplacering</value>
+  </data>
+  <data name="Menu.Integrations.Title" xml:space="preserve">
+    <value>Integrationer</value>
+  </data>
+  <data name="Menu.Mods.Description" xml:space="preserve">
+    <value>Administrer og anvend fil mods til Roblox spil klient.</value>
+  </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>Se mere om styring og oprettelse af mods.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
+    <value>Vælg skrifttype...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
+    <value>Skrifttypestørrelse kan justeres i fanen Hurtig Flags.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>Filen du har valgt ser ikke ud til at være en gyldig skrifttypefil.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
+    <value>Fjern anvendt skrifttype</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
+    <value>Brug tilpasset skrifttype</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
+    <value>Administrer brugerdefinerede Roblox-mods her.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>Åbn mappen Mods</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
+    <value>Vælg, hvilken type emoji Roblox skal bruge.</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>Foretrukken emoji type</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
+    <value>Vælg mellem to klassiske Roblox-markørstile.</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
+    <value>Mus markør</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
+    <value>Bring den gamle avatar-editorbaggrund tilbage, som blev brugt i Roblox-appen før 2020.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
+    <value>Brug den gamle baggrund fra avatar editoren</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
+    <value>Et forsøg på at tilbagebringe de lyde til din karakter, der anvendes før 2014.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
+    <value>Efterlign gamle karakterlyde</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
+    <value>Bringe tilbage den klassiske 'oof' død lyd.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
+    <value>Brug gammel dødlyd</value>
+  </data>
+  <data name="Menu.Mods.Title" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>Klik for mere information om denne indstilling.</value>
+  </data>
+  <data name="Menu.Save" xml:space="preserve">
+    <value>Gem</value>
+  </data>
+  <data name="Menu.SettingsSaved.Message" xml:space="preserve">
+    <value>Ændringer vil træde i kraft, næste gang du starter Roblox.</value>
+  </data>
+  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
+    <value>Indstillinger gemt!</value>
+  </data>
+  <data name="Menu.Title" xml:space="preserve">
+    <value>Bloxstrap Indstillinger</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
+    <value>Vælg foretrukket sprog</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
+    <value>Vælg et sprog, før du fortsætter med installationen.</value>
+  </data>
+  <data name="Menu.Appearance.Language.Title" xml:space="preserve">
+    <value>Sprog</value>
+  </data>
+  <data name="Menu.Appearance.Language.Description" xml:space="preserve">
+    <value>En genstart er nødvendig for at ændringerne træder i kraft.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
+    <value>Tillad brug af ikke-understøttede Roblox sprog</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
+    <value>Gælder kun for spil kørt fra Roblox hjemmeside.</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+    <value>2023 (V4 + Nyt Layout)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
+    <value>Rendering og grafik</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
+    <value>Brugerinterface og Layout</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
+    <value>Tillad Bloxstrap at administrere Hurtig Flag</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
+    <value>Deaktivering af dette vil forhindre alt konfigureret her i at blive anvendt på Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
+    <value>Antialiasing quality (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Deaktiver efterbehandlingseffekter</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Deaktivér fuldskærm titelbar</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
+    <value>Stopper det fra at vise, når du flytter musen til toppen af skærmen.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
+    <value>Teksturens kvalitet</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
+    <value>Niveau 0 (laveste)</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
+    <value>Niveau 1</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
+    <value>Niveau 2</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
+    <value>Niveau 3 (højeste)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Deaktivér spiller-skygger</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Skriftstørrelse</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Standardværdi er 1. Justér hvis du bruger en brugerdefineret skrifttype.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Deaktivér terræn teksturer</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
+    <value>Bloxstrap kunne ikke downloade Roblox</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
+    <value>Roblox kan ikke downloades på nuværende tidspunkt. Læs venligst følgende hjælpeside for mere information: {0}</value>
+    <comment>{0} is a URL</comment>
+  </data>
+  <data name="Common.ImportFromFile" xml:space="preserve">
+    <value>Importer fra fil</value>
+  </data>
+  <data name="FileTypes.JSONFiles" xml:space="preserve">
+    <value>JSON filer</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
+    <value>Indtastningen for '{0}' er ikke gyldig, da værdien skal være en boolesk (enten 'True' eller 'False')</value>
+    <comment>Do not translate 'True' and 'False', those must stay in English</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
+    <value>Indtastningen for '{0}' er ikke gyldig, da værdien skal være et tal.</value>
+  </data>
+  <data name="Logger.NoWriteMode" xml:space="preserve">
+    <value>Der vil ikke blive skrevet en logfil for denne opstart, da Bloxstrap ikke kan skrive til mappen på '{0}'.</value>
+  </data>
+  <data name="Common.Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Common.Automatic" xml:space="preserve">
+    <value>Automatisk</value>
+  </data>
+  <data name="Common.SystemDefault" xml:space="preserve">
+    <value>System standard</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>Indtastningen for '{0}' er ikke gyldig, da stedfilteret ikke er formateret korrekt.</value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap Installer</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Velkommen</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Installér</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Fuldførelse</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Tilbage</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Næste</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Tak fordi du har downloadet Bloxstrap.
+
+De eneste officielle websteder, hvor du kan downloade Bloxstrap fra, er {0} og {1}, så sørg for at verificere, at du har hentet det fra en officiel kilde.
+
+Denne installationsproces vil være hurtig og enkel, og du vil kunne konfigurere alle Bloxstrap's indstillinger efter installationen.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Klik 'Næste' for at fortsætte.</value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Du forsøger at installere version {0} af Bloxstrap, men den nyeste tilgængelige version er {1}. Vil du downloade den?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Vælg hvor der skal installeres</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox vil også blive installeret på denne sti. Skift dette, hvis du foretrækker at installere alle dine spil til et separat drev. Ellers anbefales det, at du holder dette, som det er.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Eksisterende data fundet. Dine mods og indstillinger vil blive gendannet.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Genveje</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Skrivebord Ikon</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Start Menu ikon</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap er blevet installeret med succes.
+
+Roblox er endnu ikke blevet installeret, det vil ske, når du starter det første gang med Bloxstrap. Før du gør det, kan det dog være en god idé at konfigurere Bloxstrap's indstillinger først.
+
+Undgå også at bruge "Roblox Player"-genvejen til at starte Roblox, da Bloxstrap ikke vil starte sammen med Roblox. Hvis du ikke ser Bloxstrap, når du starter fra websiden, så start blot Roblox med Bloxstrap én gang fra skrivebordet for at løse problemet.
+
+Hvad vil du gerne gøre?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Konfigurer Bloxstrap's indstillinger</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Justér alle de funktioner, det har at tilbyde</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Installer og start Roblox</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Vil sende dig videre til desktop-appen, når alt er færdigt.</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Afinstallere Bloxstrap</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Afinstallering vil fjerne Bloxstrap fra dit system, og automatisk omkonfigurere standard Roblox launcher hvis det stadig er installeret.
+
+Hvis du afinstallerer eller geninstallerer fordi du har problemer med Roblox, så læs [denne hjælpeside] ({0}) første.
+
+Afinstallationsprocessen kan muligvis ikke rydde op i sig selv, så du kan have brug for manuelt rydde op resterende filer, hvor Bloxstrap blev installeret.
+
+Bloxstrap blev installeret ved "{1}".</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Behold mine indstillinger og mods</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>De vil blive bevaret, hvor Bloxstrap blev installeret, og vil automatisk blive gendannet på en geninstallation.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Afinstaller</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Start Roblox</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Konfigurér indstillinger</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Har du et problem?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Se Wiki for hjælp</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Du har i øjeblikket ikke WebView2 runtime installeret. Nogle Roblox funktioner vil ikke fungere korrekt uden det, såsom desktop app. Vil du downloade det nu?</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap kunne ikke oprette genveje til Desktop og Start menuen. Prøv at oprette dem senere gennem indstillingerne.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Tjek [Bloxstrap Wiki]({0}) først for at se, om dette problem allerede er blevet løst med en rettelse.
+
+Hvis ikke, bedes du at rapportere denne undtagelse til vedligeholderne af denne Fork. Rapporter IKKE dette til Bloxstrap's GitHub problemer, da dette er en uofficiel opbygning.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Disse er generelle genveje, der viser en multi-valgs startmenu. Genveje for specifikke funktioner kan oprettes senere i indstillingerne.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Konfigurer hvordan Bloxstrap let kan startes.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Generelt</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Disse er genveje, der åbner startmenuen med flere valgmuligheder.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Funktion</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Opret genveje for hurtig adgang til specifikke funktioner. Disse vil alle blive placeret på skrivebordet.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Tilsluttet privat server</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Tilsluttet til reserveret server</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Emoji mod kan ikke anvendes på nuværende tidspunkt.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Vent venligst på at installationen er færdig.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Vent venligst på at afinstallationen er færdig.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Om Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenser</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Oversættere</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Du har ugemte ændringer. Er du sikker på, at du vil lukke uden at gemme?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Den version af Bloxstrap, du har kørt, er ældre end den version, du i øjeblikket har installeret.
+Problemer kan forekomme og dine indstillinger kan blive ændret. En geninstallation anbefales.
+Er du sikker på, at du vil fortsætte?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox kunne ikke startes.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox har crashet.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>For information om, hvorfor dette kan ske, og hvordan dette kan løses, læs venligst [denne hjælpeartikel]({0}).
+
+Tjek om Roblox virker med [den oprindelige launcher]({1}). Hvis det ikke gør det, så er dette ikke et Bloxstrap problem. Hvis det gør, så henvises til hjælpeartiklen.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Kunne ikke indlæse data på grund af en netværksfejl.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Indlæser, vent venligst...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Støttere</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Det er de mennesker, der har støttet Bloxstrap gennem Ko-fi. En massiv tak til alle her!
+Hver person her er rangeret efter deres samlede løfte.</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Dine indstillinger kunne ikke indlæses. De er blevet nulstillet til standardindstillingen.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Dine hurtige flag kunne ikke indlæses. De er blevet nulstillet til standardindstillingen.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Spil historik</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Rejoin</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Dit nuværende spil vil ikke vises på din Discord-status, fordi der opstod en fejl, da spillets information blev indlæst.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Spilhistorikken er kun optaget for din nuværende Roblox-session. Spil vil blive vist her, når du forlader dem eller teleporterer i dem. Ikke alle servere vil kunne tilsluttes tilbage til.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Serverplaceringen kunne ikke forespørges. Du deltager måske i spil for hurtig.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Forsøg igen senere.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Ved denne opstart vil Roblox ikke blive tjekket for opdateringer, og ændringer til mods vil ikke blive anvendt.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Da Roblox skal installeres eller opgraderes, kan Bloxstrap ikke fortsætte.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap er blevet installeret på denne placering før og er stadig til stede, men installationsprogrammet kan ikke overskrive den gamle eksekverbare. 
+
+Slet venligst Bloxstrap.exe manuelt fra installationsplaceringen eller prøv at genstarte dit system, og prøv derefter at genstarte installationen bagefter.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Ikke tilgængelig</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Administrer kompatibilitetsindstillinger</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Konfigurere applikationsparametre såsom DPI skalering adfærd og [fuldskærm optimeringer]({0}).</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox er endnu ikke installeret. Start Roblox ved hjælp af Bloxstrap mindst én gang før du forsøger at bruge denne indstilling.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Er du sikker på, at du vil annullere installationen?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Kunne ikke gemme {0}: {1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Det valgte bootstrapper ikon kunne ikke indlæses.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Udpak Roblox ikoner til mappe</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Tillader dig at bruge Bloxstraps sortiment af Roblox-ikoner til dine genveje. [Se hvordan.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap er ude af stand til at skrive til registreringsdatabasen i Windows. En antivirus vil sandsynligvis forstyrre og forårsage problemer. Tjek venligst for at sikre, at der ikke er noget, der vil begrænse Bloxstrap's operation.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Månedligt</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Enkeltstående</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Konfigurer indstillinger relateret til Bloxstraps opførsel.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Aktiver afsendelse af analyser</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Det er anonymt, og der er intet ondt, vi lover. For indsigt i, hvad vi indsamler og hvorfor, se vores [privatlivspolitik]({0}).</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analyse</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Nulstil alt til standardindstillinger</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Rapporter undtagelse</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Test-tilstand</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Testtilstand gør det nemmere at teste, hvordan dine indstillinger påvirker Roblox iterativt.
+
+Når den er aktiveret, vil den automatisk starte Roblox efter lukning af Indstillinger og åbne Indstillinger igen efter lukning af Roblox, i en cyklus, indtil du deaktiverer den.
+
+Vil du aktivere testtilstand?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Alle Bloxstraps oversættelser er crowdsourced via [Crowdin]({0}). Alle, der er nævnt her, er personer, der generøst har brugt deres tid og kræfter på at hjælpe med at lokalisere Bloxstrap. En kæmpe tak til alle her!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Installér</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Ikoner</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Start Roblox Studio</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Tilpasset</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap forsøgte at opgradere Roblox, men kan ikke fordi Roblox' filer stadig er i brug.
+
+Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip-arkiv</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Eksport</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Eksport diagnostiske data</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Saml oplysninger, der kan uploades online for at fejlfinde et problem, du har.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap konfiguration</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Alle Bloxstrap logs</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox understøtter ikke længere Windows 7 eller 8.1. For at fortsætte med at spille Roblox, bedes du opgradere til Windows 10 eller nyere.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Kunne ikke udpakke filer</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Noget indhold kan mangle. Tving en Roblox geninstallation i indstillinger for at løse dette.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Kunne ikke anvende ændringer</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Ikke alle ændringer vil være til stede i den nuværende lancering.</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache Licens 2,0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>Blank</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>Simpel</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>Tema XML root er ikke {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>Tilpasset dialog er allerede initialiseret</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>Tilpassede bootstrappers kan kun have et maksimum af {0} elementer, fik {1}</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>{0} version er ikke angivet</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>{0} version er ikke et tal</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} version {1} understøttes ikke længere</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} version {1} er ikke genkendt</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} kan ikke have et barn af {1}</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>Ukendt element {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>Kunne ikke parse temafilen: {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} har ugyldig {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>Element {0} mangler {1} attributten</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} er ikke en gyldig {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} skal være større end {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} skal være mindre end {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} Ukendt {1} '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} kan kun have en {1} defineret</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} kan kun have et barn</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} kan kun have et barn</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} mangler sit barn</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} kunne ikke parses til en {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} er null</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} bruger blacklistet skema {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} kunne ikke oprette {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>Redigerer "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Tema gemt!</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>Der opstod en fejl under gemmelse af dit tema.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>Gem ændringer til {0}?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Gem</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Åben Temamappe</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Opret ny</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>Tilføj Tilpasset Tema</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>Skabelon</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>Navnet må ikke være tomt</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>Navnet indeholder ulovlige tegn</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>Navnet kan ikke bruges</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>Ukendt fejl</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>Navnet er allerede i brug</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>Filen skal være en ZIP</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>Temafil kunne ikke findes i ZIP-filen</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>Ugyldig eller beskadiget ZIP-fil</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>Intet tilpasset tema valgt</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Kunne ikke opsætte tilpasset bootstrapper: {0}. Standardindstilles til {1}.</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>Intet tilpasset tema valgt.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Omdøb</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Rediger</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Kunne ikke slette tilpasset tema {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Kunne ikke omdøbe tilpasset tema {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Baggrundsopdateringer</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Opdater Roblox i baggrunden i stedet for at vente. Ikke anbefalet for langsomme netværk. Mindst 3GB af ledig lagerplads kræves for at denne funktion kan fungere.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Sæt UI elementer her</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Eksempler på tilpassede bootstrappers kan findes på {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Find flere tilpassede bootstrapper eksempler på {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Tilpasset Tema {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Tillad multi-instans opstart</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Tillader at have mere end en Roblox spil klient instans åben samtidigt.</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Dit tema er gemt!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Kunne ikke forhåndsvise tema: {0}</value>
+  </data>
+</root>

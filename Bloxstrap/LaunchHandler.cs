@@ -59,6 +59,16 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
             }
+            else if (App.LaunchSettings.MultiInstanceWatcherFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening multi-instance watcher");
+                LaunchMultiInstanceWatcher();
+            }
+            else if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Opening background updater");
+                LaunchBackgroundUpdater();
+            }
             else if (App.LaunchSettings.RobloxLaunchMode != LaunchMode.None)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Opening bootstrapper ({App.LaunchSettings.RobloxLaunchMode})");
@@ -226,19 +236,20 @@ namespace Bloxstrap
             }
 
             if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
-            {
-                // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
-                // which often hangs around for a few seconds after the window closes
-                // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
-
-                var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
-
-                if (result != MessageBoxResult.Yes)
+                if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
                 {
-                    App.Terminate();
-                    return;
+                    // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
+                    // which often hangs around for a few seconds after the window closes
+                    // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
+
+                    var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+                    if (result != MessageBoxResult.Yes)
+                    {
+                        App.Terminate();
+                        return;
+                    }
                 }
-            }
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
@@ -280,7 +291,8 @@ namespace Bloxstrap
                     if (t.Exception is not null)
                         App.FinalizeExceptionHandling(t.Exception);
                 }
-                if (mutex != null) {
+                if (mutex != null)
+                {
                     // we do .Split(".") because the names have .exe extension
                     // getprocessbyname doesnt support .exe extensions
 
@@ -292,7 +304,7 @@ namespace Bloxstrap
                     while (Process.GetProcessesByName(ProcessName).Any())
                         Thread.Sleep(5000);
 
-                    App.Logger.WriteLine(LOG_IDENT,"Every Roblox instance is closed, terminating the process");
+                    App.Logger.WriteLine(LOG_IDENT, "Every Roblox instance is closed, terminating the process");
                 }
 
 
@@ -317,7 +329,7 @@ namespace Bloxstrap
 
             var watcher = new Watcher();
 
-            Task.Run(watcher.Run).ContinueWith(t => 
+            Task.Run(watcher.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Watcher task has finished");
 
@@ -347,6 +359,75 @@ namespace Bloxstrap
 
             new BloxshadeDialog().ShowDialog();
             App.SoftTerminate();
+        }
+
+        public static void LaunchMultiInstanceWatcher()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchMultiInstanceWatcher";
+
+            App.Logger.WriteLine(LOG_IDENT, "Starting multi-instance watcher");
+
+            Task.Run(MultiInstanceWatcher.Run).ContinueWith(t =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Multi instance watcher task has finished");
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the multi-instance watcher");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
+        }
+
+        public static void LaunchBackgroundUpdater()
+        {
+            const string LOG_IDENT = "LaunchHandler::LaunchBackgroundUpdater";
+
+            // Activate some LaunchFlags we need
+            App.LaunchSettings.QuietFlag.Active = true;
+            App.LaunchSettings.NoLaunchFlag.Active = true;
+
+            App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
+            App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
+            {
+                MutexName = "Bloxstrap-BackgroundUpdater",
+                QuitIfMutexExists = true
+            };
+
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            Task.Run(() =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Started event waiter");
+                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent"))
+                    handle.WaitOne();
+
+                App.Logger.WriteLine(LOG_IDENT, "Received close event, killing it all!");
+                App.Bootstrapper.Cancel();
+            }, cts.Token);
+
+            Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Bootstrapper task has finished");
+                cts.Cancel(); // stop event waiter
+
+                if (t.IsFaulted)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the bootstrapper");
+
+                    if (t.Exception is not null)
+                        App.FinalizeExceptionHandling(t.Exception);
+                }
+
+                App.Terminate();
+            });
+
+            App.Logger.WriteLine(LOG_IDENT, "Exiting");
+
         }
     }
 }

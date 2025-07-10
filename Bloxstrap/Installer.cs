@@ -12,7 +12,7 @@ namespace Bloxstrap
         /// Should this version automatically open the release notes page?
         /// Recommended for major updates only.
         /// </summary>
-        private const bool OpenReleaseNotes = false;
+        private const bool OpenReleaseNotes = true;
 
         private static string DesktopShortcut => Path.Combine(Paths.Desktop, $"{App.ProjectName}.lnk");
 
@@ -231,7 +231,7 @@ namespace Bloxstrap
 
             var processes = new List<Process>();
             
-            if (!String.IsNullOrEmpty(App.State.Prop.Player.VersionGuid))
+            if (!String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
             if (App.IsStudioVisible)
@@ -630,16 +630,23 @@ namespace Bloxstrap
                     }
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.8.3") == VersionComparison.LessThan)
+                if (Utilities.CompareVersions(existingVer, "2.9.0") == VersionComparison.LessThan)
                 {
-                    // force reinstallation
-                    App.State.Prop.Player.VersionGuid = "";
-                    App.State.Prop.Studio.VersionGuid = "";
+                    // move from App.State to App.RobloxState
+                    if (App.State.Prop.GetDeprecatedPlayer() != null)
+                        App.RobloxState.Prop.Player = App.State.Prop.GetDeprecatedPlayer()!;
+
+                    if (App.State.Prop.GetDeprecatedStudio() != null)
+                        App.RobloxState.Prop.Studio = App.State.Prop.GetDeprecatedStudio()!;
+
+                    if (App.State.Prop.GetDeprecatedModManifest() != null)
+                        App.RobloxState.Prop.ModManifest = App.State.Prop.GetDeprecatedModManifest()!;
                 }
 
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
+                App.RobloxState.Save();
             }
 
             if (currentVer is null)

@@ -46,7 +46,7 @@ namespace Bloxstrap
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
-        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.State.Prop.Studio.VersionGuid);
+        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -58,6 +58,8 @@ namespace Bloxstrap
 
         public static readonly JsonManager<State> State = new();
 
+        public static readonly JsonManager<RobloxState> RobloxState = new();
+
         public static readonly FastFlagManager FastFlags = new();
 
         public static readonly HttpClient HttpClient = new(
@@ -67,7 +69,7 @@ namespace Bloxstrap
         );
 
         private static bool _showingExceptionDialog = false;
-        
+
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
@@ -154,7 +156,7 @@ namespace Bloxstrap
 
         public static void SendLog()
         {
-            
+
         }
 
         public static void AssertWindowsOSVersion()
@@ -168,7 +170,7 @@ namespace Bloxstrap
 
                 if (!LaunchSettings.QuietFlag.Active)
                     Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
-                
+
                 Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
             }
         }
@@ -223,7 +225,7 @@ namespace Bloxstrap
             using var uninstallKey = Registry.CurrentUser.OpenSubKey(UninstallKey);
             string? installLocation = null;
             bool fixInstallLocation = false;
-            
+
             if (uninstallKey?.GetValue("InstallLocation") is string value)
             {
                 if (Directory.Exists(value))
@@ -307,6 +309,7 @@ namespace Bloxstrap
 
                 Settings.Load();
                 State.Load();
+                RobloxState.Load();
                 FastFlags.Load();
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))

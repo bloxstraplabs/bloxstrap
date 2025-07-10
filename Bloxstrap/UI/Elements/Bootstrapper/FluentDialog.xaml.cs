@@ -13,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Bloxstrap.AppData;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -110,10 +111,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         {
             InitializeComponent();
 
-            string version = Utilities.GetRobloxVersion(false);
             string channel = App.Settings.Prop.Channel;
 
-            _viewModel = new FluentDialogViewModel(this, aero, version, channel);
+            _viewModel = new FluentDialogViewModel(this, aero, channel);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
             Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();

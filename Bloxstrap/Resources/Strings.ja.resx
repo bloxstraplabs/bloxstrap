@@ -121,7 +121,7 @@
     <value>Fishstrap {0}への自動更新に失敗しました。Webサイトから手動でインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
-    <value>Robloxは現在実行中です。新しくゲームを開く場合、もとのゲームは終了します。本当に開きますか？</value>
+    <value>Robloxは現在実行中です。新しくゲームを起動する場合、もとのゲームは終了します。本当に起動しますか？</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
     <value>Robloxにサーバー障害が発生している可能性があります。{0}より詳細な情報を確認できます。</value>
@@ -175,7 +175,7 @@
     <value>Robloxが現在実行中です。Fishstrapをアンインストールする前に終了する必要があります。今すぐRobloxを終了しますか？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>Robloxを実行するには"Windows Media Foundation"が必要です。Windows Nエディションを利用している場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
+    <value>Robloxを実行するには「Windows Media Foundation」が必要です。Windows Nエディションを利用している場合はインストールされていません。インストールしてからRobloxを実行してください。</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
     <value>FastFlagを追加</value>
@@ -598,10 +598,10 @@
 動作が不安定になったり、機能が破損するなどの深刻な問題が発生することがあります。 
 心配な場合は絶対に行わないでください。
 
-また、"Flag一覧" (英語で"flag lists") などの他人が配布しているFlag設定を絶対に使用しないでください。
+また、「Flag一覧」 (英語で"Flag lists") などの他人が配布しているFlag設定を絶対に使用しないでください。
 「Robloxが軽くなる」などを謳って配布されていることがありますが、前述の通り深刻な問題が発生したり、
 設定の内容を理解していないために問題が発生することがあります。
-もしそのような行為を行おうとしていた場合は、"今すぐ"この画面を閉じてください。</value>
+もしそのような行為を行おうとしていた場合は、「今すぐ」この画面を閉じてください。</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Robloxエンジンのパラメーターや機能を変更できます。</value>
@@ -666,7 +666,7 @@
 {0}
 
 おすすめの場所に変更しますか？
-"いいえ"を選択するとこの警告を無視し、インストールが続行されます。</value>
+「いいえ」を選択するとこの警告を無視し、インストールが続行されます。</value>
     <comment>{0} is a file path</comment>
   </data>
   <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
@@ -1240,6 +1240,9 @@ Robloxが[正規のランチャー]({1})で動作するか確認してくださ�
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Ver. {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Robloxのアプリファイルが使用中のため、Robloxを更新できませんでした。
 
@@ -1290,5 +1293,234 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>匿名かつ悪意のない用途で使用されます。収集する内容とその理由は、[プライバシーポリシー]({0})を確認してください。</value>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>RobloxはWindows 7や8.1のサポートを終了しました。Robloxをプレイしたい場合は、Windows 10以降にアップグレードしてください。</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>ファイルの抽出に失敗</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>一部のファイルが不足している可能性があります。設定からRobloxの強制再インストールを行ってください。</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Modの適用に失敗</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>今回の起動では、一部のModが適用されていません。</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>シンプル</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>テーマファイルのXMLのルート要素は「{0}」である必要があります</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>カスタムダイアログはすでに初期化されています</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>カスタムランチャーの要素は最大{0}個までです。現在{1}個の要素が記述されています</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>「{0}」のバージョンが設定されていません</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>「{0}」のバージョンは数字である必要があります</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>「{0}」のバージョン{1}のサポートは終了しています</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>「{0}」のバージョン{1}には対応していません</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>「{0}」が子要素に「{1}」を持つことはできません</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>「{0}」は不明な要素です</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>テーマファイルの解析に失敗しました。 {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>「{0}」の属性「{1}」が不正です。 {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>「{0}」要素に、「{1}」属性が不足しています</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>「{0}.{1}」は有効な「{2}」ではありません</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>「{0}.{1}」は{2}より大きい必要があります</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>「{0}.{1}」は{2}未満である必要があります</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>「{0}」における{1}「{2}」は不明です</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>「{0}」ではひとつの「{1}」のみ定義することができます</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>「{0}.{1}」は子要素がひとつである必要があります</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>「{0}」は子要素がひとつである必要があります</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>「{0}.{1}」に子要素が不足しています</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>「{0}.{1}」における「{2}」への変換に失敗しました</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>「{0}.{1}」における「{2}」がnullです</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>「{0}.{1}」がブラックリストに登録されているスキーム「{2}」を使用しています</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>「{0}」における「{1}」の生成に失敗しました。 {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>「{0}」 を編集中</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>テーマが保存されました</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>テーマの保存中にエラーが発生しました。</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>編集内容を「{0}」に保存しますか？</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>テーマファイルを開く</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>新規作成</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>インポート</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>カスタムテーマを追加</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>テンプレート</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>名前を入力してください</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>名前に無効な文字が含まれています</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>この名前は使用できません</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>不明なエラーが発生しました</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>この名前はすでに使用されています</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>ZIP形式のファイルを選択してください</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>このZIPファイル内にテーマファイルがありません</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>ZIPファイルが無効、または破損しています</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>カスタムテーマが選択されていません</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>カスタムランチャーのセットアップに失敗しました。{0}。
+テーマ設定を{1}に変更します。</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>カスタムテーマが選択されていません。</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>名前を変更</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>テーマ「{0}」を削除できませんでした。 {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>テーマ「{0}」の名前を変更できませんでした。 {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>バックグラウンド更新を有効にする</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Robloxをバックグラウンドで更新することで、Robloxの起動時間を短縮することができます。インターネット回線の速度が遅い場合はおすすめしません。この機能を使用する際は、3GBの空き容量が必要です。</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>ここにUI要素を記述してください</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>カスタムランチャーの例はこちら {0}</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>そのほかのカスタムランチャーの例はこちら {0}</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>カスタムテーマ {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>複数アカウントでの起動を有効にする</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>複数のゲームクライアントを同時に起動できるようになります。</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>テーマの保存が完了しました。</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>テーマのプレビューに失敗しました。 {0}</value>
   </data>
 </root>

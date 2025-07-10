@@ -45,6 +45,7 @@
                 </StackPanel>
             </ui:CardAction>
 
+
             <ui:CardAction Grid.Row="1" Grid.Column="0" Margin="0,8,8,0" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/Lachee/discord-rpc-csharp/blob/master/LICENSE">
                 <StackPanel>
                     <TextBlock FontSize="14" Text="DiscordRPC" />

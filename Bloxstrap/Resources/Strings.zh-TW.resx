@@ -124,7 +124,7 @@
     <value>Roblox 當前正在運行，開啟另一個窗口將會關掉它。您確定要繼續開啟嗎？</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>Roblox 的伺服器可能已經炸了。請參考 {0} 來了解更多資訊。</value>
+    <value>Roblox 伺服器可能發生了故障；請參閱 {0} 以了解更多資訊。</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
     <value>無法連線，這可能是因為您的網路問題或者是防火牆設定，如果您的網路連線沒問題，請確認你的防毒軟體沒有干預 Fishstrap 的網路權限。</value>
@@ -136,29 +136,29 @@
     <value>你的電腦沒有足夠磁碟空間來安裝Fishstrap和Roblox，請先釋放一些磁碟空間然後再試一遍。</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
-    <value>正在應用 Roblox 修改</value>
+    <value>正在套用 Roblox 修改</value>
   </data>
   <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
-    <value>正在設定{product}...</value>
+    <value>正在設定 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
-    <value>正在連接至Roblox...</value>
+    <value>正在連接至 Roblox...</value>
   </data>
   <data name="Bootstrapper.Status.Installing" xml:space="preserve">
     <value>正在安裝 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
-    <value>正在安裝WebView2，請稍候...</value>
+    <value>正在安裝 WebView2，請稍候...</value>
   </data>
   <data name="Bootstrapper.Status.Starting" xml:space="preserve">
-    <value>正在啟動{product}...</value>
+    <value>正在啟動 {product}...</value>
     <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
-    <value>正在更新{product}...</value>
+    <value>正在更新 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
-    <value>正在等待其他Roblox程式...</value>
+    <value>正在等待其他 Roblox 進程...</value>
   </data>
   <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
     <value>風格外觀預覽 - 點擊右上角的 X 按鈕關閉</value>
@@ -175,7 +175,7 @@
     <value>Roblox 正在運行中，但在解除安裝 Fishstrap 之前，你必須先關閉 Roblox，請問你現在要關閉 Roblox 嗎？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
-    <value>似乎您的系統缺少Windows媒體基礎元件，這很大機會是你的Windows作業系統是N版本，請先安裝它然後再開啟Roblox。</value>
+    <value>Roblox 需要使用 Windows Media Foundation 元件（Windows 媒體基礎元件）。您的系統似乎缺少這些元件，可能是因為您使用的是 Windows 「N」版本。請先安裝這些元件，然後再啟動 Roblox。</value>
   </data>
   <data name="Common.AddSingle" xml:space="preserve">
     <value>新增單個</value>
@@ -217,7 +217,7 @@
     <value>否</value>
   </data>
   <data name="Common.OK" xml:space="preserve">
-    <value>OK</value>
+    <value>確定</value>
   </data>
   <data name="Common.Presets" xml:space="preserve">
     <value>預設</value>
@@ -267,10 +267,10 @@
     <value>類型</value>
   </data>
   <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
-    <value>新增Fast Flag</value>
+    <value>新增 Fast Flag</value>
   </data>
   <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
-    <value>伺服器資訊:</value>
+    <value>更多資訊：</value>
   </data>
   <data name="Dialog.Connectivity.Title" xml:space="preserve">
     <value>連接錯誤</value>
@@ -286,9 +286,9 @@
     <value>執行Fishstrap時出現了錯誤</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>請先瀏覽[Bloxstrap Wiki]({0}) 來看此問題是否已解決。
+    <value>請先瀏覽 [Bloxstrap Wiki]({0}) 來看此問題是否已解決。
 
-如果尚未被解決的話，那請透過[GitHub Issue]({1}) 中回報此問題，並附上所創建的日誌文件副本。</value>
+如果尚未被解決的話，那請透過 [GitHub Issue]({1}) 中回報此問題，並附上所創建的日誌文件副本。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Fishstrap異常</value>
@@ -354,7 +354,7 @@
     <value>2023 (V4)</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>以游戲預設為主</value>
+    <value>以遊戲預設為主</value>
   </data>
   <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
     <value>Future (第三階段)</value>
@@ -408,13 +408,13 @@
     <value>特別感謝</value>
   </data>
   <data name="Menu.About.Description" xml:space="preserve">
-    <value>一個專為Roblox設計，具有許多實用功能的第三方啟動器。</value>
+    <value>一個專為 Roblox 設計，具有許多實用功能的第三方啟動器。</value>
   </data>
   <data name="Menu.About.DiscordServer" xml:space="preserve">
-    <value>Discord伺服器</value>
+    <value>Discord 伺服器</value>
   </data>
   <data name="Menu.About.GithubRepository" xml:space="preserve">
-    <value>Github代碼庫</value>
+    <value>Github 代碼庫</value>
   </data>
   <data name="Menu.About.HelpInformation" xml:space="preserve">
     <value>幫助和資訊</value>
@@ -423,10 +423,10 @@
     <value>授權條款</value>
   </data>
   <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
-    <value>BSD 2-clause授權條款</value>
+    <value>BSD 2-clause 授權條款</value>
   </data>
   <data name="Menu.About.Licenses.MIT" xml:space="preserve">
-    <value>MIT授權條款</value>
+    <value>MIT 授權條款</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
     <value>報告錯誤</value>
@@ -442,13 +442,13 @@
     <value>所有檔案</value>
   </data>
   <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
-    <value>在關閉所有目前開啟的Roblox用戶端之前，並非所有變更都會立即生效。</value>
+    <value>在關閉所有目前開啟的 Roblox 用戶端之前，並非所有變更都會立即生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
     <value>Fishstrap已經在執行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
-    <value>你可以讓它看起來與眾不同，如經典，亦或者就像Roblox。</value>
+    <value>你可以讓它看起來與眾不同，如經典，亦或者就像 Roblox。</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
     <value>啟動器</value>
@@ -505,7 +505,7 @@
     <value>防止因意外啟動另一個Roblox程式而導致當前運行的程式被關閉。</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
-    <value>在啟動另一個Roblox程式時顯示的確認訊息</value>
+    <value>在啟動另一個 Roblox 程式時顯示的確認訊息</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
     <value>設定 Fishstrap 在啟動 Roblox 時應執行的操作。</value>
@@ -555,17 +555,17 @@
     <value>您所輸入'{0}'的條目無效，名字中只能包含字母，數字和下劃綫。</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
-    <value>您所輸入的JSON無效，請仔細檢查它並再試一次。
+    <value>您所輸入的 JSON 無效，請仔細檢查它並再試一次。
 
 更多資訊:
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>您所輸入'{0}'的條目無效，名字必須以 "FFlag"，"DFInt"，等作開頭。</value>
+    <value>您所輸入 '{0}' 的條目無效，名字必須以 "FFlag"，"DFInt"，等作開頭。</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
-    <value>已複製到剪貼板。</value>
+    <value>已複製到剪貼簿。</value>
   </data>
   <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
     <value>您似乎正在導入一個非常龐大的配置表。您應該只導入您完全理解的配置表。請不要盲目地貼上他人製作的配置表。如果繼續，很可能會導致穩定性問題，並且可能會遇到意外的變化。
@@ -591,19 +591,19 @@
     <value>你知道你在做什麼嗎？</value>
   </data>
   <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flags 是非常強大的，因為它通常只給Roblox工程師用。雖然它們很有用，但是手動更改它們可能對穩定性和功能性造成嚴重影響。如果你不清楚您在做什麼，請不要用此編輯器。
+    <value>Fast Flags 非常強大，但這些功能原本是設計給 Roblox 工程師使用的。雖然它們可能非常有用，但手動設定可能會導致嚴重的穩定性和功能問題。如果你不確定自己在做什麼，請不要使用編輯器。
 
-不要用這它來導入別人製作的大型「flag lists」，例如那些聲稱可以改善效能的Fast Flags。它們受上述問題的影響，而它們會因為你不會完全意識到它們正在改變什麼而造成問題。如果你打算這樣做，回頭是岸。</value>
+請不要使用此功能來導入其他人提供的龐大「Flag 列表」，例如那些聲稱可以改善效能的 Fast Flags。 這些列表可能會引發上述問題，並且會對你造成非常多困擾，因為你無法完全了解它們更改了什麼。如果你正打算這麼做，回頭是岸。</value>
   </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
-    <value>控制Roblox引擎的特定參數和功能的設定。</value>
+    <value>控制 Roblox 引擎的特定參數和功能的設定。</value>
   </data>
   <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
-    <value>管理您的Fast Flags；請小心使用。</value>
+    <value>管理您的 Fast Flags；請小心使用。</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>了解更多有關Fast Flags的資訊，了解這些預設的功能以及如何使用它們。</value>
+    <value>了解更多有關 Fast Flags 的資訊，了解這些預設的功能以及如何使用它們。</value>
     <comment>Title is Common.Help</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
@@ -613,13 +613,13 @@
     <value>首選的ESC選單版本</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
-    <value>Roblox會根據顯示縮放來降低渲染品質；啟用此選項將禁用此功能。</value>
+    <value>Roblox 會根據顯示縮放來降低渲染品質；啟用此選項將禁用此功能。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>透過顯示縮放來保持渲染質量</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>如果您想使用Roblox原本就有的幀率解鎖器，將數字設置為0以使用默認設置。</value>
+    <value>如果您想使用 Roblox 原本就有的幀率解鎖器，將數字設置為0以使用默認設置。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
     <value>幀數（FPS）上限</value>
@@ -707,7 +707,7 @@
     <value>自訂整合功能</value>
   </data>
   <data name="Menu.Integrations.Description" xml:space="preserve">
-    <value>設定Roblox的附設功能。</value>
+    <value>設定 Roblox 的附設功能。</value>
   </data>
   <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
     <value>當你離開遊戲時，Roblox 將會完全關閉；而不是讓您退回到主界面。
@@ -723,13 +723,13 @@
     <value>開啟活動追蹤</value>
   </data>
   <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
-    <value>此功能要求開啟活動追蹤功能，並且安裝和運行Discord桌面應用程式。[了解更多]({0})</value>
+    <value>此功能要求開啟活動追蹤功能，並且安裝和運行 Discord 桌面應用程式。[了解更多]({0})。</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
     <value>您正在玩的Roblox遊戲會被顯示在您的Discord個人資料上。 [不起作用？]({0})</value>
   </data>
   <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
-    <value>顯示Roblox遊戲狀態</value>
+    <value>顯示 Roblox 遊戲狀態</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
     <value>在遊戲中，您可以通過 [ipinfo.io]({0}) 查看您所在伺服器的位置。</value>
@@ -741,7 +741,7 @@
     <value>整合功能</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>管理並啟用Roblox用戶端模組。</value>
+    <value>管理並啟用 Roblox 用戶端模組。</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
     <value>查看關於如何管理和創造模組的資訊。</value>
@@ -769,7 +769,7 @@
     <value>開啟模組資料夾</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
-    <value>選擇Roblox應使用表情符號的類型。</value>
+    <value>選擇 Roblox 應該使用的表情符號類型。</value>
   </data>
   <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
     <value>首選表情符號類型</value>
@@ -781,19 +781,19 @@
     <value>滑鼠游標</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
-    <value>在Roblox應用程式中使用2020年之前舊版本的角色編輯器背景。</value>
+    <value>恢復2020年之前在 Roblox 應用程式中使用的舊版角色編輯器背景。</value>
   </data>
   <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
     <value>使用舊的角色編輯器的背景</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
-    <value>大致還原在2014 年之前使用的角色音效。</value>
+    <value>大致還原在2014年之前使用的角色音效。</value>
   </data>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>模擬經典角色音效。</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>把之前的"Oof"死亡音效帶回來。</value>
+    <value>把之前的 "Oof" 死亡音效帶回來。</value>
   </data>
   <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
     <value>使用舊版死亡音效</value>
@@ -811,7 +811,7 @@
     <value>新的設定將會在你下次開啟 Roblox 時生效。</value>
   </data>
   <data name="Menu.SettingsSaved.Title" xml:space="preserve">
-    <value>設定已保存！</value>
+    <value>設定已儲存！</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
     <value>Fishstrap 設定</value>
@@ -847,7 +847,7 @@
     <value>允許Fishstrap管理Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
-    <value>禁用此功能將阻止任何在此設定的內容應用到Roblox。</value>
+    <value>禁用此功能將阻止任何在此設定的內容應用到 Roblox。</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>反鋸齒等級（MSAA）</value>
@@ -892,7 +892,7 @@
     <value>Fishstrap無法下載Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
-    <value>目前無法下載Roblox。請閱讀此說明頁面以獲取更多資訊：{0}</value>
+    <value>目前無法下載 Roblox。請閱讀此說明頁面以獲取更多資訊：{0}</value>
     <comment>{0} is a URL</comment>
   </data>
   <data name="Common.ImportFromFile" xml:space="preserve">
@@ -1229,6 +1229,9 @@ Fishstrap 安裝在 "{1}"。</value>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>版本 {0}</value>
   </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>自訂</value>
+  </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
     <value>Fishstrap 目前無法更新 Roblox；因為當前 Roblox 的文件被其他佔用。
 
@@ -1279,5 +1282,234 @@ Fishstrap 安裝在 "{1}"。</value>
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>這是匿名的，絕對沒有像政府一樣幹走您的個人資料。我們收集的內容和其原因，請參考我們的[隱私政策]({0})。</value>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox 已不再支援 Windows 7 和 8.1。 如果您想要繼續遊玩的話，請更新至 Windows 10 或更新的作業系統。</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>無法解壓縮所有檔案</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>某些內容可能已經損毁或遺失。 請在設定中強制重新安裝 Roblox 以修復此問題。</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>無法套用所有修改</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>並非所有修改都會出現在本次啟動中。</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache 授權條款 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>空白</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>簡潔</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>主題 XML 的根源不是 {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>自定義對話框已經初始化</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>自訂啟動器最多只能包含 {0} 個元素，但目前有 {1} 個</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>{0} 版本未設定</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>{0} 版本不是一個數值</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} 版本 {1} 已經不再支援</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} 版本 {1} 無法識別</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} 不能包含 {1} 作為子項目</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>未知元素 {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>無法解析主題檔案：{0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} 的 {1} 無效：{2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>元素 {0} 缺少 {1} 屬性</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} 不是有效的 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} 必須大於 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} 必須小於 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} 未知的 {1} '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} 只能定義一個 {1}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} 只能有一個子項目</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} 只能有一個子項目</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} 缺少子項目</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} 無法解析成為 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} 為空</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} 使用了黑名單中的方案 {2}</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} 無法建立 {1}：{2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>正在編輯 "{0}"</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>主題儲存成功！</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>儲存主題時發生錯誤。</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>對 {0} 做出更動？</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>預覽</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>開啟主題目錄</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>匯入</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>新增自訂主題</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>範本</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>名稱不可為空</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>名稱包含不可用字體</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>名稱不可用</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>未知錯誤</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>名稱已被使用</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>檔案必須是 ZIP 格式</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>無法在 ZIP 檔裡找到主題檔案</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>無效或已損毀的 ZIP 檔</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>未選取自訂主題</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>無法設定自定義的啟動器：{0}。
+正在預設為 {1}。</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>未選取自訂主題。</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>重新命名</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>無法刪除自訂主題 {0}: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>無法重命名自訂主題 {0}: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>背景更新</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>無需等待即可在背景更新 Roblox。不建議在網速較慢的情況下使用此功能。此功能至少需要 3 GB 的可用儲存空間才能正常運作。</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>將 UI 元素放在這裡</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>自訂啟動器範例可於 {0} 找到</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>在 {0} 找到更多自訂啟動器範例</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>自訂主題 {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>允許多重實例啟動</value>
+  </data>
+  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>允許同時開啟多個 Roblox 遊戲用戶端。</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>您的主題已成功儲存！</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>無法預覽主題: {0}</value>
   </data>
 </root>

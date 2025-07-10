@@ -1,23 +1,25 @@
 ﻿using System.Windows.Media;
 using Wpf.Ui.Appearance;
+using Bloxstrap.AppData;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
     public class FluentDialogViewModel : BootstrapperDialogViewModel
     {
         public BackgroundType WindowBackdropType { get; set; } = BackgroundType.Mica;
-
+        private IAppData AppData = default!;
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
 
         public string VersionText { get; init; }
         public string ChannelText { get; init; }
-        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string version, string channel) : base(dialog)
+        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string channel) : base(dialog)
         {
             const int alpha = 128;
 
-            WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
+            WindowBackdropType = aero ? BackgroundType.Acrylic : BackgroundType.Mica;
 
-            string RealVersion = String.IsNullOrEmpty(Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false)) ? "None" : Utilities.GetRobloxVersion(App.Bootstrapper?.IsStudioLaunch ?? false);
+            Version? currentVersion = Utilities.GetRobloxVersion(AppData);
+            string RealVersion = currentVersion?.ToString() ?? "Unknown";
 
             VersionText = "Version: " + RealVersion;
             ChannelText = "Bucket: " + channel;

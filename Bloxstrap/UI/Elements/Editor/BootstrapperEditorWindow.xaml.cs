@@ -9,6 +9,7 @@ using ICSharpCode.AvalonEdit.Highlighting;
 
 using Bloxstrap.UI.Elements.Base;
 using Bloxstrap.UI.ViewModels.Editor;
+using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Editor
 {
@@ -130,7 +131,8 @@ namespace Bloxstrap.UI.Elements.Editor
             }
         }
 
-        CompletionWindow? _completionWindow = null;
+        private BootstrapperEditorWindowViewModel _viewModel;
+        private CompletionWindow? _completionWindow = null;
 
         public BootstrapperEditorWindow(string name)
         {
@@ -141,17 +143,18 @@ namespace Bloxstrap.UI.Elements.Editor
             string themeContents = File.ReadAllText(Path.Combine(directory, "Theme.xml"));
             themeContents = ToCRLF(themeContents); // make sure the theme is in CRLF. a function expects CRLF.
 
-            var viewModel = new BootstrapperEditorWindowViewModel();
-            viewModel.ThemeSavedCallback = ThemeSavedCallback;
-            viewModel.Directory = directory;
-            viewModel.Name = name;
-            viewModel.Title = $"Editing \"{name}\"";
-            viewModel.Code = themeContents;
+            _viewModel = new BootstrapperEditorWindowViewModel();
+            _viewModel.ThemeSavedCallback = ThemeSavedCallback;
+            _viewModel.Directory = directory;
+            _viewModel.Name = name;
+            _viewModel.Title = string.Format(Strings.CustomTheme_Editor_Title, name);
+            _viewModel.Code = themeContents;
 
-            DataContext = viewModel;
+            DataContext = _viewModel;
             InitializeComponent();
 
-            UIXML.Text = viewModel.Code;
+            UIXML.Text = _viewModel.Code;
+            UIXML.TextChanged += OnCodeChanged;
             UIXML.TextArea.TextEntered += OnTextAreaTextEntered;
 
             LoadHighlightingTheme();
@@ -170,9 +173,9 @@ namespace Bloxstrap.UI.Elements.Editor
         private void ThemeSavedCallback(bool success, string message)
         {
             if (success)
-                Snackbar.Show("Settings saved!", message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
+                Snackbar.Show(Strings.CustomTheme_Editor_Save_Success, message, Wpf.Ui.Common.SymbolRegular.CheckmarkCircle32, Wpf.Ui.Common.ControlAppearance.Success);
             else
-                Snackbar.Show("Error", message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
+                Snackbar.Show(Strings.CustomTheme_Editor_Save_Error, message, Wpf.Ui.Common.SymbolRegular.ErrorCircle24, Wpf.Ui.Common.ControlAppearance.Danger);
         }
 
         private static string ToCRLF(string text)
@@ -180,11 +183,26 @@ namespace Bloxstrap.UI.Elements.Editor
             return text.Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\r\n");
         }
 
-        private void OnCodeChanged(object sender, EventArgs e)
+        private void OnCodeChanged(object? sender, EventArgs e)
         {
-            BootstrapperEditorWindowViewModel viewModel = (BootstrapperEditorWindowViewModel)DataContext;
-            viewModel.Code = UIXML.Text;
-            viewModel.OnPropertyChanged(nameof(viewModel.Code));
+            _viewModel.Code = UIXML.Text;
+            _viewModel.CodeChanged = true;
+        }
+
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!_viewModel.CodeChanged)
+                return;
+
+            var result = Frontend.ShowMessageBox(string.Format(Strings.CustomTheme_Editor_ConfirmSave, _viewModel.Name), MessageBoxImage.Information, MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else if (result == MessageBoxResult.Yes)
+            {
+                _viewModel.SaveCommand.Execute(null);
+            }
         }
 
         private void OnTextAreaTextEntered(object sender, TextCompositionEventArgs e)
