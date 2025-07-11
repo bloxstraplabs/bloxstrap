@@ -1,6 +1,7 @@
-﻿using System.Windows.Media;
+﻿using Bloxstrap.AppData;
+using System;
+using System.Windows.Media;
 using Wpf.Ui.Appearance;
-using Bloxstrap.AppData;
 
 namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
@@ -9,20 +10,11 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         public BackgroundType WindowBackdropType { get; set; } = BackgroundType.Mica;
         private IAppData AppData = default!;
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-
-        public string VersionText { get; init; }
-        public string ChannelText { get; init; }
-        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string channel) : base(dialog)
+        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
         {
             const int alpha = 128;
 
             WindowBackdropType = aero ? BackgroundType.Acrylic : BackgroundType.Mica;
-
-            Version? currentVersion = Utilities.GetRobloxVersion(AppData);
-            string RealVersion = currentVersion?.ToString() ?? "Unknown";
-
-            VersionText = "Version: " + RealVersion;
-            ChannelText = "Bucket: " + channel;
 
             if (aero)
             {
