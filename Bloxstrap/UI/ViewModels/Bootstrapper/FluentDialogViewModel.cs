@@ -7,8 +7,8 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 {
     public class FluentDialogViewModel : BootstrapperDialogViewModel
     {
+        //TODO: FIX THE VERSION TEXT!
         public BackgroundType WindowBackdropType { get; set; } = BackgroundType.Mica;
-        private IAppData AppData = default!;
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
         {
