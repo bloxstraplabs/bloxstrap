@@ -33,8 +33,7 @@
         <controls:OptionControl
             Visibility="{Binding Path=WebEnvironmentVisibility, Mode=OneTime}"
             Header="Web environment" 
-            Description="Site to use for metrics"
-            HelpLink="https://admin.bloxstraplabs.com/Wiki/Developers/Web-Environments">
+            Description="Site to use for metrics">
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding WebEnvironments, Mode=OneWay}" SelectedValue="{Binding WebEnvironment, Mode=TwoWay}" />
         </controls:OptionControl>
 
