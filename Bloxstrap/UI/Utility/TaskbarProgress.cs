@@ -60,8 +60,15 @@ namespace Bloxstrap.UI.Utility
         private static Lazy<ITaskbarList3?> _taskbarInstance = new Lazy<ITaskbarList3?>(() =>
         {
             ITaskbarList3 taskbar = (ITaskbarList3)new TaskbarInstance();
-            bool hasInitialised = taskbar.HrInit() == 0; // reduce pointless calls by checking if we initialised properly
-            return hasInitialised ? taskbar : null;
+            try
+            {
+                bool hasInitialised = taskbar.HrInit() == 0; // reduce pointless calls by checking if we initialised properly
+                return hasInitialised ? taskbar : null;
+            }
+            catch (NotImplementedException)
+            {
+                return null;
+            }
         });
 
         private static TaskbarStates ConvertEnum(TaskbarItemProgressState state)
