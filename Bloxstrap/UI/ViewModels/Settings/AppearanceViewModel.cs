@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using Bloxstrap.UI.Elements.Settings;
 using Bloxstrap.UI.Elements.Editor;
 using Bloxstrap.UI.Elements.Dialogs;
+using System.Windows.Shell;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -37,6 +38,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
+            dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
             dialog.ShowBootstrapper();
         }
 
