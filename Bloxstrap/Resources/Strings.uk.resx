@@ -172,7 +172,7 @@
     <value>Fishstrap було успішно деінстальовано</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox зараз запущений, але він має бути закритий до моменту початку видалення Bloxstrap. Хочете зараз закрити Roblox?</value>
+    <value>Roblox зараз запущений, але має закритись перед видаленням Fishstrap. Хочете зараз закрити Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox вимагає використання компонентів Windows Media Foundation. Схоже що вони відсутні, ймовірно, тому що ви використовуєте видання Windows N. Будь ласка, спочатку встановіть їх, а потім запустіть Roblox.</value>
@@ -1098,7 +1098,7 @@ Fishstrap встановлено на "{1}".</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Ви можете пошукати інформацію чому це відбувається і як це можна вирішити в цьому допоміжному посібнику({0}).
 
-Перевірте, чи працює Roblox з оригінальним клієнтом({1}). Якщо так, тоді перегляньте посібник. Якщо ні, тоді це не проблема Bloxstrap.</value>
+Перевірте, чи працює Roblox з оригінальним лаунчером({1}). Якщо так, тоді перегляньте посібник. Якщо ні, тоді це не проблема Fishstrap.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Не вдалося завантажити дані через помилку мережі.</value>
@@ -1110,8 +1110,8 @@ Fishstrap встановлено на "{1}".</value>
     <value>Підтримка</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Це є люди, які підтримали Bloxstrap грошима через сервіс Ko-fi. Велике вам всім дякую!
-Кожна людина тут аранжована за загальною сумою пожертв.</value>
+    <value>Це люди, які підтримали Fishstrap грошима через сервіс Ko-fi. Велике вам всім дякую!
+Кожна людина тут аранжована за загальною сумою донатів.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Ваші налаштування не вдалося завантажити. Вони були скинуті до стандартної конфігурації.</value>

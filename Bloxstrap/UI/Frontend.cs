@@ -67,7 +67,7 @@ namespace Bloxstrap.UI
             try
             {
                 if (App.Settings.Prop.SelectedCustomTheme == null)
-                    throw new CustomThemeException("CustomTheme.Errors.NoThemeSelected");
+                    throw new Exception("No custom theme selected");
 
                 CustomDialog dialog = new CustomDialog();
                 dialog.ApplyCustomTheme(App.Settings.Prop.SelectedCustomTheme);
@@ -78,7 +78,7 @@ namespace Bloxstrap.UI
                 App.Logger.WriteException(LOG_IDENT, ex);
 
                 if (!App.LaunchSettings.QuietFlag.Active)
-                    ShowMessageBox(string.Format(Strings.CustomTheme_Errors_SetupFailed, ex.Message, "Bloxstrap"), MessageBoxImage.Error); // NOTE: Bloxstrap is the theme name
+                    Frontend.ShowMessageBox($"Failed to setup custom bootstrapper: {ex.Message}.\nDefaulting to Fluent.", MessageBoxImage.Error);
 
                 return GetBootstrapperDialog(BootstrapperStyle.FluentDialog);
             }

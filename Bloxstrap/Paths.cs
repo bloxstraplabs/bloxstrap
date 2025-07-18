@@ -46,7 +46,6 @@
             Integrations = Path.Combine(Base, "Integrations");
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
-            CustomThemes = Path.Combine(Base, "CustomThemes");
             Roblox = Path.Combine(Base, "Roblox");
 
             RobloxLogs = Path.Combine(Roblox, "logs");

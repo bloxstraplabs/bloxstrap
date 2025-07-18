@@ -127,7 +127,7 @@
     <value>Możliwe, że Roblox w tej chwili ma awarię. Więcej informacji na {0}.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Nie można nawiązać połączenia, co prawdopodobnie wskazuje na słabe połączenie z internetem lub blokadę przez Firewall. Jeśli połączenie jest w porządku, upewnij się, że twój antywirus nie blokuje Fishstrapa.</value>
+    <value>Nie można nawiązać połączenia, co prawdopodobnie wskazuje na słabe połączenie z internetem lub blok firewall. Jeśli połączenie jest w porządku, upewnij się, że twój antywirus nie blokuje Fishstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Musisz najpierw zainstalować Fishstrap, żeby móc go odinstalować.</value>
@@ -387,10 +387,10 @@ Jeśli nie, zgłoś ten błąd przez [GitHub]({1}) wraz z utworzoną kopią plik
     <value>Jasny</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Fishstrap został zaktualizowany do wersji {0}</value>
+    <value>Fishstrap został zaktualizowany do wersji v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Wersja Fishstrapa, którą uruchomiłeś, różni się od wersji, którą masz aktualnie zainstalowaną. 
+    <value>Wersja Fishstrap, którą uruchomiłeś, różni się od wersji, którą aktualnie zainstalowałeś. 
 Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -473,7 +473,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Tytuł</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Skonfiguruj, jak Fishstrap powinien wyglądać.</value>
+    <value>Skonfiguruj jak Fishstrap powinien wyglądać.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globalny motyw</value>
@@ -500,7 +500,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Fishstrap automatycznie zaktualizuje się po uruchomieniu Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatycznie aktualizuj Fishstrapa</value>
+    <value>Automatycznie zaktualizuj Fishstrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Zapobiegnij zamknięciu istniejącej sesji przed przypadkowym uruchomieniem innej.</value>
@@ -626,7 +626,7 @@ Również NIE używaj tego do importowania dużych „list fast flagów” utwor
     <value>Limit liczby klatek na sekundę</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Przełączane za pomocą [skrótów klawiszowych]({0}). Podaj ID grupy w której jesteś, aby je używać.</value>
+    <value>Przełączane za pomocą [skrótów klawiaturowych]({0}). Działa tylko wtedy, gdy należysz do [grupy Fishstrap]({1}) w Roblox.</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Włącz możliwość ukrywania GUI (interfejsu gry)</value>
@@ -844,7 +844,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Układ i interfejs użytkownika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Zezwól Fishstrapowi na zarządzanie Fast Flagami</value>
+    <value>Zezwól Fishstrap'owi na zarządzanie Fast Flagami</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Wyłączenie tego uniemożliwi zastosowanie jakichkolwiek ustawień skonfigurowanych tutaj do Roblox.</value>
@@ -946,7 +946,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
   <data name="Installer.Welcome.MainText" xml:space="preserve">
     <value>Dziękujemy za pobranie Fishstrap!
 
-Jedynymi oficjalnymi stronami internetowymi do pobrania Fishstrapa są {0} i {1}, więc sprawdź, czy na pewno zainstalowałeś program z jednego z powyżej wymienionych źródeł.
+Jedynymi oficjalnymi stronami internetowymi do pobrania Fishstrap to {0} i {1}, więc potwierdź, że na pewno zainstalowałeś program z jednego z powyżej wymienionych źródeł.
 
 Instalacja nie powinna zająć długo. Po tym procesie będziesz mógł skonfigurować wszystkie ustawienia.</value>
     <comment>{0} and {1} are URLs</comment>
@@ -1045,7 +1045,7 @@ Jeśli nie, zgłoś problem twórcom tej zmodyfikowanej wersji programu. Podkre�
     <value>To są ogólne skróty, które otwierają menu uruchamiania z wieloma opcjami. Skróty do konkretnych funkcji można utworzyć później w ustawieniach.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Skonfiguruj, w jaki sposób chcesz uruchamiać Fishstrapa.</value>
+    <value>Skonfiguruj, w jaki sposób możesz łatwo uruchomić Fishstrap.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Ogólne</value>
@@ -1101,7 +1101,7 @@ Czy jesteś pewien, że chcesz kontynuować?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Aby dowiedzieć się, dlaczego to się dzieje i jak można to rozwiązać, proszę przeczytać [ten artykuł pomocy]({0}).
 
-Sprawdź również, czy Roblox współpracuje z [oryginalnym programem uruchamiającym]({1}). Jeśli nie, to nie jest to problem Fishstrapa. Jeśli tak, odnieś się do artykułu pomocy.</value>
+Sprawdź, czy Roblox współpracuje z [oryginalnym programem uruchamiającym]({1}). Jeśli nie, to nie jest to problem Fishstrap. Jeśli tak, odnieś się do artykułu pomocy.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nie można załadować danych z powodu błędu sieciowego.</value>
@@ -1113,7 +1113,7 @@ Sprawdź również, czy Roblox współpracuje z [oryginalnym programem uruchamia
     <value>Wspierający</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>To są osoby, które wspierali Bloxstrap przez Ko-fi. Serdeczne podziękowania dla wszystkich wymienionych!
+    <value>To są osoby, które wspierali Fishstrap przez Ko-fi. Ogromne podziękowania dla wszystkich tutaj!
 Każda osoba jest tutaj uszeregowana według swojego ogólnego zobowiązania.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1148,8 +1148,7 @@ Każda osoba jest tutaj uszeregowana według swojego ogólnego zobowiązania.</v
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>Fishstrap został już zainstalowany w tym folderze wcześniej i jest nadal tam obecny, lecz instalator nie może nadpisać starego pliku .exe.
-
-Prosimy ręcznie usunąć Fishstrap.exe z folderu instalacji lub spróbować ponownie uruchomić system, a następnie przystąpić do ponownej instalacji.</value>
+Prosimy ręcznie usunąć Fishstrap.exe z folderu instalacji lub spróbuj ponownie uruchomić system, a następnie spróbuj instalację ponownie.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Niedostępne</value>

@@ -1549,65 +1549,50 @@ You can no longer use Bloxshade with Fishstrap.</value>
     <value>All Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-	<data name="Menu.Bootstrapper.CleanUp.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.CleanUp.Title" xml:space="preserve">
     <value>Cleaner</value>
   </data>
-	<data name="Menu.Bootstrapper.CleanUp.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.CleanUp.Description" xml:space="preserve">
     <value>Fishstrap will remove old data to save on space</value>
   </data>
-	<data name="Enums.CleanerOptions.Never" xml:space="preserve">
+  <data name="Enums.CleanerOptions.Never" xml:space="preserve">
     <value>Never</value>
   </data>
-	<data name="Enums.CleanerOptions.OneDay" xml:space="preserve">
+  <data name="Enums.CleanerOptions.OneDay" xml:space="preserve">
     <value>After 1 day</value>
   </data>
-	<data name="Enums.CleanerOptions.OneWeek" xml:space="preserve">
+  <data name="Enums.CleanerOptions.OneWeek" xml:space="preserve">
     <value>After 1 week</value>
   </data>
-	<data name="Enums.CleanerOptions.OneMonth" xml:space="preserve">
+  <data name="Enums.CleanerOptions.OneMonth" xml:space="preserve">
     <value>After 1 month</value>
   </data>
-	<data name="Enums.CleanerOptions.TwoMonths" xml:space="preserve">
+  <data name="Enums.CleanerOptions.TwoMonths" xml:space="preserve">
     <value>After 2 months</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Age.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Age.Title" xml:space="preserve">
     <value>When should the files get deleted</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Age.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Age.Description" xml:space="preserve">
     <value>Files older than set amount will be deleted.</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Cache.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Cache.Title" xml:space="preserve">
     <value>Cache</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Cache.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Cache.Description" xml:space="preserve">
     <value>Old downloads will be deleted.</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Logs.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Logs.Title" xml:space="preserve">
     <value>Logs</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.Logs.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.Logs.Description" xml:space="preserve">
     <value>Old log files will be deleted.</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Title" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Title" xml:space="preserve">
     <value>Fishstrap logs</value>
   </data>
-	<data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Description" xml:space="preserve">
+  <data name="Menu.Bootstrapper.Cleaner.IncludeBloxstrap.Description" xml:space="preserve">
     <value>Fishstrap logs will be deleted.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Failed to extract files</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Some content may be missing. Force a Roblox reinstallation in settings to fix this.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Failed to apply modifications</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Not all modifications will be present in the current launch.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Blank</value>
@@ -1730,12 +1715,6 @@ You can no longer use Bloxshade with Fishstrap.</value>
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Open Theme Directory</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Create New</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Import</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Add Custom Theme</value>
   </data>
@@ -1777,23 +1756,11 @@ Defaulting to {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>No custom theme selected.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Rename</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Failed to delete custom theme {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Failed to rename custom theme {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Background updates</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Put UI elements here</value>
@@ -1808,16 +1775,49 @@ Defaulting to {1}.</value>
     <value>Custom Theme {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Allow multi-instance launching</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
-  </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Your theme has been saved!</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Failed to preview theme: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Failed to apply modifications</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Not all modifications will be present in the current launch.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Failed to extract files</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Some content may be missing. Force a Roblox reinstallation in settings to fix this.</value>
+  </data>
+	<data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
+    <value>Allow multi-instance launching</value>
+  </data>
+	<data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
+    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
+  </data>
+	<data name="Common.Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+	<data name="Common.CreateNew" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+	<data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Configure options related to Fishstrap's behaviour itself.</value>
+  </data>
+	<data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Background updates</value>
+  </data>
+	<data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work.</value>
+  </data>
+	<data name="Common.Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+	<data name="Common.Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
 </root>

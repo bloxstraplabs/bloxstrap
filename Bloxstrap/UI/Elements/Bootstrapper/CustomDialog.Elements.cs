@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using System.Windows.Media.Animation;
 using System.Xml.Linq;
 
@@ -178,7 +179,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 }
                 catch (Exception ex)
                 {
-                    throw new CustomThemeException(ex, "CustomTheme.Errors.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
+                    throw new Exception($"ImageBrush Failed to create BitmapImage: {ex.Message}", ex);
                 }
 
                 imageBrush.ImageSource = bitmapImage;
@@ -245,7 +246,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             var first = brushElement.FirstNode as XElement;
             if (first == null)
-                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMissingChild", xmlElement.Name, name);
+                throw new Exception($"{xmlElement.Name} {name} is missing the brush");
 
             var brush = HandleXml<Brush>(dialog, first);
             uiElement.SetValue(dependencyProperty, brush);
@@ -491,8 +492,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             dialog.Resources.MergedDictionaries.Add(new ThemesDictionary() { Theme = wpfUiTheme });
             dialog.DefaultBorderThemeOverwrite = wpfUiTheme;
 
-            dialog.WindowCornerPreference = ParseXmlAttribute<Wpf.Ui.Appearance.WindowCornerPreference>(xmlElement, "WindowCornerPreference", Wpf.Ui.Appearance.WindowCornerPreference.Round);
-
             // disable default window border if border is modified
             if (xmlElement.Attribute("BorderBrush") != null || xmlElement.Attribute("BorderThickness") != null)
                 dialog.DefaultBorderEnabled = false;
@@ -520,7 +519,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper_Fake(CustomDialog dialog, XElement xmlElement)
         {
             // this only exists to error out the theme if someone tries to use two BloxstrapCustomBootstrappers
-            throw new CustomThemeException("CustomTheme.Errors.ElementInvalidChild", xmlElement.Parent!.Name, xmlElement.Name);
+            throw new Exception($"{xmlElement.Parent!.Name} cannot have a child of {xmlElement.Name}");
         }
 
         private static DummyFrameworkElement HandleXmlElement_TitleBar(CustomDialog dialog, XElement xmlElement)
@@ -724,7 +723,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     }
                     catch (Exception ex)
                     {
-                        throw new CustomThemeException(ex, "CustomTheme.Errors.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
+                        throw new Exception($"Image Failed to create BitmapImage: {ex.Message}", ex);
                     }
 
                     image.Source = bitmapImage;
@@ -733,7 +732,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 {
                     RepeatBehavior repeatBehaviour = GetImageRepeatBehaviourData(xmlElement);
                     XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior(image, repeatBehaviour);
-
                     XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, sourceData.Uri!);
                 }
             }
@@ -828,7 +826,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 if (element.Name == "Grid.RowDefinitions")
                 {
                     if (rowsSet)
-                        throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleDefinitions", "Grid", "RowDefinitions");
+                        throw new Exception("Grid can only have one RowDefinitions defined");
                     rowsSet = true;
 
                     HandleXmlElement_Grid_RowDefinitions(grid, dialog, element);
@@ -836,7 +834,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 else if (element.Name == "Grid.ColumnDefinitions")
                 {
                     if (columnsSet)
-                        throw new CustomThemeException("CustomTheme.Errors.ElementAttributeMultipleDefinitions", "Grid", "ColumnDefinitions");
+                        throw new Exception("Grid can only have one ColumnDefinitions defined");
                     columnsSet = true;
 
                     HandleXmlElement_Grid_ColumnDefinitions(grid, dialog, element);
@@ -895,7 +893,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (children.Any())
             {
                 if (children.Count() > 1)
-                    throw new CustomThemeException("CustomTheme.Errors.ElementMultipleChildren", "Border");
+                    throw new Exception("Border can only have one child");
 
                 border.Child = HandleXml<UIElement>(dialog, children.First());
             }

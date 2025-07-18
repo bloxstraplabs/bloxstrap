@@ -108,7 +108,7 @@
                     </Grid>
                 </StackPanel>
                 <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Appearance_CustomThemes_NoneSelected}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock.Style>
+                    <TextBlock.Style>
                         <Style>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsCustomThemeSelected}" Value="True">

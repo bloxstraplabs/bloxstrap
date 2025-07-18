@@ -69,7 +69,7 @@ namespace Bloxstrap
         );
 
         private static bool _showingExceptionDialog = false;
-        
+
         public static void Terminate(ErrorCode exitCode = ErrorCode.ERROR_SUCCESS)
         {
             int exitCodeNum = (int)exitCode;
@@ -156,7 +156,7 @@ namespace Bloxstrap
 
         public static void SendLog()
         {
-            
+
         }
 
         public static void AssertWindowsOSVersion()
@@ -170,7 +170,7 @@ namespace Bloxstrap
 
                 if (!LaunchSettings.QuietFlag.Active)
                     Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
-                
+
                 Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
             }
         }
@@ -225,7 +225,7 @@ namespace Bloxstrap
             using var uninstallKey = Registry.CurrentUser.OpenSubKey(UninstallKey);
             string? installLocation = null;
             bool fixInstallLocation = false;
-            
+
             if (uninstallKey?.GetValue("InstallLocation") is string value)
             {
                 if (Directory.Exists(value))

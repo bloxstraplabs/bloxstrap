@@ -29,8 +29,6 @@
     <!--  Background is for Aero theme only  -->
     <Grid Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}">
         <!--  Allow for drag  -->
-        <TextBlock x:Name="VersionBind" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="10" FontFamily="{StaticResource Rubik}" Text="{Binding VersionText}" Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
-        <TextBlock Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="10" FontFamily="{StaticResource Rubik}" Text="{Binding ChannelText}" Foreground="{DynamicResource TextFillColorSecondaryBrush}"/>
         <ui:TitleBar
             VerticalAlignment="Top"
             CanMaximize="False"

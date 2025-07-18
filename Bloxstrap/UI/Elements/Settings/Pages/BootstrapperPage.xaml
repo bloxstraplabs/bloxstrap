@@ -31,39 +31,15 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-    Header="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades}"
-    Description="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades_Description}">
-            <controls:OptionControl.Style>
-                <Style TargetType="controls:OptionControl">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ForceRobloxReinstallation, Mode=OneTime}" Value="True">
-                            <Setter Property="IsEnabled" Value="False" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </controls:OptionControl.Style>
-            <ui:ToggleSwitch IsChecked="{Binding UpdateRoblox, Mode=TwoWay}" />
-        </controls:OptionControl>
-
-        <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
-            <controls:OptionControl.Style>
-                <Style TargetType="controls:OptionControl">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsRobloxInstallationMissing, Mode=OneTime}" Value="True">
-                            <Setter Property="IsEnabled" Value="False" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </controls:OptionControl.Style>
-            <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
-        </controls:OptionControl>
-        
-        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Description}">
             <ui:ToggleSwitch IsChecked="{Binding BackgroundUpdates, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
+Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="True">

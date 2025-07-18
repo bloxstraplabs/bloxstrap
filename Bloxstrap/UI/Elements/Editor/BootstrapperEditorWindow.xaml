@@ -16,7 +16,6 @@
     d:DataContext="{d:DesignInstance dmodels:BootstrapperEditorWindowViewModel,
                                      IsDesignTimeCreatable=True}"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
-    ExtendsContentIntoTitleBar="True"
     Closing="OnClosing"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">

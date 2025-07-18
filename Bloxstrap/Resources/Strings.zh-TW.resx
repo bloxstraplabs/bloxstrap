@@ -130,10 +130,10 @@
     <value>無法連線，這可能是因為您的網路問題或者是防火牆設定，如果您的網路連線沒問題，請確認你的防毒軟體沒有干預 Fishstrap 的網路權限。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>您必須先安裝 Fishstrap 才能解除安裝。</value>
+    <value>您要先安裝Fishstrap才能解除安裝。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>你的電腦沒有足夠磁碟空間來安裝 Fishstrap 和 Roblox ，請先釋放一些磁碟空間然後再試一遍。</value>
+    <value>你的電腦沒有足夠磁碟空間來安裝Fishstrap和Roblox，請先釋放一些磁碟空間然後再試一遍。</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>正在套用 Roblox 修改</value>
@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>正在更新 {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>正在取得新版 Fishstrap...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>正在等待其他 Roblox 進程...</value>
   </data>
@@ -172,10 +169,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Fishstrap 解除安裝成功</value>
+    <value>Fishstrap解除安裝成功</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox 目前正在運行，但在解除安裝 Fishstrap 之前必須先關閉它。您現在要關閉 Roblox 嗎？</value>
+    <value>Roblox 正在運行中，但在解除安裝 Fishstrap 之前，你必須先關閉 Roblox，請問你現在要關閉 Roblox 嗎？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox 需要使用 Windows Media Foundation 元件（Windows 媒體基礎元件）。您的系統似乎缺少這些元件，可能是因為您使用的是 Windows 「N」版本。請先安裝這些元件，然後再啟動 Roblox。</value>
@@ -286,7 +283,7 @@
     <value>複製日誌内容</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>執行 Fishstrap 時出現了錯誤</value>
+    <value>執行Fishstrap時出現了錯誤</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>請先瀏覽 [Bloxstrap Wiki]({0}) 來看此問題是否已解決。
@@ -294,7 +291,7 @@
 如果尚未被解決的話，那請透過 [GitHub Issue]({1}) 中回報此問題，並附上所創建的日誌文件副本。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Fishstrap 異常</value>
+    <value>Fishstrap異常</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>自定義</value>
@@ -448,7 +445,7 @@
     <value>在關閉所有目前開啟的 Roblox 用戶端之前，並非所有變更都會立即生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Fishstrap 已經在執行中</value>
+    <value>Fishstrap已經在執行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>你可以讓它看起來與眾不同，如經典，亦或者就像 Roblox。</value>
@@ -499,7 +496,7 @@
     <value>外觀</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Fishstrap 在啟動 Roblox 時會自動進行檢查目前版本並且更新（如果有的話）。</value>
+    <value>Fishstrap在啟動Roblox時會自動進行檢查目前版本並且更新（如果有的話）。</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>自動更新Fishstrap</value>
@@ -720,7 +717,7 @@
     <value>不要在離開遊戲後返回主介面</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>允許 Fishstrap 偵測你正在遊玩的 Roblox 遊戲。某些功能需要此選項被啟用。</value>
+    <value>允許Fishstrap偵測您正在游玩Roblox的游戲，某些功能需要此選項被啟用。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>開啟活動追蹤</value>
@@ -847,7 +844,7 @@
     <value>使用者介面與布局</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>允許 Fishstrap 管理 Fast Flags</value>
+    <value>允許Fishstrap管理Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>禁用此功能將阻止任何在此設定的內容應用到 Roblox。</value>
@@ -892,7 +889,7 @@
     <value>關閉地形材質</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Fishstrap 無法下載 Roblox</value>
+    <value>Fishstrap無法下載Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>目前無法下載 Roblox。請閱讀此說明頁面以獲取更多資訊：{0}</value>
@@ -1187,7 +1184,7 @@ Fishstrap 安裝在 "{1}"。</value>
 （此選項允許您獲取 Roblox 圖示文件以便快捷應用於捷徑）[如何使用？]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Fishstrap 無法寫入 Windows 登錄檔。可能是防毒軟體干擾並導致問題。請檢查並確保沒有任何限制 Bloxstrap 操作的應用程式。</value>
+    <value>Fishstrap 無法寫入進 Windows 登錄檔。可能是防毒軟體干擾並導致問題。請檢查是否有任何會限制 Fishstrap 操作的應用程式。</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>每月</value>
@@ -1216,7 +1213,7 @@ Fishstrap 安裝在 "{1}"。</value>
 您想要啟用測試模式嗎？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Fishstrap 的所有翻譯都是通過 [Crowdin]({0}) 由社群協力完成的。以下列出的人都是慷慨奉獻時間與精力來協助本地化 Fishstrap 的貢獻者。對這裡的每一位，我們深表感謝！</value>
+    <value>Fishstrap 的所有翻譯都是通過 [Crowdin]({0}) 群眾外包而來。這裡列出的每一個人都是慷慨地志願貢獻時間和精力來幫助本地化 Fishstrap 的人。對這裡的每一位，我們深表感謝！</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>安裝</value>
@@ -1236,7 +1233,7 @@ Fishstrap 安裝在 "{1}"。</value>
     <value>自訂</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap 目前無法更新 Roblox；因為 Roblox 的文件被其他程式佔用。
+    <value>Fishstrap 目前無法更新 Roblox；因為當前 Roblox 的文件被其他佔用。
 
 請關閉任何可能正在使用 Roblox 程式文件的應用程式，然後重新啟動 Fishstrap。</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>

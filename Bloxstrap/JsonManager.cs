@@ -110,7 +110,6 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Save complete!");
         }
 
-        // TODO fix this old mess, why is it in json manager??
         public void SaveProfile(string name)
         {
             string LOGGER_STRING = "SaveProfile::Profiles";
@@ -195,7 +194,8 @@ namespace Bloxstrap
                 }
 
                 App.FastFlags.Save();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
             }

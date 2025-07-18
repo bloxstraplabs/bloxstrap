@@ -31,7 +31,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
 
-            dialog.Message = String.Format(App.Settings.Prop.DownloadingStringFormat, "RobloxApp.zip", 30, 150);
+            if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ByfronDialog)
+                dialog.Message = Strings.Bootstrapper_StylePreview_ImageCancel;
+            else
+                dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
             dialog.ShowBootstrapper();
@@ -79,12 +82,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => Locale.SupportedLocales[App.Settings.Prop.Locale];
             set => App.Settings.Prop.Locale = Locale.GetIdentifierFromName(value);
-        }
-
-        public string DownloadingStatus
-        {
-            get => App.Settings.Prop.DownloadingStringFormat;
-            set => App.Settings.Prop.DownloadingStringFormat = value;
         }
 
         public IEnumerable<BootstrapperStyle> Dialogs { get; } = BootstrapperStyleEx.Selections;
@@ -306,6 +303,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             Process.Start("explorer.exe", $"/select,\"{dialog.FileName}\"");
         }
+
         private void PopulateCustomThemes()
         {
             string? selected = App.Settings.Prop.SelectedCustomTheme;

@@ -1100,7 +1100,7 @@ Des problèmes peuvent survenir et vos paramètres peuvent être modifiés. Une 
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Pour des informations sur les raisons pour lesquelles cela pourrait se produire et comment cela peut être résolu, veuillez lire [cet article d'aide]({0}). 
 
-Vérifiez si Roblox fonctionne avec [le lanceur d'origine]({1}). Si ce n'est pas le cas, alors ce n'est pas un problème de Fishstrap. Si c'est le cas, référez-vous à l'article d'aide.</value>
+Vérifiez si Roblox fonctionne avec [le lanceur de base]({1}). S'il ne fonctionne pas, alors ce n'est pas un problème en lien avec Fishstrap. S'il fonctionne, veuillez vous référer à l'article d'aide.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Impossible de charger les données en raison d'une erreur réseau.</value>
@@ -1112,8 +1112,8 @@ Vérifiez si Roblox fonctionne avec [le lanceur d'origine]({1}). Si ce n'est pas
     <value>Supporters</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Voici les personnes qui ont soutenu Bloxstrap via Ko-fi. Un énorme merci à tous ceux présents ici ! 
-Chaque personne ici est classée selon son engagement global.</value>
+    <value>Voici les personnes qui ont soutenu Fishstrap via Ko-fi. Un grand merci à tout le monde ici !
+Chaque personne ici est classée par sa contribution globale.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Vos paramètres n'ont pas pu être chargés. Ils ont été réinitialisés.</value>
@@ -1230,7 +1230,7 @@ Voulez-vous activer le mode test ?</value>
     <value>Personnalisé</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Fishstrap a essayé de mettre à jour Roblox mais ne peut pas car les fichiers de Roblox sont toujours en cours d'utilisation.
+    <value>Fishstrap a tenté de mettre Roblox à jour mais a échoué car des fichiers de Roblox sont utilisés.
 
 Veuillez fermer toutes les applications qui pourraient utiliser les fichiers de Roblox, et relancer.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1248,9 +1248,6 @@ Veuillez fermer toutes les applications qui pourraient utiliser les fichiers de 
   </data>
   <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
     <value>La connexion a expiré, ce qui pourrait indiquer une mauvaise connexion Internet ou un blocage par un pare-feu.</value>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Rassemble des informations qui peuvent être téléchargées en ligne pour dépanner un problème que vous rencontrez.</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Menu.Channel.Description" type="System.Resources.ResXNullRef, System.Windows.Forms">
@@ -1282,10 +1279,6 @@ Veuillez fermer toutes les applications qui pourraient utiliser les fichiers de 
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>C'est anonyme et rien de mal, promis. Pour avoir un aperçu de ce que nous recueillons et pourquoi, voyez notre [politique de confidentialité]({0}).</value>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Tous les logs de Bloxstrap</value>
-    <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
     <value>Roblox ne prend plus en charge Windows 7 ou 8.1. Pour continuer à jouer à Roblox, veuillez mettre à niveau vers Windows 10 ou version ultérieure.</value>

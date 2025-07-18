@@ -2673,15 +2673,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apache License 2.0.
-        /// </summary>
-        public static string Menu_About_Licenses_Apache {
-            get {
-                return ResourceManager.GetString("Menu.About.Licenses.Apache", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to BSD 2-Clause License.
         /// </summary>
         public static string Menu_About_Licenses_BSD2 {
@@ -3120,6 +3111,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure options related to Fishstrap&apos;s behaviour itself..
+        /// </summary>
+        public static string Menu_Bloxstrap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Description", resourceCulture);
             }
         }
         

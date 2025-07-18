@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Fishstrap 目前无法自动更新至 {0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Bloxstrap。</value>
+    <value>Fishstrap 目前无法自动更新至 v{0}；请通过 官方网站 下载最新版本并运行安装包以手动更新 Fishstrap。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 当前正在运行中，打开另一个 Roblox 进程后将会关闭它。
@@ -920,7 +920,7 @@
     <value>您输入的内容「{0}」无效；其内容只能为数字才能生效。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>由于 Fishstrap 无法写入位于「{0}」的文件夹，本次启动将不会生成日志文件</value>
+    <value>由于 Fishstrap 无法写入 “{0}” 文件夹；因此本次启动不会写入任何日志文件。</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>默认</value>
@@ -1022,7 +1022,7 @@
 卸载过程可能无法完全自行清理，因此您可能需要手动清理安装 Fishstrap 时残留的文件。
 
 Fishstrap 的安装路径是：
-「{1}」</value>
+“{1}”</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的 Fishstrap 设置 和 Roblox 模组 (Mods)</value>

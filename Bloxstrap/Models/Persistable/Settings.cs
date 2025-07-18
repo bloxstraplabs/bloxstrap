@@ -13,8 +13,8 @@ namespace Bloxstrap.Models.Persistable
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool DeveloperMode { get; set; } = false;
         public bool CheckForUpdates { get; set; } = true;
-        public bool ConfirmLaunches { get; set; } = true;
         public bool MultiInstanceLaunching { get; set; } = false;
+        public bool ConfirmLaunches { get; set; } = true;
         public string Locale { get; set; } = "nil";
         public bool ForceRobloxLanguage { get; set; } = false;
         public bool UseFastFlagManager { get; set; } = true;
@@ -28,6 +28,7 @@ namespace Bloxstrap.Models.Persistable
         public string? SelectedCustomTheme { get; set; } = null;
         public bool BackgroundUpdatesEnabled { get; set; } = false;
         public bool DebugDisableVersionPackageCleanup { get; set; } = false;
+        public WebEnvironment WebEnvironment { get; set; } = WebEnvironment.Production;
 
         // integration configuration
         public CleanerOptions CleanerOptions { get; set; } = CleanerOptions.Never;

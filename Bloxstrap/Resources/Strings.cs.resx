@@ -173,7 +173,7 @@
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
     <value>Roblox právě běží, ale musí být zavřen, před tím, než odinstalujete Bloxstrap.
-Chcete nyní zavřít Roblox?</value>
+Chtěli nyní zavřít Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox vyžaduje použití komponentů Windows Media Foundation. Zdá se, že vám chybí tyto komponenty, pravděpodobně proto, že používáte edici N systému Windows. Nejprve je nainstalujte a poté spusťte Roblox.</value>
@@ -400,7 +400,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Kód</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Tohle jsou lidé, kteří významně přispěli a pomohli z Bloxstrapu udělat to, čím je teď.</value>
+    <value>Tohle jsou ti lidé, kteří významně přispěli a pomohli z Bloxstrap udělat to, čím je teď.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Nápady funkcí</value>
@@ -497,7 +497,7 @@ Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) s
     <value>Vzhled</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Fishstrap se automaticky aktualizuje při spuštění Robloxu.</value>
+    <value>Bloxstrap automaticky kontroluje a aktualizuje se když se spouští Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
     <value>Automaticky aktualizovat Fishstrap</value>
@@ -1000,7 +1000,7 @@ Co chcete udělat?</value>
     <value>Odinstalovat Fishstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Odinstalace odstraní Fishstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěče Robloxu, pokud je stále nainstalován.
+    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěčtě Robloxu, pokud je stále nainstalován.
 
 Pokud odinstalujete nebo přeinstalujete, protože máte problémy s Robloxem, přečtěte si nejprve [tuto stránku pomoci]({0}).
 
@@ -1161,7 +1161,7 @@ Prosím manuálně smažte Fishstrap.exe z instalačního místa nebo zkuste res
     <value>Konfigurace parametrů aplikace, jako je škálování DPI a [optimalizace pro rozlišení celé obrazovky]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox ještě nebyl nainstalován. Před použitím této možnosti musíte spustit Fishstrap alespoň jednou.</value>
+    <value>Roblox již nebyl nainstalován. Před použitím této možnosti spusťte Bloxstrap alespoň jednou.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Opravdu chcete zrušit instalaci?</value>
@@ -1247,30 +1247,16 @@ Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spu
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Něco pravděpodobně brání Fishstrapu připojení k internetu.</value>
   </data>
-  <data name="Dialog.Connectivity.TimedOut" xml:space="preserve">
-    <value>Vypršel časový limit připojení, což může znamenat špatné připojení k internetu nebo zablokování brány firewall.</value>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Shromažďujte informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Menu.Channel.Description" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Konfigurace Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="Common.Channel" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Menu.ChannelChanger.Description" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Common.Version" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Common.VersionGuid" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Získávání nejnovější verze Fishstrap...</value>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Všechny bloxstrap logy</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
     <value>Roblox již nepodporuje Windows 7 ani 8.1. Pokud chcete dále hrát Roblox, aktualizujte prosím na Windows 10 nebo novější.</value>

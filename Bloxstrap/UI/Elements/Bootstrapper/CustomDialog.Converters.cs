@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
@@ -38,7 +37,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new CustomThemeException(ex, "CustomTheme.Errors.ElementAttributeConversionError", xmlElement.Name, attributeName, ex.Message);
+                throw new Exception($"{xmlElement.Name} has invalid {attributeName}: {ex.Message}", ex);
             }
         }
 
@@ -48,8 +47,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
         private static GeometryConverter? _geometryConverter = null;
         private static GeometryConverter GeometryConverter { get => _geometryConverter ??= new GeometryConverter(); }
         private static object? GetGeometryFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(GeometryConverter, xmlElement, attributeName);
-        
-        private static RectConverter RectConverter { get; } = new RectConverter();
+
+        private static RectConverter? _rectConverter = null;
+        public static RectConverter RectConverter { get => _rectConverter ??= new RectConverter(); }
+
         private static object? GetRectFromXElement(XElement xmlElement, string attributeName) => GetTypeFromXElement(RectConverter, xmlElement, attributeName);
 
         private static ColorConverter ColorConverter { get; } = new ColorConverter();
@@ -87,7 +88,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
             catch (Exception ex)
             {
-                throw new CustomThemeException(ex, "CustomTheme.Errors.ElementAttributeConversionError", element.Name, attributeName, ex.Message);
+                throw new Exception($"{element.Name} has invalid {attributeName}: {ex.Message}", ex);
             }
         }
     }

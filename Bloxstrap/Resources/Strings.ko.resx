@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Fishstrap을 버전 {0}(으)로 자동 업데이트하지 못했습니다. 웹사이트에서 다운로드하고 실행하여 수동으로 업데이트하세요.</value>
+    <value>Fishstrap을 버전 {0}으로 자동 업데이트하지 못했습니다. 웹사이트에서 다운로드하고 실행하여 수동으로 업데이트하세요.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox가 현재 실행 중이며 다른 인스턴스를 실행하면 종료됩니다. 계속 진행하시겠습니까?</value>
@@ -387,7 +387,7 @@
     <value>밝은 테마</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Fishstrap이 v{0}(으)로 업그레이드되었습니다</value>
+    <value>Fishstrap이 v{0} (으)로 업그레이드되었습니다.</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
     <value>실행한 Fishstrap 버전이 현재 설치된 버전과 다릅니다.
@@ -400,7 +400,7 @@
     <value>코드</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>지금의 Fishstrap을 만드는 데 큰 도움을 주신 분들입니다.</value>
+    <value>현재의 Fishstrap을 만드는 데 큰 도움을 주신 분들입니다.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>아이디어 제공</value>

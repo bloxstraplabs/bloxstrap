@@ -5,7 +5,6 @@ using Windows.Win32.Foundation;
 
 using Bloxstrap.UI.Elements.Dialogs;
 using Bloxstrap.Integrations;
-using Bloxstrap.Enums;
 
 namespace Bloxstrap
 {
@@ -235,19 +234,20 @@ namespace Bloxstrap
             }
 
             if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
-            {
-                // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
-                // which often hangs around for a few seconds after the window closes
-                // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
-
-                var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
-
-                if (result != MessageBoxResult.Yes)
+                if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
                 {
-                    App.Terminate();
-                    return;
+                    // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
+                    // which often hangs around for a few seconds after the window closes
+                    // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
+
+                    var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+                    if (result != MessageBoxResult.Yes)
+                    {
+                        App.Terminate();
+                        return;
+                    }
                 }
-            }
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
@@ -273,6 +273,22 @@ namespace Bloxstrap
                     if (t.Exception is not null)
                         App.FinalizeExceptionHandling(t.Exception);
                 }
+                if (mutex != null)
+                {
+                    // we do .Split(".") because the names have .exe extension
+                    // getprocessbyname doesnt support .exe extensions
+
+                    // get process name
+                    string ProcessName = App.RobloxPlayerAppName.Split(".")[0];
+                    App.Logger.WriteLine(LOG_IDENT, $"Resolved Roblox name {ProcessName}.exe, running Fishstrap in background.");
+
+                    // now yield until the processes are closed
+                    while (Process.GetProcessesByName(ProcessName).Any())
+                        Thread.Sleep(5000);
+
+                    App.Logger.WriteLine(LOG_IDENT, "Every Roblox instance is closed, terminating the process");
+                }
+
 
                 App.Terminate();
             });
@@ -295,7 +311,7 @@ namespace Bloxstrap
 
             var watcher = new Watcher();
 
-            Task.Run(watcher.Run).ContinueWith(t => 
+            Task.Run(watcher.Run).ContinueWith(t =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Watcher task has finished");
 
@@ -393,6 +409,7 @@ namespace Bloxstrap
             });
 
             App.Logger.WriteLine(LOG_IDENT, "Exiting");
+
         }
     }
 }

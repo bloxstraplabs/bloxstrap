@@ -127,7 +127,10 @@
     <value>Roblox mungkin sedang mengalami gangguan saat ini. Lihat {0} untuk informasi lebih lanjut.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Koneksi tidak dapat dibuat, kemungkinan koneksi internet buruk atau pemblokiran firewall. Jika koneksi Anda tidak bermasalah, pastikan antivirus Anda tidak memblokir Fishstrap</value>
+    <value>Koneksi tidak dapat dibuat, yang berarti adanya koneksi internet buruk atau pemblokiran tembok api. Jika koneksi tidak bermasalah, pastikan antivirus tidak memblokir Fishstrap.</value>
+  </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>Anda harus menginstal Fishstrap terlebih dahulu sebelum menghapus.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Fishstrap tidak memiliki ruang penyimpanan yang cukup untuk mengunduh dan menginstal Roblox. Tolong kosongkan beberapa ruang penyimpanan dan coba kembali.</value>
@@ -169,7 +172,7 @@
     <value>Fishstrap berhasil dihapus</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox sedang berjalan saat ini, namun harus ditutup sebelum menghapus Fishstrap. Apakah Anda ingin menutup Roblox sekarang?</value>
+    <value>Roblox sedang berjalan saat ini, namun harus ditutup sebelum menghapus Fishstrap. Apakah Anda yakin untuk menutup Roblox sekarang?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox membutuhkan penggunaan komponen Windows Media Foundation. Anda sepertinya tidak memilikinya, kemungkinan karena anda menggunakan edisi Windows N. Tolong install komponen tersebut, dan mulai Roblox kembali.</value>
@@ -953,7 +956,7 @@ Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Fishstrap se
     <value>Mohon klik 'Lanjut' untuk melanjutkan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Anda sedang mencoba memasang Fishstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin mengunduhnya?</value>
+    <value>Anda sedang mencoba memasang Fishstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin memasangnya?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pilih lokasi instalasi</value>
@@ -976,7 +979,7 @@ Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Fishstrap se
   <data name="Installer.Completion.Text" xml:space="preserve">
     <value>Fishstrap berhasil dipasang.
 
-Roblox belum terpasang, itu akan terjadi saat Anda menjalankannya dengan Bloxstrap untuk pertama kalinya. Namun, sebelum Anda melakukannya, mungkin Anda ingin mengatur setelan Fishstrap terlebih dahulu.
+Roblox belum terpasang, itu akan terjadi saat Anda menjalankannya dengan Fishstrap untuk pertama kalinya. Namun, sebelum Anda melakukannya, munkin Anda mau mengkonfigurasikan pengaturan Fishstrap terlebih dahulu.
 
 Juga, hindari menggunakan pintasan "Roblox Player" untuk menjalankan Roblox, karena Fishstrap tidak akan berjalan dengan roblox. Jika Anda tidak melihat Fishstrap saat menjalankannya menggunakan situs web, jalankan Roblox dengan Fishstrap sekali untuk memperbaikinya
 
@@ -1002,7 +1005,7 @@ Apa yang ingin Anda lakukan?</value>
 
 Jika Anda mencopot pemasangan atau memasang ulang karena mengalami masalah dengan Roblox, baca [halaman bantuan ini]({0}) terlebih dahulu.
 
-Proses pencopotan mungkin tidak dapat sepenuhnya bersih, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Fishstrap secara mandiri.
+Proses pencopotan mungkin tidak dapat sepenuhnya membersihkan dirinya sendiri, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Fishstrap secara mandiri.
 
 Fishstrap terpasang di "{1}".</value>
   </data>
@@ -1010,7 +1013,7 @@ Fishstrap terpasang di "{1}".</value>
     <value>Simpan pengaturan dan mod saya</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Berkas-berkas tersebut akan disimpan di lokasi tempat Fishstrap dipasang, dan akan secara otomatis dipulihkan saat dipasang ulang.</value>
+    <value>File-file tersebut akan disimpan di lokasi tempat Fishstrap diinstal, dan akan secara otomatis dipulihkan saat diinstal ulang.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Hapus Instalasi</value>
@@ -1043,7 +1046,7 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
     <value>Ini adalah pintasan umum yang memunculkan banyak pilihan menu peluncuran. Pintasan untuk fungsi khusus dapat dibuat nanti di pengaturan.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Atur bagaimana Fishstrap dapat diluncurkan dengan mudah.</value>
+    <value>Atur bagaimana Fishstrap telah siap untuk diluncurkan.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Umum</value>
@@ -1086,8 +1089,8 @@ Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN la
     <value>Anda memiliki perubahan yang belum disimpan. Apakah Anda yakin ingin menutup tanpa menyimpan?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Versi Fishstrap yang Anda jalankan adalah versi lama dari versi yang terpasang.
-Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Kami menyarankan Anda untuk melakukan pemasangan ulang.
+    <value>Versi Fishstrap yang kamu jalankan adalah versi lama dari versi yang Anda sudah pasang.
+Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Melakukan pemasangan ulang direkomendasikan.
 Apakah Anda yakin untuk melanjutkan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
@@ -1099,7 +1102,7 @@ Apakah Anda yakin untuk melanjutkan?</value>
   <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
     <value>Untuk informasi lebih lanjut mengapa ini dapat terjadi dan cara memperbaikinya, silakan baca [artikel bantuan ini]({0}).
 
-Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti ini bukan masalah pada Fishstrap. Jika ya, rujuklah pada artikel bantuan.</value>
+Periksa jika Roblox bekerja dengan [peluncur aslinya]({1}). Jika tidak, berarti bukan masalah Fishstrap. Jika ya, rujuklah pada artikel bantuan.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Tidak dapat memuat data karena suatu masalah koneksi.</value>

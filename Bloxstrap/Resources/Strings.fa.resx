@@ -133,7 +133,7 @@
     <value>برای حذف نصب، ابتدا باید بلاکسترپ را نصب کنید.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>بلاکسترپ فضای کافی برای دانلود و نصب روبلاکس ندارد. لطفاً مقداری از حافظه را آزاد کنید و دوباره تلاش کنید.</value>
+    <value>Fishstrap فضای کافی برای دانلود و نصب Roblox ندارد. لطفاً مقداری حافظه را آزاد کنید و دوباره تلاش کنید.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>در حال اعمال کردن تغییرات روبلاکس...</value>
@@ -157,9 +157,6 @@
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>در حال به روز رسانی کردن {product}...</value>
   </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>در حال دریافت آخرین نسخه بلاکسترپ...</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>در حال انتظار برای سایر موارد...</value>
   </data>
@@ -172,10 +169,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>بلاکسترپ با موفقیت حذف شد</value>
+    <value>Fishstrap با موفقیت حذف شد</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>روبلاکس در حال اجرا است؛ ولی قبل از حذف نصب بلاکسترپ باید بسته شود. آیا میخواهید روبلاکس را الان بیندید؟</value>
+    <value>Roblox در حال اجرا است؛ ولی قبل از حذف نصب Fishstrap باید بسته شود. آیا میخواهید Roblox را الان بیندید?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>روبلاکس نیاز به استفاده از اجزای Windows Media Foundation میباشد. همانا شما آنرا ندارید؛ و یا ممکن است شما درحال استفاده از نسخه N در Windows باشید. اول آنرا نصب کرده، و بعد روبلاکس را اجرا کنید.</value>
@@ -315,10 +312,10 @@
     <value>بلاکسترپ (شیشه ای)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>قدیمی (2008 تا 2011)</value>
+    <value />
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>قدیمی (2011 تا 2014)</value>
+    <value />
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
     <value>روبلاکس (~2014)</value>
@@ -1151,7 +1148,7 @@
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>بلاکسترپ قبلا در این مسیر نصب شده و هنوز در این مسیر وجود دارد، اما نصب کننده نمیتواند فایل اجرایی قدیمی را بازنویسی کند.
 
-لطفا به طور دستی "Fishstrap.exe" را از مسیر نصب پاک کنید و یا سیستم خود را راه‌اندازی مجدد کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
+لطفا به طور دستی "Fishstrap.exe" را از مسیر نصب کننده پاک کنید و یا سیستم خود را خاموش و روشن کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>در دسترس نیست</value>
