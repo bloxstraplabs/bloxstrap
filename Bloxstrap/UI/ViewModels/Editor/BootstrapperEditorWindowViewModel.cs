@@ -43,7 +43,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
                 _dialog = dialog;
 
                 dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
-                dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
+                //dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
                 dialog.CancelEnabled = true;
                 dialog.ShowBootstrapper();
             }

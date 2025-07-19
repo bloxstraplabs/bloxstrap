@@ -38,7 +38,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
 
             dialog.CancelEnabled = true;
-            dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
+            //dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate; // Disabled since the Vista dialog was doing its own thing when closing
             dialog.ShowBootstrapper();
         }
 
