@@ -1,8 +1,8 @@
-﻿<base:WpfUiWindow
+﻿<base:WpfUiDialogBase
     x:Class="Bloxstrap.UI.Elements.Bootstrapper.FluentDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Bootstrapper.Base"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:Bloxstrap.Resources"
@@ -14,17 +14,12 @@
     d:DataContext="{d:DesignInstance vms:FluentDialogViewModel,
                                      IsDesignTimeCreatable=True}"
     Background="{ui:ThemeResource ApplicationBackgroundBrush}"
-    Closing="UiWindow_Closing"
     ExtendsContentIntoTitleBar="True"
     ResizeMode="NoResize"
     WindowBackdropType="{Binding Path=WindowBackdropType, Mode=OneTime}"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-
-    <Window.TaskbarItemInfo>
-        <TaskbarItemInfo ProgressState="{Binding Path=TaskbarProgressState}" ProgressValue="{Binding Path=TaskbarProgressValue}" />
-    </Window.TaskbarItemInfo>
 
     <!--  Background is for Aero theme only  -->
     <Grid Background="{Binding Path=BackgroundColourBrush, Mode=OneTime}">
@@ -81,4 +76,4 @@
                 IsEnabled="{Binding CancelEnabled, Mode=OneWay}" />
         </Grid>
     </Grid>
-</base:WpfUiWindow>
+</base:WpfUiDialogBase>
