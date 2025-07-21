@@ -363,11 +363,12 @@ namespace Bloxstrap
 
                 Logger.Initialize(LaunchSettings.UninstallFlag.Active);
 
-                if (!Logger.Initialized && !Logger.NoWriteMode)
-                {
-                    Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
-                    Terminate();
-                }
+                // we cant exactly do this if logger is only initialized when an exception occurs
+                // if (!Logger.Initialized && !Logger.NoWriteMode)
+                // {
+                //     Logger.WriteLine(LOG_IDENT, "Possible duplicate launch detected, terminating.");
+                //     Terminate();
+                // }
 
                 Settings.Load();
                 State.Load();
