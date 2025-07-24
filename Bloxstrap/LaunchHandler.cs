@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿﻿using System.Windows;
 
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -58,11 +58,6 @@ namespace Bloxstrap
             {
                 App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
-            }
-            else if (App.LaunchSettings.MultiInstanceWatcherFlag.Active)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Opening multi-instance watcher");
-                LaunchMultiInstanceWatcher();
             }
             else if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
             {
@@ -220,6 +215,8 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "LaunchHandler::LaunchRoblox";
 
+            const string MutexName = "ROBLOX_singletonMutex";
+
             if (launchMode == LaunchMode.None)
                 throw new InvalidOperationException("No Roblox launch mode set");
 
@@ -234,20 +231,19 @@ namespace Bloxstrap
             }
 
             if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
-                if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
+            {
+                // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
+                // which often hangs around for a few seconds after the window closes
+                // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
+
+                var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+                if (result != MessageBoxResult.Yes)
                 {
-                    // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
-                    // which often hangs around for a few seconds after the window closes
-                    // it would be better to have this rely on the activity tracker when we implement IPC in the planned refactoring
-
-                    var result = Frontend.ShowMessageBox(Strings.Bootstrapper_ConfirmLaunch, MessageBoxImage.Warning, MessageBoxButton.YesNo);
-
-                    if (result != MessageBoxResult.Yes)
-                    {
-                        App.Terminate();
-                        return;
-                    }
+                    App.Terminate();
+                    return;
                 }
+            }
 
             // start bootstrapper and show the bootstrapper modal if we're not running silently
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
@@ -260,6 +256,22 @@ namespace Bloxstrap
                 dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
                 App.Bootstrapper.Dialog = dialog;
                 dialog.Bootstrapper = App.Bootstrapper;
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, $"Creating {MutexName}");
+
+            Mutex? mutex = null;
+            if (App.Settings.Prop.MultiInstanceLaunching)
+            {
+                try
+                {
+                    mutex = new Mutex(true, MutexName);
+                    App.Logger.WriteLine(LOG_IDENT, $"Created {MutexName}");
+                }
+                catch
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to create {MutexName}");
+                }
             }
 
             Task.Run(App.Bootstrapper.Run).ContinueWith(t =>
@@ -286,7 +298,7 @@ namespace Bloxstrap
                     while (Process.GetProcessesByName(ProcessName).Any())
                         Thread.Sleep(5000);
 
-                    App.Logger.WriteLine(LOG_IDENT, "Every Roblox instance is closed, terminating the process");
+                    App.Logger.WriteLine(LOG_IDENT,"Every Roblox instance is closed, terminating the process");
                 }
 
 
@@ -311,7 +323,7 @@ namespace Bloxstrap
 
             var watcher = new Watcher();
 
-            Task.Run(watcher.Run).ContinueWith(t =>
+            Task.Run(watcher.Run).ContinueWith(t => 
             {
                 App.Logger.WriteLine(LOG_IDENT, "Watcher task has finished");
 
@@ -341,28 +353,6 @@ namespace Bloxstrap
 
             new BloxshadeDialog().ShowDialog();
             App.SoftTerminate();
-        }
-
-        public static void LaunchMultiInstanceWatcher()
-        {
-            const string LOG_IDENT = "LaunchHandler::LaunchMultiInstanceWatcher";
-
-            App.Logger.WriteLine(LOG_IDENT, "Starting multi-instance watcher");
-
-            Task.Run(MultiInstanceWatcher.Run).ContinueWith(t =>
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Multi instance watcher task has finished");
-
-                if (t.IsFaulted)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the multi-instance watcher");
-
-                    if (t.Exception is not null)
-                        App.FinalizeExceptionHandling(t.Exception);
-                }
-
-                App.Terminate();
-            });
         }
 
         public static void LaunchBackgroundUpdater()
@@ -409,7 +399,6 @@ namespace Bloxstrap
             });
 
             App.Logger.WriteLine(LOG_IDENT, "Exiting");
-
         }
     }
 }
