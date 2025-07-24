@@ -119,16 +119,7 @@
             string location = BaseUrl;
 
             if (!IsDefaultChannel)
-            {
-                string channelName;
-
-                if (ApplicationSettings.GetSettings(nameof(ApplicationSettings.PCClientBootstrapper), Channel).Get<bool>("FFlagReplaceChannelNameForDownload"))
-                    channelName = "common";
-                else
-                    channelName = Channel.ToLowerInvariant();
-
-                location += $"/channel/{channelName}";
-            }
+                location += "/channel/common";
 
             location += resource;
 
