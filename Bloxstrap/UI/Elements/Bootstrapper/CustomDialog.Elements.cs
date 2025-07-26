@@ -8,7 +8,6 @@ using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using System.Windows.Media.Animation;
-using System.Xml.Linq;
 
 using Wpf.Ui.Markup;
 using Wpf.Ui.Appearance;

@@ -23,6 +23,9 @@
 
             { "extracontent-scripts.zip",        @"ExtraContent\scripts\" },
 
+            { "studiocontent-models.zip",        @"StudioContent\models\" },
+            { "studiocontent-textures.zip",      @"StudioContent\textures\" },
+
             { "BuiltInPlugins.zip",              @"BuiltInPlugins\" },
             { "BuiltInStandalonePlugins.zip",    @"BuiltInStandalonePlugins\" },
 
