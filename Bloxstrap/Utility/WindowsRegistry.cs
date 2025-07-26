@@ -127,6 +127,15 @@ namespace Bloxstrap.Utility
             currentApis?.Dispose();
         }
 
+        public static void RegisterClientLocation(bool isStudio, string? clientPath)
+        {
+            string keyName = isStudio ? "StudioPath" : "PlayerPath";
+            clientPath ??= "";
+
+            using var apisKey = Registry.CurrentUser.CreateSubKey(App.ApisKey);
+            apisKey.SetValueSafe(keyName, clientPath);
+        }
+
         public static void Unregister(string key)
         {
             try

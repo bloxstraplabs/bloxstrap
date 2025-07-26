@@ -298,6 +298,8 @@ namespace Bloxstrap
             else
                 WindowsRegistry.RegisterPlayer();
 
+            WindowsRegistry.RegisterClientLocation(IsStudioLaunch, _latestVersionDirectory); // if it for some reason doesnt exist
+
             if (_launchMode != LaunchMode.Player)
                 await mutex.ReleaseAsync();
 
@@ -863,6 +865,9 @@ namespace Bloxstrap
             {
                 try
                 {
+                    // clean up registry keys
+                    WindowsRegistry.RegisterClientLocation(IsStudioLaunch, null);
+
                     // clean up install
                     if (Directory.Exists(_latestVersionDirectory))
                         Directory.Delete(_latestVersionDirectory, true);
@@ -1332,6 +1337,8 @@ namespace Bloxstrap
             {
                 uninstallKey.SetValueSafe("EstimatedSize", totalSize);
             }
+
+            WindowsRegistry.RegisterClientLocation(IsStudioLaunch, _latestVersionDirectory);
 
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
