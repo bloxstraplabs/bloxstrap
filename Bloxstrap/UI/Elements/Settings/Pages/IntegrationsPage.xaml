@@ -122,9 +122,23 @@
                     <ui:TextBox Grid.Column="0" Margin="0,0,0,0" PlaceholderText="C:\Windows\System32\cmd.exe" Text="{Binding SelectedCustomIntegration.Location}" />
                     <ui:Button Grid.Column="1" Margin="8,0,0,0" Height="34" Icon="Folder24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseIntegrationLocationCommand}" />
                 </Grid>
-                <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{Binding Source='/k echo {0}', Converter={StaticResource StringFormatConverter}, ConverterParameter={x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
-                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
+                <Grid Margin="0,8,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" FontSize="14" VerticalAlignment="Center" Margin="0,0,4,0" Text="Launch Delay" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    <ui:TextBox Grid.Column="1" Margin="0,0,16,0" PlaceholderText="200" Text="{Binding SelectedCustomIntegration.Delay}" TextWrapping="NoWrap" AcceptsReturn="True" AcceptsTab="True" />
+                    <TextBlock Grid.Column="2" FontSize="14" VerticalAlignment="Center" Margin="0,0,4,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    <ui:TextBox Grid.Column="3" PlaceholderText="{Binding Source='/k echo {0}', Converter={StaticResource StringFormatConverter}, ConverterParameter={x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
+                </Grid>
+                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                    <CheckBox Margin="0,0,8,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
+                    <CheckBox Margin="0,0,8,0" Content="Pre Roblox Launch" IsChecked="{Binding SelectedCustomIntegration.PreLaunch}" />
+                </StackPanel>
             </StackPanel>
             <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock.Style>

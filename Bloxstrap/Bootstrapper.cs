@@ -694,6 +694,41 @@ namespace Bloxstrap
                     logCreatedEvent.Set();
                 };
 
+                var autoclosePids = new List<int>();
+
+                // the code you're gonna read ahead is horrible. sorry for the hack, but it works ¯\_(ツ)_/¯
+                // check if prelaunch is checked
+                foreach (var integration in App.Settings.Prop.CustomIntegrations)
+                {
+                    if (integration?.PreLaunch == true)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Pre-Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
+                        int pid = 0;
+                        try
+                        {
+                            var process = Process.Start(new ProcessStartInfo
+                            {
+                                FileName = integration.Location,
+                                Arguments = integration.LaunchArgs.Replace("\r\n", " "),
+                                WorkingDirectory = Path.GetDirectoryName(integration.Location),
+                                UseShellExecute = true
+                            })!;
+                            pid = process.Id;
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Failed to pre-launch integration '{integration.Name}'!");
+                            App.Logger.WriteLine(LOG_IDENT, ex.Message);
+                        }
+
+                        if (integration?.AutoClose == true && pid != 0)
+                            autoclosePids.Add(pid);
+
+                        if (integration?.Delay != null)
+                            Thread.Sleep(integration.Delay);
+                    }
+                }
+
                 // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
                 try
                 {
@@ -732,11 +767,13 @@ namespace Bloxstrap
                 if (IsStudioLaunch)
                     return;
 
-                var autoclosePids = new List<int>();
-
+                // lord.... forgive me for this hack.....
                 // launch custom integrations now
                 foreach (var integration in App.Settings.Prop.CustomIntegrations)
                 {
+                    if (integration?.PreLaunch == true)
+                        continue; // skip pre-launch integrations
+
                     App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
 
                     int pid = 0;
