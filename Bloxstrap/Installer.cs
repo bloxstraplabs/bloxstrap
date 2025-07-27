@@ -9,7 +9,8 @@ namespace Bloxstrap
         /// Should this version automatically open the release notes page?
         /// Recommended for major updates only.
         /// </summary>
-        private const bool OpenReleaseNotes = false;
+        private static readonly bool OpenReleaseNotes = 
+            Version.TryParse(App.Version, out var version) && version.Build == 0;
 
         private static string DesktopShortcut => Path.Combine(Paths.Desktop, $"{App.ProjectName}.lnk");
 
