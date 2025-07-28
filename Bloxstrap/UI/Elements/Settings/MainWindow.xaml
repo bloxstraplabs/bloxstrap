@@ -16,12 +16,10 @@
              Height="580"
              Background="{ui:ThemeResource ApplicationBackgroundBrush}"
              ExtendsContentIntoTitleBar="True"
+             WindowBackdropType="Mica"
              WindowStartupLocation="CenterScreen"
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
-
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
