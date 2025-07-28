@@ -4,12 +4,12 @@ namespace Bloxstrap.Extensions
 {
     static class CustomThemeTemplateEx
     {
-        const string EXAMPLES_URL = "https://github.com/bloxstraplabs/custom-bootstrapper-examples";
+        const string EXAMPLES_URL = "https://github.com/fishstrap/custom-bootstrapper-examples";
 
         public static string GetFileName(this CustomThemeTemplate template)
         {
             return $"CustomBootstrapperTemplate_{template}.xml";
-        }
+        } 
 
         public static string GetFileContents(this CustomThemeTemplate template)
         {
