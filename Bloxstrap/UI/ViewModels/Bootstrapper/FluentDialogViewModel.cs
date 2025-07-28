@@ -10,7 +10,9 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         //TODO: FIX THE VERSION TEXT!
         public BackgroundType WindowBackdropType { get; set; } = BackgroundType.Mica;
         public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero) : base(dialog)
+        public string VersionText { get; init; } = "None";
+        public string ChannelText { get; init; } = "production";
+        public FluentDialogViewModel(IBootstrapperDialog dialog, bool aero, string version, string channel) : base(dialog)
         {
             const int alpha = 128;
 
@@ -22,6 +24,9 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
                     new SolidColorBrush(Color.FromArgb(alpha, 225, 225, 225)) :
                     new SolidColorBrush(Color.FromArgb(alpha, 30, 30, 30));
             }
+
+            VersionText = $"{Strings.Common_Version}: {version}";
+            ChannelText = $"{Strings.Common_Channel}: {channel}";
         }
     }
 }

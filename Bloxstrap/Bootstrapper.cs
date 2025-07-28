@@ -298,6 +298,8 @@ namespace Bloxstrap
             else
                 WindowsRegistry.RegisterPlayer();
 
+            WindowsRegistry.RegisterClientLocation(IsStudioLaunch, _latestVersionDirectory); // if it for some reason doesnt exist
+
             if (_launchMode != LaunchMode.Player)
                 await mutex.ReleaseAsync();
 
@@ -452,37 +454,34 @@ namespace Bloxstrap
                     throw;
                 }
 
-                Deployment.Channel = Deployment.DefaultChannel;
+                RevertChannel();
                 clientVersion = await Deployment.GetInfo(Deployment.Channel);
-
-                App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                App.Settings.Save();
             }
 
-            if (clientVersion.IsBehindDefaultChannel)
-            {
-                MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
+                if (clientVersion.IsBehindDefaultChannel)
                 {
-                    ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
-                        String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
-                        MessageBoxImage.Warning,
-                        MessageBoxButton.YesNo
-                    ),
-                    ChannelChangeMode.Automatic => MessageBoxResult.Yes,
-                    ChannelChangeMode.Ignore => MessageBoxResult.No,
-                    _ => MessageBoxResult.None
-                };
+                    MessageBoxResult action = App.Settings.Prop.ChannelChangeMode switch
+                    {
+                        ChannelChangeMode.Prompt => Frontend.ShowMessageBox(
+                            String.Format(Strings.Bootstrapper_Dialog_ChannelOutOfDate, Deployment.Channel, Deployment.DefaultChannel),
+                            MessageBoxImage.Warning,
+                            MessageBoxButton.YesNo
+                        ),
+                        ChannelChangeMode.Automatic => MessageBoxResult.Yes,
+                        ChannelChangeMode.Ignore => MessageBoxResult.No,
+                        _ => MessageBoxResult.None
+                    };
 
-                if (action == MessageBoxResult.Yes)
-                {
-                    App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
+                    if (action == MessageBoxResult.Yes)
+                    {
+                        App.Logger.WriteLine("Bootstrapper::CheckLatestVersion", $"Changed Roblox channel from {App.Settings.Prop.Channel} to {Deployment.DefaultChannel}");
 
-                    App.Settings.Prop.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo(Deployment.Channel);
-                }
+                            RevertChannel();
+                            clientVersion = await Deployment.GetInfo(Deployment.Channel);
+                    }
 
-                    Deployment.Channel = Deployment.DefaultChannel;
-                    clientVersion = await Deployment.GetInfo();
+                    RevertChannel();
+                    clientVersion = await Deployment.GetInfo(); // what is this for
                 }
 
                 key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
@@ -771,10 +770,13 @@ namespace Bloxstrap
                 // launch custom integrations now
                 foreach (var integration in App.Settings.Prop.CustomIntegrations)
                 {
+                    if (integration == null)
+                        continue;
+
                     if (integration?.PreLaunch == true)
                         continue; // skip pre-launch integrations
 
-                    App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration!.Name}' ({integration.Location} {integration?.LaunchArgs} - autoclose is {integration!.AutoClose})");
 
                     int pid = 0;
 
@@ -863,6 +865,9 @@ namespace Bloxstrap
             {
                 try
                 {
+                    // clean up registry keys
+                    WindowsRegistry.RegisterClientLocation(IsStudioLaunch, null);
+
                     // clean up install
                     if (Directory.Exists(_latestVersionDirectory))
                         Directory.Delete(_latestVersionDirectory, true);
@@ -1332,6 +1337,8 @@ namespace Bloxstrap
             {
                 uninstallKey.SetValueSafe("EstimatedSize", totalSize);
             }
+
+            WindowsRegistry.RegisterClientLocation(IsStudioLaunch, _latestVersionDirectory);
 
             App.Logger.WriteLine(LOG_IDENT, $"Registered as {totalSize} KB");
 
