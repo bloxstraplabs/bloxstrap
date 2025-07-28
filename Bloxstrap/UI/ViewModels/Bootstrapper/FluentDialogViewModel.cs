@@ -14,7 +14,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
         {
             const int alpha = 128;
 
-            WindowBackdropType = aero ? BackgroundType.Acrylic : BackgroundType.Mica;
+            WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
 
             if (aero)
             {
