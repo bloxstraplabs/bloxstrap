@@ -631,9 +631,10 @@ namespace Bloxstrap
                             $"robloxLocale:{match.Groups[1].Value}",
                             StringComparison.OrdinalIgnoreCase);
                 }
+            }
 
-                string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
-                string ResolvedName = null!;
+            string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
+            string ResolvedName = null!;
 
                 foreach (string Name in Names)
                 {
@@ -826,7 +827,6 @@ namespace Bloxstrap
 
                 // allow for window to show, since the log is created pretty far beforehand
                 Thread.Sleep(1000);
-            }
         }
 
         private bool ShouldRunAsAdmin()
