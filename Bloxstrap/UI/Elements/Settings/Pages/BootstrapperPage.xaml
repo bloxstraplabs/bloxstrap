@@ -36,12 +36,6 @@
             <ui:ToggleSwitch IsChecked="{Binding BackgroundUpdates, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <controls:OptionControl 
-Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Title}"
-Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstances_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding MultiInstances, Mode=TwoWay}" />
-        </controls:OptionControl>
-
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>

@@ -38,15 +38,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
         }
 
-        public bool MultiInstances
-        {
-            get => App.Settings.Prop.MultiInstanceLaunching;
-            set {
-                App.Settings.Prop.MultiInstanceLaunching = value;
-                App.FastFlags.SetPreset("Instances.WndCheck", value ? "0" : null);
-            }
-        }
-
         public CleanerOptions SelectedCleanUpMode
         {
             get => App.Settings.Prop.CleanerOptions;

@@ -9,7 +9,7 @@
             try
             {
                 // prevent any possible race conditions by checking for bloxstrap processes too
-                int count = Process.GetProcesses().Count(x => x.ProcessName is "RobloxPlayerBeta" or "Bloxstrap");
+                int count = Process.GetProcesses().Count(x => x.ProcessName is "RobloxPlayerBeta" or "Fishstrap");
                 count -= 1; // ignore the current process
                 return count;
             }
