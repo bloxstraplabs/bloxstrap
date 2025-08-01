@@ -38,6 +38,7 @@
     <EmbeddedResource Include="Resources\Icon2017.ico" />
     <EmbeddedResource Include="Resources\Icon2019.ico" />
     <EmbeddedResource Include="Resources\Icon2022.ico" />
+    <EmbeddedResource Include="Resources\Icon2025.ico" />
     <EmbeddedResource Include="Resources\IconBloxstrap.ico" />
     <EmbeddedResource Include="Resources\IconEarly2015.ico" />
     <EmbeddedResource Include="Resources\IconLate2015.ico" />
