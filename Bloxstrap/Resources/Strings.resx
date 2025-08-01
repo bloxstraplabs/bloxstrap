@@ -332,6 +332,15 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   <data name="Enums.CursorType.From2013" xml:space="preserve">
     <value>2013 (Angular)</value>
   </data>
+  <data name="Enums.DeathSound.Default" xml:space="preserve">
+    <value>Default (uuhhh.wav)</value>
+  </data>
+  <data name="Enums.DeathSound.From2022" xml:space="preserve">
+    <value>2022 - 2025 (ouch.ogg)</value>
+  </data>
+  <data name="Enums.DeathSound.Unused" xml:space="preserve">
+    <value>Unused (Kid saying Ouch.wav)</value>
+  </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
   </data>
@@ -795,11 +804,11 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulate old character sounds</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bring back the classic 'oof' death sound.</value>
+  <data name="Menu.Mods.Presets.CustomDeathSound.Description" xml:space="preserve">
+    <value>Choose between using three death sounds.</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Use old death sound</value>
+  <data name="Menu.Mods.Presets.CustomDeathSound.Title" xml:space="preserve">
+    <value>Death Sound</value>
   </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
