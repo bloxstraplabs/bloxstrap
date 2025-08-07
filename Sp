@@ -1,0 +1,15 @@
+{
+"FIntDebugTextureManagerSkipMips": "8",
+"FFlagDebugSkyGray": "Verdadeiro",
+"FIntRenderShadowIntensity": "0",
+"DFIntTaskSchedulerTargetFps": "60",
+"FFlagDisablePostFx": "Verdadeiro",
+"FIntFRMMinGrassDistance": "0",
+"FIntFRMMaxGrassDistance": "0",
+"FIntRenderGrassDetailStrands": "0",
+"FIntRenderGrassHeightScaler": "0",
+"FFlagDebugDisplayFPS": "Verdadeiro",
+"DFFlagDebugRenderForceTechnologyVoxel": "Verdadeiro",
+"FFlagRenderNoLowFrmBloom": "Falso",
+"DFIntDebugFRMQualityLevelOverride": "1"
+}
