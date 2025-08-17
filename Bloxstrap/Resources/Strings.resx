@@ -1332,6 +1332,9 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
     <value>Failed to parse the theme file: {0}</value>
   </data>
+  <data name="CustomTheme.Errors.InvalidBackdrop" xml:space="preserve">
+    <value>Tried to use invalid WindowBackdropType: {0}</value>
+  </data>
   <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
     <value>{0} has invalid {1}: {2}</value>
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>

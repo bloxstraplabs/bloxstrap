@@ -360,9 +360,11 @@
 		},
 		"WindowsBackdrop": {
 			"Values": [
+				"Auto",
 				"Mica",
 				"Aero",
 				"Acrylic",
+				"Tabbed",
 				"None"
 			]
 		},

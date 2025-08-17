@@ -411,30 +411,18 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
 
             string windowsbackdrop = xmlElement.Attribute("WindowsBackdrop")?.Value ?? "None";
-            string backdrop = windowsbackdrop.ToLower();
 
-            if (backdrop == "aero")
+            try
             {
-                dialog.AllowsTransparency = true;
-                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Aero;
-            }
-            else if (backdrop == "acrylic")
-            {
-                dialog.AllowsTransparency = true;
-                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Acrylic;
-            }
-            else if (backdrop == "mica")
-            {
-                dialog.AllowsTransparency = false;
-                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Mica;
-            }
-            else
-            {
-                dialog.AllowsTransparency = false;
-                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.None;
-            }
+                if (windowsbackdrop == "Aero" || windowsbackdrop == "Acrylic")
+                    dialog.AllowsTransparency = true;
 
-
+                dialog.WindowBackdropType = (Wpf.Ui.Appearance.BackgroundType)Enum.Parse(typeof(Wpf.Ui.Appearance.BackgroundType), windowsbackdrop);
+            }
+            catch (Exception)
+            {
+                throw new CustomThemeException("CustomTheme.Errors.InvalidBackdrop", windowsbackdrop);
+            }
 
             return new DummyFrameworkElement();
         }
