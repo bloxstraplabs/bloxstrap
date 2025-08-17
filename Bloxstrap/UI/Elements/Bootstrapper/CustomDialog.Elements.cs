@@ -410,6 +410,26 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 Grid.SetRowSpan(dialog.ElementGrid, 2);
             }
 
+            string windowsbackdrop = xmlElement.Attribute("WindowsBackdrop")?.Value ?? "None";
+
+            switch (windowsbackdrop.ToLower())
+            {
+                case "aero":
+                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Aero;
+                    break;
+                case "acrylic":
+                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Acrylic;
+                    break;
+                case "mica":
+                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Mica;
+                    break;
+                case "none":
+                default:
+                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.None;
+                    break;
+            }
+
+
             return new DummyFrameworkElement();
         }
 

@@ -46,7 +46,8 @@
 				"Theme": "Theme",
 				"Title": "string",
 				"IgnoreTitleBarInset": "bool",
-				"WindowCornerPreference": "WindowCornerPreference"
+				"WindowCornerPreference": "WindowCornerPreference",
+				"WindowsBackdrop": "WindowsBackdrop"
 			}
 		},
 		"TitleBar": {
@@ -355,6 +356,14 @@
 				"Default",
 				"Dark",
 				"Light"
+			]
+		},
+		"WindowsBackdrop": {
+			"Values": [
+				"Mica",
+				"Aero",
+				"Acrylic",
+				"None"
 			]
 		},
 		"FontWeight": {

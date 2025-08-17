@@ -1,4 +1,4 @@
-﻿<BloxstrapCustomBootstrapper Version="1" Height="320" Width="520" IgnoreTitleBarInset="True" Theme="Default" Margin="30">
+﻿<BloxstrapCustomBootstrapper Version="1" Height="320" Width="520" IgnoreTitleBarInset="True" WindowsBackdrop="Aero" Theme="Default" Margin="30">
 	<!-- {0} -->
 	<TitleBar Title="" ShowMinimize="False" ShowClose="False" />
 
