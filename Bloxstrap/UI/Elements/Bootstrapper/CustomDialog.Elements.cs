@@ -415,16 +415,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             switch (windowsbackdrop.ToLower())
             {
                 case "aero":
+                    dialog.AllowsTransparency = true;
                     dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Aero;
                     break;
                 case "acrylic":
+                    dialog.AllowsTransparency = true;
                     dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Acrylic;
                     break;
                 case "mica":
+                    dialog.AllowsTransparency = false;
                     dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Mica;
                     break;
                 case "none":
                 default:
+                    dialog.AllowsTransparency = false;
                     dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.None;
                     break;
             }
