@@ -411,27 +411,29 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
 
             string windowsbackdrop = xmlElement.Attribute("WindowsBackdrop")?.Value ?? "None";
+            string backdrop = windowsbackdrop.ToLower();
 
-            switch (windowsbackdrop.ToLower())
+            if (backdrop == "aero")
             {
-                case "aero":
-                    dialog.AllowsTransparency = true;
-                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Aero;
-                    break;
-                case "acrylic":
-                    dialog.AllowsTransparency = true;
-                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Acrylic;
-                    break;
-                case "mica":
-                    dialog.AllowsTransparency = false;
-                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Mica;
-                    break;
-                case "none":
-                default:
-                    dialog.AllowsTransparency = false;
-                    dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.None;
-                    break;
+                dialog.AllowsTransparency = true;
+                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Aero;
             }
+            else if (backdrop == "acrylic")
+            {
+                dialog.AllowsTransparency = true;
+                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Acrylic;
+            }
+            else if (backdrop == "mica")
+            {
+                dialog.AllowsTransparency = false;
+                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.Mica;
+            }
+            else
+            {
+                dialog.AllowsTransparency = false;
+                dialog.WindowBackdropType = Wpf.Ui.Appearance.BackgroundType.None;
+            }
+
 
 
             return new DummyFrameworkElement();
