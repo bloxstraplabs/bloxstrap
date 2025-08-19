@@ -14,9 +14,7 @@ namespace Bloxstrap
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
-            { "Network.Log", "FLogNetwork" },
-
-            { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
+            { "Network.Log", "FLogNetwork"
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
