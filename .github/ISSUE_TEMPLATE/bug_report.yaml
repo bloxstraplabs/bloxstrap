@@ -6,30 +6,21 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > Do NOT open an issue if you're getting an error saying "`The given key 'redist.zip' was not present in the dictionary.`", or if you're getting stuck on "Configuring Roblox...".
-        > This problem has been fixed in the latest version of Bloxstrap. You either have auto-updates disabled or are using someone's custom build of an old version.
-        > Download the latest version [here](https://github.com/pizzaboxer/bloxstrap/releases/latest).
-        ### **Preliminary instructions**
-        - Before opening an issue, please [check the Wiki first](https://github.com/pizzaboxer/bloxstrap/wiki/) to see if your problem has been addressed there.
-          - If it isn't, please confirm which pages that you read that were relevant to your issue.
-          - Your issue ***will*** be closed without warning if there's a Wiki page addressing your problem.
-        - If your problem is with Roblox itself (i.e. it crashes or doesn't launch), [check to see if it happens without Bloxstrap](https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch). 
-          - Please only open an issue if your problem happens only with Bloxstrap, and state clearly that this is the case, as anything else is out of my control.
+        > We (the developers) don't actively check issues anymore. We might not get to your issue unless it may be important (like if it's about a feature breaking). Sorry about that.
+        ### **Instructions**
+        - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
+        - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
         - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
-        - Also, please ensure you are using the [latest version of Bloxstrap](https://github.com/pizzaboxer/bloxstrap/releases/latest). Your report will be null and void if you are not.
-        - If more clarification on the issue is needed, and you don't respond after a month, then your issue will be closed as stale.
+        - Your report may be closed as stale if you don't respond in a good amount of time.
   - type: checkboxes
     id: terms
     attributes:
-      label: Acknowledgement of preliminary instructions
+      label: I have...
       options:
-        - label: I have read the preliminary instructions, and I am certain that my problem has not already been addressed.
-          required: true
-        - label: I have thoroughly looked through the available Wiki articles and could not find a solution to my problem.
+        - label: I have read the instructions, and I didn't find a solution in the Wiki.
           required: true
         - label: I am using the latest version of Bloxstrap.
           required: true
-        - label: I did not answer truthfully to all the above checkboxes.
   - type: input
     id: version
     attributes:
@@ -42,14 +33,14 @@ body:
     id: what-happened
     attributes:
       label: What problem did you encounter?
-      description: Provide a comprehensive description of the problem you're facing. Don't forget to attach any additional resources you may have, such as log files and screenshots.
+      description: Provide a good description of the problem you're having. Screenshots too please.
     validations:
       required: true
   - type: textarea
     id: repro-steps
     attributes:
       label: How do you reproduce the problem?
-      description: Include the steps to reproduce the problem from start to finish. Include details such as FastFlags you added and settings you changed.
+      description: Write down steps to cause the problem, from start to finish, if you can.
       placeholder: |
         1. Go to '...'
         2. Click on '...'
