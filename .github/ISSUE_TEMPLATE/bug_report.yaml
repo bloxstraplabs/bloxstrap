@@ -1,5 +1,4 @@
 name: Bug Report
-title: "[BUG] "
 description: Report a problem you're having
 body:
   - type: markdown
@@ -10,7 +9,6 @@ body:
         ### **Instructions**
         - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
         - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
-        - If you are getting a Bloxstrap Exception error, please attach a copy of the provided log file. There is a button on the dialog that locates it for you.
         - Your report may be closed as stale if you don't respond in a good amount of time.
   - type: checkboxes
     id: terms
@@ -26,7 +24,7 @@ body:
     attributes:
       label: Bloxstrap Version
       description: "What version of Bloxstrap are you using? Find it in the 'About' section of the Settings"
-      placeholder: "v1.0.0"
+      placeholder: "v1.0.0 (for example)"
     validations:
       required: true
   - type: textarea
@@ -50,6 +48,6 @@ body:
     id: log
     attributes:
       label: Bloxstrap Log
-      description: If you're getting a Bloxstrap Exception error, upload your log file here. Otherwise, just leave it empty.
+      description: If you're getting a 'Bloxstrap Exception' error, upload your log file here. Open it, then select all (Ctrl+A), then copy and paste here. Otherwise, leave it empty.
       value: "N/A"
       render: text
