@@ -2,8 +2,6 @@
 {
     public class State
     {
-        public bool ShowFFlagEditorWarning { get; set; } = true;
-
         public bool PromptWebView2Install { get; set; } = true;
 
         public bool ForceReinstall { get; set; } = false;
