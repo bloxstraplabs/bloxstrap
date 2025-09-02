@@ -1461,7 +1461,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An exception occurred while running Bloxstrap.
+        ///   Looks up a localized string similar to An exception occurred.
         /// </summary>
         public static string Dialog_Exception_Info_1 {
             get {
@@ -1470,9 +1470,9 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+        ///   Looks up a localized string similar to This problem may already be addressed in the [Wiki]({0}).
         ///
-        ///If not, then please report this exception through a [GitHub issue]({1}) along with a copy of the log file that was created..
+        ///If it&apos;s not, then please report this exception through a [GitHub issue]({1}) along with the log file..
         /// </summary>
         public static string Dialog_Exception_Info_2 {
             get {
@@ -1483,7 +1483,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
         ///
-        ///If not, then please report this exception to the maintainers of this fork. Do NOT report this to Bloxstrap&apos;s GitHub issues, as this is an unoffical build..
+        ///If not, then please report this exception to the maintainers of this fork. Do not report this to Bloxstrap&apos;s GitHub issues, as this is an unoffical build..
         /// </summary>
         public static string Dialog_Exception_Info_2_Alt {
             get {
@@ -1492,7 +1492,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Report exception.
+        ///   Looks up a localized string similar to Make report.
         /// </summary>
         public static string Dialog_Exception_Report {
             get {
@@ -1548,31 +1548,13 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roblox has crashed..
-        /// </summary>
-        public static string Dialog_PlayerError_Crash {
-            get {
-                return ResourceManager.GetString("Dialog.PlayerError.Crash", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Roblox failed to launch..
+        ///   Looks up a localized string similar to Roblox failed to launch.
+        ///
+        ///This may or may not be a Bloxstrap issue. To find out, see [this help page]({0})..
         /// </summary>
         public static string Dialog_PlayerError_FailedLaunch {
             get {
                 return ResourceManager.GetString("Dialog.PlayerError.FailedLaunch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to For information about why this could be happening and how this can be resolved, please read [this help article]({0}).
-        ///
-        ///Check if Roblox works with [the original launcher]({1}). If it doesn&apos;t, then this isn&apos;t a Bloxstrap issue. If it does, then refer to the help article..
-        /// </summary>
-        public static string Dialog_PlayerError_HelpInformation {
-            get {
-                return ResourceManager.GetString("Dialog.PlayerError.HelpInformation", resourceCulture);
             }
         }
         
@@ -1789,42 +1771,6 @@ namespace Bloxstrap.Resources {
         public static string Enums_FlagPresets_InGameMenuVersion_V4Chrome {
             get {
                 return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4Chrome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Chosen by game.
-        /// </summary>
-        public static string Enums_FlagPresets_LightingMode_Default {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.LightingMode.Default", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Future (Phase 3).
-        /// </summary>
-        public static string Enums_FlagPresets_LightingMode_Future {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.LightingMode.Future", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Shadow Map (Phase 2).
-        /// </summary>
-        public static string Enums_FlagPresets_LightingMode_ShadowMap {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.LightingMode.ShadowMap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Voxel (Phase 1).
-        /// </summary>
-        public static string Enums_FlagPresets_LightingMode_Voxel {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.LightingMode.Voxel", resourceCulture);
             }
         }
         
@@ -2645,24 +2591,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only applies to games launched from the Roblox website..
-        /// </summary>
-        public static string Menu_Behaviour_ForceRobloxLanguage_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.ForceRobloxLanguage.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Allow use of unsupported Roblox languages.
-        /// </summary>
-        public static string Menu_Behaviour_ForceRobloxLanguage_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.ForceRobloxLanguage.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Roblox will be installed fresh on next launch..
         /// </summary>
         public static string Menu_Behaviour_ForceRobloxReinstall_Description {
@@ -2959,15 +2887,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Learn more about Fast Flags, what these presets do, and how to use them..
-        /// </summary>
-        public static string Menu_FastFlags_Help_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Help.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Disabling this will prevent anything configured here from being applied to Roblox..
         /// </summary>
         public static string Menu_FastFlags_ManagerEnabled_Description {
@@ -3036,15 +2955,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_DisableTerrainTextures_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.DisableTerrainTextures.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Preferred escape menu version.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_EscapeMenuVersion_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.EscapeMenuVersion.Title", resourceCulture);
             }
         }
         
@@ -3135,24 +3045,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_HideGuis_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.HideGuis.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0}).
-        /// </summary>
-        public static string Menu_FastFlags_Presets_LightingTechnology_Description {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.LightingTechnology.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Preferred lighting technology.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_LightingTechnology_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.LightingTechnology.Title", resourceCulture);
             }
         }
         
@@ -3871,9 +3763,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Uninstalling will remove Bloxstrap from your system, and automatically reconfigure the default Roblox launcher if it&apos;s still installed.
         ///
-        ///If you&apos;re uninstalling or reinstalling because you are having issues with Roblox, read [this help page]({0}) first.
-        ///
-        ///The uninstall process may not be able to fully clean up itself, so you may need to manually clean up leftover files where Bloxstrap was installed.
+        ///The uninstall process might leave some things behind, so you may need to manually clean up the leftover files where Bloxstrap was installed.
         ///
         ///Bloxstrap was installed at &quot;{1}&quot;..
         /// </summary>

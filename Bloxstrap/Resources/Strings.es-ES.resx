@@ -356,18 +356,6 @@ Si no es así, informe de esta excepción a través de un [Problema en GitHub]({
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (Versión 4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Elegido por el juego</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Futuro (Fase 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Fase 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Fase 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -592,15 +580,8 @@ Más Información:
     <value>Controla tus propias Fast Flags. Úsalo con cuidado.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Aprende más sobre Fast Flags, que hacen los preestablecidos, y como usarlos.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [pantalla completa exclusiva]({0}) usando Alt+Enter está activado por defecto.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versión preferida del menú de escape</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox reduce tu calidad de renderizado dependiendo en como está escalada tu resolución en Windows.</value>
@@ -619,12 +600,6 @@ Más Información:
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Habilitar la capacidad de ocultar GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>El elegido se activará a la fuerza en todos los juegos. [Cuidado, puede causar problemas de iluminación]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tecnología de iluminación preferida</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Modo de renderizado</value>
@@ -816,12 +791,6 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Es necesario relanzar para que los cambios tengan efecto.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Permitir el uso de idiomas no compatibles con Roblox</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Solo se aplica a los juegos lanzados desde el sitio web de Roblox.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (Versión 4 + Nueva interfaz de usuario)</value>
@@ -1082,14 +1051,6 @@ Pueden producirse problemas y su configuración puede verse alterada. Se recomie
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox no se pudo ejecutar.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox se ha crasheado.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Para obtener información sobre por qué esto puede estar pasando y como puede ser solucionado, por favor lee [este artículo de ayuda]({0}).
-
-Comprueba si Roblox funciona con el [iniciador original]({1}). Si no funciona, entonces no es un problema de Bloxstrap. Si lo es, consulta el artículo de ayuda.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>No se pudieron cargar los datos debido a un error de red.</value>

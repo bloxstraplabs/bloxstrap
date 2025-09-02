@@ -356,18 +356,6 @@
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (نسخه چهارم)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>انتخاب توسط بازی</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>آینده (فاز سوم)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>سایه نقشه (فاز دوم)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>وکسل (فاز اول)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -591,15 +579,8 @@
     <value>مدیریت کردن فست فلگ های خودتان. با احتیاط استفاده کنید.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>درباره فست فلگ ها، کارهایی که انجام می دهند و نحوه استفاده از آنها را بیاموزید.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>({0})Direct3D [exclusive fullscreen] با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>نسخه منوی ترجیحی</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>روبلاکس کیفیت رندرینگ شما را بر اساس مقیاس نمایشگر در ویندوز کاهش می‌دهد.</value>
@@ -618,12 +599,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>فعال سازی قابلیت پنهان کردن رابط کاربر گرافیکی</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>گزینه‌ی انتخاب شده در تمامی بازی‌ها به‌طور اجباری فعال خواهد شد. [توجه کنید، ممکن است مشکلاتی در نورپردازی ایجاد کند!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>تکنولوژی نورپردازی ترجیهی</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>حالت رندر کردن</value>
@@ -815,12 +790,6 @@
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>به یک اجرای مجدد جهت نتیجه گرفتن تغییرات نیاز است.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>اجازه استفاده از زبان های پشتیبانی نشده روبلاکس</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>فقط برو روی بازی های باز شده از روی سایت روبلاکس است.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (ورژن چهار + رابط کاربری جدید)</value>
@@ -1082,14 +1051,6 @@
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>روبلاکس نتوانستد اجرا شود.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>روبلاکس کرش کرد.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>برای اطلاعات در مورد اینکه چرا ممکن است این اتفاق بیفتد و چگونه می توان آن را حل کرد، لطفاً [این مقاله راهنما] ({0}) را بخوانید.
-
-بررسی کنید آیا روبلاکس با [لانچر اصلی] ({1}) کار می‌کند یا خیر. اگر اینطور نیست، پس این یک مشکل بلاکسترپ نیست. اگر چنین بود، به مقاله راهنما مراجعه کنید.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>داده ها بخاطر یک مشکل در شبکه بارگیری نشدند.</value>

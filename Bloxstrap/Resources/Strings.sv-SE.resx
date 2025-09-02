@@ -356,18 +356,6 @@ Om det inte har det, rapportera gärna detta undantag med ett [GitHub-ärende]({
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Valt av spelet</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Fas 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Fas 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Fas 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -592,15 +580,8 @@ Mer information:
     <value>Hantera dina egna Fast Flags. Använd försiktigt.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Lär dig mer om Fast Flags, vad förinställningarna gör och hur du använder dem.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exklusiv helskärm]({0}) med Alt+Enter är igång som standard.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Föredragen escapemeny-version</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox sänker din renderingskvalitet beroende på hur din skärm är skalad i Windows.</value>
@@ -619,12 +600,6 @@ Mer information:
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Aktivera möjligheten att dölja GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Vald ljusteknologi kommer tvingas igång i alla spel. [Var försiktig, detta kan skapa ljusproblem!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Föredragen ljusteknik</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderingsläge</value>
@@ -816,12 +791,6 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>En omstart krävs för att dina ändringar ska träda i kraft.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Tillåt användning av Roblox-språk som inte stöds</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Gäller endast spel som startas från Roblox-webbsidan.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Ny UI)</value>
@@ -1083,14 +1052,6 @@ Problem kan uppstå och dina inställningar kan ändras. En ominstallation rekom
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox misslyckades med att starta.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox har kraschat.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>För information om varför detta sker och hur det kan lösas, se [denna hjälpartikel]({0}).
-
-Kontrollera att Roblox fungerar med [det vanliga startprogrammet]({1}). Om varken Bloxstrap eller det vanliga startprogrammer funkar så är detta inte ett Bloxstrap-fel. Om det gör det, hänvisa till hjälpartikeln.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Kunde inte ladda data på grund av ett nätverksfel.</value>

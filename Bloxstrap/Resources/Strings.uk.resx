@@ -356,18 +356,6 @@
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (Версія 4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Обрано за грою</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Фаза 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Фаза 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Фаза 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -589,15 +577,8 @@
     <value>Керуйте власними Fast Flag-ами. Використовуйте з обережністю.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Дізнайтеся більше про Fast Flag-и, що вони роблять і як ними користуватися.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [повноекранний режим]({0}) через Alt+Enter вже увімкнено за замовчуванням.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Бажана версія меню Escape</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox знижує вам якість рендерингу залежного від вашого масштабування дисплея в Windows.</value>
@@ -616,12 +597,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Увімкнути можливість приховування інтерфейсу</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Вибраний варіант буде ввімкнено в усіх іграх. [Увага, можуть бути проблеми з освітленням!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Бажана технологія освітлення</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Режим рендерингу</value>
@@ -813,12 +788,6 @@
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Потрібен перезапуск, щоб побачити зміни.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Дозволити використовувати не підтримувану мову в Roblox</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Застосовується тільки тоді, коли гру запущено з сайту Roblox.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Новий Iнтерфейс)</value>
@@ -1080,14 +1049,6 @@ Bloxstrap встановлено на "{1}".</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Не вдалося запустити Roblox.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox аварійно завершив роботу.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Ви можете пошукати інформацію чому це відбувається і як це можна вирішити в цьому допоміжному посібнику({0}).
-
-Перевірте, чи працює Roblox з оригінальним клієнтом({1}). Якщо так, тоді перегляньте посібник. Якщо ні, тоді це не проблема Bloxstrap.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Не вдалося завантажити дані через помилку мережі.</value>

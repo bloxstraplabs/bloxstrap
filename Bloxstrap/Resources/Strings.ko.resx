@@ -356,18 +356,6 @@
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>게임 설정 따르기</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (3단계)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (2단계)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (1단계)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -591,15 +579,8 @@
     <value>Fast Flag를 관리할 수 있습니다. 주의해서 사용해야 합니다.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Fast Flag와 여러 프리셋의 기능 및 사용 방법에 대해 자세히 알아보세요.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Alt+Enter를 눌러 Direct3D [전체 화면]({0})을 실행하는 Fast Flag 프리셋은 이미 기본적으로 활성화되어 있습니다.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>선호하는 Esc 메뉴 버전</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox는 Windows 디스플레이 해상도에 따라 렌더링 품질을 낮춥니다.</value>
@@ -618,12 +599,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>GUI 숨기기 기능 켜기</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>적용된 조명은 모든 게임에 강제로 적용됩니다. [조명에 문제가 발생할 수 있습니다, 조심하세요!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>선호하는 조명 기술</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>렌더링 모드</value>
@@ -816,12 +791,6 @@
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>변경 사항을 적용하려면 다시 시작해야 합니다.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>지원되지 않는 Roblox 언어 사용 허용</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Roblox 웹사이트에서 실행한 게임에만 적용됩니다.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + 새 UI)</value>
@@ -1083,14 +1052,6 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox가 실행에 실패했습니다.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox가 충돌했습니다.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>이 문제가 왜 일어나는지, 그리고 해결하는 방법을 알아보시려면 [이 도움말 문서]({0})을 참조하세요.
-
-[기존 Roblox 런처]({1})로 문제가 해결되는지 확인하세요. 그렇지 않으면, 이는 Bloxstrap의 문제가 아닙니다. 만약 그렇다면, 도움말 문서를 참조하세요.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>네트워크 오류로 인해 데이터를 로드할 수 없습니다.</value>

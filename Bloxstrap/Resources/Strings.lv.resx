@@ -356,18 +356,6 @@ Ja nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) līdzā
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Izvēlēts pēc spēles</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Nākotne (3. Fāze)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Ēnu Karte (2. Fāze)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Vokselis (1. Fāze)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -593,15 +581,8 @@ Vai jūs esat pārliecināts, ka vēlaties turpināt?</value>
     <value>Pārvaldīt savus Ātros Karogus. Izmantot ar piesardzību.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Uzzināt vairāk par Ātrajiem Karogiem, ko šie priekšiestatījumi dara, un kā tos izmantot.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [ekskluzīvais pilnekrāns]({0}) izmantojot Alt+Enter ir iespējots pēc noklusējuma.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Vēlamā escape izvēlnes versija</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox samazina jūsu renderēšanas kvalitāte atkarība no tā, kā jusu Windows displejs ir mērogots.</value>
@@ -620,13 +601,6 @@ Vai jūs esat pārliecināts, ka vēlaties turpināt?</value>
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>Iespējot spēju paslēpt GUI</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Izvēlētais piespiedu kārtā tiks iespējots katrā spēlē.
-[Uzmanību, var radīt problēmas ar gaismu!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Vēlamā gaismas tehnoloģija</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderēšanas režīms</value>
@@ -818,12 +792,6 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Atkārtota palaišana ir nepieciešama, lai izmaiņas stātos spēkā.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Atļaut neatbalstītu Roblox valodu izmantošanu</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Attiecas tikai uz spēlēm, kas tiek palaistas no Roblox vietnes.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Jauns UI)</value>
@@ -1084,16 +1052,6 @@ Vai jūs esat drošs, ka vēlaties turpināt?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox nespēja tikt palaists.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox nespēja tikt palaists.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Priekš informācijas, kāpēc šis varētu notikt un kā to atrisināt, lūdzu lasiet [šo palīdzības rakstu]({0}).
-
-
-Pārbaudiet vai Roblox strādā ar [oriģinālo palaidēju]({1}).
-Ja nē, tad šī nav Bloxstrap problēma. Ja jā, tad skatiet palīdzības rakstu.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nevarēja ielādet datus, dēļ tīkla kļūdas.</value>

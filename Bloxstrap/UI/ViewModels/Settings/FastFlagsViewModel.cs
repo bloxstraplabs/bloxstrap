@@ -86,14 +86,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
         //    }
         //}
 
-        public IReadOnlyDictionary<LightingMode, string> LightingModes => FastFlagManager.LightingModes;
-
-        public LightingMode SelectedLightingMode
-        {
-            get => App.FastFlags.GetPresetEnum(LightingModes, "Rendering.Lighting", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Lighting", LightingModes[value], "True");
-        }
-
         public bool FullscreenTitlebarDisabled
         {
             get => int.TryParse(App.FastFlags.GetPreset("UI.FullscreenTitlebarDelay"), out int x) && x > 5000;

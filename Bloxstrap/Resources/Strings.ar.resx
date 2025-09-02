@@ -356,18 +356,6 @@
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (النسخة الرابعة)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>مختار من قبل اللعبة</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (المرحلة الثالثة)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (المرحلة الثانية)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (المرحلة الأولى)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -590,15 +578,8 @@
     <value>إدارة FastFlag الخاصة بك. استخدم بحذر.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>تعرف على المزيد حول Fast Flags وما تفعله هذه الإعدادات المسبقة وكيفية استخدامها.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [ملء الشاشة الحصري]({0}) باستخدام Alt+Enter بشكل تلقائي.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>إصدار قائمة الهروب المفضلة</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox تقلل من جودة العرض الخاص اعتمادا على كيفية تحجيم العرض الخاص بك في Windows.</value>
@@ -617,12 +598,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
     <value>القدرة على إخفاء واجهات المستخدم</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>سيتم تمكين المختارة في جميع الألعاب. [احذر، قد يسبب مشاكل في الإضاءة!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>تقنية الإضاءة</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>وضع العرض</value>
@@ -814,12 +789,6 @@
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>مطلوب إعادة التشغيل للتأثير على المتغيرات.</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>السماح باستخدام لغات Roblox غير المدعومة</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>ينطبق فقط على الألعاب التي تم إطلاقها من موقع Roblox.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (النسخة الرابعة + واجهة مستخدم جديدة)</value>
@@ -1081,14 +1050,6 @@
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>فشل Roblox في التشغيل.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>لقد تحطم Roblox.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>للحصول على معلومات عن السبب الذي من أجله يمكن أن يحدث هذا وكيف يمكن حله، يرجى قراءة [هذه المادة المساعدة]({0}).
-
-تحقق مما إذا كان Roblox يعمل مع [المشغل الأصلي]({1}). إذا لم يكن الأمر كذلك، فهذا ليس مشكلة Bloxstrap. إذا كان الأمر كذلك، فيرجى الرجوع إلى مقالة المساعدة.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>تعذر تحميل البيانات بسبب خطأ في الشبكة.</value>

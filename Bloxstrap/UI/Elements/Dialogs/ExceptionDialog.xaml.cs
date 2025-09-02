@@ -27,7 +27,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 LocateLogFileButton.Content = Strings.Dialog_Exception_CopyLogContents;
 
             string repoUrl = $"https://github.com/{App.ProjectRepository}";
-            string wikiUrl = $"{repoUrl}/wiki";
+            string wikiUrl = $"https://bloxstraplabs.com/wiki/help/";
 
             string title = HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}");
             string log = HttpUtility.UrlEncode(App.Logger.AsDocument);
@@ -45,8 +45,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
 
             string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
 
-            if (!App.IsActionBuild && !App.BuildMetadata.Machine.Contains("pizzaboxer", StringComparison.Ordinal))
-                helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
+            //if (!App.IsActionBuild && !App.BuildMetadata.Machine.Contains("pizzaboxer", StringComparison.Ordinal))
+                //helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);
 
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
             VersionText.Text = String.Format(Strings.Dialog_Exception_Version, App.Version);
