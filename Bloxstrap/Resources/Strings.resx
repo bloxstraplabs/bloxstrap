@@ -389,6 +389,12 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   <data name="Enums.Theme.Light" xml:space="preserve">
     <value>Light</value>
   </data>
+  <data name = "Enums.DiscordRPCStatusDisplay.Name" xml:space="preserve">
+    <value>Name (Playing Roblox)</value>
+  </data>
+  <data name = "Enums.DiscordRPCStatusDisplay.Details" xml:space="preserve">
+    <value>Details (Playing Grow A Garden)</value>
+  </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
     <value>Bloxstrap has been upgraded to v{0}</value>
   </data>
@@ -685,6 +691,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
     <value>Show Roblox account</value>
+  </data>
+  <data name="Menu.Integrations.StatusDisplayText.Title" xml:space="preserve">
+    <value>Status display text</value>
+  </data>
+  <data name="Menu.Integrations.StatusDisplayText.Description" xml:space="preserve">
+    <value>Select what to display on your Discord profile status.</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>

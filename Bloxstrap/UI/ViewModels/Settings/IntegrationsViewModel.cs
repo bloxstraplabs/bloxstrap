@@ -119,6 +119,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.ShowAccountOnRichPresence = value;
         }
 
+        public IEnumerable<DiscordRPCStatusDisplay> DiscordActivityStatusDisplayTypes { get; } =
+            Enum.GetValues(typeof(DiscordRPCStatusDisplay))
+                .Cast<DiscordRPCStatusDisplay>();
+        public DiscordRPCStatusDisplay DiscordActivityStatusDisplayType
+        {
+            get => App.Settings.Prop.RichPresenceStatusDisplayType;
+            set => App.Settings.Prop.RichPresenceStatusDisplayType = value;
+        }
+
         public bool DisableAppPatchEnabled
         {
             get => App.Settings.Prop.UseDisableAppPatch;
