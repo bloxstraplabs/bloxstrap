@@ -3714,20 +3714,20 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bring back the classic &apos;oof&apos; death sound..
+        ///   Looks up a localized string similar to Choose between using three death sounds.
         /// </summary>
-        public static string Menu_Mods_Presets_OldDeathSound_Description {
+        public static string Menu_Mods_Presets_CustomDeathSound_Description {
             get {
-                return ResourceManager.GetString("Menu.Mods.Presets.OldDeathSound.Description", resourceCulture);
+                return ResourceManager.GetString("Menu.Mods.Presets.CustomDeathSound.Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use old death sound.
+        ///   Looks up a localized string similar to Death Sound
         /// </summary>
-        public static string Menu_Mods_Presets_OldDeathSound_Title {
+        public static string Menu_Mods_Presets_CustomDeathSound_Title {
             get {
-                return ResourceManager.GetString("Menu.Mods.Presets.OldDeathSound.Title", resourceCulture);
+                return ResourceManager.GetString("Menu.Mods.Presets.CustomDeathSound.Title", resourceCulture);
             }
         }
         

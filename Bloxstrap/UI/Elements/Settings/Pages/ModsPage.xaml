@@ -51,9 +51,15 @@
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Title}" 
-            Description="{x:Static resources:Strings.Menu_Mods_Presets_OldDeathSound_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding OldDeathSoundTask.NewState, Mode=TwoWay}" />
+            Header="{x:Static resources:Strings.Menu_Mods_Presets_CustomDeathSound_Title}" 
+            Description="{x:Static resources:Strings.Menu_Mods_Presets_CustomDeathSound_Description}">
+            <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="240" ItemsSource="{Binding CustomDeathSoundTask.Selections, Mode=OneTime}" Text="{Binding CustomDeathSoundTask.NewState, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </controls:OptionControl>
 
         <controls:OptionControl 
