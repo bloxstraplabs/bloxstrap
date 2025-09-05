@@ -5,11 +5,12 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > We (the developers) don't actively check issues anymore. We might not get to your issue unless it may be important (like if it's about a feature breaking). Sorry about that.
+        > Bloxstrap isn't actively maintained anymore. We might not get to your issue unless it may be important (like if it's about a feature breaking). Sorry about that.
         ### **Instructions**
         - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
+        - Also, don't open a report if it's in the [currently known issues](https://github.com/bloxstraplabs/bloxstrap/issues/5779). Common problems will be mentioned here too.
         - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
-        - Your report may be closed as stale if you don't respond in a good amount of time.
+        - Your report will be closed if it's lazily made and has too little detail.
   - type: checkboxes
     id: terms
     attributes:
