@@ -7,6 +7,7 @@ using Wpf.Ui.Mvvm.Contracts;
 
 using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -34,6 +35,14 @@ namespace Bloxstrap.UI.Elements.Settings
                 ShowAlreadyRunningSnackbar();
 
             LoadState();
+
+            App.RemoteData.Subscribe((object? sender, EventArgs e) => {
+                RemoteDataBase Data = App.RemoteData.Prop;
+
+                AlertBar.Visibility = Data.AlertEnabled ? Visibility.Visible : Visibility.Collapsed;
+                AlertBar.Message = Data.AlertContent;
+                AlertBar.Severity = Data.AlertSeverity;
+            });
 
             int LastPage = App.State.Prop.LastPage;
 

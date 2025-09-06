@@ -71,10 +71,12 @@
             <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ui:Breadcrumb Grid.Row="0" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
-                <Frame x:Name="RootFrame" Grid.Row="1" />
+                <ui:InfoBar x:Name="AlertBar" Grid.Row="0" Margin="0,0,12,0" Padding="8" Visibility="Collapsed" IsOpen="True" Message="" Severity="Warning" IsClosable="False" />
+                <ui:Breadcrumb Grid.Row="1" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
+                <Frame x:Name="RootFrame" Grid.Row="2" />
             </Grid>
         </Grid>
 

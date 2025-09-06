@@ -23,6 +23,7 @@ namespace Bloxstrap
         public const string ProjectDownloadLink = "https://github.com/returnrqt/fishstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/returnrqt/fishstrap/issues/new";
+        public const string ProjectRemoteDataLink = "https://raw.githubusercontent.com/fishstrap/config/refs/heads/main/Data.json";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
@@ -59,6 +60,8 @@ namespace Bloxstrap
         public static readonly JsonManager<State> State = new();
 
         public static readonly JsonManager<RobloxState> RobloxState = new();
+
+        public static readonly RemoteDataManager RemoteData = new();
 
         public static readonly FastFlagManager FastFlags = new();
 
@@ -322,6 +325,8 @@ namespace Bloxstrap
 
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
+
+                Task.Run(App.RemoteData.LoadData); // ok
 
                 WindowsRegistry.RegisterApis(); // we want to register those early on
                                                 // so we wont have any issues with bloxshade
