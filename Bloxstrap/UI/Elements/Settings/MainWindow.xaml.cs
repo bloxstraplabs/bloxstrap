@@ -8,6 +8,8 @@ using Wpf.Ui.Mvvm.Contracts;
 using Bloxstrap.UI.ViewModels.Settings;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using Bloxstrap.UI.Elements.Settings.Pages;
+using SharpVectors.Scripting;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -36,25 +38,30 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
 
+            string? lastPageName = App.State.Prop.LastPage;
+            Type? lastPage = lastPageName is null ? null : Type.GetType(lastPageName);
+
             App.RemoteData.Subscribe((object? sender, EventArgs e) => {
                 RemoteDataBase Data = App.RemoteData.Prop;
 
                 AlertBar.Visibility = Data.AlertEnabled ? Visibility.Visible : Visibility.Collapsed;
                 AlertBar.Message = Data.AlertContent;
                 AlertBar.Severity = Data.AlertSeverity;
+
+                if (Data.KillFlags)
+                    fastflags.PageType = typeof(FastFlagsDisabled);
             });
 
-            int LastPage = App.State.Prop.LastPage;
+            if (lastPage != null)
+                SafeNavigate(lastPage);
 
-            RootNavigation.SelectedPageIndex = LastPage;
+            RootNavigation.Navigated += OnNavigation!;
 
-            RootNavigation.Navigated += SaveNavigation!;
-
-            void SaveNavigation(object? sender, RoutedNavigationEventArgs? e)
+            void OnNavigation(object? sender, RoutedNavigationEventArgs e)
             {
-                if (sender == null || e == null) return;
+                INavigationItem? currentPage = RootNavigation.Current;
 
-                App.State.Prop.LastPage = RootNavigation.SelectedPageIndex;
+                App.State.Prop.LastPage = currentPage?.PageType.FullName!;
             }
         }
 
@@ -78,6 +85,12 @@ namespace Bloxstrap.UI.Elements.Settings
                 this.Left = _state.Left;
                 this.Top = _state.Top;
             }
+        }
+
+        private async void SafeNavigate(Type page)
+        {
+            await Task.Delay(500); // same as below
+            Navigate(page);
         }
 
         private async void ShowAlreadyRunningSnackbar()

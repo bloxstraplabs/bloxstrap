@@ -4,6 +4,7 @@ namespace Bloxstrap.Models.APIs.Config
 {
     public class RemoteDataBase
     {
+        // alert
         [JsonPropertyName("alertEnabled")]
         public bool AlertEnabled { get; set; } = false!;
 
@@ -12,5 +13,9 @@ namespace Bloxstrap.Models.APIs.Config
 
         [JsonPropertyName("alertSeverity")]
         public InfoBarSeverity AlertSeverity { get; set; } = InfoBarSeverity.Warning;
+
+        // flags
+        [JsonPropertyName("killFlags")]
+        public bool KillFlags { get; set; } = false;
     }
 }
