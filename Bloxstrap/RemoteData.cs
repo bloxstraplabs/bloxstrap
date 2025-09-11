@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace Bloxstrap
 {
@@ -36,6 +37,14 @@ namespace Bloxstrap
                     Handler(this, EventArgs.Empty); // data loading most likely failed but we still have the default/local config
                     break;
             }
+        }
+
+        public async void WaitUntilDataFetched()
+        {
+            while (LoadedState == GenericTriState.Unknown)        
+                await Task.Delay(100);    
+
+            return;
         }
 
         // remember that our data isnt necessary, we can run it asynchronously 
