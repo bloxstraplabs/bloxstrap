@@ -17,5 +17,9 @@ namespace Bloxstrap.Models.APIs.Config
         // flags
         [JsonPropertyName("killFlags")]
         public bool KillFlags { get; set; } = false;
+
+        // package maps
+        [JsonPropertyName("packageMaps")]
+        public PackageMaps PackageMaps { get; set; } = new();
     }
 }

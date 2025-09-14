@@ -15,7 +15,5 @@
         string ExecutablePath { get; }
 
         AppState State { get; }
-
-        IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
     }
 }

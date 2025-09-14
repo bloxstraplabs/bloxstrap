@@ -39,7 +39,7 @@ namespace Bloxstrap
             }
         }
 
-        public async void WaitUntilDataFetched()
+        public async Task WaitUntilDataFetched()
         {
             while (LoadedState == GenericTriState.Unknown)        
                 await Task.Delay(100);    
