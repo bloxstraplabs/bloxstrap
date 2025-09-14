@@ -47,18 +47,22 @@ namespace Bloxstrap
             return;
         }
 
-        // remember that our data isnt necessary, we can run it asynchronously 
+        // remember that our data isnt necessary, we can fetch it in the background 
         public async Task LoadData()
         {
-            const string LOG_IDENT = "RemoteData::LoadData";
+            const string LOG_IDENT = $"{nameof(RemoteDataManager)}::LoadData";
             if (App.Settings.Prop.ForceLocalData)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Force loading local data");
                 this.Load(false);
+
+                LoadedState = GenericTriState.Successful; // we treat it as successful to simulate the production data
             } else
                 try
                 {
                     Prop = await Http.GetJson<RemoteDataBase>(App.ProjectRemoteDataLink);
+
+                    LoadedState = GenericTriState.Successful;
                     App.Logger.WriteLine(LOG_IDENT, "Remote data loaded");
                 }
                 catch (Exception ex)
@@ -72,10 +76,12 @@ namespace Bloxstrap
                     LoadedState = GenericTriState.Failed;
                 }
 
-            LoadedState = GenericTriState.Successful;
-
             DataLoaded?.Invoke(this, EventArgs.Empty);
-            this.Save();
+
+            if (LoadedState == GenericTriState.Successful)
+                this.Save();
+
+            App.Logger.WriteLine(LOG_IDENT, $"Loading finished with status: {LoadedState}");
         }
     }
 }
