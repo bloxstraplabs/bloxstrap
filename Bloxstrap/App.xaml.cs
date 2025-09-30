@@ -21,7 +21,7 @@ namespace Bloxstrap
         public const string ProjectOwner = "Bloxstrap";
         public const string ProjectRepository = "bloxstraplabs/bloxstrap";
         public const string ProjectDownloadLink = "https://bloxstraplabs.com";
-        public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
+        public const string ProjectHelpLink = "https://bloxstraplabs.com/wiki/help/";
         public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
@@ -144,10 +144,10 @@ namespace Bloxstrap
         {
             // dont let user switch web environment if debug mode is not on
             if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
-                return "bloxstraplabs.com";
+                return "services.bloxstraplabs.com";
 
             string? sub = Settings.Prop.WebEnvironment.GetDescription();
-            return $"web-{sub}.bloxstraplabs.com";
+            return $"services-{sub}.bloxstraplabs.com";
         }
 
         public static bool CanSendLogs()

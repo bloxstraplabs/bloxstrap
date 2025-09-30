@@ -34,12 +34,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         private void OpenFlagEditor(object? sender, EventArgs e)
         {
             if (Window.GetWindow(this) is INavigationWindow window)
-            {
-                if (App.State.Prop.ShowFFlagEditorWarning)
-                    window.Navigate(typeof(FastFlagEditorWarningPage));
-                else
                     window.Navigate(typeof(FastFlagEditorPage));
-            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
