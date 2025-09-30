@@ -1826,9 +1826,6 @@ Defaulting to {1}.</value>
   <data name="Menu.FastFlagsDisabled.Description" xml:space="preserve">
     <value>For more information join Fishstrap Discord server</value>
   </data>
-  <data name="Menu.FastFlagsDisabled.Description" xml:space="preserve">
-    <value>For more information join Fishstrap Discord server</value>
-  </data>
   <data name="Bootstrapper.Status.WaitingForData" xml:space="preserve">
     <value>Waiting for data</value>
   </data>
