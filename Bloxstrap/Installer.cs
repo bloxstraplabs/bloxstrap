@@ -9,7 +9,7 @@ namespace Bloxstrap
         /// Should this version automatically open the release notes page?
         /// Recommended for major updates only.
         /// </summary>
-        private const bool OpenReleaseNotes = false;
+        private const bool OpenReleaseNotes = true;
 
         private static string DesktopShortcut => Path.Combine(Paths.Desktop, $"{App.ProjectName}.lnk");
 
@@ -480,13 +480,6 @@ namespace Bloxstrap
                         File.Delete(configLocation);
                 }
 
-
-                if (Utilities.CompareVersions(existingVer, "2.5.0") == VersionComparison.LessThan)
-                {
-                    App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
-                    App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
-                }
-
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
@@ -505,10 +498,6 @@ namespace Bloxstrap
 
                     if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
                         App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
-
-                    _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
-                    if (x == 0)
-                        App.FastFlags.SetPreset("Rendering.Framerate", null);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)
@@ -550,23 +539,6 @@ namespace Bloxstrap
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
 
                     WindowsRegistry.RegisterPlayer();
-
-                    App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
-                    App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
-                }
-
-                if (Utilities.CompareVersions(existingVer, "2.8.1") == VersionComparison.LessThan)
-                {
-                    // wipe all escape menu flag presets
-                    App.FastFlags.SetValue("FIntNewInGameMenuPercentRollout3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuControls", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuModernization", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChrome", null);
-                    App.FastFlags.SetValue("FFlagFixReportButtonCutOff", null);
-                    App.FastFlags.SetValue("FFlagEnableMenuControlsABTest", null);
-                    App.FastFlags.SetValue("FFlagEnableV3MenuABTest3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest4", null);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.2") == VersionComparison.LessThan)
