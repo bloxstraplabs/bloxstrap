@@ -1213,8 +1213,10 @@ namespace Bloxstrap
                 _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
             }
 
-            SetStatus("Waiting for data");
+            SetStatus(Strings.Bootstrapper_Status_WaitingForData);
             await SetupPackageDictionaries();// doing it here is better since remote data should be loaded by now
+
+            SetStatus(Strings.Bootstrapper_Status_Upgrading); // we have to set it back
 
             var extractionTasks = new List<Task>();
 

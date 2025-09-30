@@ -13,7 +13,7 @@
 
     <StackPanel VerticalAlignment="Center">
         <Image HorizontalAlignment="Center" Source="pack://application:,,,/Resources/MessageBox/Warning.png" RenderOptions.BitmapScalingMode="HighQuality" Width="96" />
-        <TextBlock HorizontalAlignment="Center" Text="FastFlags have been temporarily disabled" FontSize="26" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-        <TextBlock HorizontalAlignment="Center" Text="For more information join Fishstrap Discord server" FontSize="18" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock HorizontalAlignment="Center" Text="{x:Static resources:Strings.Menu_FastFlagsDisabled_Header}" FontSize="26" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock HorizontalAlignment="Center" Text="{x:Static resources:Strings.Menu_FastFlagsDisabled_Description}" FontSize="18" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
     </StackPanel>
 </ui:UiPage>
