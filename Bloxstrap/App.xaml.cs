@@ -23,11 +23,11 @@ namespace Bloxstrap
         public const string ProjectDownloadLink = "https://github.com/returnrqt/fishstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/returnrqt/fishstrap/issues/new";
-        public const string ProjectRemoteDataLink = "https://config.fishstrap.app/Data.json";
+        public const string ProjectRemoteDataLink = "https://config.fishstrap.app/v1/Data.json";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
-        // one day ill add studio support
+        // one day ill add studio support, haha i never did!
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 
         // simple shorthand for extremely frequently used and long string - this goes under HKCU
