@@ -588,18 +588,6 @@
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>حفظ کیفیت رندرینگ با مقیاس‌بندی نمایشگر</value>
   </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>برای استفاده از آنلاک‌کننده‌ی فریم‌ریت روبلاکس، مقدار را روی ۰ تنظیم کنید تا به تنظیمات پیش‌فرض بازگردد.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>محدودیت نرخ فریم</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>با [میانبر های کیبورد]({0}) تغییر وضعیت میتوان داد. فقط در صورتی کار می کند که در [گروه بلاکسترپ]({1}) حضور داشته باشید.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>فعال سازی قابلیت پنهان کردن رابط کاربر گرافیکی</value>
-  </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>حالت رندر کردن</value>
   </data>
@@ -713,9 +701,6 @@
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>انتخاب فونت...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>اندازه فونت را میتوانید در بخش موتور تنظیم کنید.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>فایلی که انتخاب کردید یک فایل درست فونت نیست.</value>
   </data>
@@ -755,12 +740,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>تقلید کردن صدای کارکتر های قدیمی</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>برگرداندن صدای کلاسیک 'oof' برای صدای مرگ.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>استفاده از صدای مرگ قدیمی</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>مودها</value>
   </data>
@@ -797,9 +776,6 @@
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>رندر ها و گرافیک ها</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>رابط کاربری و چیدمان</value>
-  </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>اجازه بدید بلاکسترپ فست فلگس هارا مدیریت کند</value>
   </data>
@@ -808,15 +784,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>کیفیت Anti-aliasing ‏(‏MSAA‏)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>غیرفعال کردن اثرات های پس از پردازش</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>غیرفعال کردن نوار عنوان تمام صفحه</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>متوقف کردن منویی که وقتی موستان را به بالا صفحه میبرید نمایان میشود.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>کیفیت بافت</value>
@@ -832,18 +799,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>سطح ۳ (بالاترین)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>غیرفعال کردن سایه های بازیکن</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>اندازه فونت</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>مقدار پیش فرض ۱ است. تنظیم کنید در صورت استفاده از فونت سفارشی.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>غیرفعال کردن بافت های زمین</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>بلاکسترپ نمیتواند روبلاکس را بارگیری کند</value>
@@ -1432,12 +1387,6 @@
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>تم سفارشی {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>اجازه‌ی اجرای چندین کلاینت به‌طور هم‌زمان داده می‌شود</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>امکان اجرا شدن بیش از یک کلاینت بازی روبلاکس به‌طور هم‌زمان را فراهم می‌کند.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>تم شما با موفقیت ذخیره شد!</value>

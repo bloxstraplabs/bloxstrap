@@ -589,18 +589,6 @@ Er du sikker på, at du vil fortsætte?</value>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Bevar gengivelseskvalitet med visningsskalering</value>
   </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Sæt til 0 for standardindstillinger, hvis du vil bruge Roblox' oprindelige framerate oplåsning.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate grænse</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Slået til med [tastaturgenveje]({0}). Virker kun, hvis du er i [Bloxstrap gruppen]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Aktiver evne til at skjule GUI'er</value>
-  </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Gengivelsestilstand</value>
   </data>
@@ -714,9 +702,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Vælg skrifttype...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Skrifttypestørrelse kan justeres i fanen Hurtig Flags.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Filen du har valgt ser ikke ud til at være en gyldig skrifttypefil.</value>
   </data>
@@ -756,12 +741,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Efterlign gamle karakterlyde</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bringe tilbage den klassiske 'oof' død lyd.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Brug gammel dødlyd</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -798,9 +777,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Rendering og grafik</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Brugerinterface og Layout</value>
-  </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Tillad Bloxstrap at administrere Hurtig Flag</value>
   </data>
@@ -809,15 +785,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Antialiasing quality (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Deaktiver efterbehandlingseffekter</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Deaktivér fuldskærm titelbar</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Stopper det fra at vise, når du flytter musen til toppen af skærmen.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Teksturens kvalitet</value>
@@ -833,18 +800,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Niveau 3 (højeste)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Deaktivér spiller-skygger</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Skriftstørrelse</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Standardværdi er 1. Justér hvis du bruger en brugerdefineret skrifttype.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Deaktivér terræn teksturer</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap kunne ikke downloade Roblox</value>
@@ -1432,12 +1387,6 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Tilpasset Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Tillad multi-instans opstart</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Tillader at have mere end en Roblox spil klient instans åben samtidigt.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Dit tema er gemt!</value>

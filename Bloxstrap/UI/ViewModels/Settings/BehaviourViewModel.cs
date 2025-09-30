@@ -8,12 +8,6 @@
             set => App.Settings.Prop.ConfirmLaunches = value;
         }
 
-        public bool ForceRobloxLanguage
-        {
-            get => App.Settings.Prop.ForceRobloxLanguage;
-            set => App.Settings.Prop.ForceRobloxLanguage = value;
-        }
-
         public bool BackgroundUpdates
         {
             get => App.Settings.Prop.BackgroundUpdatesEnabled;

@@ -587,18 +587,6 @@
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>คงคุณภาพของการเรนเดอร์ด้วยการปรับขนาดของการแสดงผล</value>
   </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>ให้ตั้งเป็น 0 เพื่อค่าเริ่มต้น หากคุณต้องการใช้ตัวปลดล็อคเฟรมเรทของ Roblox</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>การจำกัด Framerate</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>สลับกับ[ปุ่มคีย์บอร์ด]({0}) จะสามารถใช้ได้ถ้าคุณอยู่ใน[กลุ่มของ Bloxstrap]({1})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>เปิดใช้ความสามารถในการซ่อน GUIs</value>
-  </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>โหมดการเรนเดอร์</value>
   </data>
@@ -713,9 +701,6 @@
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>เลือกฟอนต์...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>ขนาดของฟอร์นสามารถเปลี่ยนได้ในแท็บ Engine Setting</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>ไฟล์ที่คุณเลือกไม่ใช่ไฟล์ฟอนต์ที่ถูกต้อง</value>
   </data>
@@ -755,12 +740,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>จำลองเสียงตัวละครเก่า</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>เอาเสียง oof กลับมา</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>ใช้เสียงตายเก่า</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>ม็อด</value>
   </data>
@@ -797,9 +776,6 @@
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>การเรนเดอร์และกราฟฟิก</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>เค้าโครงและแสดงผลของผู้ใช้</value>
-  </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>อนุญาตให้ Bloxstrap จัดการ Fast Flags</value>
   </data>
@@ -808,15 +784,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>ปิดการใช้งานเอฟเฟกต์หลังจากการประมวลผล</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>ปิดการใช้งานแถบหัวข้อในโหมดเต็มหน้าจอ</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>หยุดมันจากการแสดงผลเมื่อคุณขยับเมาส์ของคุณไปที่บนสุดของหน้าจอ</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>คุณภาพของพื้นผิว</value>
@@ -832,18 +799,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>เลเวล 3 (สูงที่สุด)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>ปิดซ่อนเงาของเพลเยอร์</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>ขนาดของฟอร์น</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>ค่าเริ่มต้นคือ 1 แก้ไขมันหากคุณใช้ฟอร์นที่กำหนดด้วยตัวเอง</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>ปิดใช้การแสดงพื้นผิว</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap ไม่สามารถดาวน์โหลด Roblox ได้</value>
@@ -1427,12 +1382,6 @@ Bloxstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>ธีมกําหนดเอง {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>อนุญาตให้เปิดหลายหน้าต่าง</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>อนุญาตให้เปิดหน้าต่างเกม Roblox ได้มากกว่าหนึ่งพร้อมกัน</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>บันทึกธีมของคุณเเล้ว!</value>

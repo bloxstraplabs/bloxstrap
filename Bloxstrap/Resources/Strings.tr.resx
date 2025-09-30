@@ -588,18 +588,6 @@ Devam etmek istediğinizden emin misiniz?</value>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Ekran ölçeklendirme ile rendering kalitesini koruma</value>
   </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Roblox'un kendi kare hızı açıcısını kullanmak için varsayılanı 0'a ayarlayın.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Kare hızı limiti (FPS)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>GUI'leri gizleme özelliğini etkinleştir</value>
-  </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering modu</value>
   </data>
@@ -713,9 +701,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Yazı tipi seçiniz...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Yazı tipi boyutu Motor Ayarları sekmesinde ayarlanabilir.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Seçtiğiniz dosya geçerli bir yazı tipi dosyası gibi görünmüyor.</value>
   </data>
@@ -755,12 +740,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Eski karakter seslerini kullan</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Klasik 'oof' ölüm sesini geri getir.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Eski ölüm sesini kullan</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modlar</value>
   </data>
@@ -797,9 +776,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>İşleme ve Grafikler</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Kullanıcı Arayüzü ve Düzeni</value>
-  </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Bloxstrap'in Fast Flag'ları yönetmesine izin verin</value>
   </data>
@@ -808,15 +784,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing kalitesi (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>İşlem-sonrası efeklerini devre dışı bırak</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Tam ekran başlık çubuğunu kapat</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Farenizi ekranın üst kısmına getirdiğinizde görüntülenmesini engeller.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Doku kalitesi</value>
@@ -832,18 +799,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Seviye 3 (En Yükseği)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Oyuncu gölgelerini kapat</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Yazı tipi boyutu</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Varsayılan değer 1'dir. Özel bir yazı tipi kullanıyorsanız değiştirin.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Arazi dokularını devre dışı bırak</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap Roblox'u indiremiyor</value>
@@ -1430,12 +1385,6 @@ Otomatiklen {1}'e alınılıyor.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Özel Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Birden fazla istemci kullanmaya izin ver</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Aynı anda birden fazla Roblox istemcisinin açık olmasına izin verir.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Temanız kaydedildi!</value>
