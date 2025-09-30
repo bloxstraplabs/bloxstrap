@@ -1147,6 +1147,11 @@ namespace Bloxstrap
                 return;
             }
 
+            if (App.RemoteData.LoadedState == GenericTriState.Unknown) // we dont want it to flicker
+                SetStatus(Strings.Bootstrapper_Status_WaitingForData);
+
+            await SetupPackageDictionaries();
+
             if (String.IsNullOrEmpty(AppData.State.VersionGuid))
                 SetStatus(Strings.Bootstrapper_Status_Installing);
             else
@@ -1212,11 +1217,6 @@ namespace Bloxstrap
 
                 _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
             }
-
-            SetStatus(Strings.Bootstrapper_Status_WaitingForData);
-            await SetupPackageDictionaries();// doing it here is better since remote data should be loaded by now
-
-            SetStatus(Strings.Bootstrapper_Status_Upgrading); // we have to set it back
 
             var extractionTasks = new List<Task>();
 
