@@ -8,6 +8,8 @@ using System.Windows;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using Wpf.Ui.Mvvm.Contracts;
 using System.Windows.Documents;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {

@@ -394,6 +394,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Waiting for data.
+        /// </summary>
+        public static string Bootstrapper_Status_WaitingForData {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.WaitingForData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Waiting for other instances....
         /// </summary>
         public static string Bootstrapper_Status_WaitingOtherInstances {
@@ -4041,6 +4050,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For more information join Fishstrap Discord server.
+        /// </summary>
+        public static string Menu_FastFlagsDisabled_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsDisabled.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FastFlags have been temporarily disabled.
+        /// </summary>
+        public static string Menu_FastFlagsDisabled_Header {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagsDisabled.Header", resourceCulture);
             }
         }
         

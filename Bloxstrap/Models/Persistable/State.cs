@@ -12,7 +12,7 @@ namespace Bloxstrap.Models.Persistable
 
         public bool PromptWebView2Install { get; set; } = true;
 
-        public int LastPage {  get; set; } = 0;
+        public string? LastPage {  get; set; } = null!;
 
         public bool ForceReinstall { get; set; } = false;
 

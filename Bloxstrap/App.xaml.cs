@@ -23,10 +23,11 @@ namespace Bloxstrap
         public const string ProjectDownloadLink = "https://github.com/returnrqt/fishstrap/releases";
         public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
         public const string ProjectSupportLink = "https://github.com/returnrqt/fishstrap/issues/new";
+        public const string ProjectRemoteDataLink = "https://config.fishstrap.app/v1/Data.json";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta.exe";
         public const string RobloxStudioAppName = "RobloxStudioBeta.exe";
-        // one day ill add studio support
+        // one day ill add studio support, haha i never did!
         public const string RobloxAnselAppName = "eurotrucks2.exe";
 
         // simple shorthand for extremely frequently used and long string - this goes under HKCU
@@ -59,6 +60,8 @@ namespace Bloxstrap
         public static readonly JsonManager<State> State = new();
 
         public static readonly JsonManager<RobloxState> RobloxState = new();
+
+        public static readonly RemoteDataManager RemoteData = new();
 
         public static readonly FastFlagManager FastFlags = new();
 
@@ -322,6 +325,8 @@ namespace Bloxstrap
 
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
+
+                Task.Run(App.RemoteData.LoadData); // ok
 
                 WindowsRegistry.RegisterApis(); // we want to register those early on
                                                 // so we wont have any issues with bloxshade

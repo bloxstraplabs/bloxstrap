@@ -1,0 +1,19 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.FastFlagsDisabled"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Scrollable="True"
+      Title="FastFlagsDisabled">
+
+    <StackPanel VerticalAlignment="Center">
+        <Image HorizontalAlignment="Center" Source="pack://application:,,,/Resources/MessageBox/Warning.png" RenderOptions.BitmapScalingMode="HighQuality" Width="96" />
+        <TextBlock HorizontalAlignment="Center" Text="{x:Static resources:Strings.Menu_FastFlagsDisabled_Header}" FontSize="26" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock HorizontalAlignment="Center" Text="{x:Static resources:Strings.Menu_FastFlagsDisabled_Description}" FontSize="18" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+    </StackPanel>
+</ui:UiPage>
