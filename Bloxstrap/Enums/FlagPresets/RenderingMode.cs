@@ -7,6 +7,5 @@
         Vulkan,
         OpenGL,
         D3D11,
-        D3D10,
     }
 }

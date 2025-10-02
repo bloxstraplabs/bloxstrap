@@ -18,86 +18,22 @@ namespace Bloxstrap
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
-            // Activity watcher
-            { "Network.Log", "FLogNetwork" },
-            { "Players.LogLevel", "FStringDebugLuaLogLevel" },
-            { "Players.LogPattern", "FStringDebugLuaLogPattern" },
-
-            // Debug
-            { "Debug.FlagState", "FStringDebugShowFlagState"},
-            { "Debug.PingBreakdown", "DFFlagDebugPrintDataPingBreakDown" },
-            
-            // Multi instance
-            { "Instances.WndCheck", "FLogWndProcessCheck" },
-
-            // FPS
-            { "Rendering.LimitFramerate", "FFlagTaskSchedulerLimitTargetFpsTo2402" }, // i might reconcider this
-            { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
 
             // Presets and stuff
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
-            { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
-            { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
 
             // Rendering engines
             { "Rendering.Mode.DisableD3D11", "FFlagDebugGraphicsDisableDirect3D11" },
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
             { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
-            { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
-            { "Rendering.FixHighlights", "FFlagHighlightOutlinesOnMobile"},
 
-            // Preferred GPU
-            { "Rendering.PreferredGPU", "FStringDebugGraphicsPreferredGPUName"},
-
-            // Lighting technology
-            { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
-            { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
-            { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
 
             // Texture quality
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
-            { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
-
-            // Guis
-            { "UI.Hide", "DFIntCanHideGuiGroupId" },
-            { "UI.Hide.Toggles", "FFlagUserShowGuiHideToggles"},
-            { "UI.FontSize", "FIntFontSizePadding" },
-
-            // Telemetry
-            { "Telemetry.EpCounter", "FFlagDebugDisableTelemetryEphemeralCounter"},
-            { "Telemetry.EpStats", "FFlagDebugDisableTelemetryEphemeralStat"},
-            { "Telemetry.Event", "FFlagDebugDisableTelemetryEventIngest"},
-            { "Telemetry.V2Counter", "FFlagDebugDisableTelemetryV2Counter"},
-            { "Telemetry.V2Event", "FFlagDebugDisableTelemetryV2Event"},
-            { "Telemetry.V2Stats", "FFlagDebugDisableTelemetryV2Stat"},
-
-            // Fullscreen bar
-            { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
-
-            // useless
-            { "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
-            { "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
-            { "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
-            { "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
-            { "UI.Menu.Style.ReportButtonCutOff", "FFlagFixReportButtonCutOff" },
-
-            // Menu stuff
-            { "Menu.VRToggles", "FFlagAlwaysShowVRToggleV3" },
-            { "Menu.Feedback", "FFlagDisableFeedbackSoothsayerCheck" },
-            { "Menu.LanguageSelector", "FIntV1MenuLanguageSelectionFeaturePerMillageRollout" },
-            { "Menu.Haptics", "FFlagAddHapticsToggle" },
-            { "Menu.Framerate", "FFlagGameBasicSettingsFramerateCap5"},
-            { "Menu.ChatTranslation", "FFlagChatTranslationSettingEnabled3" }
-
-
-            //{ "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
-            //{ "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
-            //{ "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" },
-            //{ "UI.Menu.Style.ABTest.4", "FFlagEnableInGameMenuChromeABTest4" }
         };
 
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
@@ -106,15 +42,6 @@ namespace Bloxstrap
             { RenderingMode.Vulkan, "Vulkan" },
             { RenderingMode.OpenGL, "OpenGL" },
             { RenderingMode.D3D11, "D3D11" },
-            { RenderingMode.D3D10, "D3D10" },
-        };
-
-        public static IReadOnlyDictionary<LightingMode, string> LightingModes => new Dictionary<LightingMode, string>
-        {
-            { LightingMode.Default, "None" },
-            { LightingMode.Voxel, "Voxel" },
-            { LightingMode.ShadowMap, "ShadowMap" },
-            { LightingMode.Future, "Future" }
         };
 
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>
@@ -133,71 +60,6 @@ namespace Bloxstrap
             { TextureQuality.Level2, "2" },
             { TextureQuality.Level3, "3" },
         };
-
-        // this is one hell of a dictionary definition lmao
-        // since these all set the same flags, wouldn't making this use bitwise operators be better?
-        //public static IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => new Dictionary<InGameMenuVersion, Dictionary<string, string?>>
-        //{
-        //    {
-        //        InGameMenuVersion.Default,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", null },
-        //            { "EnableV4", null },
-        //            { "EnableV4Chrome", null },
-        //            { "ABTest", null },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V1,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "False" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", "False" }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V2,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "100" },
-        //            { "EnableV4", "False" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V4,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "True" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V4Chrome,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "True" },
-        //            { "EnableV4Chrome", "True" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    }
-        //};
 
         // all fflags are stored as strings
         // to delete a flag, set the value as null
@@ -305,14 +167,8 @@ namespace Bloxstrap
             // clone the dictionary
             OriginalProp = new(Prop);
 
-            if (GetPreset("Network.Log") != "7")
-                SetPreset("Network.Log", "7");
-
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
-
-            if (GetPreset("Rendering.FixHighlights") != "True")
-                SetPreset("Rendering.FixHighlights", "True");
         }
 
         public void DeleteProfile(string Profile)

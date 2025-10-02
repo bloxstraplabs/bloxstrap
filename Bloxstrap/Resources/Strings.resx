@@ -610,32 +610,11 @@ Do NOT use this to import large "flag lists" made by other people that promise t
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D exclusive fullscreen using Alt+Enter is enabled by default.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferred escape menu version</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox reduces your rendering quality depending on how your display is scaled in Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Preserve rendering quality with display scaling</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Set to 0 for defaults if you want to use Roblox's native framerate unlocker.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate limit</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled with [keyboard shortcuts]({0}). Input id of a group you're in.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Hiding GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferred lighting technology</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering mode</value>
@@ -853,12 +832,6 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Disable post-processing effects</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Disable full-screen titlebar</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Stops it from showing whenever you move your mouse to the top of the screen.</value>
   </data>
@@ -876,18 +849,6 @@ Some text might not be translated to preferred language.</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Level 3 (Highest)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Disable player shadows</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Font size</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Default value is 1. Adjust if you use a custom font.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Disable terrain textures</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap is unable to download Roblox</value>
@@ -1328,21 +1289,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.Behaviour.MultiInstances.Description" xml:space="preserve">
     <value>Allows for having more than one Roblox game client instance open simultaneously. May cause issues with desktop app.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.Telemetry.Title" xml:space="preserve">
-    <value>Disable Roblox telemetry</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Telemetry.Description" xml:space="preserve">
-    <value>Note this disables only some of the Roblox telemetry.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Telemetry" xml:space="preserve">
-    <value>Telemetry</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Chromeui.Title" xml:space="preserve">
-    <value>Chrome UI</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Chromeui.Description" xml:space="preserve">
-    <value>When disabled Roblox will use old top bar.</value>
-  </data>
   <data name="Menu.FlagProfiles.ClearFlags" xml:space="preserve">
     <value>Clear FFlags</value>
   </data>
@@ -1358,50 +1304,17 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Common.Deployment" xml:space="preserve">
     <value>Deployment</value>
   </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.VRToggle.Title" xml:space="preserve">
-    <value>VR toggle</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.SoothsayerCheck.Title" xml:space="preserve">
-    <value>Feedback button</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.LanguageSelector.Title" xml:space="preserve">
-    <value>Language selector</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.Framerate.Title" xml:space="preserve">
-    <value>Framerate cap</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.IngameMenu.ChatTranslation.Title" xml:space="preserve">
-    <value>Chat translation</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FlagState.Title" xml:space="preserve">
-    <value>Flag state</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FlagState.Description" xml:space="preserve">
-    <value>Show values of specified flags during runtime. Each flag is comma separated.</value>
-  </data>
   <data name="Common.Studio" xml:space="preserve">
     <value>Studio</value>
   </data>
   <data name="Common.RobloxStudio" xml:space="preserve">
     <value>Roblox Studio</value>
   </data>
-  <data name="Menu.Context.PlayerLogs" xml:space="preserve">
-    <value>Player logs</value>
-  </data>
   <data name="Menu.Context.PlayerLogs.Description" xml:space="preserve">
     <value>Shows players leaving/joining server you're in.</value>
   </data>
   <data name="Common.Type" xml:space="preserve">
     <value>Type</value>
-  </data>
-  <data name="Common.UserId" xml:space="preserve">
-    <value>User Id</value>
-  </data>
-  <data name="Common.Username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="Common.Time" xml:space="preserve">
-    <value>Time</value>
   </data>
   <data name="Menu.Channel.VersionHash.Title" xml:space="preserve">
     <value>Version hash</value>
@@ -1412,12 +1325,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="Menu.SaveAndLaunch" xml:space="preserve">
     <value>Save and Launch</value>
   </data>
-  <data name="Menu.FastFlags.Presets.PingBreakdown.Title" xml:space="preserve">
-    <value>Ping breakdown</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.PingBreakdown.Description" xml:space="preserve">
-    <value>Sends detailed ping information to the Roblox console.</value>
-  </data>
   <data name="Bootstrapper.Dialog.NoUpgradeWithoutClient" xml:space="preserve">
     <value>Upgrades were disabled with missing client.
 	To prevent issues upgrading will continue.</value>
@@ -1427,22 +1334,6 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Common.Message" xml:space="preserve">
     <value>Message</value>
-  </data>
-  <data name="ContextMenu.MessageLogs.Title" xml:space="preserve">
-    <value>Message logs</value>
-  </data>
-  <data name="ContextMenu.MessageLogs.Description" xml:space="preserve">
-    <value>Displays recently sent messages by players.</value>
-  </data>
-  <data name="Menu.Integrations.PlayerMessageLogs.Title" xml:space="preserve">
-    <value>Player and Message logs</value>
-  </data>
-  <data name="Menu.Integrations.PlayerMessageLogs.Description" xml:space="preserve">
-    <value>Shows you players joining/leaving and messages being sent.
-		Only works with [text chat service](https://devforum.roblox.com/t/new-in-experience-text-chat-system-public-release/1848837).</value>
-  </data>
-  <data name="Menu.Behaviour.AnselBanner" xml:space="preserve">
-    <value>Ansel support is required for shaders.</value>
   </data>
   <data name="Dialog.Bloxshade.ThankYou" xml:space="preserve">
     <value>Sorry</value>
@@ -1481,17 +1372,6 @@ Would you like to switch to the default channel ({1})?</value>
 
 
 Would you like to switch your preferred channel to {0}?</value>
-  </data>
-  <data name="Menu.FastFlags.240FPSWarning" xml:space="preserve">
-    <value>Going above 240 FPS is not recommended, as this change may cause issues and worsen performance.
-
-[Click to learn more]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.PreferredGPU.Title" xml:space="preserve">
-    <value>Preferred graphics card</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.PreferredGPU.Description" xml:space="preserve">
-    <value>Select the GPU that Roblox will use for rendering. Useful if you have 2 or more GPUs on your PC.</value>
   </data>
   <data name="Menu.FastFlagEditor.ExportJson.IncludePresets" xml:space="preserve">
     <value>Would you like to include preset FFlags?</value>
