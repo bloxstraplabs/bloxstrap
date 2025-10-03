@@ -3575,6 +3575,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fast Flag editor only works on Roblox studio.
+        /// </summary>
+        public static string Menu_FastFlags_EditorInfo {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.EditorInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Learn more about Fast Flags, what these presets do, and how to use them..
         /// </summary>
         public static string Menu_FastFlags_Help_Description {

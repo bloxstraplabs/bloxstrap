@@ -1709,4 +1709,7 @@ Defaulting to {1}.</value>
   <data name="Bootstrapper.Status.WaitingForData" xml:space="preserve">
     <value>Waiting for data</value>
   </data>
+  <data name="Menu.FastFlags.EditorInfo" xml:space="preserve">
+	  <value>Fast Flag editor only works on Roblox studio</value>
+  </data>
 </root>
