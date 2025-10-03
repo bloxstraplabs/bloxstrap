@@ -37,6 +37,55 @@
 
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" >
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Common_Geometry}" />
+                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Geometry_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}"  />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding Path=MeshQualityEnabled, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+                <ui:CardExpander.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Header}" />
+                            <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_Description}" 
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                        </StackPanel>
+
+                        <ui:ToggleSwitch Grid.Column="1" IsChecked="{Binding MeshQualityEnabled, Mode=TwoWay}" />
+                    </Grid>
+                </ui:CardExpander.Header>
+
+                <StackPanel Margin="0,8,0,0">
+                    <TextBlock Padding="8" Text="{x:Static resources:Strings.Menu_FastFlags_MeshDetail_LowQualityWarning}" TextAlignment="Center" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{x:Static resources:Strings.Common_LowestQuality}" Grid.Column="0" />
+                        <Slider Grid.Column="1" Margin="8,0,8,0" Minimum="0" Maximum="3" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding MeshQuality, Mode=TwoWay}" />
+                        <TextBlock Text="{x:Static resources:Strings.Common_HighestQuality}" Grid.Column="2" />
+                    </Grid>
+                </StackPanel>
+            </ui:CardExpander>
+        </ui:CardExpander>
+
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" IsExpanded="False">
             <ui:CardExpander.Header>
                 <Grid>

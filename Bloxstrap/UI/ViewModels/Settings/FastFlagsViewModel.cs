@@ -80,6 +80,52 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 }
             }
         }
+
+        private static readonly string[] LODLevels = { "L0", "L12", "L23", "L34" };
+
+        public bool MeshQualityEnabled
+        {
+            get => App.FastFlags.GetPreset("Geometry.MeshLOD.Static") != null;
+            set
+            {
+                if (value)
+                {
+                    // we enable level 3 by default
+                    MeshQuality = 3;
+                }
+                else
+                {
+                    foreach (string level in LODLevels)
+                        App.FastFlags.SetPreset($"Geometry.MeshLOD.{level}", null);
+
+                    App.FastFlags.SetPreset("Geometry.MeshLOD.Static", null);
+                }
+
+                OnPropertyChanged(nameof(MeshQualityEnabled));
+            }
+        }
+
+        public int MeshQuality
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Geometry.MeshLOD.Static"), out var x) ? x : 0;
+            set
+            {
+                int clamped = Math.Clamp(value, 0, LODLevels.Length - 1);
+
+                for (int i = 0; i < LODLevels.Length; i++)
+                {
+                    int lodValue = Math.Clamp(clamped - i, 0, 3);
+                    string lodLevel = LODLevels[i];
+
+                    App.FastFlags.SetPreset($"Geometry.MeshLOD.{lodLevel}", lodValue);
+                }
+
+                App.FastFlags.SetPreset("Geometry.MeshLOD.Static", clamped);
+                OnPropertyChanged(nameof(MeshQuality));
+                OnPropertyChanged(nameof(MeshQualityEnabled));
+            }
+        }
+
         public bool ResetConfiguration
         {
             get => _preResetFlags is not null;

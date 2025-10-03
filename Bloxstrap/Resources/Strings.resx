@@ -1693,4 +1693,25 @@ Defaulting to {1}.</value>
   <data name="Menu.FastFlags.EditorInfo" xml:space="preserve">
 	  <value>Fast Flag editor only works on Roblox studio</value>
   </data>
+  <data name="Common.Geometry" xml:space="preserve">
+	  <value>Geometry</value>
+  </data>
+	<data name="Menu.FastFlags.Geometry.Description" xml:space="preserve">
+	  <value>Control how Roblox renders 3D geometry.</value>
+  </data>
+	<data name="Menu.FastFlags.MeshDetail.Header" xml:space="preserve">
+	  <value>Mesh detail</value>
+  </data>
+	<data name="Menu.FastFlags.MeshDetail.Description" xml:space="preserve">
+	  <value>Control how detailed meshes appear in-game.</value>
+  </data>
+	<data name="Menu.FastFlags.MeshDetail.LowQualityWarning" xml:space="preserve">
+	  <value>Lower qualities may cause meshes to disappear.</value>
+  </data>
+	<data name="Common.LowestQuality" xml:space="preserve">
+	  <value>Lowest quality</value>
+  </data>
+	<data name="Common.HighestQuality" xml:space="preserve">
+	  <value>Highest quality</value>
+  </data>
 </root>

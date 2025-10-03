@@ -619,11 +619,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Geometry.
+        /// </summary>
+        public static string Common_Geometry {
+            get {
+                return ResourceManager.GetString("Common.Geometry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Common_Help {
             get {
                 return ResourceManager.GetString("Common.Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highest quality.
+        /// </summary>
+        public static string Common_HighestQuality {
+            get {
+                return ResourceManager.GetString("Common.HighestQuality", resourceCulture);
             }
         }
         
@@ -660,6 +678,15 @@ namespace Bloxstrap.Resources {
         public static string Common_Loading {
             get {
                 return ResourceManager.GetString("Common.Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lowest quality.
+        /// </summary>
+        public static string Common_LowestQuality {
+            get {
+                return ResourceManager.GetString("Common.LowestQuality", resourceCulture);
             }
         }
         
@@ -3547,6 +3574,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Control how Roblox renders 3D geometry..
+        /// </summary>
+        public static string Menu_FastFlags_Geometry_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Geometry.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Learn more about Fast Flags, what these presets do, and how to use them..
         /// </summary>
         public static string Menu_FastFlags_Help_Description {
@@ -3570,6 +3606,33 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_ManagerEnabled_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.ManagerEnabled.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control how detailed meshes appear in-game..
+        /// </summary>
+        public static string Menu_FastFlags_MeshDetail_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.MeshDetail.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mesh detail.
+        /// </summary>
+        public static string Menu_FastFlags_MeshDetail_Header {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.MeshDetail.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lower qualities may cause meshes to disappear..
+        /// </summary>
+        public static string Menu_FastFlags_MeshDetail_LowQualityWarning {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.MeshDetail.LowQualityWarning", resourceCulture);
             }
         }
         
