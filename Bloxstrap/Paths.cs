@@ -41,7 +41,6 @@
         {
             Base = baseDirectory;
             Downloads = Path.Combine(Base, "Downloads");
-            SavedFlagProfiles = Path.Combine(Base, "SavedFlagProfiles");
             Logs = Path.Combine(Base, "Logs");
             Integrations = Path.Combine(Base, "Integrations");
             Versions = Path.Combine(Base, "Versions");

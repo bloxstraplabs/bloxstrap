@@ -1193,33 +1193,14 @@ Would you like to enable test mode?</value>
   <data name="Enums.FlagPresets.RenderingMode.Vulkan" xml:space="preserve">
     <value>Vulkan</value>
   </data>
-  <data name="Menu_FlagProfiles_Title" xml:space="preserve">
-    <value>Fast Flag Profiles</value>
-  </data>
-  <data name="Menu_FlagProfiles_Description" xml:space="preserve">
-    <value>Save and load fast flag profiles.</value>
-  </data>
   <data name="Common_FastFlags" xml:space="preserve">
     <value>Fast Flag Editor</value>
-  </data>
-  <data name="Menu_FastFlagProfiles_Save" xml:space="preserve">
-    <value>Save current flags</value>
-  </data>
-  <data name="Menu.FastFlagEditor.ProfilesDescription" xml:space="preserve">
-    <value>Flag Profiles</value>
   </data>
   <data name="Menu.Load" xml:space="preserve">
     <value>Load</value>
   </data>
   <data name="Bootstrapper.Status.CancelUpgrade" xml:space="preserve">
     <value>Cancelling Roblox upgrade.</value>
-  </data>
-  <data name="Menu.Behaviour.RenameToEurotrucks.Title" xml:space="preserve">
-    <value>Ansel support</value>
-  </data>
-  <data name="Menu.Behaviour.RenameToEurotrucks.Description" xml:space="preserve">
-    <value>Renames Roblox to "eurotrucks2". Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).
-	This feature is required for shaders.</value>
   </data>
   <data name="Menu.Behaviour.Channel.Title" xml:space="preserve">
     <value>Channel</value>

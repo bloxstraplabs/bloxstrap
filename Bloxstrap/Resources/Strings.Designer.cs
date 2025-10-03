@@ -3042,25 +3042,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Renames Roblox to &quot;eurotrucks2&quot;. Requires [supported graphic card](https://www.nvidia.com/en-us/geforce/technologies/ansel/supported-gpus/).
-        ///	This feature is required for shaders..
-        /// </summary>
-        public static string Menu_Behaviour_RenameToEurotrucks_Description {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.RenameToEurotrucks.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ansel support.
-        /// </summary>
-        public static string Menu_Behaviour_RenameToEurotrucks_Title {
-            get {
-                return ResourceManager.GetString("Menu.Behaviour.RenameToEurotrucks.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bootstrapper.
         /// </summary>
         public static string Menu_Behaviour_Title {
@@ -3474,15 +3455,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Flag Profiles.
-        /// </summary>
-        public static string Menu_FastFlagEditor_ProfilesDescription {
-            get {
-                return ResourceManager.GetString("Menu.FastFlagEditor.ProfilesDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Menu_FastFlagEditor_Search {
@@ -3544,15 +3516,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlagEditor_Warning_Text {
             get {
                 return ResourceManager.GetString("Menu.FastFlagEditor.Warning.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save current flags.
-        /// </summary>
-        public static string Menu_FastFlagProfiles_Save {
-            get {
-                return ResourceManager.GetString("Menu_FastFlagProfiles_Save", resourceCulture);
             }
         }
         
@@ -3814,24 +3777,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FlagProfiles_ClearFlags {
             get {
                 return ResourceManager.GetString("Menu.FlagProfiles.ClearFlags", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save and load fast flag profiles..
-        /// </summary>
-        public static string Menu_FlagProfiles_Description {
-            get {
-                return ResourceManager.GetString("Menu_FlagProfiles_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fast Flag Profiles.
-        /// </summary>
-        public static string Menu_FlagProfiles_Title {
-            get {
-                return ResourceManager.GetString("Menu_FlagProfiles_Title", resourceCulture);
             }
         }
         

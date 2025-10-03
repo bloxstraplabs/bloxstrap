@@ -99,27 +99,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 ImportJSON(dialog.JsonTextBox.Text);
         }
 
-        private void ShowProfilesDialog()
-        {
-            var dialog = new FlagProfilesDialog();
-            dialog.ShowDialog();
-
-            if (dialog.Result != MessageBoxResult.OK)
-                return;
-
-            if (dialog.Tabs.SelectedIndex == 0)
-                App.FastFlags.SaveProfile(dialog.SaveProfile.Text);
-            else if (dialog.Tabs.SelectedIndex == 1)
-            {
-                if (dialog.LoadProfile.SelectedValue == null)
-                    return;
-                App.FastFlags.LoadProfile(dialog.LoadProfile.SelectedValue.ToString(), dialog.ClearFlags.IsChecked);
-            }
-
-            Thread.Sleep(1000);
-            ReloadList();
-        }
-
         private void AddSingle(string name, string value)
         {
             FastFlag? entry;
@@ -321,8 +300,6 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e) => ShowAddDialog();
-
-        private void FlagProfiles_Click(object sender, RoutedEventArgs e) => ShowProfilesDialog();
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
