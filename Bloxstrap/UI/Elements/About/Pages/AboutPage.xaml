@@ -158,6 +158,7 @@
             <controls:Expander Grid.Column="2" Margin="4,0,0,0" HeaderIcon="Heart16" HeaderText="{x:Static resources:Strings.Menu_About_Contributors_SpecialThanks}" IsExpanded="True">
                 <StackPanel>
                     <controls:MarkdownTextBlock MarkdownText="[MaximumADHD](https://github.com/MaximumADHD)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Valra](https://github.com/NotValra)" />
                     <controls:MarkdownTextBlock MarkdownText="[Multako](https://www.roblox.com/users/2485612194/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[axstin](https://github.com/axstin)" />
                     <controls:MarkdownTextBlock MarkdownText="[Mantaraix](https://github.com/Mantaraix)" />

@@ -916,6 +916,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknown status.
+        /// </summary>
+        public static string Common_UnknownStatus {
+            get {
+                return ResourceManager.GetString("Common.UnknownStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
         public static string Common_Value {
@@ -1051,6 +1060,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not tracked.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Notification_ServerNotTracked {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Notification.ServerNotTracked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location: {0}
         ///Click for more information.
         /// </summary>
@@ -1102,6 +1120,35 @@ namespace Bloxstrap.Resources {
         public static string ContextMenu_ServerInformation_Type {
             get {
                 return ResourceManager.GetString("ContextMenu.ServerInformation.Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated uptime.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Uptime {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Uptime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated uptime: {0}
+        ///Click for more information.
+        /// </summary>
+        public static string ContextMenu_ServerInformationUptime_Notification_Text {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformationUptime.Notification.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location: {0}
+        ///Estimated uptime: {1}.
+        /// </summary>
+        public static string ContextMenu_ServerInformationUptimeAndLocation_Notification_Text {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformationUptimeAndLocation.Notification.Text", resourceCulture);
             }
         }
         
@@ -4080,6 +4127,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_QueryServerLocation_Title {
             get {
                 return ResourceManager.GetString("Menu.Integrations.QueryServerLocation.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays the server’s estimated uptime using data from [RoValra&apos;s APIs]({0}). [RoValra&apos;s privacy policy]({0}/privacy) applies..
+        /// </summary>
+        public static string Menu_Integrations_QueryServerUptime_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.QueryServerUptime.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Query server uptime.
+        /// </summary>
+        public static string Menu_Integrations_QueryServerUptime_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.QueryServerUptime.Title", resourceCulture);
             }
         }
         

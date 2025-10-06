@@ -253,8 +253,19 @@
   <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="ContextMenu.ServerInformation.Uptime" xml:space="preserve">
+    <value>Estimated uptime</value>
+  </data>
   <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
     <value>Location: {0}
+Click for more information</value>
+  </data>
+  <data name="ContextMenu.ServerInformationUptimeAndLocation.Notification.Text" xml:space="preserve">
+    <value>Location: {0}
+Estimated uptime: {1}</value>
+  </data>
+  <data name="ContextMenu.ServerInformationUptime.Notification.Text" xml:space="preserve">
+    <value>Estimated uptime: {0}
 Click for more information</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
@@ -715,6 +726,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>Query server location</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerUptime.Description" xml:space="preserve">
+    <value>Displays the server’s estimated uptime using data from [RoValra's APIs]({0}). [RoValra's privacy policy]({0}/privacy) applies.</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerUptime.Title" xml:space="preserve">
+    <value>Query server uptime</value>
   </data>
   <data name="Menu.Integrations.Title" xml:space="preserve">
     <value>Integrations</value>
@@ -1713,5 +1730,11 @@ Defaulting to {1}.</value>
   </data>
 	<data name="Common.HighestQuality" xml:space="preserve">
 	  <value>Highest quality</value>
+  </data>
+	<data name="Common.UnknownStatus" xml:space="preserve">
+	  <value>Unknown status</value>
+  </data>
+	<data name="ContextMenu.ServerInformation.Notification.ServerNotTracked" xml:space="preserve">
+	  <value>Not tracked</value>
   </data>
 </root>

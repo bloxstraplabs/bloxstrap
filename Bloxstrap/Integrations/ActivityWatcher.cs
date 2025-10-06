@@ -197,6 +197,9 @@
                     if (App.Settings.Prop.ShowServerDetails && Data.MachineAddressValid)
                         _ = Data.QueryServerLocation();
 
+                    if (App.Settings.Prop.ShowServerUptime && Data.JobId != null)
+                        _ = Data.QueryServerTime();
+
                     if (_teleportMarker)
                     {
                         Data.IsTeleport = true;
