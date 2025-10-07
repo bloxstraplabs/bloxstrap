@@ -608,32 +608,11 @@
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [พิเศษสำหรับโหมดเต็มหน้าจอ]({0}) โดยใช้ Alt+Enter ถูกเปิดไว้เป็นค่าเริ่มต้น</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>เวอร์ชั่นเมนู Escape ที่ต้องการ</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox จะลดคุณภาพการเรนเดอร์ตามความละเอียดของการแสดงผลใน Windows</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>คงคุณภาพของการเรนเดอร์ด้วยการปรับขนาดของการแสดงผล</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>ให้ตั้งเป็น 0 เพื่อค่าเริ่มต้น หากคุณต้องการใช้ตัวปลดล็อคเฟรมเรทของ Roblox</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>การจำกัด Framerate</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>สลับกับ[ปุ่มคีย์บอร์ด]({0}) จะสามารถใช้ได้ถ้าคุณอยู่ใน[กลุ่มของ Fishstrap]({1})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>เปิดใช้ความสามารถในการซ่อน GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>ตัวที่เลือกจะถูกบังคับใช้ในทุกเกม [ระวัง, อาจทำให้เกิดปัญหาเกี่ยวกับแสง]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>เทคโนโลยีแสงที่ต้องการ</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>โหมดการเรนเดอร์</value>
@@ -791,12 +770,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>จำลองเสียงตัวละครเก่า</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>เอาเสียง oof กลับมา</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>ใช้เสียงตายเก่า</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>ม็อด</value>
   </data>
@@ -851,12 +824,6 @@
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>ปิดการใช้งานเอฟเฟกต์หลังจากการประมวลผล</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>ปิดการใช้งานแถบหัวข้อในโหมดเต็มหน้าจอ</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>หยุดมันจากการแสดงผลเมื่อคุณขยับเมาส์ของคุณไปที่บนสุดของหน้าจอ</value>
   </data>
@@ -874,18 +841,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>เลเวล 3 (สูงที่สุด)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>ปิดซ่อนเงาของเพลเยอร์</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>ขนาดของฟอร์น</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>ค่าเริ่มต้นคือ 1 แก้ไขมันหากคุณใช้ฟอร์นที่กำหนดด้วยตัวเอง</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>ปิดใช้การแสดงพื้นผิว</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap ไม่สามารถดาวน์โหลด Roblox ได้</value>
@@ -1263,6 +1218,9 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ไม่รองรับ Windows 7 หรือ Windows 8.1 เพื่อเล่น Roblox ต่อไปโปรดอัปเกรดเป็น Windows 10 หรือใหม่กว่า</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>กำลังดาวน์โหลดเวอร์ชั่นล่าสุดของ Fishstrap...</value>
   </data>
@@ -1274,24 +1232,6 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>มันเป็นข้อมูลที่ไม่ระบุชื่อและไม่มีอะไรที่ไม่ดีแน่นอน สําหรับข้อมูลเกี่ยวกับสิ่งที่เรารวบรวมและเหตุผล โปรดดูที่ [นโยบายความเป็นส่วนตัวของเรา]({0})</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox ไม่รองรับ Windows 7 หรือ Windows 8.1 เพื่อเล่น Roblox ต่อไปโปรดอัปเกรดเป็น Windows 10 หรือใหม่กว่า</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>ไม่สามารถเเตกไฟล์ได้</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>คอนเทนต์บางอย่างอาจหายไป บังคับติดตั้ง Roblox ใหม่อีกครั้งในตั้งค่าเพื่อแก้ไขปัญหานี้</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>ไม่สามารถบันทึกการเปลี่ยนเเปลงได้</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>การแก้ไขทั้งหมดอาจไม่ปรากฏในการเปิดเกมรอบนี้</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>ว่างเปล่า</value>
@@ -1414,12 +1354,6 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>เปิดที่ตั้งของธีม</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>สร้างใหม่</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>นำเข้า</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>เพิ่มธีมของตัวเอง</value>
   </data>
@@ -1461,23 +1395,11 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>ไม่มีธีมกําหนดเองเลือกไว้</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>เปลี่ยนชื่อ</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>แก้ไข</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>ไม่สามารถลบธีมกําหนดเองได้ {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>ไม่สามารถเปลี่ยนชื่อธีมกําหนดเองได้ {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>อัพเดทในพื้นหลัง</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>อัพเดท Roblox ในพื้นหลังระหว่างรอ ไม่แนะนำสำหรับเครือข่ายที่ช้าเกินไป ต้องมีพื้นที่เก็บข้อมูลอย่างน้อย 3GB เพื่อให้ฟีเจอร์นี้ทำงานได้อย่างสมบูรณ์.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>นำองค์ประกอบของ UI ไว้ตรงนี้</value>
@@ -1492,16 +1414,88 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
     <value>ธีมกําหนดเอง {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>บันทึกธีมของคุณเเล้ว!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>ไม่สามารถเเสดงตัวอย่างธีม: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>ไม่สามารถบันทึกการเปลี่ยนเเปลงได้</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>การแก้ไขทั้งหมดอาจไม่ปรากฏในการเปิดเกมรอบนี้</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>ไม่สามารถเเตกไฟล์ได้</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>คอนเทนต์บางอย่างอาจหายไป บังคับติดตั้ง Roblox ใหม่อีกครั้งในตั้งค่าเพื่อแก้ไขปัญหานี้</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>อนุญาตให้เปิดหลายหน้าต่าง</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>อนุญาตให้เปิดหน้าต่างเกม Roblox ได้มากกว่าหนึ่งพร้อมกัน</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>บันทึกธีมของคุณเเล้ว!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>เปลี่ยนชื่อ</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>ไม่สามารถเเสดงตัวอย่างธีม: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>สร้างใหม่</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>อัพเดทในพื้นหลัง</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>อัพเดท Roblox ในพื้นหลังระหว่างรอ ไม่แนะนำสำหรับเครือข่ายที่ช้าเกินไป ต้องมีพื้นที่เก็บข้อมูลอย่างน้อย 3GB เพื่อให้ฟีเจอร์นี้ทำงานได้อย่างสมบูรณ์.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>นำเข้า</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>เวอร์ชั่นเมนู Escape ที่ต้องการ</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>ให้ตั้งเป็น 0 เพื่อค่าเริ่มต้น หากคุณต้องการใช้ตัวปลดล็อคเฟรมเรทของ Roblox</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>การจำกัด Framerate</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>สลับกับ[ปุ่มคีย์บอร์ด]({0}) จะสามารถใช้ได้ถ้าคุณอยู่ใน[กลุ่มของ Fishstrap]({1})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>เปิดใช้ความสามารถในการซ่อน GUIs</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>ตัวที่เลือกจะถูกบังคับใช้ในทุกเกม [ระวัง, อาจทำให้เกิดปัญหาเกี่ยวกับแสง]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>เทคโนโลยีแสงที่ต้องการ</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>ปิดการใช้งานเอฟเฟกต์หลังจากการประมวลผล</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>ปิดการใช้งานแถบหัวข้อในโหมดเต็มหน้าจอ</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>ปิดซ่อนเงาของเพลเยอร์</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>ขนาดของฟอร์น</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>ค่าเริ่มต้นคือ 1 แก้ไขมันหากคุณใช้ฟอร์นที่กำหนดด้วยตัวเอง</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>ปิดใช้การแสดงพื้นผิว</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

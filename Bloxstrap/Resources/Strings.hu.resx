@@ -608,32 +608,11 @@ Biztosan folytatja?</value>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>A Direct3D [kizárólagos teljes képernyő]({0}) az Alt+Enter billentyűkombináció használatával alapértelmezés szerint engedélyezve van.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Előnyben részesített játék menü verzió</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>A Roblox csökkenti a renderelési minőséget attól függően, hogy a kijelző hogyan van méretezve a Windows-ban.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>A megjelenítés minőségének megőrzése a kijelző méretezésével</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Állítsd 0-ra az alapértelmezettért, ha a Roblox saját FPS korlát eltörlőjét akarod használni.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>FPS korlát</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>A [billentyűparancsok]({0}) segítségével kapcsolható. Csak akkor működik, ha a [Fishstrap Roblox csoportban]({1}) vagy.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>A GUI-k elrejtésének lehetővé tétele</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>A kiválasztott feltétlenül meg fog jelenni az összes játékban. [Vigyázz, ez el tudja rontani a játék kinézetét!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Előnyben részesített világítási technológia</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderelési mód</value>
@@ -790,12 +769,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Régi karakterhangok visszahozása</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>A klasszikus 'oof' hang visszahozása.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Régi halálhang használata</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modok</value>
   </data>
@@ -850,12 +823,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Élsimítás minőség (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Utófeldolgozási effektusok letiltása</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>A teljesképernyős címsor letiltása</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Nem fog megjelenni, ha az egerét a képernyő tetejére mozdítja.</value>
   </data>
@@ -873,18 +840,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>3. szint (Legmagasabb)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Játékosok árnyékai letiltása</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Betűtípus méret</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Az alapértelmezett érték 1. Változtassa meg ezt, ha egy saját betűtípust használ.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Tereptextúrák kikapcsolása</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>A Fishstrap nem tudja letölteni a Roblox-ot</value>
@@ -1267,6 +1222,9 @@ Kérjük, zárjon be minden olyan alkalmazást, amely a Roblox fájljait haszná
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>A Roblox már nem támogatja a Windows 7 vagy 8.1 operációs rendszert. A Roblox játék folytatásához kérjük, frissítsen Windows 10-re vagy újabb verzióra.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>A legújabb Fishstrap beszerzése...</value>
   </data>
@@ -1278,24 +1236,6 @@ Kérjük, zárjon be minden olyan alkalmazást, amely a Roblox fájljait haszná
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Névtelen és semmi rossz, ígérjük. Ha többet szeretne megtudni arról, hogy mit és miért gyűjtünk, olvassa el az [adatvédelmi szabályzatunkat]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>A Roblox már nem támogatja a Windows 7 vagy 8.1 operációs rendszert. A Roblox játék folytatásához kérjük, frissítsen Windows 10-re vagy újabb verzióra.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Nem sikerült extraktálni a fájlokat</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Néhány tartalom hiányozhat. A Roblox újratelepítésének kényszerítése a beállítások között javítja ezt.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Nem sikerült alkalmazni a módosításokat</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Nem minden módosítás lesz jelen a jelenlegi indításban.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Üres</value>
@@ -1418,12 +1358,6 @@ Kérjük, zárjon be minden olyan alkalmazást, amely a Roblox fájljait haszná
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Téma könvyvtár kinyitása</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Új létrehozása</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importálás</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Egyéni téma hozzáadása</value>
   </data>
@@ -1465,23 +1399,11 @@ Alapértelmezés szerint {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Nincs egyéni téma kiválasztva.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Átnevezés</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Módosítás</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Nem sikerült törölni az egyéni témát {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Nem sikerült átnevezni az egyéni témát {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Háttérfrissítések</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Várakozás helyett a háttérben frissítheti a Robloxot. Lassú hálózatokon nem ajánlott. A funkció működéséhez legalább 3GB szabad tárhely szükséges.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>UI elemek elhelyezése ide</value>
@@ -1496,16 +1418,88 @@ Alapértelmezés szerint {1}.</value>
     <value>Egyedi téma {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>A témád el lett mentve!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Nem sikerült előnézetben megjeleníteni a témát: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Nem sikerült alkalmazni a módosításokat</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Nem minden módosítás lesz jelen a jelenlegi indításban.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Nem sikerült extraktálni a fájlokat</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Néhány tartalom hiányozhat. A Roblox újratelepítésének kényszerítése a beállítások között javítja ezt.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Több példányos indítás engedélyezése</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Lehetővé teszi, hogy egynél több Roblox játékkliens-példány legyen egyszerre nyitva.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>A témád el lett mentve!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Átnevezés</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Nem sikerült előnézetben megjeleníteni a témát: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Új létrehozása</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Háttérfrissítések</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Várakozás helyett a háttérben frissítheti a Robloxot. Lassú hálózatokon nem ajánlott. A funkció működéséhez legalább 3GB szabad tárhely szükséges.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importálás</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Módosítás</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Előnyben részesített játék menü verzió</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Állítsd 0-ra az alapértelmezettért, ha a Roblox saját FPS korlát eltörlőjét akarod használni.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>FPS korlát</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>A [billentyűparancsok]({0}) segítségével kapcsolható. Csak akkor működik, ha a [Fishstrap Roblox csoportban]({1}) vagy.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>A GUI-k elrejtésének lehetővé tétele</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>A kiválasztott feltétlenül meg fog jelenni az összes játékban. [Vigyázz, ez el tudja rontani a játék kinézetét!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Előnyben részesített világítási technológia</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Utófeldolgozási effektusok letiltása</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>A teljesképernyős címsor letiltása</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Játékosok árnyékai letiltása</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Betűtípus méret</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Az alapértelmezett érték 1. Változtassa meg ezt, ha egy saját betűtípust használ.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Tereptextúrák kikapcsolása</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

@@ -610,32 +610,11 @@ NE koristite ovo da biste uvozili velike "flag liste" od drugi ljudi koje obeća
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) koristeći Alt+Enter je uključeno prema zadanim postavkama.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferirana verzija escape menija</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox smanjuje kvalitetu renderiranja oviseći o načinu na koji je vaš prikaz skaliran u Windows-u.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Očuvajte kvalitetu renderiranja uz skaliranje zaslona</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Stavite na 0 za zadane postavke ako želite koristiti Roblox-ov domaći framerate unlocker.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate granica</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Prebacuje se sa [keyboard shortcuts]({0}). Radi samo ako ste u [Fishstrap group]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Uključi mogućnost za skrivanje GUIa</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Odabrani će biti prisilno uključeni u svim igrama. [Pazite, može uzrokovati poteškoće sa svjetlom!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferirana tehnologija svjetla</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Vrsta rendera</value>
@@ -790,12 +769,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulacija starih zvukova karaktera</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Vrati klasični "oof" zvuk smrti.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Koristi stari zvuk smrti</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modovi</value>
   </data>
@@ -850,12 +823,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing kvaliteta (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Onemogući post-processing efekte</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Onemogući naslovnu traku u prikazu cijelog zaslona</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Spriječava ju od pojavljivanja kad god pomaknete miš na vrh ekrana.</value>
   </data>
@@ -873,18 +840,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Nivo 3 (Najviše)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Onemogući sjene igrača</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Veličina fonta</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Zadana vrijednost je 1. Prilagodite ako koristite prilagođeni font.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Onemogući teksture terena</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap ne može preuzeti Roblox</value>
@@ -1267,6 +1222,9 @@ Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox više ne podržava Windows 7 i 8.1. Da biste nastavili igrati Roblox, nadogradite na Windows 10 ili novije.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Dobivanje najnovije verzije Fishstrapa...</value>
   </data>
@@ -1278,24 +1236,6 @@ Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Anonimno je i nije ništa zlo, obećajemo. Za uvid u ono što pokupljamo i zašto, pogledajte našu [politiku privatnosti]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox više ne podržava Windows 7 i 8.1. Da biste nastavili igrati Roblox, nadogradite na Windows 10 ili novije.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Neuspjelo izdvajanje datoteka</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Možda nedostaje neki sadržaj. Prisilite reinstalaciju u postavkama za popravak.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Neuspjela primjena modifikacija</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Sve modifikacije neće biti prisutne u trenutnom pokretanju.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache Licenca 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Prazno</value>
@@ -1418,12 +1358,6 @@ Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Otvori imenik tema</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Izradi novo</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Uvedi</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Uvedi prilagođenu temu</value>
   </data>
@@ -1465,23 +1399,11 @@ Prebacivanje na zadani {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Nije odabrana niti jedna prilagođena tema.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Preimenuj</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Uredi</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Nije uspjelo brisanje prilagođene teme {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Nije uspjelo učitavanje prilagođene teme {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Ažuriranja u pozadini</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Ažuriraj Roblox u pozadini umjesto čekanja. Ne preporuča se slabijim vezama. Najmanje 3GB slobodne memorije treba za rad ove značajke.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Stavite UI elemente ovdje</value>
@@ -1496,16 +1418,88 @@ Prebacivanje na zadani {1}.</value>
     <value>Prilagođena Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Vaša tema je spremljena!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Neuspjeli pretpregled teme: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Neuspjela primjena modifikacija</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Sve modifikacije neće biti prisutne u trenutnom pokretanju.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Neuspjelo izdvajanje datoteka</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Možda nedostaje neki sadržaj. Prisilite reinstalaciju u postavkama za popravak.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Dopusti pokretanje više instanci</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Omogućuje istovremeno otvaranje više instanci Roblox klijenta za igru.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Vaša tema je spremljena!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Preimenuj</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Neuspjeli pretpregled teme: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Izradi novo</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Ažuriranja u pozadini</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Ažuriraj Roblox u pozadini umjesto čekanja. Ne preporuča se slabijim vezama. Najmanje 3GB slobodne memorije treba za rad ove značajke.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Uvedi</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Preferirana verzija escape menija</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Stavite na 0 za zadane postavke ako želite koristiti Roblox-ov domaći framerate unlocker.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Framerate granica</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Prebacuje se sa [keyboard shortcuts]({0}). Radi samo ako ste u [Fishstrap group]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Uključi mogućnost za skrivanje GUIa</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Odabrani će biti prisilno uključeni u svim igrama. [Pazite, može uzrokovati poteškoće sa svjetlom!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Preferirana tehnologija svjetla</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Onemogući post-processing efekte</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Onemogući naslovnu traku u prikazu cijelog zaslona</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Onemogući sjene igrača</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Veličina fonta</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Zadana vrijednost je 1. Prilagodite ako koristite prilagođeni font.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Onemogući teksture terena</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache Licenca 2.0</value>
   </data>
 </root>

@@ -608,32 +608,11 @@
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [ملء الشاشة الحصري]({0}) باستخدام Alt+Enter بشكل تلقائي.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>إصدار قائمة الهروب المفضلة</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox تقلل من جودة العرض الخاص اعتمادا على كيفية تحجيم العرض الخاص بك في Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>الحفاظ على جودة العرض مع تحجيم العرض</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>تعيين إلى 0 للإعدادات الأصلية إذا كنت ترغب في استخدام معدل إطار Roblox الأصلي.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>حد معدل الإطارات (FPS)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>يتم تفعيله باستخدام [اختصارات لوحة المفاتيح]({0}). يعمل فقط إذا كنت في [مجموعة Fishstrap في Roblox]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>القدرة على إخفاء واجهات المستخدم</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>سيتم تمكين المختارة في جميع الألعاب. [احذر، قد يسبب مشاكل في الإضاءة!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>تقنية الإضاءة</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>وضع العرض</value>
@@ -790,12 +769,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>استخدام أصوات الشخصيات القديمة</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>إعادة صوت الموت الكلاسيكي 'اووف'.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>استخدام صوت الموت القديم</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>التعديلات (المودات)</value>
   </data>
@@ -850,12 +823,6 @@
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>جودة مكافحة التعرجات (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>تعطيل تأثيرات ما بعد المعالجة</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>إيقاف شريط العنوان بملء الشاشة</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>يمنعها من الظهور كلما قمت بتحريك المؤشر إلى أعلى الشاشة.</value>
   </data>
@@ -873,18 +840,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>المستوى 3 (الأعلى)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>تعطيل ظلال اللاعب</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>حجم الخط</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>القيمة الأصلية هي 1. اضبط إذا كنت تستخدم خطاً مخصصاً.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>تعطيل الملمس التضاريس</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap غير قادر على تحميل Roblox</value>
@@ -1267,6 +1222,9 @@
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>لم يعد Roblox يدعم Windows 7 أو 8.1. لمواصلة تشغيل Roblox، يرجى الترقية إلى Windows 10 أو أحدث.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>يتم اخذ اخر نسخه من Fishstrap...</value>
   </data>
@@ -1278,24 +1236,6 @@
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>إنه مجهول وما فيه شر، أوعدكم! للحصول على نظرة ثاقبة حول ما نجمعه و لماذا, راجع [الPrivacy Policy]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>لم يعد Roblox يدعم Windows 7 أو 8.1. لمواصلة تشغيل Roblox، يرجى الترقية إلى Windows 10 أو أحدث.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>فشل في استخراج جميع الملفات</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>قد يكون بعض المحتوى مفقود. قم بإعادة تثبيت Roblox في الإعدادات لإصلاح هذا.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>فشل في تطبيق جميع التعديلات</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>لن تكون جميع التعديلات موجودة في عملية الإطلاق الحالية.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>رخصة Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>فارغ</value>
@@ -1350,7 +1290,7 @@
     <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
-    <value></value>
+    <value />
     <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
   </data>
   <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
@@ -1418,12 +1358,6 @@
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>فتح دليل المظهر</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>إنشاء جديد</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>استيراد</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>إضافة مظهر مخصص</value>
   </data>
@@ -1464,23 +1398,11 @@
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>لم يتم تحديد موضوع مخصص.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>إعادة تسمية</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>حرّر</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>فشل في حذف موضوع مخصص {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>فشل في حذف موضوع مخصص {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>تحديثات الخلفية</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>تحديث Roblox في الخلفية بدلاً من الانتظار. لا ينصح بالشبكات البطيئة. مطلوب على الأقل 3 جيغابايت من مساحة التخزين الحرة لكي تعمل هذه الميزة.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>ضع عناصر واجهة المستخدم هنا</value>
@@ -1495,16 +1417,88 @@
     <value>المظهر المخصص {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>تم حفظ المظهر الخاص بك!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>فشل معاينة المظهر: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>فشل في تطبيق جميع التعديلات</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>لن تكون جميع التعديلات موجودة في عملية الإطلاق الحالية.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>فشل في استخراج جميع الملفات</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>قد يكون بعض المحتوى مفقود. قم بإعادة تثبيت Roblox في الإعدادات لإصلاح هذا.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>السماح بإطلاق متعدد المثيلات</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>يسمح بفتح أكثر من نموذج عميل لعبة Roblox في نفس الوقت.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>تم حفظ المظهر الخاص بك!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>إعادة تسمية</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>فشل معاينة المظهر: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>إنشاء جديد</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>تحديثات الخلفية</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>تحديث Roblox في الخلفية بدلاً من الانتظار. لا ينصح بالشبكات البطيئة. مطلوب على الأقل 3 جيغابايت من مساحة التخزين الحرة لكي تعمل هذه الميزة.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>استيراد</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>حرّر</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>إصدار قائمة الهروب المفضلة</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>تعيين إلى 0 للإعدادات الأصلية إذا كنت ترغب في استخدام معدل إطار Roblox الأصلي.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>حد معدل الإطارات (FPS)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>يتم تفعيله باستخدام [اختصارات لوحة المفاتيح]({0}). يعمل فقط إذا كنت في [مجموعة Fishstrap في Roblox]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>القدرة على إخفاء واجهات المستخدم</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>سيتم تمكين المختارة في جميع الألعاب. [احذر، قد يسبب مشاكل في الإضاءة!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>تقنية الإضاءة</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>تعطيل تأثيرات ما بعد المعالجة</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>إيقاف شريط العنوان بملء الشاشة</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>تعطيل ظلال اللاعب</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>حجم الخط</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>القيمة الأصلية هي 1. اضبط إذا كنت تستخدم خطاً مخصصاً.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>تعطيل الملمس التضاريس</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>رخصة Apache 2.0</value>
   </data>
 </root>

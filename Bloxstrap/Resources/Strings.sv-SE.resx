@@ -610,32 +610,11 @@ Använd INTE detta för att importera stora "flagglistor" gjorda av andra person
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exklusiv helskärm]({0}) med Alt+Enter är igång som standard.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Föredragen escapemeny-version</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox sänker din renderingskvalitet beroende på hur din skärm är skalad i Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Behåll renderingskvalitet med skärmskalning</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Sätt till 0 för standard om du vill använda Roblox inbyggda bildfrekvensupplåsare.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Bildfrekvensgräns</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Sätts igång med [tangentbordsgenvägar]({0}). Fungerar endast om du är i [Fishstrap-gruppen]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Aktivera möjligheten att dölja GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Vald ljusteknologi kommer tvingas igång i alla spel. [Var försiktig, detta kan skapa ljusproblem!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Föredragen ljusteknik</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderingsläge</value>
@@ -792,12 +771,6 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulera gamla karaktärsljud</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Få tillbaka det klassiska "oof"-dödsljudet.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Använd det gamla dödsljudet</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Moddar</value>
   </data>
@@ -852,12 +825,6 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing-kvalitet (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Stäng av postprocessingseffekter</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Stäng av helskärmstitelrad</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Stoppar den från att visas när du rör din mus till toppen av skärmen.</value>
   </data>
@@ -875,18 +842,6 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Nivå 3 (Högsta)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Stäng av spelarskuggor</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Typsnittsstorlek</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Standardvärde är 1. Ändra om du använder ett eget typsnitt.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Stäng av terrängtexturer</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap kan inte ladda ner Roblox</value>
@@ -1269,6 +1224,9 @@ Var vänlig och stäng applikationer som kan använda Roblox filer, och starta s
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox stödjer inte längre Windows 7 eller 8.1. För att fortsätta spela, uppgradera till Windows 10 eller senare.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Skaffar den nyaste Fishstrap...</value>
   </data>
@@ -1280,24 +1238,6 @@ Var vänlig och stäng applikationer som kan använda Roblox filer, och starta s
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Det är anonymt och inget ont. För att se vad vi samlar in och varför, se vår [integritetspolicy]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox stödjer inte längre Windows 7 eller 8.1. För att fortsätta spela, uppgradera till Windows 10 eller senare.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Det gick inte att extrahera filerna</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Vissa filer verkar saknas. Genomför en ominstallation av Roblox i inställningarna för att åtgärda problemet.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Det gick inte att tillämpa ändringarna</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Inte alla ändringar kommer att finnas med i denna session.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache-licens 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Tom</value>
@@ -1420,12 +1360,6 @@ Var vänlig och stäng applikationer som kan använda Roblox filer, och starta s
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Öppna temamappen</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Skapa ny</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importera</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Lägg till eget tema</value>
   </data>
@@ -1467,23 +1401,11 @@ Använder {1} istället.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Inget eget tema valt.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Byt namn</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Redigera</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Misslyckades att radera eget tema {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Det gick inte att byta namn på eget tema {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Bakgrundsuppdateringar</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Uppdatera Roblox i bakgrunden istället för att vänta. Rekommenderas inte för långsamma nätverk. Minst 3 GB ledigt lagringsutrymme krävs för att den här funktionen ska fungera.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Sätt användargränssnittselement här</value>
@@ -1498,16 +1420,88 @@ Använder {1} istället.</value>
     <value>Eget tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Ditt tema har sparats!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Det gick inte att förhandsgranska temat: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Det gick inte att tillämpa ändringarna</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Inte alla ändringar kommer att finnas med i denna session.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Det gick inte att extrahera filerna</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Vissa filer verkar saknas. Genomför en ominstallation av Roblox i inställningarna för att åtgärda problemet.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Tillåt start av flera instanser</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Tillåter att fler än en Roblox-spelklient instans är öppen samtidigt.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Ditt tema har sparats!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Byt namn</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Det gick inte att förhandsgranska temat: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Skapa ny</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Bakgrundsuppdateringar</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Uppdatera Roblox i bakgrunden istället för att vänta. Rekommenderas inte för långsamma nätverk. Minst 3 GB ledigt lagringsutrymme krävs för att den här funktionen ska fungera.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importera</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Föredragen escapemeny-version</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Sätt till 0 för standard om du vill använda Roblox inbyggda bildfrekvensupplåsare.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Bildfrekvensgräns</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Sätts igång med [tangentbordsgenvägar]({0}). Fungerar endast om du är i [Fishstrap-gruppen]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Aktivera möjligheten att dölja GUIs</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Vald ljusteknologi kommer tvingas igång i alla spel. [Var försiktig, detta kan skapa ljusproblem!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Föredragen ljusteknik</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Stäng av postprocessingseffekter</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Stäng av helskärmstitelrad</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Stäng av spelarskuggor</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Typsnittsstorlek</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Standardvärde är 1. Ändra om du använder ett eget typsnitt.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Stäng av terrängtexturer</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache-licens 2.0</value>
   </data>
 </root>

@@ -608,32 +608,11 @@ HUWAG gagamitin ito upang mag-import ng mga malalaking "flag lists" na gawa ng i
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) ang paggamit ng Alt+Enter ay naka enable na by default.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Bersyon ng escape menu na naayon sa iyong panlasa</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Ang Roblox ay binabawasan ang iyong rendering quality depende sa gaanong laki ang display sa Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Pangalagaan ang rendering quality kasama ang display scaling</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Ilagay sa 0 para sa defaults pag ikaw ay gusto gamitin ang native framerate unlocker ng Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate Limit</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Toggled kasama ang [keyboard shortcuts]({0}). Gumagana lang kapag ikaw ay nasa [Fishstrap group]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Paganahin ang kakayahang itago ang mga GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Ang napili ay ang magiging default lighting sa lahat ng laro. [Babala, maaring magdulot ng isyu sa lighting!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Gustong lighting technology</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering mode</value>
@@ -790,12 +769,6 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Kopyahin ang dating tunog ng character</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Ibalik ang classic 'oof' death sound.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Gamitin ang dating death sound</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -850,12 +823,6 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing quality (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>I-disable ang post-processing effects</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>I-disable ang full-screen titlebar</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Hindi siya ipinapakita pag ginalaw mo ang iyong mouse sa tuktok ng screen.</value>
   </data>
@@ -873,18 +840,6 @@ Ang pagpili ng 'Hindi' ay hindi papansinin ang babalang ito at itutuloy ang pag-
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Level 3 (Highest)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>I-disable ang player shadows</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Font size</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Ang default value nito ay 1. I-adjust ito pag gumagamit ng custom font.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>I-disable ang terrain textures</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Hindi maka-download ng Roblox ang Fishstrap</value>
@@ -1237,6 +1192,9 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
     <value>I-export</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Hindi na sinusuportahan Windows 7 or 8.1 ang Roblox. Upang magpatuloy sa paglaro ng Roblox, mag-upgrade sa Windows 10 o mas bago.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Kinukuha ang latest Fishstrap...</value>
   </data>
@@ -1262,24 +1220,6 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Lahat ng Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Hindi na sinusuportahan Windows 7 or 8.1 ang Roblox. Upang magpatuloy sa paglaro ng Roblox, mag-upgrade sa Windows 10 o mas bago.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Nabigo pagkuha ng files</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>May content na maaaring nawawala. Pilitin ang Roblox Installation sa settings para ayusin ito.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Nabigo mag-apply ang modifications</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Hindi lahat ang modifications ay makikita sa current launch.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Blangko</value>
@@ -1402,12 +1342,6 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Buksan ang theme directory</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Gumawa ng bago</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Mag-import</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Magdagdag ng Custom Theme</value>
   </data>
@@ -1448,23 +1382,11 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Walang custom theme napili.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Palitan ng pangalan</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>I-edit</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Nabigo I-delete ang custom theme {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Nabigong palitan ang custom na theme {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Background updates</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>i-Update ang Roblox sa background kesa sa pag-hintay. Hindi ito inirerekomenda sa mga mabagal na network. Kailangan ng 3GB na libreng storage space para mapagana ang feature na ito.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Ilagay ang mga UI element dito</value>
@@ -1479,16 +1401,88 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
     <value>Custom Theme {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Ang iyong theme ay na save!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Nabigo i-preview ang theme: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Nabigo mag-apply ang modifications</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Hindi lahat ang modifications ay makikita sa current launch.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Nabigo pagkuha ng files</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>May content na maaaring nawawala. Pilitin ang Roblox Installation sa settings para ayusin ito.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>I-allow ang multi-instance launching</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Ina-allow ang pagbukas ng higit sa isang Roblox game client instancena bukas sabay-sabay.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Ang iyong theme ay na save!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Palitan ng pangalan</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Nabigo i-preview ang theme: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Gumawa ng bago</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Background updates</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>i-Update ang Roblox sa background kesa sa pag-hintay. Hindi ito inirerekomenda sa mga mabagal na network. Kailangan ng 3GB na libreng storage space para mapagana ang feature na ito.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Mag-import</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>I-edit</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Bersyon ng escape menu na naayon sa iyong panlasa</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Ilagay sa 0 para sa defaults pag ikaw ay gusto gamitin ang native framerate unlocker ng Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Framerate Limit</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Toggled kasama ang [keyboard shortcuts]({0}). Gumagana lang kapag ikaw ay nasa [Fishstrap group]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Paganahin ang kakayahang itago ang mga GUIs</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Ang napili ay ang magiging default lighting sa lahat ng laro. [Babala, maaring magdulot ng isyu sa lighting!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Gustong lighting technology</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>I-disable ang post-processing effects</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>I-disable ang full-screen titlebar</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>I-disable ang player shadows</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Ang default value nito ay 1. I-adjust ito pag gumagamit ng custom font.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>I-disable ang terrain textures</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

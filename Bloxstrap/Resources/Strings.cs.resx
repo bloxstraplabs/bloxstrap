@@ -610,32 +610,11 @@ NEPOUŽÍVEJTE tohle aby jste importovali velké "Fast flags" listy udělané os
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exkluzivní celá obrazovka]({0}) je automaticky nastavena ve výchozím nastavení zmáčknutím Alt+Enter.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Vybraná verze escape nabídky</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox snižuje vaší renderovací grafiku podle velikosti displeje Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Zachovat kvalitu renderování s měřítkem zobrazení</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Nastavte na 0 pro výchozí, pokud chcete používat nativní Fps unlocker v Robloxu.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Omezení snímků</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Přepíná se pomocí [klávesových zkratek]({0}). Funguje pouze, pokud jste ve [skupině Fishstrap na Robloxu]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Povolit možnost skrýt GUI</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Vybraná volba bude povinně aktivována ve všech hrách. [Pozor, může způsobit problémy s osvětlením!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferovaná technologie osvětlení</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Režim renderování</value>
@@ -792,12 +771,6 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Napodobovat staré zvuky charakteru</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Vrátit starý klasický 'oof' zvuk.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Použít starý zvuk smrti</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modifikace</value>
   </data>
@@ -852,12 +825,6 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Vyhlazovací kvalita (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Vypnout efekty následného zpracování</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Vypnout titulní lištu na celé obrazovce</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Zastaví zobrazování titulní lišty, když se myš přesune na horní část obrazovky.</value>
   </data>
@@ -875,18 +842,6 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Úroveň 3 (Největší)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Vypnout stíny hráčů</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Velikost písma</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Výchozí hodnota je 1. Upravte, pokud používáte vlastní písmo.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Vypnout terénové textury</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap nemůže stáhnout Roblox</value>
@@ -1247,34 +1202,8 @@ Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spu
   <data name="Dialog.Connectivity.Preventing" xml:space="preserve">
     <value>Něco pravděpodobně brání Fishstrapu připojení k internetu.</value>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Shromažďujte informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Konfigurace Bloxstrap</value>
-    <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Všechny bloxstrap logy</value>
-    <comment>Label that appears next to a checkbox</comment>
-  </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
     <value>Roblox již nepodporuje Windows 7 ani 8.1. Pokud chcete dále hrát Roblox, aktualizujte prosím na Windows 10 nebo novější.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Extrahování souborů se nezdařilo</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Některý obsah může chybět. Přeinstalujte Roblox v nastavení pro opravení.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Nepodařilo se použít modifikace</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Ne všechny modifikace budou přítomny při aktuálním spuštění.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Licence Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Prázdný</value>
@@ -1397,12 +1326,6 @@ Zavřete všechny aplikace, které mohou používat soubory Robloxu, a znovu spu
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Otevřít složku motivů</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Vytvořit nový</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importovat</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Přidat vlastní motiv</value>
   </data>
@@ -1444,23 +1367,11 @@ Používám motiv {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Není vybrán žádný vlastní motiv.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Přejmenovat</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Upravit</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Nepodařilo se odstranit vlastní motiv {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Nepodařilo se přejmenovat vlastní šablonu {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Aktualizace v pozadí</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Aktualizuje Roblox v pozadí místo čekání. Není doporučeno pro pomalé sítě. Alespoň 3GB volného úložiště je potřeba, aby tato funkce fungovala.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Sem vložte prvky UI</value>
@@ -1475,16 +1386,99 @@ Používám motiv {1}.</value>
     <value>Vlastní motiv {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Váš motiv byl uložen!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Nezdařilo se zobrazit náhled motivu: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Nepodařilo se použít modifikace</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Ne všechny modifikace budou přítomny při aktuálním spuštění.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Extrahování souborů se nezdařilo</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Některý obsah může chybět. Přeinstalujte Roblox v nastavení pro opravení.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Povolit spouštění více instancí</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Umožňuje mít více než jednu Roblox instanci otevřenou zároveň.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Váš motiv byl uložen!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Přejmenovat</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Nezdařilo se zobrazit náhled motivu: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Vytvořit nový</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Aktualizace v pozadí</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Aktualizuje Roblox v pozadí místo čekání. Není doporučeno pro pomalé sítě. Alespoň 3GB volného úložiště je potřeba, aby tato funkce fungovala.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importovat</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Vybraná verze escape nabídky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Nastavte na 0 pro výchozí, pokud chcete používat nativní Fps unlocker v Robloxu.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Omezení snímků</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Přepíná se pomocí [klávesových zkratek]({0}). Funguje pouze, pokud jste ve [skupině Fishstrap na Robloxu]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Povolit možnost skrýt GUI</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Vybraná volba bude povinně aktivována ve všech hrách. [Pozor, může způsobit problémy s osvětlením!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Preferovaná technologie osvětlení</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Vypnout efekty následného zpracování</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Vypnout titulní lištu na celé obrazovce</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Vypnout stíny hráčů</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Velikost písma</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Výchozí hodnota je 1. Upravte, pokud používáte vlastní písmo.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Vypnout terénové textury</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Licence Apache 2.0</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Shromažďujte informace, které lze nahrát online, abyste vyřešili problém, který máte.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Konfigurace Bloxstrap</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Všechny bloxstrap logy</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

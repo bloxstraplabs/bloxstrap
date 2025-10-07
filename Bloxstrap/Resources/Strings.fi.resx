@@ -610,32 +610,11 @@ Haluatko varmasti jatkaa?</value>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D:n [koko näytön tila]({0}) pikanäppäimellä Alt+Enter on päällä oletuksena.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Suosittu escape-valikon versio</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox vähentää renderöintilaatua riippuen siitä, miten näyttö on skaalattu Windowsissa.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Säilytä renderöinnin laatua näytön skaalauksella</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Aseta nollaksi oletuksille, jos tahdot käyttää Robloxin natiivia kuvataajuusvapauttajaa.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Kuvataajuuden rajoitus</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Vaihda käyttämällä [näppäinyhdistelmiä]({0}). Toimii vain, jos olet [Fishstrap Roblox-ryhmässä]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Antaa sinun piilottaa pelin GUI:t</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Valinta pakotetaan päälle kaikissa peleissä. [Varo, tämä saattaa aiheuttaa valaistusongelmia!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Suosittu valaistusteknologia</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderöintitila</value>
@@ -792,12 +771,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Käytä vanhoja hahmojen ääniä</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Tuo takaisin vanha "oof" kuolema-ääni.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Käytä vanhaa kuolema-ääntä</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modit</value>
   </data>
@@ -852,12 +825,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Reunanpehmennyksen laatu (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Poista jälkikäsittelyefektit käytöstä</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Poista koko näytön otsikkopalkki käytöstä</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Estää tämän näkymästä, kun liikuttaa hiiren näytön yläreunaan.</value>
   </data>
@@ -875,18 +842,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Taso 3 (Korkein)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Poista pelaajien varjot käytöstä</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Fonttikoko</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Oletusarvo on 1. Säädä, jos käytät kustomoitua fonttia.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Poista maaston tekstuurit käytöstä</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap ei voi ladata Robloxia</value>
@@ -1269,6 +1224,9 @@ Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja kä
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ei enää tue Windows 7 tai 8.1, jatkaaksesi Robloxin pelaamista, ole hyvä ja päivitä Windows 10 tai uudempaan.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Haetaan uusinta Fishstrap-versiota...</value>
   </data>
@@ -1280,24 +1238,6 @@ Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja kä
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Se on anonyymiä eikä mitään pahaa, lupaamme. Lisätietoja siitä, mitä me keräämme ja miksi löytyy [yksityisyyskäytännöstämme]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox ei enää tue Windows 7 tai 8.1, jatkaaksesi Robloxin pelaamista, ole hyvä ja päivitä Windows 10 tai uudempaan.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Tiedostojen purku epäonnistui</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Jotakin sisältöä saattaa puuttua. Pakota Robloxin uudelleenasennus asetuksista korjataksesi tämän.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Muutoksia ei voitu ottaa käyttöön</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Kaikki muutokset eivät ole läsnä nykyisessä käynnistyksessä.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Tyhjä</value>
@@ -1420,12 +1360,6 @@ Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja kä
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Avaa Teemahakemisto</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Luo uusi</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Tuo</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Lisää Mukautettu teema</value>
   </data>
@@ -1467,23 +1401,11 @@ Palataan oletukseen {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Mukautettua teemaa ei ole valittu.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Nimeä uudelleen</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Muokkaa</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Mukautetun teeman {0} poistaminen epäonnistui: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Mukautetun teeman {0} uudelleennimeäminen epäonnistui: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Päivitä taustalla</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Päivitä Roblox taustalla odotttamisen sijaan. Ei suositeltu hitaille verkkoyhteyksille. Ainakin 3GB vapaata tallennustilaa vaaditaan, jotta tämä ominaisuus toimisi.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Laita käyttöliittymän elementit tähän</value>
@@ -1498,16 +1420,88 @@ Palataan oletukseen {1}.</value>
     <value>Mukautettu teema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Teemasi on tallennettu!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Teeman esikatselu epäonnistui: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Muutoksia ei voitu ottaa käyttöön</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Kaikki muutokset eivät ole läsnä nykyisessä käynnistyksessä.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Tiedostojen purku epäonnistui</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Jotakin sisältöä saattaa puuttua. Pakota Robloxin uudelleenasennus asetuksista korjataksesi tämän.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Salli usean instanssin käynnistäminen</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Sallii useamman kuin yhden Roblox-peliklientin instanssin avaamisen samanaikaisesti.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Teemasi on tallennettu!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Nimeä uudelleen</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Teeman esikatselu epäonnistui: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Luo uusi</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Päivitä taustalla</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Päivitä Roblox taustalla odotttamisen sijaan. Ei suositeltu hitaille verkkoyhteyksille. Ainakin 3GB vapaata tallennustilaa vaaditaan, jotta tämä ominaisuus toimisi.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Tuo</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Muokkaa</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Suosittu escape-valikon versio</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Aseta nollaksi oletuksille, jos tahdot käyttää Robloxin natiivia kuvataajuusvapauttajaa.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Kuvataajuuden rajoitus</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Vaihda käyttämällä [näppäinyhdistelmiä]({0}). Toimii vain, jos olet [Fishstrap Roblox-ryhmässä]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Antaa sinun piilottaa pelin GUI:t</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Valinta pakotetaan päälle kaikissa peleissä. [Varo, tämä saattaa aiheuttaa valaistusongelmia!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Suosittu valaistusteknologia</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Poista jälkikäsittelyefektit käytöstä</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Poista koko näytön otsikkopalkki käytöstä</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Poista pelaajien varjot käytöstä</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Fonttikoko</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Oletusarvo on 1. Säädä, jos käytät kustomoitua fonttia.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Poista maaston tekstuurit käytöstä</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

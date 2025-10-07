@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -156,9 +156,6 @@
   </data>
   <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
     <value>Opgradere {product}...</value>
-  </data>
-  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Finder den nyeste Bloxstrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Venter på andre instanser...</value>
@@ -613,32 +610,11 @@ Brug IKKE dette til at importere store "flag lister" lavet af andre mennesker, d
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [eksklusiv fullscreen]({0}) ved brug af Alt+Enter er aktiveret som standard.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Foretrukken escape menu version</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox reducerer din renderingskvalitet afhængigt af, hvordan dit display skaleres i Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Bevar gengivelseskvalitet med visningsskalering</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Sæt til 0 for standardindstillinger, hvis du vil bruge Roblox' oprindelige framerate oplåsning.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate grænse</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Slået til med [tastaturgenveje]({0}). Virker kun, hvis du er i [Bloxstrap gruppen]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Aktiver evne til at skjule GUI'er</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Valgt en vil blive aktiveret i alle spil. [Pas på, kan forårsage belysningsproblemer!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Foretrukne belysningsteknologi</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Gengivelsestilstand</value>
@@ -795,12 +771,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Efterlign gamle karakterlyde</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Bringe tilbage den klassiske 'oof' død lyd.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Brug gammel dødlyd</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -855,12 +825,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Antialiasing quality (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Deaktiver efterbehandlingseffekter</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Deaktivér fuldskærm titelbar</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Stopper det fra at vise, når du flytter musen til toppen af skærmen.</value>
   </data>
@@ -878,18 +842,6 @@ Hvis du vælger 'Nej', vil denne advarsel blive ignoreret, og installationen for
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Niveau 3 (højeste)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Deaktivér spiller-skygger</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Skriftstørrelse</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Standardværdi er 1. Justér hvis du bruger en brugerdefineret skrifttype.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Deaktivér terræn teksturer</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap kunne ikke downloade Roblox</value>
@@ -1193,15 +1145,6 @@ Slet venligst Bloxstrap.exe manuelt fra installationsplaceringen eller prøv at 
   <data name="About.Supporters.OneOff" xml:space="preserve">
     <value>Enkeltstående</value>
   </data>
-  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigurer indstillinger relateret til Bloxstraps opførsel.</value>
-  </data>
-  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>Aktiver afsendelse af analyser</value>
-  </data>
-  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
-    <value>Det er anonymt, og der er intet ondt, vi lover. For indsigt i, hvad vi indsamler og hvorfor, se vores [privatlivspolitik]({0}).</value>
-  </data>
   <data name="Common.Analytics" xml:space="preserve">
     <value>Analyse</value>
   </data>
@@ -1256,37 +1199,11 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
     <value>Eksport</value>
     <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
   </data>
-  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
-    <value>Eksport diagnostiske data</value>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
-    <value>Saml oplysninger, der kan uploades online for at fejlfinde et problem, du har.</value>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap konfiguration</value>
-    <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Alle Bloxstrap logs</value>
-    <comment>Label that appears next to a checkbox</comment>
-  </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
     <value>Roblox understøtter ikke længere Windows 7 eller 8.1. For at fortsætte med at spille Roblox, bedes du opgradere til Windows 10 eller nyere.</value>
   </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Kunne ikke udpakke filer</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Noget indhold kan mangle. Tving en Roblox geninstallation i indstillinger for at løse dette.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Kunne ikke anvende ændringer</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Ikke alle ændringer vil være til stede i den nuværende lancering.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache Licens 2,0</value>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Finder den nyeste Bloxstrap...</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Blank</value>
@@ -1409,12 +1326,6 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Åben Temamappe</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Opret ny</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importer</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Tilføj Tilpasset Tema</value>
   </data>
@@ -1455,23 +1366,11 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Intet tilpasset tema valgt.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Omdøb</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Rediger</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Kunne ikke slette tilpasset tema {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Kunne ikke omdøbe tilpasset tema {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Baggrundsopdateringer</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Opdater Roblox i baggrunden i stedet for at vente. Ikke anbefalet for langsomme netværk. Mindst 3GB af ledig lagerplads kræves for at denne funktion kan fungere.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Sæt UI elementer her</value>
@@ -1486,16 +1385,111 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
     <value>Tilpasset Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Dit tema er gemt!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Kunne ikke forhåndsvise tema: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Kunne ikke anvende ændringer</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Ikke alle ændringer vil være til stede i den nuværende lancering.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Kunne ikke udpakke filer</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Noget indhold kan mangle. Tving en Roblox geninstallation i indstillinger for at løse dette.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Tillad multi-instans opstart</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Tillader at have mere end en Roblox spil klient instans åben samtidigt.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Dit tema er gemt!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Omdøb</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Kunne ikke forhåndsvise tema: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Opret ny</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Konfigurer indstillinger relateret til Bloxstraps opførsel.</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Baggrundsopdateringer</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Opdater Roblox i baggrunden i stedet for at vente. Ikke anbefalet for langsomme netværk. Mindst 3GB af ledig lagerplads kræves for at denne funktion kan fungere.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Rediger</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Foretrukken escape menu version</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Sæt til 0 for standardindstillinger, hvis du vil bruge Roblox' oprindelige framerate oplåsning.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Framerate grænse</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Slået til med [tastaturgenveje]({0}). Virker kun, hvis du er i [Bloxstrap gruppen]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Aktiver evne til at skjule GUI'er</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Valgt en vil blive aktiveret i alle spil. [Pas på, kan forårsage belysningsproblemer!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Foretrukne belysningsteknologi</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Deaktiver efterbehandlingseffekter</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Deaktivér fuldskærm titelbar</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Deaktivér spiller-skygger</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Skriftstørrelse</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Standardværdi er 1. Justér hvis du bruger en brugerdefineret skrifttype.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Deaktivér terræn teksturer</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache Licens 2,0</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Aktiver afsendelse af analyser</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Det er anonymt, og der er intet ondt, vi lover. For indsigt i, hvad vi indsamler og hvorfor, se vores [privatlivspolitik]({0}).</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Eksport diagnostiske data</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Saml oplysninger, der kan uploades online for at fejlfinde et problem, du har.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap konfiguration</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Alle Bloxstrap logs</value>
+    <comment>Label that appears next to a checkbox</comment>
   </data>
 </root>

@@ -617,33 +617,11 @@
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>使用 “Alt+Enter” 快捷键以进入 Direct3D [全屏独占]({0}) 已默认启用。</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>首选 Esc 菜单版本</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox 会根据 Windows 的显示缩放比例来调整渲染质量；启用此选项将禁用此功能。</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>不根据显示缩放比例改变其渲染质量</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>设置为 “0” (默认值) 以使用 Roblox 自带的帧率解锁器。</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>帧率上限</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>使用 [键盘快捷键]({0}) 来切换；只有当您在加入 [Fishstrap 群组]({1}) 后才会生效。</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>启用 隐藏/显示 GUI 的功能</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>选择的项目将会在所有游戏内应用。
-[请注意，此选项可能会导致一些出乎意料的光照问题！]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>首选光照技术</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>渲染模式</value>
@@ -802,12 +780,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>模拟旧的 Roblox 人物音效</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>启用此选项将会把 Roblox 当前的死亡音效还原为旧版的死亡音效。“Oof!”</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>使用旧的 Roblox 死亡音效</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>模组</value>
   </data>
@@ -862,12 +834,6 @@
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>抗锯齿等级 (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>禁用后期处理效果</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>禁用全屏标题栏</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>启用此选项将会使鼠标指针移至顶部时 Roblox 自带的标题栏不再会显示。</value>
   </data>
@@ -885,18 +851,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>等级 3 (最高)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>禁用玩家阴影</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>字体大小</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>默认数值为 “1”；如果您使用自定义字体，请进行调整以获取最佳适配性。</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>禁用地形材质</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap 无法下载 Roblox</value>
@@ -1292,6 +1246,9 @@ Fishstrap 的安装路径是：
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox 已停止支持 Windows 7 及 8.1 系统；若需继续畅玩，请与时俱进升级至 Windows 10 或更高版本。</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>正在获取最新版本的 Fishstrap...</value>
   </data>
@@ -1303,24 +1260,6 @@ Fishstrap 的安装路径是：
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Fishstrap 承诺所有收集的数据都是匿名无害的。若要了解我们为什么而收集；请参阅我们的 [隐私政策]({0})。</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox 已停止支持 Windows 7 及 8.1 系统；若需继续畅玩，请与时俱进升级至 Windows 10 或更高版本。</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>解压文件失败</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>部分内容可能缺失；请前往设置强制重新安装 Roblox 以解决此问题。</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>应用修改失败</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>并非所有修改都会在本次启动中生效。</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache 许可证 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>空白</value>
@@ -1443,12 +1382,6 @@ Fishstrap 的安装路径是：
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>打开主题目录</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>新建</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>导入</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>添加自定义主题</value>
   </data>
@@ -1490,23 +1423,11 @@ Fishstrap 的安装路径是：
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>未选择自定义主题。</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>重命名</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>编辑</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>无法删除自定义主题 {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>无法重命名自定义主题 {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>后台更新</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>无需等待即可在后台更新 Roblox；不推荐在网速较慢的情况下使用。此功能需要至少 3GB 的可用存储空间。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>在此放置 UI 元素</value>
@@ -1521,16 +1442,89 @@ Fishstrap 的安装路径是：
     <value>自定义主题 {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>您的主题已保存！</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>无法预览主题：{0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>应用修改失败</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>并非所有修改都会在本次启动中生效。</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>解压文件失败</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>部分内容可能缺失；请前往设置强制重新安装 Roblox 以解决此问题。</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>允许游戏多开 (多开器)</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>允许同时运行多个 Roblox 游戏客户端进程。</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>您的主题已保存！</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>重命名</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>无法预览主题：{0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>后台更新</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>无需等待即可在后台更新 Roblox；不推荐在网速较慢的情况下使用。此功能需要至少 3GB 的可用存储空间。</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>导入</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>首选 Esc 菜单版本</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>设置为 “0” (默认值) 以使用 Roblox 自带的帧率解锁器。</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>帧率上限</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>使用 [键盘快捷键]({0}) 来切换；只有当您在加入 [Fishstrap 群组]({1}) 后才会生效。</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>启用 隐藏/显示 GUI 的功能</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>选择的项目将会在所有游戏内应用。
+[请注意，此选项可能会导致一些出乎意料的光照问题！]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>首选光照技术</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>禁用后期处理效果</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>禁用全屏标题栏</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>禁用玩家阴影</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>字体大小</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>默认数值为 “1”；如果您使用自定义字体，请进行调整以获取最佳适配性。</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>禁用地形材质</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache 许可证 2.0</value>
   </data>
 </root>

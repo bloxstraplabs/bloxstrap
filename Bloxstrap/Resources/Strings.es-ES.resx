@@ -610,32 +610,11 @@ NO los uses para importar grandes "listas de flags" creadas por otras personas q
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [pantalla completa exclusiva]({0}) usando Alt+Enter está activado por defecto.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versión preferida del menú de escape</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox reduce tu calidad de renderizado dependiendo en como está escalada tu resolución en Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Preservar la calidad de renderizado con escalado de resolución</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Establece a 0 por defecto si quieres usar el desbloqueador de fotogramas nativo de Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Límite de velocidad de fotogramas</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Alternado con [atajos de teclado]({0}). Solo funciona si estás en el [grupo de Fishstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Habilitar la capacidad de ocultar GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>El elegido se activará a la fuerza en todos los juegos. [Cuidado, puede causar problemas de iluminación]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tecnología de iluminación preferida</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Modo de renderizado</value>
@@ -792,12 +771,6 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emular sonidos antiguos del personaje</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Traer de vuelta el sonido clásico de muerte «oof».</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Usar el sonido de muerte antiguo</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modificadores (mods)</value>
   </data>
@@ -852,12 +825,6 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Calidad del suavizado de bordes (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Desactivar efectos de post-procesamiento</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Desactivar barra de título en pantalla completa</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Evita que se muestre cada vez que mueves el mouse a la parte superior de la pantalla.</value>
   </data>
@@ -875,18 +842,6 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Nivel 3 (El más alto)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Desactivar las sombras de los jugadores</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Tamaño de fuente</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>El valor por defecto es 1. Ajústalo si utilizas una fuente personalizada.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Desactivar texturas del terreno</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap no es capaz de descargar Roblox</value>
@@ -1268,6 +1223,9 @@ Por favor cierre las aplicaciones que estén usando los archivos de Roblox, y vu
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ya no soporta Windows 7 o 8.1. Para seguir jugando Roblox, por favor actualice a Windows 10 o posterior.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Obteniendo la versión más reciente de Fishstrap...</value>
   </data>
@@ -1279,24 +1237,6 @@ Por favor cierre las aplicaciones que estén usando los archivos de Roblox, y vu
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Son anónimas y nada malas, promesa. Para saber qué recopilamos y por qué, consulta nuestra [política de privacidad]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox ya no soporta Windows 7 o 8.1. Para seguir jugando Roblox, por favor actualice a Windows 10 o posterior.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Fallo al extraer archivos</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Algunas cosas pueden faltar. Fuerce una reinstalación de Roblox en las configuración para arreglar esto.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Fallo al aplicar modificaciones</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>No todas las modificaciones estarán presentes en el lanzamiento actual.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Licencia de Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>En blanco</value>
@@ -1419,12 +1359,6 @@ Por favor cierre las aplicaciones que estén usando los archivos de Roblox, y vu
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Abrir el directorio de temas</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Crear nuevo</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importar</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Añadir tema personalizado</value>
   </data>
@@ -1466,23 +1400,11 @@ Revirtiendo al tema {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>No se ha seleccionado ningún tema personalizado.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Renombrar</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Editar</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Error al eliminar el tema personalizado {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Error al renombrar el tema personalizado {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Actualizaciones de fondo</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Actualizar Roblox en segundo plano en lugar de esperar. No es recomendado para redes lentas. Se necesitan al menos 3GB de espacio de almacenamiento libre para que esta característica funcione.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Coloca elementos de interfaz de usuario aquí</value>
@@ -1497,16 +1419,88 @@ Revirtiendo al tema {1}.</value>
     <value>Tema Personalizado {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>¡Su tema ha sido guardado!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Fallo al previsualizar el tema: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Fallo al aplicar modificaciones</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>No todas las modificaciones estarán presentes en el lanzamiento actual.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Fallo al extraer archivos</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Algunas cosas pueden faltar. Fuerce una reinstalación de Roblox en las configuración para arreglar esto.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Permitir el lanzamiento de múltiples instancias</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Permite tener más de una instancia del cliente de Roblox abierta simultáneamente.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>¡Su tema ha sido guardado!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Renombrar</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Fallo al previsualizar el tema: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Crear nuevo</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Actualizaciones de fondo</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Actualizar Roblox en segundo plano en lugar de esperar. No es recomendado para redes lentas. Se necesitan al menos 3GB de espacio de almacenamiento libre para que esta característica funcione.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Versión preferida del menú de escape</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Establece a 0 por defecto si quieres usar el desbloqueador de fotogramas nativo de Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Límite de velocidad de fotogramas</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Alternado con [atajos de teclado]({0}). Solo funciona si estás en el [grupo de Fishstrap]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Habilitar la capacidad de ocultar GUIs</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>El elegido se activará a la fuerza en todos los juegos. [Cuidado, puede causar problemas de iluminación]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Tecnología de iluminación preferida</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Desactivar efectos de post-procesamiento</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Desactivar barra de título en pantalla completa</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Desactivar las sombras de los jugadores</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Tamaño de fuente</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>El valor por defecto es 1. Ajústalo si utilizas una fuente personalizada.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Desactivar texturas del terreno</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Licencia de Apache 2.0</value>
   </data>
 </root>

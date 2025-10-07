@@ -607,32 +607,11 @@
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [повноекранний режим]({0}) через Alt+Enter вже увімкнено за замовчуванням.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Бажана версія меню Escape</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox знижує вам якість рендерингу залежного від вашого масштабування дисплея в Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Зберегти якість рендерингу при масштабуванні дисплея</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Поставте 0, якщо хочете використовувати розблокування частоти кадрів від Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Обмеження частоти кадрів</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Вмикається за допомогою [комбінацій клавіш]({0}). Працює лише якщо ви перебуваєте у [групі Fishstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Увімкнути можливість приховування інтерфейсу</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Вибраний варіант буде ввімкнено в усіх іграх. [Увага, можуть бути проблеми з освітленням!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Бажана технологія освітлення</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Режим рендерингу</value>
@@ -789,12 +768,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Використовувати старі звуки персонажів</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Повернути класичний звук смерті "oof".</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Використовувати старий звук смерті</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Моди</value>
   </data>
@@ -849,12 +822,6 @@
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Якість згладжування (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Вимкнути ефекти постобробки</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Вимкнути заголовок повноекранного режиму</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Зупиняє це показуватись, коли ви в самому верху рухаєте мишу.</value>
   </data>
@@ -872,18 +839,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Рівень 3 (Найвищий)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Вимкнути тінь гравців</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Розмір шрифту</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Типовим значенням є 1. Налаштуйте, якщо у вас користувацький шрифт.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Вимкнути текстури навколишнього світу</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap не може завантажити Roblox</value>
@@ -1266,6 +1221,9 @@ Fishstrap встановлено на "{1}".</value>
   <data name="Menu.Channel.RobloxUpgrades" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox більше не підтримує Windows 7 або 8.1. Аби продовжити грати, оновіть ваш Windows до версії 10 чи новіше.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Отримання останньої версії Fishstrap...</value>
   </data>
@@ -1277,24 +1235,6 @@ Fishstrap встановлено на "{1}".</value>
   </data>
   <data name="Menu.Fishstrap.Analytics.Description" xml:space="preserve">
     <value>Це анонімно і нічого злого, обіцяємо. Щоб дізнатися, що ми збираємо і чому, ознайомтеся з нашою [політикою конфіденційності]({0}).</value>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox більше не підтримує Windows 7 або 8.1. Аби продовжити грати, оновіть ваш Windows до версії 10 чи новіше.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Не вдалось отримати файл</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Деякий вміст може бути відсутнім. Примусово перевстановіть roblox в налаштування аби виправити це.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Не вдалось застосувати модифікацію</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Не всі модифікації будуть діяти під час наступного запуску.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache License 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Пустий</value>
@@ -1417,12 +1357,6 @@ Fishstrap встановлено на "{1}".</value>
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Відкрити теку з темами</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Створити нове</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Імпортувати</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Додати власну тему</value>
   </data>
@@ -1464,23 +1398,11 @@ Fishstrap встановлено на "{1}".</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Не вибрано жодної особистої теми.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Перейменувати</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Редагувати</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Не вдалося видалити особисту тему {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Не вдалося перейменувати особисту тему {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Оновлення у фоновому режимі</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Обновіть Roblox у фоновому режимі замість очікування роботи. Не рекомендується для мереж з повільною швидкістю. Для роботи необхідно щонайменше 3 ГБ вільного місця.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Помістіть елементи інтерфейсу сюди</value>
@@ -1495,16 +1417,88 @@ Fishstrap встановлено на "{1}".</value>
     <value>Особиста тема {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Ваша тема була успішно збережена!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Не вдалось показати тему: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Не вдалось застосувати модифікацію</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Не всі модифікації будуть діяти під час наступного запуску.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Не вдалось отримати файл</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Деякий вміст може бути відсутнім. Примусово перевстановіть roblox в налаштування аби виправити це.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Дозволити багаторівневий запуск</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Дозволяє використовувати більше одного клієнта Roblox що відкриті одночасно.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Ваша тема була успішно збережена!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Перейменувати</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Не вдалось показати тему: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Створити нове</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Оновлення у фоновому режимі</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Обновіть Roblox у фоновому режимі замість очікування роботи. Не рекомендується для мереж з повільною швидкістю. Для роботи необхідно щонайменше 3 ГБ вільного місця.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Імпортувати</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Бажана версія меню Escape</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Поставте 0, якщо хочете використовувати розблокування частоти кадрів від Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Обмеження частоти кадрів</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Вмикається за допомогою [комбінацій клавіш]({0}). Працює лише якщо ви перебуваєте у [групі Fishstrap]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Увімкнути можливість приховування інтерфейсу</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Вибраний варіант буде ввімкнено в усіх іграх. [Увага, можуть бути проблеми з освітленням!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Бажана технологія освітлення</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Вимкнути ефекти постобробки</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Вимкнути заголовок повноекранного режиму</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Вимкнути тінь гравців</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Розмір шрифту</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Типовим значенням є 1. Налаштуйте, якщо у вас користувацький шрифт.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Вимкнути текстури навколишнього світу</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
   </data>
 </root>

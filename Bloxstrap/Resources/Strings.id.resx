@@ -611,32 +611,11 @@ JANGAN gunakan ini untuk mengimpor kumpulan "flag lists" yang dibuat orang lain 
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [ekslusif fullscreen]({0}) menggunakan Alt+Enter sudah dinyalakan dari bawaan.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versi menu escape yang diinginkan</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox mengurangi kualitas rendering anda tergantung pada skala display Windows anda.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Menjaga kualitas rendering dengan display scaling</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Ubah ke 0 untuk bawaan jika Anda ingin menggunakan pembuka framerate bawaan dari Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Batas framerate</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Di aktifkan lewat [shortcut keyboard]({0}). Hanya berfungsi jika Anda ada di [grup Fishstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Nyalakan kemampuan untuk menyembunyikan GUI</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Yang dipilih akan dinyalakan secara paksa pada semua permainan. [Hati-hati, kemungkinan menyebabkan masalah pengcahayaan!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Teknologi pencahayaan yang di sukai</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Mode rendering</value>
@@ -793,12 +772,6 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Tiru suara karakter lama</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Kembalikan suara mati klasik 'oof'.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Gunakan suara mati yang lama</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -853,12 +826,6 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Kualitas anti-aliasing (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Matikan efek post-processing</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Nonaktifkan titlebar fullscreen</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Mencegah tampilannya untuk muncul ketika menggerakan mouse ke bagian atas layar.</value>
   </data>
@@ -876,18 +843,6 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Level 3 (Paling tinggi)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Matikan bayangan pemain</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Ukuran font</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Jumlah bawaan adalah 1. Ubah jika Anda menggunakan font kustom.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Matikan tekstur daratan</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap gagal untuk mengunduh Roblox</value>
@@ -1244,6 +1199,9 @@ Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncur
     <value>Ekspor</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox tidak lagi mendukung Windows 7 atau 8,1. Untuk terus memainkan Roblox, harap perbarui ke Windows 10 atau yang lebih baru.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>Mengunduh versi Fishstrap terbaru...</value>
   </data>
@@ -1269,24 +1227,6 @@ Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncur
   <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Semua log Fishstrap</value>
     <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox tidak lagi mendukung Windows 7 atau 8,1. Untuk terus memainkan Roblox, harap perbarui ke Windows 10 atau yang lebih baru.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Gagal mengekstrak berkas</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Beberapa konten mungkin hilang. Paksa penginstalan ulang Roblox di pengaturan untuk memperbaikinya.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Gagal menerapkan modifikasi</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Tidak semua modifikasi akan ada di rilisan sekarang.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Lisensi Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Kosong</value>
@@ -1409,12 +1349,6 @@ Silakan tutup aplikasi apa pun yang dapat menggunakan berkas Roblox, lalu luncur
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Buka Direktori Tema</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Buat Baru</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Impor</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Tambahkan Tema Kustom</value>
   </data>
@@ -1456,23 +1390,11 @@ Beralih ke {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Tidak ada tema kustom yang dipilih.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Ubah Nama</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Ubah</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Gagal menghapus tema kustom {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Gagal mengganti nama tema kustom {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Pembaruan latar belakang</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Perbarui Roblox di latar belakang daripada menunggu. Tidak disarankan untuk jaringan yang lambat. Setidaknya diperlukan ruang penyimpanan kosong sebesar 3GB agar fitur ini dapat berfungsi.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Letakkan elemen UI di sini</value>
@@ -1487,16 +1409,88 @@ Beralih ke {1}.</value>
     <value>Tema Kustom {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Temamu telah disimpan!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Gagal meninjau tema: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Gagal menerapkan modifikasi</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Tidak semua modifikasi akan ada di rilisan sekarang.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Gagal mengekstrak berkas</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Beberapa konten mungkin hilang. Paksa penginstalan ulang Roblox di pengaturan untuk memperbaikinya.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Mengizinkan peluncuran multi-instansi</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Mengizinkan untuk membuka klien game Roblox lebih dari satu instani secara bersamaan.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Temamu telah disimpan!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Ubah Nama</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Gagal meninjau tema: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Buat Baru</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Pembaruan latar belakang</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Perbarui Roblox di latar belakang daripada menunggu. Tidak disarankan untuk jaringan yang lambat. Setidaknya diperlukan ruang penyimpanan kosong sebesar 3GB agar fitur ini dapat berfungsi.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Impor</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Ubah</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Versi menu escape yang diinginkan</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Ubah ke 0 untuk bawaan jika Anda ingin menggunakan pembuka framerate bawaan dari Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Batas framerate</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Di aktifkan lewat [shortcut keyboard]({0}). Hanya berfungsi jika Anda ada di [grup Fishstrap]({1}).</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Nyalakan kemampuan untuk menyembunyikan GUI</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>Yang dipilih akan dinyalakan secara paksa pada semua permainan. [Hati-hati, kemungkinan menyebabkan masalah pengcahayaan!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Teknologi pencahayaan yang di sukai</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Matikan efek post-processing</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Nonaktifkan titlebar fullscreen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Matikan bayangan pemain</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Ukuran font</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Jumlah bawaan adalah 1. Ubah jika Anda menggunakan font kustom.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Matikan tekstur daratan</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Lisensi Apache 2.0</value>
   </data>
 </root>

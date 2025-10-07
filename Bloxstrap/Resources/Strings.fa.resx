@@ -609,32 +609,11 @@
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>({0})Direct3D [exclusive fullscreen] با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>نسخه منوی ترجیحی</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>روبلاکس کیفیت رندرینگ شما را بر اساس مقیاس نمایشگر در ویندوز کاهش می‌دهد.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>حفظ کیفیت رندرینگ با مقیاس‌بندی نمایشگر</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>برای استفاده از آنلاک‌کننده‌ی فریم‌ریت روبلاکس، مقدار را روی ۰ تنظیم کنید تا به تنظیمات پیش‌فرض بازگردد.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>محدودیت نرخ فریم</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>با [میانبر های کیبورد]({0}) تغییر وضعیت میتوان داد. فقط در صورتی کار می کند که در [گروه بلاکسترپ]({1}) حضور داشته باشید.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>فعال سازی قابلیت پنهان کردن رابط کاربر گرافیکی</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>گزینه‌ی انتخاب شده در تمامی بازی‌ها به‌طور اجباری فعال خواهد شد. [توجه کنید، ممکن است مشکلاتی در نورپردازی ایجاد کند!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>تکنولوژی نورپردازی ترجیهی</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>حالت رندر کردن</value>
@@ -791,12 +770,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>تقلید کردن صدای کارکتر های قدیمی</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>برگرداندن صدای کلاسیک 'oof' برای صدای مرگ.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>استفاده از صدای مرگ قدیمی</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>مودها</value>
   </data>
@@ -851,12 +824,6 @@
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>کیفیت Anti-aliasing ‏(‏MSAA‏)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>غیرفعال کردن اثرات های پس از پردازش</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>غیرفعال کردن نوار عنوان تمام صفحه</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>متوقف کردن منویی که وقتی موستان را به بالا صفحه میبرید نمایان میشود.</value>
   </data>
@@ -874,18 +841,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>سطح ۳ (بالاترین)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>غیرفعال کردن سایه های بازیکن</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>اندازه فونت</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>مقدار پیش فرض ۱ است. تنظیم کنید در صورت استفاده از فونت سفارشی.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>غیرفعال کردن بافت های زمین</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>بلاکسترپ نمیتواند روبلاکس را بارگیری کند</value>
@@ -1243,6 +1198,9 @@
     <value>صدور</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>روبلاکس دیگر بر روی ویندوز 7 و یا 8.1 پشتیبانی نمیشود. جهت ادامه دادن به بازی در روبلاکس، لطفا به ویندوز 10 یا جدیدتر بروزرسانی کنید.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>در حال گرفتن آخرین بلاکسترپ...</value>
   </data>
@@ -1268,24 +1226,6 @@
   <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>تمامی لاگ های بلاکسترپ</value>
     <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>روبلاکس دیگر بر روی ویندوز 7 و یا 8.1 پشتیبانی نمیشود. جهت ادامه دادن به بازی در روبلاکس، لطفا به ویندوز 10 یا جدیدتر بروزرسانی کنید.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>استخراج فایل‌ها با شکست مواجه شد</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>ممکن است برخی از محتواها گم شده باشند. برای رفع این مشکل، نصب مجبوری مجدد روبلاکس را در تنظیمات اجباری کنید.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>اعمال تغییرات با شکست مواجه شد</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>همه تغییرات در راه‌اندازی فعلی وجود نخواهند داشت.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>مجوز Apache 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>خالی</value>
@@ -1408,12 +1348,6 @@
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>باز کردن دایرکتوری تم</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>ایجاد مورد جدید</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>وارد کردن</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>اضافه کردن تم دلخواه</value>
   </data>
@@ -1455,23 +1389,11 @@
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>هیچ تم دلخواهی انتخاب نشده است.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>تغییرنام</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>ويرايش</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>ناموفق در حذف نصب تم دلخواه {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>ناموفق در تغییرنام تم دلخواه {0}: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>به‌روزرسانی‌های پس‌زمینه‌ای</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>روبلاکس را در پس‌زمینه به‌روزرسانی کنید به‌جای منتظر ماندن. برای اینترنت های کند توصیه نمی‌شود. برای فعال شدن این قابلیت، حداقل ۳ گیگابایت فضای خالی نیاز است.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>عناصر رابط کاربری را اینجا قرار دهید</value>
@@ -1486,16 +1408,88 @@
     <value>تم سفارشی {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>تم شما با موفقیت ذخیره شد!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>پیش‌نمایش تم با شکست مواجه شد: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>اعمال تغییرات با شکست مواجه شد</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>همه تغییرات در راه‌اندازی فعلی وجود نخواهند داشت.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>استخراج فایل‌ها با شکست مواجه شد</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>ممکن است برخی از محتواها گم شده باشند. برای رفع این مشکل، نصب مجبوری مجدد روبلاکس را در تنظیمات اجباری کنید.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>اجازه‌ی اجرای چندین کلاینت به‌طور هم‌زمان داده می‌شود</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>امکان اجرا شدن بیش از یک کلاینت بازی روبلاکس به‌طور هم‌زمان را فراهم می‌کند.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>تم شما با موفقیت ذخیره شد!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>تغییرنام</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>پیش‌نمایش تم با شکست مواجه شد: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>ایجاد مورد جدید</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>به‌روزرسانی‌های پس‌زمینه‌ای</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>روبلاکس را در پس‌زمینه به‌روزرسانی کنید به‌جای منتظر ماندن. برای اینترنت های کند توصیه نمی‌شود. برای فعال شدن این قابلیت، حداقل ۳ گیگابایت فضای خالی نیاز است.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>وارد کردن</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>ويرايش</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>نسخه منوی ترجیحی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>برای استفاده از آنلاک‌کننده‌ی فریم‌ریت روبلاکس، مقدار را روی ۰ تنظیم کنید تا به تنظیمات پیش‌فرض بازگردد.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>محدودیت نرخ فریم</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>با [میانبر های کیبورد]({0}) تغییر وضعیت میتوان داد. فقط در صورتی کار می کند که در [گروه بلاکسترپ]({1}) حضور داشته باشید.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>فعال سازی قابلیت پنهان کردن رابط کاربر گرافیکی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>گزینه‌ی انتخاب شده در تمامی بازی‌ها به‌طور اجباری فعال خواهد شد. [توجه کنید، ممکن است مشکلاتی در نورپردازی ایجاد کند!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>تکنولوژی نورپردازی ترجیهی</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>غیرفعال کردن اثرات های پس از پردازش</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>غیرفعال کردن نوار عنوان تمام صفحه</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>غیرفعال کردن سایه های بازیکن</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>اندازه فونت</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>مقدار پیش فرض ۱ است. تنظیم کنید در صورت استفاده از فونت سفارشی.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>غیرفعال کردن بافت های زمین</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>مجوز Apache 2.0</value>
   </data>
 </root>

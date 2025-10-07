@@ -67,8 +67,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenCompatSettingsCommand => new RelayCommand(OpenCompatSettings);
 
-        public ModPresetTask OldDeathSoundTask { get; } = new("OldDeathSound", @"content\sounds\ouch.ogg", "Sounds.OldDeath.ogg");
-
         public ModPresetTask OldAvatarBackgroundTask { get; } = new("OldAvatarBackground", @"ExtraContent\places\Mobile.rbxl", "OldAvatarBackground.rbxl");
 
         public ModPresetTask OldCharacterSoundsTask { get; } = new("OldCharacterSounds", new()

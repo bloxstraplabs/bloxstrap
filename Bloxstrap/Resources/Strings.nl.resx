@@ -610,32 +610,11 @@ Gebruik dit NIET om grote "vlaggenlijsten" te importeren die gemaakt zijn door a
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [Exclusief volledig scherm]({0}) Alt + Enter gebruiken is standaard ingeschakeld.</value>
   </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Gewenste escape-menu-versie</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox vermindert je rendering kwaliteit afhankelijk van hoe je scherm geschaald is in Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>De renderkwaliteit behouden bij het schalen van het scherm</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Stel het in op 0 als je de standaard framesnelheid onvergrendeling van Roblox wilt gebruiken.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate-limiet</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Omschakelen met [sneltoetsen]({0}). Werkt alleen als je in de [Fishstrap-groep]({1}) zit.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Mogelijkheid om GUI's te verbergen inschakelen</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>De gekozen lichttechnologie zal in alle spellen geforceerd ingeschakeld worden. [Let op, dit kan verlichtingsproblemen veroorzaken!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Voorkeur voor verlichtingstechnologie</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendermodus</value>
@@ -792,12 +771,6 @@ Als je 'Nee' selecteert, wordt deze waarschuwing genegeerd en wordt de installat
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emuleer oude karaktergeluiden</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Breng het klassieke 'oof' doodsgeluid terug.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Gebruik oud doodsgeluid</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modificaties</value>
   </data>
@@ -852,12 +825,6 @@ Als je 'Nee' selecteert, wordt deze waarschuwing genegeerd en wordt de installat
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Kwaliteit van anti-aliasing (MSAA)</value>
   </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Post-processing effecten uitschakelen</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Volledig scherm titelbalk uitschakelen</value>
-  </data>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Voorkomt dat het verschijnt wanneer je je muis naar de bovenkant van je scherm beweegt.</value>
   </data>
@@ -875,18 +842,6 @@ Als je 'Nee' selecteert, wordt deze waarschuwing genegeerd en wordt de installat
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Level 3 (Hoogste)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Spelerschaduw uitzetten</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Grootte van lettertype beheren</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Standaardwaarde is 1. Pas aan als je een aangepast lettertype gebruikt.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Schakel terreintexturen uit</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Fishstrap kan Roblox niet downloaden</value>
@@ -1243,6 +1198,9 @@ Sluit alstublieft alle applicaties die mogelijk de bestanden van Roblox gebruike
     <value>Exporteer</value>
     <comment>Currently used under the "Fishstrap" settings tab for the button to export diagnostic data</comment>
   </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ondersteunt niet meer Windows 7 of 8.1. Voor Roblox te blijven spelen, upgrade naar Windows 10 of nieuwer.</value>
+  </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
     <value>De nieuwste Fishstrap krijgen...</value>
   </data>
@@ -1268,24 +1226,6 @@ Sluit alstublieft alle applicaties die mogelijk de bestanden van Roblox gebruike
   <data name="Menu.Fishstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Alle Fishstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
-    <value>Roblox ondersteunt niet meer Windows 7 of 8.1. Voor Roblox te blijven spelen, upgrade naar Windows 10 of nieuwer.</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
-    <value>Kon niet alle bestanden uitpakken</value>
-  </data>
-  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
-    <value>Er kan inhoud ontbreken. Forceer een Roblox herinstallatie in de instellingen om dit op te lossen.</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
-    <value>Toepassen van wijzigingen mislukt</value>
-  </data>
-  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
-    <value>Niet alle wijzigingen zullen aanwezig zijn in de huidige lancering.</value>
-  </data>
-  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
-    <value>Apache Licentie 2.0</value>
   </data>
   <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
     <value>Blanco</value>
@@ -1408,12 +1348,6 @@ Sluit alstublieft alle applicaties die mogelijk de bestanden van Roblox gebruike
   <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
     <value>Open themamap</value>
   </data>
-  <data name="Common.CreateNew" xml:space="preserve">
-    <value>Maak nieuw</value>
-  </data>
-  <data name="Common.Import" xml:space="preserve">
-    <value>Importeer</value>
-  </data>
   <data name="CustomTheme.Add.Title" xml:space="preserve">
     <value>Aangepaste thema toevoegen</value>
   </data>
@@ -1455,23 +1389,11 @@ Word ingesteld op de standaard {1}.</value>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Geen aangepaste thema geselecteerd.</value>
   </data>
-  <data name="Common.Rename" xml:space="preserve">
-    <value>Hernoemen</value>
-  </data>
-  <data name="Common.Edit" xml:space="preserve">
-    <value>Aanpassen</value>
-  </data>
   <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
     <value>Aangepast thema verwijderen mislukt {0}: {1}</value>
   </data>
   <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
     <value>Hernoemen van aangepast thema {0} mislukt: {1}</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
-    <value>Updates op de achtergrond</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Update Roblox op de achtergrond in plaats van te wachten. Niet aanbevolen voor langzame netwerken. Ten minste 3 GB aan vrije opslagruimte is vereist om deze functie te laten werken.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Zet UI elementen hier</value>
@@ -1486,16 +1408,88 @@ Word ingesteld op de standaard {1}.</value>
     <value>Aangepast thema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
   </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Uw thema is opgeslagen!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Voorbeeld van thema mislukt: {0}</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Toepassen van wijzigingen mislukt</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Niet alle wijzigingen zullen aanwezig zijn in de huidige lancering.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Kon niet alle bestanden uitpakken</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Er kan inhoud ontbreken. Forceer een Roblox herinstallatie in de instellingen om dit op te lossen.</value>
+  </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
     <value>Sta multi-instance toe.</value>
   </data>
   <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
     <value>Maakt het mogelijk om meer dan één Roblox spel client tegelijk te openen.</value>
   </data>
-  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
-    <value>Uw thema is opgeslagen!</value>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Hernoemen</value>
   </data>
-  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
-    <value>Voorbeeld van thema mislukt: {0}</value>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Maak nieuw</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Updates op de achtergrond</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Update Roblox op de achtergrond in plaats van te wachten. Niet aanbevolen voor langzame netwerken. Ten minste 3 GB aan vrije opslagruimte is vereist om deze functie te laten werken.</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Importeer</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Aanpassen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
+    <value>Gewenste escape-menu-versie</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
+    <value>Stel het in op 0 als je de standaard framesnelheid onvergrendeling van Roblox wilt gebruiken.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
+    <value>Framerate-limiet</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
+    <value>Omschakelen met [sneltoetsen]({0}). Werkt alleen als je in de [Fishstrap-groep]({1}) zit.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
+    <value>Mogelijkheid om GUI's te verbergen inschakelen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
+    <value>De gekozen lichttechnologie zal in alle spellen geforceerd ingeschakeld worden. [Let op, dit kan verlichtingsproblemen veroorzaken!]({0})</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
+    <value>Voorkeur voor verlichtingstechnologie</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
+    <value>Post-processing effecten uitschakelen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
+    <value>Volledig scherm titelbalk uitschakelen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
+    <value>Spelerschaduw uitzetten</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
+    <value>Grootte van lettertype beheren</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
+    <value>Standaardwaarde is 1. Pas aan als je een aangepast lettertype gebruikt.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
+    <value>Schakel terreintexturen uit</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache Licentie 2.0</value>
   </data>
 </root>
