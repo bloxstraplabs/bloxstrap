@@ -1,8 +1,11 @@
-﻿public class RoValraProcessServerBody
+﻿namespace Bloxstrap.Models.APIs.RoValra
 {
-    [JsonPropertyName("place_id")]
-    public long PlaceId { get; set; }
+    public class RoValraProcessServerBody
+    {
+        [JsonPropertyName("place_id")]
+        public long PlaceId { get; set; }
 
-    [JsonPropertyName("server_ids")]
-    public List<string> ServerIds { get; set; } = null!;
+        [JsonPropertyName("server_ids")]
+        public List<string> ServerIds { get; set; } = null!;
+    }
 }
