@@ -10,6 +10,7 @@ body:
         - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
         - Also, don't open a report if it's in the [currently known issues](https://github.com/bloxstraplabs/bloxstrap/issues/5779). Common problems will be mentioned here too.
         - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
+        - If you're finding that some feature is missing, it's probably because of a recent update that you're not aware of. Check the [latest version's release notes](https://github.com/bloxstraplabs/bloxstrap/releases/latest).
         - Your report will be closed if it's lazily made and has too little detail.
   - type: checkboxes
     id: terms
