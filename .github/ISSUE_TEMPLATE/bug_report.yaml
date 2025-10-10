@@ -5,19 +5,20 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > Bloxstrap isn't actively maintained anymore. We might not get to your issue unless it may be important (like if it's about a feature breaking). Sorry about that.
+        > Bloxstrap isn't actively maintained anymore. We might not get to your report unless it may be important (like if it's about a feature breaking). Sorry about that.
+        > If your problem keeps happening, it can typically be fixed by [reinstalling](https://bloxstraplabs.com/wiki/help/uninstalling-bloxstrap/).
         ### **Instructions**
         - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
         - Also, don't open a report if it's in the [currently known issues](https://github.com/bloxstraplabs/bloxstrap/issues/5779). Common problems will be mentioned here too.
         - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
-        - If you're finding that some feature is missing, it's probably because of a recent update that you're not aware of. Check the [latest version's release notes](https://github.com/bloxstraplabs/bloxstrap/releases/latest).
+        - If you're finding that some feature is missing, it's probably because of a recent update. Check the [latest version's release notes](https://github.com/bloxstraplabs/bloxstrap/releases/latest).
         - Your report will be closed if it's lazily made and has too little detail.
   - type: checkboxes
     id: terms
     attributes:
       label: I have...
       options:
-        - label: I have read the instructions, and I didn't find a solution in the Wiki.
+        - label: I have read the instructions, and I didn't find a solution in any of the links above.
           required: true
         - label: I am using the latest version of Bloxstrap.
           required: true
