@@ -1029,9 +1029,6 @@ Als dit niet het geval is, rapporteer dit probleem dan aan de beheerders van dez
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Wacht alstublieft tot het klaar is met verwijderen.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Over Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenties</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1491,5 +1488,17 @@ Word ingesteld op de standaard {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Licentie 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Over Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

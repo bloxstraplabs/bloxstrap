@@ -1031,9 +1031,6 @@ Nếu không, thì hãy báo cáo vấn đề này đến người quản lí c�
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Hãy đợi cho quá trình gỡ cài đặt được hoàn thành.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Về Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Các giấy phép</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1505,5 +1502,17 @@ Mặc định về {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Giấy phép Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Về Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

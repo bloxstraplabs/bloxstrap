@@ -1029,9 +1029,6 @@ In caso contrario, si prega di segnalare questa eccezione ai manutentori di ques
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Per favore attendi che la disinstallazione finisca.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Riguardante Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenze</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1504,5 +1501,17 @@ Predefinito a {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Licenza Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Riguardante Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

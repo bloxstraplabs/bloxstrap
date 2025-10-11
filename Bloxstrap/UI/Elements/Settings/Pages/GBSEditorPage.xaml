@@ -1,0 +1,140 @@
+﻿<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.GBSEditorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      mc:Ignorable="d"
+      d:DesignHeight="1500" d:DesignWidth="800"
+      Title="GBSEditor"
+      Scrollable="True">
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_GBSEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" >
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Padding="4" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+                <ui:CardExpander Margin="0,8,0,0" IsExpanded="True" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+                    <ui:CardExpander.Header>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Title}" />
+                        </StackPanel>
+                    </ui:CardExpander.Header>
+
+                    <StackPanel Margin="0,8,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Slider Grid.Column="0" Margin="8,0,8,0" Minimum="1" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding GraphicsQuality, Mode=TwoWay}" />
+                            <TextBlock Grid.Column="1" Width="30" Text="{Binding GraphicsQuality, Mode=TwoWay}" />
+                        </Grid>
+                    </StackPanel>
+                </ui:CardExpander>
+
+                <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GPSEditor_FramerateCap_Title}" 
+            Description="{x:Static resources:Strings.Menu_GPSEditor_FramerateCap_Description}">
+                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateCap, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" >
+            <ui:CardExpander.Header>
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="14" Padding="4" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_UserInterface}" />
+                </StackPanel>
+            </ui:CardExpander.Header>
+
+
+            <StackPanel>
+                <ui:CardExpander Margin="0,8,0,0" IsExpanded="True" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
+                    <ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Title}" />
+                                <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Description}" 
+                               Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                            </StackPanel>
+                        </Grid>
+                    </ui:CardExpander.Header>
+
+                    <StackPanel Margin="0,8,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Slider Grid.Column="0" Margin="8,0,8,0" Minimum="0" Maximum="3" TickFrequency="0.1" IsSnapToTickEnabled="True" Value="{Binding UITransparency, Mode=TwoWay}" />
+                            <TextBlock Grid.Column="1" Width="30" Text="{Binding UITransparency, Mode=TwoWay}" />
+                        </Grid>
+                    </StackPanel>
+                </ui:CardExpander>
+
+                <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GBSEditor_ReducedMotion_Title}" 
+            Description="{x:Static resources:Strings.Menu_GBSEditor_ReducedMotion_Description}">
+                    <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding ReducedMotion}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GBSEditor_FontSize_Title}" 
+            Description="{x:Static resources:Strings.Menu_GBSEditor_FontSize_Description}">
+                    <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding FontSizes.Keys, Mode=OneTime}" Text="{Binding SelectedFontSize, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
+
+        <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" >
+            <ui:CardExpander.Header>
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="14" Padding="4" Text="{x:Static resources:Strings.Common_Other}" />
+                </StackPanel>
+            </ui:CardExpander.Header>
+
+            <StackPanel>
+                <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GBSEditor_MouseSensitivity_Title}" 
+            Description="{x:Static resources:Strings.Menu_GBSEditor_MouseSensitivity_Description}">
+                    <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding MouseSensitivity, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GBSEditor_VREnabled_Title}">
+                    <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding VREnabled}" />
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
+    </StackPanel>
+</ui:UiPage>

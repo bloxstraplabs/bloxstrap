@@ -1028,9 +1028,6 @@
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>اطفا صبر کنید تا حذف نصب کردن به اتمام برسد.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>درباره بلاکسترپ</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>مجوز ها</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1491,5 +1488,17 @@
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>مجوز Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>درباره بلاکسترپ</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

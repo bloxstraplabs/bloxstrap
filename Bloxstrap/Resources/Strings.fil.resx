@@ -1027,9 +1027,6 @@ Kung hindi, I-report mo itong eksepsyon sa maintainers ng fork nito. HUWAG mong 
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Paki antaying tapusin ang uninstallation.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Tungkol sa Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Mga lisensya</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1484,5 +1481,17 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Tungkol sa Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

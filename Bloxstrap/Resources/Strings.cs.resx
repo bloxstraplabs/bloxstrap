@@ -1029,9 +1029,6 @@ Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Prosím počkejte, až se odinstalace dokončí.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>O Fishstrapu</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licence</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1480,5 +1477,17 @@ Používám motiv {1}.</value>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>Všechny bloxstrap logy</value>
     <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>O Fishstrapu</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

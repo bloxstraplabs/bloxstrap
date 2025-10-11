@@ -1029,9 +1029,6 @@ Jei ne, praneškite apie šią išimtį šios atšakos prižiūrėtojams. NEPRAN
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Palaukite, kol išdiegimas bus baigtas.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Apie „Fishstrap“</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencijos</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1503,5 +1500,17 @@ Nustatomas numatytasis į „{1}“.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>„Apache“ licencija 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Apie „Fishstrap“</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

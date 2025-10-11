@@ -1029,9 +1029,6 @@ Annars så rapportera detta felmeddelande till de ansvariga för denna fork. Rap
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Vänligen vänta tills avinstallationen är slutförd.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Om Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenser</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1503,5 +1500,17 @@ Använder {1} istället.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache-licens 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Om Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

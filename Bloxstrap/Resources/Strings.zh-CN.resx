@@ -1045,9 +1045,6 @@ Fishstrap 的安装路径是：
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>请等待卸载完成。</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>关于 Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>许可证</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1526,5 +1523,17 @@ Fishstrap 的安装路径是：
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 许可证 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>关于 Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

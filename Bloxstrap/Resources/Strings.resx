@@ -1047,9 +1047,6 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Please wait for uninstallation to finish.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>About Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1730,5 +1727,53 @@ Defaulting to {1}.</value>
   </data>
   <data name="ContextMenu.ServerInformation.Notification.ServerNotTracked" xml:space="preserve">
     <value>Not tracked</value>
+  </data>
+  <data name="Menu.GPSEditor.FramerateCap.Title" xml:space="preserve">
+    <value>Framerate Limit</value>
+  </data>
+  <data name="Menu.GPSEditor.FramerateCap.Description" xml:space="preserve">
+    <value>Unlock framerate limit for Roblox. Going above 240 FPS is not recommended.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About Fishstrap</value>
+  </data>
+  <data name="Common.GlobalSettings" xml:space="preserve">
+    <value>Global Settings</value>
+  </data>
+  <data name="Menu.GBSEditor.Description" xml:space="preserve">
+    <value>Set in-game settings from Fishstrap menu.</value>
+  </data>
+  <data name="Menu.GBSEditor.UITransparency.Title" xml:space="preserve">
+    <value>Transparency</value>
+  </data>
+  <data name="Menu.GBSEditor.UITransparency.Description" xml:space="preserve">
+    <value>Custom transparency for UI elements.</value>
+  </data>
+  <data name="Menu.GBSEditor.ReducedMotion.Title" xml:space="preserve">
+    <value>Reduced Motion</value>
+  </data>
+  <data name="Menu.GBSEditor.ReducedMotion.Description" xml:space="preserve">
+    <value>Removes the animation on the escape menu.</value>
+  </data>
+	<data name="Menu.GBSEditor.FontSize.Title" xml:space="preserve">
+    <value>Font Size</value>
+  </data>
+	<data name="Menu.GBSEditor.FontSize.Description" xml:space="preserve">
+    <value>Choose how large the font should appear.</value>
+  </data>
+	<data name="Menu.GBSEditor.Graphics.Title" xml:space="preserve">
+    <value>Graphics Quality</value>
+  </data>
+	<data name="Common.Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+	<data name="Menu.GBSEditor.MouseSensitivity.Title" xml:space="preserve">
+    <value>Mouse Sensitivity</value>
+  </data>
+	<data name="Menu.GBSEditor.MouseSensitivity.Description" xml:space="preserve">
+    <value>Change how fast the camera will move in-game.</value>
+  </data>
+	<data name="Menu.GBSEditor.VREnabled.Title" xml:space="preserve">
+    <value>VR Enabled</value>
   </data>
 </root>

@@ -1026,9 +1026,6 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>กรุณารอให้การถอนการติดตั้งเสร็จสิ้น</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>เกี่ยวกับ Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>ใบอนุญาต</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1497,5 +1494,17 @@ Fishstrap จะติดตั้งไว้ที่ "{1}"</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>เกี่ยวกับ Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

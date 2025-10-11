@@ -1028,9 +1028,6 @@ Si ce n'est pas le cas, veuillez signaler cette exception aux responsables de ce
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Veuillez attendre la fin de la désinstallation.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>À propos de Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licences</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1502,5 +1499,17 @@ Retour à la valeur par défaut {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Licence Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>À propos de Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

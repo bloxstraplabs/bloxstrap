@@ -628,6 +628,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Global Settings.
+        /// </summary>
+        public static string Common_GlobalSettings {
+            get {
+                return ResourceManager.GetString("Common.GlobalSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Common_Help {
@@ -795,6 +804,15 @@ namespace Bloxstrap.Resources {
         public static string Common_OpenLogFile {
             get {
                 return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string Common_Other {
+            get {
+                return ResourceManager.GetString("Common.Other", resourceCulture);
             }
         }
         
@@ -3896,6 +3914,123 @@ namespace Bloxstrap.Resources {
         public static string Menu_FontFiles {
             get {
                 return ResourceManager.GetString("Menu.FontFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set in-game settings from Fishstrap menu..
+        /// </summary>
+        public static string Menu_GBSEditor_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose how large the font should appear..
+        /// </summary>
+        public static string Menu_GBSEditor_FontSize_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.FontSize.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font Size.
+        /// </summary>
+        public static string Menu_GBSEditor_FontSize_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.FontSize.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphics Quality.
+        /// </summary>
+        public static string Menu_GBSEditor_Graphics_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.Graphics.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change how fast the camera will move in-game..
+        /// </summary>
+        public static string Menu_GBSEditor_MouseSensitivity_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.MouseSensitivity.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mouse Sensitivity.
+        /// </summary>
+        public static string Menu_GBSEditor_MouseSensitivity_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.MouseSensitivity.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removes the animation on the escape menu..
+        /// </summary>
+        public static string Menu_GBSEditor_ReducedMotion_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.ReducedMotion.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduced Motion.
+        /// </summary>
+        public static string Menu_GBSEditor_ReducedMotion_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.ReducedMotion.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom transparency for UI elements..
+        /// </summary>
+        public static string Menu_GBSEditor_UITransparency_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.UITransparency.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transparency.
+        /// </summary>
+        public static string Menu_GBSEditor_UITransparency_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.UITransparency.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VR Enabled.
+        /// </summary>
+        public static string Menu_GBSEditor_VREnabled_Title {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.VREnabled.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unlock framerate limit for Roblox. Going above 240 FPS is not recommended..
+        /// </summary>
+        public static string Menu_GPSEditor_FramerateCap_Description {
+            get {
+                return ResourceManager.GetString("Menu.GPSEditor.FramerateCap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Framerate Limit.
+        /// </summary>
+        public static string Menu_GPSEditor_FramerateCap_Title {
+            get {
+                return ResourceManager.GetString("Menu.GPSEditor.FramerateCap.Title", resourceCulture);
             }
         }
         

@@ -20,6 +20,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public EventHandler? RequestCloseWindowEvent;
 
+        public bool GBSEnabled = App.GlobalSettings.Loaded;
+
         public bool TestModeEnabled
         {
             get => App.LaunchSettings.TestModeFlag.Active;
@@ -50,6 +52,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             App.Settings.Save();
             App.State.Save();
             App.FastFlags.Save();
+            App.GlobalSettings.Save();
 
             foreach (var pair in App.PendingSettingTasks)
             {

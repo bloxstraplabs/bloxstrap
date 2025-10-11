@@ -1029,9 +1029,6 @@ Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. Ä
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Odota, että asennuksen poisto on valmis.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Tietoja Fishstrapista</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisenssit</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1503,5 +1500,17 @@ Palataan oletukseen {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Tietoja Fishstrapista</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

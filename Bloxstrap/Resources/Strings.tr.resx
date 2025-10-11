@@ -1028,9 +1028,6 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Lütfen kaldırma işleminin bitmesini bekleyin.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Fishstrap Hakkında</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisanslar</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1500,5 +1497,17 @@ Otomatiklen {1}'e alınılıyor.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Lisans 2,0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Fishstrap Hakkında</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

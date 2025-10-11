@@ -1042,9 +1042,6 @@ Fishstrapのインストール場所: {1}</value>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>アンインストールが完了するまでお待ちください。</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Fishstrapについて</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>ライセンス</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1516,5 +1513,17 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Fishstrapについて</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -1025,9 +1025,6 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Sila tunggu sehingga nyahpasang selesai.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Perihal Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Lisensi</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1492,5 +1489,17 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Lesen Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Perihal Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

@@ -10,6 +10,7 @@ using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Bloxstrap.UI.Elements.Settings.Pages;
 using SharpVectors.Scripting;
+using System.Drawing;
 
 namespace Bloxstrap.UI.Elements.Settings
 {
@@ -35,6 +36,8 @@ namespace Bloxstrap.UI.Elements.Settings
 
             if (showAlreadyRunningWarning)
                 ShowAlreadyRunningSnackbar();
+
+            gbs.Opacity = viewModel.GBSEnabled ? 1 : 0.5; // :sob:
 
             LoadState();
 

@@ -1029,9 +1029,6 @@ Jeśli nie, zgłoś problem twórcom tej zmodyfikowanej wersji programu. Podkre�
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Proszę poczekać na zakończenie odinstalowywania.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>O Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencje</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1502,5 +1499,17 @@ Ustawiono domyślnie do {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Licencja Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>O Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

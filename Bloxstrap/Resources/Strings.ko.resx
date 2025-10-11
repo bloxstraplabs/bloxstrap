@@ -1029,9 +1029,6 @@ Fishstrap이 “{1}”에 설치되어 있습니다.</value>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>제거가 완료될 때까지 기다려주세요.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Fishstrap 정보</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>라이선스</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1492,5 +1489,17 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 라이선스 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Fishstrap 정보</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>

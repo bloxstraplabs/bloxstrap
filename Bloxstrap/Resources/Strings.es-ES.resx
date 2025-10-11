@@ -1028,9 +1028,6 @@ Si no, entonces reporte este error a los mantenedores de este fork. NO reporte e
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Por favor, espere a que la desinstalación termine.</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Acerca de Fishstrap</value>
-  </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencias</value>
     <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
@@ -1502,5 +1499,17 @@ Revirtiendo al tema {1}.</value>
   </data>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Licencia de Apache 2.0</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Acerca de Fishstrap</value>
+  </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
   </data>
 </root>
