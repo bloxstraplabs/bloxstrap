@@ -58,7 +58,7 @@
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Deployment}" PageType="{x:Type pages:ChannelPage}" Icon="CloudArchive20" Tag="channel" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem x:Name="fastflags" Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
-                    <ui:NavigationItem x:Name="gbs" Content="{x:Static resources:Strings.Common_GlobalSettings}" IsEnabled="{Binding GBSEnabled}" PageType="{x:Type pages:GBSEditorPage}" Icon="Settings20" Tag="gbseditor"/>
+                    <ui:NavigationItem x:Name="gbs" Content="{x:Static resources:Strings.Common_GlobalSettings}" PageType="{x:Type pages:GBSEditorPage}" Icon="Settings20" Tag="gbseditor"/>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
 
