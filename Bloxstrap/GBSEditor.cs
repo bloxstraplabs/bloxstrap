@@ -1,5 +1,6 @@
 ﻿using Bloxstrap.Enums.FlagPresets;
 using Bloxstrap.Enums.GBSPresets;
+using Microsoft.VisualBasic;
 using System.ComponentModel.Design.Serialization;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -78,6 +79,43 @@ namespace Bloxstrap
             return Document?.XPathSelectElement(path)?.Value;
         }
 
+        public bool previousReadOnlyState;
+
+        public void SetReadOnly(bool readOnly, bool preserveState = false)
+        {
+            const string LOG_IDENT = "GBSEditor::SetReadOnly";
+
+            if (!File.Exists(FileLocation))
+                return;
+
+            try
+            {
+                FileAttributes attributes = File.GetAttributes(FileLocation);
+
+                if (readOnly)
+                    attributes |= FileAttributes.ReadOnly;
+                else
+                    attributes &= ~FileAttributes.ReadOnly;
+
+                File.SetAttributes(FileLocation, attributes);
+
+                if (!preserveState)
+                    previousReadOnlyState = readOnly;
+            } catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Failed to set read-only on {FileLocation}");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
+        public bool GetReadOnly()
+        {
+            if (!File.Exists(FileLocation))
+                return false;
+
+            return File.GetAttributes(FileLocation).HasFlag(FileAttributes.ReadOnly);
+        }
+
         public void Load()
         {
             string LOG_IDENT = "GBSEditor::Load";
@@ -91,6 +129,8 @@ namespace Bloxstrap
             {
                 Document = XDocument.Load(FileLocation);
                 Loaded = true;
+
+                previousReadOnlyState = GetReadOnly();
             }
             catch (Exception ex)
             {
@@ -107,7 +147,10 @@ namespace Bloxstrap
 
             try
             {
+                SetReadOnly(false, true);
                 Document?.Save(FileLocation);
+
+                SetReadOnly(previousReadOnlyState);
             }
             catch (Exception ex)
             {

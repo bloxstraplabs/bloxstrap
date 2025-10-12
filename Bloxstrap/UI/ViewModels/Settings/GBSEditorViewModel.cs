@@ -15,6 +15,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class GBSEditorViewModel : NotifyPropertyChangedViewModel
     {
+        public bool ReadOnly
+        {
+            get => App.GlobalSettings.GetReadOnly();
+            set => App.GlobalSettings.SetReadOnly(value);
+        }
+
         public string FramerateCap
         {
             get => App.GlobalSettings.GetPreset("Rendering.FramerateCap")!;

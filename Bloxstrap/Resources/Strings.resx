@@ -1779,4 +1779,10 @@ Defaulting to {1}.</value>
   <data name="Menu.GBSEditor.GraphicsQuality.Description" xml:space="preserve">
     <value>Set the graphics quality of your game</value>
   </data>
+  <data name="Menu.GBSEditor.ReadOnly.Title" xml:space="preserve">
+    <value>Set as Read-Only</value>
+  </data>
+  <data name="Menu.GBSEditor.ReadOnly.Description" xml:space="preserve">
+    <value>Prevent Roblox from overriding global settings.</value>
+  </data>
 </root>

@@ -14,6 +14,12 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_GBSEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_GBSEditor_ReadOnly_Title}" 
+            Description="{x:Static resources:Strings.Menu_GBSEditor_ReadOnly_Description}">
+            <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding ReadOnly}" />
+        </controls:OptionControl>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <ui:CardExpander Grid.Row="1" Margin="0,8,0,0" >
