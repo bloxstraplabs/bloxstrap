@@ -1461,6 +1461,9 @@ Fishstrap 安裝在 "{1}"。</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>編輯</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>關於 Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>首選的ESC選單版本</value>
   </data>
@@ -1503,9 +1506,6 @@ Fishstrap 安裝在 "{1}"。</value>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 授權條款 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>關於 Fishstrap</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1513,6 +1513,9 @@ Fishstrap 安裝在 "{1}"。</value>
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

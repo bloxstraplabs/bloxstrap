@@ -1440,6 +1440,9 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   <data name="Common.Edit" xml:space="preserve">
     <value>I-edit</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Tungkol sa Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Bersyon ng escape menu na naayon sa iyong panlasa</value>
   </data>
@@ -1482,9 +1485,6 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache License 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Tungkol sa Fishstrap</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1492,6 +1492,9 @@ Isarado muna ang kahit anong application na maaaring gamitin ang mga file ng Rob
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

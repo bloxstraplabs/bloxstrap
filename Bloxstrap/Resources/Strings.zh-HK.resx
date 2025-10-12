@@ -1428,6 +1428,9 @@ Bloxstrap 已安裝在 "{1}"。</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>編輯</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>關於 Bloxstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>首選的ESC選單版本</value>
   </data>
@@ -1470,6 +1473,15 @@ Bloxstrap 已安裝在 "{1}"。</value>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 授權條款 2.0</value>
   </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>啓用分析傳送</value>
   </data>
@@ -1490,16 +1502,7 @@ Bloxstrap 已安裝在 "{1}"。</value>
     <value>所有 Bloxstrap 日誌</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>關於 Bloxstrap</value>
-  </data>
-  <data name="Menu.GBSEditor.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

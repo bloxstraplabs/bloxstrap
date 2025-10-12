@@ -1457,6 +1457,9 @@ Prebacivanje na zadani {1}.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Uredi</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>O Fishstrapu</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Preferirana verzija escape menija</value>
   </data>
@@ -1499,9 +1502,6 @@ Prebacivanje na zadani {1}.</value>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Licenca 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>O Fishstrapu</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1509,6 +1509,9 @@ Prebacivanje na zadani {1}.</value>
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

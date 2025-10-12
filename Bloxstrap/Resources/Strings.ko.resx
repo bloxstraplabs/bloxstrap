@@ -1448,6 +1448,9 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   <data name="Common.Edit" xml:space="preserve">
     <value>편집</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Fishstrap 정보</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>선호하는 Esc 메뉴 버전</value>
   </data>
@@ -1490,9 +1493,6 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 라이선스 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Fishstrap 정보</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1500,6 +1500,9 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

@@ -1755,25 +1755,28 @@ Defaulting to {1}.</value>
   <data name="Menu.GBSEditor.ReducedMotion.Description" xml:space="preserve">
     <value>Removes the animation on the escape menu.</value>
   </data>
-	<data name="Menu.GBSEditor.FontSize.Title" xml:space="preserve">
+  <data name="Menu.GBSEditor.FontSize.Title" xml:space="preserve">
     <value>Font Size</value>
   </data>
-	<data name="Menu.GBSEditor.FontSize.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.FontSize.Description" xml:space="preserve">
     <value>Choose how large the font should appear.</value>
   </data>
-	<data name="Menu.GBSEditor.Graphics.Title" xml:space="preserve">
+  <data name="Menu.GBSEditor.Graphics.Title" xml:space="preserve">
     <value>Graphics Quality</value>
   </data>
-	<data name="Common.Other" xml:space="preserve">
+  <data name="Common.Other" xml:space="preserve">
     <value>Other</value>
   </data>
-	<data name="Menu.GBSEditor.MouseSensitivity.Title" xml:space="preserve">
+  <data name="Menu.GBSEditor.MouseSensitivity.Title" xml:space="preserve">
     <value>Mouse Sensitivity</value>
   </data>
-	<data name="Menu.GBSEditor.MouseSensitivity.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.MouseSensitivity.Description" xml:space="preserve">
     <value>Change how fast the camera will move in-game.</value>
   </data>
-	<data name="Menu.GBSEditor.VREnabled.Title" xml:space="preserve">
+  <data name="Menu.GBSEditor.VREnabled.Title" xml:space="preserve">
     <value>VR Enabled</value>
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value>Set the graphics quality of your game</value>
   </data>
 </root>

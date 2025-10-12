@@ -1429,6 +1429,9 @@ Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepiecie
   <data name="Common.Edit" xml:space="preserve">
     <value>Rediģēt</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Par Bloxstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Vēlamā escape izvēlnes versija</value>
   </data>
@@ -1472,6 +1475,15 @@ Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepiecie
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Licence 2.0</value>
   </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Iespējo analītiku sūtīšanu</value>
   </data>
@@ -1492,16 +1504,7 @@ Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepiecie
     <value>Visi Bloxstrap žurnāli</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Par Bloxstrap</value>
-  </data>
-  <data name="Menu.GBSEditor.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

@@ -1447,6 +1447,9 @@
   <data name="Common.Edit" xml:space="preserve">
     <value>ويرايش</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>درباره بلاکسترپ</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>نسخه منوی ترجیحی</value>
   </data>
@@ -1489,9 +1492,6 @@
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>مجوز Apache 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>درباره بلاکسترپ</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1499,6 +1499,9 @@
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

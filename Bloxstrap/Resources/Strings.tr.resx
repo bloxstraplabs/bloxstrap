@@ -1456,6 +1456,9 @@ Otomatiklen {1}'e alınılıyor.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Düzenle</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Fishstrap Hakkında</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Tercih edilen ESC menüsü versiyonu</value>
   </data>
@@ -1498,9 +1501,6 @@ Otomatiklen {1}'e alınılıyor.</value>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Lisans 2,0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Fishstrap Hakkında</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1508,6 +1508,9 @@ Otomatiklen {1}'e alınılıyor.</value>
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

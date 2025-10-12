@@ -1448,6 +1448,9 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
   <data name="Common.Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Perihal Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Pilih versi menu keluar</value>
   </data>
@@ -1490,9 +1493,6 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Lesen Apache 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Perihal Fishstrap</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1500,6 +1500,9 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

@@ -1481,6 +1481,9 @@ Fishstrap 的安装路径是：
   <data name="Common.Edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>关于 Fishstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>首选 Esc 菜单版本</value>
   </data>
@@ -1524,9 +1527,6 @@ Fishstrap 的安装路径是：
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache 许可证 2.0</value>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>关于 Fishstrap</value>
-  </data>
   <data name="Menu.GBSEditor.Title" xml:space="preserve">
     <value />
   </data>
@@ -1534,6 +1534,9 @@ Fishstrap 的安装路径是：
     <value />
   </data>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

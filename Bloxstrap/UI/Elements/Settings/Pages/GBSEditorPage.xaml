@@ -30,25 +30,18 @@
             </ui:CardExpander.Header>
 
             <StackPanel>
-                <ui:CardExpander Margin="0,8,0,0" IsExpanded="True" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
-                    <ui:CardExpander.Header>
-                        <StackPanel Grid.Column="0">
-                            <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Title}" />
-                        </StackPanel>
-                    </ui:CardExpander.Header>
-
-                    <StackPanel Margin="0,8,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Slider Grid.Column="0" Margin="8,0,8,0" Minimum="1" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding GraphicsQuality, Mode=TwoWay}" />
-                            <TextBlock Grid.Column="1" Width="30" Text="{Binding GraphicsQuality, Mode=TwoWay}" />
-                        </Grid>
-                    </StackPanel>
-                </ui:CardExpander>
+                <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Description}">
+                    <Grid Width="256">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Slider Grid.Column="0" Margin="0,0,8,0" Minimum="1" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding GraphicsQuality, Mode=TwoWay}" />
+                        <Border Margin="0,-4,0,0" Grid.Column="1" Width="30" BorderBrush="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" Background="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" BorderThickness="1" CornerRadius="4">
+                            <TextBlock HorizontalAlignment="Center" Padding="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding GraphicsQuality, Mode=TwoWay}" />
+                        </Border>
+                    </Grid>
+                </controls:OptionControl>
 
                 <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_GPSEditor_FramerateCap_Title}" 
@@ -67,34 +60,18 @@
 
 
             <StackPanel>
-                <ui:CardExpander Margin="0,8,0,0" IsExpanded="True" Style="{StaticResource NoUserExpansionCardExpanderStyle}">
-                    <ui:CardExpander.Header>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Grid.Column="0">
-                                <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Title}" />
-                                <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Description}" 
-                               Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                            </StackPanel>
-                        </Grid>
-                    </ui:CardExpander.Header>
-
-                    <StackPanel Margin="0,8,0,0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Slider Grid.Column="0" Margin="8,0,8,0" Minimum="0" Maximum="3" TickFrequency="0.1" IsSnapToTickEnabled="True" Value="{Binding UITransparency, Mode=TwoWay}" />
-                            <TextBlock Grid.Column="1" Width="30" Text="{Binding UITransparency, Mode=TwoWay}" />
-                        </Grid>
-                    </StackPanel>
-                </ui:CardExpander>
+                <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Description}">
+                    <Grid Width="256">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Slider Grid.Column="0" Margin="0,0,8,0" Minimum="1" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" Value="{Binding UiTransparency, Mode=TwoWay}" />
+                        <Border Margin="0,-4,0,0" Grid.Column="1" Width="30" BorderBrush="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" Background="{ui:ThemeResource SolidBackgroundFillColorSecondarybrush}" BorderThickness="1" CornerRadius="4">
+                            <TextBlock HorizontalAlignment="Center" Padding="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding UiTransparency, Mode=TwoWay}" />
+                        </Border>
+                    </Grid>
+                </controls:OptionControl>
 
                 <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_GBSEditor_ReducedMotion_Title}" 

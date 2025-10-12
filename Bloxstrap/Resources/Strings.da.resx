@@ -1427,6 +1427,9 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
   <data name="Common.Edit" xml:space="preserve">
     <value>Rediger</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Om Bloxstrap</value>
+  </data>
   <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
     <value>Foretrukken escape menu version</value>
   </data>
@@ -1469,6 +1472,15 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
   <data name="Menu.About.Licenses.Apache" xml:space="preserve">
     <value>Apache Licens 2,0</value>
   </data>
+  <data name="Menu.GBSEditor.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+    <value />
+  </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Aktiver afsendelse af analyser</value>
   </data>
@@ -1489,16 +1501,7 @@ Luk alle programmer, der kan bruge Roblox's filer, og relancering.</value>
     <value>Alle Bloxstrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
-  <data name="About.Title" xml:space="preserve">
-    <value>Om Bloxstrap</value>
-  </data>
-  <data name="Menu.GBSEditor.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Title" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
     <value />
   </data>
 </root>

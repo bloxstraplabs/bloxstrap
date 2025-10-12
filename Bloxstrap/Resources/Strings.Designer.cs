@@ -3945,6 +3945,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set the graphics quality of your game.
+        /// </summary>
+        public static string Menu_GBSEditor_Graphics_Description {
+            get {
+                return ResourceManager.GetString("Menu.GBSEditor.Graphics.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Graphics Quality.
         /// </summary>
         public static string Menu_GBSEditor_Graphics_Title {
