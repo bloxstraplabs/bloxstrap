@@ -30,7 +30,7 @@
             </ui:CardExpander.Header>
 
             <StackPanel>
-                <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_Graphics_Description}">
+                <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Description}">
                     <Grid Width="256">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />

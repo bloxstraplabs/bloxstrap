@@ -1761,7 +1761,7 @@ Defaulting to {1}.</value>
   <data name="Menu.GBSEditor.FontSize.Description" xml:space="preserve">
     <value>Choose how large the font should appear.</value>
   </data>
-  <data name="Menu.GBSEditor.Graphics.Title" xml:space="preserve">
+  <data name="Menu.GBSEditor.GraphicsQuality.Title" xml:space="preserve">
     <value>Graphics Quality</value>
   </data>
   <data name="Common.Other" xml:space="preserve">
@@ -1776,7 +1776,7 @@ Defaulting to {1}.</value>
   <data name="Menu.GBSEditor.VREnabled.Title" xml:space="preserve">
     <value>VR Enabled</value>
   </data>
-  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+  <data name="Menu.GBSEditor.GraphicsQuality.Description" xml:space="preserve">
     <value>Set the graphics quality of your game</value>
   </data>
 </root>

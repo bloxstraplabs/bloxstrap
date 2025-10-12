@@ -3947,18 +3947,18 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Set the graphics quality of your game.
         /// </summary>
-        public static string Menu_GBSEditor_Graphics_Description {
+        public static string Menu_GBSEditor_GraphicsQuality_Description {
             get {
-                return ResourceManager.GetString("Menu.GBSEditor.Graphics.Description", resourceCulture);
+                return ResourceManager.GetString("Menu.GBSEditor.GraphicsQuality.Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Graphics Quality.
         /// </summary>
-        public static string Menu_GBSEditor_Graphics_Title {
+        public static string Menu_GBSEditor_GraphicsQuality_Title {
             get {
-                return ResourceManager.GetString("Menu.GBSEditor.Graphics.Title", resourceCulture);
+                return ResourceManager.GetString("Menu.GBSEditor.GraphicsQuality.Title", resourceCulture);
             }
         }
         
