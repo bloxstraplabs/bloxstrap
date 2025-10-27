@@ -28,7 +28,7 @@ jobs:
 
     - name: Upload Artifact
       id: upload-artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: Bloxstrap (Release) (${{ github.sha }})
         path: .\Bloxstrap\bin\Release\net6.0-windows\win-x64\publish\*
