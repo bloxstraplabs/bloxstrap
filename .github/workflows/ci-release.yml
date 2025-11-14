@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v1.1
+        uses: signpath/github-action-submit-signing-request@v2.0
         with:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
@@ -68,7 +68,7 @@ jobs:
 
     steps:
       - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v1.1
+        uses: signpath/github-action-submit-signing-request@v2.0
         with:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
