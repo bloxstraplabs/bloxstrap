@@ -226,7 +226,8 @@ namespace Bloxstrap.Integrations
             ulong? smallImgFetch = null;
             ulong? largeImgFetch = null;
 
-            if (presenceData.SmallImage is not null)
+            // only set small image if account display is disabled, doesnt make sense to override it if it is true
+            if (presenceData.SmallImage is not null && !App.Settings.Prop.ShowAccountOnRichPresence)
             {
                 if (presenceData.SmallImage.Clear)
                 {
