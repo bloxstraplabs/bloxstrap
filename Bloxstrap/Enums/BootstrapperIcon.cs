@@ -16,6 +16,8 @@
         Icon2019,
         [EnumName(StaticName = "2022")]
         Icon2022,
+        [EnumName(StaticName = "2025")]
+        Icon2025,
         [EnumName(FromTranslation = "Common.Custom")]
         IconCustom,
         [EnumName(FromTranslation = "Enums.BootstrapperStyle.ClassicFluentDialog")]
