@@ -143,7 +143,17 @@
             else if (_logEntriesRead % 100 == 0)
                 App.Logger.WriteLine(LOG_IDENT, $"Read {_logEntriesRead} log entries");
 
-            if (entry.Contains(GameLeavingEntry))
+            // get the log message from the read line
+            int logMessageIdx = entry.IndexOf(' ');
+            if (logMessageIdx == -1)
+            {
+                // likely a log message that spanned multiple lines
+                return;
+            }
+
+            string logMessage = entry[(logMessageIdx + 1)..];
+
+            if (logMessage.StartsWith(GameLeavingEntry))
             {
                 App.Logger.WriteLine(LOG_IDENT, "User is back into the desktop app");
                 
@@ -154,37 +164,39 @@
                     App.Logger.WriteLine(LOG_IDENT, "User appears to be leaving from a cancelled/errored join");
                     Data = new();
                 }
+
+                return;
             }
 
             if (!InGame && Data.PlaceId == 0)
             {
                 // We are not in a game, nor are in the process of joining one
                 
-                if (entry.Contains(GameJoiningPrivateServerEntry))
+                if (logMessage.StartsWith(GameJoiningPrivateServerEntry))
                 {
                     // we only expect to be joining a private server if we're not already in a game
                 
                     Data.ServerType = ServerType.Private;
 
-                    var match = Regex.Match(entry, GameJoiningPrivateServerPattern);
+                    var match = Regex.Match(logMessage, GameJoiningPrivateServerPattern);
 
                     if (match.Groups.Count != 2)
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join private server entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
                     Data.AccessCode = match.Groups[1].Value;
                 }
-                else if (entry.Contains(GameJoiningEntry))
+                else if (logMessage.StartsWith(GameJoiningEntry))
                 {
-                    Match match = Regex.Match(entry, GameJoiningEntryPattern);
+                    Match match = Regex.Match(logMessage, GameJoiningEntryPattern);
 
                     if (match.Groups.Count != 4)
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game join entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
@@ -215,14 +227,14 @@
             {
                 // We are not confirmed to be in a game, but we are in the process of joining one
 
-                if (entry.Contains(GameJoiningUniverseEntry))
+                if (logMessage.StartsWith(GameJoiningUniverseEntry))
                 {
-                    var match = Regex.Match(entry, GameJoiningUniversePattern);
+                    var match = Regex.Match(logMessage, GameJoiningUniversePattern);
 
                     if (match.Groups.Count != 3)
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join universe entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
@@ -237,14 +249,14 @@
                             Data.RootActivity = lastActivity.RootActivity ?? lastActivity;
                     }
                 }
-                else if (entry.Contains(GameJoiningUDMUXEntry))
+                else if (logMessage.StartsWith(GameJoiningUDMUXEntry))
                 {
-                    var match = Regex.Match(entry, GameJoiningUDMUXPattern);
+                    var match = Regex.Match(logMessage, GameJoiningUDMUXPattern);
 
                     if (match.Groups.Count != 3 || match.Groups[2].Value != Data.MachineAddress)
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to assert format for game join UDMUX entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
@@ -255,14 +267,14 @@
 
                     App.Logger.WriteLine(LOG_IDENT, $"Server is UDMUX protected ({Data})");
                 }
-                else if (entry.Contains(GameJoinedEntry))
+                else if (logMessage.StartsWith(GameJoinedEntry))
                 {
-                    Match match = Regex.Match(entry, GameJoinedEntryPattern);
+                    Match match = Regex.Match(logMessage, GameJoinedEntryPattern);
 
                     if (match.Groups.Count != 2 || match.Groups[1].Value != Data.MachineAddress)
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for game joined entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
@@ -278,7 +290,7 @@
             {
                 // We are confirmed to be in a game
 
-                if (entry.Contains(GameDisconnectedEntry))
+                if (logMessage.StartsWith(GameDisconnectedEntry))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({Data})");
 
@@ -290,24 +302,24 @@
 
                     OnGameLeave?.Invoke(this, EventArgs.Empty);
                 }
-                else if (entry.Contains(GameTeleportingEntry))
+                else if (logMessage.StartsWith(GameTeleportingEntry))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data})");
                     _teleportMarker = true;
                 }
-                else if (entry.Contains(GameJoiningReservedServerEntry))
+                else if (logMessage.StartsWith(GameJoiningReservedServerEntry))
                 {
                     _teleportMarker = true;
                     _reservedTeleportMarker = true;
                 }
-                else if (entry.Contains(GameMessageEntry))
+                else if (logMessage.StartsWith(GameMessageEntry))
                 {
-                    var match = Regex.Match(entry, GameMessageEntryPattern);
+                    var match = Regex.Match(logMessage, GameMessageEntryPattern);
 
                     if (match.Groups.Count != 2)
                     {
                         App.Logger.WriteLine(LOG_IDENT, $"Failed to assert format for RPC message entry");
-                        App.Logger.WriteLine(LOG_IDENT, entry);
+                        App.Logger.WriteLine(LOG_IDENT, logMessage);
                         return;
                     }
 
