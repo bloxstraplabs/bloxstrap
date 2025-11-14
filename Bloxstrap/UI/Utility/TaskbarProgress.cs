@@ -57,7 +57,19 @@ namespace Bloxstrap.UI.Utility
         {
         }
 
-        private static Lazy<ITaskbarList3> _taskbarInstance = new Lazy<ITaskbarList3>(() => (ITaskbarList3)new TaskbarInstance());
+        private static Lazy<ITaskbarList3?> _taskbarInstance = new Lazy<ITaskbarList3?>(() =>
+        {
+            ITaskbarList3 taskbar = (ITaskbarList3)new TaskbarInstance();
+            try
+            {
+                bool hasInitialised = taskbar.HrInit() == 0; // reduce pointless calls by checking if we initialised properly
+                return hasInitialised ? taskbar : null;
+            }
+            catch (NotImplementedException)
+            {
+                return null;
+            }
+        });
 
         private static TaskbarStates ConvertEnum(TaskbarItemProgressState state)
         {
@@ -74,7 +86,12 @@ namespace Bloxstrap.UI.Utility
 
         private static int SetProgressState(IntPtr windowHandle, TaskbarStates taskbarState)
         {
-            return _taskbarInstance.Value.SetProgressState(windowHandle, taskbarState);
+            return _taskbarInstance.Value?.SetProgressState(windowHandle, taskbarState) ?? 1;
+        }
+
+        public static int SetProgressValue(IntPtr windowHandle, int progressValue, int progressMax)
+        {
+            return _taskbarInstance.Value?.SetProgressValue(windowHandle, (ulong)progressValue, (ulong)progressMax) ?? 1;
         }
 
         public static int SetProgressState(IntPtr windowHandle, TaskbarItemProgressState taskbarState)
@@ -82,9 +99,20 @@ namespace Bloxstrap.UI.Utility
             return SetProgressState(windowHandle, ConvertEnum(taskbarState));
         }
 
-        public static int SetProgressValue(IntPtr windowHandle, int progressValue, int progressMax)
+        /// <summary>
+        /// Will assume windowHandle is Process.GetCurrentProcess().MainWindowHandle
+        /// </summary>
+        public static int SetProgressState(TaskbarItemProgressState taskbarState)
         {
-            return _taskbarInstance.Value.SetProgressValue(windowHandle, (ulong)progressValue, (ulong)progressMax);
+            return SetProgressState(Process.GetCurrentProcess().MainWindowHandle, ConvertEnum(taskbarState));
+        }
+
+        /// <summary>
+        /// Will assume windowHandle is Process.GetCurrentProcess().MainWindowHandle
+        /// </summary>
+        public static int SetProgressValue(int progressValue, int progressMax)
+        {
+            return SetProgressValue(Process.GetCurrentProcess().MainWindowHandle, progressValue, progressMax);
         }
     }
 }
