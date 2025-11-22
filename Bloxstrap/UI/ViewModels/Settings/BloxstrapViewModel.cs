@@ -28,13 +28,20 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.WebEnvironment = value;
         }
 
-        public Visibility WebEnvironmentVisibility => App.Settings.Prop.DeveloperMode ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility DeveloperOptionVisibility => App.Settings.Prop.DeveloperMode ? Visibility.Visible : Visibility.Collapsed;
 
         public bool ShouldExportConfig { get; set; } = true;
 
         public bool ShouldExportLogs { get; set; } = true;
 
+        public ICommand DebugCrashCommand => new RelayCommand(DebugCrash);
+
         public ICommand ExportDataCommand => new RelayCommand(ExportData);
+
+        private void DebugCrash()
+        {
+            throw new ApplicationException("Pretend like something terrible has happened");
+        }
 
         private void ExportData()
         {
