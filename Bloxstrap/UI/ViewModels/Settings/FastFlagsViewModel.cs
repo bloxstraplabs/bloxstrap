@@ -19,7 +19,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
-        public Visibility CanShowFastFlagEditor => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid) ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility CanShowFastFlagEditor => !String.IsNullOrEmpty(App.StudioState.Prop.VersionGuid) ? Visibility.Visible : Visibility.Collapsed;
 
         public bool UseFastFlagManager
         {

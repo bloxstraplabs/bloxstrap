@@ -61,7 +61,7 @@ namespace Bloxstrap
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
-        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.DistributionState.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -229,7 +229,7 @@ namespace Bloxstrap
             {
                 App.Settings.Load();
                 App.State.Load();
-                App.RobloxState.Load();
+                AppData.DistributionStateManager.Load();
             }
 
             if (!_noConnection)
@@ -250,7 +250,7 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
-                if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                if (AppData.DistributionState.VersionGuid != _latestVersionGuid || _mustUpgrade)
                 {
                     bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
                     if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
@@ -831,7 +831,7 @@ namespace Bloxstrap
             {
                 string dirName = Path.GetFileName(dir);
 
-                if (dirName != App.RobloxState.Prop.Player.VersionGuid && dirName != App.RobloxState.Prop.Studio.VersionGuid)
+                if (dirName != App.PlayerState.Prop.VersionGuid && dirName != App.StudioState.Prop.VersionGuid)
                 {
                     // TODO: this is too expensive
                     //Filesystem.AssertReadOnlyDirectory(dir);
@@ -858,7 +858,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::MigrateCompatibilityFlags";
 
-            string oldClientLocation = Path.Combine(Paths.Versions, AppData.State.VersionGuid, AppData.ExecutableName);
+            string oldClientLocation = Path.Combine(Paths.Versions, AppData.DistributionState.VersionGuid, AppData.ExecutableName);
             string newClientLocation = Path.Combine(_latestVersionDirectory, AppData.ExecutableName);
 
             // move old compatibility flags for the old location
@@ -899,7 +899,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
 
-            if (String.IsNullOrEmpty(AppData.State.VersionGuid))
+            if (String.IsNullOrEmpty(AppData.DistributionState.VersionGuid))
                 SetStatus(Strings.Bootstrapper_Status_Installing);
             else
                 SetStatus(Strings.Bootstrapper_Status_Upgrading);
@@ -1057,19 +1057,19 @@ namespace Bloxstrap
 
             MigrateCompatibilityFlags();
 
-            AppData.State.VersionGuid = _latestVersionGuid;
+            AppData.DistributionState.VersionGuid = _latestVersionGuid;
 
-            AppData.State.PackageHashes.Clear();
+            AppData.DistributionState.PackageHashes.Clear();
 
             foreach (var package in _versionPackageManifest)
-                AppData.State.PackageHashes.Add(package.Name, package.Signature);
+                AppData.DistributionState.PackageHashes.Add(package.Name, package.Signature);
 
             CleanupVersionsFolder();
 
             var allPackageHashes = new List<string>();
 
-            allPackageHashes.AddRange(App.RobloxState.Prop.Player.PackageHashes.Values);
-            allPackageHashes.AddRange(App.RobloxState.Prop.Studio.PackageHashes.Values);
+            allPackageHashes.AddRange(App.PlayerState.Prop.PackageHashes.Values);
+            allPackageHashes.AddRange(App.StudioState.Prop.PackageHashes.Values);
 
             if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
@@ -1096,9 +1096,9 @@ namespace Bloxstrap
 
             int distributionSize = _versionPackageManifest.Sum(x => x.Size + x.PackedSize) / 1024;
 
-            AppData.State.Size = distributionSize;
+            AppData.DistributionState.Size = distributionSize;
 
-            int totalSize = App.RobloxState.Prop.Player.Size + App.RobloxState.Prop.Studio.Size;
+            int totalSize = App.PlayerState.Prop.Size + App.PlayerState.Prop.Size;
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
@@ -1110,7 +1110,7 @@ namespace Bloxstrap
             App.State.Prop.ForceReinstall = false;
 
             App.State.Save();
-            App.RobloxState.Save();
+            AppData.DistributionStateManager.Save();
 
             _isInstalling = false;
         }
@@ -1263,7 +1263,7 @@ namespace Bloxstrap
 
             var fileRestoreMap = new Dictionary<string, List<string>>();
 
-            foreach (string fileLocation in App.RobloxState.Prop.ModManifest)
+            foreach (string fileLocation in AppData.DistributionState.ModManifest)
             {
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
@@ -1310,14 +1310,14 @@ namespace Bloxstrap
 
             // make sure we're not overwriting a new update
             // if we're the background update process, always overwrite
-            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || !App.RobloxState.HasFileOnDiskChanged())
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || !AppData.DistributionStateManager.HasFileOnDiskChanged())
             {
-                App.RobloxState.Prop.ModManifest = modFolderFiles;
-                App.RobloxState.Save();
+                AppData.DistributionState.ModManifest = modFolderFiles;
+                AppData.DistributionStateManager.Save();
             }
             else
             {
-                App.Logger.WriteLine(LOG_IDENT, "RobloxState disk mismatch, not saving ModManifest");
+                App.Logger.WriteLine(LOG_IDENT, $"{AppData.DistributionStateManager.ClassName} disk mismatch, not saving ModManifest");
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");

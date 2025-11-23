@@ -4,11 +4,15 @@ namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
+        private Dictionary<string, object> OriginalProp = new();
+
         public override string ClassName => nameof(FastFlagManager);
 
         public override string LOG_IDENT_CLASS => ClassName;
-        
-        public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
+
+        public override string FileName => "ClientAppSettings.json";
+
+        public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings", FileName);
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
 
@@ -146,15 +150,17 @@ namespace Bloxstrap
             OriginalProp = new(Prop);
         }
 
-        public override void Load(bool alertFailure = true)
+        public override bool Load(bool alertFailure = true)
         {
-            base.Load(alertFailure);
+            bool result = base.Load(alertFailure);
 
             // clone the dictionary
             OriginalProp = new(Prop);
 
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
+
+            return result;
         }
     }
 }

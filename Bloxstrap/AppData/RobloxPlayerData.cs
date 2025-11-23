@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bloxstrap.AppData
+﻿namespace Bloxstrap.AppData
 {
     public class RobloxPlayerData : CommonAppData, IAppData
     {
@@ -16,7 +10,7 @@ namespace Bloxstrap.AppData
 
         public override string ExecutableName => "RobloxPlayerBeta.exe";
 
-        public override AppState State => App.RobloxState.Prop.Player;
+        public override JsonManager<DistributionState> DistributionStateManager => App.PlayerState;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {

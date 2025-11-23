@@ -197,7 +197,7 @@ namespace Bloxstrap
 
             var processes = new List<Process>();
             
-            if (!String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid))
+            if (!String.IsNullOrEmpty(App.PlayerState.Prop.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
             if (App.IsStudioVisible)
@@ -559,23 +559,37 @@ namespace Bloxstrap
                     }
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.9.0") == VersionComparison.LessThan)
+                if (Utilities.CompareVersions(existingVer, "2.11.0") == VersionComparison.LessThan)
                 {
-                    // move from App.State to App.RobloxState
-                    if (App.State.Prop.GetDeprecatedPlayer() != null)
-                        App.RobloxState.Prop.Player = App.State.Prop.GetDeprecatedPlayer()!;
+                    JsonManager<RobloxState> legacyRobloxState = new();
 
-                    if (App.State.Prop.GetDeprecatedStudio() != null)
-                        App.RobloxState.Prop.Studio = App.State.Prop.GetDeprecatedStudio()!;
+                    if (legacyRobloxState.IsSaved)
+                    {
+                        if (legacyRobloxState.Load(false))
+                        {
+                            App.PlayerState.Prop.VersionGuid = legacyRobloxState.Prop.Player.VersionGuid;
+                            App.PlayerState.Prop.PackageHashes = legacyRobloxState.Prop.Player.PackageHashes;
+                            App.PlayerState.Prop.Size = legacyRobloxState.Prop.Player.Size;
+                            App.PlayerState.Prop.ModManifest = legacyRobloxState.Prop.ModManifest;
 
-                    if (App.State.Prop.GetDeprecatedModManifest() != null)
-                        App.RobloxState.Prop.ModManifest = App.State.Prop.GetDeprecatedModManifest()!;
+                            App.StudioState.Prop.VersionGuid = legacyRobloxState.Prop.Studio.VersionGuid;
+                            App.StudioState.Prop.PackageHashes = legacyRobloxState.Prop.Studio.PackageHashes;
+                            App.StudioState.Prop.Size = legacyRobloxState.Prop.Studio.Size;
+                        }
+
+                        legacyRobloxState.Delete();
+                    }
                 }
 
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
-                App.RobloxState.Save();
+
+                if (App.PlayerState.Loaded)
+                    App.PlayerState.Save();
+
+                if (App.StudioState.Loaded)
+                    App.StudioState.Save();
             }
 
             if (currentVer is null)

@@ -1,27 +1,38 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Bloxstrap
+﻿namespace Bloxstrap
 {
     public class JsonManager<T> where T : class, new()
     {
-        public T OriginalProp { get; set; } = new();
-        
-        public T Prop { get; set; } = new();
+        protected T _prop = new();
+
+        public virtual T Prop
+        {
+            get => _prop;
+            set => _prop = value;
+        }
 
         /// <summary>
         /// The file hash when last retrieved from disk
         /// </summary>
         public string? LastFileHash { get; private set; }
 
-        public bool Loaded { get; set; } = false;
+        public bool Loaded { get; protected set; } = false;
 
-        public virtual string ClassName => typeof(T).Name;
+        public virtual string ClassName { get; }
 
-        public virtual string FileLocation => Path.Combine(Paths.Base, $"{ClassName}.json");
+        public virtual string FileName => $"{ClassName}.json";
+
+        public virtual string FileLocation => Path.Combine(Paths.Base, FileName);
+
+        public bool IsSaved => File.Exists(FileLocation);
 
         public virtual string LOG_IDENT_CLASS => $"JsonManager<{ClassName}>";
 
-        public virtual void Load(bool alertFailure = true)
+        public JsonManager(string? className = null)
+        {
+            ClassName = string.IsNullOrEmpty(className) ? typeof(T).Name : className;
+        }
+
+        public virtual bool Load(bool alertFailure = true)
         {
             string LOG_IDENT = $"{LOG_IDENT_CLASS}::Load";
 
@@ -29,18 +40,30 @@ namespace Bloxstrap
 
             try
             {
-                string contents = File.ReadAllText(FileLocation);
+                if (File.Exists(FileLocation))
+                {
+                    string contents = File.ReadAllText(FileLocation);
 
-                T? settings = JsonSerializer.Deserialize<T>(contents);
+                    T? settings = JsonSerializer.Deserialize<T>(contents);
 
-                if (settings is null)
-                    throw new ArgumentNullException("Deserialization returned null");
+                    if (settings is null)
+                        throw new ArgumentNullException("Deserialization returned null");
 
-                Prop = settings;
-                Loaded = true;
-                LastFileHash = MD5Hash.FromString(contents);
+                    _prop = settings;
+                    Loaded = true;
+                    LastFileHash = MD5Hash.FromString(contents);
 
-                App.Logger.WriteLine(LOG_IDENT, "Loaded successfully!");
+                    App.Logger.WriteLine(LOG_IDENT, "Loaded successfully!");
+
+                    return true;
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Could not find {FileLocation}.");
+                    Loaded = true;
+
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -71,7 +94,10 @@ namespace Bloxstrap
                     }
                 }
 
+                Loaded = true;
                 Save();
+
+                return false;
             }
         }
 
@@ -105,12 +131,71 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Save complete!");
         }
 
+        public virtual void Delete()
+        {
+            string LOG_IDENT = $"{LOG_IDENT_CLASS}::Delete";
+
+            try
+            {
+                if (File.Exists(FileLocation))
+                {
+                    File.Delete(FileLocation);
+
+                    Loaded = false;
+                    App.Logger.WriteLine(LOG_IDENT, "Delete complete!");
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "File does not exist on disk");
+                }
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to delete");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                // should we notify?
+            }
+        }
+
         /// <summary>
         /// Is the file on disk different to the one deserialised during this session?
         /// </summary>
         public bool HasFileOnDiskChanged()
         {
+            // check if a file has been created since launch
+            if (string.IsNullOrEmpty(LastFileHash) && File.Exists(FileLocation))
+                return true;
+
             return LastFileHash != MD5Hash.FromFile(FileLocation);
+        }
+    }
+
+    /// <summary>
+    /// <see cref="JsonManager{T}"/> that will automatically load in the JSON if it has not been already
+    /// </summary>
+    /// <typeparam name="T">Class</typeparam>
+    public class LazyJsonManager<T> : JsonManager<T> where T : class, new()
+    {
+        public override T Prop
+        {
+            get
+            {
+                if (!Loaded)
+                    Load();
+
+                return _prop;
+            }
+            set
+            {
+                _prop = value;
+                Loaded = true;
+            }
+        }
+
+        public LazyJsonManager(string? className)
+            : base(className)
+        {
         }
     }
 }
