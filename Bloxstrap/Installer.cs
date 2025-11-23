@@ -81,8 +81,11 @@ namespace Bloxstrap
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
-            // studio can be implicitly registered when it's first launched manually
+            // studio can be implicitly registered when it's first launched manually or if its configuration files are present
             WindowsRegistry.RegisterPlayer();
+
+            if (App.IsStudioInstalled)
+                WindowsRegistry.RegisterStudio();
 
             if (CreateDesktopShortcuts)
                 Shortcut.Create(Paths.Application, "", DesktopShortcut);
@@ -96,9 +99,6 @@ namespace Bloxstrap
             App.FastFlags.Load(false);
 
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
-
-            if (App.IsStudioVisible)
-                WindowsRegistry.RegisterStudio();
 
             App.Settings.Save();
 
@@ -200,7 +200,7 @@ namespace Bloxstrap
             if (!String.IsNullOrEmpty(App.PlayerState.Prop.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-            if (App.IsStudioVisible)
+            if (App.IsStudioInstalled)
                 processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
