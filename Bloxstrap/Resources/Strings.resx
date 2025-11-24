@@ -1395,4 +1395,7 @@ Defaulting to {1}.</value>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Failed to preview theme: {0}</value>
   </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Shutting down {product}</value>
+  </data>
 </root>

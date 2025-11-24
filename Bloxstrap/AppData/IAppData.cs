@@ -8,6 +8,8 @@
 
         string RegistryName { get; }
 
+        string ProcessName { get; }
+
         string ExecutableName { get; }
 
         string Directory { get; }

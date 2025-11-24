@@ -298,6 +298,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shutting down {product}.
+        /// </summary>
+        public static string Bootstrapper_Status_ShuttingDown {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.ShuttingDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Starting {product}....
         /// </summary>
         public static string Bootstrapper_Status_Starting {
