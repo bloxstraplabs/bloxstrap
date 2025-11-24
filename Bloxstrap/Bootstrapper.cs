@@ -509,8 +509,8 @@ namespace Bloxstrap
                 return false;
             }
 
-            // at least 3GB of free space
-            const long minimumFreeSpace = 3_000_000_000;
+            // at least 5GB of free space
+            const long minimumFreeSpace = 5_000_000_000;
             long space = Filesystem.GetFreeDiskSpace(Paths.Base);
             if (space < minimumFreeSpace)
             {
