@@ -304,6 +304,12 @@
 				"RenderingBias": "RenderingBias",
 				"Color": "Color"
 			}
+		},
+		"Sound": {
+			"IsCreatable": true,
+			"Attributes": {
+				"Source": "string"
+			}
 		}
 	},
 	"Types": {

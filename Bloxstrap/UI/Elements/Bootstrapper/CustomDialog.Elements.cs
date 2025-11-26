@@ -767,6 +767,24 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             return border;
         }
+
+        private static DummyFrameworkElement HandleXmlElement_Sound(CustomDialog dialog, XElement xmlElement)
+        {
+            string? filePath = xmlElement.Attribute("Source")?.Value.ToString();
+
+            System.Media.SoundPlayer soundPlayer = new()
+            {
+                SoundLocation = filePath?.Replace("theme://", $"{dialog.ThemeDir}\\")
+            };
+
+            soundPlayer.Load();
+            soundPlayer.Play();
+
+            // make sure to stop playing sound when the bootstrapper closes
+            dialog.Closing += (_, _) => soundPlayer.Stop();
+
+            return new DummyFrameworkElement(); // dont add anything
+        }
         #endregion
     }
 }

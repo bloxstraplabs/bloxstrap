@@ -53,7 +53,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["Rectangle"] = HandleXmlElement_Rectangle,
 
             ["RowDefinition"] = HandleXmlElement_RowDefinition,
-            ["ColumnDefinition"] = HandleXmlElement_ColumnDefinition
+            ["ColumnDefinition"] = HandleXmlElement_ColumnDefinition,
+
+            ["Sound"] = HandleXmlElement_Sound
         };
 
         private static T HandleXml<T>(CustomDialog dialog, XElement xmlElement) where T : class
