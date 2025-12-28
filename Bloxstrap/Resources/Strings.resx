@@ -1398,4 +1398,10 @@ Defaulting to {1}.</value>
   <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
     <value>Shutting down {product}</value>
   </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox Community</value>
+  </data>
 </root>
