@@ -9,7 +9,7 @@ jobs:
       artifact-id: ${{ steps.upload-artifact.outputs.artifact-id }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
       with:
         submodules: true
 
