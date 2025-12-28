@@ -872,11 +872,12 @@ namespace Bloxstrap
         #region Roblox Install
         private static bool TryDeleteRobloxInDirectory(string dir)
         {
+            // check if the roblox executable is present in the directory
             string clientPath = Path.Combine(dir, "RobloxPlayerBeta.exe");
-            if (!File.Exists(dir))
+            if (!File.Exists(clientPath))
             {
                 clientPath = Path.Combine(dir, "RobloxStudioBeta.exe");
-                if (!File.Exists(dir))
+                if (!File.Exists(clientPath))
                     return true; // ok???
             }
 
