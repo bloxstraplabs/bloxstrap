@@ -24,7 +24,7 @@ jobs:
       run: dotnet publish -p:PublishSingleFile=true -p:CommitHash=${{ github.sha }} -p:CommitRef=${{ github.ref_type }}/${{ github.ref_name }} -r win-x64 -c Debug --self-contained false .\Bloxstrap\Bloxstrap.csproj
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: Bloxstrap (Debug) (${{ github.sha }})
         path: .\Bloxstrap\bin\Debug\net6.0-windows\win-x64\publish\*
