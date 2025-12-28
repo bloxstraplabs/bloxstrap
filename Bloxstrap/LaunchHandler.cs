@@ -180,6 +180,13 @@ namespace Bloxstrap
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
 
+                // before we open the window, force load the distribution states
+                // some menu viewmodels require the distribution states, which will result in a short freeze once the page is opened
+                if (!App.PlayerState.Loaded)
+                    App.PlayerState.Load();
+                if (!App.StudioState.Loaded)
+                    App.StudioState.Load();
+
                 var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
 
                 // typically we'd use Show(), but we need to block to ensure IPL stays in scope
