@@ -310,10 +310,16 @@ namespace Bloxstrap
             App.LaunchSettings.QuietFlag.Active = true;
             App.LaunchSettings.NoLaunchFlag.Active = true;
 
+            if (!Enum.TryParse(App.LaunchSettings.BackgroundUpdaterFlag.Data, out LaunchMode launchMode))
+                throw new ApplicationException($"Invalid launch mode arg ({App.LaunchSettings.BackgroundUpdaterFlag.Data})");
+
+            if (launchMode != LaunchMode.Player && launchMode != LaunchMode.Studio)
+                throw new ApplicationException($"Unsupported launch mode {launchMode} provided");
+
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
+            App.Bootstrapper = new Bootstrapper(launchMode)
             {
-                MutexName = "Bloxstrap-BackgroundUpdater",
+                MutexNamePrefix = "Bloxstrap-BackgroundUpdater",
                 QuitIfMutexExists = true
             };
 

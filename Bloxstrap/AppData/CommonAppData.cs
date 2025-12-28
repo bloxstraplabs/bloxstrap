@@ -43,11 +43,15 @@ namespace Bloxstrap.AppData
 
         public virtual string ExecutableName { get; } = null!;
 
-        public string Directory => Path.Combine(Paths.Versions, State.VersionGuid);
+        public string Directory => Path.Combine(Paths.Versions, DistributionState.VersionGuid);
 
         public string ExecutablePath => Path.Combine(Directory, ExecutableName);
 
-        public virtual AppState State { get; } = null!;
+        public virtual JsonManager<DistributionState> DistributionStateManager { get; } = null!;
+
+        public DistributionState DistributionState => DistributionStateManager.Prop;
+
+        public List<string> ModManifest => DistributionState.ModManifest;
 
         public virtual IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
 

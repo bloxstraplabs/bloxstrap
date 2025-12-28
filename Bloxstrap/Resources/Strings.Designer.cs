@@ -298,6 +298,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shutting down {product}.
+        /// </summary>
+        public static string Bootstrapper_Status_ShuttingDown {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.ShuttingDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Starting {product}....
         /// </summary>
         public static string Bootstrapper_Status_Starting {
@@ -2546,7 +2555,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work..
+        ///   Looks up a localized string similar to Update Roblox in the background instead of blocking launch when an update is available. At least 5GB of free storage space is required for this feature..
         /// </summary>
         public static string Menu_Behaviour_BackgroundUpdates_Description {
             get {

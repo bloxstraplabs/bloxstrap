@@ -53,6 +53,7 @@ namespace Bloxstrap
         private string _latestVersionGuid = null!;
         private string _latestVersionDirectory = null!;
         private PackageManifest _versionPackageManifest = null!;
+        private bool _channelFetched = false;
 
         private bool _isInstalling = false;
         private double _progressIncrement;
@@ -61,7 +62,7 @@ namespace Bloxstrap
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
-        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.DistributionState.VersionGuid) || !File.Exists(AppData.ExecutablePath);
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -72,7 +73,10 @@ namespace Bloxstrap
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
 
-        public string MutexName { get; set; } = "Bloxstrap-Bootstrapper";
+        public string MutexName => $"{MutexNamePrefix}-{_launchMode}";
+        public string BackgroundUpdaterMutexName => $"Bloxstrap-BackgroundUpdater-{_launchMode}";
+
+        public string MutexNamePrefix { get; set; } = "Bloxstrap-Bootstrapper";
         public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
@@ -199,6 +203,15 @@ namespace Bloxstrap
 
             App.AssertWindowsOSVersion();
 
+            // if we dont know our launch type, find out now!
+            if (_launchMode == LaunchMode.Unknown)
+            {
+                await SafeGetLatestVersionInfo();
+
+                if (_launchMode == LaunchMode.Unknown)
+                    throw new ApplicationException("Failed to deduce launch type");
+            }
+
             // ensure only one instance of the bootstrapper is running at the time
             // so that we don't have stuff like two updates happening simultaneously
 
@@ -229,20 +242,10 @@ namespace Bloxstrap
             {
                 App.Settings.Load();
                 App.State.Load();
-                App.RobloxState.Load();
+                AppData.DistributionStateManager.Load();
             }
 
-            if (!_noConnection)
-            {
-                try
-                {
-                    await GetLatestVersionInfo();
-                }
-                catch (Exception ex)
-                {
-                    HandleConnectionError(ex);
-                }
-            }
+            await SafeGetLatestVersionInfo();
 
             CleanupVersionsFolder(); // cleanup after background updater
 
@@ -250,11 +253,9 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
-                if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                if (AppData.DistributionState.VersionGuid != _latestVersionGuid || _mustUpgrade)
                 {
-                    bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
-                    if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
-                        backgroundUpdaterMutexOpen = false; // we want to actually update lol
+                    bool backgroundUpdaterMutexOpen = !App.LaunchSettings.BackgroundUpdaterFlag.Active && Utilities.DoesMutexExist(BackgroundUpdaterMutexName);
 
                     App.Logger.WriteLine(LOG_IDENT, $"Background updater running: {backgroundUpdaterMutexOpen}");
 
@@ -311,6 +312,85 @@ namespace Bloxstrap
             Dialog?.CloseBootstrapper();
         }
 
+        private RegistryKey GetChannelRegistryKey() => Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
+
+        private string? GetCurrentChannelFromArgs()
+        {
+            const string LOG_IDENT = "Bootstrapper::GetCurrentChannelFromArgs";
+
+            if (App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data))
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Got from channel arg");
+                return App.LaunchSettings.ChannelFlag.Data.ToLowerInvariant();
+            }
+
+            Match match = Regex.Match(
+                App.LaunchSettings.RobloxLaunchArgs,
+                "channel:([a-zA-Z0-9-_]+)",
+                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
+            );
+
+            if (match.Groups.Count == 2)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Got from launch URI");
+                return match.Groups[1].Value.ToLowerInvariant();
+            }
+
+            if (_launchMode != LaunchMode.Unknown)
+            {
+                using RegistryKey key = GetChannelRegistryKey();
+                if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Got from registry ({AppData.RegistryName})");
+                    return value;
+                }
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Skipping registry check, unknown launch");
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, "Could not find channel");
+            return null;
+        }
+
+        private void FetchCurrentChannel()
+        {
+            const string LOG_IDENT = "Bootstrapper::FetchCurrentChannel";
+
+            if (_channelFetched)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Channel has already been fetched");
+                return;
+            }
+
+            string? channel = GetCurrentChannelFromArgs();
+
+            if (!String.IsNullOrEmpty(channel))
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Got channel as {channel}");
+
+                Deployment.Channel = channel;
+
+                if (!Deployment.IsDefaultChannel)
+                    App.SendStat("robloxChannel", channel);
+            }
+            else
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Could not get channel, defaulting to {Deployment.DefaultChannel}");
+
+                Deployment.Channel = Deployment.DefaultChannel;
+            }
+
+            _channelFetched = true;
+        }
+
+        private void UpdateChannelRegistry()
+        {
+            using RegistryKey key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
+            key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+        }
+
         /// <summary>
         /// Will throw whatever HttpClient can throw
         /// </summary>
@@ -322,36 +402,10 @@ namespace Bloxstrap
             // before we do anything, we need to query our channel
             // if it's set in the launch uri, we need to use it and set the registry key for it
             // else, check if the registry key for it exists, and use it
+            FetchCurrentChannel();
 
-            using var key = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\ROBLOX Corporation\\Environments\\{AppData.RegistryName}\\Channel");
-
-            var match = Regex.Match(
-                App.LaunchSettings.RobloxLaunchArgs,
-                "channel:([a-zA-Z0-9-_]+)",
-                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant
-            );
-
-            if (App.LaunchSettings.ChannelFlag.Active && !string.IsNullOrEmpty(App.LaunchSettings.ChannelFlag.Data))
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Channel set to {App.LaunchSettings.ChannelFlag.Data} from arguments");
-                Deployment.Channel = App.LaunchSettings.ChannelFlag.Data.ToLowerInvariant();
-            }
-            else if (match.Groups.Count == 2)
-            {
-                Deployment.Channel = match.Groups[1].Value.ToLowerInvariant();
-            }
-            else if (key.GetValue("www.roblox.com") is string value && !String.IsNullOrEmpty(value))
-            {
-                Deployment.Channel = value.ToLowerInvariant();
-            }
-
-            if (String.IsNullOrEmpty(Deployment.Channel))
-                Deployment.Channel = Deployment.DefaultChannel;
-
-            App.Logger.WriteLine(LOG_IDENT, $"Got channel as {Deployment.DefaultChannel}");
-
-            if (!Deployment.IsDefaultChannel)
-                App.SendStat("robloxChannel", Deployment.Channel);
+            string? newVersionGuid = null;
+            Version? newVersion = null;
 
             if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
@@ -369,35 +423,67 @@ namespace Bloxstrap
                     clientVersion = await Deployment.GetInfo();
                 }
 
-                key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
+                UpdateChannelRegistry();
 
-                _latestVersionGuid = clientVersion.VersionGuid;
-                _latestVersion = Utilities.ParseVersionSafe(clientVersion.Version);
+                newVersionGuid = clientVersion.VersionGuid;
+                newVersion = Utilities.ParseVersionSafe(clientVersion.Version);
             }
             else
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Version set to {App.LaunchSettings.VersionFlag.Data} from arguments");
-                _latestVersionGuid = App.LaunchSettings.VersionFlag.Data;
+                newVersionGuid = App.LaunchSettings.VersionFlag.Data;
                 // we can't determine the version
             }
 
-            _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
+            if (newVersionGuid != _latestVersionGuid)
+            {
+                _latestVersionGuid = newVersionGuid!;
+                _latestVersion = newVersion;
 
-            string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
-            var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
+                _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
 
-            _versionPackageManifest = new(pkgManifestData);
+                string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
+                var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
+
+                _versionPackageManifest = new(pkgManifestData);
+            }
 
             // this can happen if version is set through arguments
             if (_launchMode == LaunchMode.Unknown)
             {
-                App.Logger.WriteLine(LOG_IDENT, "Identifying launch mode from package manifest");
+                if (_versionPackageManifest.Count != 0)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Identifying launch mode from package manifest");
 
-                bool isPlayer = _versionPackageManifest.Exists(x => x.Name == "RobloxApp.zip");
-                App.Logger.WriteLine(LOG_IDENT, $"isPlayer: {isPlayer}");
+                    bool isPlayer = _versionPackageManifest.Exists(x => x.Name == "RobloxApp.zip");
+                    App.Logger.WriteLine(LOG_IDENT, $"isPlayer: {isPlayer}");
 
-                _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
-                SetupAppData(); // we need to set it up again
+                    _launchMode = isPlayer ? LaunchMode.Player : LaunchMode.Studio;
+
+                    SetupAppData(); // we need to set it up again
+
+                    // lets set the registry now
+                    UpdateChannelRegistry();
+                }
+                else
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Could not identify launch mode as package manifest is empty");
+                }
+            }
+        }
+
+        private async Task SafeGetLatestVersionInfo()
+        {
+            if (!_noConnection)
+            {
+                try
+                {
+                    await GetLatestVersionInfo();
+                }
+                catch (Exception ex)
+                {
+                    HandleConnectionError(ex);
+                }
             }
         }
 
@@ -417,20 +503,14 @@ namespace Bloxstrap
                 return false;
             }
 
-            if (IsStudioLaunch)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Studio launch");
-                return false;
-            }
-
             if (_mustUpgrade)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not eligible: Must upgrade is true");
                 return false;
             }
 
-            // at least 3GB of free space
-            const long minimumFreeSpace = 3_000_000_000;
+            // at least 5GB of free space
+            const long minimumFreeSpace = 5_000_000_000;
             long space = Filesystem.GetFreeDiskSpace(Paths.Base);
             if (space < minimumFreeSpace)
             {
@@ -831,7 +911,7 @@ namespace Bloxstrap
             {
                 string dirName = Path.GetFileName(dir);
 
-                if (dirName != App.RobloxState.Prop.Player.VersionGuid && dirName != App.RobloxState.Prop.Studio.VersionGuid)
+                if (dirName != App.PlayerState.Prop.VersionGuid && dirName != App.StudioState.Prop.VersionGuid)
                 {
                     // TODO: this is too expensive
                     //Filesystem.AssertReadOnlyDirectory(dir);
@@ -858,7 +938,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::MigrateCompatibilityFlags";
 
-            string oldClientLocation = Path.Combine(Paths.Versions, AppData.State.VersionGuid, AppData.ExecutableName);
+            string oldClientLocation = Path.Combine(Paths.Versions, AppData.DistributionState.VersionGuid, AppData.ExecutableName);
             string newClientLocation = Path.Combine(_latestVersionDirectory, AppData.ExecutableName);
 
             // move old compatibility flags for the old location
@@ -873,12 +953,12 @@ namespace Bloxstrap
             }
         }
 
-        private static void KillRobloxPlayers()
+        private void KillRobloxInstances()
         {
-            const string LOG_IDENT = "Bootstrapper::KillRobloxPlayers";
+            const string LOG_IDENT = "Bootstrapper::KillRobloxInstances";
 
             List<Process> processes = new List<Process>();
-            processes.AddRange(Process.GetProcessesByName("RobloxPlayerBeta"));
+            processes.AddRange(Process.GetProcessesByName(AppData.ProcessName));
             processes.AddRange(Process.GetProcessesByName("RobloxCrashHandler")); // roblox studio doesnt depend on crash handler being open, so this should be fine
 
             foreach (Process process in processes)
@@ -895,14 +975,43 @@ namespace Bloxstrap
             }
         }
 
+        private async Task GracefullyCloseRobloxInstances()
+        {
+            const string LOG_IDENT = "Bootstrapper::GracefullyCloseRobloxInstances";
+
+            while (true)
+            {
+                Process[] processes = Process.GetProcessesByName(AppData.ProcessName);
+                if (processes.Length == 0)
+                    break;
+
+                foreach (Process process in processes)
+                {
+                    try
+                    {
+                        process.CloseMainWindow();
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to close process {process.Id}");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
+
+                try
+                {
+                    await Task.Delay(1000, _cancelTokenSource.Token);
+                }
+                catch (TaskCanceledException)
+                {
+                    return;
+                }
+            }
+        }
+
         private async Task UpgradeRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::UpgradeRoblox";
-
-            if (String.IsNullOrEmpty(AppData.State.VersionGuid))
-                SetStatus(Strings.Bootstrapper_Status_Installing);
-            else
-                SetStatus(Strings.Bootstrapper_Status_Upgrading);
 
             Directory.CreateDirectory(Paths.Base);
             Directory.CreateDirectory(Paths.Downloads);
@@ -910,23 +1019,37 @@ namespace Bloxstrap
 
             _isInstalling = true;
 
-            // make sure nothing is running before continuing upgrade
-            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active && !IsStudioLaunch) // TODO: wait for studio processes to close before updating to prevent data loss
-                KillRobloxPlayers();
-
-            // get a fully clean install
-            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active && Directory.Exists(_latestVersionDirectory))
+            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active)
             {
-                try
+                SetStatus(Strings.Bootstrapper_Status_ShuttingDown);
+
+                if (IsStudioLaunch)
+                    await GracefullyCloseRobloxInstances();
+                else
+                    KillRobloxInstances();
+
+                if (_cancelTokenSource.IsCancellationRequested)
+                    return;
+
+                // get a fully clean install
+                if (Directory.Exists(_latestVersionDirectory))
                 {
-                    Directory.Delete(_latestVersionDirectory, true);
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
-                    App.Logger.WriteException(LOG_IDENT, ex);
+                    try
+                    {
+                        Directory.Delete(_latestVersionDirectory, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, "Failed to delete the latest version directory");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
                 }
             }
+
+            if (String.IsNullOrEmpty(AppData.DistributionState.VersionGuid))
+                SetStatus(Strings.Bootstrapper_Status_Installing);
+            else
+                SetStatus(Strings.Bootstrapper_Status_Upgrading);
 
             Directory.CreateDirectory(_latestVersionDirectory);
 
@@ -1057,19 +1180,19 @@ namespace Bloxstrap
 
             MigrateCompatibilityFlags();
 
-            AppData.State.VersionGuid = _latestVersionGuid;
+            AppData.DistributionState.VersionGuid = _latestVersionGuid;
 
-            AppData.State.PackageHashes.Clear();
+            AppData.DistributionState.PackageHashes.Clear();
 
             foreach (var package in _versionPackageManifest)
-                AppData.State.PackageHashes.Add(package.Name, package.Signature);
+                AppData.DistributionState.PackageHashes.Add(package.Name, package.Signature);
 
             CleanupVersionsFolder();
 
             var allPackageHashes = new List<string>();
 
-            allPackageHashes.AddRange(App.RobloxState.Prop.Player.PackageHashes.Values);
-            allPackageHashes.AddRange(App.RobloxState.Prop.Studio.PackageHashes.Values);
+            allPackageHashes.AddRange(App.PlayerState.Prop.PackageHashes.Values);
+            allPackageHashes.AddRange(App.StudioState.Prop.PackageHashes.Values);
 
             if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
@@ -1096,9 +1219,9 @@ namespace Bloxstrap
 
             int distributionSize = _versionPackageManifest.Sum(x => x.Size + x.PackedSize) / 1024;
 
-            AppData.State.Size = distributionSize;
+            AppData.DistributionState.Size = distributionSize;
 
-            int totalSize = App.RobloxState.Prop.Player.Size + App.RobloxState.Prop.Studio.Size;
+            int totalSize = App.PlayerState.Prop.Size + App.PlayerState.Prop.Size;
 
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
@@ -1110,16 +1233,16 @@ namespace Bloxstrap
             App.State.Prop.ForceReinstall = false;
 
             App.State.Save();
-            App.RobloxState.Save();
+            AppData.DistributionStateManager.Save();
 
             _isInstalling = false;
         }
 
-        private static void StartBackgroundUpdater()
+        private void StartBackgroundUpdater()
         {
             const string LOG_IDENT = "Bootstrapper::StartBackgroundUpdater";
 
-            if (Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater"))
+            if (Utilities.DoesMutexExist(BackgroundUpdaterMutexName))
             {
                 App.Logger.WriteLine(LOG_IDENT, "Background updater already running");
                 return;
@@ -1127,7 +1250,7 @@ namespace Bloxstrap
 
             App.Logger.WriteLine(LOG_IDENT, "Starting background updater");
 
-            Process.Start(Paths.Process, "-backgroundupdater");
+            Process.Start(Paths.Process, $"-backgroundupdater {_launchMode}");
         }
 
         private async Task<bool> ApplyModifications()
@@ -1263,7 +1386,7 @@ namespace Bloxstrap
 
             var fileRestoreMap = new Dictionary<string, List<string>>();
 
-            foreach (string fileLocation in App.RobloxState.Prop.ModManifest)
+            foreach (string fileLocation in AppData.DistributionState.ModManifest)
             {
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
@@ -1310,14 +1433,14 @@ namespace Bloxstrap
 
             // make sure we're not overwriting a new update
             // if we're the background update process, always overwrite
-            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || !App.RobloxState.HasFileOnDiskChanged())
+            if (App.LaunchSettings.BackgroundUpdaterFlag.Active || !AppData.DistributionStateManager.HasFileOnDiskChanged())
             {
-                App.RobloxState.Prop.ModManifest = modFolderFiles;
-                App.RobloxState.Save();
+                AppData.DistributionState.ModManifest = modFolderFiles;
+                AppData.DistributionStateManager.Save();
             }
             else
             {
-                App.Logger.WriteLine(LOG_IDENT, "RobloxState disk mismatch, not saving ModManifest");
+                App.Logger.WriteLine(LOG_IDENT, $"{AppData.DistributionStateManager.ClassName} disk mismatch, not saving ModManifest");
             }
 
             App.Logger.WriteLine(LOG_IDENT, $"Finished checking file mods");

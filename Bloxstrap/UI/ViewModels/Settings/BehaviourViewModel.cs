@@ -14,7 +14,7 @@
             set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
         }
 
-        public bool IsRobloxInstallationMissing => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+        public bool IsRobloxInstallationMissing => !App.IsPlayerInstalled && !App.IsStudioInstalled;
 
         public bool ForceRobloxReinstallation
         {

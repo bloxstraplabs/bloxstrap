@@ -1374,7 +1374,7 @@ Defaulting to {1}.</value>
     <value>Background updates</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Update Roblox in the background instead of waiting. Not recommended for slow networks. At least 3GB of free storage space is required for this feature to work.</value>
+    <value>Update Roblox in the background instead of blocking launch when an update is available. At least 5GB of free storage space is required for this feature.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Put UI elements here</value>
@@ -1394,5 +1394,8 @@ Defaulting to {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Failed to preview theme: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Shutting down {product}</value>
   </data>
 </root>
