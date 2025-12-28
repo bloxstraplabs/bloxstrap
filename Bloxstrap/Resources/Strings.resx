@@ -820,7 +820,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>The entry for '{0}' is not valid as the value must be a number</value>
+    <value>The entry for '{0}' is not valid as the value must be an integer</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>No log file will be written for this launch because Bloxstrap is unable to write to the folder at '{0}'</value>

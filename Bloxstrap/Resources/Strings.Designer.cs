@@ -2822,7 +2822,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the value must be a number.
+        ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the value must be an integer.
         /// </summary>
         public static string Menu_FastFlagEditor_InvalidNumberValue {
             get {
