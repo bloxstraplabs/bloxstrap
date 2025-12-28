@@ -1618,6 +1618,8 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, $"Extracting {package.Name}...");
 
             var fastZip = new FastZip(_fastZipEvents);
+            fastZip.RestoreDateTimeOnExtract = false;
+            fastZip.RestoreAttributesOnExtract = false;
 
             fastZip.ExtractZip(package.DownloadPath, packageFolder, fileFilter);
 
