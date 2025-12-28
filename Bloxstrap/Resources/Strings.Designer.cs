@@ -2123,6 +2123,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bloxstrap Wiki.
+        /// </summary>
+        public static string LaunchMenu_BloxstrapWiki {
+            get {
+                return ResourceManager.GetString("LaunchMenu.BloxstrapWiki", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure settings.
         /// </summary>
         public static string LaunchMenu_ConfigureSettings {
@@ -2146,6 +2155,15 @@ namespace Bloxstrap.Resources {
         public static string LaunchMenu_LaunchRobloxStudio {
             get {
                 return ResourceManager.GetString("LaunchMenu.LaunchRobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Community.
+        /// </summary>
+        public static string LaunchMenu_RobloxCommunity {
+            get {
+                return ResourceManager.GetString("LaunchMenu.RobloxCommunity", resourceCulture);
             }
         }
         
