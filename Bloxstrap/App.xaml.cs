@@ -21,7 +21,7 @@ namespace Bloxstrap
         public const string ProjectOwner = "Bloxstrap";
         public const string ProjectRepository = "bloxstraplabs/bloxstrap";
         public const string ProjectDownloadLink = "https://bloxstraplabs.com";
-        public const string ProjectHelpLink = "https://github.com/bloxstraplabs/bloxstrap/wiki";
+        public const string ProjectHelpLink = "https://bloxstraplabs.com/wiki/help/";
         public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
@@ -44,7 +44,9 @@ namespace Bloxstrap
 
         public static bool IsProductionBuild => IsActionBuild && BuildMetadata.CommitRef.StartsWith("tag", StringComparison.Ordinal);
 
-        public static bool IsStudioVisible => !String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+        public static bool IsPlayerInstalled => App.PlayerState.IsSaved && !String.IsNullOrEmpty(App.PlayerState.Prop.VersionGuid);
+
+        public static bool IsStudioInstalled => App.StudioState.IsSaved && !String.IsNullOrEmpty(App.StudioState.Prop.VersionGuid);
 
         public static readonly MD5 MD5Provider = MD5.Create();
 
@@ -56,7 +58,9 @@ namespace Bloxstrap
 
         public static readonly JsonManager<State> State = new();
 
-        public static readonly JsonManager<RobloxState> RobloxState = new();
+        public static readonly LazyJsonManager<DistributionState> PlayerState = new(nameof(PlayerState));
+
+        public static readonly LazyJsonManager<DistributionState> StudioState = new(nameof(StudioState));
 
         public static readonly FastFlagManager FastFlags = new();
 
@@ -146,10 +150,10 @@ namespace Bloxstrap
         {
             // dont let user switch web environment if debug mode is not on
             if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
-                return "bloxstraplabs.com";
+                return "services.bloxstraplabs.com";
 
             string? sub = Settings.Prop.WebEnvironment.GetDescription();
-            return $"web-{sub}.bloxstraplabs.com";
+            return $"services-{sub}.bloxstraplabs.com";
         }
 
         public static bool CanSendLogs()
@@ -373,7 +377,6 @@ namespace Bloxstrap
 
                 Settings.Load();
                 State.Load();
-                RobloxState.Load();
                 FastFlags.Load();
 
                 if (!Locale.SupportedLocales.ContainsKey(Settings.Prop.Locale))

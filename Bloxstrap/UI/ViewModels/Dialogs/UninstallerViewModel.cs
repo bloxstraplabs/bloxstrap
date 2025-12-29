@@ -8,8 +8,8 @@ namespace Bloxstrap.UI.ViewModels.Dialogs
     public class UninstallerViewModel
     {
         public string Text => String.Format(
-            Strings.Uninstaller_Text, 
-            "https://github.com/bloxstraplabs/bloxstrap/wiki/Roblox-crashes-or-does-not-launch",
+            Strings.Uninstaller_Text,
+            null,
             Paths.Base
         );
 

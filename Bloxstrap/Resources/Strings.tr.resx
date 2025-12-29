@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Değilse, lütfen bu sorunu oluşturulan kayıt dosyasının bir kopyasıyla bir
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Oyun tarafından seçilme</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Gelecek (3. Aşama)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Gölge Haritası (2. Aşama)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voksel (1. Aşama)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -584,20 +572,6 @@ Devam etmek istediğinizden emin misiniz?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Fast Flag Editörü</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Geri dön</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Ne yaptığımı biliyorum</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Ne yaptığını biliyor musun?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flag'lar, yalnızca Roblox mühendisleri tarafından kullanılmak üzere tasarlandıkları için son derece güçlüdür. Çok faydalı olsalar da, bunları manuel olarak yapılandırmak kararlılık ve işlevsellik ile ilgili ciddi sorunlara neden olabilir. Ne yaptığınızdan emin değilseniz düzenleyiciyi KULLANMAYIN.
-
-Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden büyük "Flag listelerini" içe aktarmak için KULLANMAYIN. Bunlar yukarıda bahsedilen sorunlara tabidir ve neyi değiştirdiklerinin tam olarak farkında olmayacağınız için sizin için sorunlara neden olurlar. Eğer bunu yapmak üzereyseniz, GERİ DÖNÜN.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Belirli Roblox motor parametrelerinin ve özelliklerinin nasıl yapılandırıldığını yönetin.</value>
   </data>
@@ -605,39 +579,14 @@ Bunu, diğer insanlar tarafından yapılan ve performansı artırmayı vaat eden
     <value>Kendi Fast Flag'lerinizi yönetin. Dikkatli kullanın.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Fast Flag'ler hakkında biraz daha öğrenin, bu ön ayarların ne işe yaradığını ve nasıl kullanılacağı hakkında öğrenin.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Alt+Enter kullanarak Direct3D [özel tam ekran]({0}) varsayılan olarak zaten etkindir.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Tercih edilen ESC menüsü versiyonu</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox, ekranınızın Windows'ta nasıl ölçeklendirildiğine bağlı olarak işleme kalitenizi azaltır.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Ekran ölçeklendirme ile rendering kalitesini koruma</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Roblox'un kendi kare hızı açıcısını kullanmak için varsayılanı 0'a ayarlayın.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Kare hızı limiti (FPS)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>[Klavye kısayolları]({0}) ile değiştirilir. Yalnızca [Bloxstrap grubu]({1}) içindeyseniz çalışır.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>GUI'leri gizleme özelliğini etkinleştir</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Seçilmiş olan tüm oyunlarda zorla etkinleştirilecektir. [Dikkatli olun, aydınlatma sorunlarına neden olabilir!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tercih edilen aydınlatma teknolojisi</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Rendering modu</value>
@@ -752,9 +701,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Yazı tipi seçiniz...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Yazı tipi boyutu Motor Ayarları sekmesinde ayarlanabilir.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Seçtiğiniz dosya geçerli bir yazı tipi dosyası gibi görünmüyor.</value>
   </data>
@@ -794,12 +740,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Eski karakter seslerini kullan</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Klasik 'oof' ölüm sesini geri getir.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Eski ölüm sesini kullan</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modlar</value>
   </data>
@@ -830,20 +770,11 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Değişikliklerin etkili olabilmesi için yeniden başlatma gereklidir.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Roblox'un desteklemediği dillerin kullanımına izin verin</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Yalnızca Roblox'un web sitesinden başlatılan oyunlar için uygulanır.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Yeni UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>İşleme ve Grafikler</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Kullanıcı Arayüzü ve Düzeni</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Bloxstrap'in Fast Flag'ları yönetmesine izin verin</value>
@@ -853,15 +784,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing kalitesi (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>İşlem-sonrası efeklerini devre dışı bırak</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Tam ekran başlık çubuğunu kapat</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Farenizi ekranın üst kısmına getirdiğinizde görüntülenmesini engeller.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Doku kalitesi</value>
@@ -877,18 +799,6 @@ Aşağıdaki konuma değiştirilmesi önerilir:
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Seviye 3 (En Yükseği)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Oyuncu gölgelerini kapat</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Yazı tipi boyutu</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Varsayılan değer 1'dir. Özel bir yazı tipi kullanıyorsanız değiştirin.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Arazi dokularını devre dışı bırak</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap Roblox'u indiremiyor</value>
@@ -1094,14 +1004,6 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox başlatılamadı.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox çöktü.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Bunun neden yaşandığı ve nasıl çözüleceğine dair bilgi için lütfen [bu yardım makalesini]({0}) okuyun.
-
-Roblox'un [varsayılan başlatıcı]({1}) ile çalışıp çalışmadığına göz atın. Eğer çalışmıyorsa, o zaman bu bir Bloxstrap sorunu değildir. Eğer çalışıyorsa, lütfen yardım makalesine göz atın.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Bir bağlantı sorunu nedeniyle veri yüklenemedi.</value>
@@ -1483,12 +1385,6 @@ Otomatiklen {1}'e alınılıyor.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Özel Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Birden fazla istemci kullanmaya izin ver</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Aynı anda birden fazla Roblox istemcisinin açık olmasına izin verir.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Temanız kaydedildi!</value>

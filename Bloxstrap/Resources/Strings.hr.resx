@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Ako nije, molimo prijavite ovu iznimku preko [GitHub issue]({1}) zajedno sa kopi
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Odabrano od strane igrice</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Faza 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Faza 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voksel Stil Osvjetljenja (Faza 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -585,20 +573,6 @@ Jeste li sigurni da želite nastaviti?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Uređivač Fast Flagova</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Idi nazad</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Znam što radim</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Znaš li što radiš?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>FastFlagovi su izuzetno moćni, budući da su namijenjeni isključivo za upotrebu od strane inženjera Robloxa. Iako mogu biti vrlo korisni, ručno podešavanje može prouzrokovati ozbiljne probleme sa stabilnošću i funkcionalnošću. NE koristite editor ako niste sigurni što radite.
-
-NE koristite ovo da biste uvozili velike "flag liste" od drugi ljudi koje obećavaju poboljšanje performansi ili slično. One mogu uzrokovati gore spomenute probleme te će prouzrokovati probleme za vas jer nećete biti svjesni što točno mijenjaju. Ako ste to namjeravali napraviti, VRATITE SE.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Kontrolirajte kako su specifični Roblox engine parametri i značajke konfigurirani.</value>
   </data>
@@ -606,39 +580,14 @@ NE koristite ovo da biste uvozili velike "flag liste" od drugi ljudi koje obeća
     <value>Upravljajte svojim vlastitim Fast Flagovima. Koristite s oprezom.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Saznajte više o Fast Flagovima, što ove postavke rade i kako ih koristiti.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [exclusive fullscreen]({0}) koristeći Alt+Enter je uključeno prema zadanim postavkama.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Preferirana verzija escape menija</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox smanjuje kvalitetu renderiranja oviseći o načinu na koji je vaš prikaz skaliran u Windows-u.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Očuvajte kvalitetu renderiranja uz skaliranje zaslona</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Stavite na 0 za zadane postavke ako želite koristiti Roblox-ov domaći framerate unlocker.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Framerate granica</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Prebacuje se sa [keyboard shortcuts]({0}). Radi samo ako ste u [Bloxstrap group]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Uključi mogućnost za skrivanje GUIa</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Odabrani će biti prisilno uključeni u svim igrama. [Pazite, može uzrokovati poteškoće sa svjetlom!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Preferirana tehnologija svjetla</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Vrsta rendera</value>
@@ -751,9 +700,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Izaberite font...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Veličina fonta se može promijeniti u kartici Postavke Motora.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Izabrana datoteka se ne čini kao ispravna font datoteka.</value>
   </data>
@@ -793,12 +739,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulacija starih zvukova karaktera</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Vrati klasični "oof" zvuk smrti.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Koristi stari zvuk smrti</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modovi</value>
   </data>
@@ -829,20 +769,11 @@ Promjena na iduću lokaciju je preporučena: {0}
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Potreban je ponovni pokret da promjene počnu djelovati.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Dopusti korištenje nepodržanih Roblox jezika</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Primjenjuje se samo na igre pokrenute s Roblox web-stranice.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Novi UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Renderiranje i Grafika</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Korisničko sučelje i Raspored</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Dozvoli Bloxstrap-u da upravlja s Fast Flags</value>
@@ -852,15 +783,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing kvaliteta (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Onemogući post-processing efekte</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Onemogući naslovnu traku u prikazu cijelog zaslona</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Spriječava ju od pojavljivanja kad god pomaknete miš na vrh ekrana.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Kvaliteta teksture</value>
@@ -876,18 +798,6 @@ Promjena na iduću lokaciju je preporučena: {0}
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Nivo 3 (Najviše)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Onemogući sjene igrača</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Veličina fonta</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Zadana vrijednost je 1. Prilagodite ako koristite prilagođeni font.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Onemogući teksture terena</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap ne može preuzeti Roblox</value>
@@ -1095,14 +1005,6 @@ Jeste li sigurni da želite nastaviti?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox se nije uspio pokrenuti.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox se je srušio.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Za informacije o tome zašto bi se ovo moglo događati i kako se može riješiti, molimo pročitajte [ovaj članak za pomoć]({0}).
-
-Provjerite radi li Robloxov [originalni pokretač]({1}). Ako ne radi, onda ovo nije poteškoća kod Bloxstrapa. Ako radi, onda pogledajte članak za pomoć.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nije moguće učitati podatke zbog greške s mrežom.</value>
@@ -1484,12 +1386,6 @@ Prebacivanje na zadani {1}.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Prilagođena Tema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Dopusti pokretanje više instanci</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Omogućuje istovremeno otvaranje više instanci Roblox klijenta za igru.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Vaša tema je spremljena!</value>

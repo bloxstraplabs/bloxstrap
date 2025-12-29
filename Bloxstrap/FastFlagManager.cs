@@ -4,52 +4,29 @@ namespace Bloxstrap
 {
     public class FastFlagManager : JsonManager<Dictionary<string, object>>
     {
+        private Dictionary<string, object> OriginalProp = new();
+
         public override string ClassName => nameof(FastFlagManager);
 
         public override string LOG_IDENT_CLASS => ClassName;
-        
-        public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings\\ClientAppSettings.json");
+
+        public override string FileName => "ClientAppSettings.json";
+
+        public override string FileLocation => Path.Combine(Paths.Modifications, "ClientSettings", FileName);
 
         public bool Changed => !OriginalProp.SequenceEqual(Prop);
 
         public static IReadOnlyDictionary<string, string> PresetFlags = new Dictionary<string, string>
         {
-            { "Network.Log", "FLogNetwork" },
-
-            { "Rendering.Framerate", "DFIntTaskSchedulerTargetFps" },
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
-            { "Rendering.DisablePostFX", "FFlagDisablePostFx" },
-            { "Rendering.ShadowIntensity", "FIntRenderShadowIntensity" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
             { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
 
-            { "Rendering.Lighting.Voxel", "DFFlagDebugRenderForceTechnologyVoxel" },
-            { "Rendering.Lighting.ShadowMap", "FFlagDebugForceFutureIsBrightPhase2" },
-            { "Rendering.Lighting.Future", "FFlagDebugForceFutureIsBrightPhase3" },
-
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
-            { "Rendering.TerrainTextureQuality", "FIntTerrainArraySliceSize" },
-
-            { "UI.Hide", "DFIntCanHideGuiGroupId" },
-            { "UI.FontSize", "FIntFontSizePadding" },
-
-            { "UI.FullscreenTitlebarDelay", "FIntFullscreenTitleBarTriggerDelayMillis" },
-            
-            //{ "UI.Menu.Style.V2Rollout", "FIntNewInGameMenuPercentRollout3" },
-            //{ "UI.Menu.Style.EnableV4.1", "FFlagEnableInGameMenuControls" },
-            //{ "UI.Menu.Style.EnableV4.2", "FFlagEnableInGameMenuModernization" },
-            //{ "UI.Menu.Style.EnableV4Chrome", "FFlagEnableInGameMenuChrome" },
-            //{ "UI.Menu.Style.ReportButtonCutOff", "FFlagFixReportButtonCutOff" },
-
-
-            //{ "UI.Menu.Style.ABTest.1", "FFlagEnableMenuControlsABTest" },
-            //{ "UI.Menu.Style.ABTest.2", "FFlagEnableV3MenuABTest3" },
-            //{ "UI.Menu.Style.ABTest.3", "FFlagEnableInGameMenuChromeABTest3" },
-            //{ "UI.Menu.Style.ABTest.4", "FFlagEnableInGameMenuChromeABTest4" }
         };
 
         public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
@@ -57,14 +34,6 @@ namespace Bloxstrap
             { RenderingMode.Default, "None" },
             { RenderingMode.D3D11, "D3D11" },
             { RenderingMode.D3D10, "D3D10" },
-        };
-
-        public static IReadOnlyDictionary<LightingMode, string> LightingModes => new Dictionary<LightingMode, string>
-        {
-            { LightingMode.Default, "None" },
-            { LightingMode.Voxel, "Voxel" },
-            { LightingMode.ShadowMap, "ShadowMap" },
-            { LightingMode.Future, "Future" }
         };
 
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>
@@ -83,71 +52,6 @@ namespace Bloxstrap
             { TextureQuality.Level2, "2" },
             { TextureQuality.Level3, "3" },
         };
-
-        // this is one hell of a dictionary definition lmao
-        // since these all set the same flags, wouldn't making this use bitwise operators be better?
-        //public static IReadOnlyDictionary<InGameMenuVersion, Dictionary<string, string?>> IGMenuVersions => new Dictionary<InGameMenuVersion, Dictionary<string, string?>>
-        //{
-        //    {
-        //        InGameMenuVersion.Default,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", null },
-        //            { "EnableV4", null },
-        //            { "EnableV4Chrome", null },
-        //            { "ABTest", null },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V1,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "False" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", "False" }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V2,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "100" },
-        //            { "EnableV4", "False" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V4,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "True" },
-        //            { "EnableV4Chrome", "False" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    },
-
-        //    {
-        //        InGameMenuVersion.V4Chrome,
-        //        new Dictionary<string, string?>
-        //        {
-        //            { "V2Rollout", "0" },
-        //            { "EnableV4", "True" },
-        //            { "EnableV4Chrome", "True" },
-        //            { "ABTest", "False" },
-        //            { "ReportButtonCutOff", null }
-        //        }
-        //    }
-        //};
 
         // all fflags are stored as strings
         // to delete a flag, set the value as null
@@ -246,18 +150,17 @@ namespace Bloxstrap
             OriginalProp = new(Prop);
         }
 
-        public override void Load(bool alertFailure = true)
+        public override bool Load(bool alertFailure = true)
         {
-            base.Load(alertFailure);
+            bool result = base.Load(alertFailure);
 
             // clone the dictionary
             OriginalProp = new(Prop);
 
-            if (GetPreset("Network.Log") != "7")
-                SetPreset("Network.Log", "7");
-
             if (GetPreset("Rendering.ManualFullscreen") != "False")
                 SetPreset("Rendering.ManualFullscreen", "False");
+
+            return result;
         }
     }
 }

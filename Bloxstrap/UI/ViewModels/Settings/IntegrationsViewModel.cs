@@ -124,13 +124,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.UseDisableAppPatch;
             set => App.Settings.Prop.UseDisableAppPatch = value;
         }
-
-        public bool MultiInstanceLaunchingEnabled
-        {
-            get => App.Settings.Prop.MultiInstanceLaunching;
-            set => App.Settings.Prop.MultiInstanceLaunching = value;
-        }
-
         public ObservableCollection<CustomIntegration> CustomIntegrations
         {
             get => App.Settings.Prop.CustomIntegrations;

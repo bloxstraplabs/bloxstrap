@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Caso contrário, por favor reporte este erro através de uma [issue no GitHub]({
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Escolhido pelo jogo</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Fase 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Fase 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Fase 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -585,20 +573,6 @@ Você tem certeza de que quer continuar?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Editor de Fast Flag</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Voltar</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Eu sei o que estou fazendo</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Você sabe o que está fazendo?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flags são extremamente poderosas, sendo que elas são destinadas apenas para serem usadas por engenheiros do Roblox. Embora elas possam ser muito úteis, configurá-las manualmente pode causar sérios problemas de estabilidade e funcionalidade. NÃO USE o editor caso não tenha certeza do que está fazendo.
-
-NÃO USE o editor para importar grandes "flag lists" feitas por outras pessoas que prometem melhorar o desempenho ou algo do tipo. Essas listas estão sujeitas aos problemas mencionados acima e causarão problemas para si, uma vez que não saberá exatamente o que estão alterando. Se estava prestes a fazer isso, PARE.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Controlar como os parâmetros e recursos específicos do motor do Roblox são configurados.</value>
   </data>
@@ -606,39 +580,14 @@ NÃO USE o editor para importar grandes "flag lists" feitas por outras pessoas q
     <value>Gerencie suas FastFlags. Use com cuidado.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Aprenda mais sobre as FastFlags, como as predefinições funcionam e como você pode usá-las.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>O [modo tela cheia exclusiva]({0}) do Direct3D usando Alt+Enter é ativado por padrão.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Versão escolhida do menu Esc</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>O Roblox reduz a qualidade de renderização dependendo de como a sua tela está dimensionada no Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Preserve a qualidade de renderização com o dimensionamento da tela</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Defina como 0 para padrão se você quiser usar o desbloqueador de taxa de quadros nativo do Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Limite de taxa de quadros (FPS)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Ligado com [atalhos de teclado]({0}). Só funciona se você estiver no [grupo Bloxstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Habilitar a função de ocultar GUIs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>O escolhido será ativado em todos os jogos. [Cuidado, isso pode causar problemas de iluminação!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Tecnologia de iluminação preferida</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Modo de renderização</value>
@@ -753,9 +702,6 @@ Selecionar 'Não' vai ignorar este aviso e prosseguir com a instalação.</value
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Escolher fonte...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>O tamanho da fonte pode ser ajustado na aba de Configurações do Motor.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>O arquivo que você escolheu não é um arquivo de fonte válido.</value>
   </data>
@@ -795,12 +741,6 @@ Selecionar 'Não' vai ignorar este aviso e prosseguir com a instalação.</value
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emular sons de personagem antigos</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Traz de volta o som "oof" clássico.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Usar o som antigo de morte</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mods</value>
   </data>
@@ -831,20 +771,11 @@ Selecionar 'Não' vai ignorar este aviso e prosseguir com a instalação.</value
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>É preciso reiniciar para que as mudanças tenham efeito.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Permitir uso de idiomas não suportados pelo Roblox</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Aplica-se apenas a jogos iniciados a partir do site do Roblox.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + UI Nova)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Renderização e Gráficos</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Layout da Interface de Usuário</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Permitir que Bloxstrap gerencie as Fast Flags</value>
@@ -854,15 +785,6 @@ Selecionar 'Não' vai ignorar este aviso e prosseguir com a instalação.</value
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Qualidade antisserilhamento (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Desativar efeitos pós-processamento</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Desativar barra de título em tela cheia</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>A impede que seja exibida sempre que mover o mouse para o topo da tela.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Qualidade da textura</value>
@@ -878,18 +800,6 @@ Selecionar 'Não' vai ignorar este aviso e prosseguir com a instalação.</value
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Nível 3 (Alto)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Desativar sombras dos jogadores</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Tamanho da fonte</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>O valor padrão é 1. Ajuste se estiver usando uma fonte personalizada.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Desativar texturas de terreno</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap não consegue baixar o Roblox</value>
@@ -1098,14 +1008,6 @@ Tem certeza que deseja continuar?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox falhou ao iniciar.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>O Roblox crashou.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Para mais informações sobre o porquê disso estar acontecendo e como resolver, leia [este artigo de ajuda]({0}).
-
-Verifique se o Roblox funciona com [o inicializador original]({1}). Se não funcionar, significa que isso não é um problema do Bloxstrap. Se funcionar, consulte o artigo de ajuda.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Não foi possível carregar os dados devido a um erro de rede.</value>
@@ -1487,12 +1389,6 @@ Revertendo para {1}.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Tema Personalizado {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Permitir inicialização de múltiplas instâncias</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Permite que o Roblox tenha mais do que uma instância de jogo aberta.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Seu tema foi salvo!</value>

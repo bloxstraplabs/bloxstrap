@@ -53,6 +53,8 @@
 
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center">
                     <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Command="{Binding LaunchAboutCommand, Mode=OneTime}" HorizontalAlignment="Center" />
+                    <ui:Hyperlink Icon="Book24" Content="{x:Static resources:Strings.LaunchMenu_BloxstrapWiki}" NavigateUri="https://bloxstraplabs.com/wiki/" HorizontalAlignment="Center" />
+                    <ui:Hyperlink Icon="PeopleCommunity28" Content="{x:Static resources:Strings.LaunchMenu_RobloxCommunity}" NavigateUri="https://www.roblox.com/communities/32380007/Bloxstrap" HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>
 
@@ -63,7 +65,7 @@
                     </StackPanel>
                 </ui:CardAction>
 
-                <ui:CardAction Margin="0,8,0,0" Icon="ArrowRight12" Visibility="{Binding RobloxStudioOptionVisibility, Mode=OneTime}" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
+                <ui:CardAction Margin="0,8,0,0" Icon="Wrench24" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
                     </StackPanel>
@@ -77,7 +79,7 @@
 
                 <Border Margin="16" />
 
-                <ui:CardAction Margin="0,8,0,0" TabIndex="2" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://github.com/bloxstraplabs/bloxstrap/wiki/">
+                <ui:CardAction Margin="0,8,0,0" TabIndex="2" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://bloxstraplabs.com/wiki/help/">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
                         <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

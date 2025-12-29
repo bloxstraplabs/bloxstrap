@@ -81,8 +81,11 @@ namespace Bloxstrap
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
             // and then launches from the website expecting it to work
-            // studio can be implicitly registered when it's first launched manually
+            // studio can be implicitly registered when it's first launched manually or if its configuration files are present
             WindowsRegistry.RegisterPlayer();
+
+            if (App.IsStudioInstalled)
+                WindowsRegistry.RegisterStudio();
 
             if (CreateDesktopShortcuts)
                 Shortcut.Create(Paths.Application, "", DesktopShortcut);
@@ -96,9 +99,6 @@ namespace Bloxstrap
             App.FastFlags.Load(false);
 
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
-
-            if (App.IsStudioVisible)
-                WindowsRegistry.RegisterStudio();
 
             App.Settings.Save();
 
@@ -197,10 +197,10 @@ namespace Bloxstrap
 
             var processes = new List<Process>();
             
-            if (!String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid))
+            if (!String.IsNullOrEmpty(App.PlayerState.Prop.VersionGuid))
                 processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
 
-            if (App.IsStudioVisible)
+            if (App.IsStudioInstalled)
                 processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
 
             // prompt to shutdown roblox if its currently running
@@ -480,13 +480,6 @@ namespace Bloxstrap
                         File.Delete(configLocation);
                 }
 
-
-                if (Utilities.CompareVersions(existingVer, "2.5.0") == VersionComparison.LessThan)
-                {
-                    App.FastFlags.SetValue("DFFlagDisableDPIScale", null);
-                    App.FastFlags.SetValue("DFFlagVariableDPIScale2", null);
-                }
-
                 if (Utilities.CompareVersions(existingVer, "2.6.0") == VersionComparison.LessThan)
                 {
                     if (App.Settings.Prop.UseDisableAppPatch)
@@ -505,10 +498,6 @@ namespace Bloxstrap
 
                     if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.ClassicFluentDialog)
                         App.Settings.Prop.BootstrapperStyle = BootstrapperStyle.FluentDialog;
-
-                    _ = int.TryParse(App.FastFlags.GetPreset("Rendering.Framerate"), out int x);
-                    if (x == 0)
-                        App.FastFlags.SetPreset("Rendering.Framerate", null);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.0") == VersionComparison.LessThan)
@@ -550,23 +539,6 @@ namespace Bloxstrap
                     Registry.CurrentUser.DeleteSubKeyTree("Software\\Bloxstrap", false);
 
                     WindowsRegistry.RegisterPlayer();
-
-                    App.FastFlags.SetValue("FFlagDisableNewIGMinDUA", null);
-                    App.FastFlags.SetValue("FFlagFixGraphicsQuality", null);
-                }
-
-                if (Utilities.CompareVersions(existingVer, "2.8.1") == VersionComparison.LessThan)
-                {
-                    // wipe all escape menu flag presets
-                    App.FastFlags.SetValue("FIntNewInGameMenuPercentRollout3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuControls", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuModernization", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChrome", null);
-                    App.FastFlags.SetValue("FFlagFixReportButtonCutOff", null);
-                    App.FastFlags.SetValue("FFlagEnableMenuControlsABTest", null);
-                    App.FastFlags.SetValue("FFlagEnableV3MenuABTest3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest3", null);
-                    App.FastFlags.SetValue("FFlagEnableInGameMenuChromeABTest4", null);
                 }
 
                 if (Utilities.CompareVersions(existingVer, "2.8.2") == VersionComparison.LessThan)
@@ -587,23 +559,37 @@ namespace Bloxstrap
                     }
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.9.0") == VersionComparison.LessThan)
+                if (Utilities.CompareVersions(existingVer, "2.11.0") == VersionComparison.LessThan)
                 {
-                    // move from App.State to App.RobloxState
-                    if (App.State.Prop.GetDeprecatedPlayer() != null)
-                        App.RobloxState.Prop.Player = App.State.Prop.GetDeprecatedPlayer()!;
+                    JsonManager<RobloxState> legacyRobloxState = new();
 
-                    if (App.State.Prop.GetDeprecatedStudio() != null)
-                        App.RobloxState.Prop.Studio = App.State.Prop.GetDeprecatedStudio()!;
+                    if (legacyRobloxState.IsSaved)
+                    {
+                        if (legacyRobloxState.Load(false))
+                        {
+                            App.PlayerState.Prop.VersionGuid = legacyRobloxState.Prop.Player.VersionGuid;
+                            App.PlayerState.Prop.PackageHashes = legacyRobloxState.Prop.Player.PackageHashes;
+                            App.PlayerState.Prop.Size = legacyRobloxState.Prop.Player.Size;
+                            App.PlayerState.Prop.ModManifest = legacyRobloxState.Prop.ModManifest;
 
-                    if (App.State.Prop.GetDeprecatedModManifest() != null)
-                        App.RobloxState.Prop.ModManifest = App.State.Prop.GetDeprecatedModManifest()!;
+                            App.StudioState.Prop.VersionGuid = legacyRobloxState.Prop.Studio.VersionGuid;
+                            App.StudioState.Prop.PackageHashes = legacyRobloxState.Prop.Studio.PackageHashes;
+                            App.StudioState.Prop.Size = legacyRobloxState.Prop.Studio.Size;
+                        }
+
+                        legacyRobloxState.Delete();
+                    }
                 }
 
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
-                App.RobloxState.Save();
+
+                if (App.PlayerState.Loaded)
+                    App.PlayerState.Save();
+
+                if (App.StudioState.Loaded)
+                    App.StudioState.Save();
             }
 
             if (currentVer is null)

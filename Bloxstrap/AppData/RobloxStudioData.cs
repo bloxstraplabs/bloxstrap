@@ -8,9 +8,11 @@
 
         public string RegistryName => "RobloxStudio";
 
+        public string ProcessName => "RobloxStudioBeta";
+
         public override string ExecutableName => "RobloxStudioBeta.exe";
 
-        public override AppState State => App.RobloxState.Prop.Studio;
+        public override JsonManager<DistributionState> DistributionStateManager => App.StudioState;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
         {
@@ -22,6 +24,9 @@
             { "content-api-docs.zip",            @"content\api_docs\" },
 
             { "extracontent-scripts.zip",        @"ExtraContent\scripts\" },
+
+            { "studiocontent-models.zip",        @"StudioContent\models\" },
+            { "studiocontent-textures.zip",      @"StudioContent\textures\" },
 
             { "BuiltInPlugins.zip",              @"BuiltInPlugins\" },
             { "BuiltInStandalonePlugins.zip",    @"BuiltInStandalonePlugins\" },

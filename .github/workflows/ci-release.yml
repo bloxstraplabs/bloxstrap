@@ -9,11 +9,11 @@ jobs:
       artifact-id: ${{ steps.upload-artifact.outputs.artifact-id }}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: true
 
-    - uses: actions/setup-dotnet@v4
+    - uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '6.0.x'
 
@@ -28,7 +28,7 @@ jobs:
 
     - name: Upload Artifact
       id: upload-artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: Bloxstrap (Release) (${{ github.sha }})
         path: .\Bloxstrap\bin\Release\net6.0-windows\win-x64\publish\*
@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v1.1
+        uses: signpath/github-action-submit-signing-request@v2.0
         with:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
@@ -68,7 +68,7 @@ jobs:
 
     steps:
       - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v1.1
+        uses: signpath/github-action-submit-signing-request@v2.0
         with:
           api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
           organization-id: '107b3de5-057b-42fc-a985-3546e4261775'

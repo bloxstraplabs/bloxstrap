@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Ja nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) līdzā
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Izvēlēts pēc spēles</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Nākotne (3. Fāze)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Ēnu Karte (2. Fāze)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Vokselis (1. Fāze)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -586,20 +574,6 @@ Vai jūs esat pārliecināts, ka vēlaties turpināt?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Ātro Karogu Redaktors</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Iet atpakaļ</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Es zinu, ko es daru</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Vai jūs zinat, ko darat?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Ātrie Karogi ir ārkārtīgi jaudīgi, jo tos ir paredzēts izmantot tikai Roblox inženieriem. Lai gan tie var būt ļoti noderīgi, to manuāla konfigurēšana var radīt nopietnas problēmas ar stabilitāti un funkcionalitāti. NELIETOJIET redaktoru, ja neesat pārliecināts par to, ko darāt.
-
-NELIETOJIET to, lai importētu lielus citu personu izveidotus “karogu sarakstus”, kas sola uzlabot veiktspēju vai tamlīdzīgi. Tie ir pakļauti iepriekšminētajām problēmām, un tie radīs jums problēmas, jo jūs pilnībā neapzināsieties, ko tie maina. Ja grasāties to darīt, EJAT ATPAKAĻ.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Pārvaldīt, kā specifski Roblox parametri un funkcijas ir konfigurētas.</value>
   </data>
@@ -607,40 +581,14 @@ NELIETOJIET to, lai importētu lielus citu personu izveidotus “karogu sarakstu
     <value>Pārvaldīt savus Ātros Karogus. Izmantot ar piesardzību.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Uzzināt vairāk par Ātrajiem Karogiem, ko šie priekšiestatījumi dara, un kā tos izmantot.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [ekskluzīvais pilnekrāns]({0}) izmantojot Alt+Enter ir iespējots pēc noklusējuma.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Vēlamā escape izvēlnes versija</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox samazina jūsu renderēšanas kvalitāte atkarība no tā, kā jusu Windows displejs ir mērogots.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Saglabāt renderēšanas kvalitāte ar displeja mērogu</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Iestatiet 0 uz noklusējumu, ja jūs vēlaties izmantot Roblox iebūvēto kadru sekundē atbloķētāju.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Kadru sekundē limits</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Iespējots ar [taustiņu kombinācijām]({0}). Strādā tikai. ja tu esi [Bloxstrap grupā]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Iespējot spēju paslēpt GUI</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Izvēlētais piespiedu kārtā tiks iespējots katrā spēlē.
-[Uzmanību, var radīt problēmas ar gaismu!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Vēlamā gaismas tehnoloģija</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderēšanas režīms</value>
@@ -755,9 +703,6 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Izvēlēties fontu...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Fonta izmērs var tikt pielāgots Spēles Dzinēja cilnē.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Fails, ko jūs esat izvēlējies nav derīgs fonta fails.</value>
   </data>
@@ -797,12 +742,6 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Emulēt vecās tēlu skaņas</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Ieviest klasisko 'oof' nāves skaņu.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Izmantot veco nāves skaņu</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modifikācijas</value>
   </data>
@@ -833,20 +772,11 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Atkārtota palaišana ir nepieciešama, lai izmaiņas stātos spēkā.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Atļaut neatbalstītu Roblox valodu izmantošanu</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Attiecas tikai uz spēlēm, kas tiek palaistas no Roblox vietnes.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Jauns UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Renderēšana un Grafika</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Lietotāja Interfeiss un Izkārtojums</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Ļaut Bloxstrap pārvaldīt Ātros Karogus</value>
@@ -856,15 +786,6 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Anti-aliasing kvalitāte (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Atspējot pēcapstrādes efektus</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Atspējot pilnekrāna virsrakstjoslu</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Aptur to no parādīšanās, kad jūs novietojiet savu peli ekrāna augšdaļā.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Tekstūru kvalitāte</value>
@@ -880,18 +801,6 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Līmenis 3 (Augstākais)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Atspējot spēlētāju ēnas</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Fonta izmērs</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Noklusējuma vērtība ir 1. Izmainiet to, ja jūs izmantojat pielāgotu fontu.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Atspējot reljefa tekstūras</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap nespēj lejupielādēt Roblox</value>
@@ -1098,16 +1007,6 @@ Vai jūs esat drošs, ka vēlaties turpināt?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox nespēja tikt palaists.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox nespēja tikt palaists.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Priekš informācijas, kāpēc šis varētu notikt un kā to atrisināt, lūdzu lasiet [šo palīdzības rakstu]({0}).
-
-
-Pārbaudiet vai Roblox strādā ar [oriģinālo palaidēju]({1}).
-Ja nē, tad šī nav Bloxstrap problēma. Ja jā, tad skatiet palīdzības rakstu.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nevarēja ielādet datus, dēļ tīkla kļūdas.</value>
@@ -1488,12 +1387,6 @@ Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepiecie
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Pielāgota tēma {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Atļauj multi-logu palaišanu</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Atļauj vairākiem Roblox logiem būt atvērtiem vienlaicīgi.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Jūsu tēma ir saglabāta!</value>

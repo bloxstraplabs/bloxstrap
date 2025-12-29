@@ -7,8 +7,8 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-    <Version>2.9.0</Version>
-    <FileVersion>2.9.0</FileVersion>
+    <Version>2.11.0</Version>
+    <FileVersion>2.11.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
@@ -45,7 +45,6 @@
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowFarCursor.png" />
-    <EmbeddedResource Include="Resources\Mods\Sounds\OldDeath.ogg" />
     <EmbeddedResource Include="Resources\Mods\Sounds\OldGetUp.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\OldJump.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
