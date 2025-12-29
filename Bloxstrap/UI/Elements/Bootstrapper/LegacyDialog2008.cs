@@ -52,7 +52,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             this.ProgressBar.RightToLeftLayout = this.RightToLeftLayout;
         }
 
-        private void LegacyDialog2008_Load(object sender, EventArgs e)
+        protected override void OnDialogLoad()
         {
             this.Activate();
         }

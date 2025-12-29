@@ -112,7 +112,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ProgressDialog";
             FormClosing += Dialog_FormClosing;
-            Load += ProgressDialog_Load;
+            Load += Dialog_Load;
             ((System.ComponentModel.ISupportInitialize)IconBox).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
