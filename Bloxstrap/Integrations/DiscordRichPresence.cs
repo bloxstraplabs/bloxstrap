@@ -20,7 +20,8 @@ namespace Bloxstrap.Integrations
         private CancellationTokenSource? _fetchThumbnailsToken;
 
         private bool _visible = true;
-
+        private DateTime _lastSetGameTime = DateTime.MinValue;
+        
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
             const string LOG_IDENT = "DiscordRichPresence";
@@ -324,6 +325,14 @@ namespace Bloxstrap.Integrations
         public async Task<bool> SetCurrentGame()
         {
             const string LOG_IDENT = "DiscordRichPresence::SetCurrentGame";
+            
+            if ((DateTime.UtcNow - _lastSetGameTime).TotalSeconds < 2) 
+            {
+                App.Logger.WriteLine(LOG_IDENT, "SetCurrentGame called too recently, skipping");
+                return false;
+            }
+
+            _lastSetGameTime = DateTime.UtcNow;
             
             if (!_activityWatcher.InGame)
             {
