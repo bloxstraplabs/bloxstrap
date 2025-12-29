@@ -1404,4 +1404,7 @@ Defaulting to {1}.</value>
   <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
     <value>Roblox Community</value>
   </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player.</value>
+  </data>
 </root>

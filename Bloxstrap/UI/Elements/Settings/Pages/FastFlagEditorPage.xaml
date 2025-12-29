@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Settings.Pages"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -16,14 +17,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Grid.Row="0" Margin="0,0,0,2" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:MarkdownTextBlock Grid.Row="1" FontSize="14" FontWeight="Bold" Margin="0,0,0,12" MarkdownText="{Binding Source={x:Static resources:Strings.Menu_FastFlagEditor_AllowlistInformation}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://devforum.roblox.com/t/allowlist-for-local-client-configuration-via-fast-flags/3966569'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
-        <ui:InfoBar Grid.Row="1" Margin="0,0,0,16" Padding="8" Title="{x:Static resources:Strings.Menu_FastFlagEditor_BannerTitle}" IsOpen="True" Message="{x:Static resources:Strings.Menu_FastFlagEditor_BannerText}" Severity="Warning" IsClosable="False" />
+        <ui:InfoBar Grid.Row="2" Margin="0,0,0,16" Padding="8" Title="{x:Static resources:Strings.Menu_FastFlagEditor_BannerTitle}" IsOpen="True" Message="{x:Static resources:Strings.Menu_FastFlagEditor_BannerText}" Severity="Warning" IsClosable="False" />
 
-        <WrapPanel Grid.Row="2" Orientation="Horizontal">
+        <WrapPanel Grid.Row="3" Orientation="Horizontal">
             <ui:Button Icon="ArrowLeft48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_Back}" Click="BackButton_Click" Margin="0,0,12,16" />
             <ui:Button Icon="Add28" Content="{x:Static resources:Strings.Menu_FastFlagEditor_AddNew}" Click="AddButton_Click" Margin="0,0,12,16" />
             <ui:Button Icon="Delete48" Content="{x:Static resources:Strings.Menu_FastFlagEditor_DeleteSelected}" Click="DeleteButton_Click" Appearance="Danger"  Margin="0,0,12,16">
@@ -41,9 +44,9 @@
             <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}" Click="ExportJSONButton_Click" Margin="0,0,12,16" />
         </WrapPanel>
 
-        <ui:TextBox x:Name="SearchTextBox" Grid.Row="3" Margin="0,0,0,16" Icon="Search32" PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}" TextChanged="SearchTextBox_TextChanged" />
+        <ui:TextBox x:Name="SearchTextBox" Grid.Row="4" Margin="0,0,0,16" Icon="Search32" PlaceholderText="{x:Static resources:Strings.Menu_FastFlagEditor_Search}" TextChanged="SearchTextBox_TextChanged" />
 
-        <DataGrid Name="DataGrid" Grid.Row="4" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" CanUserReorderColumns="False">
+        <DataGrid Name="DataGrid" Grid.Row="5" HeadersVisibility="Column" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CellEditEnding="DataGrid_CellEditEnding" CanUserReorderColumns="False">
             <DataGrid.Style>
                 <Style TargetType="DataGrid" BasedOn="{StaticResource {x:Type DataGrid}}">
                     <Setter Property="Background" Value="Transparent" />
