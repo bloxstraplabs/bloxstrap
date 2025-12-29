@@ -11,6 +11,8 @@ namespace Bloxstrap.UI.Elements.Base
     {
         private readonly IThemeService _themeService = new ThemeService();
 
+        protected IntPtr Handle => InteropHelper.Handle;
+
         public WpfUiWindow()
         {
             ApplyTheme();

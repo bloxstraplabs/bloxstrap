@@ -63,7 +63,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _viewModel.TaskbarProgressState = value;
-                TaskbarProgress.SetProgressState(value);
+
+                if (Handle != IntPtr.Zero)
+                    TaskbarProgress.SetProgressState(Handle, value);
+
                 _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressState));
             }
         }
@@ -74,7 +77,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _viewModel.TaskbarProgressValue = value;
-                TaskbarProgress.SetProgressValue((int)value, App.TaskbarProgressMaximum);
+
+                if (Handle != IntPtr.Zero)
+                    TaskbarProgress.SetProgressValue(Handle, (int)value, App.TaskbarProgressMaximum);
+
                 _viewModel.OnPropertyChanged(nameof(_viewModel.TaskbarProgressValue));
             }
         }
@@ -99,7 +105,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         }
 
         #region IBootstrapperDialog Methods
-        public void ShowBootstrapper() => this.ShowDialog();
+        public void ShowBootstrapper()
+        {
+            this.ShowDialog();
+        }
 
         public void CloseBootstrapper()
         {
@@ -111,12 +120,17 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         #endregion
 
         #region Overrides
+        protected override void OnContentRendered(EventArgs e)
+        {
+            TaskbarProgress.SetProgressState(Handle, _viewModel.TaskbarProgressState);
+            if (_viewModel.TaskbarProgressState != TaskbarItemProgressState.None && _viewModel.TaskbarProgressState != TaskbarItemProgressState.Indeterminate)
+                TaskbarProgress.SetProgressValue(Handle, (int)_viewModel.TaskbarProgressValue, App.TaskbarProgressMaximum);
+
+            base.OnContentRendered(e);
+        }
+
         protected override void OnClosed(EventArgs e)
         {
-            // reset taskbar progress status
-            TaskbarProgress.SetProgressState(TaskbarItemProgressState.None);
-            TaskbarProgress.SetProgressValue(0, 0);
-
             if (!_isClosing)
                 Bootstrapper?.Cancel();
 

@@ -86,7 +86,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
-        private void ProgressDialog_Load(object sender, EventArgs e)
+        protected override void OnDialogLoad()
         {
             this.Activate();
         }

@@ -86,33 +86,19 @@ namespace Bloxstrap.UI.Utility
 
         private static int SetProgressState(IntPtr windowHandle, TaskbarStates taskbarState)
         {
+            Debug.Assert(windowHandle != IntPtr.Zero);
             return _taskbarInstance.Value?.SetProgressState(windowHandle, taskbarState) ?? 1;
         }
 
         public static int SetProgressValue(IntPtr windowHandle, int progressValue, int progressMax)
         {
+            Debug.Assert(windowHandle != IntPtr.Zero);
             return _taskbarInstance.Value?.SetProgressValue(windowHandle, (ulong)progressValue, (ulong)progressMax) ?? 1;
         }
 
         public static int SetProgressState(IntPtr windowHandle, TaskbarItemProgressState taskbarState)
         {
             return SetProgressState(windowHandle, ConvertEnum(taskbarState));
-        }
-
-        /// <summary>
-        /// Will assume windowHandle is Process.GetCurrentProcess().MainWindowHandle
-        /// </summary>
-        public static int SetProgressState(TaskbarItemProgressState taskbarState)
-        {
-            return SetProgressState(Process.GetCurrentProcess().MainWindowHandle, ConvertEnum(taskbarState));
-        }
-
-        /// <summary>
-        /// Will assume windowHandle is Process.GetCurrentProcess().MainWindowHandle
-        /// </summary>
-        public static int SetProgressValue(int progressValue, int progressMax)
-        {
-            return SetProgressValue(Process.GetCurrentProcess().MainWindowHandle, progressValue, progressMax);
         }
     }
 }

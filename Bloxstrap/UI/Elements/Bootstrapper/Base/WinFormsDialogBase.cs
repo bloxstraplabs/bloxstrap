@@ -74,7 +74,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _taskbarProgressState = value;
-                TaskbarProgress.SetProgressState(value);
+
+                if (Handle != IntPtr.Zero)
+                    TaskbarProgress.SetProgressState(Handle, value);
             }
         }
 
@@ -84,7 +86,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _taskbarProgressValue = value;
-                TaskbarProgress.SetProgressValue((int)value, App.TaskbarProgressMaximum);
+
+                if (Handle != IntPtr.Zero)
+                    TaskbarProgress.SetProgressValue(Handle, (int)value, App.TaskbarProgressMaximum);
             }
         }
 
@@ -126,16 +130,28 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         }
 
         #region WinForms event handlers
-        public void ButtonCancel_Click(object? sender, EventArgs e) => Close();
+        protected void ButtonCancel_Click(object? sender, EventArgs e) => Close();
 
-        public void Dialog_FormClosing(object sender, FormClosingEventArgs e)
+        protected void Dialog_Load(object sender, EventArgs e)
         {
-            // reset taskbar progress status
-            TaskbarProgress.SetProgressState(TaskbarItemProgressState.None);
-            TaskbarProgress.SetProgressValue(0, 0);
+            TaskbarProgress.SetProgressState(Handle, _taskbarProgressState);
+            if (_taskbarProgressState != TaskbarItemProgressState.None && _taskbarProgressState != TaskbarItemProgressState.Indeterminate)
+                TaskbarProgress.SetProgressValue(Handle, (int)_taskbarProgressValue, App.TaskbarProgressMaximum);
 
+            OnDialogLoad();
+        }
+
+        protected void Dialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
             if (!_isClosing)
                 Bootstrapper?.Cancel();
+        }
+        #endregion
+
+        #region Virtual Methods
+        protected virtual void OnDialogLoad()
+        {
+            // Intentionally left blank
         }
         #endregion
 
