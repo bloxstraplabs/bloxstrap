@@ -2717,6 +2717,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player..
+        /// </summary>
+        public static string Menu_FastFlagEditor_AllowlistInformation {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.AllowlistInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An entry for this flag name already exists..
         /// </summary>
         public static string Menu_FastFlagEditor_AlreadyExists {
