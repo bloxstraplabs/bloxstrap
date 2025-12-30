@@ -31,10 +31,17 @@
 
         <!-- This does not need i18n as this is locked behind "Developer Mode" -->
         <controls:OptionControl
-            Visibility="{Binding Path=WebEnvironmentVisibility, Mode=OneTime}"
+            Visibility="{Binding Path=DeveloperOptionVisibility, Mode=OneTime}"
             Header="Web environment" 
             Description="Site to use for metrics">
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding WebEnvironments, Mode=OneWay}" SelectedValue="{Binding WebEnvironment, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Visibility="{Binding Path=DeveloperOptionVisibility, Mode=OneTime}"
+            Header="Debug crash" 
+            Description="All our builds keep blowing up!">
+            <Button Padding="10,5,10,5" Content="Self-destruct" Command="{Binding DebugCrashCommand, Mode=OneTime}" />
         </controls:OptionControl>
 
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
