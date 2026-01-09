@@ -22,18 +22,12 @@ namespace Bloxstrap.UI
             if (App.LaunchSettings.QuietFlag.Active)
                 return;
 
-            string topLine = Strings.Dialog_PlayerError_FailedLaunch;
-
-            if (crash)
-                topLine = Strings.Dialog_PlayerError_Crash;
-
             string info = String.Format(
-                Strings.Dialog_PlayerError_HelpInformation,
-                $"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch",
-                $"https://github.com/{App.ProjectRepository}/wiki/Switching-between-Roblox-and-Bloxstrap"
+                Strings.Dialog_PlayerError_FailedLaunch,
+                $"https://bloxstraplabs.com/wiki/help/roblox-crashes-or-does-not-launch/"
             );
 
-            ShowMessageBox($"{topLine}\n\n{info}", MessageBoxImage.Error);
+            ShowMessageBox(info, MessageBoxImage.Error);
         }
 
         public static void ShowExceptionDialog(Exception exception)

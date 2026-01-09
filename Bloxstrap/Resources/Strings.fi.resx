@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Jos se ei ole korjattu, ole hyvä ja raportoi tämä poikkeus [GitHub-issuen]({1
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (V4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Pelin valitsema</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Vaihe 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Vaihe 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Vaihe 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -585,20 +573,6 @@ Haluatko varmasti jatkaa?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Fast Flag-editori</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Takaisin</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Tiedän mitä teen</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Tiedätkö mitä teet?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flagit ovat hyvin voimakkaita, sillä niitä on tarkoitettu käytettäväksi vain Robloxin tekijöillä. Vaikka ne voivat olla erittäin hyödyllisiä, niiden määrittäminen voi aiheuttaa vakavia ongelmia vakaudelle ja toiminnallisuudelle. ÄLÄ käytä editoria, ellet ole varma mitä teet.
-
-ÄLÄ käytä tätä suurten "flag listien" tuomiseen, jotka on tehty muilta ihmisiltä ja jotka lupaavat parantaa suorituskykyä tai vastaavaa. Ne ovat riskialtistuneita edellä mainituille ongelmille ja aiheuttavat sinulle ongelmia. Jos olit aikeissa tehdä niin, PERUUTA.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Ohjaa miten Roblox-pelimoottorin parametrit ja ominaisuudet ovat määritelty.</value>
   </data>
@@ -606,39 +580,14 @@ Haluatko varmasti jatkaa?</value>
     <value>Hallitse omia Fast Flagejasi. Käytä varovasti.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Opi lisää Fast Flageista, mitä nämä esiasetukset tekevät, ja miten käyttää niitä.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D:n [koko näytön tila]({0}) pikanäppäimellä Alt+Enter on päällä oletuksena.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Suosittu escape-valikon versio</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox vähentää renderöintilaatua riippuen siitä, miten näyttö on skaalattu Windowsissa.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Säilytä renderöinnin laatua näytön skaalauksella</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Aseta nollaksi oletuksille, jos tahdot käyttää Robloxin natiivia kuvataajuusvapauttajaa.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Kuvataajuuden rajoitus</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Vaihda käyttämällä [näppäinyhdistelmiä]({0}). Toimii vain, jos olet [Bloxstrap Roblox-ryhmässä]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Antaa sinun piilottaa pelin GUI:t</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Valinta pakotetaan päälle kaikissa peleissä. [Varo, tämä saattaa aiheuttaa valaistusongelmia!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Suosittu valaistusteknologia</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderöintitila</value>
@@ -753,9 +702,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Valitse fontti...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Fonttikokoa voi säätää Pelimoottorin asetukset -välilehdellä.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Valitsemasi tiedosto ei näytä olevan fonttitiedosto.</value>
   </data>
@@ -795,12 +741,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Käytä vanhoja hahmojen ääniä</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Tuo takaisin vanha "oof" kuolema-ääni.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Käytä vanhaa kuolema-ääntä</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modit</value>
   </data>
@@ -831,20 +771,11 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Uudelleenkäynnistys vaaditaan, jotta muutokset tulevat voimaan.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Salli tukemattomien Roblox-kielien käyttö</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Koskee vain pelejä, jotka on käynnistetty Roblox-sivustolta.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + uusi käyttöliittymä)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Renderönti ja grafiikat</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Käyttöliittymä ja asettelu</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Salli Bloxstrapin hallita Fast Flageja</value>
@@ -854,15 +785,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Reunanpehmennyksen laatu (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Poista jälkikäsittelyefektit käytöstä</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Poista koko näytön otsikkopalkki käytöstä</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Estää tämän näkymästä, kun liikuttaa hiiren näytön yläreunaan.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Tekstuurilaatu</value>
@@ -878,18 +800,6 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Taso 3 (Korkein)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Poista pelaajien varjot käytöstä</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Fonttikoko</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Oletusarvo on 1. Säädä, jos käytät kustomoitua fonttia.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Poista maaston tekstuurit käytöstä</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap ei voi ladata Robloxia</value>
@@ -1097,14 +1007,6 @@ Oletko varma, että tahdot jatkaa?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox ei onnistunut käynnistymään.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox on kaatunut.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Saadaksesi tietoa siitä, miksi tämä saattaisi tapahtua ja kuinka sen voi ratkaista, lue [tämä ohjeartikkeli}({0}).
-
-Tarkista, toimiiko Roblox [alkuperäisellä käynnistysohjelmalla]({1}). Jos ei, tämä ei ole vika Bloxstrapissa. Jos toimii, viittaa ohjeartikkeliin.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Dataa ei voitu ladata verkkovirheen vuoksi.</value>
@@ -1486,12 +1388,6 @@ Palataan oletukseen {1}.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Mukautettu teema {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Salli usean instanssin käynnistäminen</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Sallii useamman kuin yhden Roblox-peliklientin instanssin avaamisen samanaikaisesti.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Teemasi on tallennettu!</value>

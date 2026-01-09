@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Ha nem, kérjük, hogy jelentse ezt egy [GitHub problémaként]({1}) a Bloxstrap
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (4. verzió)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Játék által kiválasztott</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (3. fázis)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow map (2. fázis)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (1. fázis)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -585,18 +573,6 @@ Biztosan folytatja?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Fast Flag Szerkesztő</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Visszatérés</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Tudom, hogy mit csinálok</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Tudod, hogy mit csinálsz?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>A Fast Flag-ek rendkívül erősek, mivel csak a Roblox mérnökei használhatják őket. Bár nagyon hasznosak lehetnek, a kézi konfigurálásuk komoly stabilitási és funkcionalitási problémákat okozhat. NE használd a szerkesztőt, ha nem vagy biztos abban, hogy mit csinálsz.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Vezérelheti a Roblox motor egyes paramétereinek és funkcióinak konfigurálását.</value>
   </data>
@@ -604,39 +580,14 @@ Biztosan folytatja?</value>
     <value>Kezelje a saját Fast Flag-jeit. Óvatosan használd.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Tudjon meg többet a Fast Flags-ről, az előbeállítások funkcióiról és használatukról.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>A Direct3D [kizárólagos teljes képernyő]({0}) az Alt+Enter billentyűkombináció használatával alapértelmezés szerint engedélyezve van.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Előnyben részesített játék menü verzió</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>A Roblox csökkenti a renderelési minőséget attól függően, hogy a kijelző hogyan van méretezve a Windows-ban.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>A megjelenítés minőségének megőrzése a kijelző méretezésével</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Állítsd 0-ra az alapértelmezettért, ha a Roblox saját FPS korlát eltörlőjét akarod használni.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>FPS korlát</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>A [billentyűparancsok]({0}) segítségével kapcsolható. Csak akkor működik, ha a [Bloxstrap Roblox csoportban]({1}) vagy.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>A GUI-k elrejtésének lehetővé tétele</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>A kiválasztott feltétlenül meg fog jelenni az összes játékban. [Vigyázz, ez el tudja rontani a játék kinézetét!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Előnyben részesített világítási technológia</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Renderelési mód</value>
@@ -751,9 +702,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Betűtípus kiválasztása...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>A betűméret a Motorbeállítások lapon állítható be.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>A kiválasztott fájl nem tűnik érvényes betűtípusfájlnak.</value>
   </data>
@@ -793,12 +741,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Régi karakterhangok visszahozása</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>A klasszikus 'oof' hang visszahozása.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Régi halálhang használata</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Modok</value>
   </data>
@@ -829,20 +771,11 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Egy újraindítás szükséges a módosítások érvénybe léptetéséhez.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Nem támogatott Roblox nyelvek használata</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Csak azokra a játékokra vonatkozik, amelyek a Roblox oldaláról lettek elindítva.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (4. verzió + új felület)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Renderelés és Grafika</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Felhasználói felület és Elrendezés</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Fast Flag kezelés engedélyezése a Bloxstrap-nek</value>
@@ -852,15 +785,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Élsimítás minőség (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Utófeldolgozási effektusok letiltása</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>A teljesképernyős címsor letiltása</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Nem fog megjelenni, ha az egerét a képernyő tetejére mozdítja.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Textúra minősége</value>
@@ -876,18 +800,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>3. szint (Legmagasabb)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Játékosok árnyékai letiltása</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Betűtípus méret</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Az alapértelmezett érték 1. Változtassa meg ezt, ha egy saját betűtípust használ.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Tereptextúrák kikapcsolása</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>A Bloxstrap nem tudja letölteni a Roblox-ot</value>
@@ -1095,14 +1007,6 @@ Biztos, hogy folytatni szeretné?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>A Roblox nem tudott elindulni.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>A Roblox összeomlott.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Arról, hogy ez miért fordulhat elő, és hogyan lehet megoldani, olvassa el [ezt a súgócikket]({0}).
-
-Ellenőrizd, hogy a Roblox működik-e az [eredeti indítóprogrammal]({1}). Ha nem, akkor ez nem a Bloxstrap problémája. Ha igen, akkor olvassa el a súgócikket.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Hálózati hiba miatt nem sikerült betölteni az adatokat.</value>
@@ -1484,12 +1388,6 @@ Alapértelmezés szerint {1}.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Egyedi téma {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Több példányos indítás engedélyezése</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Lehetővé teszi, hogy egynél több Roblox játékkliens-példány legyen egyszerre nyitva.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>A témád el lett mentve!</value>

@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (نسخه چهارم)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>انتخاب توسط بازی</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>آینده (فاز سوم)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>سایه نقشه (فاز دوم)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>وکسل (فاز اول)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -584,20 +572,6 @@
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>ویرایشگر فست فلگ</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>بازگشت</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>میدونم دارم چیکار می‌کنم</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>آیا میدونی داری چی کار می‌کنی؟</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>فست فلگ ها بسیار قدرتمند هستند، زیرا فقط برای مهندسین روبلاکس در نظر گرفته شده اند. در حالی که آنها می توانند بسیار مفید باشند، پیکربندی دستی آنها می تواند مشکلات جدی با ثبات و عملکرد ایجاد کند. اگر از کاری که انجام می دهید مطمئن نیستید از ویرایشگر استفاده نکنید.
-
-از این برای وارد کردن "فهرست های فلگ‌ ها" بزرگ ساخته شده توسط افراد دیگر که قول بهبود عملکرد یا موارد مشابه را می دهند استفاده نکنید. آنها مشمول موارد ذکر شده هستند و از آنجایی که شما به طور کامل از تغییر آنها آگاه نخواهید شد، برای شما مشکل ایجاد خواهند کرد. اگر قصد انجام این کار را داشتید، به عقب برگردید.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>نحوه پیکربندی پارامترها و ویژگی های موتور روبلاکس را کنترل کنید.</value>
   </data>
@@ -605,39 +579,14 @@
     <value>مدیریت کردن فست فلگ های خودتان. با احتیاط استفاده کنید.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>درباره فست فلگ ها، کارهایی که انجام می دهند و نحوه استفاده از آنها را بیاموزید.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>({0})Direct3D [exclusive fullscreen] با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>نسخه منوی ترجیحی</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>روبلاکس کیفیت رندرینگ شما را بر اساس مقیاس نمایشگر در ویندوز کاهش می‌دهد.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>حفظ کیفیت رندرینگ با مقیاس‌بندی نمایشگر</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>برای استفاده از آنلاک‌کننده‌ی فریم‌ریت روبلاکس، مقدار را روی ۰ تنظیم کنید تا به تنظیمات پیش‌فرض بازگردد.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>محدودیت نرخ فریم</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>با [میانبر های کیبورد]({0}) تغییر وضعیت میتوان داد. فقط در صورتی کار می کند که در [گروه بلاکسترپ]({1}) حضور داشته باشید.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>فعال سازی قابلیت پنهان کردن رابط کاربر گرافیکی</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>گزینه‌ی انتخاب شده در تمامی بازی‌ها به‌طور اجباری فعال خواهد شد. [توجه کنید، ممکن است مشکلاتی در نورپردازی ایجاد کند!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>تکنولوژی نورپردازی ترجیهی</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>حالت رندر کردن</value>
@@ -752,9 +701,6 @@
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>انتخاب فونت...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>اندازه فونت را میتوانید در بخش موتور تنظیم کنید.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>فایلی که انتخاب کردید یک فایل درست فونت نیست.</value>
   </data>
@@ -794,12 +740,6 @@
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>تقلید کردن صدای کارکتر های قدیمی</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>برگرداندن صدای کلاسیک 'oof' برای صدای مرگ.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>استفاده از صدای مرگ قدیمی</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>مودها</value>
   </data>
@@ -830,20 +770,11 @@
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>به یک اجرای مجدد جهت نتیجه گرفتن تغییرات نیاز است.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>اجازه استفاده از زبان های پشتیبانی نشده روبلاکس</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>فقط برو روی بازی های باز شده از روی سایت روبلاکس است.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (ورژن چهار + رابط کاربری جدید)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>رندر ها و گرافیک ها</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>رابط کاربری و چیدمان</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>اجازه بدید بلاکسترپ فست فلگس هارا مدیریت کند</value>
@@ -853,15 +784,6 @@
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>کیفیت Anti-aliasing ‏(‏MSAA‏)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>غیرفعال کردن اثرات های پس از پردازش</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>غیرفعال کردن نوار عنوان تمام صفحه</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>متوقف کردن منویی که وقتی موستان را به بالا صفحه میبرید نمایان میشود.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>کیفیت بافت</value>
@@ -877,18 +799,6 @@
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>سطح ۳ (بالاترین)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>غیرفعال کردن سایه های بازیکن</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>اندازه فونت</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>مقدار پیش فرض ۱ است. تنظیم کنید در صورت استفاده از فونت سفارشی.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>غیرفعال کردن بافت های زمین</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>بلاکسترپ نمیتواند روبلاکس را بارگیری کند</value>
@@ -1096,14 +1006,6 @@
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>روبلاکس نتوانستد اجرا شود.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>روبلاکس کرش کرد.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>برای اطلاعات در مورد اینکه چرا ممکن است این اتفاق بیفتد و چگونه می توان آن را حل کرد، لطفاً [این مقاله راهنما] ({0}) را بخوانید.
-
-بررسی کنید آیا روبلاکس با [لانچر اصلی] ({1}) کار می‌کند یا خیر. اگر اینطور نیست، پس این یک مشکل بلاکسترپ نیست. اگر چنین بود، به مقاله راهنما مراجعه کنید.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>داده ها بخاطر یک مشکل در شبکه بارگیری نشدند.</value>
@@ -1485,12 +1387,6 @@
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>تم سفارشی {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>اجازه‌ی اجرای چندین کلاینت به‌طور هم‌زمان داده می‌شود</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>امکان اجرا شدن بیش از یک کلاینت بازی روبلاکس به‌طور هم‌زمان را فراهم می‌کند.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>تم شما با موفقیت ذخیره شد!</value>

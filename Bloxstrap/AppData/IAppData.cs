@@ -8,13 +8,19 @@
 
         string RegistryName { get; }
 
+        string ProcessName { get; }
+
         string ExecutableName { get; }
 
         string Directory { get; }
 
         string ExecutablePath { get; }
 
-        AppState State { get; }
+        JsonManager<DistributionState> DistributionStateManager { get; }
+
+        DistributionState DistributionState { get; }
+
+        List<string> ModManifest { get; }
 
         IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
     }

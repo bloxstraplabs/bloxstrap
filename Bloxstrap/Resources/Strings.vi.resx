@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -356,18 +356,6 @@ Nếu chưa, xin hay báo cáo lỗi này qua [GitHub issue]({1}) với bản co
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
     <value>2023 (Phiên bản 4)</value>
   </data>
-  <data name="Enums.FlagPresets.LightingMode.Default" xml:space="preserve">
-    <value>Được chọn bởi trò chơi</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Future" xml:space="preserve">
-    <value>Future (Giai Đoạn 3)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.ShadowMap" xml:space="preserve">
-    <value>Shadow Map (Giai Đoạn 2)</value>
-  </data>
-  <data name="Enums.FlagPresets.LightingMode.Voxel" xml:space="preserve">
-    <value>Voxel (Giai đoạn 1)</value>
-  </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
   </data>
@@ -585,20 +573,6 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
   <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
     <value>Trình chỉnh sửa Fast Flag</value>
   </data>
-  <data name="Menu.FastFlagEditor.Warning.Back" xml:space="preserve">
-    <value>Quay lại</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Continue" xml:space="preserve">
-    <value>Tôi biết tôi đang làm gì</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Header" xml:space="preserve">
-    <value>Bạn có biết bạn đang làm gì không?</value>
-  </data>
-  <data name="Menu.FastFlagEditor.Warning.Text" xml:space="preserve">
-    <value>Fast Flag vô cùng mạnh mẽ vì chúng được thiết kế chỉ dành cho các kỹ sư Roblox sử dụng. Mặc dù có thể rất hữu ích, việc tự mình cài đặt cấu hình và chỉnh sửa có thể gây ra các vấn đề nghiêm trọng về tính ổn định và chức năng. ĐỪNG sử dụng trình chỉnh sửa nếu bạn không biết mình đang làm gì. 
-
-ĐỪNG sử dùng chức năng này để nhập những "danh sách flag" lớn được tạo nên bởi người khác với lời hứa cải thiện hiệu năng, chạy mượt hơn hoặc tương tự. Chúng có thể gặp những vấn đề được nêu ở trên và sẽ gây ra vấn đề nếu bạn thực sự không biết chúng đang thay đổi gì. Nếu bạn đang định làm điều đó, HÃY QUAY TRỞ LẠI.</value>
-  </data>
   <data name="Menu.FastFlags.Description" xml:space="preserve">
     <value>Kiểm soát cụ thể các cấu hình, các thông số và tính năng của Roblox.</value>
   </data>
@@ -606,39 +580,14 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Quản lý Fast Flag của bạn. Sử dụng với sự thận trọng.</value>
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
-  <data name="Menu.FastFlags.Help.Description" xml:space="preserve">
-    <value>Tìm hiểu thêm về Fast Flag, tác dụng của các cài đặt này và cách sử dụng chúng.</value>
-    <comment>Title is Common.Help</comment>
-  </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
     <value>Direct3D [toàn màn hình]({0}) bằng Alt+Enter đã được bật theo mặc định.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.EscapeMenuVersion.Title" xml:space="preserve">
-    <value>Phiên bản menu thoát ưa thích</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>Roblox giảm chất lượng hiển thị của bạn tùy thuộc vào cách hiển thị được điều chỉnh trong Windows.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
     <value>Giữ chất lượng hiển thị với tỷ lệ hiển thị</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Description" xml:space="preserve">
-    <value>Đặt thành 0 nếu muốn sử dụng bộ mở khóa khung hình mặc định của Roblox.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FPSLimit.Title" xml:space="preserve">
-    <value>Giới hạn tốc độ khung hình</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Description" xml:space="preserve">
-    <value>Bật/Tắt bằng [tổ hợp phím]({0}). Chỉ hoạt động nếu đang ở trong [Nhóm Bloxstrap]({1}).</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.HideGuis.Title" xml:space="preserve">
-    <value>Bật tính năng ẩn giao diện người dùng</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Description" xml:space="preserve">
-    <value>Chọn một cái sẽ bắc buộc bật trong tất cả các trò chơi. [Hãy cẩn thận, có thể gây ra các lỗi ánh sáng!]({0})</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.LightingTechnology.Title" xml:space="preserve">
-    <value>Công nghệ ánh sáng ưa thích</value>
   </data>
   <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
     <value>Chế độ kết xuất</value>
@@ -754,9 +703,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
     <value>Chọn phông chữ...</value>
   </data>
-  <data name="Menu.Mods.Misc.CustomFont.Description" xml:space="preserve">
-    <value>Kích cỡ phong chữ có thể được điều chỉnh trong phần Cài Đặt Engine.</value>
-  </data>
   <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
     <value>Tệp bạn đã chọn có vẻ không phải là tệp phông chữ hợp lệ.</value>
   </data>
@@ -796,12 +742,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
     <value>Mang lại âm thanh nhân vật cũ</value>
   </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Description" xml:space="preserve">
-    <value>Mang lại tiếng chết 'oof' cũ.</value>
-  </data>
-  <data name="Menu.Mods.Presets.OldDeathSound.Title" xml:space="preserve">
-    <value>Sử dụng tiếng chết cũ</value>
-  </data>
   <data name="Menu.Mods.Title" xml:space="preserve">
     <value>Mod</value>
   </data>
@@ -832,20 +772,11 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
     <value>Cần khởi động lại để áp dụng các thay đổi.</value>
   </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Title" xml:space="preserve">
-    <value>Cho phép sử dụng các ngôn ngữ không được hỗ trợ</value>
-  </data>
-  <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
-    <value>Chỉ áp dụng với các trò chơi được khởi động từ trang web Roblox.</value>
-  </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (Phiên bản 4 + Giao diện người dùng mới)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>Kết xuất và chất lượng</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.Categories.UserInterface" xml:space="preserve">
-    <value>Giao diện người dùng và bố cục</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
     <value>Cho phép Bloxstrap quản lý Fast Flag</value>
@@ -855,15 +786,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   </data>
   <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
     <value>Chất lượng khử răng cưa (MSAA)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePostFX.Title" xml:space="preserve">
-    <value>Vô hiệu hóa các hiệu ứng xử lý hậu kỳ</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Title" xml:space="preserve">
-    <value>Tắt thanh tiêu đề toàn màn hình</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
-    <value>Ngăn không cho thanh tiêu đề hiển thị mỗi khi bạn di chuyển chuột lên đầu màn hình.</value>
   </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Chất lượng bề mặt</value>
@@ -879,18 +801,6 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
   </data>
   <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
     <value>Mức 3 (Cao nhất)</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisablePlayerShadows.Title" xml:space="preserve">
-    <value>Vô hiệu hóa bóng của người chơi</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Title" xml:space="preserve">
-    <value>Kích cỡ phông chữ</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.FontPadding.Description" xml:space="preserve">
-    <value>Giá trị mặc định là 1. Điều chỉnh nó nếu bạn dùng phông chữ tùy chình.</value>
-  </data>
-  <data name="Menu.FastFlags.Presets.DisableTerrainTextures.Title" xml:space="preserve">
-    <value>Vô hiệu hóa cấu tạo bề mặt địa hình</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
     <value>Bloxstrap không thể tải xuống Roblox</value>
@@ -1099,14 +1009,6 @@ Bạn có muốn tiếp tục không?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Không thể khởi chạy Roblox.</value>
-  </data>
-  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
-    <value>Roblox đã sập.</value>
-  </data>
-  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
-    <value>Để biết thông tin về lý do tại sao lại phát sinh lỗi này và cách giải quyết nó, vui lòng đọc [trợ giúp]({0}).
-
-Kiểm tra xem Roblox có hoạt động với [trình khởi chạy gốc]({1}) không. Nếu không, thì đây không phải là lỗi của Bloxstrap. Nếu có, hãy tham khảo bài viết trợ giúp.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Không thể tải dữ liệu vì lỗi mạng.</value>
@@ -1488,12 +1390,6 @@ Mặc định về {1}.</value>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>Giao diện tuỳ chỉnh {0}</value>
     <comment>{0} is a string (e.g. '1', '1-1234')</comment>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Title" xml:space="preserve">
-    <value>Cho phép mở nhiều tiến trình</value>
-  </data>
-  <data name="Menu.Integrations.MultiInstanceLaunching.Description" xml:space="preserve">
-    <value>Cho phép mở hơn một tiến trình Roblox cùng một lúc.</value>
   </data>
   <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
     <value>Giao diện của bạn đã được lưu!</value>

@@ -59,11 +59,6 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, "Opening watcher");
                 LaunchWatcher();
             }
-            else if (App.LaunchSettings.MultiInstanceWatcherFlag.Active)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Opening multi-instance watcher");
-                LaunchMultiInstanceWatcher();
-            }
             else if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Opening background updater");
@@ -228,7 +223,7 @@ namespace Bloxstrap
                 App.Terminate(ErrorCode.ERROR_FILE_NOT_FOUND);
             }
 
-            if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _) && !App.Settings.Prop.MultiInstanceLaunching)
+            if (App.Settings.Prop.ConfirmLaunches && Mutex.TryOpenExisting("ROBLOX_singletonMutex", out var _))
             {
                 // this currently doesn't work very well since it relies on checking the existence of the singleton mutex
                 // which often hangs around for a few seconds after the window closes
@@ -307,28 +302,6 @@ namespace Bloxstrap
             });
         }
 
-        public static void LaunchMultiInstanceWatcher()
-        {
-            const string LOG_IDENT = "LaunchHandler::LaunchMultiInstanceWatcher";
-
-            App.Logger.WriteLine(LOG_IDENT, "Starting multi-instance watcher");
-
-            Task.Run(MultiInstanceWatcher.Run).ContinueWith(t =>
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Multi instance watcher task has finished");
-
-                if (t.IsFaulted)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "An exception occurred when running the multi-instance watcher");
-
-                    if (t.Exception is not null)
-                        App.FinalizeExceptionHandling(t.Exception);
-                }
-
-                App.Terminate();
-            });
-        }
-
         public static void LaunchBackgroundUpdater()
         {
             const string LOG_IDENT = "LaunchHandler::LaunchBackgroundUpdater";
@@ -337,10 +310,16 @@ namespace Bloxstrap
             App.LaunchSettings.QuietFlag.Active = true;
             App.LaunchSettings.NoLaunchFlag.Active = true;
 
+            if (!Enum.TryParse(App.LaunchSettings.BackgroundUpdaterFlag.Data, out LaunchMode launchMode))
+                throw new ApplicationException($"Invalid launch mode arg ({App.LaunchSettings.BackgroundUpdaterFlag.Data})");
+
+            if (launchMode != LaunchMode.Player && launchMode != LaunchMode.Studio)
+                throw new ApplicationException($"Unsupported launch mode {launchMode} provided");
+
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
-            App.Bootstrapper = new Bootstrapper(LaunchMode.Player)
+            App.Bootstrapper = new Bootstrapper(launchMode)
             {
-                MutexName = "Bloxstrap-BackgroundUpdater",
+                MutexNamePrefix = "Bloxstrap-BackgroundUpdater",
                 QuitIfMutexExists = true
             };
 
