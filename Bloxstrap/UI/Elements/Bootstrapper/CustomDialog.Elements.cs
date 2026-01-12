@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using Wpf.Ui.Markup;
 
 using Bloxstrap.UI.Elements.Controls;
+using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
@@ -628,6 +629,9 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 else
                 {
                     XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, sourceData.Uri!);
+
+                    RepeatBehavior repeatBehavior = ParseXmlAttribute<RepeatBehavior>(xmlElement, "RepeatBehavior", RepeatBehavior.Forever);
+                    XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior(image, repeatBehavior);
                 }
             }
 
