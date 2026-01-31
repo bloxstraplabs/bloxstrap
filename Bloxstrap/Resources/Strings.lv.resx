@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@ Spiedied šeit priekš vairāk informācijas</value>
     <value>Kopēt žurnāla saturu</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Notika izņēmums palaižot Bloxstrap</value>
+    <value>Notika izņēmums</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Pārbaudiet [Bloxstrap Vikipēdiju]({0}), lai redzētu vai šai problēmai jau ir atrasts risinājums.
+    <value>Šī problēma, iespējams, jau ir risināta [Wiki]({0}).
 
-Ja nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) līdzās ar žurnāla faila kopiju, kas tika izveidota.</value>
+Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kopā ar log failu.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap Izņēmums</value>
@@ -821,7 +821,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>{0} Ieraksts nav derīgs, jo vērtībai vajag būt skaitlim</value>
+    <value>Ieraksts '{0}' nav derīgs, jo vērtībai jābūt veselam skaitlim</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Šai palaišanai nebūs žurnāla fails, jo Bloxstrap nav iespējams rakstīt mapē '{0}'</value>
@@ -914,12 +914,11 @@ Ko tu vēlies darīt?</value>
     <value>Atinstalēt Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Atinstalējot, Bloxstrap tiks izņemts no jūsu sistēmas, un automātiski rekonfigurēs Roblox uz noklusējuma palaidēju, ja tas vēl ir ielādēts.
+    <value>Atinstalēšana noņems Bloxstrap no jūsu sistēmas, un automātiski rekonfigurēs noklusējuma Roblox palaidēju, ja tas vēl ir instalēts.
 
-Ja jūs atinstalējat vai pārinstalējat, jo jums ir problēms are Roblox, izlasiet [šo palīdzības lapu]({0}) vispirms.
+Atinstalēšanas process varētu atstāt dažas lietas aiz sevis, tāpēc jums varētu nākties manuāli iztīrīt pāri palikušos failus no vietas, kur Bloxstrap bija instalēts.
 
-Atinstalēšans process varētu nebūt spējīgs pilnībā visu izdzēst, tāpēc jums vajadzēs manuāli dzēst pāri palikušos failus vietā, kur Bloxstrap bija instalēts.
-Bloxstrap tika instalēts "{1}".</value>
+Bloxstrap bija instalēts "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Paturēt manus iestatījumus un modifikācijas</value>
@@ -949,9 +948,10 @@ Bloxstrap tika instalēts "{1}".</value>
     <value>Bloxstrap nespēja izveidot īsceļu priekš Darbavirsmas un Sākuma izvēlnes. Pamēģiniet tos uztaisīt caur iestatījumiem.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Pārbaudiet [Bloxstrap Vikipēdija]({0}), lai redzētu vai šai problēmai jau ir risinājums.
+    <value>Vispirms pārbaudiet [Bloxstrap Wiki]({0}), lai redzētu vai šī problēma jau ir atrisināta.
 
-Ja nav, tad lūdzu ziņojiet par šo izņēmumu šī fork veidotājiem. NEZIŅOJIET par šo Bloxstrap GitHub issues sadaļā, jo šī ir neoficiāla uzbūve.</value>
+
+Ja nav, tad lūdzu ziņojiet par šo izņēmumu šī fork uzturētājiem. Neziņojiet par šo Bloxstrap's GitHub issues, jo šī ir neoficiāla versija.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1006,9 @@ Var notikt problēmas un jūsu iestatījumi var tikt mainīti. Pārinstalācija 
 Vai jūs esat drošs, ka vēlaties turpināt?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox nespēja tikt palaists.</value>
+    <value>Roblox nevarēja palaisties.
+
+Šī iespējams ir Bloxstrap problēma. Lai to uzzinātu, skatiet [šo palīdzības lapu]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nevarēja ielādet datus, dēļ tīkla kļūdas.</value>
@@ -1110,7 +1112,7 @@ Lūdzu manuāli dzēsiet Bloxstrap.exe no instalēšanas vietas, vai pamēģinie
     <value>Atiestatīt visu uz noklusējumu</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Ziņot par izņēmumu</value>
+    <value>Izveidot ziņojumu</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Testēšanas režīms</value>
@@ -1372,8 +1374,8 @@ Noklusējums uz {1}.</value>
     <value>Fona atjauninājumi</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Atjaunināt Roblox fonā, nevis gaidīt.
-Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepieciešami, lai šī funkcija varētu strādāt.</value>
+    <value>Atjaunināt Roblox fonā, nevis bloķēt palaišanu, kad atjauninājums ir pieejams.
+Ir nepieciešama vismaz 5GB brīvas krātuves vietas priekš šīs iespējas.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Likt UI elementus šeit</value>
@@ -1393,5 +1395,17 @@ Nav ieteicams, ja tev ir lēns internets. Vismaz 3GB ar brīvu vietu ir nepiecie
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Neizdevās priekšskatīt tēmu: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Izslēdz {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox kopiena</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Dēļ [Fast Flag allowlist atjauninājuma]({0}), lielākajai daļai no pielāgotajiem Fast Flags nebūs efekta uz Roblox spēlētāju.</value>
   </data>
 </root>

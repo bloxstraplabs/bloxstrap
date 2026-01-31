@@ -22,8 +22,8 @@ namespace Bloxstrap
             { "bg", "Български" }, // Bulgarian
 #if QA_BUILD
             { "bn", "বাংলা" }, // Bengali
-#endif
             { "bs", "Bosanski" }, // Bosnian
+#endif
             { "cs", "Čeština" }, // Czech
             { "de", "Deutsch" }, // German
             { "da", "Dansk" }, // Danish
@@ -37,11 +37,11 @@ namespace Bloxstrap
             { "fr", "Français" }, // French
 #if QA_BUILD
             { "he", "עברית‎" }, // Hebrew
-            { "hi", "Hindi (Latin)" }, // Hindi
 #endif
+            { "hi", "Hindi (Latin)" }, // Hindi
             { "hr", "Hrvatski" }, // Croatian
-            { "hu", "Magyar" }, // Hungarian
 #if QA_BUILD
+            { "hu", "Magyar" }, // Hungarian
             { "is", "Íslenska" }, // Icelandic
 #endif
             { "id", "Bahasa Indonesia" }, // Indonesian
@@ -50,7 +50,9 @@ namespace Bloxstrap
             { "ko", "한국어" }, // Korean
             { "lv", "Latviešu" }, // Latvian
             { "lt", "Lietuvių" }, // Lithuanian
+#if QA_BUILD
             { "ms", "Malay" }, // Malay
+#endif
             { "nl", "Nederlands" }, // Dutch
 #if QA_BUILD
             { "et", "Eesti Keel" }, // Estonian
@@ -69,7 +71,9 @@ namespace Bloxstrap
             { "sv-SE", "Svenska" }, // Swedish
             { "th", "ภาษาไทย" }, // Thai
             { "tr", "Türkçe" }, // Turkish
+#if QA_BUILD
             { "uk", "Українська" }, // Ukrainian
+#endif
             { "vi", "Tiếng Việt" }, // Vietnamese
             { "zh-CN", "中文 (简体)" }, // Chinese Simplified
             { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong

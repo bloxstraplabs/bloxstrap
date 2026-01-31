@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@
     <value>로그 내용 복사</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxstrap 실행 중 예외 오류가 발생했습니다.</value>
+    <value>예외 오류가 발생했습니다</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>[Bloxstrap 위키]({0})에서 이 문제에 대한 해결책이 있는지 확인하세요.
+    <value>이 오류는 이미 [위키]({0})에 다뤄져 있을 수 있습니다.
 
-만약 해결책이 없다면, 생성된 로그 파일과 함께 [GitHub issue]({1})를 통해 이 오류를 보고해 주세요.</value>
+만약 아니라면, [GitHub issue]({1})를 통해 이 예외 오류를 로그 파일과 함께 신고해주세요.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap 예외 오류</value>
@@ -544,7 +544,7 @@
     <value>JSON으로 내보내기</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
-    <value>입력된 값 '{0}'이(가) 유효하지 않습니다. 이름에는 문자, 숫자, 밑줄만 포함할 수 있습니다</value>
+    <value>입력된 값 '{0}'은 이름에 문자, 숫자, 밑줄만 포함할 수 있으므로 유효하지 않습니다</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
     <value>입력한 JSON이 유효하지 않습니다. 다시 확인하고 시도해 주세요.
@@ -553,7 +553,7 @@
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
-    <value>입력된 값 '{0}'이(가) 유효하지 않습니다. 이름은 반드시 FFlag, DFInt 등으로 시작해야 합니다.</value>
+    <value>입력된 값 '{0}'은 이름이 반드시 FFlag, DFInt 등으로 시작해야 하므로 유효하지 않습니다</value>
   </data>
   <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
     <value>클립보드에 복사했습니다.</value>
@@ -816,11 +816,11 @@
     <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
-    <value>입력된 값 '{0}'이(가) 유효하지 않습니다. 값은 참 또는 거짓('True' 혹은 'False')만 들어갈 수 있습니다.</value>
+    <value>입력된 값 '{0}'은 참 또는 거짓('True' 혹은 'False')만 들어갈 수 있으므로 유효하지 않습니다</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>입력된 값 '{0}'이(가) 유효하지 않습니다. 값은 숫자만 들어갈 수 있습니다.</value>
+    <value>입력된 값 '{0}'은 정수여야 하므로 유효하지 않습니다</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Bloxstrap이 '{0}' 폴더에 작성할 수 없어 이번 실행에 로그 파일이 작성되지 않습니다.</value>
@@ -835,7 +835,7 @@
     <value>시스템 기본</value>
   </data>
   <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
-    <value>입력된 값 '{0}'이(가) 유효하지 않습니다. 게임 필터 값이 제대로 입력되어야 합니다.</value>
+    <value>입력된 값 '{0}'은 플레이스 필터 값의 형식이 올바르지 않으므로 유효하지 않습니다.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
     <value>Bloxstrap 설치 프로그램</value>
@@ -913,13 +913,11 @@ Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때
     <value>Bloxstrap 제거하기</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>제거하면 시스템에서 Bloxstrap이 제거되고, 기존의 Roblox가 아직 설치되어 있는 경우 자동으로 재구성됩니다.
+    <value>제거하면 시스템에서 Bloxstrap이 삭제되며, 기본 Roblox 런처가 설치되어 있을 경우 자동으로 사용하도록 재구성됩니다.
 
-Roblox에 문제가 있어서 제거하거나 재설치하는 경우 먼저 [도움말]({0})을 읽어보세요.
+제거 과정에서 일부가 남겨질 수 있으므로, Bloxstrap 설치 경로에서 수동으로 남은 파일들을 삭제해야 할 수도 있습니다.
 
-설치된 위치에서 일부 파일을 완전히 제거할 수 없을 수도 있습니다. 따라서, 설치된 위치에 남은 파일을 수동으로 제거해야 할 수도 있습니다.
-
-Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
+Bloxstrap은 "{1}"에 설치되어 있습니다.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>설정 및 모드 유지하기</value>
@@ -940,7 +938,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>문제가 있나요?</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>도움이 필요하면 Wiki를 확인하세요</value>
+    <value>도움이 필요하면 위키를 확인하세요</value>
   </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
     <value>현재 WebView2 런타임이 설치되어 있지 않습니다. 이 런타임이 없으면 데스크톱 애플리케이션과 같은 일부 Roblox 기능이 제대로 작동하지 않습니다. 지금 다운로드하시겠습니까?</value>
@@ -949,9 +947,9 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>Bloxstrap에서 데스크톱 및 시작 메뉴에 대한 바로 가기를 만들 수 없었습니다. 나중에 설정을 통해 생성해 보세요.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>[Bloxstrap Wiki]({0})에서 이 문제가 이미 수정으로 해결되었는지 먼저 확인해 주세요.
+    <value>먼저 [Bloxstrap 위키]({0})에서 이 문제가 이미 수정으로 해결되었는지 확인해 주세요.
 
-그렇지 않은 경우 이 포크의 관리자에게 이 오류를 보고해 주세요. 이 포크는 비공식 빌드이므로 Bloxstrap's GitHub issues에 보고하지 마세요.</value>
+그렇지 않은 경우, 이 포크의 관리자에게 이 오류를 보고해 주세요. 이 포크는 비공식 빌드이므로, Bloxstrap의 GitHub issues에 신고하지 마세요.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1004,9 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
 계속하시겠습니까?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox가 실행에 실패했습니다.</value>
+    <value>Roblox가 실행에 실패했습니다.
+
+이는 Bloxstrap의 문제일 수도 있고, 아닐 수도 있습니다. 더 알아보려면, [이 도움말 페이지]({0})를 확인하세요.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>네트워크 오류로 인해 데이터를 로드할 수 없습니다.</value>
@@ -1111,7 +1111,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <value>전부 기본값으로 재설정</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>오류 신고하기</value>
+    <value>신고하기</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>테스트 모드</value>
@@ -1136,7 +1136,7 @@ Bloxstrap이 “{1}”에 설치되어 있습니다.</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
   </data>
   <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Roblox Studio 실행하기</value>
+    <value>Roblox Studio 실행</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>버전 {0}</value>
@@ -1374,16 +1374,16 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
     <value>백그라운드 업데이트</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>기다리는 대신 백그라운드에서 Roblox를 업데이트합니다. 느린 네트워크 환경에서는 권장되지 않습니다. 이 기능이 작동하려면 최소 3GB의 저장 공간이 필요합니다.</value>
+    <value>업데이트가 가능할 때, 시작을 막는 대신 백그라운드에서 Roblox를 업데이트합니다. 이 기능은 최소 5GB의 저장 공간을 필요로 합니다.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>여기에 UI 요소를 추가하세요</value>
   </data>
   <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
-    <value>{0}에서 여러 부트스트래퍼 예시들을 확인할 수 있습니다</value>
+    <value>{0} 에서 여러 부트스트래퍼 예시들을 확인할 수 있습니다</value>
   </data>
   <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
-    <value>{0}에서 부트스트래퍼 예시를 찾아볼 수 있습니다</value>
+    <value>{0} 에서 부트스트래퍼 예시를 찾아볼 수 있습니다</value>
   </data>
   <data name="CustomTheme.DefaultName" xml:space="preserve">
     <value>사용자 지정 테마 {0}</value>
@@ -1394,5 +1394,17 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>테마 미리보기 실패: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>{product} 종료 중</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap 위키</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox 커뮤니티</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>[Fast Flag 허용 목록 업데이트]({0})로 인해, 대부분의 사용자 지정 Fast Flag는 Roblox Player에 효력이 없습니다.</value>
   </data>
 </root>

@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap {0}への自動更新に失敗しました。Webサイトから手動でインストールしてください。</value>
+    <value>Bloxstrap {0}への自動更新に失敗しました。公式ウェブサイトから手動でインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Robloxは現在実行中です。新しくゲームを起動する場合、もとのゲームは終了します。本当に起動しますか？</value>
@@ -242,7 +242,7 @@
     <value>Robloxを終了する</value>
   </data>
   <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
-    <value>Robloxを終了しますか？強制終了することになります。</value>
+    <value>本当にRobloxを終了しますか？強制終了することになります。</value>
   </data>
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>招待リンクをコピー</value>
@@ -286,10 +286,10 @@
     <value>ログをコピー</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxstrapの実行中に例外が発生しました</value>
+    <value>例外が発生しました</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>最初に[Bloxstrap Wiki]({0})で解決策がないか確認してください。
+    <value>このエラーは[Bloxstrap Wiki]({0})でよくある問題として解決策が見つかる可能性があります。
 
 解決策が見つからない場合は、作成されたログファイルとともに[GitHub issue]({1})またはDiscordで報告してください。</value>
   </data>
@@ -641,7 +641,7 @@
     <value>アプリケーションの場所</value>
   </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
-    <value>Robloxが終了したらこのアプリも終了する</value>
+    <value>Robloxが終了したとき、このアプリも終了する</value>
   </data>
   <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
     <value>Robloxと同時に自動的に起動するプログラムを設定できます。</value>
@@ -695,7 +695,7 @@
     <value>連携</value>
   </data>
   <data name="Menu.Mods.Description" xml:space="preserve">
-    <value>RobloxクライアントのModを管理したり適用させることができます。</value>
+    <value>RobloxクライアントのModを管理･適用することができます。</value>
   </data>
   <data name="Menu.Mods.Help.Description" xml:space="preserve">
     <value>Modの管理と作成の詳細情報を確認できます。</value>
@@ -822,7 +822,7 @@
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>値が無効です。このFlag「{0}」の値は数字である必要があります。</value>
+    <value>値が無効です。このFlag「{0}」の値は整数である必要があります。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>現在"{0}"フォルダに書き込むことができないため、ログファイルは保存されません。</value>
@@ -921,9 +921,7 @@ WebサイトからRobloxを起動した際にBloxstrapの画面が表示され�
   <data name="Uninstaller.Text" xml:space="preserve">
     <value>アンインストールでは、Bloxstrapをシステムから削除し、インストールされている場合はデフォルトのRobloxランチャーに再設定します。
 
-もしRobloxに関する問題によってアンインストール、または再インストールを行っている場合は、最初に[ヘルプ]({0})を確認してください。
-
-アンインストール作業はすべてのファイルを完全に削除することはできません。Bloxstrapのインストール場所から手動で削除することができます。
+このアンインストール作業ではすべてのファイルを完全に削除することはできません。Bloxstrapのインストール場所から手動で削除することができます。
 
 Bloxstrapのインストール場所: {1}</value>
   </data>
@@ -943,7 +941,7 @@ Bloxstrapのインストール場所: {1}</value>
     <value>設定を変更する</value>
   </data>
   <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>問題がありますか？</value>
+    <value>お困りですか？</value>
   </data>
   <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
     <value>Wikiでヘルプを確認できます</value>
@@ -1014,7 +1012,9 @@ Bloxstrapのインストール場所: {1}</value>
 このまま続行しますか？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Robloxの起動に失敗しました。</value>
+    <value>Robloxの起動に失敗しました。
+
+Bloxstrapが原因である可能性があります。詳細は[ヘルプ]({0})を確認してください。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>ネットワークエラーにより、データの読み込みに失敗しました。</value>
@@ -1125,12 +1125,11 @@ Bloxstrapのインストール場所: {1}</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
-    <value>テストモードでは、Bloxstrapでの設定によるRobloxの影響を確認しやすくなります。
+    <value>テストモードでは、Bloxstrapの設定によるRobloxへの影響を確認しやすくなります。
 
-オンの場合、設定画面を閉じたのちに自動的にRobloxが起動し、終了した際には再度設定画面が表示されます。オフにするまで繰り返します。
+オンの場合、Bloxstrapの設定画面を閉じると自動的にRobloxが起動し、Robloxを終了すると再度設定画面が表示されます。オフにするまで繰り返されます。
 
-テストモードをオンにしますか？
-</value>
+テストモードをオンにしますか？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
     <value>Bloxstrapにおけるすべての翻訳は[Crowdin]({0})を通じたクラウドソーシングによって行われています。ここに掲載されている皆様は、Bloxstrapをローカライズするために多大なる時間と努力を費やした人々です。翻訳者の皆様、本当にありがとうございます！</value>
@@ -1382,7 +1381,8 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
     <value>バックグラウンド更新を有効にする</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Robloxをバックグラウンドで更新することで、Robloxの起動時間を短縮することができます。インターネット回線の速度が遅い場合はおすすめしません。この機能を使用する際は、3GBの空き容量が必要です。</value>
+    <value>Robloxをバックグラウンドで更新することで、Robloxの起動時間を短縮することができます。この機能を使用する場合は、
+最低5GBの空き容量が必要です。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>ここにUI要素を記述してください</value>
@@ -1402,5 +1402,17 @@ Robloxのアプリファイルを使用している可能性のあるアプリ�
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>テーマのプレビューに失敗しました。 {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>{product}を終了中</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Robloxコミュニティ</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>FastFlagが[ホワイトリスト制に変更]({0})されたため、Roblox PlayerではほとんどのFastFlagが動作しません。</value>
   </data>
 </root>

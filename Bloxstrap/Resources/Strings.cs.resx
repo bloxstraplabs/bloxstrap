@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -287,12 +287,12 @@ Klikněte pro více informací</value>
     <value>Kopírovat log obsah</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Došlo k výjimce při běžení Bloxstrapu</value>
+    <value>Došlo k výjimce</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Nejprve zkontrolujte [Bloxstrap Wiki]({0}), zda byl tento problém již vyřešen opravou.
+    <value>Tento problém už může být řešen ve [wiki]({0}).
 
-Pokud ne, prosím nahlaste tuto výjimku prostřednictvím [GitHub issue]({1}) spolu s kopií log souboru, který byl vytvořen.</value>
+Pokud ne, nahlaste prosím tuto výjimku přes [GitHub issue]({1}) spolu s logovacím souborem.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap výjimka</value>
@@ -820,7 +820,7 @@ Při výběru 'Ne' bude toto varování ignorováno a bude pokračovat v instala
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Záznam pro '{0}' není platný, protože hodnota musí být číslo</value>
+    <value>Položka pro '{0}' není platná, protože hodnota musí být celé číslo</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Žádný log soubor nebude zapsán pro toto spuštění, protože Bloxstrap nemůže zapisovat do složky v '{0}'</value>
@@ -913,13 +913,11 @@ Co chcete udělat?</value>
     <value>Odinstalovat Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky znovu nastaví výchozího spouštěče Robloxu, pokud je stále nainstalován.
+    <value>Odinstalace odstraní Bloxstrap z vašeho systému a automaticky nastaví výchozí spouštěč Robloxu, pokud je stále nainstalován.
 
-Pokud odinstalujete nebo přeinstalujete, protože máte problémy s Robloxem, přečtěte si nejprve [tuto stránku pomoci]({0}).
+Proces odinstalace může zanechat některé soubory, takže možná budete muset ručně vyčistit zbylé soubory v místě, kde byl Bloxstrap nainstalován.
 
-Odinstalace možná nebude moct odstranit všechny data sama, takže možná budete muset ručně vyčistit zbylé soubory po Bloxstrapu.
-
-Bloxstrap byl nainstalován na "{1}".</value>
+Bloxstrap byl nainstalován v umístění "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Uložit moje nastavení a módy</value>
@@ -949,9 +947,9 @@ Bloxstrap byl nainstalován na "{1}".</value>
     <value>Bloxstrap nebyl schopen vytvořit zkratky na ploše a v menu Start. Zkuste je vytvořit později v nastavení.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Nejprve zkontrolujte [Bloxstrapovou Wiki]({0}), jestli náhodou váš problém nebyl již vyřešen.
+    <value>Nejprve zkontrolujte [Bloxstrap wiki]({0}), zda už byl tento problém vyřešen dostupnou opravou.
 
-Pokud ne, pak prosím nahlaste tento error správcům této forky. NENAHLAŠUJTE tuto chybu do GitHub repozitáře Bloxstrapu, protože toto je neoficiální build.</value>
+Pokud ne, prosím nahlaste tuto vyjímku správcům tohoto forku. Nenahlašujte ji do GitHub problémů Bloxstrapu, protože se jedná o neoficiální sestavení.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1004,9 @@ Mohou nastat problémy a vaše nastavení mohou být změněny. Doporučuje se p
 Opravdu chcete pokračovat?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox se nepodařil spustit.</value>
+    <value>Robloxu se nepodařilo spustit.
+
+Může, ale nemusí se jednat o problém s Bloxstrapem. Pro zjištění navštivte [nápomocnou stránku]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepodařilo se načíst data kvůli chybám internetové sítě.</value>
@@ -1111,7 +1111,7 @@ Prosím manuálně smažte Bloxstrap.exe z instalačního místa nebo zkuste res
     <value>Obnovit vše na výchozí</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Nahlásit výjimku</value>
+    <value>Vytvořit hlášení</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Zkušební režim</value>
@@ -1374,7 +1374,7 @@ Používám motiv {1}.</value>
     <value>Aktualizace v pozadí</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Aktualizuje Roblox v pozadí místo čekání. Není doporučeno pro pomalé sítě. Alespoň 3GB volného úložiště je potřeba, aby tato funkce fungovala.</value>
+    <value>Aktualizovat Roblox v pozadí místo blokování spouštění, když je k dispozici aktualizace. Pro tuto funkci je vyžadováno alespoň 5GB volného úložného prostoru.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Sem vložte prvky UI</value>
@@ -1394,5 +1394,17 @@ Používám motiv {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Nezdařilo se zobrazit náhled motivu: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Vypínání {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox komunita</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Vzhledem k [aktualizaci seznamu povolených Fast Flagů]({0}) nebude mít většina vlastních Fast Flagů žádný vliv na Roblox klient.</value>
   </data>
 </root>

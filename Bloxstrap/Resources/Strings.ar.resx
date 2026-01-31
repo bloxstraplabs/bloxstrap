@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@
     <value>انسخ محتويات السجل</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>حدث استثناء خلال تشغيل Bloxstrap</value>
+    <value>حدث إستثناء</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>تحقق من [Bloxstrap Wiki]({0}) أولاً لمعرفة ما إذا كانت هذه المشكلة قد تمت معالجتها بالفعل بإصلاحها.
+    <value>ربما تم حل هذه المشكلة بالفعل في [Wiki]({0}).
 
-إذا لم يكن الأمر كذلك، فيرجى الإبلاغ عن هذا الاستثناء من خلال [مشكلة GitHub]({1}) مع نسخة من ملف السجل الذي تم إنشاؤه.</value>
+إن لم يكن الأمر كذلك، يرجى الإبلاغ عن هذا الاستثناء عبر [مشكلة GitHub]({1}) بالإضافة إلى ملف السجل.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>استثناء Bloxstrap</value>
@@ -818,7 +818,7 @@
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>الإدخال ل '{0}' غير صالح لأن القيمة يجب أن تكون رقم</value>
+    <value>الإدخال ل '{0}' غير صالح لأن القيمة يجب أن تكون عدد صحيح</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>لن يتم كتابة أي ملف السجل لهذا التشغيل لأن Bloxstrap غير قادر على الكتابة إلى المجلد الموجود في '{0}'</value>
@@ -911,13 +911,11 @@
     <value>إلغاء تثبيت Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>سيؤدي إلغاء التثبيت إلى المسح Bloxstrap من نظامك، وإعادة تكوين مشغل Roblox الافتراضي تلقائيًا إذا كان لا يزال مثبتًا.
+    <value>عند إلغاء التثبيت، سيتم حذف Bloxstrap من النظام، مع إعادة ضبط مشغل Roblox الأصلي تلقائياً في حال وجوده.
 
-إذا كنت تقوم بإلغاء التثبيت أو إعادة التثبيت لأنك تواجه مشكلات مع Roblox، فاقرأ [صفحة المساعدة هذه]({0}) أولاً.
+قد تترك عملية إلغاء التثبيت بعض المخلفات، لذا يُنصح بتنظيف الملفات المتبقية يدوياً في مسار التثبيت.
 
-قد لا تتمكن عملية إلغاء التثبيت من تنظيف نفسها بالكامل، لذا قد تحتاج إلى تنظيف الملفات المتبقية يدويًا حيث تم تثبيت Bloxstrap.
-
-تم تثبيت Bloxstrap في "{1}".</value>
+مسار تثبيت Bloxstrap الحالي هو: "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>احتفظ بإعداداتي و تعديلاتي</value>
@@ -949,7 +947,7 @@
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>تحقق من [Bloxstrap Wiki]({0}) أولاً لمعرفة ما إذا كانت هذه المشكلة قد عولجت بالفعل مع إصلاح.
 
-إن لم يكن الأمر كذلك، فيرجى الإبلاغ عن هذا الاستثناء إلى مشرفي هذه الفورك. لا تبلغ عن هذا إلى مشاكل Bloxstrap's GitHub، لأن هذا مبنى غير مسؤول.</value>
+​في حال استمرار المشكلة، أبلغ مطوري هذه النسخة المعدلة عن هذا الخطأ. تنبيه: لا ترفع بلاغاً في صفحة Bloxstrap الأساسية على GitHub لأن هذا الإصدار غير رسمي.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1004,7 +1002,9 @@
 هل أنت متأكد من أنك تريد المتابعة؟</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>فشل Roblox في التشغيل.</value>
+    <value>فشل Roblox في التشغيل.
+
+قد يكون هذا أو لا يكون مشكلة Bloxstrap. لمعرفة ذلك، انظر [صفحة المساعدة هذه]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>تعذر تحميل البيانات بسبب خطأ في الشبكة.</value>
@@ -1109,7 +1109,7 @@
     <value>إعادة تعيين كل شيء إلى الإعدادات الأصلية</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>الإبلاغ عن استثناء</value>
+    <value>إنشاء تقرير</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>وضع الاختبار</value>
@@ -1371,7 +1371,7 @@
     <value>تحديثات الخلفية</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>تحديث Roblox في الخلفية بدلاً من الانتظار. لا ينصح بالشبكات البطيئة. مطلوب على الأقل 3 جيغابايت من مساحة التخزين الحرة لكي تعمل هذه الميزة.</value>
+    <value>قم بتحديث Roblox في الخلفية بدلاً من حظر التشغيل عندما يكون التحديث متاحاً. مطلوب على الأقل 5 جيجابايت من مساحة التخزين الحرة لهذه الميزة.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>ضع عناصر واجهة المستخدم هنا</value>
@@ -1391,5 +1391,17 @@
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>فشل معاينة المظهر: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>إيقاف تشغيل {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>قائمة Bloxstrap</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>مجتمع Roblox</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>بسبب [تحديث قائمة العلم السريع المسموح به]({0})، معظم الأعلام السريعة المخصصة لن يكون لها أي تأثير على Roblox.</value>
   </data>
 </root>

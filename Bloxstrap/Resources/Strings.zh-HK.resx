@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -127,7 +127,7 @@
     <value>Roblox 伺服器現在可能發生了故障。請參閱{0}以了解更多資訊。</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>無法建立連線，這可能表示網際網路連線較差或防火牆封鎖。如果您的連線正常運作，請確保您的防毒軟體沒有封鎖 Bloxstrap。</value>
+    <value>無法建立連線，這可能表示網際網路連線較差或防火牆封鎖。如果您的連線正常運作，請確認您的防毒軟體沒有封鎖 Bloxstrap。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>你必須要安裝 Bloxstrap 才能解除安裝。</value>
@@ -286,12 +286,12 @@
     <value>複製日誌內容</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>執行 Bloxstrap 時發生未知錯誤</value>
+    <value>發生異常</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>請先瀏覽[Bloxstrap Wiki]({0}) 來看此問題是否已解決。
+    <value>這個問題可能已經在 [Bloxstrap 維基]({0})中被提及。
 
-如果還沒解決的話，那請透過[GitHub 問題]({1}) 中報告此問題，並附上所建立的日誌檔案副本。</value>
+如果沒有，請透過 [GitHub Issue]({1}) 提交此異常報告，並附上日誌檔案。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap異常</value>
@@ -820,7 +820,7 @@
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>你所輸入'{0}'的條目無效，因為他的值必須是數字。</value>
+    <value>'{0}' 的輸入無效，因為其值必須是整數。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>這次啓動的日誌檔案沒有被寫入因為 Bloxstrap 未能夠寫入至在'{0}'的資料夾</value>
@@ -913,13 +913,11 @@ Roblox 尚未安裝，這情況會在你第一次使用 Bloxstrap 來啓動 Robl
     <value>解除安裝 Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>解除安裝將從你的系統中刪除 Bloxstrap，並自動重新配置預設的 Roblox 啓動器，如果仍然安裝了的話。
+    <value>解除安裝會將 Bloxstrap 從您的系統中刪除，並在預設 Roblox 啓動器仍已安裝的情況下，自動將其重新設定。
 
-如果您因為使用 Roblox 時出現問題而要解除安裝或重新安裝，請先閱讀[此說明頁面]({0})。
+解除安裝過程可能會留下一些殘留檔案，您可能需要手動清除 Bloxstrap 安裝路徑下的剩餘檔案。
 
-解除安裝過程可能無法完全刪除所有檔案，因此你可能需要手動刪除安裝 Bloxstrap 時的剩餘檔案。
-
-Bloxstrap 已安裝在 "{1}"。</value>
+Bloxstrap 的安裝位置為「{1}」。</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的設定和模組</value>
@@ -949,9 +947,9 @@ Bloxstrap 已安裝在 "{1}"。</value>
     <value>Bloxstrap 無法建立桌面和開始選單的捷徑。請你稍後嘗試透過設定來建立它們。</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>首先檢查 [Bloxstrap Wiki]({0}) 以查看此問題是否已被修復。
+    <value>請先查看 [Bloxstrap 維基]({0})，確認此問題是否已修復。
 
-如果沒有，請將此異常報告給這個版本 (fork) 的維護者。不要將此報告到 Bloxstrap 的 GitHub Issues (問題)，因為這是一個非官方的版本。</value>
+如果沒有，請將此異常回報給此分支的維護者。請勿向 Bloxstrap 的 GitHub issues 回報此問題，因為這是非官方版本。</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1004,9 @@ Bloxstrap 已安裝在 "{1}"。</value>
 請問你確定要繼續嗎？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox 無法啓動。</value>
+    <value>Roblox 無法啓動。
+
+這可能是 Bloxstrap 的問題，也可能不是。如欲了解詳情，請參閱[此說明頁面]({0})。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>由於網路錯誤，所以無法載入資料。</value>
@@ -1111,7 +1111,7 @@ Bloxstrap 已安裝在 "{1}"。</value>
     <value>將所有設定重設為預設值</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>舉報異常</value>
+    <value>報告問題</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>測試模式</value>
@@ -1125,7 +1125,7 @@ Bloxstrap 已安裝在 "{1}"。</value>
 請問你想啓用測試模式嗎？</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Bloxstrap 的所有翻譯都是透過 [Crowdin]({0}) 進行眾包。這裡列出的每個人都慷慨地自願貢獻自己的時間和精力來幫助 Bloxstrap 變為本地化。非常感謝這裡的每一個人！</value>
+    <value>Bloxstrap 的所有翻譯都是透過 [Crowdin]({0}) 進行眾包。這裏列出的每個人都慷慨地自願貢獻自己的時間和精力來幫助 Bloxstrap 變為在地化。非常感謝這裏的每一個人！</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>安裝</value>
@@ -1374,7 +1374,7 @@ Bloxstrap 已安裝在 "{1}"。</value>
     <value>背景更新</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>無需等待即可在背景更新 Roblox。不建議用於速度較慢的網路。此功能需要至少 3GB 的可用儲存空間才能正常運作。</value>
+    <value>當有更新可用時，在背景更新 Roblox 而不是阻止啓動。此功能至少需要 5GB 的可用儲存空間。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>將 UI 元素放在這裏</value>
@@ -1394,5 +1394,17 @@ Bloxstrap 已安裝在 "{1}"。</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>無法預覽主題: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>正在關閉 {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap 維基</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox 社群</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>由於 [Fast Flag 的白名單更新]({0})，大部份的自訂 Fast Flag 將在 Roblox 客戶端上沒有效果。</value>
   </data>
 </root>
