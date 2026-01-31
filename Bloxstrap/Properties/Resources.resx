@@ -146,7 +146,7 @@
     <value>..\Resources\Icon2022.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconBloxstrap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconBloxstrap.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Bloxstrap.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconEarly2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconEarly2015.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
