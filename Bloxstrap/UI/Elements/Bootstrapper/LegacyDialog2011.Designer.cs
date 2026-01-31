@@ -96,7 +96,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LegacyDialog2011";
             FormClosing += Dialog_FormClosing;
-            Load += LegacyDialog2011_Load;
+            Load += Dialog_Load;
             ((System.ComponentModel.ISupportInitialize)IconBox).EndInit();
             ResumeLayout(false);
         }

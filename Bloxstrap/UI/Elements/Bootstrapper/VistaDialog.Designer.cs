@@ -28,23 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            SuspendLayout();
             // 
             // VistaDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(0, 0);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "VistaDialog";
-            this.Opacity = 0D;
-            this.ShowInTaskbar = false;
-            this.Text = "VistaDialog";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-            this.Load += new System.EventHandler(this.VistaDialog_Load);
-            this.FormClosing += this.Dialog_FormClosing;
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(0, 0);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Name = "VistaDialog";
+            Opacity = 0D;
+            ShowInTaskbar = false;
+            Text = "VistaDialog";
+            WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            FormClosing += Dialog_FormClosing;
+            Load += Dialog_Load;
+            ResumeLayout(false);
         }
 
         #endregion

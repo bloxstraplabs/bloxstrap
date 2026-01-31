@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Shell;
 
 namespace Bloxstrap.UI.ViewModels.Editor
 {
@@ -42,6 +43,7 @@ namespace Bloxstrap.UI.ViewModels.Editor
                 _dialog = dialog;
 
                 dialog.Message = Strings.Bootstrapper_StylePreview_TextCancel;
+                //dialog.TaskbarProgressState = TaskbarItemProgressState.Indeterminate;
                 dialog.CancelEnabled = true;
                 dialog.ShowBootstrapper();
             }
