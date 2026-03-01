@@ -36,6 +36,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
             DataContext = viewModel;
 
             InitializeComponent();
+
+            Image.Source = BootstrapperIcon.IconBloxstrap.GetIcon().GetImageSource();
         }
     }
 }
