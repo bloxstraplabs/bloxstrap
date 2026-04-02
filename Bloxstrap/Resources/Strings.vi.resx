@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@ Bấm để biết thêm thông tin</value>
     <value>Sao chép dữ liệu log</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Một trường hợp ngoại lệ đã xảy ra khi đang chạy Bloxstrap</value>
+    <value>Đã xảy ra lỗi</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Hãy xem qua [Bloxstrap Wiki]({0}) trước để xem nếu vấn đề này đã được khắc phục chưa
+    <value>Giải pháp cho vấn đề này có thể đã có sẵn trong [Wiki]({0}).
 
-Nếu chưa, xin hay báo cáo lỗi này qua [GitHub issue]({1}) với bản copy của tệp log vừa được tạo.</value>
+Nếu không, vui lòng báo cáo lỗi này qua [GitHub Issue]({1}) và đính kèm tệp log.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Lỗi ngoại lệ Bloxstrap</value>
@@ -821,7 +821,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Giá trị '{0}' không hợp lệ vì giá trị phải là một chữ số</value>
+    <value>Giá trị '{0}' không hợp lệ vì giá trị phải là một số nguyên</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Tệp log mới sẽ không được tạo cho lần khởi chạy này vì Bloxstrap không thể ghi vào thư mục tại '{0}'</value>
@@ -915,13 +915,11 @@ Bạn muốn làm gì?</value>
     <value>Gỡ cài đặt Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Gỡ cài đặt Bloxstrap sẽ xóa nó khỏi hệ thống của bạn, và tự động cấu hình lại trình khởi chạy mặc định của Roblox nếu nó vẫn được cài đặt.
+    <value>Gỡ cài đặt sẽ xóa Bloxstrap khỏi hệ thống của bạn, và tự động cài đặt phần mềm Roblox mặc định nếu nó đã được cài đặt.
 
-Nếu bạn đang gỡ cài đặt hoặc cài đặt lại vì gặp sự cố với Roblox, hãy đọc [trang trợ giúp này]({0}) trước.
+Quá trình gỡ cài đặt có thể để lại một vài thứ, cho nên bạn có thể phải tự dọn dẹp những tài liệu còn dư ở nơi Bloxstrap đã được cài đặt.
 
-Quá trình gỡ cài đặt có thể không tự dọn dẹp hoàn toàn, vì vậy có thể bạn sẽ cần phải dọn dẹp thủ công các tệp còn sót lại nơi Bloxstrap đã được cài đặt.
-
-Bloxstrap đã được cài đặt tại "{1}".</value>
+Bloxstrap đã được cài đặt ở "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Giữ lại các cài đặt và mod của tôi</value>
@@ -951,9 +949,9 @@ Bloxstrap đã được cài đặt tại "{1}".</value>
     <value>Bloxstrap không thể tạo phím tắt cho màn hình chính và Start Menu. Hãy thử tạo chúng thông qua cài đặt.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Tìm xem [Bloxstrap Wiki]({0}) trước để xem nếu vấn đề này đã có phương pháp giải quyết.
+    <value>Trước tiên hãy tìm trong [Bloxstrap Wiki]({0}) để xem nếu vấn đề này đã có phương pháp giải quyết chưa.
 
-Nếu không, thì hãy báo cáo vấn đề này đến người quản lí của bản sao này. ĐỪNG báo cáo vấn đề này đến GitHub của Bloxstrap, bởi vì đây là một bản sao không chính thức.</value>
+Nếu không, thì hãy báo cáo vấn đề này đến người duy trì của fork này. Đừng báo cáo vấn đề này lên Github issues của Bloxstrap, bởi vì đây là một fork không chính thức.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1008,7 +1006,9 @@ Có thể xảy ra sự cố và các tùy chỉnh của bạn có thể bị th
 Bạn có muốn tiếp tục không?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Không thể khởi chạy Roblox.</value>
+    <value>Khởi chạy Roblox thất bại.
+
+Đây có thể hoặc không phải lỗi của Bloxstrap. Để tìm hiểu thêm, xin hãy [xem trang hỗ trợ]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Không thể tải dữ liệu vì lỗi mạng.</value>
@@ -1113,7 +1113,7 @@ Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc th�
     <value>Đặt tất cả cài đặt về mặc định</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Báo cáo lỗi</value>
+    <value>Tạo báo cáo</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Chế độ thử nghiệm</value>
@@ -1376,7 +1376,7 @@ Mặc định về {1}.</value>
     <value>Cập nhật ở nền</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Cập nhật Roblox ở nền thay vì đợi. Không khuyến khích cho mạng chậm. Cần ít nhất 3GB bộ nhớ trống để tính năng này hoạt động.</value>
+    <value>Cập nhật Roblox trong nền thay vì chặn quá trình khởi chạy khi có bản cập nhật. Cần trống ít nhất 5GB bộ nhớ lưu trữ cho tính năng này.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Đặt các thành phần giao diện tại đây</value>
@@ -1396,5 +1396,17 @@ Mặc định về {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Không thể xem trước giao diện: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Đang đóng {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Cộng đồng Roblox</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Do [Cập nhật danh sách Fast Flag được cho phép]({0}), đa số Fast Flag sẽ không ảnh hưởng tới Roblox.</value>
   </data>
 </root>

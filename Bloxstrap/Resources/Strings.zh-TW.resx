@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@
     <value>複製日誌内容</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>執行 Bloxstrap 時出現了錯誤</value>
+    <value>發生例外狀況</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>請先瀏覽 [Bloxstrap Wiki]({0}) 來看此問題是否已解決。
+    <value>[Bloxstrap Wiki]({0}) 中可能已有此問題的解決方案。
 
-如果尚未被解決的話，那請透過 [GitHub Issue]({1}) 中回報此問題，並附上所創建的日誌文件副本。</value>
+若未找到，請透過 [GitHub Issue]({1}) 回報此例外狀況，並附上紀錄檔。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap 異常</value>
@@ -420,7 +420,7 @@
     <value>MIT 授權條款</value>
   </data>
   <data name="Menu.About.ReportIssue" xml:space="preserve">
-    <value>報告錯誤</value>
+    <value>回報問題</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
     <value>關於</value>
@@ -820,7 +820,7 @@
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>'{0}'的條目無效；內容必須是數字</value>
+    <value>'{0}' 的輸入無效，因為數值必須為整數。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>這次啟動的日誌文件沒有被寫入因為Bloxstrap未能寫入至在'{0}'的文件夾</value>
@@ -913,13 +913,11 @@ Roblox 尚未安裝，這將在您第一次使用 Bloxstrap 啟動時進行。�
     <value>解除安裝 Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>解除安裝將從您的系統中刪除 Bloxstrap，並重新配置默認的 Roblox 啟動器。
+    <value>解除安裝將從您的系統中移除 Bloxstrap，並在預設 Roblox 啟動器仍存在的情況下，自動將其重新設定。
 
-如果您是因為 Roblox 出現問題，想要解除安裝，請先閱讀 [此幫助頁面]({0})。
+解除安裝過程可能會留下部分殘餘項目，您可能需要手動清除 Bloxstrap 安裝路徑下的剩餘檔案。
 
-解除安裝的過程可能無法刪除全部文件。 所以你可能需要手動清理 Bloxstrap 的殘留文件。
-
-Bloxstrap 安裝在 "{1}"。</value>
+Bloxstrap 安裝位置為「{1}」。</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的設定和模組</value>
@@ -1006,7 +1004,9 @@ Bloxstrap 安裝在 "{1}"。</value>
 您確定要繼續嗎？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox 啟動失敗。</value>
+    <value>Roblox 啟動失敗。
+
+這不一定是 Bloxstrap 造成的問題。若要釐清原因，請參閱 [此說明頁面]({0})。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>由於網絡錯誤，無法載入數據。</value>
@@ -1112,7 +1112,7 @@ Bloxstrap 安裝在 "{1}"。</value>
     <value>將所有設定重設為預設值</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>報告錯誤</value>
+    <value>回報問題</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>測試模式</value>
@@ -1375,7 +1375,7 @@ Bloxstrap 安裝在 "{1}"。</value>
     <value>背景更新</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>無需等待即可在背景更新 Roblox。不建議在網速較慢的情況下使用此功能。此功能至少需要 3 GB 的可用儲存空間才能正常運作。</value>
+    <value>當有可用更新時，將在背景更新 Roblox 而非阻擋啟動。此功能需要至少 5GB 的可用儲存空間。</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>將 UI 元素放在這裡</value>
@@ -1395,5 +1395,17 @@ Bloxstrap 安裝在 "{1}"。</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>無法預覽主題: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>正在關閉 {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap 百科</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox 社群</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>由於 [Fast Flag 白名單更新]({0})，大多數自訂 Fast Flag 將無法在 Roblox Player 上生效。</value>
   </data>
 </root>

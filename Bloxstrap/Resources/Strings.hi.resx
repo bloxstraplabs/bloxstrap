@@ -1,0 +1,1412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
+    <value>Bloxstrap version {0} ko automatically update karne mein asafal raha. Kripya ise manually update karein, website se download karke run karein.</value>
+  </data>
+  <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
+    <value>Roblox vartamaan mein chal raha hai, aur ek any instance launch karane se yah band ho jaega. kya aap vaakee launching jaaree rakhna chahate hain?</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
+    <value>Roblox abhi down ho sakta hai. Adhik jankari ke liye {0} dekhein.</value>
+  </data>
+  <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
+    <value>Ek connection nahi banaya ja sakta, jo ki aksar poor internet connection ya firewall block ko darshata hai. Agar aapka connection sahi hai, to kripya ensure karein ki aapka antivirus Bloxstrap ko block na kar raha ho.</value>
+  </data>
+  <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
+    <value>Aapko pehle Bloxstrap install karna hoga, uske baad hi uninstall kar sakte hai.</value>
+  </data>
+  <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
+    <value>Bloxstrap ke pass Roblox download aur install karne ke liye disk me paryaapt jagah nahi hai. Kripya disk me jagah bana ke phirse prayaas kare.</value>
+  </data>
+  <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
+    <value>Roblox sanshodhan laagu kiya jaa raha hai...</value>
+  </data>
+  <data name="Bootstrapper.Status.Configuring" xml:space="preserve">
+    <value>{product} configure kiya jaa raha hai...</value>
+  </data>
+  <data name="Bootstrapper.Status.Connecting" xml:space="preserve">
+    <value>Roblox se connect kiya jaa raha hai...</value>
+  </data>
+  <data name="Bootstrapper.Status.Installing" xml:space="preserve">
+    <value>{product} install ho raha hai</value>
+  </data>
+  <data name="Bootstrapper.Status.InstallingWebView2" xml:space="preserve">
+    <value>WebView 2 install ho raha he, kripya pratiksha kare...</value>
+  </data>
+  <data name="Bootstrapper.Status.Starting" xml:space="preserve">
+    <value>{product} shuru ho raha hai...</value>
+    <comment>"Starting Roblox" or "Starting Roblox Studio"</comment>
+  </data>
+  <data name="Bootstrapper.Status.Upgrading" xml:space="preserve">
+    <value>{product} upgrade ho raha hai...</value>
+  </data>
+  <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
+    <value>Naya Bloxstrap version download kar rahe he....</value>
+  </data>
+  <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
+    <value>Dusre instances kee prateeksha ha...</value>
+  </data>
+  <data name="Bootstrapper.StylePreview.ImageCancel" xml:space="preserve">
+    <value>Style preview - Band karane ke liye daeen or sthit X button par click karen</value>
+    <comment>Text for style previews that use an X button. Currently only applies to Byfron</comment>
+  </data>
+  <data name="Bootstrapper.StylePreview.TextCancel" xml:space="preserve">
+    <value>Style preview - Band karne ke liye Cancel click kare</value>
+    <comment>Text for style previews that use text button that says "Cancel"</comment>
+  </data>
+  <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
+    <value>Bloxstrap saphalataapoorvak uninstall ho gaya hai</value>
+  </data>
+  <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
+    <value>Roblox abhi chal raha hai, lekin Bloxstrap ko uninstall karne se pehle ise band karna zaroori hai. Kya aap abhi Roblox ko band karna chahenge?</value>
+  </data>
+  <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
+    <value>Roblox ko Windows Media Foundation components ke upayog kee aavashyakata hai. Aisa prateet hota hai ki aap unhen miss kar rahe hain, sambhavatah isalie kyonki aap Windows ke N edition ka upayog kar rahe hain. Kripaya pahale unhen install karen, aur phir Roblox launch kare.</value>
+  </data>
+  <data name="Common.AddSingle" xml:space="preserve">
+    <value>Ek Dale</value>
+  </data>
+  <data name="Common.Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Common.Cancel" xml:space="preserve">
+    <value>Radd karen</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>Band kare</value>
+  </data>
+  <data name="Common.Delete" xml:space="preserve">
+    <value>Mitaoo</value>
+  </data>
+  <data name="Common.DiscordRichPresence" xml:space="preserve">
+    <value>Discord Rich Presence</value>
+  </data>
+  <data name="Common.Help" xml:space="preserve">
+    <value>Madat</value>
+  </data>
+  <data name="Common.ImportJson" xml:space="preserve">
+    <value>Import JSON</value>
+  </data>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Log file kholiye</value>
+  </data>
+  <data name="Common.Miscellaneous" xml:space="preserve">
+    <value>Vibhinn</value>
+  </data>
+  <data name="Common.Name" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="Common.New" xml:space="preserve">
+    <value>Naya</value>
+  </data>
+  <data name="Common.No" xml:space="preserve">
+    <value>Nahi</value>
+  </data>
+  <data name="Common.OK" xml:space="preserve">
+    <value>Theek hai</value>
+  </data>
+  <data name="Common.Presets" xml:space="preserve">
+    <value>Presets</value>
+  </data>
+  <data name="Common.Reset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>In the context of resetting something to a default value</comment>
+  </data>
+  <data name="Common.Value" xml:space="preserve">
+    <value>Moolya</value>
+  </data>
+  <data name="Common.Warning" xml:space="preserve">
+    <value>Saavdhan</value>
+  </data>
+  <data name="Common.Yes" xml:space="preserve">
+    <value>Haa</value>
+  </data>
+  <data name="ContextMenu.CloseRoblox" xml:space="preserve">
+    <value>Roblox band kare</value>
+  </data>
+  <data name="ContextMenu.CloseRobloxMessage" xml:space="preserve">
+    <value>Kya aap vaakee roblox ko band karana chaahate hain? Isase jabaradastee band kiya jaega.</value>
+  </data>
+  <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
+    <value>Copy invite deeplink</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyInstanceId" xml:space="preserve">
+    <value>Copy Instance ID</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.InstanceId" xml:space="preserve">
+    <value>Instance ID</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Location" xml:space="preserve">
+    <value>Jagah</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Text" xml:space="preserve">
+    <value>Server sthan:{0}
+Adhik jaankaree ke liye click kare</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Public" xml:space="preserve">
+    <value>Public server se connected hai</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Title" xml:space="preserve">
+    <value>Server ki jaankaaree</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Dialog.AddFastFlag.Title" xml:space="preserve">
+    <value>Fast Flag dale</value>
+  </data>
+  <data name="Dialog.Connectivity.MoreInfo" xml:space="preserve">
+    <value>Aur jaankaaree:</value>
+  </data>
+  <data name="Dialog.Connectivity.Title" xml:space="preserve">
+    <value>Connectivity galatee</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
+    <value>Bloxstrap {0} से कनेक्ट नहीं हो पा रहा है।</value>
+    <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
+  </data>
+  <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
+    <value>Copy log contents</value>
+  </data>
+  <data name="Dialog.Exception.Info.1" xml:space="preserve">
+    <value>Ek exception aayi</value>
+  </data>
+  <data name="Dialog.Exception.Info.2" xml:space="preserve">
+    <value>Yeh problem shayad pehle hi [Wiki]({0}) mein address ki ja chuki ho.
+
+Agar aisa nahi hai, toh please is exception ko log file ke saath [GitHub issue]({1}) ke through report karein.</value>
+  </data>
+  <data name="Dialog.Exception.Title" xml:space="preserve">
+    <value>Bloxstrap apavaad</value>
+  </data>
+  <data name="Common.Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
+    <value>२०१५ ke shuru me</value>
+  </data>
+  <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
+    <value>2015 ke khatam me</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
+    <value>Fake Byfron (2023)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
+    <value>Bloxstrap (Classic)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
+    <value>Bloxstrap (Glass)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
+    <value>Legacy (2008 - 2011)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
+    <value>Legacy (2011 - 2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
+    <value>Roblox (~2014)</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
+    <value>Vista (2008 - 2011)</value>
+  </data>
+  <data name="Enums.CursorType.From2006" xml:space="preserve">
+    <value>2006 (Cartoony)</value>
+  </data>
+  <data name="Enums.CursorType.From2013" xml:space="preserve">
+    <value>2013 (Angular)</value>
+  </data>
+  <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
+    <value>Catmoji</value>
+  </data>
+  <data name="Enums.EmojiType.Default" xml:space="preserve">
+    <value>Default (Twemoji)</value>
+  </data>
+  <data name="Enums.EmojiType.Windows10" xml:space="preserve">
+    <value>Windows 10</value>
+  </data>
+  <data name="Enums.EmojiType.Windows11" xml:space="preserve">
+    <value>Windows 11</value>
+  </data>
+  <data name="Enums.EmojiType.Windows8" xml:space="preserve">
+    <value>Windows 8</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
+    <value>2015 (V1)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
+    <value>2020 (V2)</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
+    <value>2023 (V4)</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
+    <value>Direct3D 10</value>
+  </data>
+  <data name="Enums.FlagPresets.RenderingMode.D3D11" xml:space="preserve">
+    <value>Direct3D 11</value>
+  </data>
+  <data name="Enums.ServerType.Private" xml:space="preserve">
+    <value>Private server</value>
+  </data>
+  <data name="Enums.ServerType.Public" xml:space="preserve">
+    <value>Public server</value>
+  </data>
+  <data name="Enums.ServerType.Reserved" xml:space="preserve">
+    <value>Reserved server</value>
+  </data>
+  <data name="Enums.Theme.Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Enums.Theme.Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="InstallChecker.Updated" xml:space="preserve">
+    <value>Bloxstrap ko v{0} mein upgrade kar diya gaya hai</value>
+  </data>
+  <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
+    <value>Aapke dvaara launch kiya gaya Bloxstrap ka version aapake dvaara vartamaan mein install kie gae version se alag hai.
+Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</value>
+  </data>
+  <data name="Menu.About.Contributors" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="Menu.About.Contributors.Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Menu.About.Contributors.Description" xml:space="preserve">
+    <value>Ye voh log he jinhonne Bloxstrap me ullekhaneey yogadaan diya hai, jiske vajese madat mila he Bloxstrap banane me.</value>
+  </data>
+  <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
+    <value>Feature vichaar</value>
+  </data>
+  <data name="Menu.About.Contributors.SpecialThanks" xml:space="preserve">
+    <value>Vishesh dhanyavaad</value>
+  </data>
+  <data name="Menu.About.Description" xml:space="preserve">
+    <value>Vibhinn suvidhaon ke samooh ke saath Roblox ke lie ek vaikalpik bootstrapper.</value>
+  </data>
+  <data name="Menu.About.DiscordServer" xml:space="preserve">
+    <value>Discord Server</value>
+  </data>
+  <data name="Menu.About.GithubRepository" xml:space="preserve">
+    <value>Github repository</value>
+  </data>
+  <data name="Menu.About.HelpInformation" xml:space="preserve">
+    <value>Sahaayata aur jaankaree</value>
+  </data>
+  <data name="Menu.About.Licenses" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="Menu.About.Licenses.BSD2" xml:space="preserve">
+    <value>BSD 2-Clause License</value>
+  </data>
+  <data name="Menu.About.Licenses.MIT" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="Menu.About.ReportIssue" xml:space="preserve">
+    <value>Issue Report Kare</value>
+  </data>
+  <data name="Menu.About.Title" xml:space="preserve">
+    <value>Bloxstrap ke baare me</value>
+  </data>
+  <data name="Menu.About.Version" xml:space="preserve">
+    <value>Version {0}</value>
+    <comment>{0} is replaced with the version, i.e. "Version 2.8.0"</comment>
+  </data>
+  <data name="Menu.AllFiles" xml:space="preserve">
+    <value>Sabhee files</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Caption" xml:space="preserve">
+    <value>Kripaya dhyaan den ki aapke sabhee parivartan tab tak turant laagoo nahin honge jab tak aap vartamaan mein khule sabhee roblox instances ko band nahin kar dete.</value>
+  </data>
+  <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
+    <value>Bloxstrap pehle se hee khula hai</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
+    <value>Aap ise alag, retro, ya yahaan tak ​​ki Roblox kee tarah bhee bana sakte hain.</value>
+  </data>
+  <data name="Menu.Appearance.Bootstrapper.Title" xml:space="preserve">
+    <value>Bootstrapper</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
+    <value>Any vividh vikalpon ko configure kare.</value>
+  </data>
+  <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
+    <value>Customisation</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
+    <value>16px se 128px aakaar vaalee ek bahu-aakaar vaalee .ico file honee chaahie. Isaka upayog karane ke lie icon ko 'Custom' ke roop mein set karen.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
+    <value>Custom Icon</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Description" xml:space="preserve">
+    <value>Vah paath jo bootstrapper ke sheershak ke roop mein dikhaee deta hai.</value>
+  </data>
+  <data name="Menu.Appearance.CustomisationTitle.Title" xml:space="preserve">
+    <value>Sheershak</value>
+  </data>
+  <data name="Menu.Appearance.Description" xml:space="preserve">
+    <value>Configure karen ki Bloxstrap kaisa dikhana chaahie.</value>
+  </data>
+  <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
+    <value>Vaishvik Theme</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
+    <value>Chunen ki use kis icon ka upayog karana chaahie.</value>
+  </data>
+  <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Menu.Appearance.Preview" xml:space="preserve">
+    <value>Sameeksha karen</value>
+  </data>
+  <data name="Menu.Appearance.Style.Description" xml:space="preserve">
+    <value>Chunen ki yah kaisa dikhana chaahie. Dark theme Legacy/Vista par laagoo nahin hotee hai.</value>
+  </data>
+  <data name="Menu.Appearance.Style.Title" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Menu.Appearance.Title" xml:space="preserve">
+    <value>Dikhaavat</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
+    <value>Roblox launch karate samay Bloxstrap svachaalit roop se jaanch karega aur update karega.</value>
+  </data>
+  <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
+    <value>Bloxstrap ko svachaalit roop se update karen</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
+    <value>Galatee se koee doosara game launch karane se apane maujooda game ko band hone se roken.</value>
+  </data>
+  <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
+    <value>Any Roblox instances launch karate samay pushti karane ka sanket den</value>
+  </data>
+  <data name="Menu.Behaviour.Description" xml:space="preserve">
+    <value>Jab Roblox launch ho raha ho tab Bloxstrap ko kya karna chahiye, ise configure karein.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
+    <value>Agale launch par Roblox ko naya se install kiya jaega.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
+    <value>Roblox ko phirse balapoorvak install karen</value>
+  </data>
+  <data name="Menu.Behaviour.Title" xml:space="preserve">
+    <value>Bootstrapper</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AddNew" xml:space="preserve">
+    <value>Naya banaye</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AlreadyExists" xml:space="preserve">
+    <value>Is Flag naam ke lie ek pravishti pahale se maujood hai.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Back" xml:space="preserve">
+    <value>Vapaas jao</value>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerText" xml:space="preserve">
+    <value>Isaka durupayog karane se asthirata ya apratyaashit cheejen ghatit ho sakatee hain.</value>
+    <comment>The element that this string is rendered in *cannot be wrapped* and may be truncated when displayed if too long. If so, try and paraphrase a shortened version.</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.BannerTitle" xml:space="preserve">
+    <value>Saavadhaanee se prayog karen.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ConflictingImport" xml:space="preserve">
+    <value>Aap jin flags ko aayaat karane ka prayaas kar rahe hain unamen se kuchh ka molya pahale se hee nirdhaarit hai. Kya aap unake vartamaan molya ko aayaat mein paribhaashit moolyon se adhilekhit karana chaahenge?
+
+{0} paraspar virodhee flag paribhaashaen hain:
+{1}</value>
+    <comment>{0} is a number, {1} is a comma-separated list</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.DeleteSelected" xml:space="preserve">
+    <value>Chayanit ko hatao</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Description" xml:space="preserve">
+    <value>Apane svayan ke Fast Flags prabandhit karen. Sampaadit karane ke lie kisee column par double click kare.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ExportJson" xml:space="preserve">
+    <value>Export JSON</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidCharacter" xml:space="preserve">
+    <value>{0} ke lie pravishti maany nahin hai kyonki naam mein keval akshar, sankhyaen aur underscore ho sakate hain</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidJSON" xml:space="preserve">
+    <value>Aapake dvaara darj kiya gaya JSON maany nahin prateet hota hai. krpaya ise dobaara jaanchen aur punah prayaas karen.
+
+Adhik jaanakaaree:
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPrefix" xml:space="preserve">
+    <value>{0} ke lie pravishti maany nahin hai kyonki naam FFlag, DFInt, aadi se shuroo hona chaahie</value>
+  </data>
+  <data name="Menu.FastFlagEditor.JsonCopiedToClipboard" xml:space="preserve">
+    <value>Clipboard par nakal.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.LargeConfig" xml:space="preserve">
+    <value>Aap ek bahut bada configuration import kar rahe hain. Aapako keval vahee configuration aayaat karana chaahie jinhen aap pooree tarah se samajhate hain. Ani logon dvaara banae gae configurations ko bina jaane paste NA KAREN. Yadi aap jaaree rakhate hain, to bahut sambhaavana hai ki apko bohot sankat honge.
+
+Kya aap vaakee import karna chaahate hain?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Search" xml:space="preserve">
+    <value>Khojo</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ShowPresetFlags" xml:space="preserve">
+    <value>Preset flags dikhao</value>
+  </data>
+  <data name="Menu.FastFlagEditor.Title" xml:space="preserve">
+    <value>Fast Flag Editor</value>
+  </data>
+  <data name="Menu.FastFlags.Description" xml:space="preserve">
+    <value>Niyantrit karen ki vishisht Roblox engine parameters aur suvidhaen kaise configure kee gaee hain.</value>
+  </data>
+  <data name="Menu.FastFlags.Editor.Description" xml:space="preserve">
+    <value>Apane svayan ke Fast Flags prabandhit karen. Saavadhaanee se prayog karen.</value>
+    <comment>Title is Menu.FastFlagEditor.Title</comment>
+  </data>
+  <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
+    <value>Direct3D [exclusive fullscreen]({0}) Alt+Enter ka upayog karake default roop se saksham hai.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
+    <value>Windows mein aapake display ko kaise scale kiya jaata hai, isake aadhaar par Roblox aapakee rendering gunavatta ko kam kar deta hai.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.FixDisplayScaling.Title" xml:space="preserve">
+    <value>Display scaling ke saath rendering gunavatta banae rakhen</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>Rendering mode</value>
+  </data>
+  <data name="Menu.FastFlags.Title" xml:space="preserve">
+    <value>FastFlags</value>
+  </data>
+  <data name="Menu.FontFiles" xml:space="preserve">
+    <value>Font files</value>
+  </data>
+  <data name="Menu.IconFiles" xml:space="preserve">
+    <value>Icon files</value>
+  </data>
+  <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
+    <value>Yahaan Bloxstrap install nahin kiya ja sakata. krpaya koee bhinn sthaan chunen, ya reset button par click karake default sthaan ka upayog karen.</value>
+  </data>
+  <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
+    <value>Bloxstrap ko install karane ke lie aapane jo folder chuna hai vah pahale se maujood hai aur khaalee nahin hai. Bloxstrap ko usake apane svatantr folder mein install karane kee purajor anushansa kee jaatee hai.
+
+Nimnalikhit sthaan mein parivartan ka sujhaav diya gaya hai:
+{0}
+
+Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
+'Nahin' ka chayan karane se is chetaavanee par dhyaan nahin diya jaega aur installation jaaree rahega.</value>
+    <comment>{0} is a file path</comment>
+  </data>
+  <data name="Menu.InstallLocation.NotSet" xml:space="preserve">
+    <value>Aapako ek install sthaan nirdhaarit karana hoga</value>
+  </data>
+  <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
+    <value>Bloxstrap ke paas aapake dvaara chunen gae install sthaan tak likhane kee pahunch nahin hai. krpaya koee any sthaan chunen.</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
+    <value>Activity tracking</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Description" xml:space="preserve">
+    <value>Kisee ko bhee aapake discord profile ke maadhyam se us game mein shaamil hone kee anumati deta hai jisamen aap vartamaan mein hain.</value>
+  </data>
+  <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
+    <value>Activity mein shaamil hone kee anumati den</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Aapke Discord profile par woh Roblox account dikhata hai jisse aap khel rahe hain.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Roblox account dikhayein</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
+    <value>Application ka sthaan</value>
+  </data>
+  <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
+    <value>Roblox band hone par svatah band ho jae</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Description" xml:space="preserve">
+    <value>Yahaan, aap Roblox ke saath any programs svachaalit roop se launch kar sakate hain.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs" xml:space="preserve">
+    <value>Launch Arguments</value>
+  </data>
+  <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
+    <value>Roblox chal raha hai!</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
+    <value>Naya Intergration</value>
+  </data>
+  <data name="Menu.Integrations.Custom.NoneSelected" xml:space="preserve">
+    <value>Koi integration chayanit nahin, kripaya koi naya chunen ya add kare.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.Title" xml:space="preserve">
+    <value>Custom Integrations</value>
+  </data>
+  <data name="Menu.Integrations.Description" xml:space="preserve">
+    <value>Roblox ke saath jaane ke lie atirikt kaaryakshamata configure karen.</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Description" xml:space="preserve">
+    <value>Roblox poori tarah band ho jayega jab aap ek game chhodenge, bajay iske ki app par wapas jayein. [Kuch cheezein kharab ho sakti hain!]({0})</value>
+  </data>
+  <data name="Menu.Integrations.DesktopApp.Title" xml:space="preserve">
+    <value>Desktop app tak exit na kare</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
+    <value>Bloxstrap ko yah pata lagaane kee anumati deta hai ki aap kaun sa Roblox game khel rahe hain. kuchh suvidhaon ke lie isakee aavashyakata ho sakatee hai.</value>
+  </data>
+  <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
+    <value>Activity tracking upayog kare</value>
+  </data>
+  <data name="Menu.Integrations.RequiresActivityTracking" xml:space="preserve">
+    <value>Ye feature use karne ke liye activity tracking enable honi chahiye aur Discord desktop app installed aur running honi chahiye. [Zyada jaaniye]({0}).</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Description" xml:space="preserve">
+    <value>Aap jo Roblox game khel rahe hain vah aapake discord profile par dikhaaya jaega. [Kaam nahin kar raha?]({0})</value>
+  </data>
+  <data name="Menu.Integrations.ShowGameActivity.Title" xml:space="preserve">
+    <value>Game activity dikhaen</value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
+    <value>Game ke andar, aap dekh sakenge ki aapka server kahan located hai [ipinfo.io]({0}) ke madhyam se.  </value>
+  </data>
+  <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
+    <value>Server location ki jaanch karein</value>
+  </data>
+  <data name="Menu.Integrations.Title" xml:space="preserve">
+    <value>Integrations</value>
+  </data>
+  <data name="Menu.Mods.Description" xml:space="preserve">
+    <value>Roblox game client par file mods prabandhit karen aur laagoo karen.</value>
+  </data>
+  <data name="Menu.Mods.Help.Description" xml:space="preserve">
+    <value>Mods ko prabandhit karane aur banaane ke baare mein jaanakaaree dekhen.</value>
+    <comment>Title is Common.Help</comment>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Choose" xml:space="preserve">
+    <value>Font choose kare...</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Invalid" xml:space="preserve">
+    <value>Aapake dvaara chunee gaee file ek vaidh font file prateet nahin hotee hai.</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Remove" xml:space="preserve">
+    <value>Laagoo font hataen</value>
+  </data>
+  <data name="Menu.Mods.Misc.CustomFont.Title" xml:space="preserve">
+    <value>Custom font upayog kare</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Description" xml:space="preserve">
+    <value>Yahaan custom Roblox mods prabandhit karen.</value>
+  </data>
+  <data name="Menu.Mods.OpenModsFolder.Title" xml:space="preserve">
+    <value>Mods Folder khole</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Description" xml:space="preserve">
+    <value>Chunen Roblox ko kis prakaar ke emoji ka upayog karane chaahiye.</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Title" xml:space="preserve">
+    <value>Pasandeeda emoji type</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Description" xml:space="preserve">
+    <value>Doh classic Roblox cursor styles ke beech chuna.</value>
+  </data>
+  <data name="Menu.Mods.Presets.MouseCursor.Title" xml:space="preserve">
+    <value>Mouse cursor</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Description" xml:space="preserve">
+    <value>Purana Roblox app avatar editor background 2022 ke pahela vaapas laiye.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldAvatarEditor.Title" xml:space="preserve">
+    <value>Purana avatar editor background istamal karo.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Description" xml:space="preserve">
+    <value>2014 se pehle istemal kee gayi character ke avaaze vapaas layia.</value>
+  </data>
+  <data name="Menu.Mods.Presets.OldCharacterSounds.Title" xml:space="preserve">
+    <value>Purana character ke avaaze.</value>
+  </data>
+  <data name="Menu.Mods.Title" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="Menu.MoreInfo" xml:space="preserve">
+    <value>Is vikalp par adhik jaankaaree ke liye click kare.</value>
+  </data>
+  <data name="Menu.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Menu.SettingsSaved.Message" xml:space="preserve">
+    <value>Agalee bar jab aap Roblox launch karenga to parivartan prabhaavee honge.</value>
+  </data>
+  <data name="Menu.SettingsSaved.Title" xml:space="preserve">
+    <value>Settings save ho gaya!</value>
+  </data>
+  <data name="Menu.Title" xml:space="preserve">
+    <value>Bloxstrap ki settings</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
+    <value>Pasandeeda bhaasha chunen</value>
+  </data>
+  <data name="Dialog.LanguageSelector.Subtext" xml:space="preserve">
+    <value>Installation jaaree rakhane se pahale ek bhaasha chunen.</value>
+  </data>
+  <data name="Menu.Appearance.Language.Title" xml:space="preserve">
+    <value>Bhaasha</value>
+  </data>
+  <data name="Menu.Appearance.Language.Description" xml:space="preserve">
+    <value>Parivartanon ko prabhaavee karane ke lie pun launch kee aavashyakata hai.</value>
+  </data>
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+    <value>2023 (V4 + Naya UI)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
+    <value>Rendering aur Graphics</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
+    <value>Bloxstrap ko Fast Flags manage karne ke liye anumati de</value>
+  </data>
+  <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
+    <value>Ise disable karane se yahaan configure kee gaiye kisee bhee cheez ko Roblox par laagoo hone se roka jaiga.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MSAA.Title" xml:space="preserve">
+    <value>Anti-aliasing quality (MSAA)</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
+    <value>Texture quality</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level0" xml:space="preserve">
+    <value>Level 0 (Nimnatam molya)</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level1" xml:space="preserve">
+    <value>Level 1</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level2" xml:space="preserve">
+    <value>Level 2</value>
+  </data>
+  <data name="Enums.FlagPresets.TextureQuality.Level3" xml:space="preserve">
+    <value>Level 3 (Uchchatam molya)</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
+    <value>Bloxstrap Roblox download karne mein asamarth hai</value>
+  </data>
+  <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
+    <value>Roblox ko is samay download nahin kiya ja sakata. Adhik jaanakaaree ke lie kripaya yaha parhe: {0}</value>
+    <comment>{0} is a URL</comment>
+  </data>
+  <data name="Common.ImportFromFile" xml:space="preserve">
+    <value>File se import kare</value>
+  </data>
+  <data name="FileTypes.JSONFiles" xml:space="preserve">
+    <value>JSON files</value>
+    <comment>Shown in the open file dialog, where the file type selection dropdown is, e.g. "JSON files (*.json)"</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidBoolValue" xml:space="preserve">
+    <value>{0} ke lie pravishti maany nahin hai kyonki maan ek boolean hona chaahie (ya to 'Saty' ya 'Asaty')</value>
+    <comment>Do not translate 'True' and 'False', those must stay in English</comment>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
+    <value>'{0}' ke liye entry valid nahi hai kyunki value integer honi chahiye</value>
+  </data>
+  <data name="Logger.NoWriteMode" xml:space="preserve">
+    <value>Is launch ke lie koee log file nahin likhee jaegee kyonki Bloxstrap '{0}' par folder mein likhane mein asamarth hai</value>
+  </data>
+  <data name="Common.Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Common.Automatic" xml:space="preserve">
+    <value>Svachaalit</value>
+  </data>
+  <data name="Common.SystemDefault" xml:space="preserve">
+    <value>System Default</value>
+  </data>
+  <data name="Menu.FastFlagEditor.InvalidPlaceFilter" xml:space="preserve">
+    <value>'{0}' ka entry valid nahi hai kyunki place filter sahi tareeke se format nahi kiya gaya hai.  </value>
+  </data>
+  <data name="Installer.Title" xml:space="preserve">
+    <value>Bloxstrap Installer</value>
+  </data>
+  <data name="Installer.Welcome.Title" xml:space="preserve">
+    <value>Namaste</value>
+  </data>
+  <data name="Installer.Install.Title" xml:space="preserve">
+    <value>Install</value>
+    <comment>Refers to "Install" as a verb</comment>
+  </data>
+  <data name="Installer.Completion.Title" xml:space="preserve">
+    <value>Purnata</value>
+  </data>
+  <data name="Common.Navigation.Back" xml:space="preserve">
+    <value>Vapaas jao</value>
+  </data>
+  <data name="Common.Navigation.Next" xml:space="preserve">
+    <value>Agala</value>
+  </data>
+  <data name="Installer.Welcome.MainText" xml:space="preserve">
+    <value>Bloxstrap download karne ke liye shukriya.
+
+Bloxstrap download karne ke liye sirf {0} aur {1} official websites hain, isliye kripya ensure karein ki aapne ise ek official source se download kiya ho.
+
+Ye installation process jaldi aur asaan hoga, aur installation ke baad aap Bloxstrap ke kisi bhi settings ko configure kar sakenge.</value>
+    <comment>{0} and {1} are URLs</comment>
+  </data>
+  <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
+    <value>Kripya 'Next' par click karein taaki aage badh sakein.  </value>
+  </data>
+  <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
+    <value>Aap Bloxstrap ka version {0} install karne ki koshish kar rahe hain, lekin available latest version {1} hai. Kya aap ek naya version download karna chahenge?</value>
+  </data>
+  <data name="Installer.Install.Location.Title" xml:space="preserve">
+    <value>Jahan install karna hai, woh chuniye</value>
+  </data>
+  <data name="Installer.Install.Location.Text" xml:space="preserve">
+    <value>Roblox bhi is path par install hoga. Agar aap apne saare games ko alag drive par install karna chahte hain, to ise badal sakte hain. Agar nahi, to yeh waise ka waise rakhein, yeh recommend kiya jata hai.</value>
+  </data>
+  <data name="Installer.Install.Location.DataFound" xml:space="preserve">
+    <value>Mojooda data mila. Aapki mods aur settings ko restore kiya jayega.</value>
+  </data>
+  <data name="Common.Shortcuts" xml:space="preserve">
+    <value>Shortcuts</value>
+  </data>
+  <data name="Common.Shortcuts.Desktop" xml:space="preserve">
+    <value>Desktop icon</value>
+  </data>
+  <data name="Common.Shortcuts.StartMenu" xml:space="preserve">
+    <value>Start menu Icon</value>
+  </data>
+  <data name="Installer.Completion.Text" xml:space="preserve">
+    <value>Bloxstrap successfully install ho gaya hai. 
+
+Roblox abhi tak install nahi hua hai, yeh tab hoga jab aap pehli baar Bloxstrap ke saath ise launch karenge. Lekin, usse pehle, aap Bloxstrap ki settings configure karna chahein to kar sakte hain.
+
+Saath hi, "Roblox Player" shortcut ka istemal karke Roblox ko launch karne se bachain, kyunki Bloxstrap ke saath Roblox launch nahi hoga. Agar aapko website se launch karte waqt Bloxstrap nahi dikhe, to bas ek baar desktop se Roblox ko Bloxstrap ke saath launch karke isse theek kar sakte hain.
+
+Aap kya karna chahenge?</value>
+  </data>
+  <data name="Installer.Completion.Settings.Title" xml:space="preserve">
+    <value>Bloxstrap ki settings configure karein</value>
+  </data>
+  <data name="Installer.Completion.Settings.Description" xml:space="preserve">
+    <value>Uske saare features ke saath tweak karein jo woh offer karta hai</value>
+  </data>
+  <data name="Installer.Completion.Launch.Title" xml:space="preserve">
+    <value>Roblox install aur launch karein</value>
+  </data>
+  <data name="Installer.Completion.Launch.Description" xml:space="preserve">
+    <value>Jab sab kuch ho jayega, to aapko desktop app mein le jayega</value>
+  </data>
+  <data name="Uninstaller.Title" xml:space="preserve">
+    <value>Bloxstrap uninstall karein</value>
+  </data>
+  <data name="Uninstaller.Text" xml:space="preserve">
+    <value>Uninstall karne se Bloxstrap aapke system se remove ho jayega, aur agar default Roblox launcher abhi bhi installed hai toh use automatically reconfigure kar diya jayega.
+
+Uninstall process ke baad kuch cheezein reh sakti hain, isliye aapko manually leftover files clean karni pad sakti hain jahan Bloxstrap install tha.
+
+Bloxstrap "{1}" par install tha.</value>
+  </data>
+  <data name="Uninstaller.KeepData.Label" xml:space="preserve">
+    <value>Meri settings aur mods ko rakhein</value>
+  </data>
+  <data name="Uninstaller.KeepData.Description" xml:space="preserve">
+    <value>Yeh Bloxstrap jahan install tha, wahan rakhe jayenge, aur reinstall karte waqt automatically restore ho jayenge.</value>
+  </data>
+  <data name="Uninstaller.Uninstall" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Roblox launch karein</value>
+  </data>
+  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
+    <value>Settings configure karein</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
+    <value>Kya koi issue hai?</value>
+  </data>
+  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
+    <value>Madad ke liye Wiki dekhein</value>
+  </data>
+  <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
+    <value>Aapke paas abhi Edge WebView2 runtime install nahi hai. Iske bina kuch Roblox features sahi tarike se kaam nahi karenge, jaise ki desktop app. Kya aap ise abhi download aur install karna chahenge?  
+</value>
+  </data>
+  <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
+    <value>Bloxstrap Desktop aur Start menu ke liye shortcuts create nahi kar paaya. Baad mein settings ke through unhe create karne ki koshish karein.</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
+    <value>Pehle [Bloxstrap Wiki]({0}) check karein taaki yeh dekha ja sake ki is samasya ko pehle hi fix ke saath address kiya gaya hai.
+
+Agar nahi, to kripya is exception ko is fork ke maintainers ko report karein. Ise Bloxstrap ke GitHub issues par report na karein, kyunki yeh ek unofficial build hai.</value>
+    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
+  </data>
+  <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
+    <value>Yeh general shortcuts hain jo multi-choice launch menu dikhate hain. Specific functions ke liye shortcuts baad mein settings mein banaye ja sakte hain.</value>
+  </data>
+  <data name="Menu.Shortcuts.Description" xml:space="preserve">
+    <value>Bloxstrap ko turant launch karne ke liye configure karein.</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
+    <value>Saamanya</value>
+  </data>
+  <data name="Menu.Shortcuts.General.Description" xml:space="preserve">
+    <value>Yeh wo shortcuts hain jo multi-choice launch menu ko dikhate hain.</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Title" xml:space="preserve">
+    <value>Kaarya</value>
+  </data>
+  <data name="Menu.Shortcuts.Function.Description" xml:space="preserve">
+    <value>Vishesh kareyason tak turant pahunch ke liye shortcuts banayein. Yeh sabhi Desktop par rakhe jayenge.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Private" xml:space="preserve">
+    <value>Private server se connected hai</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Notification.Title.Reserved" xml:space="preserve">
+    <value>Reserved server se connected hai</value>
+  </data>
+  <data name="Menu.Mods.Presets.EmojiType.Error" xml:space="preserve">
+    <value>Emoji mod is samay apply nahi kiya ja sakta.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Installer" xml:space="preserve">
+    <value>Kripya installation complete hone tak intezaar karein.</value>
+  </data>
+  <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
+    <value>Kripya uninstallation complete hone tak intezaar karein.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>Bloxstrap ke baare mein</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenses</value>
+    <comment>Referring to code licenses; see https://opensource.org/licenses for example</comment>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Anuvadak</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>Aapke paas unsaved changes hain. Kya aap sure hain ki bina save kiye band karna chahte hain?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>Jo version aapne Bloxstrap ka launch kiya hai, woh us version se purana hai jo aapke system par abhi install hai. 
+Kuch issues ho sakte hain aur aapki settings badal sakti hain. Reinstall karna recommend kiya jata hai. 
+Kya aap sure hain ki aap continue karna chahte hain?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox launch nahi ho paya.
+
+Yeh Bloxstrap ka issue ho bhi sakta hai ya nahi bhi. Pata lagane ke liye [is help page]({0}) dekhein.</value>
+  </data>
+  <data name="Common.NetworkError" xml:space="preserve">
+    <value>Network error ke karan data load nahi kiya ja saka.</value>
+  </data>
+  <data name="Common.Loading" xml:space="preserve">
+    <value>Loading, kripya prateeksha kare...</value>
+  </data>
+  <data name="About.Supporters.Title" xml:space="preserve">
+    <value>Samarthak</value>
+  </data>
+  <data name="About.Supporters.Description" xml:space="preserve">
+    <value>Yeh wo log hain jinhone Bloxstrap ko Ko-fi ke through support kiya hai. Yahan sabhi ko ek bada shukriya! 
+Yahan har vyakti ko unke overall pledge ke hisaab se rank kiya gaya hai.</value>
+  </data>
+  <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
+    <value>Aapki settings load nahi ki ja sakti. Unhe default configuration par reset kar diya gaya hai.</value>
+  </data>
+  <data name="JsonManager.FastFlagsLoadFailed" xml:space="preserve">
+    <value>Aapke Fast Flags load nahi kiye ja sake. Unhe default configuration par reset kar diya gaya hai.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Title" xml:space="preserve">
+    <value>Game itihas</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Rejoin" xml:space="preserve">
+    <value>Dubara join karein</value>
+  </data>
+  <data name="ActivityWatcher.RichPresenceLoadFailed" xml:space="preserve">
+    <value>Aapka current game aapke Discord profile par nahi dikhai dega kyunki game ki information load karte waqt ek error aayi hai.</value>
+  </data>
+  <data name="ContextMenu.GameHistory.Description" xml:space="preserve">
+    <value>Game itihas sirf aapke current Roblox session ke liye record kiya jata hai. Games yahan tab dikhai denge jab aap unhe chhodein ya unmein teleport karein. Sabhi servers ko dubara join nahi kiya ja sakta.</value>
+  </data>
+  <data name="ActivityWatcher.LocationQueryFailed" xml:space="preserve">
+    <value>Server location query nahi ki ja sakti. Ho sakta hai ki aap bahut jaldi games join kar rahe ho.</value>
+  </data>
+  <data name="Dialog.Connectivity.TryAgainLater" xml:space="preserve">
+    <value>Kripya baad mein phir se koshish karein.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeSkip" xml:space="preserve">
+    <value>Is launch ke liye, Roblox ko upgrades ke liye check nahi kiya jayega, aur mods mein kiye gaye changes apply nahi honge.</value>
+  </data>
+  <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
+    <value>Kyunki Roblox ko install ya upgrade kiya jana zaroori hai, Bloxstrap aage nahi badh sakta.</value>
+  </data>
+  <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
+    <value>Bloxstrap pehle is location par install kiya gaya tha aur abhi bhi maujood hai, lekin installer purani executable ko overwrite nahi kar sakta. 
+
+Kripya Bloxstrap.exe ko manually install location se delete karein ya apne system ko restart karne ki koshish karein, phir installation ko dobara try karein.</value>
+  </data>
+  <data name="Common.NotAvailable" xml:space="preserve">
+    <value>Upalabdh nahi</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Title" xml:space="preserve">
+    <value>Compatibility settings ko manage karein</value>
+  </data>
+  <data name="Menu.Mods.Misc.CompatibilitySettings.Description" xml:space="preserve">
+    <value>Application parameters jaise DPI scaling behaviour aur [fullscreen optimizations]({0}) ko configure karein.</value>
+  </data>
+  <data name="Common.RobloxNotInstalled" xml:space="preserve">
+    <value>Roblox abhi tak install nahi kiya gaya hai. Kripya is option ka use karne se pehle kam se kam ek baar Bloxstrap ke through Roblox ko launch karein.</value>
+  </data>
+  <data name="Installer.ShouldCancel" xml:space="preserve">
+    <value>Kya aap sure hain ki aap installation cancel karna chahte hain?</value>
+  </data>
+  <data name="Bootstrapper.JsonManagerSaveFailed" xml:space="preserve">
+    <value>Save karne mein fail ho gaya {0}:{1}</value>
+  </data>
+  <data name="Dialog.IconLoadFailed" xml:space="preserve">
+    <value>Chuna gaya bootstrapper icon load nahi kiya ja saka.
+
+{0}</value>
+    <comment>{0} is an exception message</comment>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
+    <value>Roblox icons ko folder mein extract karein</value>
+  </data>
+  <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
+    <value>Yeh aapko Bloxstrap ke Roblox icons ka istemal karne ki suvidha deta hai apne shortcuts ke liye. [Kaise karein dekhein.]({0})</value>
+  </data>
+  <data name="Dialog.RegistryWriteError" xml:space="preserve">
+    <value>Bloxstrap Windows Registry ko edit nahi kar pa raha hai. Ek antivirus shayad interfere kar raha hai aur issues create kar raha hai. Kripya check karein ki koi aisi cheez na ho jo Bloxstrap ke use ko restrict kar rahi ho.</value>
+  </data>
+  <data name="About.Supporters.Monthly" xml:space="preserve">
+    <value>Mahinewar</value>
+  </data>
+  <data name="About.Supporters.OneOff" xml:space="preserve">
+    <value>Ek baar</value>
+  </data>
+  <data name="Menu.Bloxstrap.Description" xml:space="preserve">
+    <value>Bloxstrap ke apne behaviour se judi options ko configure karein.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
+    <value>Analytics bhejne ko enable karein</value>
+  </data>
+  <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
+    <value>Yeh process anonymous aur nuksan-free hai. Hum jo data collect karte hain aur uske peeche ke karan ke liye, kripya humari [privacy policy]({0}) dekhein.</value>
+  </data>
+  <data name="Common.Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
+    <value>Sab kuch default par reset karein</value>
+  </data>
+  <data name="Dialog.Exception.Report" xml:space="preserve">
+    <value>Report banayein</value>
+  </data>
+  <data name="Menu.TestMode" xml:space="preserve">
+    <value>Parikshan mode</value>
+    <comment>See the prompt for more context</comment>
+  </data>
+  <data name="Menu.TestMode.Prompt" xml:space="preserve">
+    <value>Parikshan mode se yeh asaan ho jata hai dekhna ki aapki settings Roblox ko kaise prabhavit karti hain. 
+
+Jab yeh enabled hoga, to yeh automatically Settings band hone ke baad Roblox launch karega, aur Roblox band hone ke baad Settings dubara kholega. Yeh cycle tab tak chalega jab tak aap ise disable na karein. 
+
+Kya aap parikshan mode enable karna chahenge?</value>
+  </data>
+  <data name="About.Translators.Description" xml:space="preserve">
+    <value>Bloxstrap ki saari translations [Crowdin]({0}) ke madhyam se crowdsourced hain. Yahan listed sabhi log woh hain jinhone apna samay aur mehnat dekar Bloxstrap ko localise karne me madad ki. Sabhi yahan maujood logo ka ek bada dhanyawad!</value>
+  </data>
+  <data name="Common.Navigation.Install" xml:space="preserve">
+    <value>Install</value>
+    <comment>The word "Install" is being used as a verb in this instance, like the other navigation button texts of "Next" and "Back"</comment>
+  </data>
+  <data name="Paths.Icons" xml:space="preserve">
+    <value>Icons</value>
+    <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Roblox Studio launch karein</value>
+  </data>
+  <data name="Dialog.Exception.Version" xml:space="preserve">
+    <value>Sanskaran {0}</value>
+  </data>
+  <data name="Enums.BootstrapperStyle.CustomDialog" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Bootstrapper.FilesInUse" xml:space="preserve">
+    <value>Bloxstrap ne Roblox ka adhunikaran karne ki koshish ki, lekin nahi kar pa raha hai kyunki Roblox ki faaylen abhi bhi upyog mein hain.
+
+Kripya un anuprayogon ko band karein jo ho sakta hai ki Roblox ki faaylen ka upyog kar rahe hon, aur punah prarambh karein.</value>
+    <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
+  </data>
+  <data name="FileTypes.ZipArchive" xml:space="preserve">
+    <value>Zip archive</value>
+    <comment>Shown in the save file dialog, where the file type selection dropdown is, e.g. "Zip archive (*.zip)"</comment>
+  </data>
+  <data name="Common.Export" xml:space="preserve">
+    <value>Niryat</value>
+    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
+    <value>Diagnostic data niryat</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.Description" xml:space="preserve">
+    <value>Woh jankari ikattha karein jo aapke samasya ko suljhane ke liye online upload ki ja sakti hai.</value>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
+    <value>Bloxstrap configuration</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
+    <value>Sabhi Bloxstrap logs</value>
+    <comment>Label that appears next to a checkbox</comment>
+  </data>
+  <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
+    <value>Roblox ab Windows 7 ya 8.1 ko support nahi karta. Roblox khelna jaari rakhne ke liye, kripya Windows 10 ya naya version upgrade karein.</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Title" xml:space="preserve">
+    <value>Files extract karne mein asafal raha</value>
+  </data>
+  <data name="Bootstrapper.ExtractionFailed.Message" xml:space="preserve">
+    <value>Kuch content missing ho sakta hai. Isko thik karne ke liye settings mein jaakar Roblox ko zabardasti reinstall karein.</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Title" xml:space="preserve">
+    <value>Parivartan lagu karne mein asafal raha</value>
+  </data>
+  <data name="Bootstrapper.ModificationsFailed.Message" xml:space="preserve">
+    <value>Sabhi parivartan vartaman launch mein upasthit nahi honge.</value>
+  </data>
+  <data name="Menu.About.Licenses.Apache" xml:space="preserve">
+    <value>Apache License 2.0</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Blank" xml:space="preserve">
+    <value>Khali</value>
+  </data>
+  <data name="Enums.CustomThemeTemplate.Simple" xml:space="preserve">
+    <value>Saral</value>
+  </data>
+  <data name="CustomTheme.Errors.InvalidRoot" xml:space="preserve">
+    <value>Theme XML root {0} nahi hai</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.DialogAlreadyInitialised" xml:space="preserve">
+    <value>Custom dialog pehle hi initialised ho chuka hai</value>
+  </data>
+  <data name="CustomTheme.Errors.TooManyElements" xml:space="preserve">
+    <value>Custom bootstrappers me adhiktam {0} tattva ho sakte hain, lekin {1} prapt hua</value>
+    <comment>{0} and {1} are numbers</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSet" xml:space="preserve">
+    <value>{0} sanskaran set nahi hai</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotNumber" xml:space="preserve">
+    <value>{0} sanskaran ek sankhya nahi hai</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotSupported" xml:space="preserve">
+    <value>{0} sanskaran {1} ab support nahi kiya jata</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.VersionNotRecognised" xml:space="preserve">
+    <value>{0} sanskaran {1} ko pehchana nahi gaya</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the version number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementInvalidChild" xml:space="preserve">
+    <value>{0} ka {1} ka child nahi ho sakta</value>
+    <comment>{0} and {1} are element names (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownElement" xml:space="preserve">
+    <value>Unknown element {0}</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.XMLParseFailed" xml:space="preserve">
+    <value>Theme file ko parse karne mein asafal raha: {0}</value>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeConversionError" xml:space="preserve">
+    <value>{0} mein anuchit {1}: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissing" xml:space="preserve">
+    <value>Element {0} mein {1} attribute missing hai</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeInvalidType" xml:space="preserve">
+    <value>{0}.{1} ek valid {2} nahi hai</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeLargerThanMin" xml:space="preserve">
+    <value>{0}.{1} ko {2} se bada hona chahiye</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMustBeSmallerThanMax" xml:space="preserve">
+    <value>{0}.{1} ko {2} se chhota hona chahiye</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is a number</comment>
+  </data>
+  <data name="CustomTheme.Errors.UnknownEnumValue" xml:space="preserve">
+    <value>{0} Unknown {1} '{2}'</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the enum name (e.g. WindowCornerType), {2} is the value</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleDefinitions" xml:space="preserve">
+    <value>{0} mein sirf ek {1} define ho sakta hai</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMultipleChildren" xml:space="preserve">
+    <value>{0}.{1} mein sirf ek child ho sakta hai</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementMultipleChildren" xml:space="preserve">
+    <value>{0} mein sirf ek child ho sakta hai</value>
+    <comment>{0} is the element name (e.g. Button)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeMissingChild" xml:space="preserve">
+    <value>{0}.{1} ka child missing hai</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseError" xml:space="preserve">
+    <value>{0}.{1} ko {2} mein parse nahi kiya ja sakta</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeParseErrorNull" xml:space="preserve">
+    <value>{0}.{1} {2} null hai</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the type name (e.g. string)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementAttributeBlacklistedUriScheme" xml:space="preserve">
+    <value>{0}.{1} blacklisted scheme {2} use karta hai</value>
+    <comment>{0}.{1} is the element &amp; attribute name (e.g. Button.Text), {2} is the URI scheme (e.g. http)</comment>
+  </data>
+  <data name="CustomTheme.Errors.ElementTypeCreationFailed" xml:space="preserve">
+    <value>{0} {1} create karne mein fail ho gaya: {2}</value>
+    <comment>{0} is the element name (e.g. Button), {1} is the attribute name (e.g. Text), {2} is the error reason</comment>
+  </data>
+  <data name="CustomTheme.Editor.Title" xml:space="preserve">
+    <value>"{0}" edit ho raha hai</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success" xml:space="preserve">
+    <value>Theme successfully save ho gaya!</value>
+  </data>
+  <data name="CustomTheme.Editor.Save.Error" xml:space="preserve">
+    <value>Aapka theme save karte waqt ek error aayi.</value>
+  </data>
+  <data name="CustomTheme.Editor.ConfirmSave" xml:space="preserve">
+    <value>{0} mein changes save karna chahte ho?</value>
+  </data>
+  <data name="CustomTheme.Editor.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CustomTheme.Editor.Preview" xml:space="preserve">
+    <value>Sameeksha karen</value>
+  </data>
+  <data name="CustomTheme.Editor.OpenThemeDirectory" xml:space="preserve">
+    <value>Theme Directory kholain</value>
+  </data>
+  <data name="Common.CreateNew" xml:space="preserve">
+    <value>Naya Banaein</value>
+  </data>
+  <data name="Common.Import" xml:space="preserve">
+    <value>Import Karo</value>
+  </data>
+  <data name="CustomTheme.Add.Title" xml:space="preserve">
+    <value>Custom Theme Add Karo</value>
+  </data>
+  <data name="Common.Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameEmpty" xml:space="preserve">
+    <value>Name khali nahi ho sakta</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameIllegalCharacters" xml:space="preserve">
+    <value>Name mein illegal characters hain
+</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameReserved" xml:space="preserve">
+    <value>Name istamal nahi ho sakta</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.Unknown" xml:space="preserve">
+    <value>Unknown Error</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.NameTaken" xml:space="preserve">
+    <value>Name already use ho chuka hai</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.FileNotZip" xml:space="preserve">
+    <value>File ZIP honi chahiye</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipMissingThemeFile" xml:space="preserve">
+    <value>ZIP file mein theme file nahi mil rahi</value>
+  </data>
+  <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
+    <value>Invalid ya corrupted ZIP file</value>
+  </data>
+  <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
+    <value>Koi custom theme select nahi kiya gaya</value>
+  </data>
+  <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
+    <value>Custom bootstrapper setup karne mein fail ho gaya: {0}.
+Default {1} par ja raha hai.</value>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
+    <value>Koi custom theme select nahi kiya gaya.</value>
+  </data>
+  <data name="Common.Rename" xml:space="preserve">
+    <value>Rename karo</value>
+  </data>
+  <data name="Common.Edit" xml:space="preserve">
+    <value>Edit karo</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.DeleteFailed" xml:space="preserve">
+    <value>Custom theme {0} delete karne mein fail ho gaya: {1}</value>
+  </data>
+  <data name="Menu.Appearance.CustomThemes.RenameFailed" xml:space="preserve">
+    <value>Custom theme {0} rename karne mein fail ho gaya: {1}</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
+    <value>Background updates</value>
+  </data>
+  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
+    <value>Jab update available ho, tab launch ko block karne ke bajaye Roblox ko background mein update karein. Is feature ke liye kam se kam 5GB ka free storage space zaroori hai.</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
+    <value>Yahan UI elements rakhein</value>
+  </data>
+  <data name="CustomTheme.Templates.Blank.MoreExamples" xml:space="preserve">
+    <value>Custom bootstrappers ke udaharan {0} par mil sakte hain</value>
+  </data>
+  <data name="CustomTheme.Templates.Simple.MoreExamples" xml:space="preserve">
+    <value>Adhik custom bootstrapper ke udaharan {0} par payen</value>
+  </data>
+  <data name="CustomTheme.DefaultName" xml:space="preserve">
+    <value>Custom Theme {0}</value>
+    <comment>{0} is a string (e.g. '1', '1-1234')</comment>
+  </data>
+  <data name="CustomTheme.Editor.Save.Success.Description" xml:space="preserve">
+    <value>Aapka theme save ho gaya hai!</value>
+  </data>
+  <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
+    <value>Theme ka preview dikhane mein asafal: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>{product} band kiya ja raha hai</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox Community</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>[Fast Flag allowlist update]({0}) ki wajah se, zyada tar custom Fast Flags Roblox player par koi effect nahi dalenge.</value>
+  </data>
+</root>

@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -284,14 +284,6 @@ Klik untuk maklumat lanjut</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Salin kandungan log</value>
-  </data>
-  <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Suatu ralat telah berlaku semasa menjalankan Bloxstrap</value>
-  </data>
-  <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Semak dahulu [Wiki Bloxstrap]({0}) untuk melihat jika masalah ini telah diselesaikan dengan pembaikan.
-
-Jika belum, sila laporkan masalah tersebut melalui [isu GitHub]({1}) bersama dengan salinan fail log yang telah dibuat.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Ralat pada Bloxstrap</value>
@@ -816,9 +808,6 @@ Memilih 'Tidak' akan mengabaikan amaran ini dan pemasangan akan diteruskan.</val
     <value>Entri untuk '{0}' tidak sah kerana nilainya mestilah dalam boolean (sama ada 'True' atau 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
-  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Entri untuk '{0}' tidak sah kerana nilai mestilah nombor</value>
-  </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Tiada fail log yang akan ditulis untuk pelancaran ini kerana Bloxstrap tidak dapat menulis ke folder '{0}'</value>
   </data>
@@ -909,14 +898,6 @@ Apa yang anda ingin lakukan?</value>
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>Nyahpasang Bloxstrap</value>
   </data>
-  <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Menyahpasang Bloxstrap akan membuang Bloxstrap daripada sistem anda, dan juga secara automatik mengkonfigurasi semula Roblox sebagai pelancar asal, jika ia masih dipasang.
-Jika anda sedang menghapus atau memasang semula kerana mengalami masalah dengan Roblox, sila baca [halaman bantuan]({0}) ini terlebih dahulu.
-
-Proses penghapusan pemasangan mungkin tidak dapat membersihkan sepenuhnya, jadi anda mungkin perlu membersihkan secara manual fail yang tertinggal di tempat Bloxstrap dipasang.
-
-Bloxstrap telah dipasang di "{1}".</value>
-  </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Simpan tetapan dan mod saya</value>
   </data>
@@ -943,12 +924,6 @@ Bloxstrap telah dipasang di "{1}".</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>Bloxstrap tidak dapat membuat pintasan untuk desktop dan menu Start. Sila cuba lagi nanti melalui menu tetapan.</value>
-  </data>
-  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Semak [Wiki Bloxstrap]({0}) terlebih dahulu untuk melihat jika masalah ini telah diatasi dengan penyelesaian.
-
-Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JANGAN laporkan isu ini kepada GitHub Bloxstrap, kerana ini adalah yang versi tidak rasmi.</value>
-    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ini adalah pintasan umum yang akan memaparkan menu pelancaran pelbagai pilihan. Pintasan untuk fungsi yang tertentu boleh dibuat kemudian dalam tetapan.</value>
@@ -998,9 +973,6 @@ Jika tidak, sila laporkan isu pengecualian ini kepada penyelenggara fork ini. JA
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
     <value>Versi Bloxstrap yang anda lancarkan adalah lebih lama daripada versi yang anda pasang sekarang. Masalah mungkin berlaku dan tetapan anda mungkin diubah. Pemasangan semula disyorkan. Adakah anda pasti ingin meneruskan?</value>
-  </data>
-  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox tidak berjaya untuk dilancarkan.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Data tidak dapat dimuat kerana ralat pada rangkaian.</value>
@@ -1101,9 +1073,6 @@ Sila buang fail Bloxstrap.exe secara manual dari lokasi pemasangan atau cuba mul
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
     <value>Set semula semua kepada tetapan asal</value>
-  </data>
-  <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Laporkan pengecualian</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Mod pengujian</value>
@@ -1362,9 +1331,6 @@ Sila tutup sebarang aplikasi yang mungkin menggunakan fail Roblox, dan cuba lagi
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
     <value>Kemas kini latar belakang</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Kemas kini Roblox di latar belakang tanpa menunggu. Ciri ini tidak disarankan untuk internet yang perlahan dan memerlukan sekurang-kurangnya 3GB ruang storan kosong untuk ia berfungsi dengan baik.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Letakkan elemen UI di sini</value>

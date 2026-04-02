@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -127,7 +127,7 @@
     <value>Roblox mungkin sedang mengalami gangguan saat ini. Lihat {0} untuk informasi lebih lanjut.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Koneksi tidak dapat dibuat, kemungkinan koneksi internet buruk atau pemblokiran firewall. Jika koneksi Anda tidak bermasalah, pastikan antivirus Anda tidak memblokir Bloxstrap.</value>
+    <value>Koneksi tidak dapat dibuat, yang menandakan koneksi internet buruk atau pemblokiran firewall pada Bloxstrap. Jika koneksi kamu tidak bermasalah, pastikan antivirus tidak memblokir Bloxstrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
     <value>Anda harus menginstal Bloxstrap terlebih dahulu sebelum menghapus.</value>
@@ -286,12 +286,12 @@ Tekan untuk informasi lebih lanjut.</value>
     <value>Salin isi log</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Sebuah eror telah terjadi ketika menjalankan Bloxstrap</value>
+    <value>Error terjadi</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Periksa [Bloxstrap Wiki]({0}) terlebih dahulu jika masalah ini sudah diperbaiki
+    <value>Masalah ini mungkin sudah di jelaskan di dalam [Wiki]({0}).
 
-Jika belym, Mohon laporkan masalah ini melalui [GitHub issue]({1}) bersama file log yang dibuat.</value>
+Jika tidak, maka laporkan error ini melalui [isu GitHub]({1}).</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Error Bloxstrap</value>
@@ -594,7 +594,7 @@ Apakah Anda yakin untuk melanjutkan?</value>
     <value>Mode rendering</value>
   </data>
   <data name="Menu.FastFlags.Title" xml:space="preserve">
-    <value>Pengaturan engine</value>
+    <value>Pengaturan Engine</value>
   </data>
   <data name="Menu.FontFiles" xml:space="preserve">
     <value>File Font</value>
@@ -821,7 +821,7 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Entri untuk '{0}' tidak valid karena harus berupa angka</value>
+    <value>Entri untuk "{0}" tidak valid karena nilai ini harus berupa bilangan bulat</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Tidak ada file log yang akan dibuat untuk peluncuran ini karena Bloxstrap tidak bisa menulis file pada folder '{0}'</value>
@@ -842,7 +842,7 @@ Memilih 'Tidak' akan mengabaikan peringatan ini dan melanjutkan instalasi.</valu
     <value>Pemasang Bloxstrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
-    <value>Selamat datang</value>
+    <value>Selamat Datang</value>
   </data>
   <data name="Installer.Install.Title" xml:space="preserve">
     <value>Pasang</value>
@@ -866,10 +866,10 @@ Proses pemasangan akan cepat dan mudah, Anda dapat mengatur setelan Bloxstrap se
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>Mohon klik 'Lanjut' untuk melanjutkan.</value>
+    <value>Klik 'Lanjut' untuk melanjutkan.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Anda sedang mencoba memasang Bloxstrap versi {0}, tetapi versi yang terbaru adalah {1}. Apakah Anda ingin mengunduhnya?</value>
+    <value>Anda sedang mencoba memasang Bloxstrap dengan versi {0}, tapi ada versi yang lebih baru {1}. Apakah Anda ingin mengunduhnya?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pilih lokasi instalasi</value>
@@ -899,7 +899,7 @@ Juga, hindari menggunakan pintasan "Roblox Player" untuk menjalankan Roblox, kar
 Apa yang ingin Anda lakukan?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Atur setelan Bloxstrap</value>
+    <value>Pengaturan Bloxstrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Sesuaikan dengan semua fitur yang dimilikinya</value>
@@ -908,19 +908,17 @@ Apa yang ingin Anda lakukan?</value>
     <value>Pasang dan Buka Roblox</value>
   </data>
   <data name="Installer.Completion.Launch.Description" xml:space="preserve">
-    <value>Akan membawa Anda ke aplikasi desktop setelah semuanya selesai</value>
+    <value>Anda akan kembali ke aplikasi desktop saat selesai</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Hapus Bloxstrap</value>
+    <value>Menghapus Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Mencopot pemasangan akan menghapus Bloxstrap dari sistem Anda, dan secara otomatis mengatur ulang peluncur Roblox bawaan jika masih terpasang.
+    <value>Melakukan ini akan menghapus Bloxtrap dari perangkat anda, dan secara otomatis mengonfigurasi ulang ke standar peluncur Roblox jika masih terpasang.
 
-Jika Anda mencopot pemasangan atau memasang ulang karena mengalami masalah dengan Roblox, baca [halaman bantuan ini]({0}) terlebih dahulu.
+Penghapusan proses akan meninggalkan beberapa hal, anda mungkin perlu menghapus berkas tersebut secara manual dimana Bloxtrap terpasang.
 
-Proses pencopotan mungkin tidak dapat sepenuhnya bersih, jadi Anda mungkin perlu membersihkan sisa berkas di tempat pemasangan Bloxstrap secara mandiri.
-
-Bloxstrap terpasang di "{1}".</value>
+Bloxtrap terpasang di "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Simpan pengaturan dan mod saya</value>
@@ -950,9 +948,9 @@ Bloxstrap terpasang di "{1}".</value>
     <value>Bloxstrap tidak dapat membuat pintasan untuk Desktop dan Start menu. Coba membuatnya nanti melalui pengaturan.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Periksa [Wiki Bloxstrap]({0}) terlebih dahulu untuk melihat apakah masalah ini telah ditangani dengan solusi.
+    <value>Periksa [Bloxtrap Wiki]({0}) dahulu untuk mengecek jika masalah anda sudah ditangani.
 
-Jika tidak, harap laporkan pengecualian ini kepada pengelola fork ini. JANGAN laporkan ini ke masalah GitHub Bloxstrap, karena ini adalah versi yang tidak resmi.</value>
+Jika tidak, silahkan laporkan ini kepada pengelola cabang. Jangan melaporkannya ke Github masalah Bloxtrap, karena ini adalah build yang tidak resmi.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1007,7 +1005,9 @@ Masalah mungkin terjadi dan pengaturan Anda mungkin dapat berubah. Kami menyaran
 Apakah Anda yakin untuk melanjutkan?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox gagal diluncurkan.</value>
+    <value>Roblox gagal meluncur.
+
+Ini mungkin atau tidak mungkin adalah masalah Bloxstrap. Untuk mencari tahu, lihat di [help page ini]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Tidak dapat memuat data karena suatu masalah koneksi.</value>
@@ -1066,7 +1066,7 @@ Tolong hapus Bloxstrap.exe secara manual dari lokasi pemasangan atau coba untuk 
     <value>Atur parameter aplikasi seperti sifat penskalaan DPI dan [optimasi layar penuh]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox belum dipasang. Tolong jalankan Roblox menggunakan Bloxstrap setidaknya sekali sebelum mencoba menggunakan opsi ini.</value>
+    <value>Roblox belum dipasang. Harap jalankan Roblox menggunakan Bloxstrap setidaknya sekali sebelum mencoba menggunakan opsi ini.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Apakah Anda yakin ingin membatalkan pemasangan?</value>
@@ -1075,19 +1075,19 @@ Tolong hapus Bloxstrap.exe secara manual dari lokasi pemasangan atau coba untuk 
     <value>Gagal untuk menyimpan {0}: {1}</value>
   </data>
   <data name="Dialog.IconLoadFailed" xml:space="preserve">
-    <value>Bootstrapper yang dipilih tidak dapat dimuat.
+    <value>Ikon bootstrapper yang dipilih tidak dapat dimuat.
 
 {0}</value>
     <comment>{0} is an exception message</comment>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Title" xml:space="preserve">
-    <value>Ekstrak ikon Roblox ke direktori</value>
+    <value>Ekstrak ikon Roblox ke folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
     <value>Memungkinkan Anda untuk menggunakan jangkauan Bloxstrap dari simbol Roblox untuk pintasan Anda. [Lihat caranya.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap gagal menulis ke Registry Windows. Kemungkinan ada antivirus yang menghalangi dan menyebabkan masalah. Mohon dilihat jika ada yang mengganggu operasi Bloxstrap.</value>
+    <value>Bloxstrap gagal menulis ke Registry Windows. Kemungkinan ada antivirus yang menghalangi dan menyebabkan masalah. Coba periksa jika ada yang mengganggu operasi Bloxstrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Per bulan</value>
@@ -1111,10 +1111,10 @@ Tolong hapus Bloxstrap.exe secara manual dari lokasi pemasangan atau coba untuk 
     <value>Ubah semuanya ke bawaan</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Laporkan Kesalahan</value>
+    <value>Buat laporan</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
-    <value>Mode tes</value>
+    <value>Uji Coba</value>
     <comment>See the prompt for more context</comment>
   </data>
   <data name="Menu.TestMode.Prompt" xml:space="preserve">
@@ -1374,7 +1374,7 @@ Beralih ke {1}.</value>
     <value>Pembaruan latar belakang</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Perbarui Roblox di latar belakang daripada menunggu. Tidak disarankan untuk jaringan yang lambat. Setidaknya diperlukan ruang penyimpanan kosong sebesar 3GB agar fitur ini dapat berfungsi.</value>
+    <value>Update Roblox di background daripada memblokir launch ketika ada update tersedia. Perlu dibutuhkan minimal 5GB storage yang tersedia untuk fitur ini.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Letakkan elemen UI di sini</value>
@@ -1394,5 +1394,17 @@ Beralih ke {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Gagal meninjau tema: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Mematikan {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Wiki Bloxstrap</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Komunitas Roblox</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Karena [Fast Flag allowlist update]({0}), sebagian dari kustom Fast Flags tidak akan berfungsi pada peluncur Roblox.</value>
   </data>
 </root>

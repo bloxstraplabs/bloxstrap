@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -284,14 +284,6 @@
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Копіювати вміст логів</value>
-  </data>
-  <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Під час запуску Bloxstrap виникла помилка</value>
-  </data>
-  <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Перевірте спочатку [Bloxstrap Вікі]({0}), щоб побачити, чи ця проблема вже була вирішена за допомогою виправлення.
-
-Якщо ні, то повідомте про цей виняток за допомогою [GitHub issue]({1}) разом з копією створеного лог-файлу.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Виняток для Bloxstrap</value>
@@ -816,9 +808,6 @@
     <value>Введення '{0}' є недійсним, оскільки значення має бути логічним (або 'True', або 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
-  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Запис для '{0}' є недійсним, оскільки значення має бути числом</value>
-  </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Для цього запуску не буде записано жодного лог-файлу, оскільки Bloxstrap не може записувати в папку за адресою '{0}'</value>
   </data>
@@ -909,15 +898,6 @@ Roblox ще не встановлено; це станеться, коли ви 
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>Видалення Bloxstrap</value>
   </data>
-  <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Видалення видалить Bloxstrap із вашої системи та автоматично переналаштує програму запуску Roblox за умовчанням, якщо вона все ще встановлена.
-
-Якщо ви видаляєте або перевстановлюєте через проблеми з Roblox, спочатку прочитайте [цю довідкову сторінку]({0}).
-
-Можливо, процес видалення не зможе повністю очистити себе, тому вам може знадобитися вручну очистити залишки файлів, де було встановлено Bloxstrap.
-
-Bloxstrap встановлено на "{1}".</value>
-  </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Зберегти мої налаштування та моди</value>
   </data>
@@ -944,12 +924,6 @@ Bloxstrap встановлено на "{1}".</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>Bloxstrap не вдалося створити ярлики для Робочого столу та меню Пуск. Спробуйте створити їх пізніше через налаштування.</value>
-  </data>
-  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Спочатку перевірте [Bloxstrap Wiki]({0}), щоб побачити, чи ця проблема вже була вирішена за допомогою виправлення.
-
-Якщо ні, то, будь ласка, повідомте про цей виняток супровідникам цієї збірки. НЕ повідомляйте про це на GitHub Bloxstrap, оскільки це неофіційна збірка.</value>
-    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Це загальні ярлики, які відкривають меню запуску з кількома варіантами. Ярлики для конкретних функцій можна створити пізніше в налаштуваннях.</value>
@@ -1001,9 +975,6 @@ Bloxstrap встановлено на "{1}".</value>
     <value>Версія Bloxstrap, яку ви запустили, старіша за версію, яку ви наразі маєте встановленою.
 Можуть виникнути проблеми, і ваші налаштування можуть бути змінені. Рекомендується перевстановлення.
 Ви дійсно бажаєте продовжити?</value>
-  </data>
-  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Не вдалося запустити Roblox.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Не вдалося завантажити дані через помилку мережі.</value>
@@ -1106,9 +1077,6 @@ Bloxstrap встановлено на "{1}".</value>
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
     <value>Скинути все до стандартних значень</value>
-  </data>
-  <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Повідомити про виняток</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Тестовий режим</value>
@@ -1369,9 +1337,6 @@ Bloxstrap встановлено на "{1}".</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
     <value>Оновлення у фоновому режимі</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Обновіть Roblox у фоновому режимі замість очікування роботи. Не рекомендується для мереж з повільною швидкістю. Для роботи необхідно щонайменше 3 ГБ вільного місця.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Помістіть елементи інтерфейсу сюди</value>

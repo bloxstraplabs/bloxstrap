@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@ Klicka för mer information</value>
     <value>Kopiera loggfilsinnehåll</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Ett undantag skedde när Bloxstrap kördes</value>
+    <value>Ett fel uppstod</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Kolla [Bloxstrap Wikin]({0}) först för att se om problemet redan har en lösning.
+    <value>Detta problem kan ha redan tagits upp i [Wikin]({0}).
 
-Om det inte har det, rapportera gärna detta undantag med ett [GitHub-ärende]({1}) tillsammans med en kopia av loggfilen som skapades.</value>
+Om det inte är fallet, vänligen rapportera detta fel genom en [GitHub-issue]({1}) tillsammans med loggfilen.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrapsundantag</value>
@@ -820,7 +820,7 @@ Om du väljer "Nej" ignoreras denna varning och installationen fortsätter.</val
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Flaggan '{0}' är inte giltig eftersom värdet måste vara ett nummer</value>
+    <value>Flaggan '{0}' är inte giltig eftersom värdet måste vara ett heltal</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Ingen loggfil skapas för denna starten eftersom Bloxstrap inte kan skriva till mappen på '{0}'</value>
@@ -913,13 +913,11 @@ Vad skulle du vilja göra?</value>
     <value>Avinstallera Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Genom att avinstallera Bloxstrap kommer du att ta bort det från ditt system, och automatiskt byta till Roblox egna startprogram om det fortfarande är installerat.
+    <value>Avinstallationen kommer att ta bort Bloxstrap från ditt system, och automatiskt konfigurera Roblox standardstartprogram om det fortfarande är installerat.
 
-Om du avinstallerar eller ominstallerar eftersom du har problem med Roblox, läs [denna hjälpsida]({0}) först.
+Avinstallationsprocessen kan lämna vissa saker kvar, så du kan behöva manuellt rensa upp de överblivna filerna där Bloxstrap installerades.
 
-Avinstallationsprocessen kanske inte kan ta bort alla Bloxstraps filer och lämmna kvar några filer där Bloxstrap installerades, som du kan behöva ta bort manuellt.
-
-Bloxstrap installerades i "{1}".</value>
+Bloxstrap installerades vid "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Behåll mina inställningar och moddar</value>
@@ -949,9 +947,9 @@ Bloxstrap installerades i "{1}".</value>
     <value>Bloxstrap kunde inte skapa genvägar på skrivbordet och för Start-menyn. Försök att skapa dem senare genom inställningarna.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Kolla [Bloxstrap Wikin]({0}) först för att se om detta problem redan har en fix.
+    <value>Kolla [Bloxstrap-wikin]({0}) först för att se om detta problem redan har en fix.
 
-Annars så rapportera detta felmeddelande till de ansvariga för denna fork. Rapportera INTE detta på Bloxstraps egna GitHub sida, eftersom detta är en inofficiell version av Bloxstrap.</value>
+Om det inte är fallet, vänligen rapportera detta fel till de ansvariga för denna fork. Rapportera inte detta vid Bloxstraps GitHub-issues, eftersom detta är en inofficiell version av Bloxstrap.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1004,9 @@ Problem kan uppstå och dina inställningar kan ändras. En ominstallation rekom
 Är du säker på att du vill fortsätta?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox misslyckades med att starta.</value>
+    <value>Roblox kunde inte startas.
+
+Detta skulle kunna vara ett problem med Bloxstrap. För felsökningsinformation, se [denna hjälpsidan]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Kunde inte ladda data på grund av ett nätverksfel.</value>
@@ -1111,7 +1111,7 @@ Ta manuellt bort Bloxstrap.exe från installationsplatsen eller försök starta 
     <value>Återställ allt till standard</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Rapportera fel</value>
+    <value>Gör en rapport</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Testläge</value>
@@ -1374,7 +1374,7 @@ Använder {1} istället.</value>
     <value>Bakgrundsuppdateringar</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Uppdatera Roblox i bakgrunden istället för att vänta. Rekommenderas inte för långsamma nätverk. Minst 3 GB ledigt lagringsutrymme krävs för att den här funktionen ska fungera.</value>
+    <value>Uppdatera Roblox i bakgrunden istället för att behöva vänta under start när en uppdatering är tillgänglig. Minst 5GB ledigt lagringsutrymme krävs för den här funktionen.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Sätt användargränssnittselement här</value>
@@ -1394,5 +1394,17 @@ Använder {1} istället.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Det gick inte att förhandsgranska temat: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Stänger ner {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap-wikin</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox-communityn</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>Eftersom [Roblox har begränsat vilka Fast Flags som kan användas]({0}) kommer de flesta egna flaggorna inte ha någon påverkan på Roblox-klienten.</value>
   </data>
 </root>

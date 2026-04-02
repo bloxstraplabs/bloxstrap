@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@ Daha fazla bilgi için tıklayınız</value>
     <value>Kayıt içeriğini kopyala</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Bloxstrap çalıştırılırken bir istisna oluştu</value>
+    <value>Bir istisna oluştu</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Bu sorunun halihazırda bir düzeltmeyle giderilip giderilmediğini görmek için önce [Bloxstrap Wiki]({0})'yi kontrol ediniz.
+    <value>Bu sorun [Wiki]({0})'de zaten ele alınmış olabilir.
 
-Değilse, lütfen bu sorunu oluşturulan kayıt dosyasının bir kopyasıyla birlikte [GitHub sorunu]({1}) aracılığıyla bildirin.</value>
+Eğer ele alınmamışsa, lütfen bu istisnayı [GitHub issue]({1}) aracılığıyla kayıt dosyasıyla birlikte bildirin.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap Istisnası</value>
@@ -768,7 +768,7 @@ Aşağıdaki konuma değiştirilmesi önerilir:
     <value>Dil</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>Değişikliklerin etkili olabilmesi için yeniden başlatma gereklidir.</value>
+    <value>Değişikliklerin uygulanması için uygulamanın yeniden başlatılması gerekmektedir.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + Yeni UI)</value>
@@ -912,13 +912,11 @@ Ne yapmak istersiniz?</value>
     <value>Bloxstrap'ı kaldır</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Kaldırmak, Bloxstrap'ı sisteminizden kaldıracaktır, ve hâlâ yüklü ise varsayılan Roblox başlatıcısını otomatik olarak yeniden yapılandıracaktır.
+    <value>Kaldırma işlemi Bloxstrap'i sisteminizden siler ve hala yüklü ise varsayılan Roblox başlatıcısını otomatik olarak yeniden yapılandırır.
 
-Eğer Roblox ile bir sorun yaşadığınızdan dolayı kaldırıyorsanız veya yeniden yüklüyorsanız, ilk önce [bu yardım sayfasını]({0}) okuyun.
+Kaldırma işlemi bazı kalıntılar bırakabilir, bu nedenle Bloxstrap'in yüklü olduğu yerde kalan dosyaları manuel olarak temizlemeniz gerekebilir.
 
-Kaldırma işlemi kendisinin artıklarını tamamen temizleyemeyebilir, bu yüzden Bloxstrap'ın yüklü olduğu yerdeki artık dosyaları manuel olarak temizlemeniz gerekebilir.
-
-Bloxstrap "{1}" yerine yüklüydü.</value>
+Bloxstrap “{1}” konumuna yüklenmiştir.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Ayarlarımı ve modlarımı tut</value>
@@ -948,9 +946,9 @@ Bloxstrap "{1}" yerine yüklüydü.</value>
     <value>Bloxstrap Masaüstü ve Başlat menüsüne kısayollar oluşturamadı. Daha sonra ayarlardan oluşturmayı deneyin.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Bu sorunun daha önce bir düzeltme ile ele alınıp alınmadığını görmek için önce [Bloxstrap Wiki'yi]({0}) kontrol edin.
+    <value>Öncelikle [Bloxstrap Wiki]({0}) adresini kontrol ederek bu sorunun daha önce çözülüp çözülmediğini kontrol edin.
 
-Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricilerine bildirin. Bu istisnayı SAKIN Bloxstrap'ın GitHub issues sayfasına bildirmeyin, çünkü bu bir resmî olmayan yapıdır.</value>
+Çözülmemişse, lütfen bu istisnayı bu fork'un bakımcılarına bildirin. Bu, resmi olmayan bir yapı olduğundan, bunu Bloxstrap'ın GitHub sorunlarına bildirmeyin.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1003,7 +1001,9 @@ Eğer sorun ele alınmadıysa, lütfen bu istisnayı bu versiyonun geliştiricil
     <value>Başlattığınız Bloxstrap sürümü sizde şu an yüklü olan sürümden daha eski. Sorunlar ortaya çıkabilir ve ayarlarınız değişebilir. Bir yeniden yükleme önerilir. Devam etmek istediğinizden emin misiniz?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox başlatılamadı.</value>
+    <value>Roblox başlatılamadı.
+
+Bu, Bloxstrap ile ilgili bir sorun olabilir veya olmayabilir. Bunu öğrenmek için [bu yardım sayfasına]({0}) bakın.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Bir bağlantı sorunu nedeniyle veri yüklenemedi.</value>
@@ -1108,7 +1108,7 @@ Lütfen manuel olarak yükleme yolundan Bloxstrap.exe'yi silin veya sisteminizi 
     <value>Her şeyi varsayılanlara sıfırla</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>İstisna bildir</value>
+    <value>Rapor oluştur</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Test modu</value>
@@ -1371,7 +1371,7 @@ Otomatiklen {1}'e alınılıyor.</value>
     <value>Arka plan güncellemeleri</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Beklemek yerine Roblox'u arkada güncelleyin. Yavaş ağlar için tavsiye edilmez. Bu özelliğin kullanılması için en az 3GB boş alan olmalı.</value>
+    <value>Güncelleme mevcut olduğunda başlatmayı engellemek yerine Roblox'u arka planda güncelleyin. Bu özellik için en az 5GB boş depolama alanı gerekir.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Arayüz öğelerini buraya yerleştirin</value>
@@ -1391,5 +1391,17 @@ Otomatiklen {1}'e alınılıyor.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Tema önizlemesi başarısız oldu: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>{product} kapatılıyor</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Roblox Topluluğu</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>[Fast Flag allowlist update]({0}) nedeniyle, çoğu özel Fast Flaglerin Roblox oyuncusu üzerinde hiçbir etkiye sahip olmayacaktır.</value>
   </data>
 </root>

@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -286,12 +286,12 @@ Clicca per maggiori informazioni</value>
     <value>Copia il contenuto del registro</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Si è verificata un'eccezione durante l'esecuzione di bloxtrap</value>
+    <value>Si è verificata un'eccezione</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Controlla la [Bloxstrap Wiki]({0}) prima per vedere se il problema è già stato risolto.
+    <value>Questo problema può già essere stato affrontato nella [Wiki]({0}).
 
-Se no, per favore segnala questa eccezione attraverso una [GitHub issue]({1}) con una copia del file di registro che è stato creato.</value>
+Se non lo è, si prega di segnalare questa eccezione attraverso un [problema GitHub]({1}) insieme al file di registro.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Errore di Bloxstrap</value>
@@ -820,7 +820,7 @@ Selezionando 'No' si ignorerà questo avvertimento procedendo con l'installazion
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Il valore di '{0}' non è valido perché deve essere un numero</value>
+    <value>La voce per '{0}' non è valida in quanto il valore deve essere un intero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Nessun file di registro sarà scritto perché Bloxstrap non ha accesso alla cartella a '{0}'</value>
@@ -913,13 +913,11 @@ Cosa preferiresti fare?</value>
     <value>Disinstalla Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Con la disinstallazione verrà rimosso Bloxstrap dal tuo sistema, e automaticamente riconfiguererà al launcher predefinito di Roblox se è installato.
+    <value>La disinstallazione rimuoverà Bloxstrap dal sistema e riconfigura automaticamente il launcher Roblox predefinito se è ancora installato.
 
-Se lo stai disinstallando o lo stai reinstallando perchè stai avendo problemi con Roblox, per favore leggi prima [questa pagina d'aiuto]({0}).
+Il processo di disinstallazione potrebbe lasciare indietro alcune cose, quindi potrebbe essere necessario ripulire manualmente i file rimanenti dove Bloxstrap è stato installato.
 
-Il processo di disinstallazione potrebbe non essere capace di completamente eliminarsi, quindi potresti dovere manualmente pulire i file rimanenti rimasti dove Bloxstrap è stato installato.
-
-Bloxstrap è stato installato in "{1}".</value>
+Bloxstrap è stato installato a "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Mantieni le mie impostazioni e mod</value>
@@ -949,9 +947,9 @@ Bloxstrap è stato installato in "{1}".</value>
     <value>Bloxstrap non è stato in grado di creare scorciatoie per il Desktop e il menu Start. Prova a crearle più tardi tramite le impostazioni.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Controlla prima la [Wiki di Bloxstrap]({0}) per vedere se il problema è stato già risolto.
+    <value>Controllare prima il [Bloxstrap Wiki]({0}) per vedere se questo problema è già stato risolto con una correzione.
 
-In caso contrario, si prega di segnalare questa eccezione ai manutentori di questo fork. NON segnalarlo ai problemi di GitHub di Bloxstrap, perché si tratta di una build non ufficiale.</value>
+In caso contrario, si prega di segnalare questa eccezione ai manutentori di questo fork. Non segnalare questo ai problemi di Bloxstrap's GitHub, in quanto questa è una build non ufficale.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1004,9 @@ Potresti riscontrare dei problemi e alcune impostazioni potrebbero cambiare. Una
 Sei sicuro di voler continuare?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox non è riuscito ad avviarsi.</value>
+    <value>Roblox non è riuscito ad avviare.
+
+Questo potrebbe non essere un problema Bloxstrap. Per scoprire, vedi [questa pagina di aiuto]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Impossibile caricare i dati a causa di un errore di rete.</value>
@@ -1112,7 +1112,7 @@ Assicurati che non ci sia nulla che possa limitare le operazioni di Bloxstrap.</
     <value>Ripristina tutto ai valori predefiniti</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Segnala eccezione</value>
+    <value>Crea report</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Modalità di prova</value>
@@ -1375,7 +1375,7 @@ Predefinito a {1}.</value>
     <value>Aggiornamenti in background</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Aggiorna Roblox in background invece di attendere. Non consigliato per reti lente. Per far funzionare questa funzione è necessario almeno 3GB di spazio di archiviazione libero.</value>
+    <value>Aggiorna Roblox in background invece di bloccare l'avvio quando è disponibile un aggiornamento. Per questa funzione è richiesto almeno 5GB di spazio di archiviazione libero.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Inserisci qui gli elementi dell'interfaccia utente</value>
@@ -1395,5 +1395,17 @@ Predefinito a {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Anteprima del tema non riuscito: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>Arrestando {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Wiki Bloxstrap</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>Comunità Di Roblox</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>A causa dell'[aggiornamento della lista di permessi dei Fast Flag]({0}), la maggior parte delle Fast Flag personalizzate non avrà effetto sul Roblox player.</value>
   </data>
 </root>

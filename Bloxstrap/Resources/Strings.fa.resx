@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -124,13 +124,13 @@
     <value>روبلاکس در حال اجرا شدن است؛ و باز کردن دوباره آن باعث می‌شود که بسته شود. آیا می خواهید به باز کردن ادامه بدهید؟</value>
   </data>
   <data name="Dialog.Connectivity.RobloxDown" xml:space="preserve">
-    <value>ممکن است روبلاکس درحال حاضر دردسترس نباشد. {0} را ببینید برای اطلاعات بیشتر.</value>
+    <value>ممکن است روبلاکس درحال حاضر دردسترس نباشد. {0} را جهت اطلاعات بیشتر مشاهده کنید.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>اتصال برقرار نشد، که احتمالاً نشان دهنده اتصال ضعیف اینترنت یا مسدود بودن از طرف فایروال است. اگر اتصال شما خوب است، لطفاً مطمئن شوید که آنتی ویروس شما بلاکسترپ را مسدود نمی کند.</value>
+    <value>اتصال برقرار نشد، که احتمالاً نشان دهنده اتصال ضعیف به اینترنت یا مسدود بودن از طرف فایروال است. اگر اتصال شما خوب است، لطفاً مطمئن شوید که آنتی ویروس شما بلاکسترپ را مسدود نمی کند.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>برای حذف نصب، ابتدا باید بلاکسترپ را نصب کنید.</value>
+    <value>قبل از حذف نصب، باید ابتدا بلاکسترپ را نصب داشته باشید.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>بلاکسترپ فضای کافی برای دانلود و نصب روبلاکس ندارد. لطفاً مقداری از حافظه را آزاد کنید و دوباره تلاش کنید.</value>
@@ -283,30 +283,30 @@
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
-    <value>کپی اطلاعات لاگ</value>
+    <value>کپی کردن محتوای لاگ</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>خطایی هنگام اجرای بلاکسترپ رخ داد</value>
+    <value>یک استثنا رخ داد</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>[ویکی بلاکسترپ]({0}) را بررسی کنید تا ببینید آیا این مشکل قبلاً با یک راه‌حل برطرف شده است یا خیر.
+    <value>این مشکل ممکن است قبلاً داخل [ویکی]({0}) بررسی و حل شده باشد.
 
-اگر نه، لطفا این مشکل را از [مشکلات گیتهاب]({1}) به همراه کپی فایل از لاگ ساخته شده گزارش نمایید.</value>
+اگر نبود، لطفاً این استثنا را همراه با فایل لاگ از طریق یک [GitHub issue]({1}) گزارش کنید.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>استثنا های بلاکسترپ</value>
+    <value>استثنای بلاکسترپ</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>دلخواه</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconEarly2015" xml:space="preserve">
-    <value>اوایل 2015</value>
+    <value>اوایل ٢٠١۵</value>
   </data>
   <data name="Enums.BootstrapperIcon.IconLate2015" xml:space="preserve">
-    <value>اواخر 2015</value>
+    <value>اواخر ٢٠١۵</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Byfron دروغی (2023)</value>
+    <value>Byfron دروغی (٢٠٢٣)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
     <value>بلاکسترپ (کلاسیک)</value>
@@ -315,22 +315,22 @@
     <value>بلاکسترپ (شیشه ای)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
-    <value>قدیمی (2008 تا 2011)</value>
+    <value>قدیمی (٢٠٠٨ تا ٢٠١١)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2011" xml:space="preserve">
-    <value>قدیمی (2011 تا 2014)</value>
+    <value>قدیمی (۲۰۱۱ تا ۲۰۱۴)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ProgressDialog" xml:space="preserve">
-    <value>روبلاکس (~2014)</value>
+    <value>روبلاکس (~۲۰۱۴)</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
-    <value>ویستا (2008 - 2011)</value>
+    <value>ویستا (٢٠٠٨ - ٢٠١١)</value>
   </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
-    <value>2006 (کارتونی)</value>
+    <value>۲۰۰۶ (کارتونی)</value>
   </data>
   <data name="Enums.CursorType.From2013" xml:space="preserve">
-    <value>2013 (زاویه ای)</value>
+    <value>۲۰۱۳ (زاویه ای)</value>
   </data>
   <data name="Enums.EmojiType.Catmoji" xml:space="preserve">
     <value>Catmoji</value>
@@ -339,22 +339,22 @@
     <value>پیش فرض (Twemoji)</value>
   </data>
   <data name="Enums.EmojiType.Windows10" xml:space="preserve">
-    <value>ویندوز 10</value>
+    <value>ویندوز ۱۰</value>
   </data>
   <data name="Enums.EmojiType.Windows11" xml:space="preserve">
-    <value>ویندوز 11</value>
+    <value>ویندوز ۱۱</value>
   </data>
   <data name="Enums.EmojiType.Windows8" xml:space="preserve">
-    <value>ویندوز 8</value>
+    <value>ویندوز ۸</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V1" xml:space="preserve">
-    <value>2015 (نسخه اول)</value>
+    <value>۲۰۱۵ (نسخه اول)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V2" xml:space="preserve">
-    <value>2020 (نسخه دوم)</value>
+    <value>۲۰۲۰ (نسخه دوم)</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4" xml:space="preserve">
-    <value>2023 (نسخه چهارم)</value>
+    <value>۲۰۲۳ (نسخه چهارم)</value>
   </data>
   <data name="Enums.FlagPresets.RenderingMode.D3D10" xml:space="preserve">
     <value>Direct3D 10</value>
@@ -445,13 +445,13 @@
     <value>بوت استرپر</value>
   </data>
   <data name="Menu.Appearance.Customisation.Description" xml:space="preserve">
-    <value>سایر گزینه های قابل تنظیم دیگر را پیکربندی کنی</value>
+    <value>سایر گزینه های قابل تنظیم دیگر را پیکربندی کنید.</value>
   </data>
   <data name="Menu.Appearance.Customisation.Title" xml:space="preserve">
     <value>شخصی سازی</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Description" xml:space="preserve">
-    <value>باید یک فایل ico. چند اندازه با اندازه های 16 تا 128 پیکسل باشد. آیکون را به عنوان "دلخواه" برای استفاده از آن تنظیم کنید.</value>
+    <value>باید یک فایل ico. چند اندازه با اندازه های ۱۶ تا ۱۲۸ پیکسل باشد. آیکون را به عنوان "دلخواه" برای استفاده از آن تنظیم کنید.</value>
   </data>
   <data name="Menu.Appearance.CustomisationIcon.Title" xml:space="preserve">
     <value>آیکون سفارشی</value>
@@ -502,7 +502,7 @@
     <value>تنظیم کنید که بلاکسترپ هنگام اجرای روبلاکس چه کاری را انجام بدهد.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
-    <value>روبلاکس در اجرا بعدی از اول نصب خواهد شد.</value>
+    <value>روبلاکس در راه‌اندازی بعدی به‌طور تازه نصب خواهد شد.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Title" xml:space="preserve">
     <value>مجبور به نصب مجدد روبلاکس</value>
@@ -580,7 +580,7 @@
     <comment>Title is Menu.FastFlagEditor.Title</comment>
   </data>
   <data name="Menu.FastFlags.Presets.D3DExclusiveFullscreenInfo" xml:space="preserve">
-    <value>({0})Direct3D [exclusive fullscreen] با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
+    <value>Direct3D [exclusive fullscreen]({0}) با استفاده از Alt+Enter به صورت پیش فرض فعال است.</value>
   </data>
   <data name="Menu.FastFlags.Presets.FixDisplayScaling.Description" xml:space="preserve">
     <value>روبلاکس کیفیت رندرینگ شما را بر اساس مقیاس نمایشگر در ویندوز کاهش می‌دهد.</value>
@@ -771,7 +771,7 @@
     <value>به یک اجرای مجدد جهت نتیجه گرفتن تغییرات نیاز است.</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
-    <value>2023 (ورژن چهار + رابط کاربری جدید)</value>
+    <value>۲۰۲۳ (ورژن چهار + رابط کاربری جدید)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
     <value>رندر ها و گرافیک ها</value>
@@ -819,7 +819,7 @@
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>ورودی "{0}" معتبر نیست زیرا مقدار باید یک عدد باشد</value>
+    <value>ورودی مربوط به '{0}' معتبر نمی‌باشد زیرا مقدار آن باید یک عدد صحیح باشد</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>هیچ فایل لاگی برای این اجرا نوشته نخواهد شد زیرا بلاکسترپ نمیتواد در فولدر '{0}' فایل بنویسد</value>
@@ -853,7 +853,7 @@
     <value>بازگشت</value>
   </data>
   <data name="Common.Navigation.Next" xml:space="preserve">
-    <value>ادامه</value>
+    <value>بعدی</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
     <value>بابت دانلود بلاکسترپ ممنونیم.
@@ -864,7 +864,7 @@
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
-    <value>لطفا بر روی "بعدی" کلیک کنید جهت ادامه دادن.</value>
+    <value>لطفاً برای ادامه دادن روی 'بعدی' کلیک کنید.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
     <value>شما درتلاش برای نصب نسخه {0} از بلاکسترپ هستید، ولی جدیدترین ورژن درحال حاضر {1} است. آیا مایل به دانلود هستید؟</value>
@@ -912,13 +912,11 @@
     <value>حذف نصب بلاکسترپ</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>حذف کردن، برنامه بلاکسترپ را از سیستم شما حذف میکند، و اگر هنوز نصب شده است به طور خودکار تنظیمات را به تنظیمات اصلی لانچر روبلاکس برمیگرداند.
+    <value>با حذف نصب، بلاکسترپ از سیستم شما پاک می‌شود و اگر لانچر پیش‌فرض روبلاکس هنوز نصب باشد، به‌صورت خودکار دوباره پیکربندی می‌شود.
 
-اگر شما درحال حذف کردن و یا نصب مجدد هستید به دلیل اینکه مشکلاتی با روبلاکس دارید، اول [این صفحه راهنما]({0}) را بخوانید.
+فرآیند حذف نصب ممکن است بعضی موارد را باقی بگذارد، بنابراین ممکن است لازم باشد فایل‌های باقی‌مانده را به‌صورت دستی از محل نصب بلاکسترپ پاک کنید.
 
-فرآیند حذف نصب ممکن است نتواند به‌طور کامل خودش را پاکسازی کند، بنابراین ممکن است نیاز باشد که فایل‌های باقی‌مانده در محل نصب بلاکسترپ را به‌صورت دستی پاک کنید.
-
-بلاکسترپ در "{1}" نصب شده بود.</value>
+بلاکسترپ در مسیر "{1}" نصب شده بود.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>تنظیمات و مود های من را ذخیره کن</value>
@@ -948,9 +946,9 @@
     <value>بلاکسترپ نتوانست یک میانبر برای دسکتاپ و صفحه شروع بسازد. تلاش کنید که آنها را بعدا از طریق تنظیمات بسازید.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>ابتدا [ویکی بلاکسترپ]({0}) را بررسی کنید تا ببینید آیا این مشکل قبلاً با یک راه‌حل برطرف شده است یا خیر.
+    <value>ابتدا [ویکی بلاکسترپ]({0}) را بررسی کنید تا مطمئن شوید آیا این مشکل قبلاً همراه با یک راه‌حل برطرف شده است یا خیر.
 
-اگر نه، لطفاً این استثنا را به مدیرهای این فورک گزارش دهید. این مشکلات را در گیتهاب بلاکسترپ گزارش نکنید، زیرا این یک نسخه غیر رسمی است.</value>
+در صورت نبود راه‌حل، لطفاً این استثنا را به توسعه‌دهندگان این فورک از بلاکسترپ گزارش دهید. این مورد را در Github issues بلاکسترپ گزارش نکنید، زیرا این یک نسخه غیررسمی است.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1005,7 +1003,9 @@
 آیا مطمئن هستید که میخواهید ادامه دهید؟</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>روبلاکس نتوانستد اجرا شود.</value>
+    <value>راه‌اندازی روبلاکس با موفقیت انجام نشد.
+
+این مشکل ممکن است مربوط به بلاکسترپ باشد یا نباشد. برای اطلاع بیشتر، لطفاً [این صفحه راهنما]({0}) را مشاهده کنید.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>داده ها بخاطر یک مشکل در شبکه بارگیری نشدند.</value>
@@ -1110,7 +1110,7 @@
     <value>همه چیز را به حالت پیش فرض برگردانید</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>گزارش استثنا</value>
+    <value>ایجاد گزارش</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>حالت آزمایش</value>
@@ -1124,7 +1124,7 @@
 آیا می خواهید حالت آزمایشی را فعال کنید؟</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>همه ترجمه‌های بلاکسترپ از طریق [Crowdin] ({0}) جمع‌آوری می‌شوند. همه افرادی که در اینجا لیست شده اند افرادی هستند که سخاوتمندانه زمان و تلاش خود را برای همگانی سازی بلاکسترپ صرف کرده اند. یک تشکر گسترده از همه افراد در اینجا!</value>
+    <value>همه ترجمه‌های بلاکسترپ از طریق [Crowdin]({0}) جمع‌آوری می‌شوند. همه افرادی که در اینجا لیست شده اند افرادی هستند که سخاوتمندانه زمان و تلاش خود را برای همگانی سازی بلاکسترپ صرف کرده اند. یک تشکر گسترده از همه افراد در اینجا!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>نصب</value>
@@ -1344,7 +1344,7 @@
     <value>فایل تم در فایل ZIP پیدا نشد</value>
   </data>
   <data name="CustomTheme.Add.Errors.ZipInvalidData" xml:space="preserve">
-    <value>نامعتبر و فایل زیپ خراب</value>
+    <value>فایل ZIP نامعتبر یا خراب است</value>
   </data>
   <data name="CustomTheme.Errors.NoThemeSelected" xml:space="preserve">
     <value>هیچ تم دلخواهی انتخاب نشده است</value>
@@ -1373,7 +1373,7 @@
     <value>به‌روزرسانی‌های پس‌زمینه‌ای</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>روبلاکس را در پس‌زمینه به‌روزرسانی کنید به‌جای منتظر ماندن. برای اینترنت های کند توصیه نمی‌شود. برای فعال شدن این قابلیت، حداقل ۳ گیگابایت فضای خالی نیاز است.</value>
+    <value>انجام به‌روزرسانی روبلاکس در پس‌زمینه در هنگام در دسترس بودن به‌روزرسانی، راه‌اندازی روبلاکس را برای انجام بروزرسانی مسدود نمی‌کند. حداقل پنج گیگابایت فضای خالی برای استفاده از این ویژگی مورد نیاز است.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>عناصر رابط کاربری را اینجا قرار دهید</value>
@@ -1393,5 +1393,17 @@
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>پیش‌نمایش تم با شکست مواجه شد: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>در حال خاموش‌سازی {product}</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>ویکی بلاکسترپ</value>
+  </data>
+  <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
+    <value>جامعه روبلاکس</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>به دلیل [بروزرسانی لیست سفید فست فلگ ها]({0})، بیشتر فست فلگ های سفارشی دیگر روی روبلاکس پلیر هیچ تأثیری نخواهند داشت.</value>
   </data>
 </root>
