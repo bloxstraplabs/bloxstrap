@@ -1,8 +1,8 @@
-﻿<base:WpfUiDialogBase
+﻿<base:WpfUiWindow
     x:Class="Bloxstrap.UI.Elements.Bootstrapper.CustomDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Bootstrapper.Base"
+    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Bloxstrap.UI.Elements.Bootstrapper"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -20,6 +20,9 @@
     WindowBackdropType="Disable"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="{Binding Path=TaskbarProgressState}" ProgressValue="{Binding Path=TaskbarProgressValue}" />
+    </Window.TaskbarItemInfo>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -49,4 +52,4 @@
             <Grid x:Name="ElementGrid" Grid.Row="1" />
         </Grid>
     </Grid>
-</base:WpfUiDialogBase>
+</base:WpfUiWindow>

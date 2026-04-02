@@ -134,9 +134,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             }
         }
 
-        protected override void OnDialogLoad()
-        {
-            TaskDialog.ShowDialog(_dialogPage);
-        }
+
+        private void VistaDialog_Load(object sender, EventArgs e) => TaskDialog.ShowDialog(_dialogPage);
     }
 }

@@ -32,6 +32,9 @@ namespace Bloxstrap
         #region Properties
         private const int ProgressBarMaximum = 10000;
 
+        private const double TaskbarProgressMaximumWpf = 1; // this can not be changed. keep it at 1.
+        private const int TaskbarProgressMaximumWinForms = WinFormsDialogBase.TaskbarProgressMaximum;
+
         private const string AppSettings =
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" +
             "<Settings>\r\n" +
@@ -55,6 +58,7 @@ namespace Bloxstrap
         private bool _isInstalling = false;
         private double _progressIncrement;
         private double _taskbarProgressIncrement;
+        private double _taskbarProgressMaximum;
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
@@ -130,7 +134,7 @@ namespace Bloxstrap
 
             // taskbar progress
             double taskbarProgressValue = _taskbarProgressIncrement * _totalDownloadedBytes;
-            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, App.TaskbarProgressMaximum);
+            taskbarProgressValue = Math.Clamp(taskbarProgressValue, 0, _taskbarProgressMaximum);
 
             Dialog.TaskbarProgressValue = taskbarProgressValue;
         }
@@ -1077,7 +1081,12 @@ namespace Bloxstrap
                 int totalPackedSize = _versionPackageManifest.Sum(package => package.PackedSize);
                 _progressIncrement = (double)ProgressBarMaximum / totalPackedSize;
 
-                _taskbarProgressIncrement = App.TaskbarProgressMaximum / (double)totalPackedSize;
+                if (Dialog is WinFormsDialogBase)
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWinForms;
+                else
+                    _taskbarProgressMaximum = (double)TaskbarProgressMaximumWpf;
+
+                _taskbarProgressIncrement = _taskbarProgressMaximum / (double)totalPackedSize;
             }
 
             var extractionTasks = new List<Task>();

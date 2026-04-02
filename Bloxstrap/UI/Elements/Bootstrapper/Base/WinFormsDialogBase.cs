@@ -7,6 +7,8 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
 {
     public class WinFormsDialogBase : Form, IBootstrapperDialog
     {
+        public const int TaskbarProgressMaximum = 100;
+
         public Bloxstrap.Bootstrapper? Bootstrapper { get; set; }
 
         private bool _isClosing;
@@ -74,9 +76,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _taskbarProgressState = value;
-
-                if (Handle != IntPtr.Zero)
-                    TaskbarProgress.SetProgressState(Handle, value);
+                TaskbarProgress.SetProgressState(Process.GetCurrentProcess().MainWindowHandle, value);
             }
         }
 
@@ -86,9 +86,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
             set
             {
                 _taskbarProgressValue = value;
-
-                if (Handle != IntPtr.Zero)
-                    TaskbarProgress.SetProgressValue(Handle, (int)value, App.TaskbarProgressMaximum);
+                TaskbarProgress.SetProgressValue(Process.GetCurrentProcess().MainWindowHandle, (int)value, TaskbarProgressMaximum);
             }
         }
 
@@ -130,28 +128,12 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         }
 
         #region WinForms event handlers
-        protected void ButtonCancel_Click(object? sender, EventArgs e) => Close();
+        public void ButtonCancel_Click(object? sender, EventArgs e) => Close();
 
-        protected void Dialog_Load(object sender, EventArgs e)
-        {
-            TaskbarProgress.SetProgressState(Handle, _taskbarProgressState);
-            if (_taskbarProgressState != TaskbarItemProgressState.None && _taskbarProgressState != TaskbarItemProgressState.Indeterminate)
-                TaskbarProgress.SetProgressValue(Handle, (int)_taskbarProgressValue, App.TaskbarProgressMaximum);
-
-            OnDialogLoad();
-        }
-
-        protected void Dialog_FormClosing(object sender, FormClosingEventArgs e)
+        public void Dialog_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!_isClosing)
                 Bootstrapper?.Cancel();
-        }
-        #endregion
-
-        #region Virtual Methods
-        protected virtual void OnDialogLoad()
-        {
-            // Intentionally left blank
         }
         #endregion
 
