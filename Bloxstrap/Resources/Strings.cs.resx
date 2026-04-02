@@ -1405,6 +1405,6 @@ Používám motiv {1}.</value>
     <value>Roblox komunita</value>
   </data>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
-    <value>Vzhledem k [aktualizaci seznamu povolených Fast Flagů]({0}) nebude mít většina vlastních Fast Flagů žádný vliv na Roblox klient.</value>
+    <value>Vzhledem k [aktualizaci seznamu povolených Fast Flagů]({0}), nebude mít většina vlastních Fast Flagů žádný vliv na Roblox klient.</value>
   </data>
 </root>

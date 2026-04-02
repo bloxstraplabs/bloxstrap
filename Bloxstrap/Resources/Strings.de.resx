@@ -949,7 +949,7 @@ Bloxstrap wurde unter „{1}“ installiert.</value>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Überprüfe zuerst das [Bloxstrap Wiki]({0}), um zu sehen, ob dieses Problem bereits mit einer Lösung behandelt wurde.
 
-Falls nicht, melde sie diesen Fehler bitte an die Maintainer dieses Forks. Melden sie Diesen Fehler nicht in dem GitHub-Issues von Bloxstrap, da dies eine inoffizielle Version von Bloxstrap ist.</value>
+Falls nicht, melden Sie diesen Fehler bitte an die Maintainer dieses Forks. Melden sie Diesen Fehler nicht in dem GitHub-Issues von Bloxstrap, da dies eine inoffizielle Version von Bloxstrap ist.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
@@ -1006,7 +1006,7 @@ Bist du sicher, dass du fortfahren möchtest?</value>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox konnte nicht gestartet werden.
 
-Dies könnte ein Problem mit Bloxstrap sein, oder auch nicht. Um es herauszufinden, siehe [diese Hilfeseite]({0}).</value>
+Dies könnte ein Problem mit Bloxstrap sein, muss es aber nicht. Um es herauszufinden, siehe [diese Hilfeseite]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Daten konnten aufgrund eines Netzwerkfehlers nicht geladen werden.</value>
@@ -1111,7 +1111,7 @@ Bitte lösche Bloxstrap.exe manuell aus dem Installationsverzeichnis oder versuc
     <value>Alles auf Standardwerte zurücksetzen</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Bericht erstellen</value>
+    <value>Fehler melden</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Testmodus</value>
@@ -1374,7 +1374,7 @@ Es wurde automatisch {1} ausgewählt.</value>
     <value>Hintergrund Updates</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Roblox im Hintergrund aktualisieren, anstatt den Start zu blockieren, wenn ein Update verfügbar ist. Für diese Funktion werden mindestens 5 GB freier Speicherplatz benötigt.</value>
+    <value>Roblox im Hintergrund aktualisieren, anstatt den Start zu blockieren, wenn ein Update verfügbar ist. Für diese Funktion werden mindestens 5GB freier Speicherplatz benötigt.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Platziere UI-Elemente hier</value>
@@ -1396,7 +1396,7 @@ Es wurde automatisch {1} ausgewählt.</value>
     <value>Die Designvorschau ist fehlgeschlagen: {0}</value>
   </data>
   <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
-    <value>{product} wird heruntergefahren</value>
+    <value>{product} wird beendet</value>
   </data>
   <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
     <value>Bloxstrap Wiki</value>
@@ -1405,6 +1405,6 @@ Es wurde automatisch {1} ausgewählt.</value>
     <value>Roblox Community</value>
   </data>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
-    <value>Wegen des [Fast Flag Zulassungslisten update]({0}) von Roblox haben die meisten custom Fast Flags keinen Effekt auf den Roblox Spieler.</value>
+    <value>Wegen des [Fast Flag allowlist update]({0}) von Roblox haben die meisten custom Fast Flags keinen Effekt im Roblox client.</value>
   </data>
 </root>

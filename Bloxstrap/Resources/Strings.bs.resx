@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -283,14 +283,6 @@
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopiraj sadržaj log-a</value>
-  </data>
-  <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Došlo je do izuzetka tokom pokretanja Bloxstrap-a</value>
-  </data>
-  <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Provjeri prvo [Bloxstrap Wiki]({0}) da vidiš da li je ovaj problem već riješen ispravkom.
-
-Ako nije, molimo vas prijavite ovaj izuzetak putem [GitHub issue]({1}) zajedno sa kopijom log fajla koji je kreiran.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap Izuzetak</value>
@@ -818,9 +810,6 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Unos za '{0}' nije validan jer vrijednost mora biti boolean (ili 'True' ili 'False')</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
-  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>Unos za '{0}' nije validan jer vrijednost mora biti broj</value>
-  </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Neće biti zapisan log fajl za ovo pokretanje jer Bloxstrap nije u mogućnosti zapisivati u folder na '{0}'</value>
   </data>
@@ -909,15 +898,6 @@ Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Roblox
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>Deinstalirajte Bloxstrap</value>
   </data>
-  <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Deinstaliranjem će se ukloniti Bloxstrap iz vašeg sistema i automatski će se ponovo konfigurirati zadani Roblox pokretač ako je još uvijek instaliran.
-
-Ako deinstalirate ili ponovo instalirate jer imate problema s Robloxom, prvo pročitajte [ovu stranicu pomoći]({0}).
-
-Proces deinstalacije možda neće moći u potpunosti da se očisti, tako da ćete možda morati ručno očistiti preostale datoteke na kojima je instaliran Bloxstrap.
-
-Bloxstrap je instaliran na "{1}".</value>
-  </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Zadrži moja podešavanja i modove</value>
   </data>
@@ -944,12 +924,6 @@ Bloxstrap je instaliran na "{1}".</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>Bloxstrap nije mogao da stvori prečice za radnu površinu i meni Start. Pokušajte ih kreirati kasnije kroz postavke.</value>
-  </data>
-  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Prvo provjerite [Bloxstrap Wiki]({0}) da vidite da li je ovaj problem već riješen ispravkom.
-
-Ako ne, onda molimo prijavite ovaj izuzetak održavaocima ove vilice. NEMOJTE prijaviti ovo Bloxstrap-ovim GitHub problemima, jer je ovo nezvanična gradnja.</value>
-    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ovo su opšte prečice koje otvaraju meni za pokretanje sa više opcija. Prečice za određene funkcije mogu se kreirati kasnije u postavkama.</value>
@@ -1001,9 +975,6 @@ Ako ne, onda molimo prijavite ovaj izuzetak održavaocima ove vilice. NEMOJTE pr
     <value>Verzija Bloxstrapa koju ste pokrenuli starija je od verzije koju ste trenutno instalirali.
 Mogu se pojaviti problemi i vaše postavke mogu biti promijenjene. Preporučuje se ponovna instalacija.
 Jeste li sigurni da želite nastaviti?</value>
-  </data>
-  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Roblox nije uspio pokrenuti.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nije moguće učitati podatke zbog mrežne greške.</value>
@@ -1106,9 +1077,6 @@ Molimo ručno izbrišite Bloxstrap.exe sa lokacije za instalaciju ili pokušajte
   </data>
   <data name="Menu.FastFlags.Reset.Title" xml:space="preserve">
     <value>Vrati sve na zadane postavke</value>
-  </data>
-  <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Prijavite izuzetak</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Test mod</value>
@@ -1371,9 +1339,6 @@ Zadano na {1}.</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Title" xml:space="preserve">
     <value>Pozadinska aržuriranja</value>
-  </data>
-  <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Ažurirajte Roblox u pozadini umjesto da čekate. Ne preporučuje se za spore mreže. Za rad ove funkcije potrebno je najmanje 3GB slobodnog prostora za pohranu.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Stavite UI elemente ovdje</value>

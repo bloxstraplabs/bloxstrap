@@ -60,45 +60,45 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -284,14 +284,6 @@ Kattintson további információért</value>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Napló tartalmának másolása</value>
-  </data>
-  <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Kivétel lépett fel a Bloxstrap futtatása közben</value>
-  </data>
-  <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Először nézze át a [Bloxstrap Wikit]({0}), mert lehet, hogy a problémáját már megválaszoltuk.
-
-Ha nem, kérjük, hogy jelentse ezt egy [GitHub problémaként]({1}) a Bloxstrap által készített naplófájllal együtt.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
     <value>Bloxstrap kivétel</value>
@@ -819,9 +811,6 @@ A 'Nem' választása figyelmen kívül hagyja ezt a figyelmeztetést, és folyta
     <value>A(z) '{0}' nem érvényes, mivel az érték csak hamis (False) vagy igaz (True) lehet</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
-  <data name="Menu.FastFlagEditor.InvalidNumberValue" xml:space="preserve">
-    <value>A(z) '{0}' nem érvényes, mivel az érték csak egy szám lehet</value>
-  </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
     <value>Ehhez az indításhoz nem fog naplófájl íródni, mert a Bloxstrap nem tud írni a '{0}' mappába</value>
   </data>
@@ -912,15 +901,6 @@ Mit szeretnél tenni?</value>
   <data name="Uninstaller.Title" xml:space="preserve">
     <value>Bloxstrap eltávolítása</value>
   </data>
-  <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Az eltávolítás eltávolítja a Bloxstrap-et a rendszerből, és automatikusan átállítja az alapértelmezett Roblox indítóprogramot, ha az még telepítve van.
-
-Ha azért távolítod el vagy telepíted újra, mert problémáid vannak a Roblox-al, először olvasd el [ezt a súgóoldalt]({0}).
-
-Előfordulhat, hogy az eltávolítási folyamat nem képes teljesen kitakarítani magát, ezért előfordulhat, hogy kézzel kell kitakarítani a megmaradt fájlokat, ahová a Bloxstrap telepítve volt.
-
-A Bloxstrap telepítése a „{1}” helyre történt.</value>
-  </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Tartsa meg a beállításaimat és modjaimat</value>
   </data>
@@ -947,12 +927,6 @@ A Bloxstrap telepítése a „{1}” helyre történt.</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
     <value>A Bloxstrap nem tudott parancsikonokat létrehozni az Asztal és a Start menü számára. Próbálja meg később létrehozni őket a beállításokon keresztül.</value>
-  </data>
-  <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Nézd meg először a [Bloxstrap Wiki]({0}) oldalát, hátha már találtak megoldást erre a problémára.
-
-Ha nem, akkor kérjük, jelentse ezt a kivételt a fork karbantartóinak. NE jelentse ezt a Bloxstrap GitHub issue-jeiben, mivel ez egy nem hivatalos build.</value>
-    <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ezek általános parancsikonok, amelyek egy több választási lehetőséget tartalmazó indítási menüt hoznak létre. Az egyes funkciókhoz tartozó parancsikonok később a beállításokban hozhatók létre.</value>
@@ -1006,7 +980,9 @@ Problémák léphetnek fel, és a beállításai megváltozhatnak. Ajánlott az 
 Biztos, hogy folytatni szeretné?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>A Roblox nem tudott elindulni.</value>
+    <value>A Roblox-nak nem sikerült elindulnia.
+
+Ez lehetséges, hogy egy Bloxstrap probléma. Ennek kiderítéséhez, nézd meg [ezt a súgóoldalt]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Hálózati hiba miatt nem sikerült betölteni az adatokat.</value>
@@ -1111,7 +1087,7 @@ Kérjük, manuálisan törölje a Bloxstrap.exe fájlt a telepítési helyről, 
     <value>Minden visszaállítása alapértelmezettbe</value>
   </data>
   <data name="Dialog.Exception.Report" xml:space="preserve">
-    <value>Kivétel bejelentése</value>
+    <value>Bejelentés</value>
   </data>
   <data name="Menu.TestMode" xml:space="preserve">
     <value>Teszt mód</value>
@@ -1374,7 +1350,7 @@ Alapértelmezés szerint {1}.</value>
     <value>Háttérfrissítések</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Várakozás helyett a háttérben frissítheti a Robloxot. Lassú hálózatokon nem ajánlott. A funkció működéséhez legalább 3GB szabad tárhely szükséges.</value>
+    <value>Roblox frissítése a háttérben az indításnak a letiltása helyett amikor elérhető egy frissítés. Legalább 5GB szabad tárhely szükséges ehhez a funkcióhoz.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>UI elemek elhelyezése ide</value>
@@ -1394,5 +1370,14 @@ Alapértelmezés szerint {1}.</value>
   </data>
   <data name="CustomTheme.Editor.Errors.PreviewFailed" xml:space="preserve">
     <value>Nem sikerült előnézetben megjeleníteni a témát: {0}</value>
+  </data>
+  <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
+    <value>{product} leállítása</value>
+  </data>
+  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
+    <value>Bloxstrap Wiki</value>
+  </data>
+  <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
+    <value>A [Fast Flag engedélyezési lista frissítés]({0}) miatt a legtöbb saját Fast Flag nem lesz hatással a Roblox-ra.</value>
   </data>
 </root>

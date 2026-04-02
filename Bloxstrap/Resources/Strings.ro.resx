@@ -913,7 +913,7 @@ Ce ai vrea să faci?</value>
     <value>Dezinstalează Bloxstrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Dezinstalarea va elimina Bloxstrap din sistemul dumneavoastră şi va reconfigura automat lansatorul Roblox dacă este încă instalat.
+    <value>Dezinstalarea va elimina Bloxstrap din sistemul dumneavoastră și va reconfigura automat lansatorul Roblox dacă este încă instalat.
 
 Procesul de dezinstalare ar putea lăsa unele lucruri în urmă, așa că este posibil să fie nevoie să curățați în mod manual fișierele rămase din locația în care a fost instalat Bloxstrap.
 
@@ -1374,7 +1374,7 @@ Setat implicit la {1}.</value>
     <value>Actualizare în fundal</value>
   </data>
   <data name="Menu.Behaviour.BackgroundUpdates.Description" xml:space="preserve">
-    <value>Actualizează Roblox în fundal în loc de a bloca lansarea atunci când este disponibilă o actualizare. Cel puțin 5 GB de spațiu de stocare gratuit este necesar pentru această funcționalitate.</value>
+    <value>Actualizează Roblox în fundal în loc de a bloca lansarea atunci când este disponibilă o actualizare. Cel puțin 5GB de spațiu de stocare gratuit este necesar pentru această funcționalitate.</value>
   </data>
   <data name="CustomTheme.Templates.Blank.UIElements" xml:space="preserve">
     <value>Puneți elementele UI aici</value>
