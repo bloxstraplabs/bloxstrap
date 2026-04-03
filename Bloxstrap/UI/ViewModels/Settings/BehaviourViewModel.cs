@@ -75,7 +75,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 {
                     try
                     {
-                        Directory.Delete(dir, recursive: true);
+                        Directory.Delete(dir, true);
                     }
                     catch (Exception ex)
                     {
