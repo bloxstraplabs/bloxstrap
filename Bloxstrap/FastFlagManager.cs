@@ -22,8 +22,6 @@ namespace Bloxstrap
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
 
-            { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
-
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
         };
