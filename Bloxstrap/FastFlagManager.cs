@@ -23,17 +23,9 @@ namespace Bloxstrap
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
 
             { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
-            { "Rendering.Mode.D3D10", "FFlagDebugGraphicsPreferD3D11FL10" },
 
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
-        };
-
-        public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
-        {
-            { RenderingMode.Default, "None" },
-            { RenderingMode.D3D11, "D3D11" },
-            { RenderingMode.D3D10, "D3D10" },
         };
 
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>

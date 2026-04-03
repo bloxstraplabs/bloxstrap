@@ -35,14 +35,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.MSAA", MSAALevels[value]);
         }
 
-        public IReadOnlyDictionary<RenderingMode, string> RenderingModes => FastFlagManager.RenderingModes;
-
-        public RenderingMode SelectedRenderingMode
-        {
-            get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Mode", RenderingModes[value], "True");
-        }
-
         public bool FixDisplayScaling
         {
             get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
