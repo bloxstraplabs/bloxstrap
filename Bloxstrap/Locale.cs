@@ -75,9 +75,9 @@ namespace Bloxstrap
             { "uk", "Українська" }, // Ukrainian
 #endif
             { "vi", "Tiếng Việt" }, // Vietnamese
-            { "zh-CN", "中文 (简体)" }, // Chinese Simplified
-            { "zh-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
-            { "zh-TW", "中文 (繁體)" } // Chinese Traditional
+            { "zh-Hans-CN", "中文 (简体)" }, // Chinese Simplified
+            { "zh-Hant-HK", "中文 (香港)" }, // Chinese Traditional, Hong Kong
+            { "zh-Hant-TW", "中文 (繁體)" } // Chinese Traditional
         };
 
         public static string GetIdentifierFromName(string language) => SupportedLocales.FirstOrDefault(x => x.Value == language).Key ?? "nil";
