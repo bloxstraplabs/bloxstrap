@@ -1362,6 +1362,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully cleaned the cache..
+        /// </summary>
+        public static string Dialog_CacheCleaner_Cleaned {
+            get {
+                return ResourceManager.GetString("Dialog.CacheCleaner.Cleaned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to clean the cache!.
+        /// </summary>
+        public static string Dialog_CacheCleaner_FailedToClean {
+            get {
+                return ResourceManager.GetString("Dialog.CacheCleaner.FailedToClean", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings..
         /// </summary>
         public static string Dialog_CannotCreateShortcuts {
@@ -2587,6 +2605,33 @@ namespace Bloxstrap.Resources {
         public static string Menu_Behaviour_BackgroundUpdates_Title {
             get {
                 return ResourceManager.GetString("Menu.Behaviour.BackgroundUpdates.Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Clean.
+        /// </summary>
+        public static string Menu_Behaviour_CleanRobloxCache_Clean {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.CleanRobloxCache.Clean", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Deletes all files in Roblox's cache directories to free up disk space..
+        /// </summary>
+        public static string Menu_Behaviour_CleanRobloxCache_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.CleanRobloxCache.Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Clean Roblox cache.
+        /// </summary>
+        public static string Menu_Behaviour_CleanRobloxCache_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.CleanRobloxCache.Title", resourceCulture);
             }
         }
         
