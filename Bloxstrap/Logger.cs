@@ -76,14 +76,17 @@
 
             FileLocation = location;
 
-            // clean up any logs older than a week
+            // delete older logs if there are more than 15
             if (Paths.Initialized && Directory.Exists(Paths.Logs))
             {
-                foreach (FileInfo log in new DirectoryInfo(Paths.Logs).GetFiles())
-                {
-                    if (log.LastWriteTimeUtc.AddDays(7) > DateTime.UtcNow)
-                        continue;
+                const int maxLogs = 15;
+                FileInfo[] logs = new DirectoryInfo(Paths.Logs).GetFiles();
 
+                if (logs.Length <= maxLogs)
+                    return;
+
+                foreach (FileInfo log in logs.OrderByDescending(log => log.LastWriteTimeUtc).Skip(maxLogs))
+                {
                     WriteLine(LOG_IDENT, $"Cleaning up old log file '{log.Name}'");
 
                     try
