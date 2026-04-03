@@ -581,16 +581,6 @@ namespace Bloxstrap
                     }
                 }
 
-                if (Utilities.CompareVersions(existingVer, "2.11.3") == VersionComparison.LessThan)
-                {
-                    if (App.Settings.Prop.Locale == "zh-CN")
-                        App.Settings.Prop.Locale = "zh-Hans-CN";
-                    else if (App.Settings.Prop.Locale == "zh-HK")
-                        App.Settings.Prop.Locale = "zh-Hant-HK";
-                    else if (App.Settings.Prop.Locale == "zh-TW")
-                        App.Settings.Prop.Locale = "zh-Hant-TW";
-                }
-
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
