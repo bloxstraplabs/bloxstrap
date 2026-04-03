@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
@@ -11,7 +12,6 @@ using System.Xml.Linq;
 using Wpf.Ui.Markup;
 
 using Bloxstrap.UI.Elements.Controls;
-using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
