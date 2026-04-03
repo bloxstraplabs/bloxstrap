@@ -2618,7 +2618,7 @@ namespace Bloxstrap.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Deletes all files in Roblox's cache directories to free up disk space..
+        ///   Looks up a localized string similar to Deletes all files in Roblox's cache directories to free up disk space. Games will temporarily load slower after this!.
         /// </summary>
         public static string Menu_Behaviour_CleanRobloxCache_Description {
             get {

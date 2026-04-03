@@ -1411,7 +1411,7 @@ Defaulting to {1}.</value>
     <value>Clean</value>
   </data>
   <data name="Menu.Behaviour.CleanRobloxCache.Description" xml:space="preserve">
-    <value>Deletes all files in Roblox's cache directories to free up disk space.</value>
+    <value>Deletes all files in Roblox's cache directories to free up disk space. Games will temporarily load slower after this!</value>
   </data>
   <data name="Menu.Behaviour.CleanRobloxCache.Title" xml:space="preserve">
     <value>Clean Roblox cache</value>
