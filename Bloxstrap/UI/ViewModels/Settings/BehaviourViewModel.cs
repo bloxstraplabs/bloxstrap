@@ -53,7 +53,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
 
             if (!files.Any() && !dirs.Any())
+            {
+                Frontend.ShowMessageBox(Strings.Dialog_CacheCleaner_Cleaned, MessageBoxImage.Information);
                 return;
+            }
 
             try
             {
