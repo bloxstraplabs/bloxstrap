@@ -581,6 +581,12 @@ namespace Bloxstrap
                     }
                 }
 
+                if (Utilities.CompareVersions(existingVer, "2.11.3") == VersionComparison.LessThan)
+                {
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11", null);
+                    App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11FL10", null);
+                }
+
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
