@@ -62,7 +62,16 @@ namespace Bloxstrap.UI
             string? serverLocation = await _activityWatcher.Data.QueryServerLocation();
 
             if (string.IsNullOrEmpty(serverLocation))
+            {
+                ShowAlert(
+                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
+                    Strings.ActivityWatcher_LocationQueryFailed,
+                    10,
+                    null
+                );
+
                 return;
+            }
 
             string title = _activityWatcher.Data.ServerType switch
             {

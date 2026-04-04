@@ -135,12 +135,12 @@ namespace Bloxstrap.Models.Entities
                 GlobalCache.ServerLocation[MachineAddress] = location;
                 serverQuerySemaphore.Release();
 
-                Frontend.ShowConnectivityDialog(
+                /*Frontend.ShowConnectivityDialog(
                     string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
                     Strings.ActivityWatcher_LocationQueryFailed,
                     MessageBoxImage.Warning,
                     ex
-                );
+                );*/
             }
 
             return location;
