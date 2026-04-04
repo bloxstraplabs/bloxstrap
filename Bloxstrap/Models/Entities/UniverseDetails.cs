@@ -31,7 +31,7 @@
             var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={ids}");
 
             if (!gameDetailResponse.Data.Any())
-                throw new InvalidHTTPResponseException("Roblox API for Game Details returned invalid data");
+                return;
 
             var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
 
