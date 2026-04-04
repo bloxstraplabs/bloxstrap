@@ -1748,60 +1748,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2015 (V1).
-        /// </summary>
-        public static string Enums_FlagPresets_InGameMenuVersion_V1 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2020 (V2).
-        /// </summary>
-        public static string Enums_FlagPresets_InGameMenuVersion_V2 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2023 (V4).
-        /// </summary>
-        public static string Enums_FlagPresets_InGameMenuVersion_V4 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2023 (V4 + New UI).
-        /// </summary>
-        public static string Enums_FlagPresets_InGameMenuVersion_V4Chrome {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4Chrome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Direct3D 10.
-        /// </summary>
-        public static string Enums_FlagPresets_RenderingMode_D3D10 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.D3D10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Direct3D 11.
-        /// </summary>
-        public static string Enums_FlagPresets_RenderingMode_D3D11 {
-            get {
-                return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.D3D11", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Level 0 (Lowest).
         /// </summary>
         public static string Enums_FlagPresets_TextureQuality_Level0 {
@@ -2982,15 +2928,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlags_Presets_MSAA_Title {
             get {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.MSAA.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rendering mode.
-        /// </summary>
-        public static string Menu_FastFlags_Presets_RenderingMode_Title {
-            get {
-                return ResourceManager.GetString("Menu.FastFlags.Presets.RenderingMode.Title", resourceCulture);
             }
         }
         
