@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.AppData
+﻿using System.Windows;
+
+namespace Bloxstrap.AppData
 {
     public class RobloxPlayerData : CommonAppData, IAppData
     {
@@ -14,9 +16,25 @@
 
         public override JsonManager<DistributionState> DistributionStateManager => App.PlayerState;
 
-        public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
+        public override IReadOnlyDictionary<string, string>? PackageDirectoryMap { get; set; }
+
+        public override async Task FetchPackageMap()
         {
-            { "RobloxApp.zip", @"" }
-        };
+            const string LOG_IDENT = "RobloxPlayerData::FetchPackageMap";
+
+            try
+            {
+                PackageDirectoryMap = await Http.GetJson<Dictionary<string, string>>("https://raw.githubusercontent.com/bloxstraplabs/config/refs/heads/main/package-maps/playerdata.json");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not fetch package map!");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(Strings.Dialog_Connectivity_BadConnection, MessageBoxImage.Error);
+                return;
+            }
+
+            await base.FetchPackageMap();
+        }
     }
 }

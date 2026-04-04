@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Bloxstrap.AppData
 {
@@ -10,36 +11,7 @@ namespace Bloxstrap.AppData
     {
         // in case a new package is added, you can find the corresponding directory
         // by opening the stock bootstrapper in a hex editor
-        private IReadOnlyDictionary<string, string> _commonMap { get; } = new Dictionary<string, string>()
-        {
-            { "Libraries.zip",                 @"" },
-            { "redist.zip",                    @"" },
-            { "shaders.zip",                   @"shaders\" },
-            { "ssl.zip",                       @"ssl\" },
-
-            // the runtime installer is only extracted if it needs installing
-            { "WebView2.zip",                  @"" },
-            { "WebView2RuntimeInstaller.zip",  @"WebView2RuntimeInstaller\" },
-
-            { "content-avatar.zip",            @"content\avatar\" },
-            { "content-configs.zip",           @"content\configs\" },
-            { "content-fonts.zip",             @"content\fonts\" },
-            { "content-sky.zip",               @"content\sky\" },
-            { "content-sounds.zip",            @"content\sounds\" },
-            { "content-textures2.zip",         @"content\textures\" },
-            { "content-models.zip",            @"content\models\" },
-
-            { "content-textures3.zip",         @"PlatformContent\pc\textures\" },
-            { "content-terrain.zip",           @"PlatformContent\pc\terrain\" },
-            { "content-platform-fonts.zip",    @"PlatformContent\pc\fonts\" },
-            { "content-platform-dictionaries.zip", @"PlatformContent\pc\shared_compression_dictionaries\" },
-
-            { "extracontent-luapackages.zip",  @"ExtraContent\LuaPackages\" },
-            { "extracontent-translations.zip", @"ExtraContent\translations\" },
-            { "extracontent-models.zip",       @"ExtraContent\models\" },
-            { "extracontent-textures.zip",     @"ExtraContent\textures\" },
-            { "extracontent-places.zip",       @"ExtraContent\places\" },
-        };
+        private IReadOnlyDictionary<string, string>? _commonMap;
 
         public virtual string ExecutableName { get; } = null!;
 
@@ -53,11 +25,24 @@ namespace Bloxstrap.AppData
 
         public List<string> ModManifest => DistributionState.ModManifest;
 
-        public virtual IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; }
+        public virtual IReadOnlyDictionary<string, string>? PackageDirectoryMap { get; set; }
 
-
-        public CommonAppData()
+        public virtual async Task FetchPackageMap()
         {
+            const string LOG_IDENT = "CommonAppData::FetchPackageMap";
+
+            try
+            {
+                _commonMap = await Http.GetJson<Dictionary<string, string>>("https://raw.githubusercontent.com/bloxstraplabs/config/refs/heads/main/package-maps/commonappdata.json");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not fetch package map!");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(Strings.Dialog_Connectivity_BadConnection, MessageBoxImage.Error);
+                return;
+            }
+
             if (PackageDirectoryMap is null)
             {
                 PackageDirectoryMap = _commonMap;

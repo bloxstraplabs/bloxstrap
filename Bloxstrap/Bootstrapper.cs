@@ -253,6 +253,11 @@ namespace Bloxstrap
 
             if (!_noConnection)
             {
+                await AppData.FetchPackageMap(); // make sure to get the package maps before we do anything
+
+                if (AppData.PackageDirectoryMap is null)
+                    return;
+
                 if (AppData.DistributionState.VersionGuid != _latestVersionGuid || _mustUpgrade)
                 {
                     bool backgroundUpdaterMutexOpen = !App.LaunchSettings.BackgroundUpdaterFlag.Active && Utilities.DoesMutexExist(BackgroundUpdaterMutexName);
@@ -1155,7 +1160,7 @@ namespace Bloxstrap
                             return;
                         }
 
-                        string baseDirectory = Path.Combine(_latestVersionDirectory, AppData.PackageDirectoryMap[package.Name]);
+                        string baseDirectory = Path.Combine(_latestVersionDirectory, AppData.PackageDirectoryMap![package.Name]);
 
                         ExtractPackage(package);
 
@@ -1392,7 +1397,7 @@ namespace Bloxstrap
                 if (modFolderFiles.Contains(fileLocation))
                     continue;
 
-                var packageMapEntry = AppData.PackageDirectoryMap.SingleOrDefault(x => !String.IsNullOrEmpty(x.Value) && fileLocation.StartsWith(x.Value));
+                var packageMapEntry = AppData.PackageDirectoryMap!.SingleOrDefault(x => !String.IsNullOrEmpty(x.Value) && fileLocation.StartsWith(x.Value));
                 string packageName = packageMapEntry.Key;
 
                 // package doesn't exist, likely mistakenly placed file
@@ -1594,7 +1599,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::ExtractPackage";
 
-            string? packageDir = AppData.PackageDirectoryMap.GetValueOrDefault(package.Name);
+            string? packageDir = AppData.PackageDirectoryMap!.GetValueOrDefault(package.Name);
 
             if (packageDir is null)
             {

@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.AppData
+﻿using System.Windows;
+
+namespace Bloxstrap.AppData
 {
     public class RobloxStudioData : CommonAppData, IAppData
     {
@@ -14,28 +16,25 @@
 
         public override JsonManager<DistributionState> DistributionStateManager => App.StudioState;
 
-        public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()
+        public override IReadOnlyDictionary<string, string>? PackageDirectoryMap { get; set; }
+
+        public override async Task FetchPackageMap()
         {
-            { "RobloxStudio.zip",                @"" },
-            { "LibrariesQt5.zip",                @"" },
+            const string LOG_IDENT = "RobloxStudioData::FetchPackageMap";
 
-            { "content-studio_svg_textures.zip", @"content\studio_svg_textures\"},
-            { "content-qt_translations.zip",     @"content\qt_translations\" },
-            { "content-api-docs.zip",            @"content\api_docs\" },
+            try
+            {
+                PackageDirectoryMap = await Http.GetJson<Dictionary<string, string>>("https://raw.githubusercontent.com/bloxstraplabs/config/refs/heads/main/package-maps/studiodata.json");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not fetch package map!");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(Strings.Dialog_Connectivity_BadConnection, MessageBoxImage.Error);
+                return;
+            }
 
-            { "extracontent-scripts.zip",        @"ExtraContent\scripts\" },
-
-            { "studiocontent-models.zip",        @"StudioContent\models\" },
-            { "studiocontent-textures.zip",      @"StudioContent\textures\" },
-
-            { "BuiltInPlugins.zip",              @"BuiltInPlugins\" },
-            { "BuiltInStandalonePlugins.zip",    @"BuiltInStandalonePlugins\" },
-
-            { "ApplicationConfig.zip",           @"ApplicationConfig\" },
-            { "Plugins.zip",                     @"Plugins\" },
-            { "Qml.zip",                         @"Qml\" },
-            { "StudioFonts.zip",                 @"StudioFonts\" },
-            { "RibbonConfig.zip",                @"RibbonConfig\" }
-        };
+            await base.FetchPackageMap();
+        }
     }
 }
