@@ -118,7 +118,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 _viewModel.Foreground = new SolidColorBrush(Color.FromRgb(57, 59, 61));
                 _viewModel.IconColor = new SolidColorBrush(Color.FromRgb(57, 59, 61));
                 _viewModel.ProgressBarBackground = new SolidColorBrush(Color.FromRgb(189, 190, 190));
-                _viewModel.ByfronLogoLocation = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoLight.jpg"));
+                _viewModel.ByfronLogoLocation = new BitmapImage(new Uri("pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/ByfronLogoLight.webp"));
             }
 
             InitializeComponent();
