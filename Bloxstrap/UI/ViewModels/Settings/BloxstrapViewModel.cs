@@ -84,18 +84,29 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void AddFilesToZipStream(ZipOutputStream zipStream, IEnumerable<string> files, string directory)
         {
+            const string LOG_IDENT = "BloxstrapViewModel::AddFilesToZipStream";
+
             foreach (string file in files)
             {
                 if (!File.Exists(file))
                     continue;
 
-                var entry = new ZipEntry(directory + Path.GetFileName(file));
-                entry.DateTime = DateTime.Now;
+                try
+                {
+                    using FileStream fileStream = File.OpenRead(file);
 
-                zipStream.PutNextEntry(entry);
+                    var entry = new ZipEntry(directory + Path.GetFileName(file));
+                    entry.DateTime = DateTime.Now;
 
-                using var fileStream = File.OpenRead(file);
-                fileStream.CopyTo(zipStream);
+                    zipStream.PutNextEntry(entry);
+
+                    fileStream.CopyTo(zipStream);
+                }
+                catch (IOException ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to open '{file}'");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
             }
         }
     }
