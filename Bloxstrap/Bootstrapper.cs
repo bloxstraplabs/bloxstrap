@@ -1197,7 +1197,7 @@ namespace Bloxstrap
 
             if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
-                if (App.Settings.Prop.CacheDownloads)
+                if (!App.Settings.Prop.DisableCachingDownloads)
                 {
                     foreach (string hash in cachedPackageHashes)
                     {

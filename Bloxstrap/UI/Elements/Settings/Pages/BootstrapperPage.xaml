@@ -30,9 +30,9 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-            Header="{x:Static resources:Strings.Menu_Behaviour_CacheDownloads_Title}"
-            Description="{x:Static resources:Strings.Menu_Behaviour_CacheDownloads_Description}">
-            <ui:ToggleSwitch IsChecked="{Binding CacheDownloads, Mode=TwoWay}" />
+            Header="{x:Static resources:Strings.Menu_Behaviour_DisableCachingDownloads_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_DisableCachingDownloads_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableCachingDownloads, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
