@@ -51,6 +51,9 @@ namespace Bloxstrap.UI.Elements.Dialogs
             HelpMessageMDTextBlock.MarkdownText = helpMessage;
             VersionText.Text = String.Format(Strings.Dialog_Exception_Version, App.Version);
 
+            if (exception is HttpRequestException)
+                ReportExceptionButton.Visibility = Visibility.Collapsed;
+
             ReportExceptionButton.Click += (_, _) => Utilities.ShellExecute(issueUrl);
 
             LocateLogFileButton.Click += delegate
