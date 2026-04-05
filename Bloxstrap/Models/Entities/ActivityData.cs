@@ -129,6 +129,8 @@ namespace Bloxstrap.Models.Entities
 
                     GlobalCache.ServerLocation[MachineAddress] = location;
                     serverQuerySemaphore.Release();
+
+                    return location;
                 }
                 catch (Exception ex)
                 {
