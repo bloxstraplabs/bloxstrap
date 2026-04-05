@@ -100,6 +100,7 @@ namespace Bloxstrap.Models.Entities
         public async Task<string?> QueryServerLocation()
         {
             const string LOG_IDENT = "ActivityData::QueryServerLocation";
+            const int maxRetries = 2;
 
             if (!MachineAddressValid)
                 throw new InvalidOperationException($"Machine address is invalid ({MachineAddress})");
@@ -112,35 +113,41 @@ namespace Bloxstrap.Models.Entities
                 return location;
             }
 
-            try
+            for (int attempt = 1; attempt <= maxRetries; attempt++)
             {
-                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
+                try
+                {
+                    var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
 
-                if (string.IsNullOrEmpty(ipInfo.City))
-                    throw new InvalidHTTPResponseException("Reported city was blank");
+                    if (string.IsNullOrEmpty(ipInfo.City))
+                        throw new InvalidHTTPResponseException("Reported city was blank");
 
-                if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
-                else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+                    if (ipInfo.City == ipInfo.Region)
+                        location = $"{ipInfo.Region}, {ipInfo.Country}";
+                    else
+                        location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
-                GlobalCache.ServerLocation[MachineAddress] = location;
-                serverQuerySemaphore.Release();
-            }
-            catch (Exception ex)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress}");
-                App.Logger.WriteException(LOG_IDENT, ex);
+                    GlobalCache.ServerLocation[MachineAddress] = location;
+                    serverQuerySemaphore.Release();
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress} (attempt {attempt}/{maxRetries})");
+                    App.Logger.WriteException(LOG_IDENT, ex);
 
-                GlobalCache.ServerLocation[MachineAddress] = location;
-                serverQuerySemaphore.Release();
+                    if (attempt == maxRetries)
+                    {
+                        GlobalCache.ServerLocation[MachineAddress] = location;
+                        serverQuerySemaphore.Release();
+                    }
 
-                /*Frontend.ShowConnectivityDialog(
-                    string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
-                    Strings.ActivityWatcher_LocationQueryFailed,
-                    MessageBoxImage.Warning,
-                    ex
-                );*/
+                    /*Frontend.ShowConnectivityDialog(
+                        string.Format(Strings.Dialog_Connectivity_UnableToConnect, "ipinfo.io"),
+                        Strings.ActivityWatcher_LocationQueryFailed,
+                        MessageBoxImage.Warning,
+                        ex
+                    );*/
+                }
             }
 
             return location;
