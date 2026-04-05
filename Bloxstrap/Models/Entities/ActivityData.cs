@@ -100,7 +100,7 @@ namespace Bloxstrap.Models.Entities
         public async Task<string?> QueryServerLocation()
         {
             const string LOG_IDENT = "ActivityData::QueryServerLocation";
-            const int maxRetries = 2;
+            const int maxTries = 2;
 
             if (!MachineAddressValid)
                 throw new InvalidOperationException($"Machine address is invalid ({MachineAddress})");
@@ -113,7 +113,7 @@ namespace Bloxstrap.Models.Entities
                 return location;
             }
 
-            for (int attempt = 1; attempt <= maxRetries; attempt++)
+            for (int i = 1; i <= maxTries; i++)
             {
                 try
                 {
@@ -134,10 +134,10 @@ namespace Bloxstrap.Models.Entities
                 }
                 catch (Exception ex)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress} (attempt {attempt}/{maxRetries})");
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {MachineAddress} (attempt {i}/{maxTries})");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
-                    if (attempt == maxRetries)
+                    if (i == maxTries)
                     {
                         GlobalCache.ServerLocation[MachineAddress] = location;
                         serverQuerySemaphore.Release();
