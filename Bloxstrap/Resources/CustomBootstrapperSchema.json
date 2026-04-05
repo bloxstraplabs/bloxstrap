@@ -124,7 +124,17 @@
 				"StretchDirection": "StretchDirection",
 				"Source": "ImageSource",
 				"IsAnimated": "bool",
-				"RepeatBehavior":  "RepeatBehavior"
+				"RepeatBehavior": "RepeatBehavior"
+			}
+		},
+		"MediaElement": {
+			"SuperClass": "FrameworkElement",
+			"IsCreatable": true,
+			"Attributes": {
+				"Stretch": "Stretch",
+				"StretchDirection": "StretchDirection",
+				"Source": "Uri",
+				"Volume": "double"
 			}
 		},
 		"Grid": {
@@ -322,6 +332,7 @@
 		"Rect": {},
 		"Point": {},
 		"CornerRadius": {},
+		"Uri": {},
 		"Brush": { "CanHaveElement": true },
 		"Color": {},
 		"ImageSource": {},
