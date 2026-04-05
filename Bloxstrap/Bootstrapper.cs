@@ -1197,19 +1197,40 @@ namespace Bloxstrap
 
             if (!App.Settings.Prop.DebugDisableVersionPackageCleanup)
             {
-                foreach (string hash in cachedPackageHashes)
+                if (App.Settings.Prop.CacheDownloads)
                 {
-                    if (!allPackageHashes.Contains(hash))
+                    foreach (string hash in cachedPackageHashes)
                     {
-                        App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
+                        if (!allPackageHashes.Contains(hash))
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, $"Deleting unused package {hash}");
+
+                            try
+                            {
+                                File.Delete(Path.Combine(Paths.Downloads, hash));
+                            }
+                            catch (Exception ex)
+                            {
+                                App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
+                                App.Logger.WriteException(LOG_IDENT, ex);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // its better to just delete all the files in downloads
+                    foreach (FileInfo pkg in new DirectoryInfo(Paths.Downloads).GetFiles())
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Cleaning up package '{pkg.Name}'");
 
                         try
                         {
-                            File.Delete(Path.Combine(Paths.Downloads, hash));
+                            pkg.Delete();
                         }
                         catch (Exception ex)
                         {
-                            App.Logger.WriteLine(LOG_IDENT, $"Failed to delete {hash}!");
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to delete package!");
                             App.Logger.WriteException(LOG_IDENT, ex);
                         }
                     }

@@ -2537,6 +2537,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow Bloxstrap to cache Roblox update files to speed up updating Roblox..
+        /// </summary>
+        public static string Menu_Behaviour_CacheDownloads_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.CacheDownloads.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cache Roblox update files.
+        /// </summary>
+        public static string Menu_Behaviour_CacheDownloads_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.CacheDownloads.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prevent against closures of your existing game from accidentally launching another one..
         /// </summary>
         public static string Menu_Behaviour_ConfirmLaunches_Description {
