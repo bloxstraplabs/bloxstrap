@@ -2564,6 +2564,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prevents Bloxstrap from caching Roblox version update files. This will slow down updates..
+        /// </summary>
+        public static string Menu_Behaviour_DisableCachingDownloads_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableCachingDownloads.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable caching Roblox update files.
+        /// </summary>
+        public static string Menu_Behaviour_DisableCachingDownloads_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.DisableCachingDownloads.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox will be installed fresh on next launch..
         /// </summary>
         public static string Menu_Behaviour_ForceRobloxReinstall_Description {
