@@ -134,7 +134,8 @@
 				"Stretch": "Stretch",
 				"StretchDirection": "StretchDirection",
 				"Source": "Uri",
-				"Volume": "double"
+				"Volume": "double",
+				"Looped": "bool"
 			}
 		},
 		"Grid": {
