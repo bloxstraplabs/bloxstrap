@@ -2537,7 +2537,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Allow Bloxstrap to cache Roblox update files to speed up updating Roblox..
+        ///   Looks up a localized string similar to Allow Bloxstrap to keep Roblox update files downloaded to speed up future updates..
         /// </summary>
         public static string Menu_Behaviour_CacheDownloads_Description {
             get {

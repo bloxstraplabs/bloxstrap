@@ -1387,7 +1387,7 @@ Defaulting to {1}.</value>
     <value>Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player.</value>
   </data>
   <data name="Menu.Behaviour.CacheDownloads.Description" xml:space="preserve">
-    <value>Allow Bloxstrap to cache Roblox update files to speed up updating Roblox.</value>
+    <value>Allow Bloxstrap to keep Roblox update files downloaded to speed up future updates.</value>
   </data>
   <data name="Menu.Behaviour.CacheDownloads.Title" xml:space="preserve">
     <value>Cache Roblox update files</value>
