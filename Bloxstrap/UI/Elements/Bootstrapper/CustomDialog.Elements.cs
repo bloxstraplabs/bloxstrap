@@ -643,20 +643,20 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             var media = new MediaElement();
             HandleXmlElement_FrameworkElement(dialog, media, xmlElement);
 
-            RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality); // i think letting this be modifiable would be funny
+            RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality);
 
             // should behaviour be modifiable? (except unloadedbehavior ig)
             media.LoadedBehavior = MediaState.Play;
             media.UnloadedBehavior = MediaState.Close;
 
-            media.Volume = ParseXmlAttribute<double>(xmlElement, "Volume", 1);
+            media.Volume = 0;
 
             media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
             media.Source = GetMediaSourceData(dialog, "Source", xmlElement);
 
-            if (ParseXmlAttribute<bool>(xmlElement, "Looped", true))
+            if (ParseXmlAttribute<bool>(xmlElement, "Looped", false))
             {
                 media.MediaEnded += (Sender, e) =>
                 {

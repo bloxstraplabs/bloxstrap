@@ -245,9 +245,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (result.Scheme != "file")
                 throw new CustomThemeException("CustomTheme.Errors.ElementAttributeBlacklistedUriScheme", xmlElement.Name, name, result.Scheme);
 
-            Uri uri = result;
-
-            return uri;
+            return result;
         }
 
         private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
