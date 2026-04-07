@@ -39,6 +39,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             // all the cache folders i know of
             string robloxTempFolder = Path.Combine(Path.GetTempPath(), "Roblox");
             string robloxStorageFolder = Path.Combine(Paths.LocalAppData, "Roblox\\rbx-storage");
+            string dbFile = Path.Combine(Paths.LocalAppData, "Roblox\\rbx-storage.db"); // the other "rbx-storage" files are irrelevant
 
             if (Directory.Exists(robloxTempFolder))
             {
@@ -51,6 +52,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 files = files.Concat(new DirectoryInfo(robloxStorageFolder).GetFiles("*", SearchOption.AllDirectories));
                 dirs = dirs.Concat(Directory.GetDirectories(robloxStorageFolder));
             }
+
+            if (File.Exists(dbFile))
+                files = files.Concat(new[] { new FileInfo(dbFile) });
 
             if (!files.Any() && !dirs.Any())
             {
