@@ -1,8 +1,8 @@
 > [!CAUTION]
-> The only official places to download Bloxstrap are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com). Any other websites offering downloads or claiming to be us are not owned by us.
+> The only official places to download Nightstrap are this GitHub repository and [bloxstraplabs.com](https://bloxstraplabs.com). Any other websites offering downloads or claiming to be us are not owned by us.
 
 > [!IMPORTANT]
-> Bloxstrap is not under active development anymore. Any issues or pull requests opened may take a while to get a response.
+> Nightstrap is not under active development anymore. Any issues or pull requests opened may take a while to get a response.
 
 <p align="center">
     <img src="https://github.com/bloxstraplabs/bloxstrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="380">
@@ -23,7 +23,7 @@
 
 ----
 
-Bloxstrap is a third-party replacement for the standard Roblox bootstrapper, providing additional useful features and improvements.
+Nightstrap is a third-party replacement for the standard Roblox bootstrapper, providing additional useful features and improvements.
 
 Running into a problem or need help with something? [Check out the Wiki](https://github.com/bloxstraplabs/bloxstrap/wiki). If you can't find anything, or would like to suggest something, please [submit an issue](https://github.com/bloxstraplabs/bloxstrap/issues).
 
