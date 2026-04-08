@@ -73,7 +73,11 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             _dialogPage = new TaskDialogPage()
             {
-                Icon = new TaskDialogIcon(App.Settings.Prop.BootstrapperIcon.GetIcon()),
+                Icon = new TaskDialogIcon((App.Bootstrapper?.IsStudioLaunch ?? false
+                        ? App.Settings.Prop.StudioBootstrapperIcon
+                        : App.Settings.Prop.BootstrapperIcon)
+                        .GetIcon()
+                ),
                 Caption = App.Settings.Prop.BootstrapperTitle,
                 RightToLeftLayout = Locale.RightToLeft,
 

@@ -207,5 +207,77 @@ namespace Bloxstrap.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2013
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2013", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2015
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2015", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2017
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2017", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2021
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2021", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2022
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2022", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon IconStudio2025
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("IconStudio2025", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
