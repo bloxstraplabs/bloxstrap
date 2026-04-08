@@ -27,6 +27,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public ICommand EditCustomThemeCommand => new RelayCommand(EditCustomTheme);
         public ICommand ExportCustomThemeCommand => new RelayCommand(ExportCustomTheme);
 
+        public Visibility ShowStudioIconSetting => App.IsStudioInstalled ? Visibility.Visible : Visibility.Collapsed;
+
         private void PreviewBootstrapper()
         {
             IBootstrapperDialog dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
@@ -106,6 +108,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.BootstrapperIcon = value; 
         }
 
+        public BootstrapperIcon StudioIcon
+        {
+            get => App.Settings.Prop.StudioBootstrapperIcon;
+            set => App.Settings.Prop.StudioBootstrapperIcon = value; 
+        }
+
         public string Title
         {
             get => App.Settings.Prop.BootstrapperTitle;
@@ -121,10 +129,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 {
                     if (App.Settings.Prop.BootstrapperIcon == BootstrapperIcon.IconCustom)
                         App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconBloxstrap;
+
+                    if (App.Settings.Prop.StudioBootstrapperIcon == BootstrapperIcon.IconCustom)
+                        App.Settings.Prop.StudioBootstrapperIcon = BootstrapperIcon.IconBloxstrap;
                 }
                 else
                 {
                     App.Settings.Prop.BootstrapperIcon = BootstrapperIcon.IconCustom;
+                    App.Settings.Prop.StudioBootstrapperIcon = BootstrapperIcon.IconCustom;
                 }
 
                 App.Settings.Prop.BootstrapperIconCustomLocation = value;

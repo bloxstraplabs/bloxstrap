@@ -2492,6 +2492,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose what icon it should use when launching Roblox Studio..
+        /// </summary>
+        public static string Menu_Appearance_StudioIcon_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.StudioIcon.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Appearance.
         /// </summary>
         public static string Menu_Appearance_Title {

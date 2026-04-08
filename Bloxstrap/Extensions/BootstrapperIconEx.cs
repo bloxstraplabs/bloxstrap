@@ -14,6 +14,12 @@ namespace Bloxstrap.Extensions
             BootstrapperIcon.IconEarly2015,
             BootstrapperIcon.Icon2011,
             BootstrapperIcon.Icon2008,
+            BootstrapperIcon.IconStudio2025,
+            BootstrapperIcon.IconStudio2022,
+            BootstrapperIcon.IconStudio2021,
+            BootstrapperIcon.IconStudio2017,
+            BootstrapperIcon.IconStudio2015,
+            BootstrapperIcon.IconStudio2013,
             BootstrapperIcon.IconBloxstrapClassic,
             BootstrapperIcon.IconCustom
         };
@@ -63,6 +69,12 @@ namespace Bloxstrap.Extensions
                 BootstrapperIcon.Icon2019 => Properties.Resources.Icon2019,
                 BootstrapperIcon.Icon2022 => Properties.Resources.Icon2022,
                 BootstrapperIcon.IconBloxstrapClassic => Properties.Resources.IconBloxstrapClassic,
+                BootstrapperIcon.IconStudio2013 => Properties.Resources.IconStudio2013,
+                BootstrapperIcon.IconStudio2015 => Properties.Resources.IconStudio2015,
+                BootstrapperIcon.IconStudio2017 => Properties.Resources.IconStudio2017,
+                BootstrapperIcon.IconStudio2021 => Properties.Resources.IconStudio2021,
+                BootstrapperIcon.IconStudio2022 => Properties.Resources.IconStudio2022,
+                BootstrapperIcon.IconStudio2025 => Properties.Resources.IconStudio2025,
                 _ => Properties.Resources.IconBloxstrap
             };
         }

@@ -157,4 +157,22 @@
   <data name="IconBloxstrapClassic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconBloxstrapClassic.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconStudio2013" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2013.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconStudio2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2015.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconStudio2017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2017.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconStudio2021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2021.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconStudio2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2022.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconStudio2025" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconStudio2025.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

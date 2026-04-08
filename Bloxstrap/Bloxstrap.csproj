@@ -41,6 +41,12 @@
     <EmbeddedResource Include="Resources\IconBloxstrap.ico" />
     <EmbeddedResource Include="Resources\IconEarly2015.ico" />
     <EmbeddedResource Include="Resources\IconLate2015.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2013.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2015.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2017.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2021.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2022.ico" />
+    <EmbeddedResource Include="Resources\IconStudio2025.ico" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2006\ArrowFarCursor.png" />
     <EmbeddedResource Include="Resources\Mods\Cursor\From2013\ArrowCursor.png" />
