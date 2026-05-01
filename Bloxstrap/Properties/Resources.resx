@@ -145,6 +145,9 @@
   <data name="Icon2022" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon2022.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon2025" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon2025.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconBloxstrap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconBloxstrap.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
