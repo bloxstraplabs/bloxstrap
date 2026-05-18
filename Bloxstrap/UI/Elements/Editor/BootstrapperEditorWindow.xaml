@@ -20,7 +20,7 @@
     Closing="OnClosing"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid>
+    <Grid Background="{DynamicResource MainWindowBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
