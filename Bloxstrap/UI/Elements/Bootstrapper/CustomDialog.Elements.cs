@@ -478,13 +478,19 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static UIElement HandleXmlElement_BloxstrapCustomBootstrapper(CustomDialog dialog, XElement xmlElement)
         {
+            // dont let acrylic affect existing themes
+            dialog.ApplyTheme(false);
+
             xmlElement.SetAttributeValue("Visibility", "Collapsed"); // don't show the bootstrapper yet!!!
             xmlElement.SetAttributeValue("IsEnabled", "True");
             HandleXmlElement_Control(dialog, dialog, xmlElement);
 
             dialog.AllowsTransparency = ParseXmlAttribute<bool>(xmlElement, "AllowsTransparency", true);
             dialog.WindowCornerPreference = ParseXmlAttribute<WindowCornerPreference>(xmlElement, "WindowCornerPreference", WindowCornerPreference.Default);
+
             dialog.WindowBackdropType = ParseXmlAttribute<BackgroundType>(xmlElement, "WindowBackdropType", BackgroundType.Disable);
+            dialog.ApplyTheme(dialog.WindowBackdropType == BackgroundType.Acrylic);
+
             dialog.Opacity = 1;
 
             // transfer effect to element grid

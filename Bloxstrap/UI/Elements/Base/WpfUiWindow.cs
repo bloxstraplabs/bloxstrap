@@ -30,7 +30,7 @@ namespace Bloxstrap.UI.Elements.Base
             ApplyTheme();
         }
 
-        public void ApplyTheme()
+        public void ApplyTheme(bool useAcrylic = true)
         {
             const int customThemeIndex = 2; // index for CustomTheme merged dictionary
 
@@ -40,7 +40,7 @@ namespace Bloxstrap.UI.Elements.Base
             // there doesn't seem to be a way to query the name for merged dictionaries
             var dict = new ResourceDictionary { Source = new Uri($"pack://application:,,,/UI/Style/{Enum.GetName(App.Settings.Prop.Theme.GetFinal())}.xaml") };
 
-            if (App.Settings.Prop.UseAcrylicBackground)
+            if (App.Settings.Prop.UseAcrylicBackground && useAcrylic)
             {
                 this.WindowStyle = WindowStyle.None;
 
@@ -56,7 +56,7 @@ namespace Bloxstrap.UI.Elements.Base
                     this.Resources["MainWindowBackgroundBrush"] = new SolidColorBrush(Color.FromArgb(opacity, 250, 250, 250));
                 else
                     this.Resources["MainWindowBackgroundBrush"] = new SolidColorBrush(Color.FromArgb(opacity, 32, 32, 32));
-            } 
+            }
             else
             {
                 this.ExtendsContentIntoTitleBar = true;
