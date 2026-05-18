@@ -11,7 +11,7 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
     {
         //TODO: FIX THE VERSION TEXT!
         public BackgroundType WindowBackdropType { get; set; } = BackgroundType.Mica;
-        public SolidColorBrush BackgroundColourBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+        public SolidColorBrush MainWindowBackgroundBrush { get; set; } = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         public string VersionText { get; set; }
         public string ChannelText
         {
@@ -29,9 +29,18 @@ namespace Bloxstrap.UI.ViewModels.Bootstrapper
 
             WindowBackdropType = aero ? BackgroundType.Aero : BackgroundType.Mica;
 
+            if (App.Settings.Prop.UseAcrylicBackground)
+            {
+                byte opactiy = App.Settings.Prop.AcrylicBackgroundOpacity;
+
+                MainWindowBackgroundBrush = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ?
+                    new SolidColorBrush(Color.FromArgb(opactiy, 250, 250, 250)) :
+                    new SolidColorBrush(Color.FromArgb(opactiy, 32, 32, 32));
+            }
+
             if (aero)
             {
-                BackgroundColourBrush = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ?
+                MainWindowBackgroundBrush = App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Light ?
                     new SolidColorBrush(Color.FromArgb(alpha, 225, 225, 225)) :
                     new SolidColorBrush(Color.FromArgb(alpha, 30, 30, 30));
             }
