@@ -501,7 +501,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Acrylic.
+        ///   Looks up a localized string similar to Acrylic backdrop.
         /// </summary>
         public static string Common_Acrylic {
             get {
@@ -2862,7 +2862,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Acylic blur backdground for Fishstrap..
+        ///   Looks up a localized string similar to Enable Acrylic backdrop for the settings menu and other dialogs..
         /// </summary>
         public static string Menu_Appearance_Acrylic_Description {
             get {
@@ -2880,7 +2880,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Acrylic Opacity.
+        ///   Looks up a localized string similar to Acrylic backdrop opacity.
         /// </summary>
         public static string Menu_Appearance_AcrylicOpacity_Title {
             get {

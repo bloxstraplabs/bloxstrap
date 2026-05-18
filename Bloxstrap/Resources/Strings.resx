@@ -1824,13 +1824,13 @@ Defaulting to {1}.</value>
     <value>Windows Terminal</value>
   </data>
   <data name="Common.Acrylic" xml:space="preserve">
-    <value>Acrylic</value>
+    <value>Acrylic backdrop</value>
   </data>
   <data name="Menu.Appearance.Acrylic.Description" xml:space="preserve">
-    <value>Enable Acylic blur backdground for Fishstrap.</value>
+    <value>Enable Acrylic backdrop for the settings menu and other dialogs.</value>
   </data>
   <data name="Menu.Appearance.AcrylicOpacity.Title" xml:space="preserve">
-    <value>Acrylic Opacity</value>
+    <value>Acrylic backdrop opacity</value>
   </data>
   <data name="Menu.Appearance.AcrylicOpacity.Description" xml:space="preserve">
     <value>Set the opacity for the Acrylic background.</value>
