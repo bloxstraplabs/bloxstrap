@@ -768,7 +768,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            media.Source = GetMediaSourceData(dialog, "Source", xmlElement);
+            media.Source = GetSourceData(dialog, "Source", xmlElement);
 
             if (ParseXmlAttribute<bool>(xmlElement, "Looped", false))
             {
