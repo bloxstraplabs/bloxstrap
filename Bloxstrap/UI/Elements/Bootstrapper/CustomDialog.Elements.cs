@@ -724,7 +724,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                 // bind the icon property
                 Binding binding = new Binding("Icon") { Mode = BindingMode.OneWay };
                 BindingOperations.SetBinding(image, Image.SourceProperty, binding);
-            }
+            } 
             else
             {
                 bool isAnimated = ParseXmlAttribute<bool>(xmlElement, "IsAnimated", false);
@@ -734,19 +734,19 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
                     try
                     {
                         bitmapImage = new BitmapImage(sourceData.Uri!);
-                    }
-                    catch (Exception ex)
+                    } catch (Exception ex)
                     {
-                        throw new Exception($"Image Failed to create BitmapImage: {ex.Message}", ex);
+                        throw new CustomThemeException(ex, "CustomTheme.Errors.ElementTypeCreationFailed", "Image", "BitmapImage", ex.Message);
                     }
 
                     image.Source = bitmapImage;
                 }
                 else
                 {
-                    RepeatBehavior repeatBehaviour = GetImageRepeatBehaviourData(xmlElement);
-                    XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior(image, repeatBehaviour);
                     XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, sourceData.Uri!);
+
+                    RepeatBehavior repeatBehavior = ParseXmlAttribute<RepeatBehavior>(xmlElement, "RepeatBehavior", RepeatBehavior.Forever);
+                    XamlAnimatedGif.AnimationBehavior.SetRepeatBehavior(image, repeatBehavior);
                 }
             }
 
@@ -760,17 +760,17 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
             RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality);
 
-            media.LoadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "LoadedBehaviour", MediaState.Play);
-            media.UnloadedBehavior = ParseXmlAttribute<MediaState>(xmlElement, "UnloadedBehaviour", MediaState.Close);
+            media.LoadedBehavior = MediaState.Play;
+            media.UnloadedBehavior = MediaState.Close;
 
             media.Volume = ParseXmlAttribute<double>(xmlElement, "Volume", 0.5);
 
             media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
             media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
 
-            media.Source = GetSourceData(dialog, "Source", xmlElement);
+            media.Source = GetMediaSourceData(dialog, "Source", xmlElement);
 
-            if (ParseXmlAttribute<bool>(xmlElement, "Looped", true))
+            if (ParseXmlAttribute<bool>(xmlElement, "Looped", false))
             {
                 media.MediaEnded += (Sender, e) =>
                 {

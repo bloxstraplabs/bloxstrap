@@ -226,7 +226,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return new GetImageSourceDataResult { Uri = result };
         }
 
-        private static Uri GetSourceData(CustomDialog dialog, string name, XElement xmlElement)
+        private static Uri GetMediaSourceData(CustomDialog dialog, string name, XElement xmlElement)
         {
             string path = GetXmlAttribute(xmlElement, name);
 
@@ -238,9 +238,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             if (result == null)
                 throw new Exception($"{xmlElement.Name} Source Uri is null");
 
-            Uri? uri = result;
-
-            return uri;
+            return result;
         }
 
         private static RepeatBehavior GetImageRepeatBehaviourData(XElement element)
