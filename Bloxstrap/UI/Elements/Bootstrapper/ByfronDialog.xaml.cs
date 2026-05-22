@@ -104,11 +104,15 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         public ByfronDialog()
         {
-            string version = Utilities.GetRobloxVersionStr(Bootstrapper?.IsStudioLaunch ?? false);
+            // we use App.Bootstrapper instead of Bootstrapper since Bootstrapper always returns null here
+            string version = Utilities.GetRobloxVersionStr(App.Bootstrapper?.IsStudioLaunch ?? false);
             _viewModel = new ByfronDialogViewModel(this, version);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
-            Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
+            Icon = (App.Bootstrapper?.IsStudioLaunch ?? false
+                ? App.Settings.Prop.StudioBootstrapperIcon
+                : App.Settings.Prop.BootstrapperIcon)
+                .GetIcon().GetImageSource();
 
             if (App.Settings.Prop.Theme.GetFinal() == Theme.Light)
             {

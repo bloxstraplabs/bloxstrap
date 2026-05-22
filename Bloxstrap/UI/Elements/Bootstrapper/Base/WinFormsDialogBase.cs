@@ -118,7 +118,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper.Base
         public void SetupDialog()
         {
             Text = App.Settings.Prop.BootstrapperTitle;
-            Icon = App.Settings.Prop.BootstrapperIcon.GetIcon();
+            Icon = (App.Bootstrapper?.IsStudioLaunch ?? false
+                ? App.Settings.Prop.StudioBootstrapperIcon
+                : App.Settings.Prop.BootstrapperIcon)
+                .GetIcon();
 
             if (Locale.RightToLeft)
             {

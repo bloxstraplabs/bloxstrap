@@ -113,7 +113,10 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             _viewModel = new FluentDialogViewModel(this, aero);
             DataContext = _viewModel;
             Title = App.Settings.Prop.BootstrapperTitle;
-            Icon = App.Settings.Prop.BootstrapperIcon.GetIcon().GetImageSource();
+            Icon = (App.Bootstrapper?.IsStudioLaunch ?? false
+                ? App.Settings.Prop.StudioBootstrapperIcon
+                : App.Settings.Prop.BootstrapperIcon)
+                .GetIcon().GetImageSource();
 
             // setting this to true for mica results in the window being undraggable
             if (aero)

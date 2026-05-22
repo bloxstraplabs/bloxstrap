@@ -141,6 +141,27 @@
             </ComboBox>
         </controls:OptionControl>
 
+        <controls:OptionControl
+            x:Name="StudioIconSelector"
+            Header="{Binding Source={x:Static resources:Strings.Menu_Appearance_Icon_Title}, StringFormat='Roblox Studio {0}'}"
+            Description="{x:Static resources:Strings.Menu_Appearance_StudioIcon_Description}"
+            Visibility="{Binding ShowStudioIconSetting}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Icons, Mode=OneWay}" SelectedValuePath="IconType" SelectedValue="{Binding StudioIcon, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="16" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Height="16" Source="{Binding ImageSource, Mode=OneWay}" RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Grid.Column="1" Margin="8,0,0,0" Text="{Binding Path=IconType, Converter={StaticResource EnumNameConverter}}" />
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>

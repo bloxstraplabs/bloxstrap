@@ -19,6 +19,18 @@
         [EnumName(FromTranslation = "Common.Custom")]
         IconCustom,
         [EnumName(FromTranslation = "Enums.BootstrapperStyle.ClassicFluentDialog")]
-        IconBloxstrapClassic
+        IconBloxstrapClassic,
+        [EnumName(StaticName = "2013 (Studio)")]
+        IconStudio2013,
+        [EnumName(StaticName = "2015 (Studio)")]
+        IconStudio2015,
+        [EnumName(StaticName = "2017 (Studio)")]
+        IconStudio2017,
+        [EnumName(StaticName = "2021 (Studio)")]
+        IconStudio2021,
+        [EnumName(StaticName = "2022 (Studio)")]
+        IconStudio2022,
+        [EnumName(StaticName = "2025 (Studio)")]
+        IconStudio2025,
     }
 }
