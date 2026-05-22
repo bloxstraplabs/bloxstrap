@@ -1386,4 +1386,19 @@ Defaulting to {1}.</value>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
     <value>Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player.</value>
   </data>
+  <data name="Menu.Behaviour.CleanRobloxCache.Clean" xml:space="preserve">
+    <value>Clean</value>
+  </data>
+  <data name="Menu.Behaviour.CleanRobloxCache.Description" xml:space="preserve">
+    <value>Deletes all files in Roblox's cache directories to free up disk space. Games will temporarily load slower after this!</value>
+  </data>
+  <data name="Menu.Behaviour.CleanRobloxCache.Title" xml:space="preserve">
+    <value>Clean Roblox cache</value>
+  </data>
+  <data name="Dialog.CacheCleaner.Cleaned" xml:space="preserve">
+    <value>Successfully cleaned the cache.</value>
+  </data>
+  <data name="Dialog.CacheCleaner.FailedToClean" xml:space="preserve">
+    <value>Failed to clean the cache!</value>
+  </data>
 </root>
