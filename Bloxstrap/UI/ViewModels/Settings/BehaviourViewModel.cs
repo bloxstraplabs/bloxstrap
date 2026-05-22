@@ -14,6 +14,12 @@
             set => App.Settings.Prop.BackgroundUpdatesEnabled = value;
         }
 
+        public bool DisableCachingDownloads
+        {
+            get => App.Settings.Prop.DisableCachingDownloads;
+            set => App.Settings.Prop.DisableCachingDownloads = value;
+        }
+
         public bool IsRobloxInstallationMissing => !App.IsPlayerInstalled && !App.IsStudioInstalled;
 
         public bool ForceRobloxReinstallation
