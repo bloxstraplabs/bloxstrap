@@ -638,6 +638,35 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return image;
         }
 
+        private static UIElement HandleXmlElement_MediaElement(CustomDialog dialog, XElement xmlElement)
+        {
+            var media = new MediaElement();
+            HandleXmlElement_FrameworkElement(dialog, media, xmlElement);
+
+            RenderOptions.SetBitmapScalingMode(media, BitmapScalingMode.HighQuality);
+
+            // should behaviour be modifiable? (except unloadedbehavior ig)
+            media.LoadedBehavior = MediaState.Play;
+            media.UnloadedBehavior = MediaState.Close;
+
+            media.Volume = 0;
+
+            media.Stretch = ParseXmlAttribute<Stretch>(xmlElement, "Stretch", Stretch.Uniform);
+            media.StretchDirection = ParseXmlAttribute<StretchDirection>(xmlElement, "StretchDirection", StretchDirection.Both);
+
+            media.Source = GetMediaSourceData(dialog, "Source", xmlElement);
+
+            if (ParseXmlAttribute<bool>(xmlElement, "Looped", false))
+            {
+                media.MediaEnded += (Sender, e) =>
+                {
+                    media.Position = TimeSpan.Zero;
+                };
+            }
+
+            return media;
+        }
+
         private static RowDefinition HandleXmlElement_RowDefinition(CustomDialog dialog, XElement xmlElement)
         {
             var rowDefinition = new RowDefinition();

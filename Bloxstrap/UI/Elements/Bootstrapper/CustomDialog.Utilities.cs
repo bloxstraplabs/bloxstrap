@@ -230,6 +230,24 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return new GetImageSourceDataResult { Uri = result };
         }
 
+        private static Uri GetMediaSourceData(CustomDialog dialog, string name, XElement xmlElement)
+        {
+            string path = GetXmlAttribute(xmlElement, name);
+
+            path = GetFullPath(dialog, path)!;
+
+            if (!Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out Uri? result))
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeParseError", xmlElement.Name, name, "Uri");
+
+            if (result == null)
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeParseErrorNull", xmlElement.Name, name, "Uri");
+
+            if (result.Scheme != "file")
+                throw new CustomThemeException("CustomTheme.Errors.ElementAttributeBlacklistedUriScheme", xmlElement.Name, name, result.Scheme);
+
+            return result;
+        }
+
         private static object? GetContentFromXElement(CustomDialog dialog, XElement xmlElement)
         {
             var contentAttr = xmlElement.Attribute("Content");
