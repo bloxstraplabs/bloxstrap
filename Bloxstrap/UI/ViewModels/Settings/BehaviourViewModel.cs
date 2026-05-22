@@ -33,25 +33,33 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             const string LOG_IDENT = "BehaviourViewModel::CleanRobloxCache";
 
+            var processes = new List<Process>();
+            
+            if (!string.IsNullOrEmpty(App.PlayerState.Prop.VersionGuid))
+                processes.AddRange(Process.GetProcessesByName(App.RobloxPlayerAppName));
+
+            if (App.IsStudioInstalled)
+                processes.AddRange(Process.GetProcessesByName(App.RobloxStudioAppName));
+
+            if (processes.Any())
+            {
+                Frontend.ShowMessageBox(Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder, MessageBoxImage.Error);
+                return;
+            }
+
             IEnumerable<FileInfo> files = Enumerable.Empty<FileInfo>();
             IEnumerable<string> dirs = Enumerable.Empty<string>();
 
             // all the cache folders i know of
             string robloxTempFolder = Path.Combine(Path.GetTempPath(), "Roblox");
-            string robloxStorageFolder = Path.Combine(Paths.LocalAppData, "Roblox\\rbx-storage");
-            string dbFile = Path.Combine(Paths.LocalAppData, "Roblox\\rbx-storage.db"); // the other "rbx-storage" files are irrelevant
+            string robloxStorageFolder = Path.Combine(Paths.LocalAppData, "Roblox", "rbx-storage");
+            string dbFile = Path.Combine(Paths.LocalAppData, "Roblox", "rbx-storage.db"); // the other "rbx-storage" files are irrelevant
 
             if (Directory.Exists(robloxTempFolder))
-            {
-                files = files.Concat(new DirectoryInfo(robloxTempFolder).GetFiles("*", SearchOption.AllDirectories));
                 dirs = dirs.Concat(Directory.GetDirectories(robloxTempFolder));
-            }
 
             if (Directory.Exists(robloxStorageFolder))
-            {
-                files = files.Concat(new DirectoryInfo(robloxStorageFolder).GetFiles("*", SearchOption.AllDirectories));
                 dirs = dirs.Concat(Directory.GetDirectories(robloxStorageFolder));
-            }
 
             if (File.Exists(dbFile))
                 files = files.Concat(new[] { new FileInfo(dbFile) });
@@ -77,7 +85,6 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     }
                 }
 
-                // why not delete the folders aswell
                 foreach (string dir in dirs)
                 {
                     try
