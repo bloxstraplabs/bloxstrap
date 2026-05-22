@@ -10,9 +10,14 @@
              mc:Ignorable="d" 
              x:Name="Control"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ui:CardControl Margin="0,8,0,0" Content="{Binding InnerContent, ElementName=Control}">
-        <ui:CardControl.Header>
-            <StackPanel>
+    <ui:Card Margin="0,8,0,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -65,6 +70,8 @@
                     </local:MarkdownTextBlock.Style>
                 </local:MarkdownTextBlock>
             </StackPanel>
-        </ui:CardControl.Header>
-    </ui:CardControl>
+
+            <ContentControl Grid.Column="1" VerticalAlignment="Center" Margin="16,0,0,0" Content="{Binding InnerContent, ElementName=Control}" />
+        </Grid>
+    </ui:Card>
 </UserControl>
