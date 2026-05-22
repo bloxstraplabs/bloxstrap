@@ -5,8 +5,8 @@
 > Bloxstrap is not under active development anymore. Any issues or pull requests opened may take a while to get a response.
 
 <p align="center">
-    <img src="https://github.com/bloxstraplabs/bloxstrap/raw/main/Images/Bloxstrap-full-dark.png#gh-dark-mode-only" width="380">
-    <img src="https://github.com/bloxstraplabs/bloxstrap/raw/main/Images/Bloxstrap-full-light.png#gh-light-mode-only" width="380">
+    <img src="https://github.com/bloxstraplabs/bloxstrap/raw/main/Images/Bloxstrap-full-dark.webp#gh-dark-mode-only" width="380">
+    <img src="https://github.com/bloxstraplabs/bloxstrap/raw/main/Images/Bloxstrap-full-light.webp#gh-light-mode-only" width="380">
 </p>
 
 <div align="center">

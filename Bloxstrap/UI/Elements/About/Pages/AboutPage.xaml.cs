@@ -20,6 +20,7 @@ namespace Bloxstrap.UI.Elements.About.Pages
         {
             DataContext = new AboutViewModel();
             InitializeComponent();
+            Image1.Source = BootstrapperIcon.IconBloxstrap.GetIcon().GetImageSource();
         }
 
         private void UiPage_KeyDown(object sender, KeyEventArgs e)

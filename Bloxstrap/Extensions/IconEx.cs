@@ -19,7 +19,10 @@ namespace Bloxstrap.Extensions
             {
                 try
                 {
-                    return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                    var decoder = new IconBitmapDecoder(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                    return decoder.Frames
+                        .OrderByDescending(f => f.PixelWidth * f.PixelHeight)
+                        .First();
                 }
                 catch (Exception ex)
                 {
@@ -30,7 +33,10 @@ namespace Bloxstrap.Extensions
             }
             else
             {
-                return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                var decoder = new IconBitmapDecoder(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                return decoder.Frames
+                    .OrderByDescending(f => f.PixelWidth * f.PixelHeight)
+                    .First();
             }
         }
     }

@@ -29,6 +29,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             InitializeComponent();
 
+            Image.Source = BootstrapperIcon.IconBloxstrap.GetIcon().GetImageSource();
+
             _watcher = watcher;
 
             if (_activityWatcher is not null)
