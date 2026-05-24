@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Net.Http.Json;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Shell;
@@ -129,7 +130,7 @@ namespace Bloxstrap
 
             _showingExceptionDialog = true;
 
-            SendLog();
+            SendLog(ex);
 
             if (Bootstrapper?.Dialog != null)
             {
@@ -202,16 +203,23 @@ namespace Bloxstrap
             }
         }
 
-        public static async void SendLog()
+        public static async void SendLog(Exception exception)
         {
             if (!Settings.Prop.EnableAnalytics || !CanSendLogs())
                 return;
 
+            var request = new PostExceptionV2Request
+            {
+                Type = exception.GetType().ToString(),
+                Message = exception.Message,
+                Log = Logger.AsDocument
+            };
+
             try
             {
-                await HttpClient.PostAsync(
-                    $"https://{WebUrl}/metrics/post-exception", 
-                    new StringContent(Logger.AsDocument)
+                await HttpClient.PostAsJsonAsync(
+                    $"https://{WebUrl}/metrics/post-exception-v2",
+                    request
                 );
             }
             catch (Exception ex)

@@ -27,6 +27,7 @@ global using Bloxstrap.Models.Manifest;
 global using Bloxstrap.Models.Persistable;
 global using Bloxstrap.Models.SettingTasks;
 global using Bloxstrap.Models.SettingTasks.Base;
+global using Bloxstrap.Models.Web;
 global using Bloxstrap.Resources;
 global using Bloxstrap.UI;
 global using Bloxstrap.Utility;
