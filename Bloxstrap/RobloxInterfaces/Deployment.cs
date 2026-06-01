@@ -117,10 +117,7 @@
         public static string GetLocation(string resource)
         {
             string location = BaseUrl;
-
-            if (!IsDefaultChannel)
-                location += "/channel/common";
-
+            location += "/channel/common";
             location += resource;
 
             return location;
