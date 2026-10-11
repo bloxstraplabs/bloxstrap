@@ -344,15 +344,9 @@ namespace Bloxstrap.Integrations
             SetWindowPos(_window, IntPtr.Zero, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_ASYNCWINDOWPOS | SWP_NOSENDCHANGING | SWP_FRAMECHANGED);
         }
 
-        private static uint ToColorRef(string hex)
-        {
-            uint rgb = Convert.ToUInt32(hex.TrimStart('#'), 16);
-            return ((rgb & 0xFF) << 16) | (rgb & 0xFF00) | ((rgb >> 16) & 0xFF);
-        }
-
         private void SetColor(int attribute, string hex)
         {
-            uint value = ToColorRef(hex);
+            uint value = Convert.ToUInt32(hex.TrimStart('#'), 16);
             uint disableDarkMode = 0;
 
             if (DwmSetWindowAttribute(_window, DWMWA_USE_IMMERSIVE_DARK_MODE_OLD, ref disableDarkMode, sizeof(uint)) != 0)
@@ -521,7 +515,7 @@ namespace Bloxstrap.Integrations
                             break;
 
                         byte alpha = (byte)(Math.Clamp(data.Transparency ?? 1, 0, 1) * 255);
-                        uint color = data.Color is null ? 0 : ToColorRef(data.Color);
+                        uint color = data.Color is null ? 0 : Convert.ToUInt32(data.Color.TrimStart('#'), 16);
                         uint mode = data.UseAlpha == true ? LWA_ALPHA : LWA_COLORKEY;
 
                         _changedWindow = true;

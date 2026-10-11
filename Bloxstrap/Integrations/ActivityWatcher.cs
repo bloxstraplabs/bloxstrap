@@ -2,7 +2,8 @@
 {
     public class ActivityWatcher : IDisposable
     {
-        private const string GameMessageEntry                = "[FLog::Output] [BloxstrapRPC]";
+        private const string GameMessageEntry                = "[FLog::CreatorOutput] [BloxstrapRPC]";
+        private const string GameMessageLegacyEntry          = "[FLog::Output] [BloxstrapRPC]";
         private const string GameJoiningEntry                = "[FLog::Output] ! Joining game";
 
         // these entries are technically volatile!
@@ -338,7 +339,7 @@
                     _teleportMarker = true;
                     _reservedTeleportMarker = true;
                 }
-                else if (logMessage.StartsWith(GameMessageEntry, StringComparison.Ordinal))
+                else if (logMessage.StartsWith(GameMessageEntry, StringComparison.Ordinal) || logMessage.StartsWith(GameMessageLegacyEntry, StringComparison.Ordinal))
                 {
                     var match = Regex.Match(logMessage, GameMessageEntryPattern);
 
