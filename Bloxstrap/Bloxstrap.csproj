@@ -54,6 +54,7 @@
     <EmbeddedResource Include="Resources\Mods\Sounds\OldWalk.mp3" />
     <EmbeddedResource Include="Resources\Mods\Sounds\Empty.mp3" />
     <EmbeddedResource Include="Resources\Mods\OldAvatarBackground.rbxl" />
+    <EmbeddedResource Include="Resources\StudioPresencePlugin.lua" />
   </ItemGroup>
 
   <ItemGroup>

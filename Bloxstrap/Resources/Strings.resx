@@ -2374,7 +2374,7 @@ Switch channels?</value>
     <value>Cycle custom themes</value>
   </data>
   <data name="Menu.Appearance.CycleThemes.Description" xml:space="preserve">
-    <value>Use the next custom bootstrapper theme each time you launch Roblox.</value>
+    <value>Switch to the next custom bootstrapper theme when you launch Roblox.</value>
   </data>
   <data name="Enums.RenderingMode.Default" xml:space="preserve">
     <value>Automatic</value>
@@ -3128,5 +3128,53 @@ Switch channels?</value>
   </data>
   <data name="Menu.Updating" xml:space="preserve">
     <value>Updating...</value>
+  </data>
+  <data name="Menu.Integrations.StudioScript.Title" xml:space="preserve">
+    <value>Show the open script</value>
+  </data>
+  <data name="Menu.Integrations.StudioScript.Description" xml:space="preserve">
+    <value>Show the name, type and line count of the script you're editing, with an icon for its type. Installs a small reistrap plugin the next time you open Studio through reistrap. Studio asks once to let it connect to reistrap.</value>
+  </data>
+  <data name="Menu.Appearance.CycleInterval.Title" xml:space="preserve">
+    <value>How often to cycle</value>
+  </data>
+  <data name="Menu.Appearance.CycleInterval.Description" xml:space="preserve">
+    <value>Switch to the next theme every launch, or only once per hour, day or week.</value>
+  </data>
+  <data name="Enums.ThemeCycleInterval.EveryLaunch" xml:space="preserve">
+    <value>Every launch</value>
+  </data>
+  <data name="Enums.ThemeCycleInterval.Hourly" xml:space="preserve">
+    <value>Every hour</value>
+  </data>
+  <data name="Enums.ThemeCycleInterval.Daily" xml:space="preserve">
+    <value>Every day</value>
+  </data>
+  <data name="Enums.ThemeCycleInterval.Weekly" xml:space="preserve">
+    <value>Every week</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Title" xml:space="preserve">
+    <value>Find channels</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Description" xml:space="preserve">
+    <value>Check which known Roblox channels are public and what version they're on. Roblox doesn't publish a full list, so channels reistrap doesn't know about won't show up. Use sets the Player channel.</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Use" xml:space="preserve">
+    <value>Use</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Public" xml:space="preserve">
+    <value>Public, version {0}</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.NotPublic" xml:space="preserve">
+    <value>Not public</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.NotFound" xml:space="preserve">
+    <value>Doesn't exist</value>
+  </data>
+  <data name="Menu.Behaviour.Channels.Failed" xml:space="preserve">
+    <value>Couldn't check</value>
   </data>
 </root>

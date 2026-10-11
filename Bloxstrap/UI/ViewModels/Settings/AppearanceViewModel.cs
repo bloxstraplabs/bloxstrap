@@ -479,5 +479,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.Settings.Prop.CycleCustomThemes;
             set => App.Settings.Prop.CycleCustomThemes = value;
         }
+
+        public IEnumerable<ThemeCycleInterval> ThemeCycleIntervals { get; } = Enum.GetValues<ThemeCycleInterval>();
+
+        public ThemeCycleInterval CycleCustomThemesInterval
+        {
+            get => App.Settings.Prop.CycleCustomThemesInterval;
+            set => App.Settings.Prop.CycleCustomThemesInterval = value;
+        }
     }
 }

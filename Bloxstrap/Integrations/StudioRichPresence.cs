@@ -28,6 +28,28 @@ namespace Bloxstrap.Integrations
 
         private UniverseDetails? _universeDetails;
 
+        private readonly object _lock = new();
+
+        private HttpListener? _listener;
+
+        private string? _scriptName;
+
+        private string? _scriptKind;
+
+        private int _scriptLines;
+
+        private class ScriptMessage
+        {
+            [JsonPropertyName("script")]
+            public string? Script { get; set; }
+
+            [JsonPropertyName("kind")]
+            public string? Kind { get; set; }
+
+            [JsonPropertyName("lines")]
+            public int Lines { get; set; }
+        }
+
         public StudioRichPresence(ActivityWatcher activityWatcher)
         {
             const string LOG_IDENT = "StudioRichPresence";
@@ -39,8 +61,120 @@ namespace Bloxstrap.Integrations
 
             _rpcClient.Initialize();
 
+            if (App.Settings.Prop.StudioShowScript)
+                StartListener();
+
             UpdatePresence();
         }
+
+        private void StartListener()
+        {
+            const string LOG_IDENT = "StudioRichPresence::StartListener";
+
+            try
+            {
+                _listener = new HttpListener();
+                _listener.Prefixes.Add($"http://localhost:{StudioPlugin.Port}/");
+                _listener.Start();
+
+                Task.Run(Listen);
+
+                App.Logger.WriteLine(LOG_IDENT, $"Listening for the Studio plugin on port {StudioPlugin.Port}");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Could not listen for the Studio plugin");
+                App.Logger.WriteException(LOG_IDENT, ex);
+
+                _listener = null;
+            }
+        }
+
+        private async Task Listen()
+        {
+            while (_listener is { IsListening: true } listener)
+            {
+                HttpListenerContext context;
+
+                try
+                {
+                    context = await listener.GetContextAsync();
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+
+                HandleRequest(context);
+            }
+        }
+
+        private void HandleRequest(HttpListenerContext context)
+        {
+            using var response = context.Response;
+
+            try
+            {
+                if (context.Request.HttpMethod != "POST" || context.Request.Url?.AbsolutePath != "/studio")
+                {
+                    response.StatusCode = 404;
+                    return;
+                }
+
+                using var reader = new StreamReader(context.Request.InputStream, Encoding.UTF8);
+
+                char[] buffer = new char[4096];
+                int length = reader.ReadBlock(buffer, 0, buffer.Length);
+
+                var message = JsonSerializer.Deserialize<ScriptMessage>(new string(buffer, 0, length));
+
+                if (message is null)
+                {
+                    response.StatusCode = 400;
+                    return;
+                }
+
+                SetScript(message);
+                response.StatusCode = 200;
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("StudioRichPresence::HandleRequest", ex);
+                response.StatusCode = 400;
+            }
+        }
+
+        private void SetScript(ScriptMessage message)
+        {
+            string? name = String.IsNullOrWhiteSpace(message.Script) ? null : message.Script.Trim();
+            string? kind = message.Kind is "server" or "client" or "module" ? message.Kind : null;
+            int lines = Math.Max(message.Lines, 0);
+
+            if (name is not null && name.Length > 80)
+                name = name[..80];
+
+            lock (_lock)
+            {
+                if (name == _scriptName && kind == _scriptKind && lines == _scriptLines)
+                    return;
+
+                _scriptName = name;
+                _scriptKind = name is null ? null : kind;
+                _scriptLines = lines;
+            }
+
+            UpdatePresence();
+        }
+
+        private static string GetScriptLabel(string? kind) => kind switch
+        {
+            "client" => "Local script",
+            "module" => "Module script",
+            _ => "Server script"
+        };
+
+        private static string GetScriptIcon(string? kind) =>
+            $"https://raw.githubusercontent.com/{App.ProjectRepository}/main/Images/StudioScripts/{kind ?? "server"}.png";
 
         private void ReadLogEntry(string entry)
         {
@@ -65,6 +199,14 @@ namespace Bloxstrap.Integrations
                 _placeId = 0;
                 _universeId = 0;
                 _universeDetails = null;
+
+                lock (_lock)
+                {
+                    _scriptName = null;
+                    _scriptKind = null;
+                    _scriptLines = 0;
+                }
+
                 UpdatePresence();
             }
             else if (_placeOpened is not null && _placeId == 0 && PlaceIdPattern.Match(logMessage) is { Success: true } placeMatch)
@@ -111,6 +253,12 @@ namespace Bloxstrap.Integrations
 
         private void UpdatePresence()
         {
+            lock (_lock)
+                SetPresence();
+        }
+
+        private void SetPresence()
+        {
             var settings = App.Settings.Prop;
 
             bool editing = _placeOpened is not null;
@@ -118,10 +266,14 @@ namespace Bloxstrap.Integrations
 
             string? gameName = settings.StudioShowGameName ? _universeDetails?.Data.Name : null;
 
+            bool showScript = editing && !testing && settings.StudioShowScript && _scriptName is not null;
+
             string state;
 
             if (!editing)
                 state = "Idle";
+            else if (showScript)
+                state = $"Editing {_scriptName} ({_scriptLines:N0} {(_scriptLines == 1 ? "line" : "lines")})";
             else if (testing)
                 state = gameName is null ? "Testing a place" : $"Testing {gameName}";
             else
@@ -148,14 +300,25 @@ namespace Bloxstrap.Integrations
                 {
                     LargeImageKey = icon ?? "roblox",
                     LargeImageText = gameName ?? "Roblox Studio",
-                    SmallImageKey = icon is null ? null : "roblox",
-                    SmallImageText = icon is null ? null : "Roblox Studio"
+                    SmallImageKey = showScript ? GetScriptIcon(_scriptKind) : icon is null ? null : "roblox",
+                    SmallImageText = showScript ? GetScriptLabel(_scriptKind) : icon is null ? null : "Roblox Studio"
                 }
             });
         }
 
         public void Dispose()
         {
+            try
+            {
+                _listener?.Close();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("StudioRichPresence::Dispose", ex);
+            }
+
+            _listener = null;
+
             _rpcClient.ClearPresence();
             _rpcClient.Dispose();
             GC.SuppressFinalize(this);

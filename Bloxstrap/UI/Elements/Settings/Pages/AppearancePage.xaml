@@ -91,8 +91,22 @@
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Appearance_CycleThemes_Title}"
-            Description="{x:Static resources:Strings.Menu_Appearance_CycleThemes_Description}">
+            Description="{x:Static resources:Strings.Menu_Appearance_CycleThemes_Description}"
+            x:Name="CycleThemesOption">
             <ui:ToggleSwitch IsChecked="{Binding CycleCustomThemes, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_CycleInterval_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_CycleInterval_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=CycleThemesOption, Mode=OneWay}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding ThemeCycleIntervals, Mode=OneTime}" SelectedItem="{Binding CycleCustomThemesInterval, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </controls:OptionControl>
 
         <Border Style="{StaticResource SectionSeparator}" />

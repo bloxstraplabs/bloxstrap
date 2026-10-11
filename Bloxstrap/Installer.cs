@@ -308,6 +308,8 @@ namespace Bloxstrap
                 () => Directory.Delete(Paths.Versions, true),
                 () => Directory.Delete(Paths.Downloads, true),
 
+                StudioPlugin.Remove,
+
                 () => File.Delete(App.State.FileLocation)
             };
 

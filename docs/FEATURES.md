@@ -32,6 +32,7 @@ Everything reistrap can do, as of v1.1.1.
 - Discord Rich Presence with game name and icon, join and game page buttons, your Roblox account, game name in status, "Using reistrap", and a custom status per game
 - Games can set Discord status through BloxstrapRPC
 - Roblox Studio Rich Presence with game name, game icon, play testing status and a game page button
+- Show the script you're editing in Studio Rich Presence, with its name, line count and an icon for server, local or module scripts, through a small Studio plugin
 - Game window control for games made for Funkstrap, like Project: Afternight: move and resize, title, transparency, color, wallpaper, taskbar and desktop icons, with a permission prompt per game, an allow-all option, monitor choice, update rate and a permissions reset
 - Custom integrations that launch with Roblox, close with Roblox, or run only in a specific game
 
@@ -45,6 +46,7 @@ Everything reistrap can do, as of v1.1.1.
 - Allow unsupported Roblox languages
 - Cache cleaner with a schedule, folder choices and Clean now
 - Player and Studio channels with a Check button
+- Find channels: check which known Roblox channels are public and their versions, and switch to one
 - Block Roblox updates and use a fixed install folder
 - Choose what happens when a launch link asks for a different channel
 - Pin a Roblox Player or Studio version
@@ -87,8 +89,9 @@ Everything reistrap can do, as of v1.1.1.
 - Window effect (Mica, Acrylic, Aero, None)
 - App font
 - Background image or gradient with strength and fit
-- Turn off animations
-- Loading window style, custom themes with an editor, import and export, theme cycling, icon and title
+- Smooth scrolling in every window
+- Turn off animations, which also turns off smooth scrolling
+- Loading window style, custom themes with an editor, import and export, theme cycling on every launch or every hour, day or week, icon and title
 
 ## Engine Settings (Fast Flags)
 

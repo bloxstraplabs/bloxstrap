@@ -157,6 +157,28 @@
         </controls:OptionControl>
 
         <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_Channels_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_Channels_Description}">
+            <ui:Button Icon="Search24" Content="{x:Static resources:Strings.Menu_Behaviour_Channels_Find}" Command="{Binding FindChannelsCommand}" />
+        </controls:OptionControl>
+
+        <ItemsControl ItemsSource="{Binding FoundChannels}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ui:CardControl Margin="0,8,0,0" Padding="12">
+                        <ui:CardControl.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="14" VerticalAlignment="Center" Text="{Binding Name}" />
+                                <TextBlock Margin="16,0,0,0" FontSize="12" VerticalAlignment="Center" Text="{Binding Status}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:Button Content="{x:Static resources:Strings.Menu_Behaviour_Channels_Use}" IsEnabled="{Binding Available}" Command="{Binding DataContext.UseChannelCommand, RelativeSource={RelativeSource AncestorType=ui:UiPage}}" CommandParameter="{Binding}" />
+                    </ui:CardControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Behaviour_BlockUpdates_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_BlockUpdates_Description}">
             <ui:ToggleSwitch IsChecked="{Binding BlockRobloxUpdates, Mode=TwoWay}" />

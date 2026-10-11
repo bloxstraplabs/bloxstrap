@@ -205,6 +205,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.StudioShowGameButton = value;
         }
 
+        public bool StudioShowScript
+        {
+            get => App.Settings.Prop.StudioShowScript;
+            set => App.Settings.Prop.StudioShowScript = value;
+        }
+
         public bool DisableAppPatchEnabled
         {
             get => App.Settings.Prop.UseDisableAppPatch;

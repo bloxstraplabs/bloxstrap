@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -107,6 +108,85 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ChannelTask StudioChannelTask { get; } = new("RobloxStudio");
 
+        public class ChannelResult
+        {
+            public string Name { get; init; } = "";
+
+            public string Status { get; init; } = "";
+
+            public bool Available { get; init; }
+        }
+
+        private static readonly string[] CandidateChannels = { "production", "zcanary", "zintegration", "zlive", "zlive1", "znext", "zflag", "zavatar" };
+
+        public ObservableCollection<ChannelResult> FoundChannels { get; } = new();
+
+        public bool IsFindingChannels { get; private set; }
+
+        public ICommand FindChannelsCommand => new AsyncRelayCommand(FindChannels);
+
+        public ICommand UseChannelCommand => new RelayCommand<ChannelResult>(UseChannel);
+
+        private static string GetVersionPath(string channel, string binaryType) => channel == Deployment.DefaultChannel
+            ? $"/v2/client-version/{binaryType}"
+            : $"/v2/client-version/{binaryType}/channel/{channel}";
+
+        private static async Task<ChannelResult> GetChannelResult(string channel)
+        {
+            try
+            {
+                var info = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + GetVersionPath(channel, "WindowsPlayer"));
+                return new ChannelResult { Name = channel, Status = String.Format(Strings.Menu_Behaviour_Channels_Public, info.Version), Available = true };
+            }
+            catch (HttpRequestException ex) when (ex.StatusCode is HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden)
+            {
+                return new ChannelResult { Name = channel, Status = Strings.Menu_Behaviour_Channels_NotPublic };
+            }
+            catch (HttpRequestException ex) when (ex.StatusCode is HttpStatusCode.NotFound)
+            {
+                return new ChannelResult { Name = channel, Status = Strings.Menu_Behaviour_Channels_NotFound };
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("BehaviourViewModel::GetChannelResult", ex);
+                return new ChannelResult { Name = channel, Status = Strings.Menu_Behaviour_Channels_Failed };
+            }
+        }
+
+        private async Task FindChannels()
+        {
+            if (IsFindingChannels)
+                return;
+
+            IsFindingChannels = true;
+            OnPropertyChanged(nameof(IsFindingChannels));
+
+            FoundChannels.Clear();
+
+            var names = CandidateChannels
+                .Concat(new[] { PlayerChannelTask.OriginalState, StudioChannelTask.OriginalState })
+                .Select(x => x.Trim().ToLowerInvariant())
+                .Where(x => x.Length > 0)
+                .Distinct();
+
+            var results = await Task.WhenAll(names.Select(GetChannelResult));
+
+            foreach (var result in results.OrderByDescending(x => x.Available).ThenBy(x => x.Name == Deployment.DefaultChannel ? "" : x.Name))
+                FoundChannels.Add(result);
+
+            IsFindingChannels = false;
+            OnPropertyChanged(nameof(IsFindingChannels));
+        }
+
+        private void UseChannel(ChannelResult? result)
+        {
+            if (result is null || !result.Available)
+                return;
+
+            PlayerChannelTask.NewState = result.Name;
+            OnPropertyChanged(nameof(PlayerChannelTask));
+        }
+
         public ICommand CheckPlayerChannelCommand => new AsyncRelayCommand(() => CheckChannel(PlayerChannelTask.NewState, "WindowsPlayer"));
 
         public ICommand CheckStudioChannelCommand => new AsyncRelayCommand(() => CheckChannel(StudioChannelTask.NewState, "WindowsStudio64"));
@@ -120,13 +200,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
             if (String.IsNullOrEmpty(channel))
                 channel = Deployment.DefaultChannel;
 
-            string path = channel == Deployment.DefaultChannel
-                ? $"/v2/client-version/{binaryType}"
-                : $"/v2/client-version/{binaryType}/channel/{channel}";
-
             try
             {
-                var info = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + path);
+                var info = await Http.GetJson<ClientVersion>("https://clientsettingscdn.roblox.com" + GetVersionPath(channel, binaryType));
                 Frontend.ShowMessageBox(String.Format(Strings.Menu_Behaviour_Channel_Available, channel, info.Version, info.VersionGuid), MessageBoxImage.Information);
             }
             catch (HttpRequestException ex) when (Deployment.BadChannelCodes.Contains(ex.StatusCode))

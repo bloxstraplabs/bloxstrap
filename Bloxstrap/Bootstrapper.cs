@@ -718,6 +718,10 @@ namespace Bloxstrap
                         _launchCommandLine = Regex.Replace(_launchCommandLine, "robloxLocale:[a-z_]+", $"robloxLocale:{match.Groups[1].Value}", RegexOptions.IgnoreCase);
                 }
             }
+            else
+            {
+                StudioPlugin.Sync();
+            }
 
             var startInfo = new ProcessStartInfo()
             {

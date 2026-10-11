@@ -54,7 +54,15 @@ namespace Bloxstrap.UI
 
         public static void CycleCustomTheme()
         {
-            if (!Directory.Exists(Paths.CustomThemes))
+            var interval = App.Settings.Prop.CycleCustomThemesInterval switch
+            {
+                ThemeCycleInterval.Hourly => TimeSpan.FromHours(1),
+                ThemeCycleInterval.Daily => TimeSpan.FromDays(1),
+                ThemeCycleInterval.Weekly => TimeSpan.FromDays(7),
+                _ => TimeSpan.Zero
+            };
+
+            if (DateTime.Now - App.State.Prop.LastThemeCycle < interval || !Directory.Exists(Paths.CustomThemes))
                 return;
 
             var themes = Directory.GetDirectories(Paths.CustomThemes)
@@ -70,6 +78,9 @@ namespace Bloxstrap.UI
 
             App.Settings.Prop.SelectedCustomTheme = themes[(index + 1) % themes.Count];
             App.Settings.Save();
+
+            App.State.Prop.LastThemeCycle = DateTime.Now;
+            App.State.Save();
         }
 
         private static IBootstrapperDialog GetCustomBootstrapper()

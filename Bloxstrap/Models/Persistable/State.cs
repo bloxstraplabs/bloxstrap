@@ -8,6 +8,8 @@
 
         public bool ShowWelcome { get; set; } = false;
 
+        public DateTime LastThemeCycle { get; set; } = DateTime.MinValue;
+
         public WindowState SettingsWindow { get; set; } = new();
     }
 }

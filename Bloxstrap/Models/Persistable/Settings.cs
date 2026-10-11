@@ -19,6 +19,7 @@ namespace Bloxstrap.Models.Persistable
         public BackgroundStretch BackgroundStretch { get; set; } = BackgroundStretch.UniformToFill;
         public bool DisableAnimations { get; set; } = false;
         public bool CycleCustomThemes { get; set; } = false;
+        public ThemeCycleInterval CycleCustomThemesInterval { get; set; } = ThemeCycleInterval.EveryLaunch;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool DeveloperMode { get; set; } = false;
         public bool CheckForUpdates { get; set; } = true;
@@ -111,6 +112,7 @@ namespace Bloxstrap.Models.Persistable
         public bool StudioShowGameIcon { get; set; } = true;
         public bool StudioShowTesting { get; set; } = true;
         public bool StudioShowGameButton { get; set; } = false;
+        public bool StudioShowScript { get; set; } = false;
         public bool ShowUsingReistrapInRichPresence { get; set; } = true;
         public bool ShowServerUptime { get; set; } = true;
         public TrayDoubleClickAction TrayDoubleClickAction { get; set; } = TrayDoubleClickAction.ServerDetails;

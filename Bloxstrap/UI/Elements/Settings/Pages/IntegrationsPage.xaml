@@ -210,6 +210,13 @@
             <ui:ToggleSwitch IsChecked="{Binding StudioShowGameButton, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioScript_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioScript_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=StudioRichPresenceOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioShowScript, Mode=TwoWay}" />
+        </controls:OptionControl>
+
 
         <Border Style="{StaticResource SectionSeparator}" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_WindowControl_Title}" Style="{StaticResource SectionTitle}" />

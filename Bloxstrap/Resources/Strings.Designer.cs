@@ -6546,7 +6546,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the next custom bootstrapper theme each time you launch Roblox..
+        ///   Looks up a localized string similar to Switch to the next custom bootstrapper theme when you launch Roblox..
         /// </summary>
         public static string Menu_Appearance_CycleThemes_Description {
             get {
@@ -8810,6 +8810,150 @@ namespace Bloxstrap.Resources {
         public static string Menu_Updating {
             get {
                 return ResourceManager.GetString("Menu.Updating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the open script.
+        /// </summary>
+        public static string Menu_Integrations_StudioScript_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.StudioScript.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the name, type and line count of the script you're editing, with an icon for its type. Installs a small reistrap plugin the next time you open Studio through reistrap. Studio asks once to let it connect to reistrap..
+        /// </summary>
+        public static string Menu_Integrations_StudioScript_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.StudioScript.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How often to cycle.
+        /// </summary>
+        public static string Menu_Appearance_CycleInterval_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CycleInterval.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch to the next theme every launch, or only once per hour, day or week..
+        /// </summary>
+        public static string Menu_Appearance_CycleInterval_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.CycleInterval.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every launch.
+        /// </summary>
+        public static string Enums_ThemeCycleInterval_EveryLaunch {
+            get {
+                return ResourceManager.GetString("Enums.ThemeCycleInterval.EveryLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every hour.
+        /// </summary>
+        public static string Enums_ThemeCycleInterval_Hourly {
+            get {
+                return ResourceManager.GetString("Enums.ThemeCycleInterval.Hourly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every day.
+        /// </summary>
+        public static string Enums_ThemeCycleInterval_Daily {
+            get {
+                return ResourceManager.GetString("Enums.ThemeCycleInterval.Daily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every week.
+        /// </summary>
+        public static string Enums_ThemeCycleInterval_Weekly {
+            get {
+                return ResourceManager.GetString("Enums.ThemeCycleInterval.Weekly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find channels.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check which known Roblox channels are public and what version they're on. Roblox doesn't publish a full list, so channels reistrap doesn't know about won't show up. Use sets the Player channel..
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Find {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Find", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Use {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Use", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public, version {0}.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Public {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Public", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not public.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_NotPublic {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.NotPublic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doesn't exist.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_NotFound {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn't check.
+        /// </summary>
+        public static string Menu_Behaviour_Channels_Failed {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channels.Failed", resourceCulture);
             }
         }
     }
