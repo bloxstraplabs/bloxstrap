@@ -47,9 +47,7 @@ namespace Bloxstrap.UI.Elements.About
                 {
                     new() { Name = "Fishstrap", Description = Strings.Credits_Fishstrap, License = "MIT", Link = "https://github.com/fishstrap/fishstrap" },
                     new() { Name = "Froststrap", Description = Strings.Credits_Froststrap, License = "MPL-2.0", Link = "https://github.com/Froststrap/Froststrap" },
-                    new() { Name = "Funkstrap", Description = Strings.Credits_Funkstrap, License = "MIT", Link = "https://github.com/DawndreamerStudios/funkstrap" },
-                    new() { Name = "Bubblestrap", Description = Strings.Credits_Bubblestrap, License = "MIT", Link = "https://github.com/ItzBloxxy/Bubblestrap" },
-                    new() { Name = "Voidstrap", Description = Strings.Credits_Voidstrap, License = "MIT", Link = "https://github.com/Voidstrap-rbx/Voidstrap" }
+                    new() { Name = "Funkstrap", Description = Strings.Credits_Funkstrap, License = "MIT", Link = "https://github.com/DawndreamerStudios/funkstrap" }
                 }
             },
             new CreditGroup
@@ -59,9 +57,7 @@ namespace Bloxstrap.UI.Elements.About
                 Entries =
                 {
                     new() { Name = "RoValra", Description = Strings.Credits_RoValra, Link = "https://www.rovalra.com" },
-                    new() { Name = "ipinfo.io", Description = Strings.Credits_IpInfo, Link = "https://ipinfo.io" },
-                    new() { Name = "Roblox", Description = Strings.Credits_Roblox, Link = "https://www.roblox.com" },
-                    new() { Name = "Cloudflare Workers", Description = Strings.Credits_Cloudflare, Link = "https://workers.cloudflare.com" }
+                    new() { Name = "ipinfo.io", Description = Strings.Credits_IpInfo, Link = "https://ipinfo.io" }
                 }
             },
             new CreditGroup
@@ -73,7 +69,6 @@ namespace Bloxstrap.UI.Elements.About
                     new() { Name = "WPF UI", Description = Strings.Credits_WpfUi, License = "MIT", Link = "https://github.com/lepoco/wpfui" },
                     new() { Name = "DiscordRichPresence", Description = Strings.Credits_DiscordRpc, License = "MIT", Link = "https://github.com/Lachee/discord-rpc-csharp" },
                     new() { Name = "CommunityToolkit.Mvvm", Description = Strings.Credits_Mvvm, License = "MIT", Link = "https://github.com/CommunityToolkit/dotnet" },
-                    new() { Name = "CsWin32", Description = Strings.Credits_CsWin32, License = "MIT", Link = "https://github.com/microsoft/CsWin32" },
                     new() { Name = "SharpZipLib", Description = Strings.Credits_SharpZipLib, License = "MIT", Link = "https://github.com/icsharpcode/SharpZipLib" },
                     new() { Name = "AvalonEdit", Description = Strings.Credits_AvalonEdit, License = "MIT", Link = "https://github.com/icsharpcode/AvalonEdit" },
                     new() { Name = "Markdig", Description = Strings.Credits_Markdig, License = "BSD-2-Clause", Link = "https://github.com/xoofx/markdig" },

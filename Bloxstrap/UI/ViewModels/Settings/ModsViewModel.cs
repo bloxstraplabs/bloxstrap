@@ -1,6 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 using Microsoft.Win32;
 
@@ -17,6 +20,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
 {
     public class ModsViewModel : NotifyPropertyChangedViewModel
     {
+        public ModsViewModel()
+        {
+            _previewTimer = new DispatcherTimer(TimeSpan.FromMilliseconds(250), DispatcherPriority.Background, (_, _) => RefreshPreview(), Dispatcher.CurrentDispatcher);
+
+            GradientStops.Add(new GradientStopItem(0, "#FFFFFF", QueuePreview));
+            GradientStops.Add(new GradientStopItem(1, "#9B6DFF", QueuePreview));
+
+            QueuePreview();
+        }
+
         private void OpenModsFolder() => Process.Start("explorer.exe", Paths.Modifications);
 
         private readonly Dictionary<string, byte[]> FontHeaders = new()
@@ -189,52 +202,178 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         // Color Mods
 
-        public string CursorColor { get; set; } = "";
+        public class GradientStopItem : NotifyPropertyChangedViewModel
+        {
+            private readonly Action _changed;
 
-        public string ShiftLockColor { get; set; } = "";
+            private double _offset;
 
-        public string EmoteWheelColor { get; set; } = "";
+            private string _hex;
 
-        public double GradientAngle { get; set; } = 0;
+            public GradientStopItem(double offset, string hex, Action changed)
+            {
+                _offset = offset;
+                _hex = hex;
+                _changed = changed;
+            }
+
+            public double Offset
+            {
+                get => _offset;
+                set
+                {
+                    _offset = value;
+                    OnPropertyChanged(nameof(Offset));
+                    _changed();
+                }
+            }
+
+            public string Hex
+            {
+                get => _hex;
+                set
+                {
+                    _hex = value;
+                    OnPropertyChanged(nameof(Hex));
+                    OnPropertyChanged(nameof(Swatch));
+                    _changed();
+                }
+            }
+
+            public Brush Swatch => ModGenerator.TryParseColor(Hex, out var color) ? new SolidColorBrush(color) : Brushes.Transparent;
+        }
+
+        private readonly DispatcherTimer _previewTimer;
+
+        private double _gradientAngle = 90;
+
+        public ObservableCollection<GradientStopItem> GradientStops { get; } = new();
+
+        public ObservableCollection<BitmapSource> IconPreview { get; } = new();
+
+        public double GradientAngle
+        {
+            get => _gradientAngle;
+            set
+            {
+                _gradientAngle = value;
+                OnPropertyChanged(nameof(GradientAngle));
+                QueuePreview();
+            }
+        }
+
+        public bool ColorIcons { get; set; } = true;
+
+        public bool ColorCursors { get; set; } = true;
+
+        public bool ColorShiftLock { get; set; } = true;
+
+        public bool ColorEmoteWheel { get; set; } = false;
+
+        public ICommand AddGradientStopCommand => new RelayCommand(() =>
+        {
+            GradientStops.Add(new GradientStopItem(1, "#FFFFFF", QueuePreview));
+            QueuePreview();
+        });
+
+        public ICommand RemoveGradientStopCommand => new RelayCommand<GradientStopItem>(item =>
+        {
+            if (item is null || GradientStops.Count <= 1)
+                return;
+
+            GradientStops.Remove(item);
+            QueuePreview();
+        });
 
         public ICommand GenerateColorModsCommand => new RelayCommand(GenerateColorMods);
 
         public ICommand RemoveColorModsCommand => new RelayCommand(RemoveColorMods);
 
+        private void QueuePreview()
+        {
+            _previewTimer.Stop();
+            _previewTimer.Start();
+        }
+
+        private List<IconGenerator.Stop>? ParseStops()
+        {
+            var stops = new List<IconGenerator.Stop>();
+
+            foreach (var item in GradientStops)
+            {
+                if (!ModGenerator.TryParseColor(item.Hex, out var color))
+                    return null;
+
+                stops.Add(new IconGenerator.Stop(item.Offset, color));
+            }
+
+            return stops.Any() ? stops.OrderBy(x => x.Offset).ToList() : null;
+        }
+
+        private void RefreshPreview()
+        {
+            _previewTimer.Stop();
+
+            if (ParseStops() is not List<IconGenerator.Stop> stops)
+                return;
+
+            var sheets = IconGenerator.FindSheets(new RobloxPlayerData().Directory)
+                .Where(x => x.Contains("_2x_", StringComparison.Ordinal))
+                .Select(ModGenerator.GetOriginal)
+                .OfType<string>()
+                .ToList();
+
+            if (!sheets.Any())
+                return;
+
+            double angle = GradientAngle;
+
+            Task.Run(() => IconGenerator.Preview(sheets, stops, angle, 40)).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    App.Logger.WriteException("ModsViewModel::RefreshPreview", task.Exception!);
+                    return;
+                }
+
+                IconPreview.Clear();
+
+                foreach (var icon in task.Result)
+                    IconPreview.Add(icon);
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
         private void GenerateColorMods()
         {
             const string LOG_IDENT = "ModsViewModel::GenerateColorMods";
 
-            var jobs = new List<(string Hex, IEnumerable<string> Files)>
+            if (ParseStops() is not List<IconGenerator.Stop> stops)
             {
-                (CursorColor, ModGenerator.CursorFiles),
-                (ShiftLockColor, new[] { ModGenerator.ShiftLockFile }),
-                (EmoteWheelColor, ModGenerator.EmoteWheelFiles)
-            }.Where(x => !String.IsNullOrWhiteSpace(x.Hex)).ToList();
-
-            if (!jobs.Any())
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ColorMods_InvalidColor, String.Join(", ", GradientStops.Select(x => x.Hex))), MessageBoxImage.Error);
                 return;
+            }
 
             int written = 0;
 
-            foreach (var job in jobs)
+            try
             {
-                if (!ModGenerator.TryParseGradient(job.Hex, out var color, out var endColor))
-                {
-                    Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ColorMods_InvalidColor, job.Hex), MessageBoxImage.Error);
-                    return;
-                }
+                if (ColorIcons)
+                    written += ModGenerator.RecolorGradient(IconGenerator.FindSheets(new RobloxPlayerData().Directory), stops, GradientAngle, true);
 
-                try
-                {
-                    written += ModGenerator.Recolor(job.Files, color, endColor, GradientAngle);
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteException(LOG_IDENT, ex);
-                    Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
-                    return;
-                }
+                if (ColorCursors)
+                    written += ModGenerator.RecolorGradient(ModGenerator.CursorFiles, stops, GradientAngle, false);
+
+                if (ColorShiftLock)
+                    written += ModGenerator.RecolorGradient(new[] { ModGenerator.ShiftLockFile }, stops, GradientAngle, false);
+
+                if (ColorEmoteWheel)
+                    written += ModGenerator.RecolorGradient(ModGenerator.EmoteWheelFiles, stops, GradientAngle, false);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                return;
             }
 
             if (written == 0)
@@ -250,7 +389,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             if (result != MessageBoxResult.Yes)
                 return;
 
-            ModGenerator.RemoveGenerated(ModGenerator.CursorFiles.Append(ModGenerator.ShiftLockFile).Concat(ModGenerator.EmoteWheelFiles));
+            ModGenerator.RemoveGenerated(ModGenerator.CursorFiles.Append(ModGenerator.ShiftLockFile).Concat(ModGenerator.EmoteWheelFiles).Concat(IconGenerator.FindSheets(new RobloxPlayerData().Directory)));
         }
 
         // Mod Packs

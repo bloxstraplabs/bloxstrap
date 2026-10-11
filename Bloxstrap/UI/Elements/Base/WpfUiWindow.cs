@@ -101,7 +101,11 @@ namespace Bloxstrap.UI.Elements.Base
 
             if (custom is null)
             {
-                SetResourceReference(BackgroundProperty, "ApplicationBackgroundBrush");
+                if (WindowBackdropType != BackgroundType.None && new WindowInteropHelper(this).Handle != IntPtr.Zero)
+                    Wpf.Ui.Appearance.Background.Apply(this, WindowBackdropType, true);
+                else
+                    SetResourceReference(BackgroundProperty, "ApplicationBackgroundBrush");
+
                 return;
             }
 

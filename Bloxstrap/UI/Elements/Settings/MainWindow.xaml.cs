@@ -20,7 +20,7 @@ namespace Bloxstrap.UI.Elements.Settings
 
         protected override bool AllowCustomBackground => true;
 
-        private const int SizeVersion = 2;
+        private const int SizeVersion = 3;
 
         private readonly MainWindowViewModel _viewModel;
 

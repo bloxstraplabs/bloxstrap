@@ -1605,7 +1605,7 @@ Add it anyway?</value>
     <value>Color mods</value>
   </data>
   <data name="Menu.Mods.ColorMods.Description" xml:space="preserve">
-    <value>Recolor Roblox's own textures using a hex color code (such as #FF5555). Leave a field empty to skip it.</value>
+    <value>Recolor Roblox's UI icons, cursors, Shift Lock icon and emote wheel with a solid color or a gradient.</value>
   </data>
   <data name="Menu.Mods.ColorMods.Cursor" xml:space="preserve">
     <value>Mouse cursor color</value>
@@ -2566,7 +2566,7 @@ Switch channels?</value>
     <value>Gradient angle</value>
   </data>
   <data name="Menu.Mods.ColorMods.Angle.Description" xml:space="preserve">
-    <value>Type two colors separated by a comma above to make a gradient. This sets its direction.</value>
+    <value>The direction of the gradient on each icon.</value>
   </data>
   <data name="Menu.Mods.Skybox.Title" xml:space="preserve">
     <value>Custom skybox</value>
@@ -2929,7 +2929,7 @@ Switch channels?</value>
     <value>Credits</value>
   </data>
   <data name="Credits.Description" xml:space="preserve">
-    <value>reistrap wouldn't exist without these projects and the people who made them. Click any of them to visit their page.</value>
+    <value>The projects, services and libraries reistrap uses code or data from. Click any of them to visit their page.</value>
   </data>
   <data name="Credits.BuiltOn.Title" xml:space="preserve">
     <value>Built on</value>
@@ -2944,16 +2944,16 @@ Switch channels?</value>
     <value>Other bootstrappers</value>
   </data>
   <data name="Credits.Bootstrappers.Description" xml:space="preserve">
-    <value>Features and ideas that came from other Bloxstrap forks.</value>
+    <value>Bloxstrap forks that parts of reistrap's code are based on.</value>
   </data>
   <data name="Credits.Fishstrap" xml:space="preserve">
-    <value>Ideas for the Roblox app theme, background app, unsupported languages, version pinning and better matchmaking.</value>
+    <value>The option for unsupported Roblox languages is based on Fishstrap's code.</value>
   </data>
   <data name="Credits.Froststrap" xml:space="preserve">
-    <value>The settings window design and many feature ideas, including SOCD, Quick Play, the region selector and game window titles.</value>
+    <value>The Roblox app theme and background app options are based on Froststrap's code.</value>
   </data>
   <data name="Credits.Funkstrap" xml:space="preserve">
-    <value>By Dawndreamer Studios. Game window control for Project: Afternight, adapted from their code.</value>
+    <value>By Dawndreamer Studios. Game window control for Project: Afternight is adapted from their code.</value>
   </data>
   <data name="Credits.Bubblestrap" xml:space="preserve">
     <value>By ItzBloxxy. The idea for the memory trimmer and classic window icons.</value>
@@ -2965,7 +2965,7 @@ Switch channels?</value>
     <value>Online services</value>
   </data>
   <data name="Credits.Services.Description" xml:space="preserve">
-    <value>Free services reistrap talks to.</value>
+    <value>Services whose data reistrap shows you.</value>
   </data>
   <data name="Credits.RoValra" xml:space="preserve">
     <value>Server locations, the list of Roblox regions and servers by city for the region selector and better matchmaking.</value>
@@ -3107,5 +3107,20 @@ Switch channels?</value>
   </data>
   <data name="Setup.Feature.Socd.Description" xml:space="preserve">
     <value>The last movement key you press always wins.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Colors" xml:space="preserve">
+    <value>Gradient colors</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.AddColor" xml:space="preserve">
+    <value>Add color</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Apply.Title" xml:space="preserve">
+    <value>Recolor</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Apply.Icons" xml:space="preserve">
+    <value>Roblox UI icons</value>
   </data>
 </root>

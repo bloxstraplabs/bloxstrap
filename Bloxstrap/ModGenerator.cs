@@ -74,7 +74,7 @@ namespace Bloxstrap
             return true;
         }
 
-        private static string? GetOriginal(string relativePath)
+        public static string? GetOriginal(string relativePath)
         {
             string cached = Path.Combine(OriginalsFolder, relativePath);
 
@@ -118,6 +118,27 @@ namespace Bloxstrap
                 written++;
 
                 App.Logger.WriteLine(LOG_IDENT, $"Wrote {relativePath}");
+            }
+
+            return written;
+        }
+
+        public static int RecolorGradient(IEnumerable<string> relativePaths, IReadOnlyList<IconGenerator.Stop> stops, double angle, bool perIcon)
+        {
+            int written = 0;
+
+            foreach (string relativePath in relativePaths)
+            {
+                string? source = GetOriginal(relativePath);
+
+                if (source is null)
+                    continue;
+
+                string target = Path.Combine(Paths.Modifications, relativePath);
+                Filesystem.AssertReadOnly(target);
+
+                IconGenerator.Recolor(source, target, stops, angle, perIcon);
+                written++;
             }
 
             return written;

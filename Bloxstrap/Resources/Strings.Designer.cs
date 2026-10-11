@@ -8749,5 +8749,50 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Setup.Feature.Socd.Description", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Preview {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gradient colors.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Colors {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Colors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add color.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_AddColor {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.AddColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recolor.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Apply_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Apply.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox UI icons.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Apply_Icons {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Apply.Icons", resourceCulture);
+            }
+        }
     }
 }
