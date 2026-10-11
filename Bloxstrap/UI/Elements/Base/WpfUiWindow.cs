@@ -15,6 +15,8 @@ namespace Bloxstrap.UI.Elements.Base
 
         protected virtual bool AllowCustomBackground => false;
 
+        private BackgroundType _backdrop = BackgroundType.None;
+
         public WpfUiWindow()
         {
             ApplyTheme();
@@ -101,8 +103,8 @@ namespace Bloxstrap.UI.Elements.Base
 
             if (custom is null)
             {
-                if (WindowBackdropType != BackgroundType.None && new WindowInteropHelper(this).Handle != IntPtr.Zero)
-                    Wpf.Ui.Appearance.Background.Apply(this, WindowBackdropType, true);
+                if (_backdrop != BackgroundType.None && new WindowInteropHelper(this).Handle != IntPtr.Zero)
+                    Wpf.Ui.Appearance.Background.Apply(this, _backdrop, true);
                 else
                     SetResourceReference(BackgroundProperty, "ApplicationBackgroundBrush");
 
@@ -138,18 +140,27 @@ namespace Bloxstrap.UI.Elements.Base
 
             if (WindowBackdropType == BackgroundType.Mica)
             {
-                WindowBackdropType = App.Settings.Prop.WindowBackdrop switch
+                _backdrop = App.Settings.Prop.WindowBackdrop switch
                 {
                     Enums.WindowBackdrop.Acrylic => BackgroundType.Acrylic,
                     Enums.WindowBackdrop.Aero => BackgroundType.Aero,
                     Enums.WindowBackdrop.None => BackgroundType.None,
                     _ => BackgroundType.Mica
                 };
+
+                WindowBackdropType = _backdrop == BackgroundType.Aero ? BackgroundType.None : _backdrop;
+            }
+            else
+            {
+                _backdrop = WindowBackdropType;
             }
 
             ApplyCustomBackground();
 
             base.OnSourceInitialized(e);
+
+            if (_backdrop == BackgroundType.Aero && GetCustomBackground() is null)
+                Wpf.Ui.Appearance.Background.Apply(this, BackgroundType.Aero, true);
         }
     }
 }
