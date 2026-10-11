@@ -202,6 +202,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 File.Copy(dialog.FileName, RobloxSettingsTask.FileLocation, true);
                 File.SetAttributes(RobloxSettingsTask.FileLocation, attributes);
 
+                App.PendingSettingTasks.Remove(_task.Name);
+
                 Frontend.ShowMessageBox(Strings.Menu_Roblox_Import_Done, MessageBoxImage.Information);
             }
             catch (Exception ex)

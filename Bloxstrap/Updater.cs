@@ -50,6 +50,9 @@ namespace Bloxstrap
                 startInfo.ArgumentList.Add(arg);
 
             App.Logger.WriteLine(LOG_IDENT, $"Starting {release.TagName}");
+
+            new InterProcessLock("AutoUpdater");
+
             Process.Start(startInfo);
         }
     }

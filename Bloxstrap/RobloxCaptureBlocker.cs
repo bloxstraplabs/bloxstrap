@@ -10,6 +10,22 @@ namespace Bloxstrap
 
         public static bool IsBlocked(string folder) => File.Exists(folder) && !Directory.Exists(folder);
 
+        private static void MoveContents(string source, string destination)
+        {
+            foreach (string entry in Directory.EnumerateFileSystemEntries(source).ToList())
+            {
+                string target = Path.Combine(destination, Path.GetFileName(entry));
+
+                if (File.Exists(target) || Directory.Exists(target))
+                    continue;
+
+                if (Directory.Exists(entry))
+                    Directory.Move(entry, target);
+                else
+                    File.Move(entry, target);
+            }
+        }
+
         public static void SetBlocked(string folder, bool blocked)
         {
             const string LOG_IDENT = "RobloxCaptureBlocker::SetBlocked";
@@ -25,11 +41,14 @@ namespace Bloxstrap
                 {
                     if (Directory.Exists(folder))
                     {
-                        if (Directory.EnumerateFileSystemEntries(folder).Any() && !Directory.Exists(backup))
+                        if (!Directory.Exists(backup))
                             Directory.Move(folder, backup);
                         else
-                            Directory.Delete(folder, true);
+                            MoveContents(folder, backup);
                     }
+
+                    if (Directory.Exists(folder))
+                        Directory.Delete(folder, false);
 
                     File.WriteAllBytes(folder, Array.Empty<byte>());
                     File.SetAttributes(folder, FileAttributes.ReadOnly | FileAttributes.Hidden);

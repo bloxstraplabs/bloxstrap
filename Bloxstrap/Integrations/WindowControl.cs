@@ -103,6 +103,10 @@ namespace Bloxstrap.Integrations
 
         private bool _changedWallpaper;
 
+        private bool _changedColor;
+
+        private bool _changedDesktop;
+
         private bool? _desktopIconsVisible;
 
         private int _screenWidth, _screenHeight, _monitorX, _monitorY;
@@ -295,12 +299,14 @@ namespace Bloxstrap.Integrations
         {
             GetWindowRect(_window, out var rect);
 
-            _x = _startX = _setX = rect.Left;
-            _y = _startY = _setY = rect.Top;
+            UpdateMonitor();
+
+            _startX = _setX = rect.Left;
+            _startY = _setY = rect.Top;
+            _x = rect.Left - _monitorX;
+            _y = rect.Top - _monitorY;
             _width = _startWidth = _setWidth = rect.Right - rect.Left;
             _height = _startHeight = _setHeight = rect.Bottom - rect.Top;
-
-            UpdateMonitor();
         }
 
         private void MoveWindow(int x, int y, int width, int height)
@@ -338,9 +344,15 @@ namespace Bloxstrap.Integrations
             SetWindowPos(_window, IntPtr.Zero, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_ASYNCWINDOWPOS | SWP_NOSENDCHANGING | SWP_FRAMECHANGED);
         }
 
+        private static uint ToColorRef(string hex)
+        {
+            uint rgb = Convert.ToUInt32(hex.TrimStart('#'), 16);
+            return ((rgb & 0xFF) << 16) | (rgb & 0xFF00) | ((rgb >> 16) & 0xFF);
+        }
+
         private void SetColor(int attribute, string hex)
         {
-            uint value = Convert.ToUInt32(hex.TrimStart('#'), 16);
+            uint value = ToColorRef(hex);
             uint disableDarkMode = 0;
 
             if (DwmSetWindowAttribute(_window, DWMWA_USE_IMMERSIVE_DARK_MODE_OLD, ref disableDarkMode, sizeof(uint)) != 0)
@@ -379,11 +391,18 @@ namespace Bloxstrap.Integrations
                 TitleChanged = false;
             }
 
-            if (App.Settings.Prop.WindowControlColor)
+            if (_changedColor)
+            {
                 ResetColors();
+                _changedColor = false;
+            }
 
-            SetTaskbarVisible(true);
-            SetDesktopIconsVisible(true);
+            if (_changedDesktop)
+            {
+                SetTaskbarVisible(true);
+                SetDesktopIconsVisible(true);
+                _changedDesktop = false;
+            }
 
             if (_changedWallpaper)
             {
@@ -437,8 +456,8 @@ namespace Bloxstrap.Integrations
                         break;
 
                     case "ResetWindow":
-                        _x = _startX;
-                        _y = _startY;
+                        _x = _startX - _monitorX;
+                        _y = _startY - _monitorY;
                         _width = _startWidth;
                         _height = _startHeight;
                         MoveWindow(_startX, _startY, _startWidth, _startHeight);
@@ -502,7 +521,7 @@ namespace Bloxstrap.Integrations
                             break;
 
                         byte alpha = (byte)(Math.Clamp(data.Transparency ?? 1, 0, 1) * 255);
-                        uint color = data.Color is null ? 0 : Convert.ToUInt32(data.Color.TrimStart('#'), 16);
+                        uint color = data.Color is null ? 0 : ToColorRef(data.Color);
                         uint mode = data.UseAlpha == true ? LWA_ALPHA : LWA_COLORKEY;
 
                         _changedWindow = true;
@@ -538,8 +557,11 @@ namespace Bloxstrap.Integrations
                         if (data.Reset == true)
                         {
                             ResetColors();
+                            _changedColor = false;
                             break;
                         }
+
+                        _changedColor = true;
 
                         if (data.Caption is not null)
                             SetColor(DWMWA_CAPTION_COLOR, data.Caption);
@@ -602,6 +624,8 @@ namespace Bloxstrap.Integrations
                     {
                         if (!settings.WindowControlDesktop || Read<DesktopVisibilityMessage>(message) is not DesktopVisibilityMessage data)
                             break;
+
+                        _changedDesktop = true;
 
                         if (data.Taskbar is bool taskbar)
                             SetTaskbarVisible(taskbar);
