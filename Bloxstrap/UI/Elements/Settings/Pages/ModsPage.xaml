@@ -86,7 +86,94 @@
             </ComboBox>
         </controls:OptionControl>
 
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CustomFiles_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Mods_CustomFiles_Cursor_Title}"
+            Description="{x:Static resources:Strings.Menu_Mods_CustomFiles_Cursor_Description}">
+            <StackPanel>
+                <ui:Button Icon="DocumentAdd16" Content="{x:Static resources:Strings.Menu_Mods_CustomFiles_Choose}" Command="{Binding CustomCursor.ManageCommand}" Visibility="{Binding CustomCursor.ChooseVisibility, Mode=OneWay}" />
+                <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Common_Delete}" Appearance="Danger" Command="{Binding CustomCursor.ManageCommand}" Visibility="{Binding CustomCursor.RemoveVisibility, Mode=OneWay}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Mods_CustomFiles_ShiftLock_Title}"
+            Description="{x:Static resources:Strings.Menu_Mods_CustomFiles_ShiftLock_Description}">
+            <StackPanel>
+                <ui:Button Icon="DocumentAdd16" Content="{x:Static resources:Strings.Menu_Mods_CustomFiles_Choose}" Command="{Binding CustomShiftLock.ManageCommand}" Visibility="{Binding CustomShiftLock.ChooseVisibility, Mode=OneWay}" />
+                <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Common_Delete}" Appearance="Danger" Command="{Binding CustomShiftLock.ManageCommand}" Visibility="{Binding CustomShiftLock.RemoveVisibility, Mode=OneWay}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Mods_CustomFiles_DeathSound_Title}"
+            Description="{x:Static resources:Strings.Menu_Mods_CustomFiles_DeathSound_Description}">
+            <StackPanel>
+                <ui:Button Icon="DocumentAdd16" Content="{x:Static resources:Strings.Menu_Mods_CustomFiles_Choose}" Command="{Binding CustomDeathSound.ManageCommand}" Visibility="{Binding CustomDeathSound.ChooseVisibility, Mode=OneWay}" />
+                <ui:Button Icon="Delete16" Content="{x:Static resources:Strings.Common_Delete}" Appearance="Danger" Command="{Binding CustomDeathSound.ManageCommand}" Visibility="{Binding CustomDeathSound.RemoveVisibility, Mode=OneWay}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Common_Export}" Command="{Binding ExportModPackCommand}" />
+            <ui:Button Margin="8,0,0,0" Icon="ArrowImport24" Content="{x:Static resources:Strings.Common_Import}" Command="{Binding ImportModPackCommand}" />
+        </StackPanel>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_CursorSets_Saved}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding CursorSets}" SelectedItem="{Binding SelectedCursorSet, Mode=TwoWay}" />
+                <ui:Button Margin="8,0,0,0" Icon="Checkmark24" Content="{x:Static resources:Strings.Menu_Mods_CursorSets_Apply}" Command="{Binding ApplyCursorSetCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding DeleteCursorSetCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_CursorSets_SaveCurrent}">
+            <StackPanel Orientation="Horizontal">
+                <ui:TextBox Width="200" Padding="10,5,10,5" PlaceholderText="{x:Static resources:Strings.Menu_Mods_CursorSets_NamePlaceholder}" Text="{Binding NewCursorSetName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:Button Margin="8,0,0,0" Icon="Save24" Content="{x:Static resources:Strings.Common_Save}" Command="{Binding SaveCursorSetCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_Cursor}">
+            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding CursorColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_ShiftLock}">
+            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding ShiftLockColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_EmoteWheel}">
+            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding EmoteWheelColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </controls:OptionControl>
+
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <ui:Button Icon="ColorBackground24" Content="{x:Static resources:Strings.Menu_Mods_ColorMods_Generate}" Command="{Binding GenerateColorModsCommand}" />
+            <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Content="{x:Static resources:Strings.Menu_Mods_ColorMods_Remove}" Command="{Binding RemoveColorModsCommand}" />
+        </StackPanel>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Mods_ApplyToPlayer_Title}"
+            Description="{x:Static resources:Strings.Menu_Mods_ApplyToPlayer_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding ApplyModsToPlayer, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Mods_ApplyToStudio_Title}"
+            Description="{x:Static resources:Strings.Menu_Mods_ApplyToStudio_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding ApplyModsToStudio, Mode=TwoWay}" />
+        </controls:OptionControl>
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Misc_CustomFont_Title}">

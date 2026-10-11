@@ -20,6 +20,18 @@ namespace Bloxstrap.UI.ViewModels.Installer
 
         public event EventHandler<NextAction>? CloseWindowRequest;
 
+        public IReadOnlyList<GameStatsEntry> RecentGames { get; } = App.Settings.Prop.TrackGameStats ? GameStatsTracker.GetRecent(3).ToList() : new();
+
+        public Visibility RecentGamesVisibility => RecentGames.Any() ? Visibility.Visible : Visibility.Collapsed;
+
+        public ICommand JoinRecentGameCommand => new RelayCommand<long>(JoinRecentGame);
+
+        private void JoinRecentGame(long placeId)
+        {
+            Process.Start(Paths.Process, $"roblox://experiences/start?placeId={placeId}");
+            CloseWindowRequest?.Invoke(this, NextAction.Terminate);
+        }
+
         private void LaunchSettings() => CloseWindowRequest?.Invoke(this, NextAction.LaunchSettings);
 
         private void LaunchRoblox() => CloseWindowRequest?.Invoke(this, NextAction.LaunchRoblox);

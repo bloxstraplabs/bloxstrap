@@ -39,7 +39,7 @@
             Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
             Appearance="Success" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
-        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/reistrap.ico" />
 
         <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0" Visibility="Visible">
             <Grid.RowDefinitions>
@@ -57,13 +57,16 @@
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Roblox_Title}" PageType="{x:Type pages:RobloxPage}" Icon="Games24" Tag="roblox" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_GameProfiles_Title}" PageType="{x:Type pages:GameProfilesPage}" Icon="Album24" Tag="gameprofiles" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Playtime_Title}" PageType="{x:Type pages:PlaytimePage}" Icon="Timer24" Tag="playtime" />
 
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
-                    <ui:NavigationItem Content="Bloxstrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="shortcuts" />
+                    <ui:NavigationItem Content="reistrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="shortcuts" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>

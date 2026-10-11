@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="Image1" Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
+            <Image x:Name="Image1" Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Source="pack://application:,,,/reistrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
             <Image x:Name="Image2" Grid.Column="0" Width="72" Height="72" VerticalAlignment="Center" Source="pack://application:,,,/Resources/BootstrapperStyles/ByfronDialog/Matt.png" RenderOptions.BitmapScalingMode="HighQuality" Opacity="0" />
             
             <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
@@ -39,7 +39,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Bloxstrap" Margin="0,0,4,0" FontSize="24" FontWeight="Medium" />
+                    <TextBlock Grid.Column="0" Text="reistrap" Margin="0,0,4,0" FontSize="24" FontWeight="Medium" />
                     <TextBlock Grid.Column="1" Text="{Binding Version, Mode=OneTime}" Margin="4,0,0,2" VerticalAlignment="Bottom" FontSize="16" FontWeight="Medium" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
                 </Grid>
                 <TextBlock Text="{x:Static resources:Strings.Menu_About_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

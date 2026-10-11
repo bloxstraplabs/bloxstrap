@@ -30,10 +30,23 @@ Running into a problem or need help with something? Check out the Wiki (not avai
 
 ## Features
 
-- Hassle-free Discord Rich Presence to let your friends know what you're playing at a glance
-- Simple support for modding of content files for customizability (death sound, mouse cursor, etc)
-- See where your server is geographically located (courtesy of [ipinfo.io](https://ipinfo.io))
+- Hassle-free Discord Rich Presence to let your friends know what you're playing at a glance, including in Roblox Studio
+- Simple support for modding of content files for customizability (death sound, mouse cursor, Shift Lock icon, etc)
+- Color mods, cursor sets and mod packs you can share with friends
+- See where your server is geographically located (courtesy of [RoValra](https://www.rovalra.com) and [ipinfo.io](https://ipinfo.io)) and how long it has been running
 - Ability to configure graphics fidelity and UI experience
+- Edit Roblox's own settings, like raising the frame rate cap
+- Game profiles to use different settings for specific games
+- Run multiple Roblox instances at the same time
+- Automatically rejoin your server after being kicked for inactivity
+- Playtime tracking for every game, with session recaps and break reminders
+- Rejoin your recently played games right from the launch menu
+- Fast Flag profiles, with a warning for flags that aren't on the Roblox allowlist
+- Switch Roblox channels, block Roblox updates or keep Roblox in a fixed install folder
+- Crosshair overlay, borderless windowed mode and custom window titles
+- Cache cleaner to free up disk space
+- Accent themes, custom fonts, background images and window effects
+- Import your settings from other bootstrappers, or back everything up into a single file
 
 ## Installing
 Download the latest release of **reistrap**, and run it. Configure your preferences if needed, and install. That's about it!

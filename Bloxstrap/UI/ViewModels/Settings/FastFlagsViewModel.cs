@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 using CommunityToolkit.Mvvm.Input;
@@ -19,7 +20,130 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
 
-        public Visibility CanShowFastFlagEditor => App.IsStudioInstalled ? Visibility.Visible : Visibility.Collapsed;
+        public IReadOnlyList<AllowlistedFlagViewModel> AllowlistedFlags { get; } = FastFlagAllowlist.Flags.Select(x => new AllowlistedFlagViewModel(x)).ToList();
+
+        public ObservableCollection<string> Profiles { get; } = new();
+
+        public string? SelectedProfile { get; set; }
+
+        public string NewProfileName { get; set; } = "";
+
+        public ICommand SaveProfileCommand => new RelayCommand(SaveProfile);
+
+        public ICommand LoadProfileCommand => new RelayCommand(LoadProfile);
+
+        public ICommand DeleteProfileCommand => new RelayCommand(DeleteProfile);
+
+        public FastFlagsViewModel()
+        {
+            ReloadProfiles();
+        }
+
+        private static string GetProfilePath(string name) => Path.Combine(Paths.FastFlagProfiles, $"{name}.json");
+
+        private void ReloadProfiles()
+        {
+            Profiles.Clear();
+
+            if (!Directory.Exists(Paths.FastFlagProfiles))
+                return;
+
+            foreach (string file in Directory.GetFiles(Paths.FastFlagProfiles, "*.json").OrderBy(x => x))
+                Profiles.Add(Path.GetFileNameWithoutExtension(file));
+        }
+
+        private void SaveProfile()
+        {
+            const string LOG_IDENT = "FastFlagsViewModel::SaveProfile";
+
+            string name = NewProfileName.Trim();
+
+            if (String.IsNullOrEmpty(name) || name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+            {
+                Frontend.ShowMessageBox(Strings.Menu_FastFlags_Profiles_InvalidName, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Profiles.Contains(name))
+            {
+                var result = Frontend.ShowMessageBox(String.Format(Strings.Menu_FastFlags_Profiles_Overwrite, name), MessageBoxImage.Question, MessageBoxButton.YesNo);
+
+                if (result != MessageBoxResult.Yes)
+                    return;
+            }
+
+            try
+            {
+                Directory.CreateDirectory(Paths.FastFlagProfiles);
+                File.WriteAllText(GetProfilePath(name), JsonSerializer.Serialize(App.FastFlags.Prop, new JsonSerializerOptions { WriteIndented = true }));
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                return;
+            }
+
+            ReloadProfiles();
+
+            SelectedProfile = name;
+            NewProfileName = "";
+
+            OnPropertyChanged(nameof(SelectedProfile));
+            OnPropertyChanged(nameof(NewProfileName));
+        }
+
+        private void LoadProfile()
+        {
+            const string LOG_IDENT = "FastFlagsViewModel::LoadProfile";
+
+            if (SelectedProfile is null)
+                return;
+
+            var result = Frontend.ShowMessageBox(String.Format(Strings.Menu_FastFlags_Profiles_LoadConfirm, SelectedProfile), MessageBoxImage.Question, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                var flags = JsonSerializer.Deserialize<Dictionary<string, object>>(File.ReadAllText(GetProfilePath(SelectedProfile)));
+
+                if (flags is null)
+                    throw new Exception("JSON deserialization returned null");
+
+                App.FastFlags.Prop.Clear();
+
+                foreach (var pair in flags)
+                    App.FastFlags.SetValue(pair.Key, pair.Value);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                return;
+            }
+
+            RequestPageReloadEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void DeleteProfile()
+        {
+            if (SelectedProfile is null)
+                return;
+
+            var result = Frontend.ShowMessageBox(String.Format(Strings.Menu_FastFlags_Profiles_DeleteConfirm, SelectedProfile), MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            File.Delete(GetProfilePath(SelectedProfile));
+
+            SelectedProfile = null;
+            OnPropertyChanged(nameof(SelectedProfile));
+
+            ReloadProfiles();
+        }
 
         public bool UseFastFlagManager
         {

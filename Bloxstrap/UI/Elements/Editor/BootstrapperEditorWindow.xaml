@@ -33,7 +33,7 @@
             Grid.Row="0"
             Padding="8"
             ForceShutdown="False"
-            Icon="pack://application:,,,/Bloxstrap.ico"
+            Icon="pack://application:,,,/reistrap.ico"
             MinimizeToTray="False"
             UseSnapLayout="True" />
 

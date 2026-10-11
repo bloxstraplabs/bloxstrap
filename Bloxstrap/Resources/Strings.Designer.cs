@@ -2555,6 +2555,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Run multiple Roblox clients at the same time. Close all open clients after turning this on for it to take effect..
+        /// </summary>
+        public static string Menu_Behaviour_MultiInstance_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MultiInstance.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow multiple Roblox instances.
+        /// </summary>
+        public static string Menu_Behaviour_MultiInstance_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MultiInstance.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure what Bloxstrap should do when launching Roblox..
         /// </summary>
         public static string Menu_Behaviour_Description {
@@ -3608,6 +3626,2040 @@ namespace Bloxstrap.Resources {
         public static string Uninstaller_Uninstall {
             get {
                 return ResourceManager.GetString("Uninstaller.Uninstall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total: {0}.
+        /// </summary>
+        public static string ContextMenu_Playtime_Total {
+            get {
+                return ResourceManager.GetString("ContextMenu.Playtime.Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total: {0} | Game: {1}.
+        /// </summary>
+        public static string ContextMenu_Playtime_InGame {
+            get {
+                return ResourceManager.GetString("ContextMenu.Playtime.InGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically rejoin after disconnects.
+        /// </summary>
+        public static string Menu_Integrations_AutoRejoin_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.AutoRejoin.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin the same server when you get kicked for being idle or lose connection..
+        /// </summary>
+        public static string Menu_Integrations_AutoRejoin_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.AutoRejoin.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show playtime counter.
+        /// </summary>
+        public static string Menu_Integrations_PlaytimeCounter_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.PlaytimeCounter.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show how long Roblox has been open and how long you've been in your current game in the tray menu..
+        /// </summary>
+        public static string Menu_Integrations_PlaytimeCounter_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.PlaytimeCounter.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screenshots and recordings.
+        /// </summary>
+        public static string Menu_Integrations_Capture_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.Capture.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block Roblox screenshots.
+        /// </summary>
+        public static string Menu_Integrations_DisableScreenshots_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.DisableScreenshots.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop Roblox from saving screenshots to your Pictures folder. Existing screenshots are kept and restored when turned off..
+        /// </summary>
+        public static string Menu_Integrations_DisableScreenshots_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.DisableScreenshots.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block Roblox video recordings.
+        /// </summary>
+        public static string Menu_Integrations_DisableRecordings_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.DisableRecordings.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop Roblox from saving video recordings to your Videos folder. Existing recordings are kept and restored when turned off..
+        /// </summary>
+        public static string Menu_Integrations_DisableRecordings_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.DisableRecordings.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show game name in status.
+        /// </summary>
+        public static string Menu_Integrations_CustomStatusDisplay_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.CustomStatusDisplay.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the name of the game you're playing in your Discord status instead of "Playing Roblox"..
+        /// </summary>
+        public static string Menu_Integrations_CustomStatusDisplay_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.CustomStatusDisplay.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Common_Save {
+            get {
+                return ResourceManager.GetString("Common.Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not on the Roblox Fast Flag allowlist, so the Roblox player will ignore it.  Add it anyway?.
+        /// </summary>
+        public static string Menu_FastFlagEditor_NotInAllowlist {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.NotInAllowlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} of the imported flags are not on the Roblox Fast Flag allowlist and will be ignored by the Roblox player. Use "Clean list" to remove them..
+        /// </summary>
+        public static string Menu_FastFlagEditor_ImportNotInAllowlist {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.ImportNotInAllowlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean list.
+        /// </summary>
+        public static string Menu_FastFlagEditor_CleanList {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.CleanList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will remove {0} flags that are not on the Roblox Fast Flag allowlist. Continue?.
+        /// </summary>
+        public static string Menu_FastFlagEditor_CleanList_Confirm {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.CleanList.Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All of your flags are on the Roblox Fast Flag allowlist..
+        /// </summary>
+        public static string Menu_FastFlagEditor_CleanList_NothingToRemove {
+            get {
+                return ResourceManager.GetString("Menu.FastFlagEditor.CleanList.NothingToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All allowlisted flags.
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every Fast Flag that the Roblox player still accepts. Leave a field empty to use the Roblox default..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profiles.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save your current Fast Flags as a profile so you can switch between setups quickly..
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved profiles.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_Saved {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_Load {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save current flags as a profile.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_SaveCurrent {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.SaveCurrent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile name.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_NamePlaceholder {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.NamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid profile name..
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_InvalidName {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.InvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A profile named "{0}" already exists. Overwrite it?.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_Overwrite {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.Overwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading "{0}" will replace all of your current Fast Flags. Continue?.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_LoadConfirm {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.LoadConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete the profile "{0}"?.
+        /// </summary>
+        public static string Menu_FastFlags_Profiles_DeleteConfirm {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Profiles.DeleteConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance (in studs) before meshes and unions start losing detail..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntCSGLevelOfDetailSwitchingDistance {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance for the first level of detail drop..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntCSGLevelOfDetailSwitchingDistanceL12 {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance for the second level of detail drop..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntCSGLevelOfDetailSwitchingDistanceL23 {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distance for the lowest level of detail..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntCSGLevelOfDetailSwitchingDistanceL34 {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL34", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let Roblox handle Alt+Enter fullscreen itself instead of using exclusive fullscreen..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FFlagHandleAltEnterFullscreenManually {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FFlagHandleAltEnterFullscreenManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow the texture quality override below to take effect..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFFlagTextureQualityOverrideEnabled {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFFlagTextureQualityOverrideEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Texture quality level (0 is lowest, 3 is highest)..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntTextureQualityOverride {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntTextureQualityOverride", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anti-aliasing samples (0, 1, 2, 4 or 8)..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FIntDebugForceMSAASamples {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FIntDebugForceMSAASamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Render at native resolution on high-DPI displays..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFFlagDisableDPIScale {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFFlagDisableDPIScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the Direct3D 11 renderer..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FFlagDebugGraphicsPreferD3D11 {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferD3D11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace the skybox with a plain gray sky..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FFlagDebugSkyGray {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FFlagDebugSkyGray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pause lighting voxel updates, which can improve performance but makes lighting static..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFFlagDebugPauseVoxelizer {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFFlagDebugPauseVoxelizer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force a graphics quality level (1 to 21)..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_DFIntDebugFRMQualityLevelOverride {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.DFIntDebugFRMQualityLevelOverride", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum distance that grass is drawn at. Set both grass distances to 0 to remove grass..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FIntFRMMaxGrassDistance {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FIntFRMMaxGrassDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum distance that grass is drawn at..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FIntFRMMinGrassDistance {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FIntFRMMinGrassDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the Vulkan renderer..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FFlagDebugGraphicsPreferVulkan {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferVulkan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the OpenGL renderer..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FFlagDebugGraphicsPreferOpenGL {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferOpenGL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How much grass sways (0 stops grass movement)..
+        /// </summary>
+        public static string Menu_FastFlags_Allowlist_FIntGrassMovementReducedMotionFactor {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Allowlist.FIntGrassMovementReducedMotionFactor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom files.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose file.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_Choose {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.Choose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chosen file is not in the expected format..
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_Invalid {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PNG images.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_ImageFiles {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.ImageFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OGG audio.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_SoundFiles {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.SoundFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom mouse cursor.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_Cursor_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.Cursor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use your own PNG image as the mouse cursor. This overrides the cursor preset above..
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_Cursor_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.Cursor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Shift Lock icon.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_ShiftLock_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.ShiftLock.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use your own PNG image as the cursor shown while Shift Lock is on..
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_ShiftLock_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.ShiftLock.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom death sound.
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_DeathSound_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.DeathSound.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use your own OGG audio file as the sound played when your character dies..
+        /// </summary>
+        public static string Menu_Mods_CustomFiles_DeathSound_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CustomFiles.DeathSound.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cursor sets.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save your current cursor and Shift Lock icon as a set to switch between them quickly. Save your settings first so newly chosen files are included..
+        /// </summary>
+        public static string Menu_Mods_CursorSets_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved cursor sets.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_Saved {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_Apply {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save current cursors as a set.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_SaveCurrent {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.SaveCurrent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set name.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_NamePlaceholder {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.NamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You don't have a custom cursor or Shift Lock icon to save yet..
+        /// </summary>
+        public static string Menu_Mods_CursorSets_NothingToSave {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.NothingToSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to "{0}" has been applied. It will be used the next time Roblox launches..
+        /// </summary>
+        public static string Menu_Mods_CursorSets_Applied {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.Applied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete the cursor set "{0}"?.
+        /// </summary>
+        public static string Menu_Mods_CursorSets_DeleteConfirm {
+            get {
+                return ResourceManager.GetString("Menu.Mods.CursorSets.DeleteConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color mods.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recolor Roblox's own textures using a hex color code (such as #FF5555). Leave a field empty to skip it..
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mouse cursor color.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Cursor {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Cursor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shift Lock icon color.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_ShiftLock {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.ShiftLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emote wheel color.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_EmoteWheel {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.EmoteWheel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Generate {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Generate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove color mods.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Remove {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to "{0}" is not a valid hex color code..
+        /// </summary>
+        public static string Menu_Mods_ColorMods_InvalidColor {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.InvalidColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find the original Roblox textures. Launch Roblox once without any cursor or emote wheel mods, then try again..
+        /// </summary>
+        public static string Menu_Mods_ColorMods_NoOriginals {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.NoOriginals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color mods have been generated. They will be used the next time Roblox launches..
+        /// </summary>
+        public static string Menu_Mods_ColorMods_Generated {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.Generated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This removes your custom cursor, Shift Lock icon and emote wheel files from the mods folder. Continue?.
+        /// </summary>
+        public static string Menu_Mods_ColorMods_RemoveConfirm {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ColorMods.RemoveConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply mods to Roblox Player.
+        /// </summary>
+        public static string Menu_Mods_ApplyToPlayer_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ApplyToPlayer.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flags are still applied when this is turned off..
+        /// </summary>
+        public static string Menu_Mods_ApplyToPlayer_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ApplyToPlayer.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply mods to Roblox Studio.
+        /// </summary>
+        public static string Menu_Mods_ApplyToStudio_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ApplyToStudio.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flags are still applied when this is turned off..
+        /// </summary>
+        public static string Menu_Mods_ApplyToStudio_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ApplyToStudio.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox updates.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_SectionTitle {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.SectionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose which Roblox release channel to use. Most channels other than production are only available to Roblox staff and testers. If a channel isn't available to you, production is used instead..
+        /// </summary>
+        public static string Menu_Behaviour_Channel_SectionDescription {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.SectionDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Player channel.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Player {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio channel.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Studio {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Studio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Check {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} channel is available.  Version: {1} Build: {2}.
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Available {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Available", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} channel either doesn't exist or isn't available to you..
+        /// </summary>
+        public static string Menu_Behaviour_Channel_Unavailable {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Channel.Unavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block Roblox updates.
+        /// </summary>
+        public static string Menu_Behaviour_BlockUpdates_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BlockUpdates.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep using the currently installed version of Roblox. Roblox may refuse to join games once your version gets too old, so only turn this on if you know you need it..
+        /// </summary>
+        public static string Menu_Behaviour_BlockUpdates_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.BlockUpdates.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a fixed install folder.
+        /// </summary>
+        public static string Menu_Behaviour_StaticFolder_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.StaticFolder.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install Roblox into a folder that keeps the same name between updates instead of a new version-xxxx folder. Roblox will be reinstalled on the next launch. Background updates are turned off while this is on..
+        /// </summary>
+        public static string Menu_Behaviour_StaticFolder_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.StaticFolder.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accent theme.
+        /// </summary>
+        public static string Menu_Appearance_AccentTheme_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.AccentTheme.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a built-in color theme, or enter your own hex color..
+        /// </summary>
+        public static string Menu_Appearance_AccentTheme_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.AccentTheme.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window effect.
+        /// </summary>
+        public static string Menu_Appearance_WindowBackdrop_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.WindowBackdrop.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The material used behind windows. Takes effect the next time a window opens. Acrylic and Mica require Windows 11..
+        /// </summary>
+        public static string Menu_Appearance_WindowBackdrop_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.WindowBackdrop.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App font.
+        /// </summary>
+        public static string Menu_Appearance_AppFont_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.AppFont.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The font used throughout the app..
+        /// </summary>
+        public static string Menu_Appearance_AppFont_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.AppFont.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        public static string Menu_Appearance_Background_ImageFiles {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.ImageFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background image.
+        /// </summary>
+        public static string Menu_Appearance_Background_Image_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.Image.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show an image behind the settings window. Takes priority over the gradient..
+        /// </summary>
+        public static string Menu_Appearance_Background_Image_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.Image.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background gradient.
+        /// </summary>
+        public static string Menu_Appearance_Background_Gradient_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.Gradient.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a gradient behind the settings window. Enter two hex colors separated by a comma..
+        /// </summary>
+        public static string Menu_Appearance_Background_Gradient_Description {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.Gradient.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background strength.
+        /// </summary>
+        public static string Menu_Appearance_Background_Opacity_Title {
+            get {
+                return ResourceManager.GetString("Menu.Appearance.Background.Opacity.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import from another bootstrapper.
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy your settings, Fast Flags and mods from another bootstrapper installed on this PC..
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Settings {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flags.
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_FastFlags {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.FastFlags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mods.
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Mods {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Mods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will replace your current settings with the ones from {0}. Continue?.
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Confirm {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imported from {0}. Click Save to keep the imported settings, then reopen this window to see them..
+        /// </summary>
+        public static string Menu_Bloxstrap_Import_Done {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Import.Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game shortcuts.
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Title {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a desktop shortcut that joins a specific game. The game's icon is used for the shortcut..
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Description {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game link or place ID.
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Input {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Input", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid game link or place ID..
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Invalid {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A shortcut for {0} has been added to your desktop..
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Created {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not create the shortcut.  {0}.
+        /// </summary>
+        public static string Menu_Shortcuts_Game_Failed {
+            get {
+                return ResourceManager.GetString("Menu.Shortcuts.Game.Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Roblox Studio activity.
+        /// </summary>
+        public static string Menu_Integrations_StudioRichPresence_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.StudioRichPresence.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show on your Discord profile when you're using Roblox Studio and whether you have a place open..
+        /// </summary>
+        public static string Menu_Integrations_StudioRichPresence_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.StudioRichPresence.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server uptime.
+        /// </summary>
+        public static string ContextMenu_ServerInformation_Uptime {
+            get {
+                return ResourceManager.GetString("ContextMenu.ServerInformation.Uptime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Never.
+        /// </summary>
+        public static string Enums_CleanerAge_Never {
+            get {
+                return ResourceManager.GetString("Enums.CleanerAge.Never", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Older than 1 day.
+        /// </summary>
+        public static string Enums_CleanerAge_OneDay {
+            get {
+                return ResourceManager.GetString("Enums.CleanerAge.OneDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Older than 1 week.
+        /// </summary>
+        public static string Enums_CleanerAge_OneWeek {
+            get {
+                return ResourceManager.GetString("Enums.CleanerAge.OneWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Older than 1 month.
+        /// </summary>
+        public static string Enums_CleanerAge_OneMonth {
+            get {
+                return ResourceManager.GetString("Enums.CleanerAge.OneMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string Enums_ProcessPriorityLevel_Normal {
+            get {
+                return ResourceManager.GetString("Enums.ProcessPriorityLevel.Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Above normal.
+        /// </summary>
+        public static string Enums_ProcessPriorityLevel_AboveNormal {
+            get {
+                return ResourceManager.GetString("Enums.ProcessPriorityLevel.AboveNormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string Enums_ProcessPriorityLevel_High {
+            get {
+                return ResourceManager.GetString("Enums.ProcessPriorityLevel.High", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox CPU priority.
+        /// </summary>
+        public static string Menu_Behaviour_Priority_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Priority.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Give Roblox more CPU time than other apps. This can help on busy PCs, but High may make other apps feel slower while you play..
+        /// </summary>
+        public static string Menu_Behaviour_Priority_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Priority.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cache cleaner.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatically delete old files every time Roblox launches to free up disk space..
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete files.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_Age {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Folders to clean.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_Folders {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.Folders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox logs.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_RobloxLogs {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.RobloxLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox temporary files.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_RobloxCache {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.RobloxCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reistrap logs.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_AppLogs {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.AppLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloaded Roblox packages.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_AppDownloads {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.AppDownloads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean now.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_CleanNow_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.CleanNow.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete everything in the selected folders right away, regardless of age..
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_CleanNow_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.CleanNow.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clean.
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_CleanNow_Button {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.CleanNow.Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please close Roblox before cleaning..
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_RobloxRunning {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.RobloxRunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Freed {0:0.#} MB of disk space..
+        /// </summary>
+        public static string Menu_Behaviour_Cleaner_Done {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Cleaner.Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jump back in.
+        /// </summary>
+        public static string LaunchMenu_RecentGames {
+            get {
+                return ResourceManager.GetString("LaunchMenu.RecentGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox.
+        /// </summary>
+        public static string Menu_Roblox_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Roblox's own settings and how its window behaves..
+        /// </summary>
+        public static string Menu_Roblox_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game settings.
+        /// </summary>
+        public static string Menu_Roblox_Settings_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Settings.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These are the same settings as Roblox's in-game menu, but without its limits. Close Roblox before saving, because Roblox overwrites this file when it closes..
+        /// </summary>
+        public static string Menu_Roblox_Settings_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Settings.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox's settings file wasn't found. Launch Roblox once, then come back here..
+        /// </summary>
+        public static string Menu_Roblox_Settings_Missing {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Settings.Missing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frame rate cap.
+        /// </summary>
+        public static string Menu_Roblox_FramerateCap_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.FramerateCap.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum FPS Roblox will run at. Leave empty to use Roblox's own setting..
+        /// </summary>
+        public static string Menu_Roblox_FramerateCap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.FramerateCap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphics quality.
+        /// </summary>
+        public static string Menu_Roblox_Quality_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Quality.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master volume.
+        /// </summary>
+        public static string Menu_Roblox_Volume_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Volume.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Camera sensitivity.
+        /// </summary>
+        public static string Menu_Roblox_Sensitivity_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Sensitivity.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fullscreen.
+        /// </summary>
+        public static string Menu_Roblox_Fullscreen_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Fullscreen.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show performance stats.
+        /// </summary>
+        public static string Menu_Roblox_PerformanceStats_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.PerformanceStats.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reduced motion.
+        /// </summary>
+        public static string Menu_Roblox_ReducedMotion_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.ReducedMotion.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invert camera.
+        /// </summary>
+        public static string Menu_Roblox_CameraYInverted_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.CameraYInverted.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lock these settings.
+        /// </summary>
+        public static string Menu_Roblox_Lock_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Lock.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make the settings file read-only so Roblox can't change it. Changes you make in Roblox's menu won't be saved while this is on..
+        /// </summary>
+        public static string Menu_Roblox_Lock_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Lock.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window.
+        /// </summary>
+        public static string Menu_Roblox_Window_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Window.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom window title.
+        /// </summary>
+        public static string Menu_Roblox_WindowTitle_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.WindowTitle.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename the Roblox window. Leave empty to keep the default title..
+        /// </summary>
+        public static string Menu_Roblox_WindowTitle_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.WindowTitle.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Borderless windowed.
+        /// </summary>
+        public static string Menu_Roblox_Borderless_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Borderless.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove the Roblox window's title bar and borders and stretch it to fill your screen..
+        /// </summary>
+        public static string Menu_Roblox_Borderless_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Borderless.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crosshair overlay.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draw a crosshair in the middle of the Roblox window. It's a separate overlay and doesn't change Roblox itself. It only shows while Roblox is the active window, and won't appear over exclusive fullscreen..
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show crosshair.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Enabled {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Style.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Style {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Style", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Color {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Color", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Size {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thickness.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Thickness {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Thickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gap.
+        /// </summary>
+        public static string Menu_Roblox_Crosshair_Gap {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.Crosshair.Gap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cross.
+        /// </summary>
+        public static string Enums_CrosshairStyle_Cross {
+            get {
+                return ResourceManager.GetString("Enums.CrosshairStyle.Cross", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cross with dot.
+        /// </summary>
+        public static string Enums_CrosshairStyle_CrossWithDot {
+            get {
+                return ResourceManager.GetString("Enums.CrosshairStyle.CrossWithDot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dot.
+        /// </summary>
+        public static string Enums_CrosshairStyle_Dot {
+            get {
+                return ResourceManager.GetString("Enums.CrosshairStyle.Dot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Circle.
+        /// </summary>
+        public static string Enums_CrosshairStyle_Circle {
+            get {
+                return ResourceManager.GetString("Enums.CrosshairStyle.Circle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Playtime.
+        /// </summary>
+        public static string Menu_Playtime_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How long you've spent in each game while launching Roblox with reistrap..
+        /// </summary>
+        public static string Menu_Playtime_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track playtime.
+        /// </summary>
+        public static string Menu_Playtime_Track_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Track.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save the games you play and how long you play them. This also powers the recent games list in the launch menu. Requires activity tracking..
+        /// </summary>
+        public static string Menu_Playtime_Track_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Track.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total playtime.
+        /// </summary>
+        public static string Menu_Playtime_Total {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No games recorded yet. Play something and it will show up here..
+        /// </summary>
+        public static string Menu_Playtime_Empty {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} sessions, last played {1}.
+        /// </summary>
+        public static string Menu_Playtime_Details {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This permanently deletes all of your playtime stats and recent games. Continue?.
+        /// </summary>
+        public static string Menu_Playtime_ResetConfirm {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.ResetConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Common_Off {
+            get {
+                return ResourceManager.GetString("Common.Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        public static string Common_Unknown {
+            get {
+                return ResourceManager.GetString("Common.Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use global setting.
+        /// </summary>
+        public static string Enums_ProfileToggle_Default {
+            get {
+                return ResourceManager.GetString("Enums.ProfileToggle.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always on.
+        /// </summary>
+        public static string Enums_ProfileToggle_On {
+            get {
+                return ResourceManager.GetString("Enums.ProfileToggle.On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always off.
+        /// </summary>
+        public static string Enums_ProfileToggle_Off {
+            get {
+                return ResourceManager.GetString("Enums.ProfileToggle.Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game profiles.
+        /// </summary>
+        public static string Menu_GameProfiles_Title {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use different settings for specific games. Profiles apply when you join a game from the website, a game shortcut or the launch menu. The crosshair and Discord status also apply when you join from inside the Roblox app..
+        /// </summary>
+        public static string Menu_GameProfiles_Description {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a game.
+        /// </summary>
+        public static string Menu_GameProfiles_Add {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No game profiles yet. Paste a game link above to add one..
+        /// </summary>
+        public static string Menu_GameProfiles_Empty {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} already has a profile..
+        /// </summary>
+        public static string Menu_GameProfiles_AlreadyExists {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.AlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don't change.
+        /// </summary>
+        public static string Menu_GameProfiles_DontChange {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.DontChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast Flag profile.
+        /// </summary>
+        public static string Menu_GameProfiles_FastFlags {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.FastFlags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discord status.
+        /// </summary>
+        public static string Menu_GameProfiles_DiscordStatus {
+            get {
+                return ResourceManager.GetString("Menu.GameProfiles.DiscordStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lower Roblox priority in the background.
+        /// </summary>
+        public static string Menu_Behaviour_Throttle_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Throttle.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When you switch away from Roblox, it gets less CPU time so other apps stay smooth. Its priority goes back to normal when you return..
+        /// </summary>
+        public static string Menu_Behaviour_Throttle_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.Throttle.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session recap.
+        /// </summary>
+        public static string Menu_Playtime_Recap_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Recap.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a notification with how long you played when you leave a game..
+        /// </summary>
+        public static string Menu_Playtime_Recap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Recap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break reminder.
+        /// </summary>
+        public static string Menu_Playtime_BreakReminder_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.BreakReminder.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remind you to take a break after playing for a while..
+        /// </summary>
+        public static string Menu_Playtime_BreakReminder_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.BreakReminder.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session recap.
+        /// </summary>
+        public static string Watcher_SessionRecap_Title {
+            get {
+                return ResourceManager.GetString("Watcher.SessionRecap.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You played {0} for {1}..
+        /// </summary>
+        public static string Watcher_SessionRecap_Message {
+            get {
+                return ResourceManager.GetString("Watcher.SessionRecap.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} in total..
+        /// </summary>
+        public static string Watcher_SessionRecap_Total {
+            get {
+                return ResourceManager.GetString("Watcher.SessionRecap.Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time for a break?.
+        /// </summary>
+        public static string Watcher_BreakReminder_Title {
+            get {
+                return ResourceManager.GetString("Watcher.BreakReminder.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You've been playing for {0}. Stretch, drink some water and rest your eyes..
+        /// </summary>
+        public static string Watcher_BreakReminder_Message {
+            get {
+                return ResourceManager.GetString("Watcher.BreakReminder.Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mod packs.
+        /// </summary>
+        public static string Menu_Mods_ModPack_Title {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export all of your mods as a single file to share, or import a mod pack from someone else. Fast Flags are not included..
+        /// </summary>
+        public static string Menu_Mods_ModPack_Description {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZIP files.
+        /// </summary>
+        public static string Menu_Mods_ModPack_Files {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Files", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported {0} files..
+        /// </summary>
+        public static string Menu_Mods_ModPack_Exported {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Exported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imported {0} files. They will be used the next time Roblox launches..
+        /// </summary>
+        public static string Menu_Mods_ModPack_Imported {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Imported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files in the mod pack will replace any of your mods with the same name. Continue?.
+        /// </summary>
+        public static string Menu_Mods_ModPack_ImportConfirm {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.ImportConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This file is not a reistrap mod pack..
+        /// </summary>
+        public static string Menu_Mods_ModPack_Invalid {
+            get {
+                return ResourceManager.GetString("Menu.Mods.ModPack.Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup and restore.
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save your settings, Fast Flags, profiles, mods, playtime and Roblox settings to one file. Only saved settings are included..
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Description {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create backup.
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Create {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Restore {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup created..
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Created {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restoring will replace your current settings with the ones in the backup, and reistrap will close afterwards. Continue?.
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_RestoreConfirm {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.RestoreConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your backup has been restored. reistrap will now close; open it again to see your restored settings..
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Restored {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Restored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This file is not a reistrap backup..
+        /// </summary>
+        public static string Menu_Bloxstrap_Backup_Invalid {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Backup.Invalid", resourceCulture);
             }
         }
     }

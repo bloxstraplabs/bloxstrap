@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap version {0} ko automatically update karne mein asafal raha. Kripya ise manually update karein, website se download karke run karein.</value>
+    <value>reistrap version {0} ko automatically update karne mein asafal raha. Kripya ise manually update karein, website se download karke run karein.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox vartamaan mein chal raha hai, aur ek any instance launch karane se yah band ho jaega. kya aap vaakee launching jaaree rakhna chahate hain?</value>
@@ -127,13 +127,13 @@
     <value>Roblox abhi down ho sakta hai. Adhik jankari ke liye {0} dekhein.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Ek connection nahi banaya ja sakta, jo ki aksar poor internet connection ya firewall block ko darshata hai. Agar aapka connection sahi hai, to kripya ensure karein ki aapka antivirus Bloxstrap ko block na kar raha ho.</value>
+    <value>Ek connection nahi banaya ja sakta, jo ki aksar poor internet connection ya firewall block ko darshata hai. Agar aapka connection sahi hai, to kripya ensure karein ki aapka antivirus reistrap ko block na kar raha ho.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Aapko pehle Bloxstrap install karna hoga, uske baad hi uninstall kar sakte hai.</value>
+    <value>Aapko pehle reistrap install karna hoga, uske baad hi uninstall kar sakte hai.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap ke pass Roblox download aur install karne ke liye disk me paryaapt jagah nahi hai. Kripya disk me jagah bana ke phirse prayaas kare.</value>
+    <value>reistrap ke pass Roblox download aur install karne ke liye disk me paryaapt jagah nahi hai. Kripya disk me jagah bana ke phirse prayaas kare.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Roblox sanshodhan laagu kiya jaa raha hai...</value>
@@ -158,7 +158,7 @@
     <value>{product} upgrade ho raha hai...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Naya Bloxstrap version download kar rahe he....</value>
+    <value>Naya reistrap version download kar rahe he....</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Dusre instances kee prateeksha ha...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap saphalataapoorvak uninstall ho gaya hai</value>
+    <value>reistrap saphalataapoorvak uninstall ho gaya hai</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox abhi chal raha hai, lekin Bloxstrap ko uninstall karne se pehle ise band karna zaroori hai. Kya aap abhi Roblox ko band karna chahenge?</value>
+    <value>Roblox abhi chal raha hai, lekin reistrap ko uninstall karne se pehle ise band karna zaroori hai. Kya aap abhi Roblox ko band karna chahenge?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox ko Windows Media Foundation components ke upayog kee aavashyakata hai. Aisa prateet hota hai ki aap unhen miss kar rahe hain, sambhavatah isalie kyonki aap Windows ke N edition ka upayog kar rahe hain. Kripaya pahale unhen install karen, aur phir Roblox launch kare.</value>
@@ -279,7 +279,7 @@ Adhik jaankaree ke liye click kare</value>
     <value>Connectivity galatee</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap {0} से कनेक्ट नहीं हो पा रहा है।</value>
+    <value>reistrap {0} से कनेक्ट नहीं हो पा रहा है।</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Adhik jaankaree ke liye click kare</value>
 Agar aisa nahi hai, toh please is exception ko log file ke saath [GitHub issue]({1}) ke through report karein.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap apavaad</value>
+    <value>reistrap apavaad</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Custom</value>
@@ -309,10 +309,10 @@ Agar aisa nahi hai, toh please is exception ko log file ke saath [GitHub issue](
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>reistrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>reistrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -378,10 +378,10 @@ Agar aisa nahi hai, toh please is exception ko log file ke saath [GitHub issue](
     <value>Light</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap ko v{0} mein upgrade kar diya gaya hai</value>
+    <value>reistrap ko v{0} mein upgrade kar diya gaya hai</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Aapke dvaara launch kiya gaya Bloxstrap ka version aapake dvaara vartamaan mein install kie gae version se alag hai.
+    <value>Aapke dvaara launch kiya gaya reistrap ka version aapake dvaara vartamaan mein install kie gae version se alag hai.
 Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -391,7 +391,7 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Ye voh log he jinhonne Bloxstrap me ullekhaneey yogadaan diya hai, jiske vajese madat mila he Bloxstrap banane me.</value>
+    <value>Ye voh log he jinhonne reistrap me ullekhaneey yogadaan diya hai, jiske vajese madat mila he reistrap banane me.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature vichaar</value>
@@ -424,7 +424,7 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Issue Report Kare</value>
   </data>
   <data name="Menu.About.Title" xml:space="preserve">
-    <value>Bloxstrap ke baare me</value>
+    <value>reistrap ke baare me</value>
   </data>
   <data name="Menu.About.Version" xml:space="preserve">
     <value>Version {0}</value>
@@ -437,7 +437,7 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Kripaya dhyaan den ki aapke sabhee parivartan tab tak turant laagoo nahin honge jab tak aap vartamaan mein khule sabhee roblox instances ko band nahin kar dete.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap pehle se hee khula hai</value>
+    <value>reistrap pehle se hee khula hai</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Aap ise alag, retro, ya yahaan tak ​​ki Roblox kee tarah bhee bana sakte hain.</value>
@@ -464,7 +464,7 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Sheershak</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configure karen ki Bloxstrap kaisa dikhana chaahie.</value>
+    <value>Configure karen ki reistrap kaisa dikhana chaahie.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Vaishvik Theme</value>
@@ -488,10 +488,10 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Dikhaavat</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Roblox launch karate samay Bloxstrap svachaalit roop se jaanch karega aur update karega.</value>
+    <value>Roblox launch karate samay reistrap svachaalit roop se jaanch karega aur update karega.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Bloxstrap ko svachaalit roop se update karen</value>
+    <value>reistrap ko svachaalit roop se update karen</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Galatee se koee doosara game launch karane se apane maujooda game ko band hone se roken.</value>
@@ -500,7 +500,7 @@ Kya aap apne vartamaan mein installed version ko upgrade karana chaahenge?</valu
     <value>Any Roblox instances launch karate samay pushti karane ka sanket den</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Jab Roblox launch ho raha ho tab Bloxstrap ko kya karna chahiye, ise configure karein.</value>
+    <value>Jab Roblox launch ho raha ho tab reistrap ko kya karna chahiye, ise configure karein.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Agale launch par Roblox ko naya se install kiya jaega.</value>
@@ -602,10 +602,10 @@ Kya aap vaakee import karna chaahate hain?</value>
     <value>Icon files</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Yahaan Bloxstrap install nahin kiya ja sakata. krpaya koee bhinn sthaan chunen, ya reset button par click karake default sthaan ka upayog karen.</value>
+    <value>Yahaan reistrap install nahin kiya ja sakata. krpaya koee bhinn sthaan chunen, ya reset button par click karake default sthaan ka upayog karen.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Bloxstrap ko install karane ke lie aapane jo folder chuna hai vah pahale se maujood hai aur khaalee nahin hai. Bloxstrap ko usake apane svatantr folder mein install karane kee purajor anushansa kee jaatee hai.
+    <value>reistrap ko install karane ke lie aapane jo folder chuna hai vah pahale se maujood hai aur khaalee nahin hai. reistrap ko usake apane svatantr folder mein install karane kee purajor anushansa kee jaatee hai.
 
 Nimnalikhit sthaan mein parivartan ka sujhaav diya gaya hai:
 {0}
@@ -618,7 +618,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Aapako ek install sthaan nirdhaarit karana hoga</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap ke paas aapake dvaara chunen gae install sthaan tak likhane kee pahunch nahin hai. krpaya koee any sthaan chunen.</value>
+    <value>reistrap ke paas aapake dvaara chunen gae install sthaan tak likhane kee pahunch nahin hai. krpaya koee any sthaan chunen.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Activity tracking</value>
@@ -669,7 +669,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Desktop app tak exit na kare</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Bloxstrap ko yah pata lagaane kee anumati deta hai ki aap kaun sa Roblox game khel rahe hain. kuchh suvidhaon ke lie isakee aavashyakata ho sakatee hai.</value>
+    <value>reistrap ko yah pata lagaane kee anumati deta hai ki aap kaun sa Roblox game khel rahe hain. kuchh suvidhaon ke lie isakee aavashyakata ho sakatee hai.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Activity tracking upayog kare</value>
@@ -757,7 +757,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Settings save ho gaya!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap ki settings</value>
+    <value>reistrap ki settings</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Pasandeeda bhaasha chunen</value>
@@ -778,7 +778,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Rendering aur Graphics</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Bloxstrap ko Fast Flags manage karne ke liye anumati de</value>
+    <value>reistrap ko Fast Flags manage karne ke liye anumati de</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Ise disable karane se yahaan configure kee gaiye kisee bhee cheez ko Roblox par laagoo hone se roka jaiga.</value>
@@ -802,7 +802,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Level 3 (Uchchatam molya)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap Roblox download karne mein asamarth hai</value>
+    <value>reistrap Roblox download karne mein asamarth hai</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox ko is samay download nahin kiya ja sakata. Adhik jaanakaaree ke lie kripaya yaha parhe: {0}</value>
@@ -823,7 +823,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>'{0}' ke liye entry valid nahi hai kyunki value integer honi chahiye</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Is launch ke lie koee log file nahin likhee jaegee kyonki Bloxstrap '{0}' par folder mein likhane mein asamarth hai</value>
+    <value>Is launch ke lie koee log file nahin likhee jaegee kyonki reistrap '{0}' par folder mein likhane mein asamarth hai</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Default</value>
@@ -838,7 +838,7 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>'{0}' ka entry valid nahi hai kyunki place filter sahi tareeke se format nahi kiya gaya hai.  </value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Installer</value>
+    <value>reistrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Namaste</value>
@@ -857,18 +857,18 @@ Kya aap sujhae gae sthaan mein parivartan karana chaahenge?
     <value>Agala</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Bloxstrap download karne ke liye shukriya.
+    <value>reistrap download karne ke liye shukriya.
 
-Bloxstrap download karne ke liye sirf {0} aur {1} official websites hain, isliye kripya ensure karein ki aapne ise ek official source se download kiya ho.
+reistrap download karne ke liye sirf {0} aur {1} official websites hain, isliye kripya ensure karein ki aapne ise ek official source se download kiya ho.
 
-Ye installation process jaldi aur asaan hoga, aur installation ke baad aap Bloxstrap ke kisi bhi settings ko configure kar sakenge.</value>
+Ye installation process jaldi aur asaan hoga, aur installation ke baad aap reistrap ke kisi bhi settings ko configure kar sakenge.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Kripya 'Next' par click karein taaki aage badh sakein.  </value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Aap Bloxstrap ka version {0} install karne ki koshish kar rahe hain, lekin available latest version {1} hai. Kya aap ek naya version download karna chahenge?</value>
+    <value>Aap reistrap ka version {0} install karne ki koshish kar rahe hain, lekin available latest version {1} hai. Kya aap ek naya version download karna chahenge?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Jahan install karna hai, woh chuniye</value>
@@ -889,16 +889,16 @@ Ye installation process jaldi aur asaan hoga, aur installation ke baad aap Bloxs
     <value>Start menu Icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap successfully install ho gaya hai. 
+    <value>reistrap successfully install ho gaya hai. 
 
-Roblox abhi tak install nahi hua hai, yeh tab hoga jab aap pehli baar Bloxstrap ke saath ise launch karenge. Lekin, usse pehle, aap Bloxstrap ki settings configure karna chahein to kar sakte hain.
+Roblox abhi tak install nahi hua hai, yeh tab hoga jab aap pehli baar reistrap ke saath ise launch karenge. Lekin, usse pehle, aap reistrap ki settings configure karna chahein to kar sakte hain.
 
-Saath hi, "Roblox Player" shortcut ka istemal karke Roblox ko launch karne se bachain, kyunki Bloxstrap ke saath Roblox launch nahi hoga. Agar aapko website se launch karte waqt Bloxstrap nahi dikhe, to bas ek baar desktop se Roblox ko Bloxstrap ke saath launch karke isse theek kar sakte hain.
+Saath hi, "Roblox Player" shortcut ka istemal karke Roblox ko launch karne se bachain, kyunki reistrap ke saath Roblox launch nahi hoga. Agar aapko website se launch karte waqt reistrap nahi dikhe, to bas ek baar desktop se Roblox ko reistrap ke saath launch karke isse theek kar sakte hain.
 
 Aap kya karna chahenge?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Bloxstrap ki settings configure karein</value>
+    <value>reistrap ki settings configure karein</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Uske saare features ke saath tweak karein jo woh offer karta hai</value>
@@ -910,20 +910,20 @@ Aap kya karna chahenge?</value>
     <value>Jab sab kuch ho jayega, to aapko desktop app mein le jayega</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Bloxstrap uninstall karein</value>
+    <value>reistrap uninstall karein</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Uninstall karne se Bloxstrap aapke system se remove ho jayega, aur agar default Roblox launcher abhi bhi installed hai toh use automatically reconfigure kar diya jayega.
+    <value>Uninstall karne se reistrap aapke system se remove ho jayega, aur agar default Roblox launcher abhi bhi installed hai toh use automatically reconfigure kar diya jayega.
 
-Uninstall process ke baad kuch cheezein reh sakti hain, isliye aapko manually leftover files clean karni pad sakti hain jahan Bloxstrap install tha.
+Uninstall process ke baad kuch cheezein reh sakti hain, isliye aapko manually leftover files clean karni pad sakti hain jahan reistrap install tha.
 
-Bloxstrap "{1}" par install tha.</value>
+reistrap "{1}" par install tha.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Meri settings aur mods ko rakhein</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Yeh Bloxstrap jahan install tha, wahan rakhe jayenge, aur reinstall karte waqt automatically restore ho jayenge.</value>
+    <value>Yeh reistrap jahan install tha, wahan rakhe jayenge, aur reinstall karte waqt automatically restore ho jayenge.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
@@ -945,7 +945,7 @@ Bloxstrap "{1}" par install tha.</value>
 </value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap Desktop aur Start menu ke liye shortcuts create nahi kar paaya. Baad mein settings ke through unhe create karne ki koshish karein.</value>
+    <value>reistrap Desktop aur Start menu ke liye shortcuts create nahi kar paaya. Baad mein settings ke through unhe create karne ki koshish karein.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Pehle [Bloxstrap Wiki]({0}) check karein taaki yeh dekha ja sake ki is samasya ko pehle hi fix ke saath address kiya gaya hai.
@@ -957,7 +957,7 @@ Agar nahi, to kripya is exception ko is fork ke maintainers ko report karein. Is
     <value>Yeh general shortcuts hain jo multi-choice launch menu dikhate hain. Specific functions ke liye shortcuts baad mein settings mein banaye ja sakte hain.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Bloxstrap ko turant launch karne ke liye configure karein.</value>
+    <value>reistrap ko turant launch karne ke liye configure karein.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Saamanya</value>
@@ -987,7 +987,7 @@ Agar nahi, to kripya is exception ko is fork ke maintainers ko report karein. Is
     <value>Kripya uninstallation complete hone tak intezaar karein.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Bloxstrap ke baare mein</value>
+    <value>reistrap ke baare mein</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
@@ -1000,14 +1000,14 @@ Agar nahi, to kripya is exception ko is fork ke maintainers ko report karein. Is
     <value>Aapke paas unsaved changes hain. Kya aap sure hain ki bina save kiye band karna chahte hain?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Jo version aapne Bloxstrap ka launch kiya hai, woh us version se purana hai jo aapke system par abhi install hai. 
+    <value>Jo version aapne reistrap ka launch kiya hai, woh us version se purana hai jo aapke system par abhi install hai. 
 Kuch issues ho sakte hain aur aapki settings badal sakti hain. Reinstall karna recommend kiya jata hai. 
 Kya aap sure hain ki aap continue karna chahte hain?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox launch nahi ho paya.
 
-Yeh Bloxstrap ka issue ho bhi sakta hai ya nahi bhi. Pata lagane ke liye [is help page]({0}) dekhein.</value>
+Yeh reistrap ka issue ho bhi sakta hai ya nahi bhi. Pata lagane ke liye [is help page]({0}) dekhein.</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Network error ke karan data load nahi kiya ja saka.</value>
@@ -1050,12 +1050,12 @@ Yahan har vyakti ko unke overall pledge ke hisaab se rank kiya gaya hai.</value>
     <value>Is launch ke liye, Roblox ko upgrades ke liye check nahi kiya jayega, aur mods mein kiye gaye changes apply nahi honge.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Kyunki Roblox ko install ya upgrade kiya jana zaroori hai, Bloxstrap aage nahi badh sakta.</value>
+    <value>Kyunki Roblox ko install ya upgrade kiya jana zaroori hai, reistrap aage nahi badh sakta.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap pehle is location par install kiya gaya tha aur abhi bhi maujood hai, lekin installer purani executable ko overwrite nahi kar sakta. 
+    <value>reistrap pehle is location par install kiya gaya tha aur abhi bhi maujood hai, lekin installer purani executable ko overwrite nahi kar sakta. 
 
-Kripya Bloxstrap.exe ko manually install location se delete karein ya apne system ko restart karne ki koshish karein, phir installation ko dobara try karein.</value>
+Kripya reistrap.exe ko manually install location se delete karein ya apne system ko restart karne ki koshish karein, phir installation ko dobara try karein.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Upalabdh nahi</value>
@@ -1067,7 +1067,7 @@ Kripya Bloxstrap.exe ko manually install location se delete karein ya apne syste
     <value>Application parameters jaise DPI scaling behaviour aur [fullscreen optimizations]({0}) ko configure karein.</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox abhi tak install nahi kiya gaya hai. Kripya is option ka use karne se pehle kam se kam ek baar Bloxstrap ke through Roblox ko launch karein.</value>
+    <value>Roblox abhi tak install nahi kiya gaya hai. Kripya is option ka use karne se pehle kam se kam ek baar reistrap ke through Roblox ko launch karein.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Kya aap sure hain ki aap installation cancel karna chahte hain?</value>
@@ -1085,10 +1085,10 @@ Kripya Bloxstrap.exe ko manually install location se delete karein ya apne syste
     <value>Roblox icons ko folder mein extract karein</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Yeh aapko Bloxstrap ke Roblox icons ka istemal karne ki suvidha deta hai apne shortcuts ke liye. [Kaise karein dekhein.]({0})</value>
+    <value>Yeh aapko reistrap ke Roblox icons ka istemal karne ki suvidha deta hai apne shortcuts ke liye. [Kaise karein dekhein.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap Windows Registry ko edit nahi kar pa raha hai. Ek antivirus shayad interfere kar raha hai aur issues create kar raha hai. Kripya check karein ki koi aisi cheez na ho jo Bloxstrap ke use ko restrict kar rahi ho.</value>
+    <value>reistrap Windows Registry ko edit nahi kar pa raha hai. Ek antivirus shayad interfere kar raha hai aur issues create kar raha hai. Kripya check karein ki koi aisi cheez na ho jo reistrap ke use ko restrict kar rahi ho.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mahinewar</value>
@@ -1097,7 +1097,7 @@ Kripya Bloxstrap.exe ko manually install location se delete karein ya apne syste
     <value>Ek baar</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Bloxstrap ke apne behaviour se judi options ko configure karein.</value>
+    <value>reistrap ke apne behaviour se judi options ko configure karein.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Analytics bhejne ko enable karein</value>
@@ -1146,7 +1146,7 @@ Kya aap parikshan mode enable karna chahenge?</value>
     <value>Custom</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap ne Roblox ka adhunikaran karne ki koshish ki, lekin nahi kar pa raha hai kyunki Roblox ki faaylen abhi bhi upyog mein hain.
+    <value>reistrap ne Roblox ka adhunikaran karne ki koshish ki, lekin nahi kar pa raha hai kyunki Roblox ki faaylen abhi bhi upyog mein hain.
 
 Kripya un anuprayogon ko band karein jo ho sakta hai ki Roblox ki faaylen ka upyog kar rahe hon, aur punah prarambh karein.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1166,11 +1166,11 @@ Kripya un anuprayogon ko band karein jo ho sakta hai ki Roblox ki faaylen ka upy
     <value>Woh jankari ikattha karein jo aapke samasya ko suljhane ke liye online upload ki ja sakti hai.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap configuration</value>
+    <value>reistrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Sabhi Bloxstrap logs</value>
+    <value>Sabhi reistrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

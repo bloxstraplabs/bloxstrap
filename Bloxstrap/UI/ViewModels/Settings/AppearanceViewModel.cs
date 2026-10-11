@@ -72,7 +72,117 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set
             {
                 App.Settings.Prop.Theme = value;
-                ((MainWindow)Window.GetWindow(_page)!).ApplyTheme();
+                ReapplyTheme();
+            }
+        }
+
+        private void ReapplyTheme() => ((MainWindow)Window.GetWindow(_page)!).ApplyTheme();
+
+        public IReadOnlyDictionary<string, string> AccentThemes { get; } = new Dictionary<string, string>
+        {
+            { Strings.Common_SystemDefault, "" },
+            { "Frost", "#5BC0EB" },
+            { "Rose", "#E8577D" },
+            { "Mint", "#3DDC97" },
+            { "Amber", "#F5A623" },
+            { "Violet", "#9B6DFF" },
+            { "Crimson", "#D7263D" },
+            { "Ocean", "#1E6FD9" }
+        };
+
+        public string SelectedAccentTheme
+        {
+            get => AccentThemes.FirstOrDefault(x => String.Equals(x.Value, App.Settings.Prop.AccentColor, StringComparison.OrdinalIgnoreCase)).Key ?? Strings.Common_Custom;
+            set
+            {
+                if (value is null || !AccentThemes.ContainsKey(value))
+                    return;
+
+                App.Settings.Prop.AccentColor = AccentThemes[value];
+                OnPropertyChanged(nameof(AccentColor));
+                ReapplyTheme();
+            }
+        }
+
+        public string AccentColor
+        {
+            get => App.Settings.Prop.AccentColor;
+            set
+            {
+                if (!String.IsNullOrWhiteSpace(value) && !ModGenerator.TryParseColor(value, out _))
+                    return;
+
+                App.Settings.Prop.AccentColor = value.Trim();
+                OnPropertyChanged(nameof(SelectedAccentTheme));
+                ReapplyTheme();
+            }
+        }
+
+        public IEnumerable<WindowBackdrop> WindowBackdrops { get; } = Enum.GetValues(typeof(WindowBackdrop)).Cast<WindowBackdrop>();
+
+        public WindowBackdrop WindowBackdrop
+        {
+            get => App.Settings.Prop.WindowBackdrop;
+            set => App.Settings.Prop.WindowBackdrop = value;
+        }
+
+        public IEnumerable<string> AppFonts { get; } = System.Windows.Media.Fonts.SystemFontFamilies.Select(x => x.Source).OrderBy(x => x).Prepend(Strings.Common_Default);
+
+        public string AppFont
+        {
+            get => String.IsNullOrEmpty(App.Settings.Prop.AppFont) ? Strings.Common_Default : App.Settings.Prop.AppFont;
+            set
+            {
+                App.Settings.Prop.AppFont = value == Strings.Common_Default ? "" : value;
+                ReapplyTheme();
+            }
+        }
+
+        public ICommand BrowseBackgroundImageCommand => new RelayCommand(BrowseBackgroundImage);
+
+        public ICommand RemoveBackgroundImageCommand => new RelayCommand(() => BackgroundImage = "");
+
+        private void BrowseBackgroundImage()
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = $"{Strings.Menu_Appearance_Background_ImageFiles}|*.png;*.jpg;*.jpeg;*.bmp"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            BackgroundImage = dialog.FileName;
+        }
+
+        public string BackgroundImage
+        {
+            get => App.Settings.Prop.BackgroundImage;
+            set
+            {
+                App.Settings.Prop.BackgroundImage = value;
+                OnPropertyChanged(nameof(BackgroundImage));
+                ReapplyTheme();
+            }
+        }
+
+        public string BackgroundGradient
+        {
+            get => App.Settings.Prop.BackgroundGradient;
+            set
+            {
+                App.Settings.Prop.BackgroundGradient = value;
+                ReapplyTheme();
+            }
+        }
+
+        public double BackgroundOpacity
+        {
+            get => App.Settings.Prop.BackgroundOpacity;
+            set
+            {
+                App.Settings.Prop.BackgroundOpacity = Math.Clamp(value, 0.05, 1);
+                ReapplyTheme();
             }
         }
 

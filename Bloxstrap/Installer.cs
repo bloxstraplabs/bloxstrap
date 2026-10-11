@@ -630,7 +630,7 @@ namespace Bloxstrap
                         releaseNoteVersion = currentVer;
                     }
 
-                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Bloxstrap-v{releaseNoteVersion}");
+                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/releases/tag/v{releaseNoteVersion}");
                 }
 #pragma warning restore CS0162 // Unreachable code detected
             }

@@ -7,5 +7,9 @@
         public string? LogFile { get; set; }
 
         public List<int>? AutoclosePids { get; set; }
+
+        public bool IsStudio { get; set; }
+
+        public Dictionary<string, string>? RestoreRobloxSettings { get; set; }
     }
 }

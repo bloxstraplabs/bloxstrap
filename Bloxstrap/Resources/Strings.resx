@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
+    <value>reistrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
@@ -127,13 +127,13 @@
     <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Bloxstrap.</value>
+    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking reistrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>You must first install Bloxstrap before uninstalling.</value>
+    <value>You must first install reistrap before uninstalling.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
+    <value>reistrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Applying Roblox modifications...</value>
@@ -158,7 +158,7 @@
     <value>Upgrading {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Getting the latest Bloxstrap...</value>
+    <value>Getting the latest reistrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Waiting for other instances...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully uninstalled</value>
+    <value>reistrap has successfully uninstalled</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?</value>
+    <value>Roblox is currently running, but must be closed before uninstalling reistrap. Would you like to close Roblox now?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
@@ -279,7 +279,7 @@ Click for more information</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to {0}</value>
+    <value>reistrap is unable to connect to {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Click for more information</value>
 If it's not, then please report this exception through a [GitHub issue]({1}) along with the log file.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Exception</value>
+    <value>reistrap Exception</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Custom</value>
@@ -309,10 +309,10 @@ If it's not, then please report this exception through a [GitHub issue]({1}) alo
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>reistrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>reistrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -363,10 +363,10 @@ If it's not, then please report this exception through a [GitHub issue]({1}) alo
     <value>Light</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap has been upgraded to v{0}</value>
+    <value>reistrap has been upgraded to v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
+    <value>The version of reistrap you've launched is different to the version you currently have installed.
 Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -376,7 +376,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+    <value>These are the people who have made notable contributions to reistrap, helping make it what it is.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature Ideas</value>
@@ -422,7 +422,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap is already running</value>
+    <value>reistrap is already running</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>You can make it look different, retro, or even just like Roblox.</value>
@@ -449,7 +449,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Title</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap should look.</value>
+    <value>Configure how reistrap should look.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Global Theme</value>
@@ -473,10 +473,10 @@ Would you like to upgrade your currently installed version?</value>
     <value>Appearance</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
+    <value>reistrap will automatically check and update itself when launching Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatically update Bloxstrap</value>
+    <value>Automatically update reistrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevent against closures of your existing game from accidentally launching another one.</value>
@@ -484,8 +484,14 @@ Would you like to upgrade your currently installed version?</value>
   <data name="Menu.Behaviour.ConfirmLaunches.Title" xml:space="preserve">
     <value>Prompt to confirm when launching another Roblox instance</value>
   </data>
+  <data name="Menu.Behaviour.MultiInstance.Description" xml:space="preserve">
+    <value>Run multiple Roblox clients at the same time. Close all open clients after turning this on for it to take effect.</value>
+  </data>
+  <data name="Menu.Behaviour.MultiInstance.Title" xml:space="preserve">
+    <value>Allow multiple Roblox instances</value>
+  </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configure what Bloxstrap should do when launching Roblox.</value>
+    <value>Configure what reistrap should do when launching Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox will be installed fresh on next launch.</value>
@@ -584,10 +590,10 @@ Are you sure you want to continue?</value>
     <value>Icon files</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
+    <value>reistrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>The folder you've chosen to install Bloxstrap to already exists and is NOT empty. It is strongly recommended for Bloxstrap to be installed to its own independent folder.
+    <value>The folder you've chosen to install reistrap to already exists and is NOT empty. It is strongly recommended for reistrap to be installed to its own independent folder.
 
 Changing to the following location is suggested:
 {0}
@@ -600,7 +606,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>You must set an install location</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap does not have write access to the install location you've selected. Please choose another location.</value>
+    <value>reistrap does not have write access to the install location you've selected. Please choose another location.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Activity tracking</value>
@@ -651,7 +657,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Don't exit to desktop app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this.</value>
+    <value>Allows for reistrap to detect what Roblox game you're playing. Certain features may require this.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Enable activity tracking</value>
@@ -666,7 +672,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Show game activity</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Description" xml:space="preserve">
-    <value>When in-game, you'll be able to see where your server is located via [ipinfo.io]({0}).</value>
+    <value>When in-game, you'll be able to see where your server is located via [RoValra]({0}), falling back to ipinfo.io.</value>
   </data>
   <data name="Menu.Integrations.QueryServerLocation.Title" xml:space="preserve">
     <value>Query server location</value>
@@ -739,7 +745,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Settings saved!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Settings</value>
+    <value>reistrap Settings</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Choose preferred language</value>
@@ -757,7 +763,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Rendering and Graphics</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Allow Bloxstrap to manage Fast Flags</value>
+    <value>Allow reistrap to manage Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Disabling this will prevent anything configured here from being applied to Roblox.</value>
@@ -781,7 +787,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Level 3 (Highest)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap is unable to download Roblox</value>
+    <value>reistrap is unable to download Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
@@ -802,7 +808,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>The entry for '{0}' is not valid as the value must be an integer</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>No log file will be written for this launch because Bloxstrap is unable to write to the folder at '{0}'</value>
+    <value>No log file will be written for this launch because reistrap is unable to write to the folder at '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Default</value>
@@ -817,7 +823,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Installer</value>
+    <value>reistrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Welcome</value>
@@ -836,18 +842,18 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Next</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Thank you for downloading Bloxstrap. 
+    <value>Thank you for downloading reistrap. 
 
-The only official websites to download Bloxstrap from are {0} and {1}, so please verify that you got it from an official source.
+The only official websites to download reistrap from are {0} and {1}, so please verify that you got it from an official source.
 
-This installation process will be quick and simple, and you will be able to configure any of Bloxstrap's settings after installation.</value>
+This installation process will be quick and simple, and you will be able to configure any of reistrap's settings after installation.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Please click 'Next' to continue.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>You are trying to install version {0} of Bloxstrap, but the latest version available is {1}. Would you like to download it?</value>
+    <value>You are trying to install version {0} of reistrap, but the latest version available is {1}. Would you like to download it?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Choose where to install to</value>
@@ -868,16 +874,16 @@ This installation process will be quick and simple, and you will be able to conf
     <value>Start Menu icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap has successfully been installed.
+    <value>reistrap has successfully been installed.
 
-Roblox has not yet been installed, that will happen when you launch it with Bloxstrap for the first time. However, before you do that, you may want to configure Bloxstrap's settings first.
+Roblox has not yet been installed, that will happen when you launch it with reistrap for the first time. However, before you do that, you may want to configure reistrap's settings first.
 
-Also, avoid using the "Roblox Player" shortcut to launch Roblox, as Bloxstrap won't launch with Roblox. If you don't see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
+Also, avoid using the "Roblox Player" shortcut to launch Roblox, as reistrap won't launch with Roblox. If you don't see reistrap show when launching from the website, simply launch Roblox with reistrap once from the desktop to fix it.
 
 What would you like to do?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configure Bloxstrap's settings</value>
+    <value>Configure reistrap's settings</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Tweak with all the features it has to offer</value>
@@ -889,20 +895,20 @@ What would you like to do?</value>
     <value>Will drop you into the desktop app once everything's done</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Uninstall Bloxstrap</value>
+    <value>Uninstall reistrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Uninstalling will remove Bloxstrap from your system, and automatically reconfigure the default Roblox launcher if it's still installed.
+    <value>Uninstalling will remove reistrap from your system, and automatically reconfigure the default Roblox launcher if it's still installed.
 
-The uninstall process might leave some things behind, so you may need to manually clean up the leftover files where Bloxstrap was installed.
+The uninstall process might leave some things behind, so you may need to manually clean up the leftover files where reistrap was installed.
 
-Bloxstrap was installed at "{1}".</value>
+reistrap was installed at "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Keep my settings and mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>They'll be kept where Bloxstrap was installed, and will automatically be restored on a reinstall.</value>
+    <value>They'll be kept where reistrap was installed, and will automatically be restored on a reinstall.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
@@ -923,7 +929,7 @@ Bloxstrap was installed at "{1}".</value>
     <value>You currently do not have the WebView2 runtime installed. Some Roblox features will not work properly without it, such as the desktop app. Would you like to download it now?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
+    <value>reistrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
@@ -935,7 +941,7 @@ If not, then please report this exception to the maintainers of this fork. Do no
     <value>These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap can be readily launched.</value>
+    <value>Configure how reistrap can be readily launched.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>General</value>
@@ -965,7 +971,7 @@ If not, then please report this exception to the maintainers of this fork. Do no
     <value>Please wait for uninstallation to finish.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>About Bloxstrap</value>
+    <value>About reistrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
@@ -978,14 +984,14 @@ If not, then please report this exception to the maintainers of this fork. Do no
     <value>You have unsaved changes. Are you sure you want to close without saving?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is older than the version you currently have installed.
+    <value>The version of reistrap you've launched is older than the version you currently have installed.
 Issues may occur and your settings may be altered. A reinstall is recommended.
 Are you sure you want to continue?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox failed to launch.
 
-This may or may not be a Bloxstrap issue. To find out, see [this help page]({0}).</value>
+This may or may not be a reistrap issue. To find out, see [this help page]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Could not load data because of a network error.</value>
@@ -1028,12 +1034,12 @@ Every person here is ranked by their overall pledge.</value>
     <value>For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
+    <value>Because Roblox needs to be installed or upgraded, reistrap cannot continue.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
+    <value>reistrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
 
-Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
+Please manually delete reistrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Not available</value>
@@ -1045,7 +1051,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>Configure application parameters such as DPI scaling behaviour and [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option.</value>
+    <value>Roblox has not yet been installed. Please launch Roblox using reistrap at least once before trying to use this option.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Are you sure you want to cancel the installation?</value>
@@ -1063,10 +1069,10 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>Extract Roblox icons to folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Allows you to use Bloxstrap's range of Roblox icons for your shortcuts. [See how.]({0})</value>
+    <value>Allows you to use reistrap's range of Roblox icons for your shortcuts. [See how.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
+    <value>reistrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict reistrap's operation.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Monthly</value>
@@ -1075,7 +1081,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>One-off</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configure options related to Bloxstrap's behaviour itself.</value>
+    <value>Configure options related to reistrap's behaviour itself.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Enable sending of analytics</value>
@@ -1124,7 +1130,7 @@ Would you like to enable test mode?</value>
     <value>Custom</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap tried to upgrade Roblox but can't because Roblox's files are still in use.
+    <value>reistrap tried to upgrade Roblox but can't because Roblox's files are still in use.
 
 Please close any applications that may be using Roblox's files, and relaunch.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1144,11 +1150,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Gather information that can be uploaded online to troubleshoot a problem you're having.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap configuration</value>
+    <value>reistrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>All Bloxstrap logs</value>
+    <value>All reistrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
@@ -1385,5 +1391,690 @@ Defaulting to {1}.</value>
   </data>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
     <value>Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player.</value>
+  </data>
+  <data name="ContextMenu.Playtime.Total" xml:space="preserve">
+    <value>Total: {0}</value>
+  </data>
+  <data name="ContextMenu.Playtime.InGame" xml:space="preserve">
+    <value>Total: {0} | Game: {1}</value>
+  </data>
+  <data name="Menu.Integrations.AutoRejoin.Title" xml:space="preserve">
+    <value>Automatically rejoin after disconnects</value>
+  </data>
+  <data name="Menu.Integrations.AutoRejoin.Description" xml:space="preserve">
+    <value>Rejoin the same server when you get kicked for being idle or lose connection.</value>
+  </data>
+  <data name="Menu.Integrations.PlaytimeCounter.Title" xml:space="preserve">
+    <value>Show playtime counter</value>
+  </data>
+  <data name="Menu.Integrations.PlaytimeCounter.Description" xml:space="preserve">
+    <value>Show how long Roblox has been open and how long you've been in your current game in the tray menu.</value>
+  </data>
+  <data name="Menu.Integrations.Capture.Title" xml:space="preserve">
+    <value>Screenshots and recordings</value>
+  </data>
+  <data name="Menu.Integrations.DisableScreenshots.Title" xml:space="preserve">
+    <value>Block Roblox screenshots</value>
+  </data>
+  <data name="Menu.Integrations.DisableScreenshots.Description" xml:space="preserve">
+    <value>Stop Roblox from saving screenshots to your Pictures folder. Existing screenshots are kept and restored when turned off.</value>
+  </data>
+  <data name="Menu.Integrations.DisableRecordings.Title" xml:space="preserve">
+    <value>Block Roblox video recordings</value>
+  </data>
+  <data name="Menu.Integrations.DisableRecordings.Description" xml:space="preserve">
+    <value>Stop Roblox from saving video recordings to your Videos folder. Existing recordings are kept and restored when turned off.</value>
+  </data>
+  <data name="Menu.Integrations.CustomStatusDisplay.Title" xml:space="preserve">
+    <value>Show game name in status</value>
+  </data>
+  <data name="Menu.Integrations.CustomStatusDisplay.Description" xml:space="preserve">
+    <value>Show the name of the game you're playing in your Discord status instead of "Playing Roblox".</value>
+  </data>
+  <data name="Common.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Menu.FastFlagEditor.NotInAllowlist" xml:space="preserve">
+    <value>{0} is not on the Roblox Fast Flag allowlist, so the Roblox player will ignore it.
+
+Add it anyway?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.ImportNotInAllowlist" xml:space="preserve">
+    <value>{0} of the imported flags are not on the Roblox Fast Flag allowlist and will be ignored by the Roblox player. Use "Clean list" to remove them.</value>
+  </data>
+  <data name="Menu.FastFlagEditor.CleanList" xml:space="preserve">
+    <value>Clean list</value>
+  </data>
+  <data name="Menu.FastFlagEditor.CleanList.Confirm" xml:space="preserve">
+    <value>This will remove {0} flags that are not on the Roblox Fast Flag allowlist. Continue?</value>
+  </data>
+  <data name="Menu.FastFlagEditor.CleanList.NothingToRemove" xml:space="preserve">
+    <value>All of your flags are on the Roblox Fast Flag allowlist.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.Title" xml:space="preserve">
+    <value>All allowlisted flags</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.Description" xml:space="preserve">
+    <value>Every Fast Flag that the Roblox player still accepts. Leave a field empty to use the Roblox default.</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.Title" xml:space="preserve">
+    <value>Profiles</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.Description" xml:space="preserve">
+    <value>Save your current Fast Flags as a profile so you can switch between setups quickly.</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.Saved" xml:space="preserve">
+    <value>Saved profiles</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.SaveCurrent" xml:space="preserve">
+    <value>Save current flags as a profile</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.NamePlaceholder" xml:space="preserve">
+    <value>Profile name</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.InvalidName" xml:space="preserve">
+    <value>Please enter a valid profile name.</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.Overwrite" xml:space="preserve">
+    <value>A profile named "{0}" already exists. Overwrite it?</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.LoadConfirm" xml:space="preserve">
+    <value>Loading "{0}" will replace all of your current Fast Flags. Continue?</value>
+  </data>
+  <data name="Menu.FastFlags.Profiles.DeleteConfirm" xml:space="preserve">
+    <value>Delete the profile "{0}"?</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistance" xml:space="preserve">
+    <value>Distance (in studs) before meshes and unions start losing detail.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL12" xml:space="preserve">
+    <value>Distance for the first level of detail drop.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL23" xml:space="preserve">
+    <value>Distance for the second level of detail drop.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntCSGLevelOfDetailSwitchingDistanceL34" xml:space="preserve">
+    <value>Distance for the lowest level of detail.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FFlagHandleAltEnterFullscreenManually" xml:space="preserve">
+    <value>Let Roblox handle Alt+Enter fullscreen itself instead of using exclusive fullscreen.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFFlagTextureQualityOverrideEnabled" xml:space="preserve">
+    <value>Allow the texture quality override below to take effect.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntTextureQualityOverride" xml:space="preserve">
+    <value>Texture quality level (0 is lowest, 3 is highest).</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FIntDebugForceMSAASamples" xml:space="preserve">
+    <value>Anti-aliasing samples (0, 1, 2, 4 or 8).</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFFlagDisableDPIScale" xml:space="preserve">
+    <value>Render at native resolution on high-DPI displays.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferD3D11" xml:space="preserve">
+    <value>Use the Direct3D 11 renderer.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FFlagDebugSkyGray" xml:space="preserve">
+    <value>Replace the skybox with a plain gray sky.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFFlagDebugPauseVoxelizer" xml:space="preserve">
+    <value>Pause lighting voxel updates, which can improve performance but makes lighting static.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.DFIntDebugFRMQualityLevelOverride" xml:space="preserve">
+    <value>Force a graphics quality level (1 to 21).</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FIntFRMMaxGrassDistance" xml:space="preserve">
+    <value>Maximum distance that grass is drawn at. Set both grass distances to 0 to remove grass.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FIntFRMMinGrassDistance" xml:space="preserve">
+    <value>Minimum distance that grass is drawn at.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferVulkan" xml:space="preserve">
+    <value>Use the Vulkan renderer.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FFlagDebugGraphicsPreferOpenGL" xml:space="preserve">
+    <value>Use the OpenGL renderer.</value>
+  </data>
+  <data name="Menu.FastFlags.Allowlist.FIntGrassMovementReducedMotionFactor" xml:space="preserve">
+    <value>How much grass sways (0 stops grass movement).</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Title" xml:space="preserve">
+    <value>Custom files</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Choose" xml:space="preserve">
+    <value>Choose file</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Invalid" xml:space="preserve">
+    <value>The chosen file is not in the expected format.</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.ImageFiles" xml:space="preserve">
+    <value>PNG images</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.SoundFiles" xml:space="preserve">
+    <value>OGG audio</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Cursor.Title" xml:space="preserve">
+    <value>Custom mouse cursor</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Cursor.Description" xml:space="preserve">
+    <value>Use your own PNG image as the mouse cursor. This overrides the cursor preset above.</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.ShiftLock.Title" xml:space="preserve">
+    <value>Custom Shift Lock icon</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.ShiftLock.Description" xml:space="preserve">
+    <value>Use your own PNG image as the cursor shown while Shift Lock is on.</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.DeathSound.Title" xml:space="preserve">
+    <value>Custom death sound</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.DeathSound.Description" xml:space="preserve">
+    <value>Use your own OGG audio file as the sound played when your character dies.</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.Title" xml:space="preserve">
+    <value>Cursor sets</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.Description" xml:space="preserve">
+    <value>Save your current cursor and Shift Lock icon as a set to switch between them quickly. Save your settings first so newly chosen files are included.</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.Saved" xml:space="preserve">
+    <value>Saved cursor sets</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.SaveCurrent" xml:space="preserve">
+    <value>Save current cursors as a set</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.NamePlaceholder" xml:space="preserve">
+    <value>Set name</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.NothingToSave" xml:space="preserve">
+    <value>You don't have a custom cursor or Shift Lock icon to save yet.</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.Applied" xml:space="preserve">
+    <value>"{0}" has been applied. It will be used the next time Roblox launches.</value>
+  </data>
+  <data name="Menu.Mods.CursorSets.DeleteConfirm" xml:space="preserve">
+    <value>Delete the cursor set "{0}"?</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Title" xml:space="preserve">
+    <value>Color mods</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Description" xml:space="preserve">
+    <value>Recolor Roblox's own textures using a hex color code (such as #FF5555). Leave a field empty to skip it.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Cursor" xml:space="preserve">
+    <value>Mouse cursor color</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.ShiftLock" xml:space="preserve">
+    <value>Shift Lock icon color</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.EmoteWheel" xml:space="preserve">
+    <value>Emote wheel color</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Generate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Remove" xml:space="preserve">
+    <value>Remove color mods</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.InvalidColor" xml:space="preserve">
+    <value>"{0}" is not a valid hex color code.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.NoOriginals" xml:space="preserve">
+    <value>Could not find the original Roblox textures. Launch Roblox once without any cursor or emote wheel mods, then try again.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Generated" xml:space="preserve">
+    <value>Color mods have been generated. They will be used the next time Roblox launches.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.RemoveConfirm" xml:space="preserve">
+    <value>This removes your custom cursor, Shift Lock icon and emote wheel files from the mods folder. Continue?</value>
+  </data>
+  <data name="Menu.Mods.ApplyToPlayer.Title" xml:space="preserve">
+    <value>Apply mods to Roblox Player</value>
+  </data>
+  <data name="Menu.Mods.ApplyToPlayer.Description" xml:space="preserve">
+    <value>Fast Flags are still applied when this is turned off.</value>
+  </data>
+  <data name="Menu.Mods.ApplyToStudio.Title" xml:space="preserve">
+    <value>Apply mods to Roblox Studio</value>
+  </data>
+  <data name="Menu.Mods.ApplyToStudio.Description" xml:space="preserve">
+    <value>Fast Flags are still applied when this is turned off.</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.SectionTitle" xml:space="preserve">
+    <value>Roblox updates</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.SectionDescription" xml:space="preserve">
+    <value>Choose which Roblox release channel to use. Most channels other than production are only available to Roblox staff and testers. If a channel isn't available to you, production is used instead.</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Player" xml:space="preserve">
+    <value>Roblox Player channel</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Studio" xml:space="preserve">
+    <value>Roblox Studio channel</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Check" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Available" xml:space="preserve">
+    <value>The {0} channel is available.
+
+Version: {1}
+Build: {2}</value>
+  </data>
+  <data name="Menu.Behaviour.Channel.Unavailable" xml:space="preserve">
+    <value>The {0} channel either doesn't exist or isn't available to you.</value>
+  </data>
+  <data name="Menu.Behaviour.BlockUpdates.Title" xml:space="preserve">
+    <value>Block Roblox updates</value>
+  </data>
+  <data name="Menu.Behaviour.BlockUpdates.Description" xml:space="preserve">
+    <value>Keep using the currently installed version of Roblox. Roblox may refuse to join games once your version gets too old, so only turn this on if you know you need it.</value>
+  </data>
+  <data name="Menu.Behaviour.StaticFolder.Title" xml:space="preserve">
+    <value>Use a fixed install folder</value>
+  </data>
+  <data name="Menu.Behaviour.StaticFolder.Description" xml:space="preserve">
+    <value>Install Roblox into a folder that keeps the same name between updates instead of a new version-xxxx folder. Roblox will be reinstalled on the next launch. Background updates are turned off while this is on.</value>
+  </data>
+  <data name="Menu.Appearance.AccentTheme.Title" xml:space="preserve">
+    <value>Accent theme</value>
+  </data>
+  <data name="Menu.Appearance.AccentTheme.Description" xml:space="preserve">
+    <value>Pick a built-in color theme, or enter your own hex color.</value>
+  </data>
+  <data name="Menu.Appearance.WindowBackdrop.Title" xml:space="preserve">
+    <value>Window effect</value>
+  </data>
+  <data name="Menu.Appearance.WindowBackdrop.Description" xml:space="preserve">
+    <value>The material used behind windows. Takes effect the next time a window opens. Acrylic and Mica require Windows 11.</value>
+  </data>
+  <data name="Menu.Appearance.AppFont.Title" xml:space="preserve">
+    <value>App font</value>
+  </data>
+  <data name="Menu.Appearance.AppFont.Description" xml:space="preserve">
+    <value>The font used throughout the app.</value>
+  </data>
+  <data name="Menu.Appearance.Background.ImageFiles" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="Menu.Appearance.Background.Image.Title" xml:space="preserve">
+    <value>Background image</value>
+  </data>
+  <data name="Menu.Appearance.Background.Image.Description" xml:space="preserve">
+    <value>Show an image behind the settings window. Takes priority over the gradient.</value>
+  </data>
+  <data name="Menu.Appearance.Background.Gradient.Title" xml:space="preserve">
+    <value>Background gradient</value>
+  </data>
+  <data name="Menu.Appearance.Background.Gradient.Description" xml:space="preserve">
+    <value>Show a gradient behind the settings window. Enter two hex colors separated by a comma.</value>
+  </data>
+  <data name="Menu.Appearance.Background.Opacity.Title" xml:space="preserve">
+    <value>Background strength</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Title" xml:space="preserve">
+    <value>Import from another bootstrapper</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Description" xml:space="preserve">
+    <value>Copy your settings, Fast Flags and mods from another bootstrapper installed on this PC.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.FastFlags" xml:space="preserve">
+    <value>Fast Flags</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Mods" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Confirm" xml:space="preserve">
+    <value>This will replace your current settings with the ones from {0}. Continue?</value>
+  </data>
+  <data name="Menu.Bloxstrap.Import.Done" xml:space="preserve">
+    <value>Imported from {0}. Click Save to keep the imported settings, then reopen this window to see them.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Title" xml:space="preserve">
+    <value>Game shortcuts</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Description" xml:space="preserve">
+    <value>Create a desktop shortcut that joins a specific game. The game's icon is used for the shortcut.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Input" xml:space="preserve">
+    <value>Game link or place ID</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Invalid" xml:space="preserve">
+    <value>Please enter a valid game link or place ID.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Created" xml:space="preserve">
+    <value>A shortcut for {0} has been added to your desktop.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Failed" xml:space="preserve">
+    <value>Could not create the shortcut.
+
+{0}</value>
+  </data>
+  <data name="Menu.Integrations.StudioRichPresence.Title" xml:space="preserve">
+    <value>Show Roblox Studio activity</value>
+  </data>
+  <data name="Menu.Integrations.StudioRichPresence.Description" xml:space="preserve">
+    <value>Show on your Discord profile when you're using Roblox Studio and whether you have a place open.</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Uptime" xml:space="preserve">
+    <value>Server uptime</value>
+  </data>
+  <data name="Enums.CleanerAge.Never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="Enums.CleanerAge.OneDay" xml:space="preserve">
+    <value>Older than 1 day</value>
+  </data>
+  <data name="Enums.CleanerAge.OneWeek" xml:space="preserve">
+    <value>Older than 1 week</value>
+  </data>
+  <data name="Enums.CleanerAge.OneMonth" xml:space="preserve">
+    <value>Older than 1 month</value>
+  </data>
+  <data name="Enums.ProcessPriorityLevel.Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Enums.ProcessPriorityLevel.AboveNormal" xml:space="preserve">
+    <value>Above normal</value>
+  </data>
+  <data name="Enums.ProcessPriorityLevel.High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Menu.Behaviour.Priority.Title" xml:space="preserve">
+    <value>Roblox CPU priority</value>
+  </data>
+  <data name="Menu.Behaviour.Priority.Description" xml:space="preserve">
+    <value>Give Roblox more CPU time than other apps. This can help on busy PCs, but High may make other apps feel slower while you play.</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.Title" xml:space="preserve">
+    <value>Cache cleaner</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.Description" xml:space="preserve">
+    <value>Automatically delete old files every time Roblox launches to free up disk space.</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.Age" xml:space="preserve">
+    <value>Delete files</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.Folders" xml:space="preserve">
+    <value>Folders to clean</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.RobloxLogs" xml:space="preserve">
+    <value>Roblox logs</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.RobloxCache" xml:space="preserve">
+    <value>Roblox temporary files</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.AppLogs" xml:space="preserve">
+    <value>reistrap logs</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.AppDownloads" xml:space="preserve">
+    <value>Downloaded Roblox packages</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.CleanNow.Title" xml:space="preserve">
+    <value>Clean now</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.CleanNow.Description" xml:space="preserve">
+    <value>Delete everything in the selected folders right away, regardless of age.</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.CleanNow.Button" xml:space="preserve">
+    <value>Clean</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.RobloxRunning" xml:space="preserve">
+    <value>Please close Roblox before cleaning.</value>
+  </data>
+  <data name="Menu.Behaviour.Cleaner.Done" xml:space="preserve">
+    <value>Freed {0:0.#} MB of disk space.</value>
+  </data>
+  <data name="LaunchMenu.RecentGames" xml:space="preserve">
+    <value>Jump back in</value>
+  </data>
+  <data name="Menu.Roblox.Title" xml:space="preserve">
+    <value>Roblox</value>
+  </data>
+  <data name="Menu.Roblox.Description" xml:space="preserve">
+    <value>Change Roblox's own settings and how its window behaves.</value>
+  </data>
+  <data name="Menu.Roblox.Settings.Title" xml:space="preserve">
+    <value>Game settings</value>
+  </data>
+  <data name="Menu.Roblox.Settings.Description" xml:space="preserve">
+    <value>These are the same settings as Roblox's in-game menu, but without its limits. Close Roblox before saving, because Roblox overwrites this file when it closes.</value>
+  </data>
+  <data name="Menu.Roblox.Settings.Missing" xml:space="preserve">
+    <value>Roblox's settings file wasn't found. Launch Roblox once, then come back here.</value>
+  </data>
+  <data name="Menu.Roblox.FramerateCap.Title" xml:space="preserve">
+    <value>Frame rate cap</value>
+  </data>
+  <data name="Menu.Roblox.FramerateCap.Description" xml:space="preserve">
+    <value>The maximum FPS Roblox will run at. Leave empty to use Roblox's own setting.</value>
+  </data>
+  <data name="Menu.Roblox.Quality.Title" xml:space="preserve">
+    <value>Graphics quality</value>
+  </data>
+  <data name="Menu.Roblox.Volume.Title" xml:space="preserve">
+    <value>Master volume</value>
+  </data>
+  <data name="Menu.Roblox.Sensitivity.Title" xml:space="preserve">
+    <value>Camera sensitivity</value>
+  </data>
+  <data name="Menu.Roblox.Fullscreen.Title" xml:space="preserve">
+    <value>Fullscreen</value>
+  </data>
+  <data name="Menu.Roblox.PerformanceStats.Title" xml:space="preserve">
+    <value>Show performance stats</value>
+  </data>
+  <data name="Menu.Roblox.ReducedMotion.Title" xml:space="preserve">
+    <value>Reduced motion</value>
+  </data>
+  <data name="Menu.Roblox.CameraYInverted.Title" xml:space="preserve">
+    <value>Invert camera</value>
+  </data>
+  <data name="Menu.Roblox.Lock.Title" xml:space="preserve">
+    <value>Lock these settings</value>
+  </data>
+  <data name="Menu.Roblox.Lock.Description" xml:space="preserve">
+    <value>Make the settings file read-only so Roblox can't change it. Changes you make in Roblox's menu won't be saved while this is on.</value>
+  </data>
+  <data name="Menu.Roblox.Window.Title" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="Menu.Roblox.WindowTitle.Title" xml:space="preserve">
+    <value>Custom window title</value>
+  </data>
+  <data name="Menu.Roblox.WindowTitle.Description" xml:space="preserve">
+    <value>Rename the Roblox window. Leave empty to keep the default title.</value>
+  </data>
+  <data name="Menu.Roblox.Borderless.Title" xml:space="preserve">
+    <value>Borderless windowed</value>
+  </data>
+  <data name="Menu.Roblox.Borderless.Description" xml:space="preserve">
+    <value>Remove the Roblox window's title bar and borders and stretch it to fill your screen.</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Title" xml:space="preserve">
+    <value>Crosshair overlay</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Description" xml:space="preserve">
+    <value>Draw a crosshair in the middle of the Roblox window. It's a separate overlay and doesn't change Roblox itself. It only shows while Roblox is the active window, and won't appear over exclusive fullscreen.</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Enabled" xml:space="preserve">
+    <value>Show crosshair</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Thickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="Menu.Roblox.Crosshair.Gap" xml:space="preserve">
+    <value>Gap</value>
+  </data>
+  <data name="Enums.CrosshairStyle.Cross" xml:space="preserve">
+    <value>Cross</value>
+  </data>
+  <data name="Enums.CrosshairStyle.CrossWithDot" xml:space="preserve">
+    <value>Cross with dot</value>
+  </data>
+  <data name="Enums.CrosshairStyle.Dot" xml:space="preserve">
+    <value>Dot</value>
+  </data>
+  <data name="Enums.CrosshairStyle.Circle" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="Menu.Playtime.Title" xml:space="preserve">
+    <value>Playtime</value>
+  </data>
+  <data name="Menu.Playtime.Description" xml:space="preserve">
+    <value>How long you've spent in each game while launching Roblox with reistrap.</value>
+  </data>
+  <data name="Menu.Playtime.Track.Title" xml:space="preserve">
+    <value>Track playtime</value>
+  </data>
+  <data name="Menu.Playtime.Track.Description" xml:space="preserve">
+    <value>Save the games you play and how long you play them. This also powers the recent games list in the launch menu. Requires activity tracking.</value>
+  </data>
+  <data name="Menu.Playtime.Total" xml:space="preserve">
+    <value>Total playtime</value>
+  </data>
+  <data name="Menu.Playtime.Empty" xml:space="preserve">
+    <value>No games recorded yet. Play something and it will show up here.</value>
+  </data>
+  <data name="Menu.Playtime.Details" xml:space="preserve">
+    <value>{0} sessions, last played {1}</value>
+  </data>
+  <data name="Menu.Playtime.ResetConfirm" xml:space="preserve">
+    <value>This permanently deletes all of your playtime stats and recent games. Continue?</value>
+  </data>
+  <data name="Common.Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Common.Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Enums.ProfileToggle.Default" xml:space="preserve">
+    <value>Use global setting</value>
+  </data>
+  <data name="Enums.ProfileToggle.On" xml:space="preserve">
+    <value>Always on</value>
+  </data>
+  <data name="Enums.ProfileToggle.Off" xml:space="preserve">
+    <value>Always off</value>
+  </data>
+  <data name="Menu.GameProfiles.Title" xml:space="preserve">
+    <value>Game profiles</value>
+  </data>
+  <data name="Menu.GameProfiles.Description" xml:space="preserve">
+    <value>Use different settings for specific games. Profiles apply when you join a game from the website, a game shortcut or the launch menu. The crosshair and Discord status also apply when you join from inside the Roblox app.</value>
+  </data>
+  <data name="Menu.GameProfiles.Add" xml:space="preserve">
+    <value>Add a game</value>
+  </data>
+  <data name="Menu.GameProfiles.Empty" xml:space="preserve">
+    <value>No game profiles yet. Paste a game link above to add one.</value>
+  </data>
+  <data name="Menu.GameProfiles.AlreadyExists" xml:space="preserve">
+    <value>{0} already has a profile.</value>
+  </data>
+  <data name="Menu.GameProfiles.DontChange" xml:space="preserve">
+    <value>Don't change</value>
+  </data>
+  <data name="Menu.GameProfiles.FastFlags" xml:space="preserve">
+    <value>Fast Flag profile</value>
+  </data>
+  <data name="Menu.GameProfiles.DiscordStatus" xml:space="preserve">
+    <value>Discord status</value>
+  </data>
+  <data name="Menu.Behaviour.Throttle.Title" xml:space="preserve">
+    <value>Lower Roblox priority in the background</value>
+  </data>
+  <data name="Menu.Behaviour.Throttle.Description" xml:space="preserve">
+    <value>When you switch away from Roblox, it gets less CPU time so other apps stay smooth. Its priority goes back to normal when you return.</value>
+  </data>
+  <data name="Menu.Playtime.Recap.Title" xml:space="preserve">
+    <value>Session recap</value>
+  </data>
+  <data name="Menu.Playtime.Recap.Description" xml:space="preserve">
+    <value>Show a notification with how long you played when you leave a game.</value>
+  </data>
+  <data name="Menu.Playtime.BreakReminder.Title" xml:space="preserve">
+    <value>Break reminder</value>
+  </data>
+  <data name="Menu.Playtime.BreakReminder.Description" xml:space="preserve">
+    <value>Remind you to take a break after playing for a while.</value>
+  </data>
+  <data name="Watcher.SessionRecap.Title" xml:space="preserve">
+    <value>Session recap</value>
+  </data>
+  <data name="Watcher.SessionRecap.Message" xml:space="preserve">
+    <value>You played {0} for {1}.</value>
+  </data>
+  <data name="Watcher.SessionRecap.Total" xml:space="preserve">
+    <value>{0} in total.</value>
+  </data>
+  <data name="Watcher.BreakReminder.Title" xml:space="preserve">
+    <value>Time for a break?</value>
+  </data>
+  <data name="Watcher.BreakReminder.Message" xml:space="preserve">
+    <value>You've been playing for {0}. Stretch, drink some water and rest your eyes.</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Title" xml:space="preserve">
+    <value>Mod packs</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Description" xml:space="preserve">
+    <value>Export all of your mods as a single file to share, or import a mod pack from someone else. Fast Flags are not included.</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Files" xml:space="preserve">
+    <value>ZIP files</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Exported" xml:space="preserve">
+    <value>Exported {0} files.</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Imported" xml:space="preserve">
+    <value>Imported {0} files. They will be used the next time Roblox launches.</value>
+  </data>
+  <data name="Menu.Mods.ModPack.ImportConfirm" xml:space="preserve">
+    <value>Files in the mod pack will replace any of your mods with the same name. Continue?</value>
+  </data>
+  <data name="Menu.Mods.ModPack.Invalid" xml:space="preserve">
+    <value>This file is not a reistrap mod pack.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Title" xml:space="preserve">
+    <value>Backup and restore</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Description" xml:space="preserve">
+    <value>Save your settings, Fast Flags, profiles, mods, playtime and Roblox settings to one file. Only saved settings are included.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Create" xml:space="preserve">
+    <value>Create backup</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Created" xml:space="preserve">
+    <value>Backup created.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.RestoreConfirm" xml:space="preserve">
+    <value>Restoring will replace your current settings with the ones in the backup, and reistrap will close afterwards. Continue?</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Restored" xml:space="preserve">
+    <value>Your backup has been restored. reistrap will now close; open it again to see your restored settings.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Backup.Invalid" xml:space="preserve">
+    <value>This file is not a reistrap backup.</value>
   </data>
 </root>

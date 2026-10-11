@@ -30,12 +30,24 @@
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
-                        <TextBlock x:Name="VersionTextBlock" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Grid.Column="1" VerticalAlignment="Center" Margin="6,0,0,0" Text="Bloxstrap v2.4.1" />
+                        <Image Grid.Column="0" Source="pack://application:,,,/reistrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
+                        <TextBlock x:Name="VersionTextBlock" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Grid.Column="1" VerticalAlignment="Center" Margin="6,0,0,0" Text="reistrap" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
             <Separator />
+            <MenuItem x:Name="PlaytimeMenuItem" IsEnabled="False" Visibility="Collapsed">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="Timer24"/>
+                        <TextBlock x:Name="PlaytimeTextBlock" Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
             <MenuItem x:Name="RichPresenceMenuItem" Header="{x:Static resources:Strings.Common_DiscordRichPresence}" IsCheckable="True" IsChecked="True" Visibility="Collapsed" Click="RichPresenceMenuItem_Click" />
             <MenuItem x:Name="InviteDeeplinkMenuItem" Visibility="Collapsed" Click="InviteDeeplinkMenuItem_Click">
                 <MenuItem.Header>

@@ -69,14 +69,18 @@ namespace Bloxstrap
 
         private int _appPid = 0;
 
+        private GameProfile? _gameProfile;
+
+        private Dictionary<string, string>? _restoreRobloxSettings;
+
         public IBootstrapperDialog? Dialog = null;
 
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
 
         public string MutexName => $"{MutexNamePrefix}-{_launchMode}";
-        public string BackgroundUpdaterMutexName => $"Bloxstrap-BackgroundUpdater-{_launchMode}";
+        public string BackgroundUpdaterMutexName => $"{App.ProjectName}-BackgroundUpdater-{_launchMode}";
 
-        public string MutexNamePrefix { get; set; } = "Bloxstrap-Bootstrapper";
+        public string MutexNamePrefix { get; set; } = $"{App.ProjectName}-Bootstrapper";
         public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
@@ -249,6 +253,14 @@ namespace Bloxstrap
 
             CleanupVersionsFolder(); // cleanup after background updater
 
+            if (_launchMode == LaunchMode.Player && GameProfiles.GetPlaceIdFromLaunchArgs(_launchCommandLine) is long placeId)
+            {
+                _gameProfile = GameProfiles.Find(placeId);
+
+                if (_gameProfile is not null)
+                    App.Logger.WriteLine(LOG_IDENT, $"Using game profile for {_gameProfile.Name}");
+            }
+
             bool allModificationsApplied = true;
 
             if (!_noConnection)
@@ -282,6 +294,9 @@ namespace Bloxstrap
                 // where we'd need to restore files from a package that isn't present on disk and needs to be redownloaded
                 allModificationsApplied = await ApplyModifications();
             }
+
+            if (!App.LaunchSettings.BackgroundUpdaterFlag.Active)
+                Cleaner.Run();
 
             // check registry entries for every launch, just in case the stock bootstrapper changes it back
 
@@ -407,7 +422,13 @@ namespace Bloxstrap
             string? newVersionGuid = null;
             Version? newVersion = null;
 
-            if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
+            if (IsBlockingRobloxUpdates())
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Roblox updates are blocked, staying on {AppData.DistributionState.VersionGuid}");
+                newVersionGuid = AppData.DistributionState.VersionGuid;
+                newVersion = Utilities.GetRobloxVersion(AppData);
+            }
+            else if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
                 ClientVersion clientVersion;
 
@@ -440,7 +461,7 @@ namespace Bloxstrap
                 _latestVersionGuid = newVersionGuid!;
                 _latestVersion = newVersion;
 
-                _latestVersionDirectory = Path.Combine(Paths.Versions, _latestVersionGuid);
+                _latestVersionDirectory = AppData.GetVersionDirectory(_latestVersionGuid);
 
                 string pkgManifestUrl = Deployment.GetLocation($"/{_latestVersionGuid}-rbxPkgManifest.txt");
                 var pkgManifestData = await App.HttpClient.GetStringAsync(pkgManifestUrl);
@@ -472,6 +493,15 @@ namespace Bloxstrap
             }
         }
 
+        private bool IsBlockingRobloxUpdates() =>
+            App.Settings.Prop.BlockRobloxUpdates
+            && _launchMode != LaunchMode.Unknown
+            && !App.LaunchSettings.VersionFlag.Active
+            && !App.LaunchSettings.ForceFlag.Active
+            && !App.State.Prop.ForceReinstall
+            && !String.IsNullOrEmpty(AppData.DistributionState.VersionGuid)
+            && File.Exists(AppData.ExecutablePath);
+
         private async Task SafeGetLatestVersionInfo()
         {
             if (!_noConnection)
@@ -500,6 +530,12 @@ namespace Bloxstrap
             if (!App.Settings.Prop.BackgroundUpdatesEnabled)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Not eligible: Background updates disabled");
+                return false;
+            }
+
+            if (App.Settings.Prop.UseStaticVersionFolder)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not eligible: Static version folder can't be updated while Roblox is running");
                 return false;
             }
 
@@ -604,11 +640,20 @@ namespace Bloxstrap
                 logCreatedEvent.Set();
             };
 
+            if (_launchMode == LaunchMode.Player && App.Settings.Prop.MultiInstanceLaunching)
+                RobloxSingleton.Hold();
+
+            if (_gameProfile is not null)
+                _restoreRobloxSettings = GameProfiles.ApplyRobloxSettings(_gameProfile);
+
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             try
             {
                 using var process = Process.Start(startInfo)!;
                 _appPid = process.Id;
+
+                if (_launchMode == LaunchMode.Player && App.Settings.Prop.RobloxPriority != ProcessPriorityLevel.Normal)
+                    SetRobloxPriority(process);
             }
             catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
             {
@@ -640,7 +685,12 @@ namespace Bloxstrap
             _mutex?.ReleaseAsync();
 
             if (IsStudioLaunch)
+            {
+                if (App.Settings.Prop.StudioRichPresence)
+                    StartWatcher(new WatcherData { ProcessId = _appPid, LogFile = logFileName, IsStudio = true });
+
                 return;
+            }
 
             var autoclosePids = new List<int>();
 
@@ -673,30 +723,55 @@ namespace Bloxstrap
                     autoclosePids.Add(pid);
             }
 
-            if (App.Settings.Prop.EnableActivityTracking || App.LaunchSettings.TestModeFlag.Active || autoclosePids.Any())
+            bool usesWindowFeatures = App.Settings.Prop.CrosshairEnabled || App.Settings.Prop.RobloxBorderless || App.Settings.Prop.ThrottleInBackground || App.Settings.Prop.BreakReminderMinutes > 0 || !String.IsNullOrEmpty(App.Settings.Prop.RobloxWindowTitle) || App.Settings.Prop.GameProfiles.Any(x => x.Crosshair == ProfileToggle.On);
+
+            if (App.Settings.Prop.EnableActivityTracking || App.LaunchSettings.TestModeFlag.Active || autoclosePids.Any() || usesWindowFeatures || _restoreRobloxSettings is not null)
             {
-                using var ipl = new InterProcessLock("Watcher", TimeSpan.FromSeconds(5));
-
-                var watcherData = new WatcherData 
-                { 
-                    ProcessId = _appPid, 
-                    LogFile = logFileName, 
-                    AutoclosePids = autoclosePids
-                };
-
-                string watcherDataArg = Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(watcherData)));
-
-                string args = $"-watcher \"{watcherDataArg}\"";
-
-                if (App.LaunchSettings.TestModeFlag.Active)
-                    args += " -testmode";
-
-                if (ipl.IsAcquired)
-                    Process.Start(Paths.Process, args);
+                StartWatcher(new WatcherData
+                {
+                    ProcessId = _appPid,
+                    LogFile = logFileName,
+                    AutoclosePids = autoclosePids,
+                    RestoreRobloxSettings = _restoreRobloxSettings
+                });
             }
 
             // allow for window to show, since the log is created pretty far beforehand
             Thread.Sleep(1000);
+        }
+
+        private static void SetRobloxPriority(Process process)
+        {
+            const string LOG_IDENT = "Bootstrapper::SetRobloxPriority";
+
+            try
+            {
+                process.PriorityClass = App.Settings.Prop.RobloxPriority == ProcessPriorityLevel.High
+                    ? ProcessPriorityClass.High
+                    : ProcessPriorityClass.AboveNormal;
+
+                App.Logger.WriteLine(LOG_IDENT, $"Set priority to {process.PriorityClass}");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to set Roblox priority");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
+        private static void StartWatcher(WatcherData watcherData)
+        {
+            using var ipl = new InterProcessLock(Watcher.GetLockName(watcherData.IsStudio), TimeSpan.FromSeconds(5));
+
+            string watcherDataArg = Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(watcherData)));
+
+            string args = $"-watcher \"{watcherDataArg}\"";
+
+            if (App.LaunchSettings.TestModeFlag.Active)
+                args += " -testmode";
+
+            if (ipl.IsAcquired)
+                Process.Start(Paths.Process, args);
         }
 
         private bool ShouldRunAsAdmin()
@@ -804,7 +879,7 @@ namespace Bloxstrap
             try
             {
 #if DEBUG_UPDATER
-                string downloadLocation = Path.Combine(Paths.TempUpdates, "Bloxstrap.exe");
+                string downloadLocation = Path.Combine(Paths.TempUpdates, $"{App.ProjectName}.exe");
 
                 Directory.CreateDirectory(Paths.TempUpdates);
 
@@ -908,11 +983,15 @@ namespace Bloxstrap
                 return;
             }
 
+            var keptFolders = new[] { new RobloxPlayerData(), (CommonAppData)new RobloxStudioData() }
+                .Select(x => Path.GetFileName(x.Directory))
+                .ToList();
+
             foreach (string dir in Directory.GetDirectories(Paths.Versions))
             {
                 string dirName = Path.GetFileName(dir);
 
-                if (dirName != App.PlayerState.Prop.VersionGuid && dirName != App.StudioState.Prop.VersionGuid)
+                if (!keptFolders.Contains(dirName))
                 {
                     // TODO: this is too expensive
                     //Filesystem.AssertReadOnlyDirectory(dir);
@@ -939,8 +1018,11 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Bootstrapper::MigrateCompatibilityFlags";
 
-            string oldClientLocation = Path.Combine(Paths.Versions, AppData.DistributionState.VersionGuid, AppData.ExecutableName);
+            string oldClientLocation = AppData.ExecutablePath;
             string newClientLocation = Path.Combine(_latestVersionDirectory, AppData.ExecutableName);
+
+            if (String.Equals(oldClientLocation, newClientLocation, StringComparison.OrdinalIgnoreCase))
+                return;
 
             // move old compatibility flags for the old location
             using RegistryKey appFlagsKey = Registry.CurrentUser.CreateSubKey($"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers");
@@ -1272,12 +1354,17 @@ namespace Bloxstrap
 
             Directory.CreateDirectory(Paths.Modifications);
 
+            bool applyMods = IsStudioLaunch ? App.Settings.Prop.ApplyModsToStudio : App.Settings.Prop.ApplyModsToPlayer;
+
+            if (!applyMods)
+                App.Logger.WriteLine(LOG_IDENT, $"Mods are disabled for {_launchMode}");
+
             // check custom font mod
             // instead of replacing the fonts themselves, we'll just alter the font family manifests
 
             string modFontFamiliesFolder = Path.Combine(Paths.Modifications, "content\\fonts\\families");
 
-            if (File.Exists(Paths.CustomFont))
+            if (File.Exists(Paths.CustomFont) && applyMods)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Begin font check");
 
@@ -1327,7 +1414,7 @@ namespace Bloxstrap
 
                 App.Logger.WriteLine(LOG_IDENT, "End font check");
             }
-            else if (Directory.Exists(modFontFamiliesFolder))
+            else if (!File.Exists(Paths.CustomFont) && Directory.Exists(modFontFamiliesFolder))
             {
                 Directory.Delete(modFontFamiliesFolder, true);
             }
@@ -1353,9 +1440,15 @@ namespace Bloxstrap
                 if (relativeFile.EndsWith(".lock"))
                     continue;
 
+                if (!applyMods && !relativeFile.StartsWith("ClientSettings\\", StringComparison.OrdinalIgnoreCase))
+                    continue;
+
                 modFolderFiles.Add(relativeFile);
 
                 string fileModFolder = Path.Combine(Paths.Modifications, relativeFile);
+
+                if (_gameProfile is not null && String.Equals(relativeFile, @"ClientSettings\ClientAppSettings.json", StringComparison.OrdinalIgnoreCase))
+                    fileModFolder = GameProfiles.GetFastFlagProfilePath(_gameProfile) ?? fileModFolder;
                 string fileVersionFolder = Path.Combine(_latestVersionDirectory, relativeFile);
 
                 if (File.Exists(fileVersionFolder) && MD5Hash.FromFile(fileModFolder) == MD5Hash.FromFile(fileVersionFolder))

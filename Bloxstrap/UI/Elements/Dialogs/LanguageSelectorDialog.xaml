@@ -24,7 +24,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Installer_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" Title="{x:Static resources:Strings.Installer_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/reistrap.ico" />
 
         <StackPanel Grid.Row="1" Margin="12">
             <TextBlock Text="{x:Static resources:Strings.Dialog_LanguageSelector_Header}" FontSize="20" FontWeight="SemiBold" />

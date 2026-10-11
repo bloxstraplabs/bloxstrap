@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap 未能自動更新到版本 {0}。請自行到官方網站下載最新版本並執行它來手動更新。</value>
+    <value>reistrap 未能自動更新到版本 {0}。請自行到官方網站下載最新版本並執行它來手動更新。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox 當前正在運行，開啟另一個窗口將會關掉它。您確定要繼續開啟嗎？</value>
@@ -127,13 +127,13 @@
     <value>Roblox 伺服器可能發生了故障；請參閱 {0} 以了解更多資訊。</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>無法連線，這可能是因為您的網路問題或者是防火牆設定，如果您的網路連線沒問題，請確認你的防毒軟體沒有干預 Bloxstrap 的網路權限。</value>
+    <value>無法連線，這可能是因為您的網路問題或者是防火牆設定，如果您的網路連線沒問題，請確認你的防毒軟體沒有干預 reistrap 的網路權限。</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>您必須先安裝 Bloxstrap 才能解除安裝。</value>
+    <value>您必須先安裝 reistrap 才能解除安裝。</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>你的電腦沒有足夠磁碟空間來安裝 Bloxstrap 和 Roblox ，請先釋放一些磁碟空間然後再試一遍。</value>
+    <value>你的電腦沒有足夠磁碟空間來安裝 reistrap 和 Roblox ，請先釋放一些磁碟空間然後再試一遍。</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>正在套用 Roblox 修改</value>
@@ -158,7 +158,7 @@
     <value>正在更新 {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>正在取得新版 Bloxstrap...</value>
+    <value>正在取得新版 reistrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>正在等待其他 Roblox 進程...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap 解除安裝成功</value>
+    <value>reistrap 解除安裝成功</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox 目前正在運行，但在解除安裝 Bloxstrap 之前必須先關閉它。您現在要關閉 Roblox 嗎？</value>
+    <value>Roblox 目前正在運行，但在解除安裝 reistrap 之前必須先關閉它。您現在要關閉 Roblox 嗎？</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox 需要使用 Windows Media Foundation 元件（Windows 媒體基礎元件）。您的系統似乎缺少這些元件，可能是因為您使用的是 Windows 「N」版本。請先安裝這些元件，然後再啟動 Roblox。</value>
@@ -279,7 +279,7 @@
     <value>連接錯誤</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap 未能連接至 {0}</value>
+    <value>reistrap 未能連接至 {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -289,12 +289,12 @@
     <value>發生例外狀況</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>[Bloxstrap Wiki]({0}) 中可能已有此問題的解決方案。
+    <value>[reistrap Wiki]({0}) 中可能已有此問題的解決方案。
 
 若未找到，請透過 [GitHub Issue]({1}) 回報此例外狀況，並附上紀錄檔。</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap 異常</value>
+    <value>reistrap 異常</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>自定義</value>
@@ -309,10 +309,10 @@
     <value>僞Byfron（2023）</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap（經典）</value>
+    <value>reistrap（經典）</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap（透明）</value>
+    <value>reistrap（透明）</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>經典（2008 - 2011）</value>
@@ -378,10 +378,10 @@
     <value>明亮</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap 已經更新至 v{0}</value>
+    <value>reistrap 已經更新至 v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>你目前運行的Bloxstrap版本和你目前已安裝的版本不同。請問你要升級目前已安裝的版本嗎？</value>
+    <value>你目前運行的reistrap版本和你目前已安裝的版本不同。請問你要升級目前已安裝的版本嗎？</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>貢獻者</value>
@@ -390,7 +390,7 @@
     <value>代碼</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>以下是對Bloxstrap有顯著貢獻的人，幫助它成為現在的樣子。</value>
+    <value>以下是對reistrap有顯著貢獻的人，幫助它成為現在的樣子。</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>功能建議</value>
@@ -436,7 +436,7 @@
     <value>在關閉所有目前開啟的 Roblox 用戶端之前，並非所有變更都會立即生效。</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap 已經在執行中</value>
+    <value>reistrap 已經在執行中</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>你可以讓它看起來與眾不同，如經典，亦或者就像 Roblox。</value>
@@ -463,13 +463,13 @@
     <value>標題</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>設定Bloxstrap的主題。</value>
+    <value>設定reistrap的主題。</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>全局主題</value>
   </data>
   <data name="Menu.Appearance.Icon.Description" xml:space="preserve">
-    <value>選擇Bloxstrap的圖示。</value>
+    <value>選擇reistrap的圖示。</value>
   </data>
   <data name="Menu.Appearance.Icon.Title" xml:space="preserve">
     <value>圖標</value>
@@ -487,10 +487,10 @@
     <value>外觀</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap 在啟動 Roblox 時會自動進行檢查目前版本並且更新（如果有的話）。</value>
+    <value>reistrap 在啟動 Roblox 時會自動進行檢查目前版本並且更新（如果有的話）。</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>自動更新Bloxstrap</value>
+    <value>自動更新reistrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>防止因意外啟動另一個Roblox程式而導致當前運行的程式被關閉。</value>
@@ -499,7 +499,7 @@
     <value>在啟動另一個 Roblox 程式時顯示的確認訊息</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>設定 Bloxstrap 在啟動 Roblox 時應執行的操作。</value>
+    <value>設定 reistrap 在啟動 Roblox 時應執行的操作。</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox會在下次啟動時進行重新安裝。</value>
@@ -601,10 +601,10 @@
     <value>圖標文件</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap無法在此處資料夾安裝，請選擇在其他位置安裝，或點擊“重設”按鈕來使用其預設安裝路徑。</value>
+    <value>reistrap無法在此處資料夾安裝，請選擇在其他位置安裝，或點擊“重設”按鈕來使用其預設安裝路徑。</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>您所選擇用來安裝Bloxstrap的資料夾已經存在而且還有其他檔案。強烈建議將Bloxstrap安裝到自己的獨立資料夾中。
+    <value>您所選擇用來安裝reistrap的資料夾已經存在而且還有其他檔案。強烈建議將reistrap安裝到自己的獨立資料夾中。
 
 建議更改為以下路徑：
 {0}
@@ -617,7 +617,7 @@
     <value>你必須設置一個安裝路徑</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap對您選擇的安裝路徑沒有寫入權限，請選擇其他路徑。</value>
+    <value>reistrap對您選擇的安裝路徑沒有寫入權限，請選擇其他路徑。</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>活動追蹤</value>
@@ -669,7 +669,7 @@
     <value>不要在離開遊戲後返回主介面</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>允許 Bloxstrap 偵測你正在遊玩的 Roblox 遊戲。某些功能需要此選項被啟用。</value>
+    <value>允許 reistrap 偵測你正在遊玩的 Roblox 遊戲。某些功能需要此選項被啟用。</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>開啟活動追蹤</value>
@@ -757,7 +757,7 @@
     <value>設定已儲存！</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 設定</value>
+    <value>reistrap 設定</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>選擇啟動器語言</value>
@@ -769,7 +769,7 @@
     <value>語言</value>
   </data>
   <data name="Menu.Appearance.Language.Description" xml:space="preserve">
-    <value>重新啟動Bloxstrap以讓變更生效。</value>
+    <value>重新啟動reistrap以讓變更生效。</value>
   </data>
   <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023（V4 + 最新UI）</value>
@@ -778,7 +778,7 @@
     <value>渲染和畫質</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>允許 Bloxstrap 管理 Fast Flags</value>
+    <value>允許 reistrap 管理 Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>禁用此功能將阻止任何在此設定的內容應用到 Roblox。</value>
@@ -802,7 +802,7 @@
     <value>等級 3（最高）</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap 無法下載 Roblox</value>
+    <value>reistrap 無法下載 Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>目前無法下載 Roblox。請閱讀此說明頁面以獲取更多資訊：{0}</value>
@@ -823,7 +823,7 @@
     <value>'{0}' 的輸入無效，因為數值必須為整數。</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>這次啟動的日誌文件沒有被寫入因為Bloxstrap未能寫入至在'{0}'的文件夾</value>
+    <value>這次啟動的日誌文件沒有被寫入因為reistrap未能寫入至在'{0}'的文件夾</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>預設</value>
@@ -838,7 +838,7 @@
     <value>'{0}' 的條件無效，因為位置過濾器的條件格式不正確。</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap 安裝程式</value>
+    <value>reistrap 安裝程式</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>歡迎</value>
@@ -857,18 +857,18 @@
     <value>下一個</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>感謝您下載 Bloxstrap。 
+    <value>感謝您下載 reistrap。 
 
- {0} 或 {1} 都是 Bloxstrap 的官方網站。請確保您的 Bloxstrap 都是從官方來源下載來的。
+ {0} 或 {1} 都是 reistrap 的官方網站。請確保您的 reistrap 都是從官方來源下載來的。
 
-安裝過程快速簡單，安裝後您將能夠配置 Bloxstrap 的任何設定。</value>
+安裝過程快速簡單，安裝後您將能夠配置 reistrap 的任何設定。</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>請點擊 “下一步” 以繼續。</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>您正在嘗試安裝 Bloxstrap 的 {0} 版本，但是最新版本是 {1} 。您想下載嗎？</value>
+    <value>您正在嘗試安裝 reistrap 的 {0} 版本，但是最新版本是 {1} 。您想下載嗎？</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>選擇安裝位置</value>
@@ -889,16 +889,16 @@
     <value>開始功能表圖示</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap 已成功安裝。
+    <value>reistrap 已成功安裝。
 
-Roblox 尚未安裝，這將在您第一次使用 Bloxstrap 啟動時進行。在此之前，您可能想先配置 Bloxstrap 的設定。
+Roblox 尚未安裝，這將在您第一次使用 reistrap 啟動時進行。在此之前，您可能想先配置 reistrap 的設定。
 
-另外，請避免使用「Roblox Player」快捷方式來啟動 Roblox，因為 Bloxstrap 不會與 Roblox 一起啟動。如果您在從網站啟動時看不到 Bloxstrap 隨同 Roblox 一起啟動，請從桌面上使用 Bloxstrap 啟動 Roblox 以解決此問題。
+另外，請避免使用「Roblox Player」快捷方式來啟動 Roblox，因為 reistrap 不會與 Roblox 一起啟動。如果您在從網站啟動時看不到 reistrap 隨同 Roblox 一起啟動，請從桌面上使用 reistrap 啟動 Roblox 以解決此問題。
 
 請問您想做什麼？</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>更改 Bloxstrap 的設定</value>
+    <value>更改 reistrap 的設定</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>調整它所提供的所有功能</value>
@@ -910,20 +910,20 @@ Roblox 尚未安裝，這將在您第一次使用 Bloxstrap 啟動時進行。�
     <value>一切完成後將帶您進入桌面應用程式</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>解除安裝 Bloxstrap</value>
+    <value>解除安裝 reistrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>解除安裝將從您的系統中移除 Bloxstrap，並在預設 Roblox 啟動器仍存在的情況下，自動將其重新設定。
+    <value>解除安裝將從您的系統中移除 reistrap，並在預設 Roblox 啟動器仍存在的情況下，自動將其重新設定。
 
-解除安裝過程可能會留下部分殘餘項目，您可能需要手動清除 Bloxstrap 安裝路徑下的剩餘檔案。
+解除安裝過程可能會留下部分殘餘項目，您可能需要手動清除 reistrap 安裝路徑下的剩餘檔案。
 
-Bloxstrap 安裝位置為「{1}」。</value>
+reistrap 安裝位置為「{1}」。</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>保留我的設定和模組</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>它們將保存在 Bloxstrap 安裝的位置，並且會在重新安裝時自動恢復</value>
+    <value>它們將保存在 reistrap 安裝的位置，並且會在重新安裝時自動恢復</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>解除安裝</value>
@@ -944,7 +944,7 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>您目前未安裝 WebView2 執行階段。某些 Roblox 功能（例如桌面應用程式）在沒有它的情況下將無法正常運行。您想現在下載 WebView2 嗎？</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap 無法為桌面和開始功能表創建捷徑。請稍後通過設置創建捷徑。</value>
+    <value>reistrap 無法為桌面和開始功能表創建捷徑。請稍後通過設置創建捷徑。</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>請您首先在 [Bloxstrap Wiki]({0}) 查看這個問題是否已被修復。
@@ -956,7 +956,7 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>這些是調出多選啟動菜單的一般快捷鍵。特定功能的快捷鍵可以在設定中稍後創建。</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>設定 Bloxstrap 的快速啟動方式。</value>
+    <value>設定 reistrap 的快速啟動方式。</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>一般設定</value>
@@ -986,7 +986,7 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>請等待解除安裝完成。</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>關於 Bloxstrap</value>
+    <value>關於 reistrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>授權條款</value>
@@ -999,14 +999,14 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>您有未儲存的變更。確定要在不儲存的情況下關閉嗎？</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>您啟動的 Bloxstrap 版本比當前已安裝的版本舊。
+    <value>您啟動的 reistrap 版本比當前已安裝的版本舊。
 可能會發生問題，並且您的設定可能會被更改，請建議重新安裝。
 您確定要繼續嗎？</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox 啟動失敗。
 
-這不一定是 Bloxstrap 造成的問題。若要釐清原因，請參閱 [此說明頁面]({0})。</value>
+這不一定是 reistrap 造成的問題。若要釐清原因，請參閱 [此說明頁面]({0})。</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>由於網絡錯誤，無法載入數據。</value>
@@ -1049,12 +1049,12 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>此次啟動將不會檢查 Roblox 更新，對模組的更改將不會被套用。</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>因為 Roblox 需要安裝或更新，Bloxstrap 無法繼續執行。</value>
+    <value>因為 Roblox 需要安裝或更新，reistrap 無法繼續執行。</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap 之前已安裝到此位置並且仍然存在，但安裝程式無法覆蓋舊的可執行文件。
+    <value>reistrap 之前已安裝到此位置並且仍然存在，但安裝程式無法覆蓋舊的可執行文件。
 
-請手動刪除安裝位置中的 Bloxstrap.exe，或者嘗試重啟系統，然後再嘗試重新安裝。</value>
+請手動刪除安裝位置中的 reistrap.exe，或者嘗試重啟系統，然後再嘗試重新安裝。</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>無法使用</value>
@@ -1066,7 +1066,7 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>配置應用程式參數，例如 DPI 縮放行為和 [全螢幕最佳化]({0})。</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox 尚未安裝。請至少使用 Bloxstrap 啟動一次 Roblox，然後再嘗試使用此選項。</value>
+    <value>Roblox 尚未安裝。請至少使用 reistrap 啟動一次 Roblox，然後再嘗試使用此選項。</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>您確定要取消安裝嗎？</value>
@@ -1084,11 +1084,11 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>提取 Roblox 圖示到資料夾</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>啟用此選項後將會在 Bloxstrap 安裝根目錄上創建一個名為 “Icons” 的資料夾。
+    <value>啟用此選項後將會在 reistrap 安裝根目錄上創建一個名為 “Icons” 的資料夾。
 （此選項允許您獲取 Roblox 圖示文件以便快捷應用於捷徑）[如何使用？]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap 無法寫入 Windows 登錄檔。可能是防毒軟體干擾並導致問題。請檢查並確保沒有任何限制 Bloxstrap 操作的應用程式。</value>
+    <value>reistrap 無法寫入 Windows 登錄檔。可能是防毒軟體干擾並導致問題。請檢查並確保沒有任何限制 reistrap 操作的應用程式。</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>每月</value>
@@ -1097,10 +1097,10 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>一次性</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>調整 Bloxstrap 自身行為相關的選項。</value>
+    <value>調整 reistrap 自身行為相關的選項。</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
-    <value>允許 Bloxstrap 對數據進行分析</value>
+    <value>允許 reistrap 對數據進行分析</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Description" xml:space="preserve">
     <value>這是匿名的，絕對沒有像政府一樣幹走您的個人資料。我們收集的內容和其原因，請參考我們的[隱私政策]({0})。</value>
@@ -1146,9 +1146,9 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>自訂</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap 目前無法更新 Roblox；因為 Roblox 的文件被其他程式佔用。
+    <value>reistrap 目前無法更新 Roblox；因為 Roblox 的文件被其他程式佔用。
 
-請關閉任何可能正在使用 Roblox 程式文件的應用程式，然後重新啟動 Bloxstrap。</value>
+請關閉任何可能正在使用 Roblox 程式文件的應用程式，然後重新啟動 reistrap。</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1166,11 +1166,11 @@ Bloxstrap 安裝位置為「{1}」。</value>
     <value>收集可以上傳到網際網路的記錄檔，以便排查您所遇到的問題。</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap 設定</value>
+    <value>reistrap 設定</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>所有 Bloxstrap 記錄檔</value>
+    <value>所有 reistrap 記錄檔</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

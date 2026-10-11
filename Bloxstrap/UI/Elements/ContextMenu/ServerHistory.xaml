@@ -27,7 +27,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="{x:Static resources:Strings.ContextMenu_GameHistory_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="{x:Static resources:Strings.ContextMenu_GameHistory_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/reistrap.ico" />
 
         <TextBlock Grid.Row="1" Margin="16,8,16,0" Text="{x:Static resources:Strings.ContextMenu_GameHistory_Description}" TextWrapping="Wrap" />
 

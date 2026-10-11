@@ -50,6 +50,8 @@ namespace Bloxstrap.Models.Entities
 
         public DateTime? TimeLeft { get; set; }
 
+        public DateTime? ServerStarted { get; set; }
+
         // everything below here is optional strictly for bloxstraprpc, discord rich presence, or game history
 
         /// <summary>
@@ -97,6 +99,38 @@ namespace Bloxstrap.Models.Entities
             return deeplink;
         }
 
+        private static string FormatLocation(string? city, string? region, string? country)
+        {
+            if (String.IsNullOrEmpty(city) || city == country)
+                return country ?? Strings.Common_NotAvailable;
+
+            if (city == region || String.IsNullOrEmpty(region))
+                return $"{city}, {country}";
+
+            return $"{city}, {region}, {country}";
+        }
+
+        private async Task<string?> QueryRoValraLocation()
+        {
+            const string LOG_IDENT = "ActivityData::QueryRoValraLocation";
+
+            try
+            {
+                var response = await Http.GetJson<RoValraGeolocation>($"https://apis.rovalra.com/v1/geolocation?ip={MachineAddress}");
+
+                if (response.Location is null || String.IsNullOrEmpty(response.Location.Country))
+                    return null;
+
+                return FormatLocation(response.Location.City, response.Location.Region, response.Location.Country);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "RoValra lookup failed, falling back to ipinfo.io");
+                App.Logger.WriteException(LOG_IDENT, ex);
+                return null;
+            }
+        }
+
         public async Task<string?> QueryServerLocation()
         {
             const string LOG_IDENT = "ActivityData::QueryServerLocation";
@@ -114,15 +148,17 @@ namespace Bloxstrap.Models.Entities
 
             try
             {
-                var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
+                location = await QueryRoValraLocation();
 
-                if (string.IsNullOrEmpty(ipInfo.City))
-                    throw new InvalidHTTPResponseException("Reported city was blank");
+                if (location is null)
+                {
+                    var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{MachineAddress}/json");
 
-                if (ipInfo.City == ipInfo.Region)
-                    location = $"{ipInfo.Region}, {ipInfo.Country}";
-                else
-                    location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
+                    if (string.IsNullOrEmpty(ipInfo.City))
+                        throw new InvalidHTTPResponseException("Reported city was blank");
+
+                    location = FormatLocation(ipInfo.City, ipInfo.Region, ipInfo.Country);
+                }
 
                 GlobalCache.ServerLocation[MachineAddress] = location;
                 serverQuerySemaphore.Release();

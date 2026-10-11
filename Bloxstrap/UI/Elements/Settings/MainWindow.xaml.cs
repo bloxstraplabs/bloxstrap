@@ -16,6 +16,8 @@ namespace Bloxstrap.UI.Elements.Settings
     {
         private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
+        protected override bool AllowCustomBackground => true;
+
         public MainWindow(bool showAlreadyRunningWarning)
         {
             var viewModel = new MainWindowViewModel();

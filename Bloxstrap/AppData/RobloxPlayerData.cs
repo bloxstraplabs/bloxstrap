@@ -12,6 +12,8 @@
 
         public override string ExecutableName => "RobloxPlayerBeta.exe";
 
+        public override string StaticFolderName => BinaryType;
+
         public override JsonManager<DistributionState> DistributionStateManager => App.PlayerState;
 
         public override IReadOnlyDictionary<string, string> PackageDirectoryMap { get; set; } = new Dictionary<string, string>()

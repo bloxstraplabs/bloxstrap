@@ -24,6 +24,12 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Behaviour_MultiInstance_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_MultiInstance_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunching, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_BackgroundUpdates_Description}">
             <ui:ToggleSwitch IsChecked="{Binding BackgroundUpdates, Mode=TwoWay}" />
@@ -42,6 +48,79 @@
                 </Style>
             </controls:OptionControl.Style>
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxReinstallation, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_Priority_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_Priority_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding PriorityLevels, Mode=OneTime}" SelectedItem="{Binding RobloxPriority, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_Behaviour_Throttle_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_Throttle_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding ThrottleInBackground, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Behaviour_Cleaner_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Behaviour_Cleaner_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_Cleaner_Age}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding CleanerAges, Mode=OneTime}" SelectedItem="{Binding CleanerAge, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_Cleaner_Folders}">
+            <StackPanel>
+                <CheckBox Content="{x:Static resources:Strings.Menu_Behaviour_Cleaner_RobloxLogs}" IsChecked="{Binding CleanRobloxLogs, Mode=TwoWay}" />
+                <CheckBox Content="{x:Static resources:Strings.Menu_Behaviour_Cleaner_RobloxCache}" IsChecked="{Binding CleanRobloxCache, Mode=TwoWay}" />
+                <CheckBox Content="{x:Static resources:Strings.Menu_Behaviour_Cleaner_AppLogs}" IsChecked="{Binding CleanAppLogs, Mode=TwoWay}" />
+                <CheckBox Content="{x:Static resources:Strings.Menu_Behaviour_Cleaner_AppDownloads}" IsChecked="{Binding CleanAppDownloads, Mode=TwoWay}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_Cleaner_CleanNow_Title}" Description="{x:Static resources:Strings.Menu_Behaviour_Cleaner_CleanNow_Description}">
+            <ui:Button Icon="Broom24" Content="{x:Static resources:Strings.Menu_Behaviour_Cleaner_CleanNow_Button}" Command="{Binding CleanNowCommand}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Behaviour_Channel_SectionTitle}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Behaviour_Channel_SectionDescription}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_Channel_Player}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" Padding="10,5,10,5" IsEditable="True" ItemsSource="{Binding KnownChannels, Mode=OneTime}" Text="{Binding PlayerChannelTask.NewState, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+                <ui:Button Margin="8,0,0,0" Icon="Search24" Content="{x:Static resources:Strings.Menu_Behaviour_Channel_Check}" Command="{Binding CheckPlayerChannelCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Behaviour_Channel_Studio}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" Padding="10,5,10,5" IsEditable="True" ItemsSource="{Binding KnownChannels, Mode=OneTime}" Text="{Binding StudioChannelTask.NewState, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+                <ui:Button Margin="8,0,0,0" Icon="Search24" Content="{x:Static resources:Strings.Menu_Behaviour_Channel_Check}" Command="{Binding CheckStudioChannelCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_BlockUpdates_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_BlockUpdates_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding BlockRobloxUpdates, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_StaticFolder_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_StaticFolder_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding UseStaticVersionFolder, Mode=TwoWay}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 using Microsoft.Win32;
@@ -101,6 +102,219 @@ namespace Bloxstrap.UI.ViewModels.Settings
         });
 
         public FontModPresetTask TextFontTask { get; } = new();
+
+        private static readonly byte[] PngHeader = { 0x89, 0x50, 0x4E, 0x47 };
+
+        private static readonly byte[] OggHeader = { 0x4F, 0x67, 0x67, 0x53 };
+
+        public FileModViewModel CustomCursor { get; } = new(new FileModTask("CustomCursor", ModGenerator.CursorFiles), $"{Strings.Menu_Mods_CustomFiles_ImageFiles}|*.png", PngHeader);
+
+        public FileModViewModel CustomShiftLock { get; } = new(new FileModTask("CustomShiftLock", ModGenerator.ShiftLockFile), $"{Strings.Menu_Mods_CustomFiles_ImageFiles}|*.png", PngHeader);
+
+        public FileModViewModel CustomDeathSound { get; } = new(new FileModTask("CustomDeathSound", ModGenerator.DeathSoundFile), $"{Strings.Menu_Mods_CustomFiles_SoundFiles}|*.ogg", OggHeader);
+
+        public bool ApplyModsToPlayer
+        {
+            get => App.Settings.Prop.ApplyModsToPlayer;
+            set => App.Settings.Prop.ApplyModsToPlayer = value;
+        }
+
+        public bool ApplyModsToStudio
+        {
+            get => App.Settings.Prop.ApplyModsToStudio;
+            set => App.Settings.Prop.ApplyModsToStudio = value;
+        }
+
+        // Color Mods
+
+        public string CursorColor { get; set; } = "";
+
+        public string ShiftLockColor { get; set; } = "";
+
+        public string EmoteWheelColor { get; set; } = "";
+
+        public ICommand GenerateColorModsCommand => new RelayCommand(GenerateColorMods);
+
+        public ICommand RemoveColorModsCommand => new RelayCommand(RemoveColorMods);
+
+        private void GenerateColorMods()
+        {
+            const string LOG_IDENT = "ModsViewModel::GenerateColorMods";
+
+            var jobs = new List<(string Hex, IEnumerable<string> Files)>
+            {
+                (CursorColor, ModGenerator.CursorFiles),
+                (ShiftLockColor, new[] { ModGenerator.ShiftLockFile }),
+                (EmoteWheelColor, ModGenerator.EmoteWheelFiles)
+            }.Where(x => !String.IsNullOrWhiteSpace(x.Hex)).ToList();
+
+            if (!jobs.Any())
+                return;
+
+            int written = 0;
+
+            foreach (var job in jobs)
+            {
+                if (!ModGenerator.TryParseColor(job.Hex, out var color))
+                {
+                    Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ColorMods_InvalidColor, job.Hex), MessageBoxImage.Error);
+                    return;
+                }
+
+                try
+                {
+                    written += ModGenerator.Recolor(job.Files, color);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                    Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                    return;
+                }
+            }
+
+            if (written == 0)
+                Frontend.ShowMessageBox(Strings.Menu_Mods_ColorMods_NoOriginals, MessageBoxImage.Warning);
+            else
+                Frontend.ShowMessageBox(Strings.Menu_Mods_ColorMods_Generated, MessageBoxImage.Information);
+        }
+
+        private void RemoveColorMods()
+        {
+            var result = Frontend.ShowMessageBox(Strings.Menu_Mods_ColorMods_RemoveConfirm, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            ModGenerator.RemoveGenerated(ModGenerator.CursorFiles.Append(ModGenerator.ShiftLockFile).Concat(ModGenerator.EmoteWheelFiles));
+        }
+
+        // Mod Packs
+
+        public ICommand ExportModPackCommand => new RelayCommand(ExportModPack);
+
+        public ICommand ImportModPackCommand => new RelayCommand(ImportModPack);
+
+        private void ExportModPack()
+        {
+            var dialog = new SaveFileDialog
+            {
+                FileName = $"{App.ProjectName}-modpack.zip",
+                Filter = $"{Strings.Menu_Mods_ModPack_Files}|*.zip"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                int count = Backups.ExportModPack(dialog.FileName);
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ModPack_Exported, count), MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("ModsViewModel::ExportModPack", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+        }
+
+        private void ImportModPack()
+        {
+            var dialog = new OpenFileDialog { Filter = $"{Strings.Menu_Mods_ModPack_Files}|*.zip" };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            var result = Frontend.ShowMessageBox(Strings.Menu_Mods_ModPack_ImportConfirm, MessageBoxImage.Question, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                int count = Backups.ImportModPack(dialog.FileName);
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ModPack_Imported, count), MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("ModsViewModel::ImportModPack", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+        }
+
+        // Cursor Sets
+
+        public ObservableCollection<string> CursorSets { get; } = new(ModGenerator.GetCursorSets());
+
+        public string? SelectedCursorSet { get; set; }
+
+        public string NewCursorSetName { get; set; } = "";
+
+        public ICommand SaveCursorSetCommand => new RelayCommand(SaveCursorSet);
+
+        public ICommand ApplyCursorSetCommand => new RelayCommand(ApplyCursorSet);
+
+        public ICommand DeleteCursorSetCommand => new RelayCommand(DeleteCursorSet);
+
+        private void ReloadCursorSets()
+        {
+            CursorSets.Clear();
+
+            foreach (string name in ModGenerator.GetCursorSets())
+                CursorSets.Add(name);
+        }
+
+        private void SaveCursorSet()
+        {
+            string name = NewCursorSetName.Trim();
+
+            if (String.IsNullOrEmpty(name) || name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+            {
+                Frontend.ShowMessageBox(Strings.Menu_FastFlags_Profiles_InvalidName, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!ModGenerator.SaveCursorSet(name))
+            {
+                Frontend.ShowMessageBox(Strings.Menu_Mods_CursorSets_NothingToSave, MessageBoxImage.Information);
+                return;
+            }
+
+            ReloadCursorSets();
+
+            SelectedCursorSet = name;
+            NewCursorSetName = "";
+
+            OnPropertyChanged(nameof(SelectedCursorSet));
+            OnPropertyChanged(nameof(NewCursorSetName));
+        }
+
+        private void ApplyCursorSet()
+        {
+            if (SelectedCursorSet is null)
+                return;
+
+            ModGenerator.ApplyCursorSet(SelectedCursorSet);
+            Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_CursorSets_Applied, SelectedCursorSet), MessageBoxImage.Information);
+        }
+
+        private void DeleteCursorSet()
+        {
+            if (SelectedCursorSet is null)
+                return;
+
+            var result = Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_CursorSets_DeleteConfirm, SelectedCursorSet), MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            ModGenerator.DeleteCursorSet(SelectedCursorSet);
+
+            SelectedCursorSet = null;
+            OnPropertyChanged(nameof(SelectedCursorSet));
+
+            ReloadCursorSets();
+        }
 
         private void OpenCompatSettings()
         {

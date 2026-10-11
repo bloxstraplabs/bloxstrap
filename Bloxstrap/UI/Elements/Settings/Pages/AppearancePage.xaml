@@ -31,6 +31,47 @@
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Languages, Mode=OneTime}" Text="{Binding SelectedLanguage, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_AccentTheme_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_AccentTheme_Description}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding AccentThemes.Keys, Mode=OneTime}" SelectedItem="{Binding SelectedAccentTheme, Mode=TwoWay}" />
+                <ui:TextBox Width="110" Margin="8,0,0,0" Padding="10,5,10,5" PlaceholderText="#RRGGBB" Text="{Binding AccentColor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_WindowBackdrop_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_WindowBackdrop_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding WindowBackdrops, Mode=OneTime}" SelectedItem="{Binding WindowBackdrop, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_AppFont_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_AppFont_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding AppFonts, Mode=OneTime}" SelectedItem="{Binding AppFont, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_Background_Image_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_Background_Image_Description}">
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Icon="Image24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseBackgroundImageCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding RemoveBackgroundImageCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_Background_Gradient_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_Background_Gradient_Description}">
+            <ui:TextBox Width="200" Padding="10,5,10,5" PlaceholderText="#1E3C72, #2A5298" Text="{Binding BackgroundGradient, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_Background_Opacity_Title}">
+            <Slider Width="200" Minimum="0.05" Maximum="1" SmallChange="0.05" LargeChange="0.1" Value="{Binding BackgroundOpacity, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <Grid Margin="0,8,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

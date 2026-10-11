@@ -8,7 +8,7 @@
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
         mc:Ignorable="d"
-        Title="Bloxstrap"
+        Title="reistrap"
         d:DesignWidth="480"
         MinWidth="180"
         MaxWidth="480"
@@ -26,7 +26,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="Bloxstrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" x:Name="RootTitleBar" Title="reistrap" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <Grid Grid.Row="1" Margin="15">
             <Grid.ColumnDefinitions>

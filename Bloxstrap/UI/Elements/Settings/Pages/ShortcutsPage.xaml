@@ -76,5 +76,15 @@
                 <ui:ToggleSwitch IsChecked="{Binding SettingsIconTask.NewState, Mode=TwoWay}" />
             </controls:OptionControl>
         </Grid>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Shortcuts_Game_Input}">
+            <StackPanel Orientation="Horizontal">
+                <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="https://www.roblox.com/games/..." Text="{Binding GameShortcutInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:Button Margin="8,0,0,0" Icon="Add24" Content="{x:Static resources:Strings.Common_CreateNew}" Command="{Binding CreateGameShortcutCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

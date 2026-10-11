@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
+using System.Windows.Threading;
 
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -25,6 +26,10 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private ServerHistory? _gameHistoryWindow;
 
+        private readonly DateTime _robloxStarted = DateTime.Now;
+
+        private DispatcherTimer? _playtimeTimer;
+
         public MenuContainer(Watcher watcher)
         {
             InitializeComponent();
@@ -39,6 +44,16 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
                 if (!App.Settings.Prop.UseDisableAppPatch)
                     GameHistoryMenuItem.Visibility = Visibility.Visible;
+
+                if (App.Settings.Prop.PlaytimeCounter)
+                {
+                    PlaytimeMenuItem.Visibility = Visibility.Visible;
+
+                    _playtimeTimer = new DispatcherTimer(TimeSpan.FromSeconds(1), DispatcherPriority.Normal, (_, _) => UpdatePlaytime(), Dispatcher);
+                    _playtimeTimer.Start();
+
+                    UpdatePlaytime();
+                }
             }
 
             if (_watcher.RichPresence is not null)
@@ -59,6 +74,29 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 _serverInformationWindow.ShowDialog();
             else
                 _serverInformationWindow.Activate();
+        }
+
+        private static string FormatPlaytime(TimeSpan time) =>
+            time.TotalHours >= 1 ? $"{(int)time.TotalHours}:{time.Minutes:D2}:{time.Seconds:D2}" : $"{time.Minutes}:{time.Seconds:D2}";
+
+        private void UpdatePlaytime()
+        {
+            if (_activityWatcher is null)
+                return;
+
+            string total = FormatPlaytime(DateTime.Now - _robloxStarted);
+
+            if (_activityWatcher.InGame)
+            {
+                var activity = _activityWatcher.Data;
+                var joined = activity.RootActivity?.TimeJoined ?? activity.TimeJoined;
+
+                PlaytimeTextBlock.Text = String.Format(Strings.ContextMenu_Playtime_InGame, total, FormatPlaytime(DateTime.Now - joined));
+            }
+            else
+            {
+                PlaytimeTextBlock.Text = String.Format(Strings.ContextMenu_Playtime_Total, total);
+            }
         }
 
         public void ActivityWatcher_OnLogOpen(object? sender, EventArgs e) => 
@@ -100,7 +138,11 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             PInvoke.SetWindowLong(hWnd, WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, exStyle);
         }
 
-        private void Window_Closed(object sender, EventArgs e) => App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            _playtimeTimer?.Stop();
+            App.Logger.WriteLine("MenuContainer::Window_Closed", "Context menu container closed");
+        }
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.RichPresence?.SetVisibility(((MenuItem)sender).IsChecked);
 

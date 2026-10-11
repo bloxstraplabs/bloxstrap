@@ -27,7 +27,7 @@
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Title}" 
-            Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://ipinfo.io'}"
+            Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://www.rovalra.com'}"
             HelpLink="https://bloxstraplabs.com/wiki/features/server-location-hints/"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
@@ -39,6 +39,34 @@
             HelpLink="https://bloxstraplabs.com/wiki/features/dont-exit-to-desktop-app/"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding DisableAppPatchEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding AutoRejoinEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_PlaytimeCounter_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_PlaytimeCounter_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding PlaytimeCounterEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Capture_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_DisableScreenshots_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_DisableScreenshots_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableRobloxScreenshots, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_DisableRecordings_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_DisableRecordings_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableRobloxRecordings, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
@@ -64,6 +92,19 @@
             Description="{x:Static resources:Strings.Menu_Integrations_ShowAccountOnProfile_Description}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding DiscordAccountOnProfile, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_CustomStatusDisplay_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_CustomStatusDisplay_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding CustomStatusDisplayEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioRichPresence_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioRichPresence_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioRichPresenceEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />

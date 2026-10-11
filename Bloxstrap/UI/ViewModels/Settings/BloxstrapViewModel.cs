@@ -30,6 +30,107 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public Visibility WebEnvironmentVisibility => App.Settings.Prop.DeveloperMode ? Visibility.Visible : Visibility.Collapsed;
 
+        public Dictionary<string, string> ImportSources { get; } = SettingsImporter.FindInstalls();
+
+        public string? SelectedImportSource { get; set; } = SettingsImporter.FindInstalls().Keys.FirstOrDefault();
+
+        public Visibility ImportVisibility => ImportSources.Any() ? Visibility.Visible : Visibility.Collapsed;
+
+        public bool ShouldImportSettings { get; set; } = true;
+
+        public bool ShouldImportFastFlags { get; set; } = true;
+
+        public bool ShouldImportMods { get; set; } = true;
+
+        public ICommand ImportCommand => new RelayCommand(Import);
+
+        private void Import()
+        {
+            const string LOG_IDENT = "BloxstrapViewModel::Import";
+
+            if (SelectedImportSource is null || !ImportSources.TryGetValue(SelectedImportSource, out string? folder))
+                return;
+
+            var result = Frontend.ShowMessageBox(String.Format(Strings.Menu_Bloxstrap_Import_Confirm, SelectedImportSource), MessageBoxImage.Question, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                if (ShouldImportSettings)
+                    SettingsImporter.ImportSettings(folder);
+
+                if (ShouldImportFastFlags)
+                    SettingsImporter.ImportFastFlags(folder);
+
+                if (ShouldImportMods)
+                    SettingsImporter.ImportMods(folder);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                return;
+            }
+
+            Frontend.ShowMessageBox(String.Format(Strings.Menu_Bloxstrap_Import_Done, SelectedImportSource), MessageBoxImage.Information);
+        }
+
+        public ICommand CreateBackupCommand => new RelayCommand(CreateBackup);
+
+        public ICommand RestoreBackupCommand => new RelayCommand(RestoreBackup);
+
+        private void CreateBackup()
+        {
+            var dialog = new SaveFileDialog
+            {
+                FileName = $"{App.ProjectName}-backup-{DateTime.Now:yyyy-MM-dd}.zip",
+                Filter = $"{Strings.Menu_Mods_ModPack_Files}|*.zip"
+            };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                Backups.CreateBackup(dialog.FileName);
+                Frontend.ShowMessageBox(Strings.Menu_Bloxstrap_Backup_Created, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("BloxstrapViewModel::CreateBackup", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+        }
+
+        private void RestoreBackup()
+        {
+            var dialog = new OpenFileDialog { Filter = $"{Strings.Menu_Mods_ModPack_Files}|*.zip" };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            var result = Frontend.ShowMessageBox(Strings.Menu_Bloxstrap_Backup_RestoreConfirm, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                Backups.RestoreBackup(dialog.FileName);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("BloxstrapViewModel::RestoreBackup", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+                return;
+            }
+
+            Frontend.ShowMessageBox(Strings.Menu_Bloxstrap_Backup_Restored, MessageBoxImage.Information);
+            App.Terminate();
+        }
+
         public bool ShouldExportConfig { get; set; } = true;
 
         public bool ShouldExportLogs { get; set; } = true;
@@ -42,7 +143,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             var dialog = new SaveFileDialog 
             { 
-                FileName = $"Bloxstrap-export-{timestamp}.zip",
+                FileName = $"{App.ProjectName}-export-{timestamp}.zip",
                 Filter = $"{Strings.FileTypes_ZipArchive}|*.zip" 
             };
 

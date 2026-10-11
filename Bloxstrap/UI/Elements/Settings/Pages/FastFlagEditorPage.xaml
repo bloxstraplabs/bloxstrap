@@ -40,6 +40,7 @@
                     </Style>
                 </ui:Button.Style>
             </ui:Button>
+            <ui:Button Icon="Filter24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_CleanList}" Click="CleanListButton_Click" Margin="0,0,12,16" />
             <ToggleButton x:Name="TogglePresetsButton"  Content="{x:Static resources:Strings.Menu_FastFlagEditor_ShowPresetFlags}" Click="ToggleButton_Click"  Margin="0,0,12,16" />
             <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Menu_FastFlagEditor_ExportJson}" Click="ExportJSONButton_Click" Margin="0,0,12,16" />
         </WrapPanel>

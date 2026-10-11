@@ -1,0 +1,90 @@
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.GameProfilesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance dmodels:GameProfilesViewModel}"
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="GameProfilesPage"
+      Scrollable="True">
+
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_GameProfiles_Description}" TextWrapping="Wrap" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_GameProfiles_Add}">
+            <StackPanel Orientation="Horizontal">
+                <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="https://www.roblox.com/games/..." Text="{Binding NewGameInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:Button Margin="8,0,0,0" Icon="Add24" Content="{x:Static resources:Strings.Common_CreateNew}" Command="{Binding AddProfileCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <TextBlock Margin="0,16,0,0" Text="{x:Static resources:Strings.Menu_GameProfiles_Empty}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Visibility="{Binding EmptyVisibility}" />
+
+        <ItemsControl ItemsSource="{Binding Profiles}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ui:CardExpander Margin="0,8,0,0">
+                        <ui:CardExpander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                    <TextBlock FontSize="14" Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock FontSize="12" Text="{Binding PlaceId, StringFormat=Place {0}}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                                </StackPanel>
+                                <ui:Button Grid.Column="1" Margin="0,0,16,0" Icon="Delete24" Appearance="Danger" Command="{Binding DataContext.DeleteProfileCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                            </Grid>
+                        </ui:CardExpander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_GameProfiles_FastFlags}" />
+                            <ComboBox Grid.Row="0" Grid.Column="1" Width="220" HorizontalAlignment="Left" Padding="10,5,10,5" Margin="0,0,0,8"
+                                      ItemsSource="{Binding DataContext.FastFlagProfileOptions, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                      DisplayMemberPath="Label" SelectedValuePath="Value" SelectedValue="{Binding FastFlagProfile, Mode=TwoWay}" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Roblox_FramerateCap_Title}" />
+                            <ui:TextBox Grid.Row="1" Grid.Column="1" Width="120" HorizontalAlignment="Left" Padding="10,5,10,5" Margin="0,0,0,8" PlaceholderText="{x:Static resources:Strings.Menu_GameProfiles_DontChange}" Text="{Binding FramerateCap, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Roblox_Quality_Title}" />
+                            <ComboBox Grid.Row="2" Grid.Column="1" Width="220" HorizontalAlignment="Left" Padding="10,5,10,5" Margin="0,0,0,8"
+                                      ItemsSource="{Binding DataContext.QualityOptions, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                      DisplayMemberPath="Label" SelectedValuePath="Value" SelectedValue="{Binding QualityLevel, Mode=TwoWay}" />
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Title}" />
+                            <ComboBox Grid.Row="3" Grid.Column="1" Width="220" HorizontalAlignment="Left" Padding="10,5,10,5" Margin="0,0,0,8"
+                                      ItemsSource="{Binding DataContext.CrosshairOptions, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                      SelectedItem="{Binding Crosshair, Mode=TwoWay}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Text="{x:Static resources:Strings.Menu_GameProfiles_DiscordStatus}" />
+                            <ui:TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Padding="10,5,10,5" MaxLength="128" PlaceholderText="{x:Static resources:Strings.Menu_GameProfiles_DontChange}" Text="{Binding DiscordStatus, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+                        </Grid>
+                    </ui:CardExpander>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</ui:UiPage>

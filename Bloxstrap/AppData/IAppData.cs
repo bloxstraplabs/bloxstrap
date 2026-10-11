@@ -16,6 +16,8 @@
 
         string ExecutablePath { get; }
 
+        string GetVersionDirectory(string versionGuid);
+
         JsonManager<DistributionState> DistributionStateManager { get; }
 
         DistributionState DistributionState { get; }

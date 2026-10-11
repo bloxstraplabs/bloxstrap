@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nespēja automātiski atjaunoties uz versiju {0}. Lūdzu, atjauniniet to manuāli, lejupielādējot un palaižot to no mājslapas.</value>
+    <value>reistrap nespēja automātiski atjaunoties uz versiju {0}. Lūdzu, atjauniniet to manuāli, lejupielādējot un palaižot to no mājslapas.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox šobrīd jau ir palaists, un tas tiks aizvērts, atverot jaunu Roblox logu. Vai jūs esat pārliecināts, ka gribat turpināt palaišanu?</value>
@@ -127,13 +127,13 @@
     <value>Roblox šobrīd varētu nedarboties. Skatiet {0} priekš vairāk informācijas.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Nevarēja izveidot savienojumu, kas norāda, ka interneta savienojums ir nestabils vai ugunsmūrī ir uzstādīta bloķēšana. Ja jūsu interneta savienojums ir labs, lūdzu pārbaudiet, vai jūsu antivīruss nebloķē Bloxstrap.</value>
+    <value>Nevarēja izveidot savienojumu, kas norāda, ka interneta savienojums ir nestabils vai ugunsmūrī ir uzstādīta bloķēšana. Ja jūsu interneta savienojums ir labs, lūdzu pārbaudiet, vai jūsu antivīruss nebloķē reistrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Jums vajag vispirms instalēt Bloxstrap, pirms jūs to atinstalējat.</value>
+    <value>Jums vajag vispirms instalēt reistrap, pirms jūs to atinstalējat.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nav pieejama pietiekami daudz vieta diskā, lai lejupielādētu un instalētu Roblox. Lūdzu atbrīvojiet vietu diskā un mēģiniet vēlreiz.</value>
+    <value>reistrap nav pieejama pietiekami daudz vieta diskā, lai lejupielādētu un instalētu Roblox. Lūdzu atbrīvojiet vietu diskā un mēģiniet vēlreiz.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Uzstāda Roblox modifikācijas...</value>
@@ -158,7 +158,7 @@
     <value>Notiek {product} jaunināšana...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Iegūst jaunāko Bloxstrap...</value>
+    <value>Iegūst jaunāko reistrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Gaida uz pārējiem logiem...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap veiksmīgi tika atinstalēts</value>
+    <value>reistrap veiksmīgi tika atinstalēts</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox šobrīd ir palaists, bet to ir vajadzīgs aizvērt pirms Bloxstrap atinstalēšanas. Vai jūs vēlaties aizvērt Roblox tagad?</value>
+    <value>Roblox šobrīd ir palaists, bet to ir vajadzīgs aizvērt pirms reistrap atinstalēšanas. Vai jūs vēlaties aizvērt Roblox tagad?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox funkcionēšanai ir vajadzīga Windows Media Foundation komponentu izmantošana. Izskatās, ka jums tie nav, visdrīzāk, jo jūs izmantojat N Windows versiju. Lūdzu instalējot tos   un tad atveriet Roblox.</value>
@@ -279,7 +279,7 @@ Spiedied šeit priekš vairāk informācijas</value>
     <value>Savienojuma kļūda</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap nespēj savienoties ar {0}</value>
+    <value>reistrap nespēj savienoties ar {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Spiedied šeit priekš vairāk informācijas</value>
 Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kopā ar log failu.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Izņēmums</value>
+    <value>reistrap Izņēmums</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Pielāgots</value>
@@ -309,10 +309,10 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Viltots Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klasiskais)</value>
+    <value>reistrap (Klasiskais)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Stikls)</value>
+    <value>reistrap (Stikls)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Vēsturisks (2008 - 2011)</value>
@@ -378,10 +378,10 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Gaišs</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap ir ticis jaunināts uz v{0}</value>
+    <value>reistrap ir ticis jaunināts uz v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Tā Bloxstrap versija, ko tu esi atvēris, ir atšķirīga tai versijai, kas tev šobrīd ir instalēta. Vai tu vēlies jaunināt savu pašreiz instalēto versiju?</value>
+    <value>Tā reistrap versija, ko tu esi atvēris, ir atšķirīga tai versijai, kas tev šobrīd ir instalēta. Vai tu vēlies jaunināt savu pašreiz instalēto versiju?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Līdzstrādnieki</value>
@@ -390,7 +390,7 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Kods</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Šie ir tie cilvēki, kas ir devuši ievērojamu ieguldījumu Bloxstrap, palīdzot izveidot to tādu, kāds tas ir.</value>
+    <value>Šie ir tie cilvēki, kas ir devuši ievērojamu ieguldījumu reistrap, palīdzot izveidot to tādu, kāds tas ir.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Funkciju Idejas</value>
@@ -436,7 +436,7 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Lūdzu ņemiet vērā, ka visas izmaiņas netiks piemērotas, kamēr jūs neaizvērsiet visus šobrīd atvērtos Roblox logus.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap jau ir atvērts</value>
+    <value>reistrap jau ir atvērts</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Tu vari likt tam izskatīties citādāk, retro, vai pat līdzīgu Roblox.</value>
@@ -463,7 +463,7 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Virsraksts</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfigurēt, kā Bloxstrap būtu jaizskatas.</value>
+    <value>Konfigurēt, kā reistrap būtu jaizskatas.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globālā Tēma</value>
@@ -487,10 +487,10 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Izskats</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automātiski pārbaudīs un atjauninās sevi, kad Roblox tiek palaists.</value>
+    <value>reistrap automātiski pārbaudīs un atjauninās sevi, kad Roblox tiek palaists.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automātiski jaunināt Bloxstrap</value>
+    <value>Automātiski jaunināt reistrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Nepieļaut esošās spēles aizvēršanu no nejaušas jaunas palaišanas.</value>
@@ -499,7 +499,7 @@ Ja tā nav, tad lūdzu ziņojiet par šo izņēmumu caur [GitHub issue]({1}) kop
     <value>Parādīt uzvedni, lai apstiprinātu, kad palaižot jaunu Roblox logu</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigurēt, ko Bloxstrap darīt, kad Roblox tiek palaists.</value>
+    <value>Konfigurēt, ko reistrap darīt, kad Roblox tiek palaists.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox tiks no jauna instalēts nākošajā palaišanas reizē.</value>
@@ -603,10 +603,10 @@ Vai jūs esat pārliecināts, ka vēlaties turpināt?</value>
     <value>Ikonu faili</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap nevar tikt instalēts šajā vietā. Lūdzu izvēlēties citu vietu, vai izmantojat noklusēja vietu, spiežot atiestatīšanas pogu.</value>
+    <value>reistrap nevar tikt instalēts šajā vietā. Lūdzu izvēlēties citu vietu, vai izmantojat noklusēja vietu, spiežot atiestatīšanas pogu.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Mape, kurā jūs esat izvēlējies instalēt Bloxstrap jau kaut kas eksistē un tā NAV tukša. Ir stipri ieteicams Bloxstrap instalēt savā patstāvīgajā mapē.
+    <value>Mape, kurā jūs esat izvēlējies instalēt reistrap jau kaut kas eksistē un tā NAV tukša. Ir stipri ieteicams reistrap instalēt savā patstāvīgajā mapē.
 
 Mainīt ir ieteicams uz šo vietu:
 {0}
@@ -619,7 +619,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Jums ir nepieciešams izvēlēties instalēšanas vietu</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nav piekļuva rakstīšanai tajā instalēšanas vietā, ko esat izvēlējušies. Lūdzu izvēleties citu vietu.</value>
+    <value>reistrap nav piekļuva rakstīšanai tajā instalēšanas vietā, ko esat izvēlējušies. Lūdzu izvēleties citu vietu.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Aktivitātes izsekošana</value>
@@ -670,7 +670,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Neiziet uz darbavirsmas aplikāciju</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Ļauj Bloxstrap noteikt, kuru Roblox spēli jūs spēlējat. Dažām funkcijām šis var būt vajadzīgs.</value>
+    <value>Ļauj reistrap noteikt, kuru Roblox spēli jūs spēlējat. Dažām funkcijām šis var būt vajadzīgs.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Iespējot aktivitātes izsekošanu</value>
@@ -758,7 +758,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Iestatījumi saglabāti!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Iestatījumi</value>
+    <value>reistrap Iestatījumi</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Izvēlieties vēlamo valodu</value>
@@ -779,7 +779,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Renderēšana un Grafika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Ļaut Bloxstrap pārvaldīt Ātros Karogus</value>
+    <value>Ļaut reistrap pārvaldīt Ātros Karogus</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Ja jūs šo atspējosiet, nekas kas ir ticis šeit konfigurēts netiks pielietots Roblox.</value>
@@ -803,7 +803,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Līmenis 3 (Augstākais)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap nespēj lejupielādēt Roblox</value>
+    <value>reistrap nespēj lejupielādēt Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox šobrīd nevar tikt lejupielādēts. Lūdzu izlasiet sekojošo palīdzības lapu priekš vairāk informācijas: {0}</value>
@@ -824,7 +824,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Ieraksts '{0}' nav derīgs, jo vērtībai jābūt veselam skaitlim</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Šai palaišanai nebūs žurnāla fails, jo Bloxstrap nav iespējams rakstīt mapē '{0}'</value>
+    <value>Šai palaišanai nebūs žurnāla fails, jo reistrap nav iespējams rakstīt mapē '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Noklusējums</value>
@@ -839,7 +839,7 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>{0} Ieraksts nav derīgs, jo vietas filtrs nav pareizi formatēts.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Instalētājs</value>
+    <value>reistrap Instalētājs</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Sveicināti</value>
@@ -858,18 +858,18 @@ Izvēloties 'Nē' šis brīdinājums tiks ignorēts un instalēšana tiks turpin
     <value>Nākošais</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Paldies, ka lejupielādējāt Bloxstrap.
+    <value>Paldies, ka lejupielādējāt reistrap.
 
-Vienīgās oficiālās vietnes, no kurām lejupielādēt Bloxstrap ir {0} un {1}, tāpēc lūdzu pārbaudiet vai jūs ielādējāt Bloxstrap no oficiāla avota.
+Vienīgās oficiālās vietnes, no kurām lejupielādēt reistrap ir {0} un {1}, tāpēc lūdzu pārbaudiet vai jūs ielādējāt reistrap no oficiāla avota.
 
-Šis instalēšans process būs ātrs un vienkāršs, un jūs varēsiet konfigurēt jebkuru no Bloxstrap iestatījumiem pēc instalācijas.</value>
+Šis instalēšans process būs ātrs un vienkāršs, un jūs varēsiet konfigurēt jebkuru no reistrap iestatījumiem pēc instalācijas.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Lūdzu spiedied uz 'Nākamais', lai turpinātu.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Jūs cenšaties instalēt Bloxstrap versiju {0}, bet jaunākā versija ir iegūstama {1}. Vai jūs vēlaties to lejupielādēt?</value>
+    <value>Jūs cenšaties instalēt reistrap versiju {0}, bet jaunākā versija ir iegūstama {1}. Vai jūs vēlaties to lejupielādēt?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Izvēlieties vietu, kur instalēt</value>
@@ -890,16 +890,16 @@ Vienīgās oficiālās vietnes, no kurām lejupielādēt Bloxstrap ir {0} un {1}
     <value>Sākuma Izvēlnes ikona</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap ir ticis veiksmīgi instalēts.
+    <value>reistrap ir ticis veiksmīgi instalēts.
 
-Roblox vēl nav ticis instalēts, tas notiks, kad jūs to palaidīsiet ar Bloxstrap pirmo reizi. Bet, pirms jūs to darat, jūs varētu vēlēties konfigurēt Bloxstrap iestatījumus vispirms.
+Roblox vēl nav ticis instalēts, tas notiks, kad jūs to palaidīsiet ar reistrap pirmo reizi. Bet, pirms jūs to darat, jūs varētu vēlēties konfigurēt reistrap iestatījumus vispirms.
 
-Neizmantojat "Roblox Player" īsceļu, lai atvērtu Roblox, jo Bloxstrap nepalaidīsies kopā ar Roblox. 
-Ja neredzat Bloxstrap parādāmies, kad palaižat Roblox no mājaslapas, vienkārši vienreiz palaižat Roblox ar Bloxstrap no darbavirsmas, lai šo problēmu salabotu.
+Neizmantojat "Roblox Player" īsceļu, lai atvērtu Roblox, jo reistrap nepalaidīsies kopā ar Roblox. 
+Ja neredzat reistrap parādāmies, kad palaižat Roblox no mājaslapas, vienkārši vienreiz palaižat Roblox ar reistrap no darbavirsmas, lai šo problēmu salabotu.
 Ko tu vēlies darīt?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigurēt Bloxstrap iestatījumus</value>
+    <value>Konfigurēt reistrap iestatījumus</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Mainīt un izmantot visas funkcijas, kas ir pieejamas</value>
@@ -911,20 +911,20 @@ Ko tu vēlies darīt?</value>
     <value>Jūs tiksiet ielikti darbavirsmas aplikācijā, kad viss būs gatavs</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Atinstalēt Bloxstrap</value>
+    <value>Atinstalēt reistrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Atinstalēšana noņems Bloxstrap no jūsu sistēmas, un automātiski rekonfigurēs noklusējuma Roblox palaidēju, ja tas vēl ir instalēts.
+    <value>Atinstalēšana noņems reistrap no jūsu sistēmas, un automātiski rekonfigurēs noklusējuma Roblox palaidēju, ja tas vēl ir instalēts.
 
-Atinstalēšanas process varētu atstāt dažas lietas aiz sevis, tāpēc jums varētu nākties manuāli iztīrīt pāri palikušos failus no vietas, kur Bloxstrap bija instalēts.
+Atinstalēšanas process varētu atstāt dažas lietas aiz sevis, tāpēc jums varētu nākties manuāli iztīrīt pāri palikušos failus no vietas, kur reistrap bija instalēts.
 
-Bloxstrap bija instalēts "{1}".</value>
+reistrap bija instalēts "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Paturēt manus iestatījumus un modifikācijas</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Tie atradīsies vietā, kur Bloxstrap tika instalēts, un automātiski tiks atgriezti, kad atkal instalēsiet Bloxstrap.</value>
+    <value>Tie atradīsies vietā, kur reistrap tika instalēts, un automātiski tiks atgriezti, kad atkal instalēsiet reistrap.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Atinstalēt</value>
@@ -945,7 +945,7 @@ Bloxstrap bija instalēts "{1}".</value>
     <value>Jums šobrīd nav instalēts WebView2 runtime. Dažas Roblox funkcijas nestrādās pareizi bez tā, piemēram, darbavirsmas aplikācija. Vai jūs vēlaties to lejupielādēt tagad?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nespēja izveidot īsceļu priekš Darbavirsmas un Sākuma izvēlnes. Pamēģiniet tos uztaisīt caur iestatījumiem.</value>
+    <value>reistrap nespēja izveidot īsceļu priekš Darbavirsmas un Sākuma izvēlnes. Pamēģiniet tos uztaisīt caur iestatījumiem.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Vispirms pārbaudiet [Bloxstrap Wiki]({0}), lai redzētu vai šī problēma jau ir atrisināta.
@@ -958,7 +958,7 @@ Ja nav, tad lūdzu ziņojiet par šo izņēmumu šī fork uzturētājiem. Neziņ
     <value>Šie ir vispārēji īsceļi, kas atver multi-izvēļu izvēlni. Īsceļi priekš specifiskām funkcijām var tikt izveidoti vēlāk iestatījumos.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Konfigurē, kā Bloxstrap tiek palaists.</value>
+    <value>Konfigurē, kā reistrap tiek palaists.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Vispārīgi</value>
@@ -988,7 +988,7 @@ Ja nav, tad lūdzu ziņojiet par šo izņēmumu šī fork uzturētājiem. Neziņ
     <value>Lūdzu uzgaidiet, kamēr atinstalācija beidzas.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Par Bloxstrap</value>
+    <value>Par reistrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licences</value>
@@ -1001,14 +1001,14 @@ Ja nav, tad lūdzu ziņojiet par šo izņēmumu šī fork uzturētājiem. Neziņ
     <value>Jums ir nesaglabātas izmaiņas. Vai esat pārliecināts, ka gribat aizvērt bez saglabāšanas?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Tā Bloxstrap versija, kuru esat palaiduši, ir vecāka nekā versija, kas jums jau ir instalēta.
+    <value>Tā reistrap versija, kuru esat palaiduši, ir vecāka nekā versija, kas jums jau ir instalēta.
 Var notikt problēmas un jūsu iestatījumi var tikt mainīti. Pārinstalācija ir ieteicama.
 Vai jūs esat drošs, ka vēlaties turpināt?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox nevarēja palaisties.
 
-Šī iespējams ir Bloxstrap problēma. Lai to uzzinātu, skatiet [šo palīdzības lapu]({0}).</value>
+Šī iespējams ir reistrap problēma. Lai to uzzinātu, skatiet [šo palīdzības lapu]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nevarēja ielādet datus, dēļ tīkla kļūdas.</value>
@@ -1051,12 +1051,12 @@ Katrs cilvēks ir sarindots pēc viņu atbalsta.</value>
     <value>Šajā palaišanas reizē, Roblox netiks pārbaudīts priekš atjauninājumiem, un izmaiņas modifikācijām netiks pielietotas.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Tāpēc, ka Roblox vajag tikt instalētam vai jauninātam, Bloxstrap nevar turpināt.</value>
+    <value>Tāpēc, ka Roblox vajag tikt instalētam vai jauninātam, reistrap nevar turpināt.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap jau ir ticis instalēts šajā vietā iepriekš un joprojām te atrodas, bet instalētājs nevar pārrakstīt veco izpildāmo failu.
+    <value>reistrap jau ir ticis instalēts šajā vietā iepriekš un joprojām te atrodas, bet instalētājs nevar pārrakstīt veco izpildāmo failu.
 
-Lūdzu manuāli dzēsiet Bloxstrap.exe no instalēšanas vietas, vai pamēģiniet restartēt datoru, un tad vēlreiz mēģiniet instalēt.</value>
+Lūdzu manuāli dzēsiet reistrap.exe no instalēšanas vietas, vai pamēģiniet restartēt datoru, un tad vēlreiz mēģiniet instalēt.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Nav pieejams</value>
@@ -1068,7 +1068,7 @@ Lūdzu manuāli dzēsiet Bloxstrap.exe no instalēšanas vietas, vai pamēģinie
     <value>Konfigurēt aplikācijas parametrus, kā DPI mēroga uzvedība un [pilnekrāna optimizācijas]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox vēl nav ticis instalēts. Lūdzu atveriet Roblox izmantojot Bloxstrap vismaz vienu reizi, pirms cenšaties izmantot šo opciju.</value>
+    <value>Roblox vēl nav ticis instalēts. Lūdzu atveriet Roblox izmantojot reistrap vismaz vienu reizi, pirms cenšaties izmantot šo opciju.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Vai jūs esat drošs, ka vēlaties atcelt instalāciju?</value>
@@ -1085,10 +1085,10 @@ Lūdzu manuāli dzēsiet Bloxstrap.exe no instalēšanas vietas, vai pamēģinie
     <value>Izvilkt Roblox ikonas uz mapi</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Ļauj jums izmantot Bloxstrap Roblox ikonas priekš jūsu īsceļiem. [Redzēt kā.]({0})</value>
+    <value>Ļauj jums izmantot reistrap Roblox ikonas priekš jūsu īsceļiem. [Redzēt kā.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap nespēj rakstīt iekš Windows Registry. Visticamāk, antivīruss iejaucas un rada problēmas. Lūdzu pārbaudiet, vai nav nekas, kas varētu traucēt Bloxstrap darbībām.</value>
+    <value>reistrap nespēj rakstīt iekš Windows Registry. Visticamāk, antivīruss iejaucas un rada problēmas. Lūdzu pārbaudiet, vai nav nekas, kas varētu traucēt reistrap darbībām.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Ikmēneša</value>
@@ -1097,7 +1097,7 @@ Lūdzu manuāli dzēsiet Bloxstrap.exe no instalēšanas vietas, vai pamēģinie
     <value>Vienreizēji</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigurē opcijas saistītas ar paša Bloxstrap uzvedību.</value>
+    <value>Konfigurē opcijas saistītas ar paša reistrap uzvedību.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Iespējo analītiku sūtīšanu</value>
@@ -1145,9 +1145,9 @@ Vai jūs vēlaties iespējot testēšanas režīmu?</value>
     <value>Pielāgot</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap centās jaunināt Roblox, bet nevarēja, jo Roblox faili vēl tiek izmantoti.
+    <value>reistrap centās jaunināt Roblox, bet nevarēja, jo Roblox faili vēl tiek izmantoti.
 
-Lūdzu aizveriet jebkuras aplikācijas, kas varētu izmantot Roblox failu un vēlreiz atveriet Bloxstrap.</value>
+Lūdzu aizveriet jebkuras aplikācijas, kas varētu izmantot Roblox failu un vēlreiz atveriet reistrap.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">
@@ -1165,11 +1165,11 @@ Lūdzu aizveriet jebkuras aplikācijas, kas varētu izmantot Roblox failu un vē
     <value>Savākt informāciju, kas var tikt augšupielādēta tiešsaistē, lai palīdzētu atrisināt problēmu, kas jums ir.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap konfigurācija</value>
+    <value>reistrap konfigurācija</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Visi Bloxstrap žurnāli</value>
+    <value>Visi reistrap žurnāli</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

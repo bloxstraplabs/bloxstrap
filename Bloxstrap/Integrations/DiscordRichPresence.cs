@@ -393,6 +393,11 @@ namespace Bloxstrap.Integrations
                 _ => $"by {universeDetails.Data.Creator.Name}" + (universeDetails.Data.Creator.HasVerifiedBadge ? " ☑️" : ""),
             };
 
+            var profile = GameProfiles.Find(placeId, activity.UniverseId);
+
+            if (!String.IsNullOrWhiteSpace(profile?.DiscordStatus))
+                status = profile.DiscordStatus.Trim()[..Math.Min(profile.DiscordStatus.Trim().Length, 128)];
+
             string universeName = universeDetails.Data.Name;
 
             if (universeName.Length < 2)
@@ -402,6 +407,7 @@ namespace Bloxstrap.Integrations
             {
                 Details = universeName,
                 State = status,
+                StatusDisplay = App.Settings.Prop.UseCustomStatusDisplay ? StatusDisplayType.Details : StatusDisplayType.Name,
                 Timestamps = new Timestamps { Start = timeStarted.ToUniversalTime() },
                 Buttons = GetButtons(),
                 Assets = new Assets

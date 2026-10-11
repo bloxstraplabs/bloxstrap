@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap nije se uspješno automatski ažurirao do verzije {0}. Molimo vas ažurirajte ga putem instaliranja i pokrenuti ga sa stranice.</value>
+    <value>reistrap nije se uspješno automatski ažurirao do verzije {0}. Molimo vas ažurirajte ga putem instaliranja i pokrenuti ga sa stranice.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox je trenutno pokrenut, pokretanjem nove igre će zatvoriti trenutnu, jeste li sigurni da želite pokrenuti novu igru?</value>
@@ -127,13 +127,13 @@
     <value>Roblox je možda neaktivan u ovo vrijeme. Pogledaj {0} za više informacija.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Veza nije mogla biti uspostavljena, što vjerovatno ukazuje na lošu internet vezu ili blokadu zaštitnog zida. Ako je vaša veza u redu, uvjerite se da vaš antivirus ne blokira Bloxstrap.</value>
+    <value>Veza nije mogla biti uspostavljena, što vjerovatno ukazuje na lošu internet vezu ili blokadu zaštitnog zida. Ako je vaša veza u redu, uvjerite se da vaš antivirus ne blokira reistrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Morate prvo instalirati Bloxstrap prije deinstalacije.</value>
+    <value>Morate prvo instalirati reistrap prije deinstalacije.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nema dovoljno disk memorije da instalira Roblox. Molimo vas oslobodite mjesta i pokušajte opet.</value>
+    <value>reistrap nema dovoljno disk memorije da instalira Roblox. Molimo vas oslobodite mjesta i pokušajte opet.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Postavljanje Roblox modifikacija...</value>
@@ -158,7 +158,7 @@
     <value>Ažuriranje {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Dobivanje najnovijeg Bloxstrap-a...</value>
+    <value>Dobivanje najnovijeg reistrap-a...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Čekanje za druge slučajeve...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap je uspješno deinstaliran</value>
+    <value>reistrap je uspješno deinstaliran</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox je trenutno pokrenut, ali mora biti zatvoren prije deinstaliranja Bloxstrapa. Želite li zatvoriti Roblox?</value>
+    <value>Roblox je trenutno pokrenut, ali mora biti zatvoren prije deinstaliranja reistrapa. Želite li zatvoriti Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox zahtijeva korištenje Windows Media Foundation komponenti. Izgleda da vam nedostaju, vjerovatno zbog korištenja N izdanja Windows-a. Molimo vas instalirajte ih prvo, i onda pokrenite Roblox.</value>
@@ -278,14 +278,14 @@
     <value>Greška u konekciji</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap nije moguće povezati na {0}</value>
+    <value>reistrap nije moguće povezati na {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Kopiraj sadržaj log-a</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Izuzetak</value>
+    <value>reistrap Izuzetak</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Prilagođeno</value>
@@ -300,10 +300,10 @@
     <value>Lažni Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klasično)</value>
+    <value>reistrap (Klasično)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Staklo)</value>
+    <value>reistrap (Staklo)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Naslijeđe (2008 - 2011)</value>
@@ -369,10 +369,10 @@
     <value>Svjetlo</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap je nadograđen na verziju v{0}</value>
+    <value>reistrap je nadograđen na verziju v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Verzija Bloxstrap-a koju ste pokrenuli razlikuje se od verzije koju trenutno imate instaliranu. 
+    <value>Verzija reistrap-a koju ste pokrenuli razlikuje se od verzije koju trenutno imate instaliranu. 
 Želite li nadograditi svoju trenutnu instaliranu verziju?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -382,7 +382,7 @@
     <value>Kod</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Ovo su ljudi koji su dali značajan doprinos Bloxstrapu, pomažući da postane ono što jest.</value>
+    <value>Ovo su ljudi koji su dali značajan doprinos reistrapu, pomažući da postane ono što jest.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Ideje za funkcionalnosti</value>
@@ -428,7 +428,7 @@
     <value>Imajte na umu da se neće sve vaše promjene primjeniti sve dok ne zatvorite sve trenutno otvorene Roblox primere.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap je već pokrenut</value>
+    <value>reistrap je već pokrenut</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Možete ga napraviti da izgleda drugačije, retro, ili čak samo kao Roblox.</value>
@@ -455,7 +455,7 @@
     <value>Naslov</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfiguriši kako će Bloxstrap da izgleda.</value>
+    <value>Konfiguriši kako će reistrap da izgleda.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globalna tema</value>
@@ -479,10 +479,10 @@
     <value>Izgled</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap će automatski provjeriti i nadogratiti se kada se Roblox pokrene.</value>
+    <value>reistrap će automatski provjeriti i nadogratiti se kada se Roblox pokrene.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatsko ažuriranje Bloxstrap-a</value>
+    <value>Automatsko ažuriranje reistrap-a</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Spriječiti zatvaranje vaše postojeće igre prilikom slučajnog pokretanja druge.</value>
@@ -491,7 +491,7 @@
     <value>Pitaj za potvrdu prilikom pokretanja drugog slučaja Roblox-a</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfiguriši što Bloxstrap treba napraviti kada se pokrene Roblox.</value>
+    <value>Konfiguriši što reistrap treba napraviti kada se pokrene Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox će biti svježe instaliran sljedeći put kada se bude pokrenuo.</value>
@@ -593,10 +593,10 @@ Jeste li sigurni da želite nastaviti?</value>
     <value>Fajlovi ikona</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap se ne može instalirati ovdje. Molimo vas izaberite drugu lokaciju ili koristite zadanu lokaciju pritiskom na dugme za resetiranje.</value>
+    <value>reistrap se ne može instalirati ovdje. Molimo vas izaberite drugu lokaciju ili koristite zadanu lokaciju pritiskom na dugme za resetiranje.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Folder koji ste izabrali za instalaciju Bloxstrap-a već postoji i NIJE prazan. Preporučuje se da se Bloxstrap instalira u vlastiti, zasebni folder.
+    <value>Folder koji ste izabrali za instalaciju reistrap-a već postoji i NIJE prazan. Preporučuje se da se reistrap instalira u vlastiti, zasebni folder.
 
 Preporučuje se promjena na sljedeću lokaciju:
 {0}
@@ -609,7 +609,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Morate postaviti lokaciju instalacije</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nema write pristup lokaciji koju ste odabrali. Molimo vas odaberite drugu lokaciju.</value>
+    <value>reistrap nema write pristup lokaciji koju ste odabrali. Molimo vas odaberite drugu lokaciju.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Praćenje aktivnosti</value>
@@ -660,7 +660,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Ne izlazi u Desktop aplikaciju</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Dozvoljava Bloxstrapu da detektira koju Roblox igru igrate. Određene funkcije mogu zahtijevati ovo.</value>
+    <value>Dozvoljava reistrapu da detektira koju Roblox igru igrate. Određene funkcije mogu zahtijevati ovo.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Uključi praćenje aktivnosti</value>
@@ -748,7 +748,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Postavke sačuvane!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap postavke</value>
+    <value>reistrap postavke</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Izaberi željeni jezik</value>
@@ -769,7 +769,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Renderiranje i Grafika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Dozvoli Bloxstrap-u da upravlja Fast Flagovima</value>
+    <value>Dozvoli reistrap-u da upravlja Fast Flagovima</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Isključivanje ovoga će spriječiti primjenu bilo čega konfiguriranog ovdje na Roblox.</value>
@@ -793,7 +793,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Nivo 3 (Najviši)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap ne može preuzeti Roblox</value>
+    <value>reistrap ne može preuzeti Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Trenutno nije moguće preuzeti Roblox. Molimo pročitajte sljedeću stranicu pomoći za više informacija: {0}</value>
@@ -811,7 +811,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <comment>Do not translate 'True' and 'False', those must stay in English</comment>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Neće biti zapisan log fajl za ovo pokretanje jer Bloxstrap nije u mogućnosti zapisivati u folder na '{0}'</value>
+    <value>Neće biti zapisan log fajl za ovo pokretanje jer reistrap nije u mogućnosti zapisivati u folder na '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Zadano</value>
@@ -826,7 +826,7 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Unos za '{0}' nije važeći jer filter mjesta nije pravilno formatiran.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Installer</value>
+    <value>reistrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Dobrodošli</value>
@@ -845,16 +845,16 @@ Odabirom 'Ne' će ignorisati ovo upozorenje i nastaviti instalaciju.</value>
     <value>Naprijed</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Hvala na preuzimanju Bloxstrap-a.
-Jedina službena web stranica za preuzimanju Bloxstrap su {0} i {1}, zato molimo vas da potvrdite da ste ju dobili od službenog izvora.
-Ovaj proces instalacije će biti brz i jednostavan, i moći ćete konfigurisati bilo koju Bloxstrapovu postavku nakon instalacije.</value>
+    <value>Hvala na preuzimanju reistrap-a.
+Jedina službena web stranica za preuzimanju reistrap su {0} i {1}, zato molimo vas da potvrdite da ste ju dobili od službenog izvora.
+Ovaj proces instalacije će biti brz i jednostavan, i moći ćete konfigurisati bilo koju reistrapovu postavku nakon instalacije.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Molimo vas kliknite 'Naprijed' da nastavite.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Pokušavate instalirati verziju {0} Bloxstrapa, ali najnovija verzija {1} je dostupna. Bi li ju željeli preuzeti?</value>
+    <value>Pokušavate instalirati verziju {0} reistrapa, ali najnovija verzija {1} je dostupna. Bi li ju željeli preuzeti?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Odaberi gdje ćete instalirati</value>
@@ -875,16 +875,16 @@ Ovaj proces instalacije će biti brz i jednostavan, i moći ćete konfigurisati 
     <value>Ikona start menija</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap je uspješno instaliran.
+    <value>reistrap je uspješno instaliran.
 
-Roblox još nije instaliran, to će se dogoditi kada ga prvi put pokrenete s Bloxstrapom. Međutim, prije nego što to učinite, možda ćete htjeti prvo konfigurisati Bloxstrap postavke.
+Roblox još nije instaliran, to će se dogoditi kada ga prvi put pokrenete s reistrapom. Međutim, prije nego što to učinite, možda ćete htjeti prvo konfigurisati reistrap postavke.
 
-Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Robloxa, jer se Bloxstrap neće pokrenuti s Robloxom. Ako ne vidite Bloxstrap prilikom pokretanja s web-mjesta, jednostavno pokrenite Roblox s Bloxstrapom jednom sa radne površine da biste to popravili.
+Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Robloxa, jer se reistrap neće pokrenuti s Robloxom. Ako ne vidite reistrap prilikom pokretanja s web-mjesta, jednostavno pokrenite Roblox s reistrapom jednom sa radne površine da biste to popravili.
 
 šta biste željeli raditi?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigurirajte Bloxstrap postavke</value>
+    <value>Konfigurirajte reistrap postavke</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Podešavanje sa svim funkcijama koje nudi</value>
@@ -896,13 +896,13 @@ Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Roblox
     <value>Preselit će vas u desktop aplikaciju kada sve bude gotovo</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Deinstalirajte Bloxstrap</value>
+    <value>Deinstalirajte reistrap</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Zadrži moja podešavanja i modove</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Oni će se sačuvati tamo gdje je instaliran Bloxstrap i automatski će biti vraćeni pri ponovnoj instalaciji.</value>
+    <value>Oni će se sačuvati tamo gdje je instaliran reistrap i automatski će biti vraćeni pri ponovnoj instalaciji.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Deinstalirati</value>
@@ -923,13 +923,13 @@ Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Roblox
     <value>Trenutno nemate instalirano vrijeme izvođenja WebView2. Neke funkcije Robloxa neće raditi ispravno bez njega, kao što je desktop aplikacija. Želite li ga preuzeti?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nije mogao da stvori prečice za radnu površinu i meni Start. Pokušajte ih kreirati kasnije kroz postavke.</value>
+    <value>reistrap nije mogao da stvori prečice za radnu površinu i meni Start. Pokušajte ih kreirati kasnije kroz postavke.</value>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Ovo su opšte prečice koje otvaraju meni za pokretanje sa više opcija. Prečice za određene funkcije mogu se kreirati kasnije u postavkama.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Konfigurirajte kako se Bloxstrap može lako pokrenuti.</value>
+    <value>Konfigurirajte kako se reistrap može lako pokrenuti.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Općenito</value>
@@ -959,7 +959,7 @@ Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Roblox
     <value>Molimo pričekajte da se deinstalacija završi.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>O Bloxstrapu</value>
+    <value>O reistrapu</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licence</value>
@@ -972,7 +972,7 @@ Također, izbjegavajte korištenje prečice "Roblox Player" za pokretanje Roblox
     <value>Imate nesačuvane promjene. Jeste li sigurni da želite zatvoriti bez spremanja?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Verzija Bloxstrapa koju ste pokrenuli starija je od verzije koju ste trenutno instalirali.
+    <value>Verzija reistrapa koju ste pokrenuli starija je od verzije koju ste trenutno instalirali.
 Mogu se pojaviti problemi i vaše postavke mogu biti promijenjene. Preporučuje se ponovna instalacija.
 Jeste li sigurni da želite nastaviti?</value>
   </data>
@@ -1017,12 +1017,12 @@ Svaka osoba ovdje je rangirana prema ukupnom obećanju.</value>
     <value>Za ovo lansiranje, Roblox se neće provjeravati za nadogradnje, a promjene u modovima neće biti primijenjene.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Budući da Roblox treba instalirati ili nadograditi, Bloxstrap ne može nastaviti.</value>
+    <value>Budući da Roblox treba instalirati ili nadograditi, reistrap ne može nastaviti.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap je već bio instaliran na ovu lokaciju i još uvijek je prisutan, međutim instalater ne može prepisati stari izvršni fajl. 
+    <value>reistrap je već bio instaliran na ovu lokaciju i još uvijek je prisutan, međutim instalater ne može prepisati stari izvršni fajl. 
 
-Molimo ručno izbrišite Bloxstrap.exe sa lokacije za instalaciju ili pokušajte ponovo pokrenuti sistem, a zatim ponovo pokušajte instalaciju.</value>
+Molimo ručno izbrišite reistrap.exe sa lokacije za instalaciju ili pokušajte ponovo pokrenuti sistem, a zatim ponovo pokušajte instalaciju.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Nije dostupno</value>
@@ -1034,7 +1034,7 @@ Molimo ručno izbrišite Bloxstrap.exe sa lokacije za instalaciju ili pokušajte
     <value>Konfigurirajte parametre aplikacije kao što su ponašanje DPI skaliranja i [optimizacije preko cijelog ekrana] ({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox još nije instaliran. Pokrenite Roblox koristeći Bloxstrap barem jednom prije nego što pokušate koristiti ovu opciju.</value>
+    <value>Roblox još nije instaliran. Pokrenite Roblox koristeći reistrap barem jednom prije nego što pokušate koristiti ovu opciju.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Jeste li sigurni da želite prekinuti ovu instalaciju?</value>
@@ -1052,10 +1052,10 @@ Molimo ručno izbrišite Bloxstrap.exe sa lokacije za instalaciju ili pokušajte
     <value>Izvucite Roblox ikone u fascikl</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Omogućava vam da koristite Bloxstrap asortiman Roblox ikona za svoje prečice. [Pogledajte kako.]({0})</value>
+    <value>Omogućava vam da koristite reistrap asortiman Roblox ikona za svoje prečice. [Pogledajte kako.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap ne može pisati u Windows Registry. Antivirus vjerovatno ometa i uzrokuje probleme. Molimo provjerite da ne postoji ništa što bi ograničilo rad Bloxstrapa.</value>
+    <value>reistrap ne može pisati u Windows Registry. Antivirus vjerovatno ometa i uzrokuje probleme. Molimo provjerite da ne postoji ništa što bi ograničilo rad reistrapa.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mjesečno</value>
@@ -1064,7 +1064,7 @@ Molimo ručno izbrišite Bloxstrap.exe sa lokacije za instalaciju ili pokušajte
     <value>Jednokratno</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfiguiraj opcije povezane sa samim ponašanjem Bloxstrapa.</value>
+    <value>Konfiguiraj opcije povezane sa samim ponašanjem reistrapa.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Omogućite slanje analitike</value>
@@ -1110,7 +1110,7 @@ Dok je omogućen, automatski će pokrenuti Roblox nakon zatvaranja postavki i po
     <value>Prilagođeno</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap je pokušao nadograditi Roblox, ali ne može jer se Robloxovi fajlovi još uvijek koriste.
+    <value>reistrap je pokušao nadograditi Roblox, ali ne može jer se Robloxovi fajlovi još uvijek koriste.
 
 Zatvorite sve aplikacije koje možda koriste Robloxove datoteke i ponovo ih pokrenite.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1130,7 +1130,7 @@ Zatvorite sve aplikacije koje možda koriste Robloxove datoteke i ponovo ih pokr
     <value>Sakupi informacije koje se mogu prenijeti na internet kako biste riješili problem koji imate.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap konfiguracija</value>
+    <value>reistrap konfiguracija</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">

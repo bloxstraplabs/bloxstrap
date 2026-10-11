@@ -37,6 +37,43 @@
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding WebEnvironments, Mode=OneWay}" SelectedValue="{Binding WebEnvironment, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Bloxstrap_Backup_Title}"
+            Description="{x:Static resources:Strings.Menu_Bloxstrap_Backup_Description}">
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Icon="Save24" Content="{x:Static resources:Strings.Menu_Bloxstrap_Backup_Create}" Command="{Binding CreateBackupCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="ArrowImport24" Content="{x:Static resources:Strings.Menu_Bloxstrap_Backup_Restore}" Command="{Binding RestoreBackupCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True" Visibility="{Binding ImportVisibility, Mode=OneTime}">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_Bloxstrap_Import_Title}" />
+                        <TextBlock FontSize="12" Text="{x:Static resources:Strings.Menu_Bloxstrap_Import_Description}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ComboBox Grid.Column="1" Width="140" Margin="0,0,8,0" Padding="10,5,10,5" ItemsSource="{Binding ImportSources.Keys, Mode=OneTime}" SelectedItem="{Binding SelectedImportSource, Mode=TwoWay}" />
+                    <ui:Button Grid.Column="2" MinWidth="100" Margin="0,0,16,0" Icon="ArrowImport24" Content="{x:Static resources:Strings.Common_Import}" Command="{Binding ImportCommand}" />
+                </Grid>
+            </ui:CardExpander.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" Content="{x:Static resources:Strings.Menu_Bloxstrap_Import_Settings}" IsChecked="{Binding ShouldImportSettings}" />
+                <CheckBox Grid.Column="1" Content="{x:Static resources:Strings.Menu_Bloxstrap_Import_FastFlags}" IsChecked="{Binding ShouldImportFastFlags}" />
+                <CheckBox Grid.Column="2" Content="{x:Static resources:Strings.Menu_Bloxstrap_Import_Mods}" IsChecked="{Binding ShouldImportMods}" />
+            </Grid>
+        </ui:CardExpander>
+
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
             <ui:CardExpander.Header>
                 <Grid>

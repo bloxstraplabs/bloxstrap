@@ -1,0 +1,119 @@
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.RobloxPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:dmodels="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance dmodels:RobloxSettingsViewModel}"
+      d:DesignHeight="1200" d:DesignWidth="800"
+      Title="RobloxPage"
+      Scrollable="True">
+
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Roblox_Description}" TextWrapping="Wrap" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Title}" FontSize="20" FontWeight="Medium" Margin="0,8,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <ui:InfoBar Margin="0,8,0,0" Padding="8" IsOpen="True" IsClosable="False" Severity="Informational" Message="{x:Static resources:Strings.Menu_Roblox_Settings_Missing}" Visibility="{Binding MissingVisibility, Mode=OneTime}" />
+
+        <StackPanel Visibility="{Binding EditorVisibility, Mode=OneTime}">
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_FramerateCap_Title}" Description="{x:Static resources:Strings.Menu_Roblox_FramerateCap_Description}">
+                <ui:TextBox Width="120" Padding="10,5,10,5" PlaceholderText="{x:Static resources:Strings.Common_Default}" Text="{Binding FramerateCap, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" PreviewTextInput="ValidateNumber" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Quality_Title}">
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding QualityLevels, Mode=OneTime}" SelectedItem="{Binding QualityLevel, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Volume_Title}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding MasterVolume, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding MasterVolume, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Sensitivity_Title}">
+                <ui:TextBox Width="120" Padding="10,5,10,5" Text="{Binding MouseSensitivity, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Fullscreen_Title}">
+                <ui:ToggleSwitch IsChecked="{Binding Fullscreen, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_PerformanceStats_Title}">
+                <ui:ToggleSwitch IsChecked="{Binding PerformanceStats, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_ReducedMotion_Title}">
+                <ui:ToggleSwitch IsChecked="{Binding ReducedMotion, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_CameraYInverted_Title}">
+                <ui:ToggleSwitch IsChecked="{Binding CameraYInverted, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Lock_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Lock_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding LockSettingsFile, Mode=TwoWay}" />
+            </controls:OptionControl>
+        </StackPanel>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Window_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_WindowTitle_Title}" Description="{x:Static resources:Strings.Menu_Roblox_WindowTitle_Description}">
+            <ui:TextBox Width="200" Padding="10,5,10,5" PlaceholderText="Roblox" Text="{Binding RobloxWindowTitle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Borderless_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Borderless_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding RobloxBorderless, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Enabled}" x:Name="CrosshairOption">
+            <ui:ToggleSwitch IsChecked="{Binding CrosshairEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <StackPanel IsEnabled="{Binding InnerContent.IsChecked, ElementName=CrosshairOption, Mode=OneWay}">
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Style}">
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding CrosshairStyles, Mode=OneTime}" SelectedItem="{Binding CrosshairStyle, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Color}">
+                <ui:TextBox Width="120" Padding="10,5,10,5" PlaceholderText="#00FF00" Text="{Binding CrosshairColor, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Size}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="2" Maximum="40" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding CrosshairSize, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding CrosshairSize, Mode=OneWay, StringFormat={}{0:0}}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Thickness}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding CrosshairThickness, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding CrosshairThickness, Mode=OneWay, StringFormat={}{0:0}}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Gap}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="20" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding CrosshairGap, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding CrosshairGap, Mode=OneWay, StringFormat={}{0:0}}" />
+                </StackPanel>
+            </controls:OptionControl>
+        </StackPanel>
+    </StackPanel>
+</ui:UiPage>

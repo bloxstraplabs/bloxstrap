@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyko automatiškai atnaujinti į {0} versiją. Atnaujinkite ją rankiniu būdu atsisiųsdami ir paleisdami iš svetainės.</value>
+    <value>„reistrap“ nepavyko automatiškai atnaujinti į {0} versiją. Atnaujinkite ją rankiniu būdu atsisiųsdami ir paleisdami iš svetainės.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>„Roblox“ šiuo metu paleista, o paleidus kitą serverį ji bus užverta. Ar tikrai norite tęsti paleidimą?</value>
@@ -127,13 +127,13 @@
     <value>„Roblox“ šiuo metu gali būti neveikianti. Žiūrėkite {0} dėl daugiau informacijos.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Ryšio užmegzti nepavyko, o tai greičiausiai reiškia prastą interneto ryšį arba užkardos blokavimą. Jei ryšys veikia gerai, įsitikinkite, kad jūsų antivirusinė programa neblokuoja „Bloxstrap“.</value>
+    <value>Ryšio užmegzti nepavyko, o tai greičiausiai reiškia prastą interneto ryšį arba užkardos blokavimą. Jei ryšys veikia gerai, įsitikinkite, kad jūsų antivirusinė programa neblokuoja „reistrap“.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Prieš išdiegdami „Bloxstrap“, pirmiausia turite įdiegti „Bloxstrap“.</value>
+    <value>Prieš išdiegdami „reistrap“, pirmiausia turite įdiegti „reistrap“.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>„Bloxstrap“ neturi pakankamai vietos diske, kad galėtų atsisiųsti ir įdiegti „Roblox“. Atlaisvinkite šiek tiek vietos diske ir bandykite dar kartą.</value>
+    <value>„reistrap“ neturi pakankamai vietos diske, kad galėtų atsisiųsti ir įdiegti „Roblox“. Atlaisvinkite šiek tiek vietos diske ir bandykite dar kartą.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Taikomos „Roblox“ modifikacijos...</value>
@@ -158,7 +158,7 @@
     <value>Atnaujinama „{product}“...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Gaunamas naujausias „Bloxstrap“...</value>
+    <value>Gaunamas naujausias „reistrap“...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Laukiama kitų serverių...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>„Bloxstrap“ sėkmingai išdiegta</value>
+    <value>„reistrap“ sėkmingai išdiegta</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>„Roblox“ šiuo metu paleista, bet prieš išdiegiant „Bloxstrap“ turi būti užverta. Ar norėtumėte dabar užverti „Roblox“?</value>
+    <value>„Roblox“ šiuo metu paleista, bet prieš išdiegiant „reistrap“ turi būti užverta. Ar norėtumėte dabar užverti „Roblox“?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>„Roblox“ reikia naudoti „Windows Media Foundation“ komponentus. Atrodo, kad jų trūksta, greičiausiai dėl to, kad naudojate „Windows“ N laidą. Pirmiausia juos įdiekite, tada paleiskite „Roblox“.</value>
@@ -279,7 +279,7 @@ Spustelėkite dėl daugiau informacijos.</value>
     <value>Ryšio klaida</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyksta prisijungti prie {0}.</value>
+    <value>„reistrap“ nepavyksta prisijungti prie {0}.</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Spustelėkite dėl daugiau informacijos.</value>
 Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu su žurnalo failu.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>„Bloxstrap“ išimtis</value>
+    <value>„reistrap“ išimtis</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Pasirinktinis</value>
@@ -309,10 +309,10 @@ Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu 
     <value>Netikras „Byfron“ (2023 m.)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>„Bloxstrap“ (klasikinis)</value>
+    <value>„reistrap“ (klasikinis)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>„Bloxstrap“ (stiklinis)</value>
+    <value>„reistrap“ (stiklinis)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>„Legacy“ (2008-2011 m.)</value>
@@ -378,10 +378,10 @@ Jei ne, praneškite apie šią išimtį per [„GitHub“ problemą]({1}) kartu 
     <value>Šviesi</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>„Bloxstrap“ buvo atnaujintas į v{0}.</value>
+    <value>„reistrap“ buvo atnaujintas į v{0}.</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Paleista „Bloxstrap“ versija skiriasi nuo šiuo metu įdiegtos versijos.
+    <value>Paleista „reistrap“ versija skiriasi nuo šiuo metu įdiegtos versijos.
 Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -391,7 +391,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Programuotojai</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Tai – žmonės, kurie labai prisidėjo indėlį į „Bloxstrap“ ir padėjo jai tapti tuo, kuo ji yra.</value>
+    <value>Tai – žmonės, kurie labai prisidėjo indėlį į „reistrap“ ir padėjo jai tapti tuo, kuo ji yra.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Funkcijų idėjos</value>
@@ -437,7 +437,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Atkreipkite dėmesį, kad ne visi pakeitimai bus taikomi iš karto, kol neužversite visų šiuo metu atvertų „Roblox“ serverių.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>„Bloxstrap“ jau paleista</value>
+    <value>„reistrap“ jau paleista</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Galite padaryti jį kitaip, retro ar net kaip „Roblox“.</value>
@@ -464,7 +464,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Pavadinimas</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfigūruokite, kaip turėtų atrodyti „Bloxstrap“.</value>
+    <value>Konfigūruokite, kaip turėtų atrodyti „reistrap“.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Visuotinė tema</value>
@@ -488,10 +488,10 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Išvaizda</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>„Bloxstrap“ automatiškai patikrins ir atnaujins save paleidus „Roblox“.</value>
+    <value>„reistrap“ automatiškai patikrins ir atnaujins save paleidus „Roblox“.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatiškai atnaujinti „Bloxstrap“</value>
+    <value>Automatiškai atnaujinti „reistrap“</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Užkirskite kelią atsitiktiniam esamo žaidimo užvėrimui, kad netyčia nebūtų paleistas kitas žaidimas.</value>
@@ -500,7 +500,7 @@ Ar norėtumėte atnaujinti šiuo metu įdiegtą versiją?</value>
     <value>Raginti patvirtinti paleidžiant kitą „Roblox“ serverį</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigūruokite, ką „Bloxstrap“ turėtų daryti paleidžiant „Roblox“.</value>
+    <value>Konfigūruokite, ką „reistrap“ turėtų daryti paleidžiant „Roblox“.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Kitą kartą paleidus „Roblox“ bus įdiegta nauja.</value>
@@ -602,10 +602,10 @@ Ar tikrai norite tęsti?</value>
     <value>Piktogramų failai</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Čia negalima įdiegti „Bloxstrap“. Pasirinkite kitą vietą arba naudokite numatytąją vietą spustelėdami mygtuką Atkurti.</value>
+    <value>Čia negalima įdiegti „reistrap“. Pasirinkite kitą vietą arba naudokite numatytąją vietą spustelėdami mygtuką Atkurti.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Aplankas, į kurį pasirinkote įdiegti „Bloxstrap“, jau egzistuoja ir nėra tuščias. Labai rekomenduojama „Bloxstrap“ įdiegti į atskirą aplanką.
+    <value>Aplankas, į kurį pasirinkote įdiegti „reistrap“, jau egzistuoja ir nėra tuščias. Labai rekomenduojama „reistrap“ įdiegti į atskirą aplanką.
 
 Siūloma pakeisti šią vietą:
 {0}
@@ -618,7 +618,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Turite nustatyti diegimo vietą.</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>„Bloxstrap“ neturi rašymo prieigos prie pasirinktos diegimo vietos. Pasirinkite kitą vietą.</value>
+    <value>„reistrap“ neturi rašymo prieigos prie pasirinktos diegimo vietos. Pasirinkite kitą vietą.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Veiklos sekimas</value>
@@ -669,7 +669,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Neišeiti iki darbalaukio programos</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Leidžia „Bloxstrap“ nustatyti, kokį „Roblox“ žaidimą žaidžiate. Tam tikroms funkcijoms to gali prireikti.</value>
+    <value>Leidžia „reistrap“ nustatyti, kokį „Roblox“ žaidimą žaidžiate. Tam tikroms funkcijoms to gali prireikti.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Įjungti veiklos sekimą</value>
@@ -757,7 +757,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Nustatymai išsaugoti.</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>„Bloxstrap“ nustatymai</value>
+    <value>„reistrap“ nustatymai</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Pasirinkite pageidaujamą kalbą</value>
@@ -778,7 +778,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Atvaizdavimas ir grafika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Leisti „Bloxstrap“ tvarkyti „Fast Flags“</value>
+    <value>Leisti „reistrap“ tvarkyti „Fast Flags“</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Išjungus šią funkciją, „Roblox“ nebus taikoma jokia čia sukonfigūruota funkcija.</value>
@@ -802,7 +802,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>3 lygis (aukščiausia)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyksta atsisiųsti „Roblox“</value>
+    <value>„reistrap“ nepavyksta atsisiųsti „Roblox“</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>„Roblox“ šiuo metu atsisiųsti negalima. Skaitykite toliau esantį pagalbos puslapį dėl papildomos informacijos: {0}</value>
@@ -823,7 +823,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Elementas „{0}“ netinkamas, nes reikšmė turi būti sveikasis skaičius.</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Šis paleidimas nebus įrašytas į žurnalą, nes „Bloxstrap“ nepavyksta įrašyti į aplanką adresu „{0}“.</value>
+    <value>Šis paleidimas nebus įrašytas į žurnalą, nes „reistrap“ nepavyksta įrašyti į aplanką adresu „{0}“.</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Numatytasis</value>
@@ -838,7 +838,7 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Elementas „{0}“ netinkamas, nes vietos filtras suformatuotas neteisingai.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>„Bloxstrap“ diegyklė</value>
+    <value>„reistrap“ diegyklė</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Sveiki atvykę</value>
@@ -857,18 +857,18 @@ Pasirinkus Ne, šis įspėjimas bus ignoruojamas ir diegimas bus tęsiamas.</val
     <value>Toliau</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Dėkojame, kad atsisiuntėte „Bloxstrap“. 
+    <value>Dėkojame, kad atsisiuntėte „reistrap“. 
 
-Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „Bloxstrap“, yra {0} ir {1}, todėl patikrinkite, ar ją gavote iš oficialaus šaltinio.
+Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „reistrap“, yra {0} ir {1}, todėl patikrinkite, ar ją gavote iš oficialaus šaltinio.
 
-Šis diegimo procesas bus greitas ir paprastas, o įdiegus galėsite konfigūruoti bet kokius „Bloxstrap“ nustatymus.</value>
+Šis diegimo procesas bus greitas ir paprastas, o įdiegus galėsite konfigūruoti bet kokius „reistrap“ nustatymus.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Spustelėkite Toliau, kad tęstumėte.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Bandote įdiegti {0} „Bloxstrap“ versiją, bet naujausia versija yra {1}. Ar norėtumėte ją atsisiųsti?</value>
+    <value>Bandote įdiegti {0} „reistrap“ versiją, bet naujausia versija yra {1}. Ar norėtumėte ją atsisiųsti?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Pasirinkite, kur įdiegti</value>
@@ -889,16 +889,16 @@ Vienintelės oficialios svetainės, iš kurių galima atsisiųsti „Bloxstrap�
     <value>Pradžios meniu piktograma</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>„Bloxstrap“ sėkmingai įdiegta.
+    <value>„reistrap“ sėkmingai įdiegta.
 
-„Roblox“ dar neįdiegtas, tai įvyks, kai pirmą kartą jį paleisite su „Bloxstrap“. Tačiau prieš tai galbūt norėsite pirmiausia sukonfigūruoti „Bloxstrap“ nustatymus.
+„Roblox“ dar neįdiegtas, tai įvyks, kai pirmą kartą jį paleisite su „reistrap“. Tačiau prieš tai galbūt norėsite pirmiausia sukonfigūruoti „reistrap“ nustatymus.
 
-Be to, venkite naudoti „Roblox Player“ nuorodą „Roblox“ paleisti, nes „Bloxstrap“ nebus paleista kartu su „Roblox“. Jei paleidžiant iš svetainės nematote, kad rodomas „Bloxstrap“, tiesiog vieną kartą paleiskite „Roblox“ su „Bloxstrap“ iš darbalaukio, kad tai išspręstumėte.
+Be to, venkite naudoti „Roblox Player“ nuorodą „Roblox“ paleisti, nes „reistrap“ nebus paleista kartu su „Roblox“. Jei paleidžiant iš svetainės nematote, kad rodomas „reistrap“, tiesiog vieną kartą paleiskite „Roblox“ su „reistrap“ iš darbalaukio, kad tai išspręstumėte.
 
 Ką norėtumėte daryti?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigūruoti „Bloxstrap“ nustatymus</value>
+    <value>Konfigūruoti „reistrap“ nustatymus</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Derinkite visas siūlomas funkcijas</value>
@@ -910,20 +910,20 @@ Ką norėtumėte daryti?</value>
     <value>Kai viskas bus atlikta, pateksite į darbalaukio programą</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Išdiegti „Bloxstrap“</value>
+    <value>Išdiegti „reistrap“</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Išdiegus bus pašalinta „Bloxstrap“ iš jūsų sistemos ir automatiškai perkonfigūruota numatytoji „Roblox“ paleidyklė, jei ji vis dar įdiegta.
+    <value>Išdiegus bus pašalinta „reistrap“ iš jūsų sistemos ir automatiškai perkonfigūruota numatytoji „Roblox“ paleidyklė, jei ji vis dar įdiegta.
 
-Išdiegimo procesas gali palikti kai kuriuos dalykus, todėl gali tekti rankiniu būdu išvalyti likusius failus, kur buvo įdiegta „Bloxstrap“.
+Išdiegimo procesas gali palikti kai kuriuos dalykus, todėl gali tekti rankiniu būdu išvalyti likusius failus, kur buvo įdiegta „reistrap“.
 
-„Bloxstrap“ buvo įdiegta vietoje „{1}“.</value>
+„reistrap“ buvo įdiegta vietoje „{1}“.</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Išlaikyti mano nustatymus ir modifikacijas</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Jie bus saugomi ten, kur buvo įdiegta „Bloxstrap“, ir bus automatiškai atkurti įdiegus iš naujo.</value>
+    <value>Jie bus saugomi ten, kur buvo įdiegta „reistrap“, ir bus automatiškai atkurti įdiegus iš naujo.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Išdiegti</value>
@@ -944,7 +944,7 @@ Išdiegimo procesas gali palikti kai kuriuos dalykus, todėl gali tekti rankiniu
     <value>Šiuo metu neturite įdiegę „WebView2“ vykdyklės. Be jos kai kurios „Roblox“ funkcijos, pavyzdžiui, darbalaukio programa, neveiks tinkamai. Ar norėtumėte ją atsisiųsti dabar?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>„Bloxstrap“ nepavyko sukurti darbalaukio ir pradžios meniu nuorodų. Bandykite juos sukurti vėliau per nustatymus.</value>
+    <value>„reistrap“ nepavyko sukurti darbalaukio ir pradžios meniu nuorodų. Bandykite juos sukurti vėliau per nustatymus.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Pirmiausia patikrinkite [„Bloxstrap“ vikį]({0}), kad pamatytumėte, ar ši problema jau išspręsta su sprendimu.
@@ -956,7 +956,7 @@ Jei ne, praneškite apie šią išimtį šio atšakos prižiūrėtojams. Neprane
     <value>Tai – bendrosios nuorodos, kurios iškelia daugiapasirinkimų paleidimo meniu. Konkrečių funkcijų nuorodas galima sukurti vėliau nustatymuose.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Konfigūruokite, kaip galima lengvai paleisti „Bloxstrap“.</value>
+    <value>Konfigūruokite, kaip galima lengvai paleisti „reistrap“.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Bendrieji</value>
@@ -986,7 +986,7 @@ Jei ne, praneškite apie šią išimtį šio atšakos prižiūrėtojams. Neprane
     <value>Palaukite, kol išdiegimas bus baigtas.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Apie „Bloxstrap“</value>
+    <value>Apie „reistrap“</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencijos</value>
@@ -999,14 +999,14 @@ Jei ne, praneškite apie šią išimtį šio atšakos prižiūrėtojams. Neprane
     <value>Turite neišsaugotų pakeitimų. Ar tikrai norite užverti neišsaugojus?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Paleista „Bloxstrap“ versija yra senesnė už šiuo metu įdiegtą versiją.
+    <value>Paleista „reistrap“ versija yra senesnė už šiuo metu įdiegtą versiją.
 Gali kilti problemų ir gali būti pakeisti jūsų nustatymai. Rekomenduojama iš naujo įdiegti.
 Ar tikrai norite tęsti?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>„Roblox“ nepavyko paleisti.
 
-Tai gali būti arba nebūti „Bloxstrap“ problema. Kad sužinotumėte, žiūrėkite [šį pagalbos puslapį]({0}).</value>
+Tai gali būti arba nebūti „reistrap“ problema. Kad sužinotumėte, žiūrėkite [šį pagalbos puslapį]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nepavyko įkelti duomenų dėl tinklo klaidos.</value>
@@ -1049,12 +1049,12 @@ Kiekvienas čia esantis žmogus vertinamas pagal bendrą pažadą.</value>
     <value>Šiam paleidimui „Roblox“ nebus tikrinama, ar nėra atnaujinimų, ir modifikacijų pakeitimai nebus taikomi.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Kadangi „Roblox“ reikia įdiegti arba atnaujinti, „Bloxstrap“ negalima tęsti.</value>
+    <value>Kadangi „Roblox“ reikia įdiegti arba atnaujinti, „reistrap“ negalima tęsti.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>„Bloxstrap“ į šią vietą buvo įdiegta anksčiau ir vis dar yra, bet diegyklė negali perrašyti senos vykdomosios programos. 
+    <value>„reistrap“ į šią vietą buvo įdiegta anksčiau ir vis dar yra, bet diegyklė negali perrašyti senos vykdomosios programos. 
 
-Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš naujo paleisti sistemą, o po to dar kartą bandykite įdiegti.</value>
+Rankiniu būdu ištrinkite reistrap.exe iš diegimo vietos arba bandykite iš naujo paleisti sistemą, o po to dar kartą bandykite įdiegti.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Nepasiekiama</value>
@@ -1066,7 +1066,7 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Konfigūruokite programos parametrus, pavyzdžiui, DPI mastelio keitimo elgseną ir [viso ekrano optimizavimą]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>„Roblox“ kol kas neįdiegta. Prieš bandydami naudoti šią parinktį, bent kartą paleiskite „Roblox“ naudojant „Bloxstrap“.</value>
+    <value>„Roblox“ kol kas neįdiegta. Prieš bandydami naudoti šią parinktį, bent kartą paleiskite „Roblox“ naudojant „reistrap“.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Ar tikrai norite atšaukti diegimą?</value>
@@ -1084,10 +1084,10 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Išskleisti „Roblox“ piktogramas į aplanką</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Leidžia naudoti „Bloxstrap“ „Roblox“ piktogramų asortimentą savo nuorodoms. [Žiūrėti, kaip.]({0})</value>
+    <value>Leidžia naudoti „reistrap“ „Roblox“ piktogramų asortimentą savo nuorodoms. [Žiūrėti, kaip.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>„Bloxstrap“ negali įrašyti į „Windows“ registrą. Greičiausiai trukdo antivirusinė programa ir sukelia problemų. Patikrinkite, ar nėra nieko, kas ribotų „Bloxstrap“ veikimą.</value>
+    <value>„reistrap“ negali įrašyti į „Windows“ registrą. Greičiausiai trukdo antivirusinė programa ir sukelia problemų. Patikrinkite, ar nėra nieko, kas ribotų „reistrap“ veikimą.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mėnesinis</value>
@@ -1096,7 +1096,7 @@ Rankiniu būdu ištrinkite Bloxstrap.exe iš diegimo vietos arba bandykite iš n
     <value>Vienkartinis</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Konfigūruokite parinktis, susijusias su pačios „Bloxstrap“ elgsena.</value>
+    <value>Konfigūruokite parinktis, susijusias su pačios „reistrap“ elgsena.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Įjungti analitikos siuntimą</value>
@@ -1145,7 +1145,7 @@ Ar norėtumėte įjungti bandymo režimą?</value>
     <value>Pasirinktinis</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>„Bloxstrap“ bandė atnaujinti „Roblox“, bet negali, nes „Roblox“ failai vis dar naudojami.
+    <value>„reistrap“ bandė atnaujinti „Roblox“, bet negali, nes „Roblox“ failai vis dar naudojami.
 
 Užverkite visas programas, kurios gali naudoti „Roblox“ failus, ir paleiskite iš naujo.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1165,11 +1165,11 @@ Užverkite visas programas, kurios gali naudoti „Roblox“ failus, ir paleiski
     <value>Surinkite informaciją, kurią galima įkelti į internetą ir išspręsti iškilusią problemą.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>„Bloxstrap“ konfigūracija</value>
+    <value>„reistrap“ konfigūracija</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Visi „Bloxstrap“ žurnalai</value>
+    <value>Visi „reistrap“ žurnalai</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

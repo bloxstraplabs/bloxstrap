@@ -55,13 +55,47 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <controls:OptionControl 
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <ItemsControl ItemsSource="{Binding AllowlistedFlags, Mode=OneTime}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <controls:OptionControl Header="{Binding Name, Mode=OneTime}" Description="{Binding Description, Mode=OneTime}">
+                        <Grid>
+                            <ui:ToggleSwitch IsChecked="{Binding BoolValue, Mode=TwoWay}" Visibility="{Binding BoolVisibility, Mode=OneTime}" />
+                            <ui:TextBox Width="120" Margin="5,0,0,0" Padding="10,5,10,5" PlaceholderText="{x:Static resources:Strings.Common_Default}" Text="{Binding NumberValue, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" PreviewTextInput="ValidateInt32" Visibility="{Binding NumberVisibility, Mode=OneTime}" />
+                        </Grid>
+                    </controls:OptionControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_FastFlags_Profiles_Saved}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Profiles}" SelectedItem="{Binding SelectedProfile, Mode=TwoWay}" />
+                <ui:Button Margin="8,0,0,0" Icon="ArrowDownload24" Content="{x:Static resources:Strings.Menu_FastFlags_Profiles_Load}" Command="{Binding LoadProfileCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding DeleteProfileCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_FastFlags_Profiles_SaveCurrent}">
+            <StackPanel Orientation="Horizontal">
+                <ui:TextBox Width="200" Padding="10,5,10,5" PlaceholderText="{x:Static resources:Strings.Menu_FastFlags_Profiles_NamePlaceholder}" Text="{Binding NewProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:Button Margin="8,0,0,0" Icon="Save24" Content="{x:Static resources:Strings.Common_Save}" Command="{Binding SaveProfileCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
             Margin="0,24,0,0"
             Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
             <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <ui:CardAction Margin="0,8,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}" Visibility="{Binding CanShowFastFlagEditor}">
+        <ui:CardAction Margin="0,8,0,0" Icon="EditSettings24" Command="{Binding OpenFastFlagEditorCommand}">
             <StackPanel>
                 <TextBlock FontSize="14" Text="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" />
                 <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.Menu_FastFlags_Editor_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />

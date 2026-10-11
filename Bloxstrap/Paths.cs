@@ -23,6 +23,7 @@
         public static string Versions { get; private set; } = "";
         public static string Modifications { get; private set; } = "";
         public static string CustomThemes { get; private set; } = "";
+        public static string FastFlagProfiles { get; private set; } = "";
 
         public static string Application { get; private set; } = "";
 
@@ -39,6 +40,7 @@
             Versions = Path.Combine(Base, "Versions");
             Modifications = Path.Combine(Base, "Modifications");
             CustomThemes = Path.Combine(Base, "CustomThemes");
+            FastFlagProfiles = Path.Combine(Base, "FastFlagProfiles");
 
             Application = Path.Combine(Base, $"{App.ProjectName}.exe");
         }

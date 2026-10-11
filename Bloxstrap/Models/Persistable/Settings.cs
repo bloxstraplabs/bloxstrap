@@ -10,10 +10,37 @@ namespace Bloxstrap.Models.Persistable
         public string BootstrapperTitle { get; set; } = App.ProjectName;
         public string BootstrapperIconCustomLocation { get; set; } = "";
         public Theme Theme { get; set; } = Theme.Default;
+        public string AccentColor { get; set; } = "";
+        public WindowBackdrop WindowBackdrop { get; set; } = WindowBackdrop.Mica;
+        public string AppFont { get; set; } = "";
+        public string BackgroundImage { get; set; } = "";
+        public string BackgroundGradient { get; set; } = "";
+        public double BackgroundOpacity { get; set; } = 0.3;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool DeveloperMode { get; set; } = false;
         public bool CheckForUpdates { get; set; } = true;
         public bool ConfirmLaunches { get; set; } = false;
+        public bool MultiInstanceLaunching { get; set; } = false;
+        public bool BlockRobloxUpdates { get; set; } = false;
+        public bool UseStaticVersionFolder { get; set; } = false;
+        public CleanerAge CleanerAge { get; set; } = CleanerAge.Never;
+        public bool CleanRobloxLogs { get; set; } = true;
+        public bool CleanRobloxCache { get; set; } = true;
+        public bool CleanAppLogs { get; set; } = true;
+        public bool CleanAppDownloads { get; set; } = true;
+        public ProcessPriorityLevel RobloxPriority { get; set; } = ProcessPriorityLevel.Normal;
+        public string RobloxWindowTitle { get; set; } = "";
+        public bool RobloxBorderless { get; set; } = false;
+        public bool CrosshairEnabled { get; set; } = false;
+        public CrosshairStyle CrosshairStyle { get; set; } = CrosshairStyle.Cross;
+        public string CrosshairColor { get; set; } = "#00FF00";
+        public double CrosshairSize { get; set; } = 8;
+        public double CrosshairThickness { get; set; } = 2;
+        public double CrosshairGap { get; set; } = 3;
+        public ObservableCollection<GameProfile> GameProfiles { get; set; } = new();
+        public bool ThrottleInBackground { get; set; } = false;
+        public int BreakReminderMinutes { get; set; } = 0;
+        public bool SessionRecap { get; set; } = true;
         public string Locale { get; set; } = "nil";
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
@@ -29,9 +56,16 @@ namespace Bloxstrap.Models.Persistable
         public bool HideRPCButtons { get; set; } = true;
         public bool ShowAccountOnRichPresence { get; set; } = false;
         public bool ShowServerDetails { get; set; } = false;
+        public bool AutoRejoin { get; set; } = false;
+        public bool PlaytimeCounter { get; set; } = true;
+        public bool TrackGameStats { get; set; } = true;
+        public bool UseCustomStatusDisplay { get; set; } = true;
+        public bool StudioRichPresence { get; set; } = false;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
+        public bool ApplyModsToPlayer { get; set; } = true;
+        public bool ApplyModsToStudio { get; set; } = true;
     }
 }

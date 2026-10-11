@@ -43,7 +43,12 @@ namespace Bloxstrap.AppData
 
         public virtual string ExecutableName { get; } = null!;
 
-        public string Directory => Path.Combine(Paths.Versions, DistributionState.VersionGuid);
+        public virtual string StaticFolderName { get; } = null!;
+
+        public string Directory => GetVersionDirectory(DistributionState.VersionGuid);
+
+        public string GetVersionDirectory(string versionGuid) =>
+            Path.Combine(Paths.Versions, App.Settings.Prop.UseStaticVersionFolder ? StaticFolderName : versionGuid);
 
         public string ExecutablePath => Path.Combine(Directory, ExecutableName);
 

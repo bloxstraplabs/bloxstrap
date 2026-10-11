@@ -17,6 +17,23 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public Visibility ServerLocationVisibility => App.Settings.Prop.ShowServerDetails ? Visibility.Visible : Visibility.Collapsed;
 
+        public Visibility ServerUptimeVisibility => _activityWatcher.Data.ServerStarted is null ? Visibility.Collapsed : Visibility.Visible;
+
+        public string ServerUptime
+        {
+            get
+            {
+                if (_activityWatcher.Data.ServerStarted is not DateTime started)
+                    return Strings.Common_NotAvailable;
+
+                var uptime = DateTime.UtcNow - started;
+
+                return uptime.TotalDays >= 1
+                    ? $"{(int)uptime.TotalDays}d {uptime.Hours}h {uptime.Minutes}m"
+                    : $"{uptime.Hours}h {uptime.Minutes}m";
+            }
+        }
+
         public ICommand CopyInstanceIdCommand => new RelayCommand(CopyInstanceId);
 
         public ServerInformationViewModel(Watcher watcher)

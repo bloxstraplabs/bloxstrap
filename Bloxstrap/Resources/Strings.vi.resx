@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap không thể tự động cập nhật lên phiên bản {0}. Xin hãy tải về chương trình cài đặt từ trang chủ và cập nhật thủ công.</value>
+    <value>reistrap không thể tự động cập nhật lên phiên bản {0}. Xin hãy tải về chương trình cài đặt từ trang chủ và cập nhật thủ công.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Tiến trình Roblox hiện tại đang chạy, và việc khởi động tiến trình Roblox khác sẽ đóng nó. Bạn có chắc chắn muốn tiếp tục khởi động không?</value>
@@ -127,13 +127,13 @@
     <value>Roblox có thể đang có vấn đề. Xem {0} để có thêm thông tin.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Không thể kết nối, có thể là do kết nối internet kém hoặc bị chặn bởi tường lửa. Nếu kết nối của bạn bình thường, vui lòng kiểm tra lại xem phần mềm diệt virus có chặn Bloxstrap không.</value>
+    <value>Không thể kết nối, có thể là do kết nối internet kém hoặc bị chặn bởi tường lửa. Nếu kết nối của bạn bình thường, vui lòng kiểm tra lại xem phần mềm diệt virus có chặn reistrap không.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Bạn phải cài đặt Bloxstrap trước khi gỡ cài đặt nó.</value>
+    <value>Bạn phải cài đặt reistrap trước khi gỡ cài đặt nó.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap không có đủ dung lượng ổ cứng để tải và cài đặt Roblox. Hãy giải phóng dung lượng và thử lại.</value>
+    <value>reistrap không có đủ dung lượng ổ cứng để tải và cài đặt Roblox. Hãy giải phóng dung lượng và thử lại.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Đang áp dụng những chỉnh sửa cho Roblox...</value>
@@ -158,7 +158,7 @@
     <value>Đang cập nhật {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Đang tải xuống phiên bản mới nhất của Bloxstrap...</value>
+    <value>Đang tải xuống phiên bản mới nhất của reistrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Đang đợi các tiến trình khác...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap đã được gỡ cài đặt thành công</value>
+    <value>reistrap đã được gỡ cài đặt thành công</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Bạn phải tắt Roblox trước khi gỡ cài đặt Bloxstrap. Bạn có muốn đóng Roblox ngay bây giờ không?</value>
+    <value>Bạn phải tắt Roblox trước khi gỡ cài đặt reistrap. Bạn có muốn đóng Roblox ngay bây giờ không?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox yêu cầu sử dụng các thành phần của Windows Media Foundation. Có vẻ như bạn đang thiếu chúng, có thể là do bạn đang sử dụng phiên bản N của Windows. Vui lòng cài đặt chúng trước, sau đó khởi chạy Roblox.</value>
@@ -279,7 +279,7 @@ Bấm để biết thêm thông tin</value>
     <value>Lỗi kết nối</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap không thể kết nối tới {0}</value>
+    <value>reistrap không thể kết nối tới {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Bấm để biết thêm thông tin</value>
 Nếu không, vui lòng báo cáo lỗi này qua [GitHub Issue]({1}) và đính kèm tệp log.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Lỗi ngoại lệ Bloxstrap</value>
+    <value>Lỗi ngoại lệ reistrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Tuỳ chỉnh</value>
@@ -309,10 +309,10 @@ Nếu không, vui lòng báo cáo lỗi này qua [GitHub Issue]({1}) và đính 
     <value>Giả lập Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Cổ điển)</value>
+    <value>reistrap (Cổ điển)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Xuyên thấu)</value>
+    <value>reistrap (Xuyên thấu)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008-2011)</value>
@@ -378,10 +378,10 @@ Nếu không, vui lòng báo cáo lỗi này qua [GitHub Issue]({1}) và đính 
     <value>Sáng</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap đã được cập nhật lên phiên bản v{0}</value>
+    <value>reistrap đã được cập nhật lên phiên bản v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Phiên bản Bloxstrap bạn đã mở khác với phiên bản đã cài đặt hiện tại.
+    <value>Phiên bản reistrap bạn đã mở khác với phiên bản đã cài đặt hiện tại.
 Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -391,7 +391,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Lập trình</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Đây là những người có đóng góp nổi bật cho Bloxstrap, giúp nó được như bây giờ.</value>
+    <value>Đây là những người có đóng góp nổi bật cho reistrap, giúp nó được như bây giờ.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Quyên góp ý tưởng</value>
@@ -437,7 +437,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Hãy nhớ rằng tất cả những sửa đổi của bạn sẽ không lập tức được áp dụng cho đến khi bạn đóng tất cả các tiến trình Roblox đang chạy hiện tại.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap đang hoạt động</value>
+    <value>reistrap đang hoạt động</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Bạn có thể làm nó khác biệt, có thể theo phong cách cổ điển, hoặc có thể làm nó nhìn y hệt như Roblox.</value>
@@ -464,7 +464,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Tiêu đề</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Chỉnh sửa giao diện của Bloxstrap.</value>
+    <value>Chỉnh sửa giao diện của reistrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Giao diện chung</value>
@@ -488,10 +488,10 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Giao diện</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap sẽ tự động kiểm tra và cập nhật khi chạy Roblox.</value>
+    <value>reistrap sẽ tự động kiểm tra và cập nhật khi chạy Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Tự động cập nhật Bloxstrap</value>
+    <value>Tự động cập nhật reistrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Ngăn chặn việc tắt trò chơi hiện tại khi bạn vô tình khởi động trò chơi khác.</value>
@@ -500,7 +500,7 @@ Bạn có muốn nâng cấp phiên bản đã cài đặt không?</value>
     <value>Hiển thị thông báo xác nhận khi mở một tiến trình Roblox khác</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Tùy chỉnh Bloxstrap sẽ làm gì khi khởi động Roblox.</value>
+    <value>Tùy chỉnh reistrap sẽ làm gì khi khởi động Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox sẽ cài đặt lại vào lần khởi động tiếp theo.</value>
@@ -602,10 +602,10 @@ Bạn có chắc chắn muốn tiếp tục không?</value>
     <value>Các tệp biểu tượng</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap không thể được cài đặt ở đây. Vui lòng chọn một vị trí khác, hoặc sử dụng vị trí mặc định bằng cách nhấp vào nút đặt lại.</value>
+    <value>reistrap không thể được cài đặt ở đây. Vui lòng chọn một vị trí khác, hoặc sử dụng vị trí mặc định bằng cách nhấp vào nút đặt lại.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Thư mục bạn chọn cài đặt Bloxstrap đã tồn tại và KHÔNG trống rỗng. Chúng tôi đặc biệt khuyến khích cài đặt Bloxstrap vào thư mục độc lập của riêng nó.
+    <value>Thư mục bạn chọn cài đặt reistrap đã tồn tại và KHÔNG trống rỗng. Chúng tôi đặc biệt khuyến khích cài đặt reistrap vào thư mục độc lập của riêng nó.
 
 Đề xuất thay đổi sang vị trí như này:
 {0}
@@ -618,7 +618,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Bạn phải chọn địa điểm cài đặt</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap không có quyền ghi vào vị trí cài đặt mà bạn đã chọn. Vui lòng chọn địa điểm khác.</value>
+    <value>reistrap không có quyền ghi vào vị trí cài đặt mà bạn đã chọn. Vui lòng chọn địa điểm khác.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Theo dõi hoạt động</value>
@@ -669,7 +669,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Không thoát ra màn hình chính của Roblox</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Cho phép Bloxstrap phát hiện bạn đang chơi trò Roblox gì. Một vài chức năng yêu cầu tính năng này.</value>
+    <value>Cho phép reistrap phát hiện bạn đang chơi trò Roblox gì. Một vài chức năng yêu cầu tính năng này.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Bật theo dõi hoạt động</value>
@@ -758,7 +758,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Các chỉnh sửa đã được lưu!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Cài Đặt Bloxstrap</value>
+    <value>Cài Đặt reistrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Chọn ngôn ngữ ưa thích</value>
@@ -779,7 +779,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Kết xuất và chất lượng</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Cho phép Bloxstrap quản lý Fast Flag</value>
+    <value>Cho phép reistrap quản lý Fast Flag</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Tắt tính năng này sẽ ngăn bất kỳ cài đặt nào ở đây được áp dụng vào Roblox.</value>
@@ -803,7 +803,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Mức 3 (Cao nhất)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap không thể tải xuống Roblox</value>
+    <value>reistrap không thể tải xuống Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Không thể tải xuống Roblox ngay bây giờ. Xin hãy đọc trang trợ giúp để biết thêm thông tin: {0}</value>
@@ -824,7 +824,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Giá trị '{0}' không hợp lệ vì giá trị phải là một số nguyên</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Tệp log mới sẽ không được tạo cho lần khởi chạy này vì Bloxstrap không thể ghi vào thư mục tại '{0}'</value>
+    <value>Tệp log mới sẽ không được tạo cho lần khởi chạy này vì reistrap không thể ghi vào thư mục tại '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Mặc định</value>
@@ -839,7 +839,7 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Giá trị '{0}' không hợp lệ vì bộ lọc trải nghiệm không được định dạng đúng.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Trình cài đặt Bloxstrap</value>
+    <value>Trình cài đặt reistrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Chào mừng</value>
@@ -858,18 +858,18 @@ Chọn 'Không' sẽ bỏ qua cảnh báo này và tiếp tục cài đặt.</va
     <value>Tiếp theo</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Cảm ơn bạn đã tải xuống Bloxstrap.
+    <value>Cảm ơn bạn đã tải xuống reistrap.
 
-Các trang web chính thức duy nhất để tải Bloxstrap là {0} và {1}, vì vậy hãy đảm bảo rằng bạn đã tải từ nguồn chính thức.
+Các trang web chính thức duy nhất để tải reistrap là {0} và {1}, vì vậy hãy đảm bảo rằng bạn đã tải từ nguồn chính thức.
 
-Quá trình cài đặt này sẽ nhanh chóng và đơn giản, và sau khi cài đặt, bạn sẽ có thể cấu hình bất kỳ cài đặt nào của Bloxstrap.</value>
+Quá trình cài đặt này sẽ nhanh chóng và đơn giản, và sau khi cài đặt, bạn sẽ có thể cấu hình bất kỳ cài đặt nào của reistrap.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Bấm 'Tiếp' để tiếp tục.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Bạn đang cố cài đặt phiên bản {0} của Bloxstrap, nhưng phiên bản mới nhất hiện tại là {1}. Bạn có muốn tải về không?</value>
+    <value>Bạn đang cố cài đặt phiên bản {0} của reistrap, nhưng phiên bản mới nhất hiện tại là {1}. Bạn có muốn tải về không?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Chọn nơi để cài đặt</value>
@@ -890,17 +890,17 @@ Quá trình cài đặt này sẽ nhanh chóng và đơn giản, và sau khi cà
     <value>Biểu tượng Start Menu</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap đã được cài đặt thành công.
+    <value>reistrap đã được cài đặt thành công.
 
-Roblox vẫn chưa được cài đặt, điều đó sẽ xảy ra khi bạn khởi chạy nó bằng Bloxstrap lần đầu tiên. Tuy nhiên, trước khi thực hiện, có thể 
-bạn sẽ muốn định cấu hình cài đặt của Bloxstrap trước.
+Roblox vẫn chưa được cài đặt, điều đó sẽ xảy ra khi bạn khởi chạy nó bằng reistrap lần đầu tiên. Tuy nhiên, trước khi thực hiện, có thể 
+bạn sẽ muốn định cấu hình cài đặt của reistrap trước.
 
-Ngoài ra, tránh sử dụng phím tắt "Roblox Player" để khởi chạy Roblox, vì Bloxstrap sẽ không khởi chạy cùng Roblox. Nếu bạn không thấy Bloxstrap hiển thị khi khởi chạy từ trang web, chỉ cần khởi chạy Roblox bằng Bloxstrap một lần từ màn hình chính để khắc phục sự cố.
+Ngoài ra, tránh sử dụng phím tắt "Roblox Player" để khởi chạy Roblox, vì reistrap sẽ không khởi chạy cùng Roblox. Nếu bạn không thấy reistrap hiển thị khi khởi chạy từ trang web, chỉ cần khởi chạy Roblox bằng reistrap một lần từ màn hình chính để khắc phục sự cố.
 
 Bạn muốn làm gì?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Cấu hình cài đặt Bloxstrap</value>
+    <value>Cấu hình cài đặt reistrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Chỉnh sửa tất cả những tính năng được cung cấp</value>
@@ -912,20 +912,20 @@ Bạn muốn làm gì?</value>
     <value>Sẽ đưa bạn đến ứng dụng màn hình nền một khi tất cả đã xong</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Gỡ cài đặt Bloxstrap</value>
+    <value>Gỡ cài đặt reistrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Gỡ cài đặt sẽ xóa Bloxstrap khỏi hệ thống của bạn, và tự động cài đặt phần mềm Roblox mặc định nếu nó đã được cài đặt.
+    <value>Gỡ cài đặt sẽ xóa reistrap khỏi hệ thống của bạn, và tự động cài đặt phần mềm Roblox mặc định nếu nó đã được cài đặt.
 
-Quá trình gỡ cài đặt có thể để lại một vài thứ, cho nên bạn có thể phải tự dọn dẹp những tài liệu còn dư ở nơi Bloxstrap đã được cài đặt.
+Quá trình gỡ cài đặt có thể để lại một vài thứ, cho nên bạn có thể phải tự dọn dẹp những tài liệu còn dư ở nơi reistrap đã được cài đặt.
 
-Bloxstrap đã được cài đặt ở "{1}".</value>
+reistrap đã được cài đặt ở "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Giữ lại các cài đặt và mod của tôi</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Chúng sẽ được giữ lại nơi Bloxstrap đã được cài đặt, và sẽ tự động khôi phục sau khi cài đặt lại.</value>
+    <value>Chúng sẽ được giữ lại nơi reistrap đã được cài đặt, và sẽ tự động khôi phục sau khi cài đặt lại.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Gỡ cài đặt</value>
@@ -946,7 +946,7 @@ Bloxstrap đã được cài đặt ở "{1}".</value>
     <value>Hiện tại bạn chưa cài đặt WebView2 runtime. Một số tính năng của Roblox sẽ không hoạt động bình thường nếu không có nó, chẳng hạn như ứng dụng trên màn hình chính. Bạn có muốn tải nó ngay bây giờ không?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap không thể tạo phím tắt cho màn hình chính và Start Menu. Hãy thử tạo chúng thông qua cài đặt.</value>
+    <value>reistrap không thể tạo phím tắt cho màn hình chính và Start Menu. Hãy thử tạo chúng thông qua cài đặt.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Trước tiên hãy tìm trong [Bloxstrap Wiki]({0}) để xem nếu vấn đề này đã có phương pháp giải quyết chưa.
@@ -958,7 +958,7 @@ Nếu không, thì hãy báo cáo vấn đề này đến người duy trì củ
     <value>Đây là các phím tắt chung giúp mở menu khởi chạy với nhiều lựa chọn. Các phím tắt cho các chức năng cụ thể có thể được tạo sau trong phần cài đặt.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Cấu hình cách Bloxstrap có thể được khởi chạy.</value>
+    <value>Cấu hình cách reistrap có thể được khởi chạy.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Chung</value>
@@ -988,7 +988,7 @@ Nếu không, thì hãy báo cáo vấn đề này đến người duy trì củ
     <value>Hãy đợi cho quá trình gỡ cài đặt được hoàn thành.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Về Bloxstrap</value>
+    <value>Về reistrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Các giấy phép</value>
@@ -1001,14 +1001,14 @@ Nếu không, thì hãy báo cáo vấn đề này đến người duy trì củ
     <value>Bạn có những thay đổi chưa được lưu. Bạn có chắc chắn muốn đóng mà không lưu không?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Phiên bản Bloxstrap mà bạn khởi chạy cũ hơn so với phiên bản bạn đã cài đặt.
+    <value>Phiên bản reistrap mà bạn khởi chạy cũ hơn so với phiên bản bạn đã cài đặt.
 Có thể xảy ra sự cố và các tùy chỉnh của bạn có thể bị thay đổi. Khuyến khích nên cài đặt lại.
 Bạn có muốn tiếp tục không?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Khởi chạy Roblox thất bại.
 
-Đây có thể hoặc không phải lỗi của Bloxstrap. Để tìm hiểu thêm, xin hãy [xem trang hỗ trợ]({0}).</value>
+Đây có thể hoặc không phải lỗi của reistrap. Để tìm hiểu thêm, xin hãy [xem trang hỗ trợ]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Không thể tải dữ liệu vì lỗi mạng.</value>
@@ -1051,12 +1051,12 @@ Thứ hạng của mỗi người ở đây dựa vào mức đóng góp của h
     <value>Trong lần chạy này, Roblox sẽ không được kiểm tra để cập nhật, và những thay đổi đối với các mod sẽ không áp dụng.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Vì Roblox cần được cài đặt hoặc cập nhật, Bloxstrap không thể tiếp tục.</value>
+    <value>Vì Roblox cần được cài đặt hoặc cập nhật, reistrap không thể tiếp tục.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap đã được cài đặt vào vị trí này trước đây và vẫn còn ở đó, tuy nhiên trình cài đặt không thể ghi đè lên tệp cài đặt cũ. 
+    <value>reistrap đã được cài đặt vào vị trí này trước đây và vẫn còn ở đó, tuy nhiên trình cài đặt không thể ghi đè lên tệp cài đặt cũ. 
 
-Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc thử khởi động lại hệ thống của bạn, sau đó thử cài đặt lại sau đó.</value>
+Vui lòng xóa thủ công reistrap.exe khỏi vị trí cài đặt hoặc thử khởi động lại hệ thống của bạn, sau đó thử cài đặt lại sau đó.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Không có sẵn</value>
@@ -1068,7 +1068,7 @@ Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc th�
     <value>Cấu hình các thông số ứng dụng như hành vi thay đổi tỷ lệ DPI và [tối ưu hóa toàn màn hình]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox chưa được cài đặt. Vui lòng khởi chạy Roblox bằng Bloxstrap ít nhất một lần trước khi thử sử dụng tùy chọn này.</value>
+    <value>Roblox chưa được cài đặt. Vui lòng khởi chạy Roblox bằng reistrap ít nhất một lần trước khi thử sử dụng tùy chọn này.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Bạn có chắc chắn muốn hủy cài đặt không?</value>
@@ -1086,10 +1086,10 @@ Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc th�
     <value>Trích xuất biểu tượng Roblox vào thư mục</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Cho phép bạn sử dụng các biểu tượng Roblox có sẵn trong Bloxstrap cho các phím tắt của bạn. [Xem cách.]({0})</value>
+    <value>Cho phép bạn sử dụng các biểu tượng Roblox có sẵn trong reistrap cho các phím tắt của bạn. [Xem cách.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap không thể ghi vào Registry của Windows. Có thể một phần mềm diệt virus đang can thiệp và gây ra vấn đề. Vui lòng kiểm tra để đảm bảo không có gì làm ảnh hưởng Bloxstrap.</value>
+    <value>reistrap không thể ghi vào Registry của Windows. Có thể một phần mềm diệt virus đang can thiệp và gây ra vấn đề. Vui lòng kiểm tra để đảm bảo không có gì làm ảnh hưởng reistrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Hàng tháng</value>
@@ -1098,7 +1098,7 @@ Vui lòng xóa thủ công Bloxstrap.exe khỏi vị trí cài đặt hoặc th�
     <value>Một lần</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Tùy chỉnh những lựa chọn liên quan tới cách hoạt động của Bloxstrap.</value>
+    <value>Tùy chỉnh những lựa chọn liên quan tới cách hoạt động của reistrap.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Bật gửi dữ liệu phân tích</value>
@@ -1147,7 +1147,7 @@ Bạn có muốn bật chế độ thử nghiệm không?</value>
     <value>Tuỳ chọn</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap không thể cập nhật Roblox vì các tập tin của Roblox đang được sử dụng
+    <value>reistrap không thể cập nhật Roblox vì các tập tin của Roblox đang được sử dụng
 
 Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox, và khởi động động lại.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1167,11 +1167,11 @@ Xin hãy đóng các ứng dụng đang sử dụng các tập tin của Roblox,
     <value>Thu thập thông tin có thể tải lên mạng để giúp khắc phục sự cố bạn đang gặp phải.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Tùy chỉnh Bloxstrap</value>
+    <value>Tùy chỉnh reistrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Tất cả các file log của Bloxstrap</value>
+    <value>Tất cả các file log của reistrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

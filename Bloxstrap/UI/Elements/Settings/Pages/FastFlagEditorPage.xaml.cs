@@ -121,6 +121,18 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                     return;
                 }
 
+                if (!FastFlagAllowlist.Contains(name))
+                {
+                    var result = Frontend.ShowMessageBox(
+                        String.Format(Strings.Menu_FastFlagEditor_NotInAllowlist, name),
+                        MessageBoxImage.Warning,
+                        MessageBoxButton.YesNo
+                    );
+
+                    if (result != MessageBoxResult.Yes)
+                        return;
+                }
+
                 entry = new FastFlag
                 {
                     // Enabled = true,
@@ -262,6 +274,11 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
             }
 
             ClearSearch();
+
+            int disallowedCount = list.Keys.Count(x => App.FastFlags.Prop.ContainsKey(x) && !FastFlagAllowlist.Contains(x));
+
+            if (disallowedCount > 0)
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_FastFlagEditor_ImportNotInAllowlist, disallowedCount), MessageBoxImage.Information);
         }
 
         private bool ValidateFlagEntry(string name, string value)
@@ -377,6 +394,31 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
                 _fastFlagList.Remove(entry);
                 App.FastFlags.SetValue(entry.Name, null);
             }
+        }
+
+        private void CleanListButton_Click(object sender, RoutedEventArgs e)
+        {
+            var disallowed = App.FastFlags.Prop.Keys.Where(x => !FastFlagAllowlist.Contains(x)).ToList();
+
+            if (!disallowed.Any())
+            {
+                Frontend.ShowMessageBox(Strings.Menu_FastFlagEditor_CleanList_NothingToRemove, MessageBoxImage.Information);
+                return;
+            }
+
+            var result = Frontend.ShowMessageBox(
+                String.Format(Strings.Menu_FastFlagEditor_CleanList_Confirm, disallowed.Count),
+                MessageBoxImage.Question,
+                MessageBoxButton.YesNo
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            foreach (string name in disallowed)
+                App.FastFlags.SetValue(name, null);
+
+            ReloadList();
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)

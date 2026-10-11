@@ -73,11 +73,15 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 {
                     ShowServerDetailsEnabled = value;
                     DisableAppPatchEnabled = value;
+                    AutoRejoinEnabled = value;
+                    PlaytimeCounterEnabled = value;
                     DiscordActivityEnabled = value;
                     DiscordActivityJoinEnabled = value;
 
                     OnPropertyChanged(nameof(ShowServerDetailsEnabled));
                     OnPropertyChanged(nameof(DisableAppPatchEnabled));
+                    OnPropertyChanged(nameof(AutoRejoinEnabled));
+                    OnPropertyChanged(nameof(PlaytimeCounterEnabled));
                     OnPropertyChanged(nameof(DiscordActivityEnabled));
                     OnPropertyChanged(nameof(DiscordActivityJoinEnabled));
                 }
@@ -88,6 +92,30 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.ShowServerDetails;
             set => App.Settings.Prop.ShowServerDetails = value;
+        }
+
+        public bool AutoRejoinEnabled
+        {
+            get => App.Settings.Prop.AutoRejoin;
+            set => App.Settings.Prop.AutoRejoin = value;
+        }
+
+        public bool PlaytimeCounterEnabled
+        {
+            get => App.Settings.Prop.PlaytimeCounter;
+            set => App.Settings.Prop.PlaytimeCounter = value;
+        }
+
+        public bool DisableRobloxScreenshots
+        {
+            get => RobloxCaptureBlocker.IsBlocked(RobloxCaptureBlocker.ScreenshotsFolder);
+            set => RobloxCaptureBlocker.SetBlocked(RobloxCaptureBlocker.ScreenshotsFolder, value);
+        }
+
+        public bool DisableRobloxRecordings
+        {
+            get => RobloxCaptureBlocker.IsBlocked(RobloxCaptureBlocker.RecordingsFolder);
+            set => RobloxCaptureBlocker.SetBlocked(RobloxCaptureBlocker.RecordingsFolder, value);
         }
 
         public bool DiscordActivityEnabled
@@ -101,8 +129,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 {
                     DiscordActivityJoinEnabled = value;
                     DiscordAccountOnProfile = value;
+                    CustomStatusDisplayEnabled = value;
                     OnPropertyChanged(nameof(DiscordActivityJoinEnabled));
                     OnPropertyChanged(nameof(DiscordAccountOnProfile));
+                    OnPropertyChanged(nameof(CustomStatusDisplayEnabled));
                 }
             }
         }
@@ -117,6 +147,18 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             get => App.Settings.Prop.ShowAccountOnRichPresence;
             set => App.Settings.Prop.ShowAccountOnRichPresence = value;
+        }
+
+        public bool StudioRichPresenceEnabled
+        {
+            get => App.Settings.Prop.StudioRichPresence;
+            set => App.Settings.Prop.StudioRichPresence = value;
+        }
+
+        public bool CustomStatusDisplayEnabled
+        {
+            get => App.Settings.Prop.UseCustomStatusDisplay;
+            set => App.Settings.Prop.UseCustomStatusDisplay = value;
         }
 
         public bool DisableAppPatchEnabled

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Automatyczna aktualizacja do wersji {0} nie powiodła się. Prosimy zaktualizować Bloxstrap ręcznie, pobierając i uruchomiając program z oficjalnej strony internetowej.</value>
+    <value>Automatyczna aktualizacja do wersji {0} nie powiodła się. Prosimy zaktualizować reistrap ręcznie, pobierając i uruchomiając program z oficjalnej strony internetowej.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox jest aktualnie uruchomiony. Uruchomienie następnej instancji spowoduje zamknięcie procesu. Czy jesteś pewien, że chcesz kontynuować uruchamianie?</value>
@@ -127,13 +127,13 @@
     <value>Możliwe, że Roblox w tej chwili ma awarię. Więcej informacji na {0}.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Nie można nawiązać połączenia, co prawdopodobnie wskazuje na słabe połączenie z internetem lub blokadę przez Firewall. Jeśli połączenie jest w porządku, upewnij się, że twój antywirus nie blokuje Bloxstrap.</value>
+    <value>Nie można nawiązać połączenia, co prawdopodobnie wskazuje na słabe połączenie z internetem lub blokadę przez Firewall. Jeśli połączenie jest w porządku, upewnij się, że twój antywirus nie blokuje reistrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Musisz najpierw zainstalować Bloxstrap, żeby móc go odinstalować.</value>
+    <value>Musisz najpierw zainstalować reistrap, żeby móc go odinstalować.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nie ma wystarczającej ilości miejsca na dysku, aby pobrać i zainstalować Roblox. Zwolnij trochę miejsca na dysku i spróbuj ponownie.</value>
+    <value>reistrap nie ma wystarczającej ilości miejsca na dysku, aby pobrać i zainstalować Roblox. Zwolnij trochę miejsca na dysku i spróbuj ponownie.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Stosowanie modyfikacji Roblox...</value>
@@ -158,7 +158,7 @@
     <value>Aktualizowanie {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Pobieranie najnowszej wersji Bloxstrap...</value>
+    <value>Pobieranie najnowszej wersji reistrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Czekam na inne instancje...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap został pomyślnie odinstalowany</value>
+    <value>reistrap został pomyślnie odinstalowany</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox jest obecnie uruchomiony w tle, ale musi zostać zamknięty przed odinstalowaniem Bloxstrap. Czy chcesz zamknąć Roblox teraz?</value>
+    <value>Roblox jest obecnie uruchomiony w tle, ale musi zostać zamknięty przed odinstalowaniem reistrap. Czy chcesz zamknąć Roblox teraz?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox wymaga użycia komponentów Windows Media Foundation. Wygląda na to, że ich brakuje, prawdopodobnie dlatego, że używasz wersji N systemu Windows. Najpierw je zainstaluj, a następnie uruchom Roblox.</value>
@@ -279,7 +279,7 @@ Kliknij, aby dowiedzieć się więcej</value>
     <value>Błąd połączenia</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap nie jest w stanie połączyć się z {0}</value>
+    <value>reistrap nie jest w stanie połączyć się z {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -289,12 +289,12 @@ Kliknij, aby dowiedzieć się więcej</value>
     <value>Wystąpił błąd</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
-    <value>Ten problem mógł już być rozwiązany w [Wiki Bloxstrapa]({0}).
+    <value>Ten problem mógł już być rozwiązany w [Wiki reistrapa]({0}).
 
 Jeżeli nie, zgłoś ten błąd poprzez [GitHub]({1}) wraz z zawartym plikiem dziennika.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Błąd Bloxstrap</value>
+    <value>Błąd reistrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Niestandardowy</value>
@@ -309,10 +309,10 @@ Jeżeli nie, zgłoś ten błąd poprzez [GitHub]({1}) wraz z zawartym plikiem dz
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>reistrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>reistrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -378,10 +378,10 @@ Jeżeli nie, zgłoś ten błąd poprzez [GitHub]({1}) wraz z zawartym plikiem dz
     <value>Jasny</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap został zaktualizowany do wersji {0}</value>
+    <value>reistrap został zaktualizowany do wersji {0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Wersja Bloxstrap, którą uruchomiłeś, różni się od wersji, którą masz aktualnie zainstalowaną. 
+    <value>Wersja reistrap, którą uruchomiłeś, różni się od wersji, którą masz aktualnie zainstalowaną. 
 Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -391,7 +391,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Kod</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>To ludzie, którzy wnieśli znaczący wkład w Bloxstrap, pomagając uczynić go tym, czym jest.</value>
+    <value>To ludzie, którzy wnieśli znaczący wkład w reistrap, pomagając uczynić go tym, czym jest.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Pomysły</value>
@@ -437,7 +437,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Pamiętaj, że nie wszystkie zmiany zostaną zastosowane natychmiast, dopóki nie zamkniesz wszystkich aktualnie otwartych instancji Roblox.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap już jest uruchomiony</value>
+    <value>reistrap już jest uruchomiony</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Możesz sprawić, że będzie wyglądać inaczej, w stylu retro lub po prostu jak standardowy Roblox.</value>
@@ -464,7 +464,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Tytuł</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Skonfiguruj, jak Bloxstrap powinien wyglądać.</value>
+    <value>Skonfiguruj, jak reistrap powinien wyglądać.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globalny motyw</value>
@@ -488,10 +488,10 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Wygląd</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automatycznie zaktualizuje się po uruchomieniu Roblox.</value>
+    <value>reistrap automatycznie zaktualizuje się po uruchomieniu Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatycznie aktualizuj Bloxstrap</value>
+    <value>Automatycznie aktualizuj reistrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Zapobiegnij zamknięciu istniejącej sesji przed przypadkowym uruchomieniem innej.</value>
@@ -500,7 +500,7 @@ Czy chcesz zaktualizować aktualnie zainstalowaną wersję?</value>
     <value>Prośba o potwierdzenie podczas uruchamiania innej instancji Roblox</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Skonfiguruj, co Bloxstrap powinien zrobić podczas uruchamiania Roblox.</value>
+    <value>Skonfiguruj, co reistrap powinien zrobić podczas uruchamiania Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox będzie zainstalowany na nowo przy następnym uruchomieniu.</value>
@@ -602,10 +602,10 @@ Czy jesteś pewien, że chcesz kontynuować?</value>
     <value>Pliki ikon</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Nie można tutaj zainstalować Bloxstrap. Wybierz inne miejsce instalacji lub skorzystaj z lokalizacji domyślnej, klikając przycisk resetowania.</value>
+    <value>Nie można tutaj zainstalować reistrap. Wybierz inne miejsce instalacji lub skorzystaj z lokalizacji domyślnej, klikając przycisk resetowania.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Folder, w którym chcesz zainstalować Bloxstrap, już istnieje i NIE jest pusty. Zdecydowanie zaleca się instalację Bloxstrap w osobnym, niezależnym folderze.
+    <value>Folder, w którym chcesz zainstalować reistrap, już istnieje i NIE jest pusty. Zdecydowanie zaleca się instalację reistrap w osobnym, niezależnym folderze.
 
 Sugerowana jest zmiana lokalizacji na następującą:
 {0}
@@ -618,7 +618,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Musisz ustawić miejsce instalacji</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nie ma uprawnień do zapisu w wybranym miejscu instalacji. Proszę wybrać inne miejsce.</value>
+    <value>reistrap nie ma uprawnień do zapisu w wybranym miejscu instalacji. Proszę wybrać inne miejsce.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Śledzenie aktywności</value>
@@ -669,7 +669,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Nie wychodź do aplikacji pulpitowej</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Pozwala Bloxstrapowi wykryć, w jaką grę na Roblox grasz. Niektóre funkcje mogą tego wymagać.</value>
+    <value>Pozwala reistrapowi wykryć, w jaką grę na Roblox grasz. Niektóre funkcje mogą tego wymagać.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Włącz śledzenie aktywności</value>
@@ -757,7 +757,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Ustawienia zostały zapisane!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Ustawienia Bloxstrap</value>
+    <value>Ustawienia reistrap</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Wybierz preferowany język</value>
@@ -778,7 +778,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Renderowanie i grafika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Zezwól Bloxstrapowi na zarządzanie Fast Flagami</value>
+    <value>Zezwól reistrapowi na zarządzanie Fast Flagami</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Wyłączenie tego uniemożliwi zastosowanie jakichkolwiek ustawień skonfigurowanych tutaj do Roblox.</value>
@@ -802,7 +802,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Poziom 3 (Najwyższy)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap nie może pobrać Roblox</value>
+    <value>reistrap nie może pobrać Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox nie może być pobrane w tym momencie. Więcej informacji znajdziesz na tej stronie: {0}</value>
@@ -823,7 +823,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Wpis dla '{0}' jest nieprawidłowy, gdyż wartość musi być liczbą</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Plik dziennika nie zostanie zapisany dla tego uruchomienia, ponieważ Bloxstrap nie może zapisać do folderu '{0}'</value>
+    <value>Plik dziennika nie zostanie zapisany dla tego uruchomienia, ponieważ reistrap nie może zapisać do folderu '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Domyślne</value>
@@ -838,7 +838,7 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Wpis '{0}' nie jest prawidłowy, ponieważ filtr miejsca nie jest sformatowany poprawnie.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Instalator Bloxstrap</value>
+    <value>Instalator reistrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Witaj</value>
@@ -857,9 +857,9 @@ Wybranie opcji „Nie” spowoduje zignorowanie tego ostrzeżenia i kontynuowani
     <value>Dalej</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Dziękujemy za pobranie Bloxstrap!
+    <value>Dziękujemy za pobranie reistrap!
 
-Jedynymi oficjalnymi stronami internetowymi do pobrania Bloxstrap są {0} i {1}, więc sprawdź, czy na pewno zainstalowałeś program z jednego z powyżej wymienionych źródeł.
+Jedynymi oficjalnymi stronami internetowymi do pobrania reistrap są {0} i {1}, więc sprawdź, czy na pewno zainstalowałeś program z jednego z powyżej wymienionych źródeł.
 
 Instalacja nie powinna zająć długo. Po tym procesie będziesz mógł skonfigurować wszystkie ustawienia.</value>
     <comment>{0} and {1} are URLs</comment>
@@ -889,16 +889,16 @@ Instalacja nie powinna zająć długo. Po tym procesie będziesz mógł skonfigu
     <value>Ikona w Menu Start</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Instalacja Bloxstrap powiodła się.
+    <value>Instalacja reistrap powiodła się.
 
-Roblox nie został jeszcze zainstalowany, co powinno nastąpić po pierwszym uruchomieniu Bloxstrap. Jednak zanim to zrobisz, powinieneś najpierw skonfigurować ustawienia w Bloxstrap.
+Roblox nie został jeszcze zainstalowany, co powinno nastąpić po pierwszym uruchomieniu reistrap. Jednak zanim to zrobisz, powinieneś najpierw skonfigurować ustawienia w reistrap.
 
-Zalecane jest unikanie używania skrótu „Roblox Player” do uruchomienia Roblox, ponieważ ten nie uruchamia Bloxstrap. Jeżeli nie widzisz Bloxstrap podczas uruchamiania ze strony internetowej, zwyczajnie uruchom Roblox z Bloxstrap jeden raz z pulpitu, aby to naprawić.
+Zalecane jest unikanie używania skrótu „Roblox Player” do uruchomienia Roblox, ponieważ ten nie uruchamia reistrap. Jeżeli nie widzisz reistrap podczas uruchamiania ze strony internetowej, zwyczajnie uruchom Roblox z reistrap jeden raz z pulpitu, aby to naprawić.
 
 Co chciałbyś zrobić teraz?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Skonfiguruj ustawienia Bloxstrap</value>
+    <value>Skonfiguruj ustawienia reistrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Dostosuj, korzystając ze wszystkich dostępnych funkcji</value>
@@ -910,20 +910,20 @@ Co chciałbyś zrobić teraz?</value>
     <value>Przeniesie cię do aplikacji, kiedy wszystko będzie już gotowe</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Odinstaluj Bloxstrap</value>
+    <value>Odinstaluj reistrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Odinstalowanie usunie Bloxstrapa z twojego systemu i automatycznie skonfiguruje domyślny launcher Roblox, jeżeli ten jest zainstalowany.
+    <value>Odinstalowanie usunie reistrapa z twojego systemu i automatycznie skonfiguruje domyślny launcher Roblox, jeżeli ten jest zainstalowany.
 
-Proces odinstalowywania może zostawić trochę rzeczy po sobie, więc będziesz musiał ręcznie wyczyścić pozostałości, jakie zostawił Bloxstrap w miejscu jego instalacji.
+Proces odinstalowywania może zostawić trochę rzeczy po sobie, więc będziesz musiał ręcznie wyczyścić pozostałości, jakie zostawił reistrap w miejscu jego instalacji.
 
-Bloxstrap został zainstalowany na "{1}".</value>
+reistrap został zainstalowany na "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Zachowaj moje ustawienia i mody</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Będą one przechowane tam, gdzie Bloxstrap był zainstalowany i przywrócone automatycznie po ponownej instalacji.</value>
+    <value>Będą one przechowane tam, gdzie reistrap był zainstalowany i przywrócone automatycznie po ponownej instalacji.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Odinstaluj</value>
@@ -944,7 +944,7 @@ Bloxstrap został zainstalowany na "{1}".</value>
     <value>Obecnie nie masz zainstalowanego WebView2. Bez tego, niektóre funkcje Roblox nie będą działać poprawnie, przykładowo aplikacja. Czy chcesz to pobrać teraz?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nie mógł utworzyć skrótów na pulpicie i w Menu Start. Spróbuj utworzyć je później w ustawieniach.</value>
+    <value>reistrap nie mógł utworzyć skrótów na pulpicie i w Menu Start. Spróbuj utworzyć je później w ustawieniach.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Sprawdź najpierw [Bloxstrap Wiki]({0}), aby się dowiedzieć, czy ten problem nie był już poprzednio rozwiązany.
@@ -956,7 +956,7 @@ Jeżeli nie, wtedy zgłoś ten błąd to twórców tego forka. Podkreślamy, aby
     <value>To są ogólne skróty, które otwierają menu uruchamiania z wieloma opcjami. Skróty do konkretnych funkcji można utworzyć później w ustawieniach.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Skonfiguruj, w jaki sposób chcesz uruchamiać Bloxstrap.</value>
+    <value>Skonfiguruj, w jaki sposób chcesz uruchamiać reistrap.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Ogólne</value>
@@ -986,7 +986,7 @@ Jeżeli nie, wtedy zgłoś ten błąd to twórców tego forka. Podkreślamy, aby
     <value>Proszę poczekać na zakończenie odinstalowywania.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>O Bloxstrap</value>
+    <value>O reistrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencje</value>
@@ -999,14 +999,14 @@ Jeżeli nie, wtedy zgłoś ten błąd to twórców tego forka. Podkreślamy, aby
     <value>Masz niezapisane zmiany. Czy na pewno chcesz zamknąć bez zapisywania?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Wersja Bloxstrap, którą uruchomiłeś, jest starsza niż aktualnie zainstalowana wersja. Mogą wystąpić problemy i twoje ustawienia mogą zostać zmienione. Ponowna instalacja jest zalecana.
+    <value>Wersja reistrap, którą uruchomiłeś, jest starsza niż aktualnie zainstalowana wersja. Mogą wystąpić problemy i twoje ustawienia mogą zostać zmienione. Ponowna instalacja jest zalecana.
 
 Czy jesteś pewien, że chcesz kontynuować?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Nie udało się uruchomić Roblox.
 
-To może być problem z Bloxstrapem. Aby się dowiedzieć, sprawdź [tę stronę pomocy]({0}).</value>
+To może być problem z reistrapem. Aby się dowiedzieć, sprawdź [tę stronę pomocy]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Nie można załadować danych z powodu błędu sieciowego.</value>
@@ -1049,12 +1049,12 @@ Każda osoba jest tutaj uszeregowana według swojego ogólnego zobowiązania.</v
     <value>Podczas tego uruchomienia, Roblox nie będzie sprawdzony pod kątem aktualizacji, a zmiany w modach nie zostaną zastosowane.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Roblox wymaga zainstalowania lub zaktualizowania zaś Bloxstrap nie może kontynuować działania.</value>
+    <value>Roblox wymaga zainstalowania lub zaktualizowania zaś reistrap nie może kontynuować działania.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap został już zainstalowany w tym folderze wcześniej i jest nadal tam obecny, lecz instalator nie może nadpisać starego pliku .exe.
+    <value>reistrap został już zainstalowany w tym folderze wcześniej i jest nadal tam obecny, lecz instalator nie może nadpisać starego pliku .exe.
 
-Prosimy ręcznie usunąć Bloxstrap.exe z folderu instalacji lub spróbować ponownie uruchomić system, a następnie przystąpić do ponownej instalacji.</value>
+Prosimy ręcznie usunąć reistrap.exe z folderu instalacji lub spróbować ponownie uruchomić system, a następnie przystąpić do ponownej instalacji.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Niedostępne</value>
@@ -1066,7 +1066,7 @@ Prosimy ręcznie usunąć Bloxstrap.exe z folderu instalacji lub spróbować pon
     <value>Skonfiguruj parametry aplikacji, takie jak zachowanie skalowania DPI, czy [optymalizacja pełnoekranowa]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox nie został jeszcze zainstalowany na tym urządzeniu. Prosimy uruchomić Roblox przy użyciu Bloxstrap, zanim spróbujesz użyć tej opcji.</value>
+    <value>Roblox nie został jeszcze zainstalowany na tym urządzeniu. Prosimy uruchomić Roblox przy użyciu reistrap, zanim spróbujesz użyć tej opcji.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Czy jesteś pewien, że chcesz wstrzymać instalację?</value>
@@ -1087,7 +1087,7 @@ Prosimy ręcznie usunąć Bloxstrap.exe z folderu instalacji lub spróbować pon
     <value>Umożliwia używanie szerokiej selekcji różnych ikonek Roblox dla twoich skrótów na pulpicie. [Dowiedz się jak.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap nie jest w stanie zapisać ustawień do rejestru systemu Windows, co powoduje problemy. Sprawdź, czy nie ma czegoś (m.in. programy antywirusowe), co mogłoby ograniczać działanie Bloxstrap.</value>
+    <value>reistrap nie jest w stanie zapisać ustawień do rejestru systemu Windows, co powoduje problemy. Sprawdź, czy nie ma czegoś (m.in. programy antywirusowe), co mogłoby ograniczać działanie reistrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Miesięcznie</value>
@@ -1096,7 +1096,7 @@ Prosimy ręcznie usunąć Bloxstrap.exe z folderu instalacji lub spróbować pon
     <value>Jednorazowo</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Skonfiguruj ustawienia związane z zachowaniem Bloxstrap.</value>
+    <value>Skonfiguruj ustawienia związane z zachowaniem reistrap.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Włącz anonimowe wysyłanie danych analitycznych</value>
@@ -1145,7 +1145,7 @@ Czy chcesz włączyć tryb testowania?</value>
     <value>Niestandardowy</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap próbował zaktualizować Roblox, ale nie może, ponieważ pliki Roblox są w użyciu.
+    <value>reistrap próbował zaktualizować Roblox, ale nie może, ponieważ pliki Roblox są w użyciu.
 
 Prosimy zamknąć wszystkie aplikacje, które mogą używać plików Roblox i uruchom aplikację ponownie.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1165,11 +1165,11 @@ Prosimy zamknąć wszystkie aplikacje, które mogą używać plików Roblox i ur
     <value>Zbierz informacje, które można przesłać online, aby rozwiązać problem, który masz.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Konfiguracja Bloxstrap</value>
+    <value>Konfiguracja reistrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Wszystkie wpisy Bloxstrap</value>
+    <value>Wszystkie wpisy reistrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
