@@ -79,6 +79,33 @@
         </controls:OptionControl>
 
         <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Behaviour_MemoryTrimmer_Title}"
+            Description="{x:Static resources:Strings.Menu_Behaviour_MemoryTrimmer_Description}"
+            x:Name="MemoryTrimmerOption">
+            <ui:ToggleSwitch IsChecked="{Binding MemoryTrimmer, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <StackPanel IsEnabled="{Binding InnerContent.IsChecked, ElementName=MemoryTrimmerOption, Mode=OneWay}">
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Behaviour_MemoryThreshold_Title}"
+                Description="{x:Static resources:Strings.Menu_Behaviour_MemoryThreshold_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="8000" SmallChange="250" LargeChange="1000" IsSnapToTickEnabled="True" TickFrequency="250" Value="{Binding MemoryTrimThresholdMb, Mode=TwoWay}" />
+                    <TextBlock Width="70" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding MemoryTrimThresholdMb, Mode=OneWay, StringFormat={}{0:N0} MB}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Behaviour_MemoryInterval_Title}"
+                Description="{x:Static resources:Strings.Menu_Behaviour_MemoryInterval_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="15" Maximum="600" SmallChange="15" LargeChange="60" IsSnapToTickEnabled="True" TickFrequency="15" Value="{Binding MemoryTrimIntervalSeconds, Mode=TwoWay}" />
+                    <TextBlock Width="70" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding MemoryTrimIntervalSeconds, Mode=OneWay, StringFormat={}{0} s}" />
+                </StackPanel>
+            </controls:OptionControl>
+        </StackPanel>
+
+        <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Behaviour_ForceLanguage_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_ForceLanguage_Description}">
             <ui:ToggleSwitch IsChecked="{Binding ForceRobloxLanguage, Mode=TwoWay}" />

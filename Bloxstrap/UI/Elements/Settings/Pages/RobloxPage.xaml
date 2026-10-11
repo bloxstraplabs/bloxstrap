@@ -160,9 +160,29 @@
             Header="{x:Static resources:Strings.Menu_Roblox_CustomIcon_Title}"
             Description="{x:Static resources:Strings.Menu_Roblox_CustomIcon_Description}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock MaxWidth="180" Margin="0,0,12,0" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding RobloxIconName, Mode=OneWay}" />
-                <ui:Button Icon="Image24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseRobloxIconCommand}" />
-                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding ClearRobloxIconCommand}" />
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding RobloxWindowIcons, Mode=OneTime}" SelectedItem="{Binding RobloxWindowIcon, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ui:Button Margin="8,0,0,0" Icon="Image24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseRobloxIconCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_StudioIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_StudioIcon_Description}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding RobloxWindowIcons, Mode=OneTime}" SelectedItem="{Binding StudioWindowIcon, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ui:Button Margin="8,0,0,0" Icon="Image24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseStudioIconCommand}" />
             </StackPanel>
         </controls:OptionControl>
 

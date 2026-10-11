@@ -2255,10 +2255,10 @@ Build: {2}</value>
     <value>Changes the Roblox window and taskbar icon to the icon of the game you're playing.</value>
   </data>
   <data name="Menu.Roblox.CustomIcon.Title" xml:space="preserve">
-    <value>Custom window icon</value>
+    <value>Roblox window icon</value>
   </data>
   <data name="Menu.Roblox.CustomIcon.Description" xml:space="preserve">
-    <value>Use your own image as the Roblox window and taskbar icon.</value>
+    <value>Use a classic Roblox logo or your own image as the Roblox window and taskbar icon. The game icon option above takes priority while you're in a game.</value>
   </data>
   <data name="Menu.Roblox.App.Title" xml:space="preserve">
     <value>Roblox app</value>
@@ -2885,5 +2885,41 @@ Switch channels?</value>
   </data>
   <data name="Setup.Done.Body" xml:space="preserve">
     <value>Everything you picked can be changed at any time in settings. Use the search button in the sidebar to find any option quickly.</value>
+  </data>
+  <data name="Menu.Roblox.StudioIcon.Title" xml:space="preserve">
+    <value>Studio window icon</value>
+  </data>
+  <data name="Menu.Roblox.StudioIcon.Description" xml:space="preserve">
+    <value>Use a classic Roblox logo or your own image as the Roblox Studio window and taskbar icon.</value>
+  </data>
+  <data name="Enums.RobloxWindowIcon.Default" xml:space="preserve">
+    <value>Don't change</value>
+  </data>
+  <data name="Enums.RobloxWindowIcon.IconEarly2015" xml:space="preserve">
+    <value>Early 2015</value>
+  </data>
+  <data name="Enums.RobloxWindowIcon.IconLate2015" xml:space="preserve">
+    <value>Late 2015</value>
+  </data>
+  <data name="Enums.RobloxWindowIcon.Custom" xml:space="preserve">
+    <value>Custom image</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryTrimmer.Title" xml:space="preserve">
+    <value>Trim Roblox's memory</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryTrimmer.Description" xml:space="preserve">
+    <value>Every so often, tell Windows to take back memory Roblox isn't using. Helps on PCs with little RAM during long sessions, but Roblox may stutter for a moment right after a trim.</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryThreshold.Title" xml:space="preserve">
+    <value>Only when Roblox uses more than</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryThreshold.Description" xml:space="preserve">
+    <value>Skip trimming until Roblox goes over this much memory. Set it to 0 to always trim.</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryInterval.Title" xml:space="preserve">
+    <value>Check every</value>
+  </data>
+  <data name="Menu.Behaviour.MemoryInterval.Description" xml:space="preserve">
+    <value>How often to check Roblox's memory use.</value>
   </data>
 </root>

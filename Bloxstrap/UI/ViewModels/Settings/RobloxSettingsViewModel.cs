@@ -331,23 +331,72 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.RobloxGameIcon = value;
         }
 
-        public string RobloxIconName => String.IsNullOrEmpty(App.Settings.Prop.RobloxIconPath) ? "" : Path.GetFileName(App.Settings.Prop.RobloxIconPath);
+        public IEnumerable<RobloxWindowIcon> RobloxWindowIcons { get; } = Enum.GetValues<RobloxWindowIcon>();
+
+        public RobloxWindowIcon RobloxWindowIcon
+        {
+            get => App.Settings.Prop.RobloxWindowIcon;
+            set
+            {
+                if (value == RobloxWindowIcon.Custom && !File.Exists(App.Settings.Prop.RobloxIconPath))
+                {
+                    if (BrowseIcon() is not string path)
+                    {
+                        OnPropertyChanged(nameof(RobloxWindowIcon));
+                        return;
+                    }
+
+                    App.Settings.Prop.RobloxIconPath = path;
+                }
+
+                App.Settings.Prop.RobloxWindowIcon = value;
+                OnPropertyChanged(nameof(RobloxWindowIcon));
+            }
+        }
+
+        public RobloxWindowIcon StudioWindowIcon
+        {
+            get => App.Settings.Prop.StudioWindowIcon;
+            set
+            {
+                if (value == RobloxWindowIcon.Custom && !File.Exists(App.Settings.Prop.StudioIconPath))
+                {
+                    if (BrowseIcon() is not string path)
+                    {
+                        OnPropertyChanged(nameof(StudioWindowIcon));
+                        return;
+                    }
+
+                    App.Settings.Prop.StudioIconPath = path;
+                }
+
+                App.Settings.Prop.StudioWindowIcon = value;
+                OnPropertyChanged(nameof(StudioWindowIcon));
+            }
+        }
+
+        private static string? BrowseIcon()
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog { Filter = "Images|*.png;*.jpg;*.jpeg;*.ico;*.bmp" };
+            return dialog.ShowDialog() == true ? dialog.FileName : null;
+        }
 
         public ICommand BrowseRobloxIconCommand => new RelayCommand(() =>
         {
-            var dialog = new Microsoft.Win32.OpenFileDialog { Filter = "Images|*.png;*.jpg;*.jpeg;*.ico;*.bmp" };
-
-            if (dialog.ShowDialog() != true)
+            if (BrowseIcon() is not string path)
                 return;
 
-            App.Settings.Prop.RobloxIconPath = dialog.FileName;
-            OnPropertyChanged(nameof(RobloxIconName));
+            App.Settings.Prop.RobloxIconPath = path;
+            RobloxWindowIcon = RobloxWindowIcon.Custom;
         });
 
-        public ICommand ClearRobloxIconCommand => new RelayCommand(() =>
+        public ICommand BrowseStudioIconCommand => new RelayCommand(() =>
         {
-            App.Settings.Prop.RobloxIconPath = "";
-            OnPropertyChanged(nameof(RobloxIconName));
+            if (BrowseIcon() is not string path)
+                return;
+
+            App.Settings.Prop.StudioIconPath = path;
+            StudioWindowIcon = RobloxWindowIcon.Custom;
         });
 
         // Roblox app

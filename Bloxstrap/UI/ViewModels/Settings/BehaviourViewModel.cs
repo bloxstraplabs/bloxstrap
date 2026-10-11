@@ -195,5 +195,31 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 OnPropertyChanged(nameof(DownloadThreads));
             }
         }
+
+        public bool MemoryTrimmer
+        {
+            get => App.Settings.Prop.MemoryTrimmer;
+            set => App.Settings.Prop.MemoryTrimmer = value;
+        }
+
+        public int MemoryTrimThresholdMb
+        {
+            get => App.Settings.Prop.MemoryTrimThresholdMb;
+            set
+            {
+                App.Settings.Prop.MemoryTrimThresholdMb = value;
+                OnPropertyChanged(nameof(MemoryTrimThresholdMb));
+            }
+        }
+
+        public int MemoryTrimIntervalSeconds
+        {
+            get => App.Settings.Prop.MemoryTrimIntervalSeconds;
+            set
+            {
+                App.Settings.Prop.MemoryTrimIntervalSeconds = value;
+                OnPropertyChanged(nameof(MemoryTrimIntervalSeconds));
+            }
+        }
     }
 }

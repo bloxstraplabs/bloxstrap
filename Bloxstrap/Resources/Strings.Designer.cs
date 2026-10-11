@@ -8083,5 +8083,113 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Setup.Done.Body", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Studio window icon.
+        /// </summary>
+        public static string Menu_Roblox_StudioIcon_Title {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.StudioIcon.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a classic Roblox logo or your own image as the Roblox Studio window and taskbar icon..
+        /// </summary>
+        public static string Menu_Roblox_StudioIcon_Description {
+            get {
+                return ResourceManager.GetString("Menu.Roblox.StudioIcon.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don't change.
+        /// </summary>
+        public static string Enums_RobloxWindowIcon_Default {
+            get {
+                return ResourceManager.GetString("Enums.RobloxWindowIcon.Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Early 2015.
+        /// </summary>
+        public static string Enums_RobloxWindowIcon_IconEarly2015 {
+            get {
+                return ResourceManager.GetString("Enums.RobloxWindowIcon.IconEarly2015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Late 2015.
+        /// </summary>
+        public static string Enums_RobloxWindowIcon_IconLate2015 {
+            get {
+                return ResourceManager.GetString("Enums.RobloxWindowIcon.IconLate2015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom image.
+        /// </summary>
+        public static string Enums_RobloxWindowIcon_Custom {
+            get {
+                return ResourceManager.GetString("Enums.RobloxWindowIcon.Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trim Roblox's memory.
+        /// </summary>
+        public static string Menu_Behaviour_MemoryTrimmer_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryTrimmer.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every so often, tell Windows to take back memory Roblox isn't using. Helps on PCs with little RAM during long sessions, but Roblox may stutter for a moment right after a trim..
+        /// </summary>
+        public static string Menu_Behaviour_MemoryTrimmer_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryTrimmer.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only when Roblox uses more than.
+        /// </summary>
+        public static string Menu_Behaviour_MemoryThreshold_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryThreshold.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip trimming until Roblox goes over this much memory. Set it to 0 to always trim..
+        /// </summary>
+        public static string Menu_Behaviour_MemoryThreshold_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryThreshold.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check every.
+        /// </summary>
+        public static string Menu_Behaviour_MemoryInterval_Title {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryInterval.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How often to check Roblox's memory use..
+        /// </summary>
+        public static string Menu_Behaviour_MemoryInterval_Description {
+            get {
+                return ResourceManager.GetString("Menu.Behaviour.MemoryInterval.Description", resourceCulture);
+            }
+        }
     }
 }

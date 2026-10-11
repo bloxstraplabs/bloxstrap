@@ -43,6 +43,12 @@ namespace Bloxstrap.Models.Persistable
         public bool RobloxGameTitlePlayerCount { get; set; } = false;
         public bool RobloxGameIcon { get; set; } = false;
         public string RobloxIconPath { get; set; } = "";
+        public RobloxWindowIcon RobloxWindowIcon { get; set; } = RobloxWindowIcon.Default;
+        public RobloxWindowIcon StudioWindowIcon { get; set; } = RobloxWindowIcon.Default;
+        public string StudioIconPath { get; set; } = "";
+        public bool MemoryTrimmer { get; set; } = false;
+        public int MemoryTrimThresholdMb { get; set; } = 2000;
+        public int MemoryTrimIntervalSeconds { get; set; } = 60;
         public bool CloseCrashHandler { get; set; } = false;
         public string RobloxCpuAffinity { get; set; } = "";
         public RobloxAppTheme RobloxAppTheme { get; set; } = RobloxAppTheme.Default;

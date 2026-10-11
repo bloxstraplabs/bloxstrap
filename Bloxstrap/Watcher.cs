@@ -88,7 +88,15 @@ namespace Bloxstrap
             if (_watcherData.IsStudio)
             {
                 ActivityWatcher = new(_watcherData.LogFile);
-                StudioRichPresence = new(ActivityWatcher);
+
+                if (App.Settings.Prop.StudioRichPresence)
+                    StudioRichPresence = new(ActivityWatcher);
+
+                _customIcon = WindowIcons.Load(App.Settings.Prop.StudioWindowIcon, App.Settings.Prop.StudioIconPath);
+
+                if (_customIcon is not null)
+                    StartStudioIcon();
+
                 return;
             }
 
@@ -152,17 +160,10 @@ namespace Bloxstrap
                 };
             }
 
-            if (!String.IsNullOrEmpty(settings.RobloxIconPath) && File.Exists(settings.RobloxIconPath))
-            {
-                try
-                {
-                    _customIcon = LoadIcon(File.ReadAllBytes(settings.RobloxIconPath));
-                }
-                catch (Exception ex)
-                {
-                    App.Logger.WriteException(LOG_IDENT, ex);
-                }
-            }
+            _customIcon = WindowIcons.Load(settings.RobloxWindowIcon, settings.RobloxIconPath);
+
+            if (settings.MemoryTrimmer)
+                Task.Run(RunMemoryTrimmer);
 
             if (settings.CloseCrashHandler)
                 Task.Run(CloseCrashHandler);
@@ -284,15 +285,6 @@ namespace Bloxstrap
             _windowTimer.Start();
         }
 
-        private static System.Drawing.Icon LoadIcon(byte[] data)
-        {
-            using var stream = new MemoryStream(data);
-            using var image = System.Drawing.Image.FromStream(stream);
-            using var bitmap = new System.Drawing.Bitmap(image, 64, 64);
-
-            return System.Drawing.Icon.FromHandle(bitmap.GetHicon());
-        }
-
         private async Task LoadGameWindowInfo(ActivityData activity)
         {
             const string LOG_IDENT = "Watcher::LoadGameWindowInfo";
@@ -319,11 +311,67 @@ namespace Bloxstrap
                 }
 
                 if (App.Settings.Prop.RobloxGameIcon && !String.IsNullOrEmpty(details.Thumbnail.ImageUrl))
-                    _gameIcon = LoadIcon(await App.HttpClient.GetByteArrayAsync(details.Thumbnail.ImageUrl));
+                    _gameIcon = WindowIcons.FromImage(await App.HttpClient.GetByteArrayAsync(details.Thumbnail.ImageUrl));
             }
             catch (Exception ex)
             {
                 App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
+        private void StartStudioIcon()
+        {
+            _robloxWindow = new RobloxWindow(_watcherData!.ProcessId);
+
+            _windowTimer = new DispatcherTimer(TimeSpan.FromSeconds(2), DispatcherPriority.Normal, (_, _) =>
+            {
+                if (!_robloxWindow.Refresh() || _customIcon is null)
+                    return;
+
+                if (_customIcon.Handle != _appliedIcon || _robloxWindow.Handle != _appliedIconWindow)
+                {
+                    _robloxWindow.ApplyIcon(_customIcon.Handle);
+                    _appliedIcon = _customIcon.Handle;
+                    _appliedIconWindow = _robloxWindow.Handle;
+                }
+            }, Dispatcher.CurrentDispatcher);
+
+            _windowTimer.Start();
+        }
+
+        [System.Runtime.InteropServices.DllImport("psapi.dll")]
+        private static extern bool EmptyWorkingSet(IntPtr process);
+
+        private async Task RunMemoryTrimmer()
+        {
+            const string LOG_IDENT = "Watcher::RunMemoryTrimmer";
+
+            while (true)
+            {
+                await Task.Delay(Math.Clamp(App.Settings.Prop.MemoryTrimIntervalSeconds, 15, 3600) * 1000);
+
+                try
+                {
+                    using var process = Process.GetProcessById(_watcherData!.ProcessId);
+
+                    long before = process.WorkingSet64 / 1024 / 1024;
+
+                    if (before < App.Settings.Prop.MemoryTrimThresholdMb)
+                        continue;
+
+                    EmptyWorkingSet(process.Handle);
+                    process.Refresh();
+
+                    App.Logger.WriteLine(LOG_IDENT, $"Trimmed Roblox from {before} MB to {process.WorkingSet64 / 1024 / 1024} MB");
+                }
+                catch (ArgumentException)
+                {
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
             }
         }
 
