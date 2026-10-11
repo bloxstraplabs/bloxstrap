@@ -3123,4 +3123,10 @@ Switch channels?</value>
   <data name="Menu.Mods.ColorMods.Apply.Icons" xml:space="preserve">
     <value>Roblox UI icons</value>
   </data>
+  <data name="Menu.UpdateAvailable" xml:space="preserve">
+    <value>Update to {0}</value>
+  </data>
+  <data name="Menu.Updating" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
 </root>

@@ -47,6 +47,48 @@ namespace Bloxstrap.UI.Elements.Settings
 
         public bool RestartRequested => _viewModel.RestartRequested;
 
+        private GithubRelease? _update;
+
+        private async void CheckForUpdate()
+        {
+            try
+            {
+                _update = await Updater.FindUpdate();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("MainWindow::CheckForUpdate", ex);
+            }
+
+            if (_update is null)
+                return;
+
+            UpdateButton.Content = String.Format(Strings.Menu_UpdateAvailable, _update.TagName);
+            UpdateButton.Visibility = Visibility.Visible;
+        }
+
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_update is null)
+                return;
+
+            UpdateButton.IsEnabled = false;
+            UpdateButton.Content = Strings.Menu_Updating;
+
+            try
+            {
+                await Updater.Install(_update, "-settings");
+                App.Terminate();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("MainWindow::UpdateButton_Click", ex);
+                Frontend.ShowMessageBox(String.Format(Strings.Bootstrapper_AutoUpdateFailed, _update.TagName), MessageBoxImage.Information);
+                Utilities.ShellExecute(App.ProjectDownloadLink);
+                UpdateButton.IsEnabled = true;
+            }
+        }
+
         public MainWindow(bool showAlreadyRunningWarning)
         {
             _viewModel = new MainWindowViewModel();
@@ -65,6 +107,7 @@ namespace Bloxstrap.UI.Elements.Settings
 
             LoadState();
             BuildSearchIndex();
+            CheckForUpdate();
 
             if (App.Settings.Prop.DisableAnimations)
                 RootNavigation.TransitionDuration = 0;

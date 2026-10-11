@@ -8794,5 +8794,23 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Mods.ColorMods.Apply.Icons", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update to {0}.
+        /// </summary>
+        public static string Menu_UpdateAvailable {
+            get {
+                return ResourceManager.GetString("Menu.UpdateAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating....
+        /// </summary>
+        public static string Menu_Updating {
+            get {
+                return ResourceManager.GetString("Menu.Updating", resourceCulture);
+            }
+        }
     }
 }

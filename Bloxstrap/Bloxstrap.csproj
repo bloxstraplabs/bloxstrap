@@ -11,8 +11,8 @@
     <RootNamespace>Bloxstrap</RootNamespace>
     <Product>reistrap</Product>
     <AssemblyTitle>reistrap</AssemblyTitle>
-    <Version>1.1.0</Version>
-    <FileVersion>1.1.0</FileVersion>
+    <Version>1.1.1</Version>
+    <FileVersion>1.1.1</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
