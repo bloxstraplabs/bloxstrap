@@ -1,0 +1,11 @@
+name = "reistrap-analytics"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "reistrap-analytics"
+database_id = "4f73943c-be26-4b9d-880b-931dafac54bf"
+
+[triggers]
+crons = ["0 4 * * *"]
