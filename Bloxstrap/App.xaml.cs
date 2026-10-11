@@ -247,6 +247,8 @@ namespace Bloxstrap
 
             base.OnStartup(e);
 
+            SmoothScroll.Register();
+
             Logger.WriteLine(LOG_IDENT, $"Starting {ProjectName} v{Version}");
 
             string userAgent = $"{ProjectName}/{Version}";
