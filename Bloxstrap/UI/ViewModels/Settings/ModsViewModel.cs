@@ -285,7 +285,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             QueuePreview();
         });
 
-        public ICommand GenerateColorModsCommand => new RelayCommand(GenerateColorMods);
+        public ICommand GenerateColorModsCommand => new AsyncRelayCommand(GenerateColorMods);
 
         public ICommand RemoveColorModsCommand => new RelayCommand(RemoveColorMods);
 
@@ -343,7 +343,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        private void GenerateColorMods()
+        private async Task GenerateColorMods()
         {
             const string LOG_IDENT = "ModsViewModel::GenerateColorMods";
 
@@ -355,19 +355,30 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             int written = 0;
 
+            bool icons = ColorIcons, cursors = ColorCursors, shiftLock = ColorShiftLock, emoteWheel = ColorEmoteWheel;
+            double angle = GradientAngle;
+            string robloxDirectory = new RobloxPlayerData().Directory;
+
             try
             {
-                if (ColorIcons)
-                    written += ModGenerator.RecolorGradient(IconGenerator.FindSheets(new RobloxPlayerData().Directory), stops, GradientAngle, true);
+                written = await Task.Run(() =>
+                {
+                    int count = 0;
 
-                if (ColorCursors)
-                    written += ModGenerator.RecolorGradient(ModGenerator.CursorFiles, stops, GradientAngle, false);
+                    if (icons)
+                        count += ModGenerator.RecolorGradient(IconGenerator.FindSheets(robloxDirectory), stops, angle, true);
 
-                if (ColorShiftLock)
-                    written += ModGenerator.RecolorGradient(new[] { ModGenerator.ShiftLockFile }, stops, GradientAngle, false);
+                    if (cursors)
+                        count += ModGenerator.RecolorGradient(ModGenerator.CursorFiles, stops, angle, false);
 
-                if (ColorEmoteWheel)
-                    written += ModGenerator.RecolorGradient(ModGenerator.EmoteWheelFiles, stops, GradientAngle, false);
+                    if (shiftLock)
+                        count += ModGenerator.RecolorGradient(new[] { ModGenerator.ShiftLockFile }, stops, angle, false);
+
+                    if (emoteWheel)
+                        count += ModGenerator.RecolorGradient(ModGenerator.EmoteWheelFiles, stops, angle, false);
+
+                    return count;
+                });
             }
             catch (Exception ex)
             {
