@@ -10,7 +10,8 @@
         // they only get printed depending on their configured FLog level, which could change at any time
         // while levels being changed is fairly rare, please limit the number of varying number of FLog types you have to use, if possible
 
-        private const string GameTeleportingEntry            = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToPlace";
+        private const string GameTeleportingEntry            = "[FLog::UgcExperienceController] UgcExperienceController: doTeleport: joinScriptUrl";
+        private const string GameTeleportingLegacyEntry      = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToPlace";
         private const string GameJoiningPrivateServerEntry   = "[FLog::GameJoinUtil] GameJoinUtil::joinGamePostPrivateServer";
         private const string GameJoiningReservedServerEntry  = "[FLog::GameJoinUtil] GameJoinUtil::initiateTeleportToReservedServer";
         private const string GameJoiningUniverseEntry        = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
@@ -24,6 +25,8 @@
 
         private const string GameJoiningEntryPattern         = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningPrivateServerPattern = @"""accessCode"":""([0-9a-f\-]{36})""";
+        private const string GameJoinReferralPattern         = @"referral_page:([^,]+)";
+        private const string GameTeleportJoinTypePattern     = @"JoinTypeId""%3a(\d+)%2c";
         private const string GameJoiningUniversePattern      = @"universeid:([0-9]+).*userid:([0-9]+)";
         private const string GameJoiningUDMUXPattern         = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern          = @"serverId: ([0-9\.]+)\|[0-9]+";
@@ -276,6 +279,16 @@
                     Data.UniverseId = Int64.Parse(match.Groups[1].Value);
                     Data.UserId = Int64.Parse(match.Groups[2].Value);
 
+                    var referralMatch = Regex.Match(logMessage, GameJoinReferralPattern);
+
+                    if (referralMatch.Groups.Count == 2)
+                    {
+                        string referral = referralMatch.Groups[1].Value;
+
+                        if (referral.Contains("RequestPrivateGame", StringComparison.OrdinalIgnoreCase) || referral.Contains("GameDetailPageJSHybridEvent", StringComparison.OrdinalIgnoreCase))
+                            Data.ServerType = ServerType.Private;
+                    }
+
                     if (History.Any())
                     {
                         var lastActivity = History.First();
@@ -329,10 +342,24 @@
 
                     OnGameLeave?.Invoke(this, EventArgs.Empty);
                 }
-                else if (logMessage.StartsWith(GameTeleportingEntry, StringComparison.Ordinal))
+                else if (logMessage.StartsWith(GameTeleportingEntry, StringComparison.Ordinal) || logMessage.StartsWith(GameTeleportingLegacyEntry, StringComparison.Ordinal))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data})");
                     _teleportMarker = true;
+
+                    var joinTypeMatch = Regex.Match(logMessage, GameTeleportJoinTypePattern);
+
+                    if (joinTypeMatch.Success && int.TryParse(joinTypeMatch.Groups[1].Value, out int joinTypeId))
+                    {
+                        var joinType = (ServerSessionJoinType)joinTypeId;
+                        App.Logger.WriteLine(LOG_IDENT, $"Teleport JoinTypeId: {joinTypeId}");
+
+                        if (joinType is ServerSessionJoinType.NewGamePrivateGame or ServerSessionJoinType.SpecificPrivateGame)
+                        {
+                            _reservedTeleportMarker = true;
+                            App.Logger.WriteLine(LOG_IDENT, "Detected reserved server teleport");
+                        }
+                    }
                 }
                 else if (logMessage.StartsWith(GameJoiningReservedServerEntry, StringComparison.Ordinal))
                 {
