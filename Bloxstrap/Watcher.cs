@@ -23,6 +23,8 @@ namespace Bloxstrap
 
         public readonly SocdResolver? Socd;
 
+        public readonly WindowControl? WindowControl;
+
         private RobloxWindow? _robloxWindow;
 
         private CrosshairWindow? _crosshair;
@@ -118,6 +120,9 @@ namespace Bloxstrap
 
                 if (App.Settings.Prop.UseDiscordRichPresence)
                     RichPresence = new(ActivityWatcher);
+
+                if (App.Settings.Prop.WindowControlEnabled)
+                    WindowControl = new(ActivityWatcher, _watcherData.ProcessId, new AppData.RobloxPlayerData().Directory);
             }
 
             var settings = App.Settings.Prop;
@@ -161,6 +166,9 @@ namespace Bloxstrap
                 StartWindowFeatures(settings.CrosshairEnabled || anyProfileCrosshair);
 
             _notifyIcon = new(this);
+
+            if (WindowControl is not null)
+                WindowControl.ShowNotification = (title, caption, duration) => _notifyIcon.ShowAlert(title, caption, duration, null);
         }
 
         private bool ShouldShowCrosshair()
@@ -216,16 +224,18 @@ namespace Bloxstrap
                     return;
                 }
 
-                if (!String.IsNullOrEmpty(settings.RobloxWindowTitle))
+                bool gameControlsWindow = WindowControl is { Active: true } or { TitleChanged: true };
+
+                if (!gameControlsWindow && !String.IsNullOrEmpty(settings.RobloxWindowTitle))
                 {
                     _robloxWindow.ApplyTitle(settings.RobloxWindowTitle);
                 }
-                else if (_gameTitle is not null)
+                else if (!gameControlsWindow && _gameTitle is not null)
                 {
                     _robloxWindow.ApplyTitle(_gameTitle);
                     _gameTitleApplied = true;
                 }
-                else if (_gameTitleApplied)
+                else if (!gameControlsWindow && _gameTitleApplied)
                 {
                     _robloxWindow.ApplyTitle("Roblox");
                     _gameTitleApplied = false;
@@ -240,7 +250,7 @@ namespace Bloxstrap
                     _appliedIconWindow = _robloxWindow.Handle;
                 }
 
-                if (settings.RobloxBorderless)
+                if (settings.RobloxBorderless && WindowControl is not { Active: true })
                     _robloxWindow.ApplyBorderless();
 
                 if (settings.ThrottleInBackground)
@@ -556,6 +566,7 @@ namespace Bloxstrap
             RichPresence?.Dispose();
             StudioRichPresence?.Dispose();
             Socd?.Dispose();
+            WindowControl?.Dispose();
             RobloxSingleton.Release();
 
             _windowTimer?.Dispatcher.Invoke(() =>

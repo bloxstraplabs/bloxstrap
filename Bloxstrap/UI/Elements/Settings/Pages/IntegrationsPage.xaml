@@ -165,6 +165,90 @@
             <ui:ToggleSwitch IsChecked="{Binding StudioShowGameButton, Mode=TwoWay}" />
         </controls:OptionControl>
 
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_WindowControl_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_WindowControl_Description}" Style="{StaticResource SectionDescription}" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Enabled_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Enabled_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
+            x:Name="WindowControlOption">
+            <ui:ToggleSwitch IsChecked="{Binding WindowControlEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <StackPanel IsEnabled="{Binding InnerContent.IsChecked, ElementName=WindowControlOption, Mode=OneWay}">
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Move_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Move_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlMove, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Title_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Title_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlTitle, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Transparency_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Transparency_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlTransparency, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Color_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Color_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlColor, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Wallpaper_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Wallpaper_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlWallpaper, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Desktop_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Desktop_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlDesktop, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_AllGames_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_AllGames_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding WindowControlAllGames, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Monitor_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Monitor_Description}">
+                <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding WindowMonitorModes, Mode=OneTime}" SelectedItem="{Binding WindowControlMonitor, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Fps_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_WindowControl_Fps_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="10" Maximum="144" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding WindowControlFps, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding WindowControlFps, Mode=OneWay}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_WindowControl_Permissions_Title}"
+                Description="{Binding WindowPermissionsText}">
+                <ui:Button Icon="ArrowReset24" Content="{x:Static resources:Strings.Common_Reset}" Command="{Binding ResetWindowPermissionsCommand}" />
+            </controls:OptionControl>
+        </StackPanel>
+
         <Border Style="{StaticResource SectionSeparator}" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" Style="{StaticResource SectionTitle}" />
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" Style="{StaticResource SectionDescription}" />

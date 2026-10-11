@@ -219,5 +219,91 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public CustomIntegration? SelectedCustomIntegration { get; set; }
         public int SelectedCustomIntegrationIndex { get; set; }
         public bool IsCustomIntegrationSelected => SelectedCustomIntegration is not null;
+
+        // Window control
+
+        public bool WindowControlEnabled
+        {
+            get => App.Settings.Prop.WindowControlEnabled;
+            set => App.Settings.Prop.WindowControlEnabled = value;
+        }
+
+        public bool WindowControlMove
+        {
+            get => App.Settings.Prop.WindowControlMove;
+            set => App.Settings.Prop.WindowControlMove = value;
+        }
+
+        public bool WindowControlTitle
+        {
+            get => App.Settings.Prop.WindowControlTitle;
+            set => App.Settings.Prop.WindowControlTitle = value;
+        }
+
+        public bool WindowControlTransparency
+        {
+            get => App.Settings.Prop.WindowControlTransparency;
+            set => App.Settings.Prop.WindowControlTransparency = value;
+        }
+
+        public bool WindowControlColor
+        {
+            get => App.Settings.Prop.WindowControlColor;
+            set => App.Settings.Prop.WindowControlColor = value;
+        }
+
+        public bool WindowControlWallpaper
+        {
+            get => App.Settings.Prop.WindowControlWallpaper;
+            set => App.Settings.Prop.WindowControlWallpaper = value;
+        }
+
+        public bool WindowControlDesktop
+        {
+            get => App.Settings.Prop.WindowControlDesktop;
+            set => App.Settings.Prop.WindowControlDesktop = value;
+        }
+
+        public bool WindowControlAllGames
+        {
+            get => App.Settings.Prop.WindowControlAllGames;
+            set => App.Settings.Prop.WindowControlAllGames = value;
+        }
+
+        public IEnumerable<WindowMonitorMode> WindowMonitorModes { get; } = Enum.GetValues<WindowMonitorMode>();
+
+        public WindowMonitorMode WindowControlMonitor
+        {
+            get => App.Settings.Prop.WindowControlMonitor;
+            set => App.Settings.Prop.WindowControlMonitor = value;
+        }
+
+        public int WindowControlFps
+        {
+            get => App.Settings.Prop.WindowControlFps;
+            set
+            {
+                App.Settings.Prop.WindowControlFps = value;
+                OnPropertyChanged(nameof(WindowControlFps));
+            }
+        }
+
+        private readonly JsonManager<WindowPermissions> _windowPermissions = new();
+
+        public string WindowPermissionsText
+        {
+            get
+            {
+                _windowPermissions.Load(false);
+                return String.Format(Strings.Menu_Integrations_WindowControl_Permissions_Description, _windowPermissions.Prop.Allowed.Count, _windowPermissions.Prop.Blocked.Count);
+            }
+        }
+
+        public ICommand ResetWindowPermissionsCommand => new RelayCommand(() =>
+        {
+            _windowPermissions.Prop = new();
+            _windowPermissions.Save();
+            OnPropertyChanged(nameof(WindowPermissionsText));
+        });
     }
 }

@@ -2646,4 +2646,100 @@ Switch channels?</value>
   <data name="Menu.RegionSelector.LoadMore" xml:space="preserve">
     <value>Load more</value>
   </data>
+  <data name="Menu.Integrations.WindowControl.Title" xml:space="preserve">
+    <value>Game window control</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Description" xml:space="preserve">
+    <value>Lets games made for Funkstrap, like Project: Afternight, move, recolor and resize your Roblox window as part of the game. A game always has to ask you first.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Enabled.Title" xml:space="preserve">
+    <value>Allow games to control the window</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Enabled.Description" xml:space="preserve">
+    <value>Turn on support for Funkstrap window effects. Games you allow can use the permissions below.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Move.Title" xml:space="preserve">
+    <value>Move and resize the window</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Move.Description" xml:space="preserve">
+    <value>Lets games move, resize and remove the border of the Roblox window.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Title.Title" xml:space="preserve">
+    <value>Change the window title</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Title.Description" xml:space="preserve">
+    <value>Lets games set the text in the Roblox title bar.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Transparency.Title" xml:space="preserve">
+    <value>Make the window transparent</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Transparency.Description" xml:space="preserve">
+    <value>Lets games make the Roblox window see-through.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Color.Title" xml:space="preserve">
+    <value>Change the window color</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Color.Description" xml:space="preserve">
+    <value>Lets games recolor the Roblox title bar and border.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Wallpaper.Title" xml:space="preserve">
+    <value>Change the desktop wallpaper</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Wallpaper.Description" xml:space="preserve">
+    <value>Lets games set your wallpaper to one of their images while you play. Your wallpaper is put back when you leave. This uses your Roblox login to download the image, and closes Wallpaper Engine or Lively until you leave.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Desktop.Title" xml:space="preserve">
+    <value>Hide the taskbar and desktop icons</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Desktop.Description" xml:space="preserve">
+    <value>Lets games hide your taskbar and desktop icons while you play. They come back when you leave.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.AllGames.Title" xml:space="preserve">
+    <value>Allow every game without asking</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.AllGames.Description" xml:space="preserve">
+    <value>Skip the permission prompt. Only turn this on if you trust every game you play.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Monitor.Title" xml:space="preserve">
+    <value>Screen area</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Monitor.Description" xml:space="preserve">
+    <value>Whether games move the window around one monitor or across all of them.</value>
+  </data>
+  <data name="Enums.WindowMonitorMode.Single" xml:space="preserve">
+    <value>Current monitor</value>
+  </data>
+  <data name="Enums.WindowMonitorMode.All" xml:space="preserve">
+    <value>All monitors</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Fps.Title" xml:space="preserve">
+    <value>Update rate</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Fps.Description" xml:space="preserve">
+    <value>How many times per second reistrap checks for window updates while a game is controlling it. Higher is smoother but uses a little more CPU.</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Permissions.Title" xml:space="preserve">
+    <value>Game permissions</value>
+  </data>
+  <data name="Menu.Integrations.WindowControl.Permissions.Description" xml:space="preserve">
+    <value>{0} allowed, {1} blocked. Reset to be asked again.</value>
+  </data>
+  <data name="Dialog.WindowPermission.Title" xml:space="preserve">
+    <value>Window control</value>
+  </data>
+  <data name="Dialog.WindowPermission.Game" xml:space="preserve">
+    <value>{0} wants to control your Roblox window</value>
+  </data>
+  <data name="Dialog.WindowPermission.Description" xml:space="preserve">
+    <value>This lets the game move, resize and recolor the window, plus anything else you've allowed in reistrap's settings. Everything is put back when you leave the game.</value>
+  </data>
+  <data name="Dialog.WindowPermission.NeverAsk" xml:space="preserve">
+    <value>Don't ask again for this game</value>
+  </data>
+  <data name="Dialog.WindowPermission.Allow" xml:space="preserve">
+    <value>Allow</value>
+  </data>
+  <data name="Dialog.WindowPermission.Deny" xml:space="preserve">
+    <value>Deny</value>
+  </data>
 </root>

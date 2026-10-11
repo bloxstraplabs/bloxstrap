@@ -46,6 +46,8 @@
 
         private DateTime LastRPCRequest;
 
+        public int PollDelay = 1000;
+
         public string LogLocation = null!;
 
         public bool InGame = false;
@@ -130,7 +132,7 @@
                 string? log = await streamReader.ReadLineAsync();
 
                 if (log is null)
-                    await Task.Delay(1000);
+                    await Task.Delay(PollDelay);
                 else
                     ReadLogEntry(log);
             }
@@ -356,14 +358,6 @@
                     string messagePlain = match.Groups[1].Value;
                     Message? message;
 
-                    App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
-
-                    if ((DateTime.Now - LastRPCRequest).TotalSeconds <= 1)
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Dropping message as ratelimit has been hit");
-                        return;
-                    }
-
                     try
                     {
                         message = JsonSerializer.Deserialize<Message>(messagePlain);
@@ -384,6 +378,19 @@
                     {
                         App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (Command is empty)");
                         return;
+                    }
+
+                    bool rateLimited = message.Command is "SetRichPresence" or "SetLaunchData";
+
+                    if (rateLimited)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Received message: '{messagePlain}'");
+
+                        if ((DateTime.Now - LastRPCRequest).TotalSeconds <= 1)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Dropping message as ratelimit has been hit");
+                            return;
+                        }
                     }
 
                     if (message.Command == "SetLaunchData")
@@ -417,7 +424,8 @@
 
                     OnRPCMessage?.Invoke(this, message);
 
-                    LastRPCRequest = DateTime.Now;
+                    if (rateLimited)
+                        LastRPCRequest = DateTime.Now;
                 }
             }
         }

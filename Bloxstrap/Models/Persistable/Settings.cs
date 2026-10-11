@@ -51,6 +51,16 @@ namespace Bloxstrap.Models.Persistable
         public bool BetterMatchmaking { get; set; } = false;
         public string PreferredRegion { get; set; } = "";
         public bool RandomizeMatchmaking { get; set; } = false;
+        public bool WindowControlEnabled { get; set; } = false;
+        public bool WindowControlMove { get; set; } = true;
+        public bool WindowControlTitle { get; set; } = true;
+        public bool WindowControlTransparency { get; set; } = true;
+        public bool WindowControlColor { get; set; } = true;
+        public bool WindowControlWallpaper { get; set; } = false;
+        public bool WindowControlDesktop { get; set; } = false;
+        public bool WindowControlAllGames { get; set; } = false;
+        public WindowMonitorMode WindowControlMonitor { get; set; } = WindowMonitorMode.Single;
+        public int WindowControlFps { get; set; } = 60;
         public bool CrosshairEnabled { get; set; } = false;
         public CrosshairStyle CrosshairStyle { get; set; } = CrosshairStyle.Cross;
         public string CrosshairColor { get; set; } = "#00FF00";

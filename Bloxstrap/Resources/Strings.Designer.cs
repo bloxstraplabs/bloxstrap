@@ -7363,5 +7363,293 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.RegionSelector.LoadMore", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game window control.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games made for Funkstrap, like Project: Afternight, move, recolor and resize your Roblox window as part of the game. A game always has to ask you first..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow games to control the window.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Enabled_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Enabled.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on support for Funkstrap window effects. Games you allow can use the permissions below..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Enabled_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Enabled.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move and resize the window.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Move_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Move.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games move, resize and remove the border of the Roblox window..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Move_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Move.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the window title.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Title_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Title.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games set the text in the Roblox title bar..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Title_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Title.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make the window transparent.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Transparency_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Transparency.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games make the Roblox window see-through..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Transparency_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Transparency.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the window color.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Color_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Color.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games recolor the Roblox title bar and border..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Color_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Color.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the desktop wallpaper.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Wallpaper_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Wallpaper.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games set your wallpaper to one of their images while you play. Your wallpaper is put back when you leave. This uses your Roblox login to download the image, and closes Wallpaper Engine or Lively until you leave..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Wallpaper_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Wallpaper.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide the taskbar and desktop icons.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Desktop_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Desktop.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lets games hide your taskbar and desktop icons while you play. They come back when you leave..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Desktop_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Desktop.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow every game without asking.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_AllGames_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.AllGames.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip the permission prompt. Only turn this on if you trust every game you play..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_AllGames_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.AllGames.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screen area.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Monitor_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Monitor.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether games move the window around one monitor or across all of them..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Monitor_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Monitor.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current monitor.
+        /// </summary>
+        public static string Enums_WindowMonitorMode_Single {
+            get {
+                return ResourceManager.GetString("Enums.WindowMonitorMode.Single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All monitors.
+        /// </summary>
+        public static string Enums_WindowMonitorMode_All {
+            get {
+                return ResourceManager.GetString("Enums.WindowMonitorMode.All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update rate.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Fps_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Fps.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How many times per second reistrap checks for window updates while a game is controlling it. Higher is smoother but uses a little more CPU..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Fps_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Fps.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game permissions.
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Permissions_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Permissions.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} allowed, {1} blocked. Reset to be asked again..
+        /// </summary>
+        public static string Menu_Integrations_WindowControl_Permissions_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.WindowControl.Permissions.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window control.
+        /// </summary>
+        public static string Dialog_WindowPermission_Title {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} wants to control your Roblox window.
+        /// </summary>
+        public static string Dialog_WindowPermission_Game {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This lets the game move, resize and recolor the window, plus anything else you've allowed in reistrap's settings. Everything is put back when you leave the game..
+        /// </summary>
+        public static string Dialog_WindowPermission_Description {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don't ask again for this game.
+        /// </summary>
+        public static string Dialog_WindowPermission_NeverAsk {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.NeverAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow.
+        /// </summary>
+        public static string Dialog_WindowPermission_Allow {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.Allow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deny.
+        /// </summary>
+        public static string Dialog_WindowPermission_Deny {
+            get {
+                return ResourceManager.GetString("Dialog.WindowPermission.Deny", resourceCulture);
+            }
+        }
     }
 }

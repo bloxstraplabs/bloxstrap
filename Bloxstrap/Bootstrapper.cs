@@ -705,6 +705,9 @@ namespace Bloxstrap
                 if (App.Settings.Prop.BetterMatchmaking)
                     ApplyMatchmaking();
 
+                if (App.Settings.Prop.WindowControlEnabled && App.Settings.Prop.EnableActivityTracking)
+                    WindowControl.WriteEnabledMarker(AppData.Directory);
+
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {
                     var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
