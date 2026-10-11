@@ -11,9 +11,6 @@ namespace Bloxstrap.UI.Elements.Dialogs
     // hmm... do i use MVVM for this?
     // this is entirely static, so i think im fine without it, and this way is just so much more efficient
 
-    /// <summary>
-    /// Interaction logic for ExceptionDialog.xaml
-    /// </summary>
     public partial class ConnectivityDialog
     {
         public ConnectivityDialog(string title, string description, MessageBoxImage image, Exception exception)

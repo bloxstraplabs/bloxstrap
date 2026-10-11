@@ -4,9 +4,6 @@ using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
-    /// <summary>
-    /// Interaction logic for AddFastFlagDialog.xaml
-    /// </summary>
     public partial class AddFastFlagDialog
     {
         public MessageBoxResult Result = MessageBoxResult.Cancel;

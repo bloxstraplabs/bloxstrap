@@ -3,9 +3,6 @@ using Bloxstrap.UI.ViewModels.Installer;
 
 namespace Bloxstrap.UI.Elements.Installer.Pages
 {
-    /// <summary>
-    /// Interaction logic for WelcomePage.xaml
-    /// </summary>
     public partial class WelcomePage
     {
         private readonly WelcomeViewModel _viewModel = new();

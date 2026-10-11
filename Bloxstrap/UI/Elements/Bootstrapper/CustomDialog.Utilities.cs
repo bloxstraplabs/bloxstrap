@@ -51,9 +51,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return (T)parsed;
         }
 
-        /// <summary>
-        /// ParseXmlAttribute but the default value is always null
-        /// </summary>
         private static T? ParseXmlAttributeNullable<T>(XElement element, string attributeName) where T : struct
         {
             var attribute = element.Attribute(attributeName);

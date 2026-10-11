@@ -11,9 +11,6 @@ using System.Xml.Linq;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for FastFlagEditorPage.xaml
-    /// </summary>
     public partial class FastFlagEditorPage
     {
         // believe me when i say there is absolutely zero point to using mvvm for this

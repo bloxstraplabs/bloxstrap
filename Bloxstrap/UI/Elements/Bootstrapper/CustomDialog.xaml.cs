@@ -6,9 +6,6 @@ using System.Windows.Shell;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
-    /// <summary>
-    /// Interaction logic for CustomDialog.xaml
-    /// </summary>
     public partial class CustomDialog : IBootstrapperDialog
     {
         private readonly BootstrapperDialogViewModel _viewModel;

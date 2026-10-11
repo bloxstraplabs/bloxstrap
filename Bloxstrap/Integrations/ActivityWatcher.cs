@@ -59,9 +59,6 @@
         
         public ActivityData Data { get; private set; } = new();
 
-        /// <summary>
-        /// Ordered by newest to oldest
-        /// </summary>
         public List<ActivityData> History = new();
 
         public bool IsDisposed = false;

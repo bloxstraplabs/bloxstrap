@@ -13,25 +13,6 @@ using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.Elements.Installer
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-    /// The logic behind this wizard-like interface is full of gross hacks, but there's no easy way to do this and I've tried to 
-    /// make it as nice and MVVM-"""conformant""" as can possibly be ¯\_(ツ)_/¯
-    /// 
-    /// Page ViewModels can request changing of navigation button states through the following call flow:
-    /// - Page ViewModel holds event for requesting button state change
-    /// - Page CodeBehind subscribes to event on page creation
-    /// - Page ViewModel invokes event when ready
-    /// - Page CodeBehind receives it, gets MainWindow, and directly calls MainWindow.SetButtonEnabled()
-    /// - MainWindow.SetButtonEnabled() directly calls MainWindowViewModel.SetButtonEnabled() which does the thing a voila
-    /// 
-    /// Page ViewModels can also be notified of when the next page button has been pressed and stop progression if needed through a callback
-    /// - MainWindow has a single-set Func<bool> property named NextPageCallback which is reset on every page load
-    /// - This callback is called when the next page button is pressed
-    /// - Page CodeBehind gets MainWindow and sets the callback to its own local function on page load
-    /// - CodeBehind's local function then directly calls its ViewModel to do whatever it needs to do
 
     public partial class MainWindow : WpfUiWindow, INavigationWindow
     {

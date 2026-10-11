@@ -10,9 +10,6 @@ using System.Windows.Media;
 
 namespace Bloxstrap.UI.Elements.Controls
 {
-    /// <summary>
-    /// TextBlock with markdown support.
-    /// </summary>
     [ContentProperty("MarkdownText")]
     [Localizability(LocalizationCategory.Text)]
     class MarkdownTextBlock : TextBlock

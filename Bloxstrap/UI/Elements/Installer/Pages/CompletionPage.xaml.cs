@@ -3,9 +3,6 @@ using Bloxstrap.UI.ViewModels.Installer;
 
 namespace Bloxstrap.UI.Elements.Installer.Pages
 {
-    /// <summary>
-    /// Interaction logic for CompletionPage.xaml
-    /// </summary>
     public partial class CompletionPage
     {
         private readonly CompletionViewModel _viewModel = new();

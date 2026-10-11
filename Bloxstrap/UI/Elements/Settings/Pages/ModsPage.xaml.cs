@@ -2,9 +2,6 @@
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for ModsPage.xaml
-    /// </summary>
     public partial class ModsPage
     {
         public ModsPage()

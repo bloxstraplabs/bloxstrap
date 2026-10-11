@@ -5,9 +5,6 @@ using System.Windows.Media.Animation;
 
 namespace Bloxstrap.UI.Elements.About.Pages
 {
-    /// <summary>
-    /// Interaction logic for AboutPage.xaml
-    /// </summary>
     public partial class AboutPage
     {
         private readonly Queue<Key> _keys = new();

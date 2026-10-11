@@ -10,9 +10,6 @@ using Bloxstrap.UI.ViewModels.Bootstrapper;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
-    /// <summary>
-    /// Interaction logic for ByfronDialog.xaml
-    /// </summary>
     public partial class ByfronDialog : IBootstrapperDialog
     {
         private readonly ByfronDialogViewModel _viewModel;

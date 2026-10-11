@@ -8,9 +8,6 @@ using Microsoft.Win32;
 
 namespace Bloxstrap
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
 #if QA_BUILD

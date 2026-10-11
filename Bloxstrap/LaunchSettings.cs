@@ -50,9 +50,6 @@ namespace Bloxstrap
 
         public string RobloxLaunchArgs { get; set; } = "";
 
-        /// <summary>
-        /// Original launch arguments
-        /// </summary>
         public string[] Args { get; private set; }
 
         public LaunchSettings(string[] args)

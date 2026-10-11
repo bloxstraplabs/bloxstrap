@@ -17,9 +17,6 @@ using Wpf.Ui.Common;
 
 namespace Bloxstrap.UI.Elements.Controls
 {
-  /// <summary>
-  /// Interaction logic for Expander.xaml
-  /// </summary>
   [ContentProperty(nameof(InnerContent))]
   public partial class Expander : UserControl
   {

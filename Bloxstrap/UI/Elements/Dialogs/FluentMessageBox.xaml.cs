@@ -13,9 +13,6 @@ namespace Bloxstrap.UI.Elements.Dialogs
 {
     // wpfui does have its own messagebox control but it SUCKS so heres this instead
 
-    /// <summary>
-    /// Interaction logic for FluentMessageBox.xaml
-    /// </summary>
     public partial class FluentMessageBox
     {
         public MessageBoxResult Result = MessageBoxResult.None;

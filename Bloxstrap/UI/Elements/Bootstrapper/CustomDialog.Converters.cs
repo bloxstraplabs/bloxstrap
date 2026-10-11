@@ -63,10 +63,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
 
         private static BrushConverter BrushConverter { get; } = new BrushConverter();
 
-        /// <summary>
-        /// Return type of string = Name of DynamicResource
-        /// Return type of brush = ... The Brush!!!
-        /// </summary>
         private static object? GetBrushFromXElement(XElement element, string attributeName)
         {
             string? value = element.Attribute(attributeName)?.Value?.ToString();

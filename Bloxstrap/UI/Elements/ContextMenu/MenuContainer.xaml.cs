@@ -11,9 +11,6 @@ using Bloxstrap.Integrations;
 
 namespace Bloxstrap.UI.Elements.ContextMenu
 {
-    /// <summary>
-    /// Interaction logic for NotifyIconMenu.xaml
-    /// </summary>
     public partial class MenuContainer
     {
         // i wouldve gladly done this as mvvm but turns out that data binding just does not work with menuitems for some reason so idk this sucks

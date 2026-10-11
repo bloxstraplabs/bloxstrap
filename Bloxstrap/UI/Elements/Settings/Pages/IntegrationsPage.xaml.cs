@@ -4,9 +4,6 @@ using Bloxstrap.UI.ViewModels.Settings;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for IntegrationsPage.xaml
-    /// </summary>
     public partial class IntegrationsPage
     {
         public IntegrationsPage()

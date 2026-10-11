@@ -437,10 +437,6 @@ namespace Bloxstrap
             key.SetValueSafe("www.roblox.com", Deployment.IsDefaultChannel ? "" : Deployment.Channel);
         }
 
-        /// <summary>
-        /// Will throw whatever HttpClient can throw
-        /// </summary>
-        /// <returns></returns>
         private async Task GetLatestVersionInfo()
         {
             const string LOG_IDENT = "Bootstrapper::GetLatestVersionInfo";

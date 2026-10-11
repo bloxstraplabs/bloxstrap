@@ -7,9 +7,6 @@ using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
-    /// <summary>
-    /// Interaction logic for ClassicFluentDialog.xaml
-    /// </summary>
     public partial class ClassicFluentDialog : IBootstrapperDialog
     {
         private readonly BootstrapperDialogViewModel _viewModel;

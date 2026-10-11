@@ -17,9 +17,6 @@ using Wpf.Ui.Mvvm.Interfaces;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
-    /// <summary>
-    /// Interaction logic for LaunchMenuDialog.xaml
-    /// </summary>
     public partial class LaunchMenuDialog
     {
         public NextAction CloseAction = NextAction.Terminate;

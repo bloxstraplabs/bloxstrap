@@ -13,9 +13,6 @@ using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Editor
 {
-    /// <summary>
-    /// Interaction logic for BootstrapperEditorWindow.xaml
-    /// </summary>
     public partial class BootstrapperEditorWindow : WpfUiWindow
     {
         private static class CustomBootstrapperSchema
@@ -43,19 +40,10 @@ namespace Bloxstrap.UI.Elements.Editor
 
             private static Schema? _schema;
 
-            /// <summary>
-            /// Elements and their attributes
-            /// </summary>
             public static SortedDictionary<string, SortedDictionary<string, string>> ElementInfo { get; set; } = new();
 
-            /// <summary>
-            /// Attributes of elements that can have property elements
-            /// </summary>
             public static Dictionary<string, List<string>> PropertyElements { get; set; } = new();
 
-            /// <summary>
-            /// All type info
-            /// </summary>
             public static SortedDictionary<string, Type> Types { get; set; } = new();
 
             public static void ParseSchema()
@@ -263,12 +251,6 @@ namespace Bloxstrap.UI.Elements.Editor
             return (line, pos);
         }
 
-        /// <summary>
-        /// Source: https://xsemmel.codeplex.com
-        /// </summary>
-        /// <param name="xml"></param>
-        /// <param name="offset"></param>
-        /// <returns></returns>
         public static string? GetElementAtCursor(string xml, int offset, bool onlyAllowInside = false)
         {
             if (offset == xml.Length)
@@ -314,9 +296,6 @@ namespace Bloxstrap.UI.Elements.Editor
             }
         }
 
-        /// <summary>
-        /// A space between the cursor and the element will completely cancel this function
-        /// </summary>
         private string? GetElementAtCursorNoSpaces(string xml, int offset)
         {
             (string line, int pos) = GetLineAndPosAtCaretPosition();
@@ -336,11 +315,6 @@ namespace Bloxstrap.UI.Elements.Editor
             return null;
         }
 
-        /// <summary>
-        /// Returns null if not eligible to auto complete there.
-        /// Returns the name of the element to show the attributes for
-        /// </summary>
-        /// <returns></returns>
         private string? ShowAttributesForElementName()
         {
             (string line, int pos) = GetLineAndPosAtCaretPosition();

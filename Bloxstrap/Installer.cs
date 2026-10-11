@@ -5,14 +5,7 @@ namespace Bloxstrap
 {
     internal class Installer
     {
-        /// <summary>
-        /// Should the release notes open when updating to this version?
-        /// </summary>
         private const bool OpenReleaseNotes = true;
-        /// <summary>
-        /// Which version's release notes to open
-        /// Leave blank to use the current version
-        /// </summary>
         private const string ForcedReleaseNotesVersion = "";
 
         private static string DesktopShortcut => Path.Combine(Paths.Desktop, $"{App.ProjectName}.lnk");

@@ -69,11 +69,6 @@
             return url;
         }
 
-        /// <summary>
-        /// This function serves double duty as the setup mirror enumerator, and as our connectivity check.
-        /// Returns null for success.
-        /// </summary>
-        /// <returns></returns>
         public static async Task<Exception?> InitializeConnectivity()
         {
             const string LOG_IDENT = "Deployment::InitializeConnectivity";

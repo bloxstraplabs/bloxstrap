@@ -10,9 +10,6 @@
             set => _prop = value;
         }
 
-        /// <summary>
-        /// The file hash when last retrieved from disk
-        /// </summary>
         public string? LastFileHash { get; private set; }
 
         public bool Loaded { get; protected set; } = false;
@@ -158,9 +155,6 @@
             }
         }
 
-        /// <summary>
-        /// Is the file on disk different to the one deserialised during this session?
-        /// </summary>
         public bool HasFileOnDiskChanged()
         {
             // check if a file has been created since launch
@@ -171,10 +165,6 @@
         }
     }
 
-    /// <summary>
-    /// <see cref="JsonManager{T}"/> that will automatically load in the JSON if it has not been already
-    /// </summary>
-    /// <typeparam name="T">Class</typeparam>
     public class LazyJsonManager<T> : JsonManager<T> where T : class, new()
     {
         public override T Prop

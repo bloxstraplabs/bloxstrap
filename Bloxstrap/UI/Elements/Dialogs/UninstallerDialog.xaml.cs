@@ -17,9 +17,6 @@ using Wpf.Ui.Mvvm.Interfaces;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
-    /// <summary>
-    /// Interaction logic for UninstallerDialog.xaml
-    /// </summary>
     public partial class UninstallerDialog
     {
         public bool Confirmed { get; private set; } = false;

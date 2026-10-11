@@ -2,9 +2,6 @@
 
 namespace Bloxstrap.Models.Entities
 {
-    /// <summary>
-    /// Explicit loading. Load from cache before and after a fetch.
-    /// </summary>
     public class UniverseDetails
     {
         private static readonly ConcurrentDictionary<long, UniverseDetails> _cache = new();
@@ -13,9 +10,6 @@ namespace Bloxstrap.Models.Entities
 
         public GameDetailResponse Data { get; set; } = null!;
 
-        /// <summary>
-        /// Returns data for a 128x128 icon
-        /// </summary>
         public ThumbnailResponse Thumbnail { get; set; } = null!;
 
         public static UniverseDetails? LoadFromCache(long id) => _cache.TryGetValue(id, out var details) ? details : null;

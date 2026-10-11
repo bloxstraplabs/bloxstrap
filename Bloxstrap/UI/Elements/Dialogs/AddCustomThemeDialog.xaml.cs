@@ -6,9 +6,6 @@ using System.Windows;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
-    /// <summary>
-    /// Interaction logic for AddCustomThemeDialog.xaml
-    /// </summary>
     public partial class AddCustomThemeDialog : WpfUiWindow
     {
         private const int CreateNewTabId = 0;

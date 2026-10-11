@@ -17,9 +17,6 @@ using Bloxstrap.UI.ViewModels.Settings;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for BehaviourPage.xaml
-    /// </summary>
     public partial class BehaviourPage
     {
         public BehaviourPage()

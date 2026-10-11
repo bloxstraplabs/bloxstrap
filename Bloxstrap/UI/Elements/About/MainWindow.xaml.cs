@@ -4,9 +4,6 @@ using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.UI.Elements.About
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : INavigationWindow
     {
         public MainWindow()

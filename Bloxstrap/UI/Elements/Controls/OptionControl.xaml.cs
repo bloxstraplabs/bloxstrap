@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Bloxstrap.UI.Elements.Controls
 {
-    /// <summary>
-    /// Interaction logic for OptionControl.xaml
-    /// </summary
     [ContentProperty(nameof(InnerContent))]
     public partial class OptionControl : UserControl
     {

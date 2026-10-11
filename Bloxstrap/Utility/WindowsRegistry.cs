@@ -29,9 +29,6 @@ namespace Bloxstrap.Utility
             }
         }
 
-        /// <summary>
-        /// Registers Roblox Player protocols for Bloxstrap
-        /// </summary>
         public static void RegisterPlayer() => RegisterPlayer(Paths.Application, "-player \"%1\"");
 
         public static void RegisterPlayer(string handler, string handlerParam)
@@ -40,9 +37,6 @@ namespace Bloxstrap.Utility
             RegisterProtocol("roblox-player", "Roblox", handler, handlerParam);
         }
 
-        /// <summary>
-        /// Registers all Roblox Studio classes for Bloxstrap
-        /// </summary>
         public static void RegisterStudio()
         {
             RegisterStudioProtocol(Paths.Application, "-studio \"%1\"");
@@ -50,31 +44,18 @@ namespace Bloxstrap.Utility
             RegisterStudioFileTypes();
         }
 
-        /// <summary>
-        /// Registers roblox-studio and roblox-studio-auth protocols
-        /// </summary>
-        /// <param name="handler"></param>
-        /// <param name="handlerParam"></param>
         public static void RegisterStudioProtocol(string handler, string handlerParam)
         {
             RegisterProtocol("roblox-studio", "Roblox", handler, handlerParam);
             RegisterProtocol("roblox-studio-auth", "Roblox", handler, handlerParam);
         }
 
-        /// <summary>
-        /// Registers file associations for Roblox.Place class
-        /// </summary>
         public static void RegisterStudioFileTypes()
         {
             RegisterStudioFileType(".rbxl");
             RegisterStudioFileType(".rbxlx");
         }
 
-        /// <summary>
-        /// Registers Roblox.Place class
-        /// </summary>
-        /// <param name="handler"></param>
-        /// <param name="handlerParam"></param>
         public static void RegisterStudioFileClass(string handler, string handlerParam)
         {
             const string keyValue = "Roblox Place";

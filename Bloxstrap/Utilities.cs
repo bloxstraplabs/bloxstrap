@@ -42,17 +42,6 @@ namespace Bloxstrap
             return new Version(version);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="versionStr1"></param>
-        /// <param name="versionStr2"></param>
-        /// <returns>
-        /// Result of System.Version.CompareTo <br />
-        /// -1: version1 &lt; version2 <br />
-        ///  0: version1 == version2 <br />
-        ///  1: version1 &gt; version2
-        /// </returns>
         public static VersionComparison CompareVersions(string versionStr1, string versionStr2)
         {
             try
@@ -75,9 +64,6 @@ namespace Bloxstrap
             }
         }
 
-        /// <summary>
-        /// Parses the input version string and prints if fails
-        /// </summary>
         public static Version? ParseVersionSafe(string versionStr)
         {
             const string LOG_IDENT = "Utilities::ParseVersionSafe";

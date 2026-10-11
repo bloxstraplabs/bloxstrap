@@ -9,9 +9,6 @@ namespace Bloxstrap.Utility
     internal static class Thumbnails
     {
         // TODO: remove requests from list once they're finished or failed
-        /// <remarks>
-        /// Returned array may contain null values
-        /// </remarks>
         public static async Task<string?[]> GetThumbnailUrlsAsync(List<ThumbnailRequest> requests, CancellationToken token)
         {
             const string LOG_IDENT = "Thumbnails::GetThumbnailUrlsAsync";

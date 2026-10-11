@@ -6,9 +6,6 @@ using Wpf.Ui.Mvvm.Contracts;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for FastFlagsPage.xaml
-    /// </summary>
     public partial class FastFlagsPage
     {
         private bool _initialLoad = false;

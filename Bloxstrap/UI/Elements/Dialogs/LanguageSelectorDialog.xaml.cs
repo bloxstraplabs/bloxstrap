@@ -15,9 +15,6 @@ using Bloxstrap.UI.ViewModels.Dialogs;
 
 namespace Bloxstrap.UI.Elements.Dialogs
 {
-    /// <summary>
-    /// Interaction logic for LanguageSelectorDialog.xaml
-    /// </summary>
     public partial class LanguageSelectorDialog
     {
         public LanguageSelectorDialog()

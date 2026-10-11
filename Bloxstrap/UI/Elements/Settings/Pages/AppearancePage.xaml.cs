@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace Bloxstrap.UI.Elements.Settings.Pages
 {
-    /// <summary>
-    /// Interaction logic for AppearancePage.xaml
-    /// </summary>
     public partial class AppearancePage
     {
         public AppearancePage()

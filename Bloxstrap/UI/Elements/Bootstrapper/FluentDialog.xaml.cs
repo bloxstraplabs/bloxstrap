@@ -21,9 +21,6 @@ using System.Windows.Threading;
 
 namespace Bloxstrap.UI.Elements.Bootstrapper
 {
-    /// <summary>
-    /// Interaction logic for FluentDialog.xaml
-    /// </summary>
     public partial class FluentDialog : IBootstrapperDialog
     {
         private readonly FluentDialogViewModel _viewModel;
