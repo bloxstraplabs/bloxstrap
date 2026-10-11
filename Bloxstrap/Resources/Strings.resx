@@ -2742,4 +2742,148 @@ Switch channels?</value>
   <data name="Dialog.WindowPermission.Deny" xml:space="preserve">
     <value>Deny</value>
   </data>
+  <data name="Menu.Integrations.RejoinIdle.Title" xml:space="preserve">
+    <value>Rejoin after an idle kick</value>
+  </data>
+  <data name="Menu.Integrations.RejoinIdle.Description" xml:space="preserve">
+    <value>Go back to the same server after being kicked for being idle for 20 minutes.</value>
+  </data>
+  <data name="Menu.Integrations.RejoinConnection.Title" xml:space="preserve">
+    <value>Rejoin after losing connection</value>
+  </data>
+  <data name="Menu.Integrations.RejoinConnection.Description" xml:space="preserve">
+    <value>Go back to the same server after your connection drops or times out.</value>
+  </data>
+  <data name="Menu.Integrations.RejoinShutdown.Title" xml:space="preserve">
+    <value>Rejoin after a server shutdown</value>
+  </data>
+  <data name="Menu.Integrations.RejoinShutdown.Description" xml:space="preserve">
+    <value>Join a new server when yours shuts down or restarts for an update.</value>
+  </data>
+  <data name="Menu.Integrations.RejoinTeleport.Title" xml:space="preserve">
+    <value>Rejoin after a failed teleport</value>
+  </data>
+  <data name="Menu.Integrations.RejoinTeleport.Description" xml:space="preserve">
+    <value>Join the game again when a teleport fails, for example with error 773.</value>
+  </data>
+  <data name="Menu.Integrations.RejoinAttempts.Title" xml:space="preserve">
+    <value>Maximum attempts</value>
+  </data>
+  <data name="Menu.Integrations.RejoinAttempts.Description" xml:space="preserve">
+    <value>Stop rejoining after this many tries in 10 minutes, so it doesn't loop forever.</value>
+  </data>
+  <data name="Menu.Integrations.RejoinDelay.Title" xml:space="preserve">
+    <value>Wait before rejoining</value>
+  </data>
+  <data name="Menu.Integrations.RejoinDelay.Description" xml:space="preserve">
+    <value>How long to wait before rejoining, in seconds.</value>
+  </data>
+  <data name="Watcher.Rejoin.LimitTitle" xml:space="preserve">
+    <value>Not rejoining</value>
+  </data>
+  <data name="Watcher.Rejoin.LimitMessage" xml:space="preserve">
+    <value>You've been disconnected too many times in the last 10 minutes, so reistrap stopped rejoining automatically.</value>
+  </data>
+  <data name="Watcher.SessionRecap.Performance" xml:space="preserve">
+    <value>Roblox used {0}% CPU and {1}% GPU on average, and up to {2} MB of memory.</value>
+  </data>
+  <data name="Menu.Playtime.Performance.Title" xml:space="preserve">
+    <value>Record performance</value>
+  </data>
+  <data name="Menu.Playtime.Performance.Description" xml:space="preserve">
+    <value>Track how much CPU, GPU and memory Roblox uses while you play, and show it in the session recap and below.</value>
+  </data>
+  <data name="Menu.Playtime.Sessions.Title" xml:space="preserve">
+    <value>Recent sessions</value>
+  </data>
+  <data name="Menu.Playtime.Sessions.Description" xml:space="preserve">
+    <value>How hard Roblox worked your PC in your last games. The colored line is CPU and the gray line is GPU.</value>
+  </data>
+  <data name="Menu.Playtime.Sessions.Stats" xml:space="preserve">
+    <value>CPU {0}% average, {1}% peak. GPU {2}% average, {3}% peak. Memory up to {4} MB.</value>
+  </data>
+  <data name="Setup.Title" xml:space="preserve">
+    <value>reistrap setup</value>
+  </data>
+  <data name="Setup.Step" xml:space="preserve">
+    <value>Step {0} of {1}</value>
+  </data>
+  <data name="Setup.Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Setup.Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Setup.Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Setup.Skip" xml:space="preserve">
+    <value>Skip setup</value>
+  </data>
+  <data name="Setup.Welcome.Heading" xml:space="preserve">
+    <value>Welcome to reistrap</value>
+  </data>
+  <data name="Setup.Welcome.Subheading" xml:space="preserve">
+    <value>Let's get a few things set up. This takes about a minute, and you can change everything later.</value>
+  </data>
+  <data name="Setup.Welcome.Body" xml:space="preserve">
+    <value>reistrap launches Roblox for you and adds extra features on top. Click Next to pick how it looks and what it does.</value>
+  </data>
+  <data name="Setup.Import.Title" xml:space="preserve">
+    <value>Bring over your old settings</value>
+  </data>
+  <data name="Setup.Import.Description" xml:space="preserve">
+    <value>Copy your settings, Fast Flags and mods from another bootstrapper you have installed.</value>
+  </data>
+  <data name="Setup.Look.Heading" xml:space="preserve">
+    <value>Pick a look</value>
+  </data>
+  <data name="Setup.Look.Subheading" xml:space="preserve">
+    <value>Choose the theme and accent color for reistrap's windows.</value>
+  </data>
+  <data name="Setup.Features.Heading" xml:space="preserve">
+    <value>Choose your features</value>
+  </data>
+  <data name="Setup.Features.Subheading" xml:space="preserve">
+    <value>These are the most popular ones. There are many more in settings.</value>
+  </data>
+  <data name="Setup.Features.Discord" xml:space="preserve">
+    <value>Show the game you're playing on your Discord profile.</value>
+  </data>
+  <data name="Setup.Features.Location" xml:space="preserve">
+    <value>See which city your server is in when you join a game.</value>
+  </data>
+  <data name="Setup.Performance.Heading" xml:space="preserve">
+    <value>How should Roblox run?</value>
+  </data>
+  <data name="Setup.Performance.Subheading" xml:space="preserve">
+    <value>This sets a few Fast Flags. You can fine-tune them later in Engine Settings.</value>
+  </data>
+  <data name="Setup.Performance.Default.Title" xml:space="preserve">
+    <value>Leave it to Roblox</value>
+  </data>
+  <data name="Setup.Performance.Default.Description" xml:space="preserve">
+    <value>Don't change anything. Roblox picks its own settings.</value>
+  </data>
+  <data name="Setup.Performance.Fps.Title" xml:space="preserve">
+    <value>More FPS</value>
+  </data>
+  <data name="Setup.Performance.Fps.Description" xml:space="preserve">
+    <value>Turns off anti-aliasing and grass and uses Direct3D 11. Good for older or slower PCs.</value>
+  </data>
+  <data name="Setup.Performance.Quality.Title" xml:space="preserve">
+    <value>Best quality</value>
+  </data>
+  <data name="Setup.Performance.Quality.Description" xml:space="preserve">
+    <value>Sharper edges, the best textures and the highest graphics level. Needs a strong graphics card.</value>
+  </data>
+  <data name="Setup.Done.Heading" xml:space="preserve">
+    <value>You're all set</value>
+  </data>
+  <data name="Setup.Done.Subheading" xml:space="preserve">
+    <value>Click Finish to open reistrap's settings.</value>
+  </data>
+  <data name="Setup.Done.Body" xml:space="preserve">
+    <value>Everything you picked can be changed at any time in settings. Use the search button in the sidebar to find any option quickly.</value>
+  </data>
 </root>

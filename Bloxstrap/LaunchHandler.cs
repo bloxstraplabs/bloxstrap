@@ -180,6 +180,9 @@ namespace Bloxstrap
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
 
+                if (!App.State.Prop.SetupCompleted)
+                    new UI.Elements.Dialogs.SetupDialog().ShowDialog();
+
                 var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);
 
                 // typically we'd use Show(), but we need to block to ensure IPL stays in scope

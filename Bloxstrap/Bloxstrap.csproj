@@ -11,8 +11,8 @@
     <RootNamespace>Bloxstrap</RootNamespace>
     <Product>reistrap</Product>
     <AssemblyTitle>reistrap</AssemblyTitle>
-    <Version>1.0.0</Version>
-    <FileVersion>1.0.0</FileVersion>
+    <Version>1.1.0</Version>
+    <FileVersion>1.1.0</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
@@ -67,6 +67,7 @@
     </PackageReference>
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="6.0.1" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
   </ItemGroup>

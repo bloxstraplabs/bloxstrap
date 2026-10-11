@@ -22,7 +22,58 @@ namespace Bloxstrap.UI.ViewModels.Settings
             public double Share { get; init; }
         }
 
+        public class SessionRow
+        {
+            public string Name { get; init; } = "";
+
+            public string When { get; init; } = "";
+
+            public string Stats { get; init; } = "";
+
+            public System.Windows.Media.PointCollection CpuPoints { get; init; } = new();
+
+            public System.Windows.Media.PointCollection GpuPoints { get; init; } = new();
+        }
+
         public List<GameRow> Games { get; private set; } = new();
+
+        public List<SessionRow> Sessions { get; } = LoadSessions();
+
+        public Visibility SessionsVisibility => Sessions.Any() ? Visibility.Visible : Visibility.Collapsed;
+
+        public bool PerformanceLog
+        {
+            get => App.Settings.Prop.PerformanceLog;
+            set => App.Settings.Prop.PerformanceLog = value;
+        }
+
+        private static System.Windows.Media.PointCollection ToPoints(List<double> values)
+        {
+            var points = new System.Windows.Media.PointCollection();
+
+            if (values.Count < 2)
+                return points;
+
+            for (int i = 0; i < values.Count; i++)
+                points.Add(new Point(i * 240d / (values.Count - 1), 44 - Math.Clamp(values[i], 0, 100) / 100 * 42));
+
+            return points;
+        }
+
+        private static List<SessionRow> LoadSessions()
+        {
+            var manager = new JsonManager<PerformanceLog>();
+            manager.Load(false);
+
+            return manager.Prop.Sessions.Take(10).Select(x => new SessionRow
+            {
+                Name = x.Name,
+                When = $"{x.Started.ToString("g", CultureInfo.CurrentCulture)}, {FormatDuration((x.Ended - x.Started).TotalSeconds)}",
+                Stats = String.Format(Strings.Menu_Playtime_Sessions_Stats, x.AverageCpu.ToString("0"), x.PeakCpu.ToString("0"), x.AverageGpu.ToString("0"), x.PeakGpu.ToString("0"), x.PeakMemoryMb.ToString("N0")),
+                CpuPoints = ToPoints(x.CpuSamples),
+                GpuPoints = ToPoints(x.GpuSamples)
+            }).ToList();
+        }
 
         public string TotalPlaytime { get; private set; } = "";
 

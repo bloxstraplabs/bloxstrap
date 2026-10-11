@@ -18,6 +18,7 @@
         private const string GameDisconnectedEntry           = "[FLog::Network] Time to disconnect replication data:";
         private const string GameLeavingEntry                = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
         private const string GameDisconnectReasonEntry       = "[FLog::Network] Sending disconnect with reason:";
+        private const string GameDisconnectedReasonEntry     = "[DFLog::RbxTransportDummyClient] Disconnected from server for reason:";
         private const string GameServerPrefixEntry           = "[FLog::Output] Server Prefix: ";
 
         private const string GameJoiningEntryPattern         = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
@@ -27,26 +28,26 @@
         private const string GameJoinedEntryPattern          = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern         = @"\[BloxstrapRPC\] (.*)";
         private const string GameDisconnectReasonPattern     = @"Sending disconnect with reason: ([0-9]+)";
+        private const string GameDisconnectedReasonPattern   = @"Disconnected from server for reason: [A-Za-z]*:? ?([0-9]+)";
         private const string GameServerPrefixPattern         = @"Server Prefix:.+_([0-9]{8}T[0-9]{6}Z)_RCC_[0-9a-z]+";
 
-        private static readonly int[] RejoinableDisconnectReasons = { 1, 277 };
 
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
         private bool _reservedTeleportMarker = false;
-        private bool _rejoinableDisconnect = false;
         
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
         public event EventHandler? OnLogOpen;
         public event EventHandler? OnAppClose;
-        public event EventHandler<ActivityData>? OnRejoinableDisconnect;
         public event EventHandler<Message>? OnRPCMessage;
 
         private DateTime LastRPCRequest;
 
         public int PollDelay = 1000;
+
+        public int LastDisconnectReason;
 
         public string LogLocation = null!;
 
@@ -178,14 +179,14 @@
                 return;
             }
 
-            if (logMessage.StartsWith(GameDisconnectReasonEntry))
+            if (logMessage.StartsWith(GameDisconnectReasonEntry) || logMessage.StartsWith(GameDisconnectedReasonEntry))
             {
-                var match = Regex.Match(logMessage, GameDisconnectReasonPattern);
+                var match = Regex.Match(logMessage, logMessage.StartsWith(GameDisconnectReasonEntry) ? GameDisconnectReasonPattern : GameDisconnectedReasonPattern);
 
-                if (match.Groups.Count == 2 && int.TryParse(match.Groups[1].Value, out int reason))
+                if (match.Groups.Count == 2 && int.TryParse(match.Groups[1].Value, out int reason) && LastDisconnectReason == 0)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Disconnect reason: {reason}");
-                    _rejoinableDisconnect = RejoinableDisconnectReasons.Contains(reason);
+                    LastDisconnectReason = reason;
                 }
 
                 return;
@@ -306,6 +307,7 @@
 
                     InGame = true;
                     Data.TimeJoined = DateTime.Now;
+                    LastDisconnectReason = 0;
 
                     OnGameJoin?.Invoke(this, EventArgs.Empty);
                 }
@@ -321,18 +323,10 @@
                     Data.TimeLeft = DateTime.Now;
                     History.Insert(0, Data);
 
-                    var lastData = Data;
-
                     InGame = false;
                     Data = new();
 
                     OnGameLeave?.Invoke(this, EventArgs.Empty);
-
-                    if (_rejoinableDisconnect)
-                    {
-                        _rejoinableDisconnect = false;
-                        OnRejoinableDisconnect?.Invoke(this, lastData);
-                    }
                 }
                 else if (logMessage.StartsWith(GameTeleportingEntry))
                 {

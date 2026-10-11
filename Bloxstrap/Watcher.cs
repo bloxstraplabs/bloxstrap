@@ -25,6 +25,8 @@ namespace Bloxstrap
 
         public readonly WindowControl? WindowControl;
 
+        private readonly PerformanceMonitor? _performance;
+
         private RobloxWindow? _robloxWindow;
 
         private CrosshairWindow? _crosshair;
@@ -106,7 +108,13 @@ namespace Bloxstrap
 
                 ActivityWatcher.OnGameJoin += (_, _) => GameStatsTracker.RecordServer(ActivityWatcher.Data);
 
-                if (App.Settings.Prop.TrackGameStats || App.Settings.Prop.SessionRecap)
+                if (App.Settings.Prop.PerformanceLog)
+                {
+                    _performance = new PerformanceMonitor(_watcherData.ProcessId);
+                    ActivityWatcher.OnGameJoin += (_, _) => _performance.BeginSession();
+                }
+
+                if (App.Settings.Prop.TrackGameStats || App.Settings.Prop.SessionRecap || App.Settings.Prop.PerformanceLog)
                     ActivityWatcher.OnGameLeave += (_, _) => Task.Run(() => OnGameLeave(ActivityWatcher.History.First()));
 
                 if (App.Settings.Prop.CustomIntegrations.Any(x => x.IsGameSpecific))
@@ -116,7 +124,7 @@ namespace Bloxstrap
                 }
 
                 if (App.Settings.Prop.AutoRejoin)
-                    ActivityWatcher.OnRejoinableDisconnect += (_, data) => Task.Run(() => RejoinServer(data));
+                    ActivityWatcher.OnGameLeave += (_, _) => Task.Run(() => CheckRejoin(ActivityWatcher.History.First()));
 
                 if (App.Settings.Prop.UseDiscordRichPresence)
                     RichPresence = new(ActivityWatcher);
@@ -380,6 +388,11 @@ namespace Bloxstrap
 
         private async Task OnGameLeave(ActivityData activity)
         {
+            var details = activity.UniverseDetails ?? UniverseDetails.LoadFromCache(activity.UniverseId);
+            string name = details?.Data.Name ?? Strings.Common_Unknown;
+
+            var performance = _performance?.EndSession(activity, name);
+
             if (App.Settings.Prop.TrackGameStats)
                 await GameStatsTracker.Record(activity);
 
@@ -391,13 +404,13 @@ namespace Bloxstrap
             if (seconds < 60)
                 return;
 
-            var details = activity.UniverseDetails ?? UniverseDetails.LoadFromCache(activity.UniverseId);
-            string name = details?.Data.Name ?? Strings.Common_Unknown;
-
             string message = String.Format(Strings.Watcher_SessionRecap_Message, name, UI.ViewModels.Settings.PlaytimeViewModel.FormatDuration(seconds));
 
             if (App.Settings.Prop.TrackGameStats && GameStatsTracker.Load().Games.TryGetValue(activity.UniverseId, out var stats))
                 message += " " + String.Format(Strings.Watcher_SessionRecap_Total, UI.ViewModels.Settings.PlaytimeViewModel.FormatDuration(stats.TotalSeconds));
+
+            if (performance is not null)
+                message += " " + String.Format(Strings.Watcher_SessionRecap_Performance, performance.AverageCpu.ToString("0"), performance.AverageGpu.ToString("0"), performance.PeakMemoryMb.ToString("N0"));
 
             _notifyIcon?.ShowAlert(Strings.Watcher_SessionRecap_Title, message, 8, null);
         }
@@ -497,17 +510,46 @@ namespace Bloxstrap
             }
         }
 
-        private async Task RejoinServer(ActivityData data)
+        private async Task CheckRejoin(ActivityData data)
+        {
+            const string LOG_IDENT = "Watcher::CheckRejoin";
+
+            await Task.Delay(2000);
+
+            if (ActivityWatcher is null || ActivityWatcher.InGame)
+                return;
+
+            int reason = ActivityWatcher.LastDisconnectReason;
+            var category = RejoinRules.GetCategory(reason);
+
+            App.Logger.WriteLine(LOG_IDENT, $"Left game with reason {reason} ({category})");
+
+            if (category is null || !RejoinRules.IsEnabled(category.Value))
+                return;
+
+            if (!RejoinRules.TryRecordAttempt())
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Not rejoining, attempt limit reached");
+                _notifyIcon?.ShowAlert(Strings.Watcher_Rejoin_LimitTitle, Strings.Watcher_Rejoin_LimitMessage, 8, null);
+                return;
+            }
+
+            bool sameServer = category is RejoinCategory.Idle or RejoinCategory.ConnectionLost && data.ServerType == ServerType.Public;
+
+            await RejoinServer(data, sameServer);
+        }
+
+        private async Task RejoinServer(ActivityData data, bool sameServer)
         {
             const string LOG_IDENT = "Watcher::RejoinServer";
 
-            App.Logger.WriteLine(LOG_IDENT, $"Rejoining {data}");
+            App.Logger.WriteLine(LOG_IDENT, $"Rejoining {data} (sameServer={sameServer})");
 
-            await Task.Delay(3000);
+            await Task.Delay(Math.Clamp(App.Settings.Prop.RejoinDelaySeconds, 0, 60) * 1000);
 
             try
             {
-                Utilities.ShellExecute(data.GetInviteDeeplink(false));
+                Utilities.ShellExecute(sameServer ? data.GetInviteDeeplink(false) : $"roblox://experiences/start?placeId={data.PlaceId}");
             }
             catch (Exception ex)
             {
@@ -567,6 +609,7 @@ namespace Bloxstrap
             StudioRichPresence?.Dispose();
             Socd?.Dispose();
             WindowControl?.Dispose();
+            _performance?.Dispose();
             RobloxSingleton.Release();
 
             _windowTimer?.Dispatcher.Invoke(() =>

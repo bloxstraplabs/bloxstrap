@@ -7651,5 +7651,437 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Dialog.WindowPermission.Deny", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin after an idle kick.
+        /// </summary>
+        public static string Menu_Integrations_RejoinIdle_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinIdle.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go back to the same server after being kicked for being idle for 20 minutes..
+        /// </summary>
+        public static string Menu_Integrations_RejoinIdle_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinIdle.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin after losing connection.
+        /// </summary>
+        public static string Menu_Integrations_RejoinConnection_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinConnection.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go back to the same server after your connection drops or times out..
+        /// </summary>
+        public static string Menu_Integrations_RejoinConnection_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinConnection.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin after a server shutdown.
+        /// </summary>
+        public static string Menu_Integrations_RejoinShutdown_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinShutdown.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join a new server when yours shuts down or restarts for an update..
+        /// </summary>
+        public static string Menu_Integrations_RejoinShutdown_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinShutdown.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rejoin after a failed teleport.
+        /// </summary>
+        public static string Menu_Integrations_RejoinTeleport_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinTeleport.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join the game again when a teleport fails, for example with error 773..
+        /// </summary>
+        public static string Menu_Integrations_RejoinTeleport_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinTeleport.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum attempts.
+        /// </summary>
+        public static string Menu_Integrations_RejoinAttempts_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinAttempts.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop rejoining after this many tries in 10 minutes, so it doesn't loop forever..
+        /// </summary>
+        public static string Menu_Integrations_RejoinAttempts_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinAttempts.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait before rejoining.
+        /// </summary>
+        public static string Menu_Integrations_RejoinDelay_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinDelay.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How long to wait before rejoining, in seconds..
+        /// </summary>
+        public static string Menu_Integrations_RejoinDelay_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.RejoinDelay.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not rejoining.
+        /// </summary>
+        public static string Watcher_Rejoin_LimitTitle {
+            get {
+                return ResourceManager.GetString("Watcher.Rejoin.LimitTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You've been disconnected too many times in the last 10 minutes, so reistrap stopped rejoining automatically..
+        /// </summary>
+        public static string Watcher_Rejoin_LimitMessage {
+            get {
+                return ResourceManager.GetString("Watcher.Rejoin.LimitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox used {0}% CPU and {1}% GPU on average, and up to {2} MB of memory..
+        /// </summary>
+        public static string Watcher_SessionRecap_Performance {
+            get {
+                return ResourceManager.GetString("Watcher.SessionRecap.Performance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record performance.
+        /// </summary>
+        public static string Menu_Playtime_Performance_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Performance.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track how much CPU, GPU and memory Roblox uses while you play, and show it in the session recap and below..
+        /// </summary>
+        public static string Menu_Playtime_Performance_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Performance.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recent sessions.
+        /// </summary>
+        public static string Menu_Playtime_Sessions_Title {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Sessions.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How hard Roblox worked your PC in your last games. The colored line is CPU and the gray line is GPU..
+        /// </summary>
+        public static string Menu_Playtime_Sessions_Description {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Sessions.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPU {0}% average, {1}% peak. GPU {2}% average, {3}% peak. Memory up to {4} MB..
+        /// </summary>
+        public static string Menu_Playtime_Sessions_Stats {
+            get {
+                return ResourceManager.GetString("Menu.Playtime.Sessions.Stats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reistrap setup.
+        /// </summary>
+        public static string Setup_Title {
+            get {
+                return ResourceManager.GetString("Setup.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step {0} of {1}.
+        /// </summary>
+        public static string Setup_Step {
+            get {
+                return ResourceManager.GetString("Setup.Step", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Setup_Back {
+            get {
+                return ResourceManager.GetString("Setup.Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Setup_Next {
+            get {
+                return ResourceManager.GetString("Setup.Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        public static string Setup_Finish {
+            get {
+                return ResourceManager.GetString("Setup.Finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip setup.
+        /// </summary>
+        public static string Setup_Skip {
+            get {
+                return ResourceManager.GetString("Setup.Skip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to reistrap.
+        /// </summary>
+        public static string Setup_Welcome_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Welcome.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let's get a few things set up. This takes about a minute, and you can change everything later..
+        /// </summary>
+        public static string Setup_Welcome_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Welcome.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reistrap launches Roblox for you and adds extra features on top. Click Next to pick how it looks and what it does..
+        /// </summary>
+        public static string Setup_Welcome_Body {
+            get {
+                return ResourceManager.GetString("Setup.Welcome.Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bring over your old settings.
+        /// </summary>
+        public static string Setup_Import_Title {
+            get {
+                return ResourceManager.GetString("Setup.Import.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy your settings, Fast Flags and mods from another bootstrapper you have installed..
+        /// </summary>
+        public static string Setup_Import_Description {
+            get {
+                return ResourceManager.GetString("Setup.Import.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a look.
+        /// </summary>
+        public static string Setup_Look_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Look.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the theme and accent color for reistrap's windows..
+        /// </summary>
+        public static string Setup_Look_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Look.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your features.
+        /// </summary>
+        public static string Setup_Features_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Features.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These are the most popular ones. There are many more in settings..
+        /// </summary>
+        public static string Setup_Features_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Features.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the game you're playing on your Discord profile..
+        /// </summary>
+        public static string Setup_Features_Discord {
+            get {
+                return ResourceManager.GetString("Setup.Features.Discord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See which city your server is in when you join a game..
+        /// </summary>
+        public static string Setup_Features_Location {
+            get {
+                return ResourceManager.GetString("Setup.Features.Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How should Roblox run?.
+        /// </summary>
+        public static string Setup_Performance_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sets a few Fast Flags. You can fine-tune them later in Engine Settings..
+        /// </summary>
+        public static string Setup_Performance_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave it to Roblox.
+        /// </summary>
+        public static string Setup_Performance_Default_Title {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Default.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don't change anything. Roblox picks its own settings..
+        /// </summary>
+        public static string Setup_Performance_Default_Description {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Default.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to More FPS.
+        /// </summary>
+        public static string Setup_Performance_Fps_Title {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Fps.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turns off anti-aliasing and grass and uses Direct3D 11. Good for older or slower PCs..
+        /// </summary>
+        public static string Setup_Performance_Fps_Description {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Fps.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Best quality.
+        /// </summary>
+        public static string Setup_Performance_Quality_Title {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Quality.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sharper edges, the best textures and the highest graphics level. Needs a strong graphics card..
+        /// </summary>
+        public static string Setup_Performance_Quality_Description {
+            get {
+                return ResourceManager.GetString("Setup.Performance.Quality.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You're all set.
+        /// </summary>
+        public static string Setup_Done_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Done.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click Finish to open reistrap's settings..
+        /// </summary>
+        public static string Setup_Done_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Done.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Everything you picked can be changed at any time in settings. Use the search button in the sidebar to find any option quickly..
+        /// </summary>
+        public static string Setup_Done_Body {
+            get {
+                return ResourceManager.GetString("Setup.Done.Body", resourceCulture);
+            }
+        }
     }
 }

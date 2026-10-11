@@ -78,7 +78,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void ReapplyTheme() => ((MainWindow)Window.GetWindow(_page)!).ApplyTheme();
 
-        public IReadOnlyDictionary<string, string> AccentThemes { get; } = new Dictionary<string, string>
+        public IReadOnlyDictionary<string, string> AccentThemes => AccentPresets;
+
+        public static readonly IReadOnlyDictionary<string, string> AccentPresets = new Dictionary<string, string>
         {
             { Strings.Common_SystemDefault, "" },
             { "Frost", "#5BC0EB" },

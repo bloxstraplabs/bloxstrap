@@ -22,6 +22,10 @@
             <ui:ToggleSwitch IsChecked="{Binding SessionRecap, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Playtime_Performance_Title}" Description="{x:Static resources:Strings.Menu_Playtime_Performance_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding PerformanceLog, Mode=TwoWay}" />
+        </controls:OptionControl>
+
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Playtime_BreakReminder_Title}" Description="{x:Static resources:Strings.Menu_Playtime_BreakReminder_Description}">
             <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding BreakReminderOptions, Mode=OneTime}" DisplayMemberPath="Label" SelectedValuePath="Minutes" SelectedValue="{Binding BreakReminderMinutes, Mode=TwoWay}" />
         </controls:OptionControl>
@@ -65,5 +69,36 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+
+        <StackPanel Visibility="{Binding SessionsVisibility, Mode=OneTime}">
+            <Border Style="{StaticResource SectionSeparator}" />
+            <TextBlock Text="{x:Static resources:Strings.Menu_Playtime_Sessions_Title}" Style="{StaticResource SectionTitle}" />
+            <TextBlock Text="{x:Static resources:Strings.Menu_Playtime_Sessions_Description}" Style="{StaticResource SectionDescription}" />
+
+            <ItemsControl ItemsSource="{Binding Sessions, Mode=OneTime}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ui:CardControl Margin="0,8,0,0" Padding="12">
+                            <ui:CardControl.Header>
+                                <StackPanel>
+                                    <TextBlock FontSize="14" FontWeight="Medium" Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock FontSize="12" Text="{Binding When}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                                    <TextBlock FontSize="12" Margin="0,4,0,0" Text="{Binding Stats}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                </StackPanel>
+                            </ui:CardControl.Header>
+                            <Grid Width="240" Height="44">
+                                <Border BorderThickness="0,0,0,1" BorderBrush="{DynamicResource DividerStrokeColorDefaultBrush}" />
+                                <Polyline Points="{Binding GpuPoints}" StrokeThickness="1.5" Stroke="{DynamicResource TextFillColorTertiaryBrush}" />
+                                <Polyline Points="{Binding CpuPoints}" StrokeThickness="1.5">
+                                    <Polyline.Stroke>
+                                        <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                                    </Polyline.Stroke>
+                                </Polyline>
+                            </Grid>
+                        </ui:CardControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
     </StackPanel>
 </ui:UiPage>

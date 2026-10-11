@@ -50,9 +50,54 @@
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Title}"
             Description="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Description}"
-            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
+            x:Name="AutoRejoinOption">
             <ui:ToggleSwitch IsChecked="{Binding AutoRejoinEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
+
+        <StackPanel IsEnabled="{Binding InnerContent.IsChecked, ElementName=AutoRejoinOption, Mode=OneWay}">
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinIdle_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinIdle_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding RejoinOnIdle, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinConnection_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinConnection_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding RejoinOnConnectionLost, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinShutdown_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinShutdown_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding RejoinOnShutdown, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinTeleport_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinTeleport_Description}">
+                <ui:ToggleSwitch IsChecked="{Binding RejoinOnTeleportFailure, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinAttempts_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinAttempts_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding RejoinMaxAttempts, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding RejoinMaxAttempts, Mode=OneWay, StringFormat={}{0}}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl
+                Header="{x:Static resources:Strings.Menu_Integrations_RejoinDelay_Title}"
+                Description="{x:Static resources:Strings.Menu_Integrations_RejoinDelay_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="30" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding RejoinDelaySeconds, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding RejoinDelaySeconds, Mode=OneWay, StringFormat={}{0}s}" />
+                </StackPanel>
+            </controls:OptionControl>
+        </StackPanel>
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Integrations_PlaytimeCounter_Title}"

@@ -74,6 +74,7 @@ namespace Bloxstrap.Models.Persistable
         public SocdMode SocdMode { get; set; } = SocdMode.LastInput;
         public int BreakReminderMinutes { get; set; } = 0;
         public bool SessionRecap { get; set; } = true;
+        public bool PerformanceLog { get; set; } = true;
         public string Locale { get; set; } = "nil";
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
@@ -90,6 +91,12 @@ namespace Bloxstrap.Models.Persistable
         public bool ShowAccountOnRichPresence { get; set; } = false;
         public bool ShowServerDetails { get; set; } = false;
         public bool AutoRejoin { get; set; } = false;
+        public bool RejoinOnIdle { get; set; } = true;
+        public bool RejoinOnConnectionLost { get; set; } = true;
+        public bool RejoinOnShutdown { get; set; } = true;
+        public bool RejoinOnTeleportFailure { get; set; } = false;
+        public int RejoinMaxAttempts { get; set; } = 3;
+        public int RejoinDelaySeconds { get; set; } = 3;
         public bool PlaytimeCounter { get; set; } = true;
         public bool TrackGameStats { get; set; } = true;
         public bool UseCustomStatusDisplay { get; set; } = true;

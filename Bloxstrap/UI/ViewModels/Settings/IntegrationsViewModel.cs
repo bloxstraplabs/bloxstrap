@@ -305,5 +305,51 @@ namespace Bloxstrap.UI.ViewModels.Settings
             _windowPermissions.Save();
             OnPropertyChanged(nameof(WindowPermissionsText));
         });
+
+        // Rejoin
+
+        public bool RejoinOnIdle
+        {
+            get => App.Settings.Prop.RejoinOnIdle;
+            set => App.Settings.Prop.RejoinOnIdle = value;
+        }
+
+        public bool RejoinOnConnectionLost
+        {
+            get => App.Settings.Prop.RejoinOnConnectionLost;
+            set => App.Settings.Prop.RejoinOnConnectionLost = value;
+        }
+
+        public bool RejoinOnShutdown
+        {
+            get => App.Settings.Prop.RejoinOnShutdown;
+            set => App.Settings.Prop.RejoinOnShutdown = value;
+        }
+
+        public bool RejoinOnTeleportFailure
+        {
+            get => App.Settings.Prop.RejoinOnTeleportFailure;
+            set => App.Settings.Prop.RejoinOnTeleportFailure = value;
+        }
+
+        public int RejoinMaxAttempts
+        {
+            get => App.Settings.Prop.RejoinMaxAttempts;
+            set
+            {
+                App.Settings.Prop.RejoinMaxAttempts = value;
+                OnPropertyChanged(nameof(RejoinMaxAttempts));
+            }
+        }
+
+        public int RejoinDelaySeconds
+        {
+            get => App.Settings.Prop.RejoinDelaySeconds;
+            set
+            {
+                App.Settings.Prop.RejoinDelaySeconds = value;
+                OnPropertyChanged(nameof(RejoinDelaySeconds));
+            }
+        }
     }
 }

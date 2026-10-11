@@ -1,0 +1,161 @@
+<base:WpfUiWindow
+    x:Class="Bloxstrap.UI.Elements.Dialogs.SetupDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+    xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+    xmlns:resources="clr-namespace:Bloxstrap.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Strings.Setup_Title}"
+    Width="640"
+    Height="560"
+    Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+    ExtendsContentIntoTitleBar="True"
+    ResizeMode="NoResize"
+    WindowBackdropType="Mica"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Padding="8" Title="{x:Static resources:Strings.Setup_Title}" Icon="pack://application:,,,/reistrap.ico" CanMaximize="False" ShowMaximize="False" ShowMinimize="False" />
+
+        <StackPanel Grid.Row="1" Margin="24,8,24,0">
+            <TextBlock x:Name="StepText" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock x:Name="HeadingText" Margin="0,4,0,0" FontSize="26" FontWeight="SemiBold" TextWrapping="Wrap" />
+            <TextBlock x:Name="SubheadingText" Margin="0,6,0,0" FontSize="14" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="2" Margin="24,12,16,0" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="0,0,8,12">
+                <StackPanel x:Name="WelcomeStep">
+                    <ui:CardControl x:Name="ImportOption" Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Setup_Import_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Import_Description}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="ImportSourceBox" Width="140" Padding="10,5,10,5" />
+                            <ui:ToggleSwitch x:Name="ImportToggle" Margin="12,0,0,0" IsChecked="True" />
+                        </StackPanel>
+                    </ui:CardControl>
+                    <TextBlock x:Name="NoImportText" Margin="0,8,0,0" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Welcome_Body}" />
+                </StackPanel>
+
+                <StackPanel x:Name="LookStep" Visibility="Collapsed">
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ComboBox x:Name="ThemeBox" Width="200" Padding="10,5,10,5" />
+                    </ui:CardControl>
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Appearance_AccentTheme_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Menu_Appearance_AccentTheme_Description}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ComboBox x:Name="AccentBox" Width="200" Padding="10,5,10,5" />
+                    </ui:CardControl>
+                </StackPanel>
+
+                <StackPanel x:Name="FeaturesStep" Visibility="Collapsed">
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Features_Discord}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:ToggleSwitch x:Name="DiscordToggle" />
+                    </ui:CardControl>
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Features_Location}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:ToggleSwitch x:Name="LocationToggle" />
+                    </ui:CardControl>
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Behaviour_MultiInstance_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Menu_Behaviour_MultiInstance_Description}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:ToggleSwitch x:Name="MultiInstanceToggle" />
+                    </ui:CardControl>
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Playtime_Track_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Menu_Playtime_Track_Description}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:ToggleSwitch x:Name="PlaytimeToggle" />
+                    </ui:CardControl>
+                    <ui:CardControl Margin="0,8,0,0" Padding="20,16">
+                        <ui:CardControl.Header>
+                            <StackPanel>
+                                <TextBlock FontSize="16" FontWeight="Medium" TextWrapping="Wrap" Text="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Title}" />
+                                <TextBlock Margin="0,4,0,0" FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Menu_Integrations_AutoRejoin_Description}" />
+                            </StackPanel>
+                        </ui:CardControl.Header>
+                        <ui:ToggleSwitch x:Name="RejoinToggle" />
+                    </ui:CardControl>
+                </StackPanel>
+
+                <StackPanel x:Name="PerformanceStep" Visibility="Collapsed">
+                    <RadioButton x:Name="BalancedRadio" GroupName="Preset" IsChecked="True" Margin="0,0,0,8">
+                        <StackPanel>
+                            <TextBlock FontSize="15" FontWeight="Medium" Text="{x:Static resources:Strings.Setup_Performance_Default_Title}" />
+                            <TextBlock FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Performance_Default_Description}" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="PerformanceRadio" GroupName="Preset" Margin="0,0,0,8">
+                        <StackPanel>
+                            <TextBlock FontSize="15" FontWeight="Medium" Text="{x:Static resources:Strings.Setup_Performance_Fps_Title}" />
+                            <TextBlock FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Performance_Fps_Description}" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton x:Name="QualityRadio" GroupName="Preset">
+                        <StackPanel>
+                            <TextBlock FontSize="15" FontWeight="Medium" Text="{x:Static resources:Strings.Setup_Performance_Quality_Title}" />
+                            <TextBlock FontSize="13" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Performance_Quality_Description}" />
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+
+                <StackPanel x:Name="DoneStep" Visibility="Collapsed">
+                    <TextBlock TextWrapping="Wrap" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Setup_Done_Body}" />
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <Border Grid.Row="3" Padding="16,12" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource DividerStrokeColorDefaultBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ui:Button x:Name="SkipButton" Grid.Column="0" Content="{x:Static resources:Strings.Setup_Skip}" Click="SkipButton_Click" />
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <ui:Button x:Name="BackButton" MinWidth="100" Content="{x:Static resources:Strings.Setup_Back}" Click="BackButton_Click" />
+                    <ui:Button x:Name="NextButton" MinWidth="100" Margin="8,0,0,0" Appearance="Primary" Content="{x:Static resources:Strings.Setup_Next}" Click="NextButton_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</base:WpfUiWindow>

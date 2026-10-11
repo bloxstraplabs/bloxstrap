@@ -6,6 +6,8 @@
 
         public bool ForceReinstall { get; set; } = false;
 
+        public bool SetupCompleted { get; set; } = false;
+
         public WindowState SettingsWindow { get; set; } = new();
     }
 }
