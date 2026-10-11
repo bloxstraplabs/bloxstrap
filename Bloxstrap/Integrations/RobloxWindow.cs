@@ -82,6 +82,8 @@ namespace Bloxstrap.Integrations
 
         private const uint WM_SETICON = 0x0080;
 
+        private const uint WM_GETICON = 0x007F;
+
         // Properties
 
         private readonly int _processId;
@@ -149,6 +151,18 @@ namespace Bloxstrap.Integrations
 
             SendMessage(Handle, WM_SETICON, IntPtr.Zero, icon);
             SendMessage(Handle, WM_SETICON, new IntPtr(1), icon);
+        }
+
+        public (IntPtr Small, IntPtr Big) GetIcons() =>
+            IsValid ? (SendMessage(Handle, WM_GETICON, IntPtr.Zero, IntPtr.Zero), SendMessage(Handle, WM_GETICON, new IntPtr(1), IntPtr.Zero)) : (IntPtr.Zero, IntPtr.Zero);
+
+        public void RestoreIcons((IntPtr Small, IntPtr Big) icons)
+        {
+            if (!IsValid)
+                return;
+
+            SendMessage(Handle, WM_SETICON, IntPtr.Zero, icons.Small);
+            SendMessage(Handle, WM_SETICON, new IntPtr(1), icons.Big);
         }
 
         public void ApplyBorderless()

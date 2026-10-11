@@ -43,6 +43,8 @@ namespace Bloxstrap
 
         private IntPtr _appliedIconWindow;
 
+        private (IntPtr Small, IntPtr Big) _originalIcons;
+
         private bool _gameTitleApplied;
 
         private readonly List<(CustomIntegration Integration, int ProcessId)> _gameIntegrations = new();
@@ -254,9 +256,17 @@ namespace Bloxstrap
 
                 if (icon != IntPtr.Zero && (icon != _appliedIcon || _robloxWindow.Handle != _appliedIconWindow))
                 {
+                    if (_robloxWindow.Handle != _appliedIconWindow)
+                        _originalIcons = _robloxWindow.GetIcons();
+
                     _robloxWindow.ApplyIcon(icon);
                     _appliedIcon = icon;
                     _appliedIconWindow = _robloxWindow.Handle;
+                }
+                else if (icon == IntPtr.Zero && _appliedIcon != IntPtr.Zero && _robloxWindow.Handle == _appliedIconWindow)
+                {
+                    _robloxWindow.RestoreIcons(_originalIcons);
+                    _appliedIcon = IntPtr.Zero;
                 }
 
                 if (settings.RobloxBorderless && WindowControl is not { Active: true })
