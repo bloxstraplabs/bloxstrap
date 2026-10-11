@@ -16,6 +16,35 @@ namespace Bloxstrap
         public static IEnumerable<GameStatsEntry> GetRecent(int count) =>
             Load().Games.Values.OrderByDescending(x => x.LastPlayed).Take(count);
 
+        public static LastServer? LoadLastServer()
+        {
+            var manager = new JsonManager<LastServer>();
+            return manager.Load(false) ? manager.Prop : null;
+        }
+
+        public static void RecordServer(ActivityData activity)
+        {
+            try
+            {
+                var manager = new JsonManager<LastServer>();
+
+                manager.Prop = new LastServer
+                {
+                    PlaceId = activity.PlaceId,
+                    UniverseId = activity.UniverseId,
+                    JobId = activity.JobId,
+                    IsPublic = activity.ServerType == ServerType.Public,
+                    Joined = DateTime.Now
+                };
+
+                manager.Save();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("GameStatsTracker::RecordServer", ex);
+            }
+        }
+
         public static async Task Record(ActivityData activity)
         {
             const string LOG_IDENT = "GameStatsTracker::Record";

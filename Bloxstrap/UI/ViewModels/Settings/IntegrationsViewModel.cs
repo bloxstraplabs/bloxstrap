@@ -161,6 +161,50 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.UseCustomStatusDisplay = value;
         }
 
+        public IEnumerable<TrayDoubleClickAction> TrayDoubleClickActions { get; } = Enum.GetValues<TrayDoubleClickAction>();
+
+        public TrayDoubleClickAction TrayDoubleClickAction
+        {
+            get => App.Settings.Prop.TrayDoubleClickAction;
+            set => App.Settings.Prop.TrayDoubleClickAction = value;
+        }
+
+        public bool ShowServerUptimeEnabled
+        {
+            get => App.Settings.Prop.ShowServerUptime;
+            set => App.Settings.Prop.ShowServerUptime = value;
+        }
+
+        public bool UsingReistrapEnabled
+        {
+            get => App.Settings.Prop.ShowUsingReistrapInRichPresence;
+            set => App.Settings.Prop.ShowUsingReistrapInRichPresence = value;
+        }
+
+        public bool StudioShowGameName
+        {
+            get => App.Settings.Prop.StudioShowGameName;
+            set => App.Settings.Prop.StudioShowGameName = value;
+        }
+
+        public bool StudioShowGameIcon
+        {
+            get => App.Settings.Prop.StudioShowGameIcon;
+            set => App.Settings.Prop.StudioShowGameIcon = value;
+        }
+
+        public bool StudioShowTesting
+        {
+            get => App.Settings.Prop.StudioShowTesting;
+            set => App.Settings.Prop.StudioShowTesting = value;
+        }
+
+        public bool StudioShowGameButton
+        {
+            get => App.Settings.Prop.StudioShowGameButton;
+            set => App.Settings.Prop.StudioShowGameButton = value;
+        }
+
         public bool DisableAppPatchEnabled
         {
             get => App.Settings.Prop.UseDisableAppPatch;

@@ -16,6 +16,9 @@ namespace Bloxstrap.Models.Persistable
         public string BackgroundImage { get; set; } = "";
         public string BackgroundGradient { get; set; } = "";
         public double BackgroundOpacity { get; set; } = 0.3;
+        public BackgroundStretch BackgroundStretch { get; set; } = BackgroundStretch.UniformToFill;
+        public bool DisableAnimations { get; set; } = false;
+        public bool CycleCustomThemes { get; set; } = false;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool DeveloperMode { get; set; } = false;
         public bool CheckForUpdates { get; set; } = true;
@@ -23,6 +26,11 @@ namespace Bloxstrap.Models.Persistable
         public bool MultiInstanceLaunching { get; set; } = false;
         public bool BlockRobloxUpdates { get; set; } = false;
         public bool UseStaticVersionFolder { get; set; } = false;
+        public string PlayerVersionOverride { get; set; } = "";
+        public string StudioVersionOverride { get; set; } = "";
+        public int DownloadThreads { get; set; } = 3;
+        public ChannelChangeMode ChannelChangeMode { get; set; } = ChannelChangeMode.Automatic;
+        public bool UpdateToPreReleases { get; set; } = false;
         public CleanerAge CleanerAge { get; set; } = CleanerAge.Never;
         public bool CleanRobloxLogs { get; set; } = true;
         public bool CleanRobloxCache { get; set; } = true;
@@ -31,6 +39,15 @@ namespace Bloxstrap.Models.Persistable
         public ProcessPriorityLevel RobloxPriority { get; set; } = ProcessPriorityLevel.Normal;
         public string RobloxWindowTitle { get; set; } = "";
         public bool RobloxBorderless { get; set; } = false;
+        public bool RobloxGameTitle { get; set; } = false;
+        public bool RobloxGameTitlePlayerCount { get; set; } = false;
+        public bool RobloxGameIcon { get; set; } = false;
+        public string RobloxIconPath { get; set; } = "";
+        public bool CloseCrashHandler { get; set; } = false;
+        public string RobloxCpuAffinity { get; set; } = "";
+        public RobloxAppTheme RobloxAppTheme { get; set; } = RobloxAppTheme.Default;
+        public bool RobloxBackgroundApp { get; set; } = false;
+        public bool ForceRobloxLanguage { get; set; } = false;
         public bool CrosshairEnabled { get; set; } = false;
         public CrosshairStyle CrosshairStyle { get; set; } = CrosshairStyle.Cross;
         public string CrosshairColor { get; set; } = "#00FF00";
@@ -39,6 +56,9 @@ namespace Bloxstrap.Models.Persistable
         public double CrosshairGap { get; set; } = 3;
         public ObservableCollection<GameProfile> GameProfiles { get; set; } = new();
         public bool ThrottleInBackground { get; set; } = false;
+        public bool SocdEnabled { get; set; } = false;
+        public SocdLayout SocdLayout { get; set; } = SocdLayout.WASD;
+        public SocdMode SocdMode { get; set; } = SocdMode.LastInput;
         public int BreakReminderMinutes { get; set; } = 0;
         public bool SessionRecap { get; set; } = true;
         public string Locale { get; set; } = "nil";
@@ -61,6 +81,13 @@ namespace Bloxstrap.Models.Persistable
         public bool TrackGameStats { get; set; } = true;
         public bool UseCustomStatusDisplay { get; set; } = true;
         public bool StudioRichPresence { get; set; } = false;
+        public bool StudioShowGameName { get; set; } = true;
+        public bool StudioShowGameIcon { get; set; } = true;
+        public bool StudioShowTesting { get; set; } = true;
+        public bool StudioShowGameButton { get; set; } = false;
+        public bool ShowUsingReistrapInRichPresence { get; set; } = true;
+        public bool ShowServerUptime { get; set; } = true;
+        public TrayDoubleClickAction TrayDoubleClickAction { get; set; } = TrayDoubleClickAction.ServerDetails;
         public ObservableCollection<CustomIntegration> CustomIntegrations { get; set; } = new();
 
         // mod preset configuration

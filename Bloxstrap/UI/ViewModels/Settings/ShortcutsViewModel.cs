@@ -23,27 +23,48 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public string GameShortcutInput { get; set; } = "";
 
+        public string GameShortcutJobId { get; set; } = "";
+
+        public string GameShortcutLinkCode { get; set; } = "";
+
         public ICommand CreateGameShortcutCommand => new AsyncRelayCommand(CreateGameShortcut);
 
         private async Task CreateGameShortcut()
         {
             const string LOG_IDENT = "ShortcutsViewModel::CreateGameShortcut";
 
-            long? placeId = GameShortcuts.ParsePlaceId(GameShortcutInput);
+            if (String.IsNullOrWhiteSpace(GameShortcutInput))
+                return;
 
-            if (placeId is null)
+            string jobId = GameShortcutJobId.Trim();
+
+            if (jobId.Length > 0 && !Guid.TryParse(jobId, out _))
             {
-                Frontend.ShowMessageBox(Strings.Menu_Shortcuts_Game_Invalid, MessageBoxImage.Error);
+                Frontend.ShowMessageBox(Strings.Menu_Shortcuts_Game_InvalidServer, MessageBoxImage.Error);
                 return;
             }
 
+            string? linkCode = GameShortcuts.ParseLinkCode(GameShortcutLinkCode);
+
             try
             {
-                string name = await GameShortcuts.Create(placeId.Value);
+                long? placeId = GameShortcuts.ParsePlaceId(GameShortcutInput) ?? await GameShortcuts.FindPlaceByName(GameShortcutInput);
+
+                if (placeId is null)
+                {
+                    Frontend.ShowMessageBox(Strings.Menu_Shortcuts_Game_Invalid, MessageBoxImage.Error);
+                    return;
+                }
+
+                string name = await GameShortcuts.Create(placeId.Value, jobId, linkCode);
                 Frontend.ShowMessageBox(String.Format(Strings.Menu_Shortcuts_Game_Created, name), MessageBoxImage.Information);
 
                 GameShortcutInput = "";
+                GameShortcutJobId = "";
+                GameShortcutLinkCode = "";
                 OnPropertyChanged(nameof(GameShortcutInput));
+                OnPropertyChanged(nameof(GameShortcutJobId));
+                OnPropertyChanged(nameof(GameShortcutLinkCode));
             }
             catch (Exception ex)
             {

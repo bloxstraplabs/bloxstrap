@@ -21,11 +21,27 @@ namespace Bloxstrap
 
         public readonly StudioRichPresence? StudioRichPresence;
 
+        public readonly SocdResolver? Socd;
+
         private RobloxWindow? _robloxWindow;
 
         private CrosshairWindow? _crosshair;
 
         private DispatcherTimer? _windowTimer;
+
+        private string? _gameTitle;
+
+        private System.Drawing.Icon? _gameIcon;
+
+        private System.Drawing.Icon? _customIcon;
+
+        private IntPtr _appliedIcon;
+
+        private IntPtr _appliedIconWindow;
+
+        private bool _gameTitleApplied;
+
+        private readonly List<(CustomIntegration Integration, int ProcessId)> _gameIntegrations = new();
 
         public static string GetLockName(bool isStudio) => isStudio ? "StudioWatcher" : "Watcher";
 
@@ -86,8 +102,16 @@ namespace Bloxstrap
                     };
                 }
 
+                ActivityWatcher.OnGameJoin += (_, _) => GameStatsTracker.RecordServer(ActivityWatcher.Data);
+
                 if (App.Settings.Prop.TrackGameStats || App.Settings.Prop.SessionRecap)
                     ActivityWatcher.OnGameLeave += (_, _) => Task.Run(() => OnGameLeave(ActivityWatcher.History.First()));
+
+                if (App.Settings.Prop.CustomIntegrations.Any(x => x.IsGameSpecific))
+                {
+                    ActivityWatcher.OnGameJoin += (_, _) => StartGameIntegrations(ActivityWatcher.Data);
+                    ActivityWatcher.OnGameLeave += (_, _) => StopGameIntegrations(false);
+                }
 
                 if (App.Settings.Prop.AutoRejoin)
                     ActivityWatcher.OnRejoinableDisconnect += (_, data) => Task.Run(() => RejoinServer(data));
@@ -98,9 +122,42 @@ namespace Bloxstrap
 
             var settings = App.Settings.Prop;
 
+            if (settings.SocdEnabled)
+                Socd = new SocdResolver(_watcherData.ProcessId, settings.SocdLayout, settings.SocdMode);
+
             bool anyProfileCrosshair = settings.GameProfiles.Any(x => x.Crosshair == ProfileToggle.On);
 
-            if (!String.IsNullOrEmpty(settings.RobloxWindowTitle) || settings.RobloxBorderless || settings.CrosshairEnabled || settings.ThrottleInBackground || anyProfileCrosshair)
+            bool gameWindowInfo = ActivityWatcher is not null && (settings.RobloxGameTitle || settings.RobloxGameIcon);
+
+            if (gameWindowInfo)
+            {
+                ActivityWatcher!.OnGameJoin += (_, _) => Task.Run(() => LoadGameWindowInfo(ActivityWatcher.Data));
+                ActivityWatcher.OnGameLeave += (_, _) =>
+                {
+                    _gameTitle = null;
+                    _gameIcon = null;
+                };
+            }
+
+            if (!String.IsNullOrEmpty(settings.RobloxIconPath) && File.Exists(settings.RobloxIconPath))
+            {
+                try
+                {
+                    _customIcon = LoadIcon(File.ReadAllBytes(settings.RobloxIconPath));
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+
+            if (settings.CloseCrashHandler)
+                Task.Run(CloseCrashHandler);
+
+            if (!String.IsNullOrWhiteSpace(settings.RobloxCpuAffinity))
+                SetRobloxAffinity(settings.RobloxCpuAffinity);
+
+            if (!String.IsNullOrEmpty(settings.RobloxWindowTitle) || settings.RobloxBorderless || settings.CrosshairEnabled || settings.ThrottleInBackground || anyProfileCrosshair || gameWindowInfo || _customIcon is not null)
                 StartWindowFeatures(settings.CrosshairEnabled || anyProfileCrosshair);
 
             _notifyIcon = new(this);
@@ -160,7 +217,28 @@ namespace Bloxstrap
                 }
 
                 if (!String.IsNullOrEmpty(settings.RobloxWindowTitle))
+                {
                     _robloxWindow.ApplyTitle(settings.RobloxWindowTitle);
+                }
+                else if (_gameTitle is not null)
+                {
+                    _robloxWindow.ApplyTitle(_gameTitle);
+                    _gameTitleApplied = true;
+                }
+                else if (_gameTitleApplied)
+                {
+                    _robloxWindow.ApplyTitle("Roblox");
+                    _gameTitleApplied = false;
+                }
+
+                var icon = (_gameIcon ?? _customIcon)?.Handle ?? IntPtr.Zero;
+
+                if (icon != IntPtr.Zero && (icon != _appliedIcon || _robloxWindow.Handle != _appliedIconWindow))
+                {
+                    _robloxWindow.ApplyIcon(icon);
+                    _appliedIcon = icon;
+                    _appliedIconWindow = _robloxWindow.Handle;
+                }
 
                 if (settings.RobloxBorderless)
                     _robloxWindow.ApplyBorderless();
@@ -186,6 +264,108 @@ namespace Bloxstrap
             }, Dispatcher.CurrentDispatcher);
 
             _windowTimer.Start();
+        }
+
+        private static System.Drawing.Icon LoadIcon(byte[] data)
+        {
+            using var stream = new MemoryStream(data);
+            using var image = System.Drawing.Image.FromStream(stream);
+            using var bitmap = new System.Drawing.Bitmap(image, 64, 64);
+
+            return System.Drawing.Icon.FromHandle(bitmap.GetHicon());
+        }
+
+        private async Task LoadGameWindowInfo(ActivityData activity)
+        {
+            const string LOG_IDENT = "Watcher::LoadGameWindowInfo";
+
+            try
+            {
+                if (activity.UniverseDetails is null)
+                {
+                    await UniverseDetails.FetchSingle(activity.UniverseId);
+                    activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
+                }
+
+                var details = activity.UniverseDetails;
+
+                if (details is null || ActivityWatcher?.Data != activity)
+                    return;
+
+                if (App.Settings.Prop.RobloxGameTitle)
+                {
+                    _gameTitle = details.Data.Name;
+
+                    if (App.Settings.Prop.RobloxGameTitlePlayerCount)
+                        _gameTitle += $" ({details.Data.Playing:N0} playing)";
+                }
+
+                if (App.Settings.Prop.RobloxGameIcon && !String.IsNullOrEmpty(details.Thumbnail.ImageUrl))
+                    _gameIcon = LoadIcon(await App.HttpClient.GetByteArrayAsync(details.Thumbnail.ImageUrl));
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+        }
+
+        private async Task CloseCrashHandler()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                await Task.Delay(5000);
+
+                foreach (var process in Process.GetProcessesByName("RobloxCrashHandler"))
+                {
+                    try
+                    {
+                        App.Logger.WriteLine("Watcher::CloseCrashHandler", $"Closing RobloxCrashHandler (pid={process.Id})");
+                        process.Kill();
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteException("Watcher::CloseCrashHandler", ex);
+                    }
+                    finally
+                    {
+                        process.Dispose();
+                    }
+                }
+            }
+        }
+
+        private void SetRobloxAffinity(string cores)
+        {
+            const string LOG_IDENT = "Watcher::SetRobloxAffinity";
+
+            long mask = 0;
+
+            foreach (string part in cores.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+            {
+                string[] range = part.Split('-', StringSplitOptions.TrimEntries);
+
+                if (!int.TryParse(range[0], out int start))
+                    continue;
+
+                int end = range.Length > 1 && int.TryParse(range[1], out int parsed) ? parsed : start;
+
+                for (int core = Math.Max(start, 0); core <= end && core < Environment.ProcessorCount && core < 64; core++)
+                    mask |= 1L << core;
+            }
+
+            if (mask == 0)
+                return;
+
+            try
+            {
+                using var process = Process.GetProcessById(_watcherData!.ProcessId);
+                process.ProcessorAffinity = new IntPtr(mask);
+                App.Logger.WriteLine(LOG_IDENT, $"Set affinity to {cores} (mask={mask:X})");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
         }
 
         private async Task OnGameLeave(ActivityData activity)
@@ -223,6 +403,58 @@ namespace Bloxstrap
 
             _lastBreakReminder = DateTime.Now;
             _notifyIcon?.ShowAlert(Strings.Watcher_BreakReminder_Title, String.Format(Strings.Watcher_BreakReminder_Message, UI.ViewModels.Settings.PlaytimeViewModel.FormatDuration(minutes * 60)), 10, null);
+        }
+
+        private void StartGameIntegrations(ActivityData activity)
+        {
+            const string LOG_IDENT = "Watcher::StartGameIntegrations";
+
+            foreach (var integration in App.Settings.Prop.CustomIntegrations.Where(x => x.IsGameSpecific))
+            {
+                long id = long.Parse(integration.PlaceId.Trim());
+
+                if (id != activity.PlaceId && id != activity.UniverseId)
+                    continue;
+
+                if (_gameIntegrations.Any(x => x.Integration == integration))
+                    continue;
+
+                App.Logger.WriteLine(LOG_IDENT, $"Launching game integration '{integration.Name}' for {id}");
+
+                try
+                {
+                    using var process = Process.Start(new ProcessStartInfo
+                    {
+                        FileName = integration.Location,
+                        Arguments = integration.LaunchArgs.Replace("\r\n", " "),
+                        WorkingDirectory = Path.GetDirectoryName(integration.Location),
+                        UseShellExecute = true
+                    });
+
+                    _gameIntegrations.Add((integration, process?.Id ?? 0));
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, $"Failed to launch integration '{integration.Name}'");
+                    App.Logger.WriteException(LOG_IDENT, ex);
+                }
+            }
+        }
+
+        private void StopGameIntegrations(bool robloxClosed)
+        {
+            foreach (var entry in _gameIntegrations.ToList())
+            {
+                bool close = entry.Integration.CloseWithGame || (robloxClosed && entry.Integration.AutoClose);
+
+                if (!close)
+                    continue;
+
+                if (entry.ProcessId != 0)
+                    CloseProcess(entry.ProcessId);
+
+                _gameIntegrations.Remove(entry);
+            }
         }
 
         public void KillRobloxProcess() => CloseProcess(_watcherData!.ProcessId, true);
@@ -304,6 +536,8 @@ namespace Bloxstrap
                 GameProfiles.RestoreRobloxSettings(_watcherData.RestoreRobloxSettings);
             }
 
+            StopGameIntegrations(true);
+
             if (_watcherData.AutoclosePids is not null)
             {
                 foreach (int pid in _watcherData.AutoclosePids)
@@ -321,6 +555,7 @@ namespace Bloxstrap
             _notifyIcon?.Dispose();
             RichPresence?.Dispose();
             StudioRichPresence?.Dispose();
+            Socd?.Dispose();
             RobloxSingleton.Release();
 
             _windowTimer?.Dispatcher.Invoke(() =>

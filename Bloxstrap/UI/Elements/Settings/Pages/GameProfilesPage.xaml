@@ -14,8 +14,6 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_GameProfiles_Description}" TextWrapping="Wrap" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_GameProfiles_Add}">
             <StackPanel Orientation="Horizontal">
                 <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="https://www.roblox.com/games/..." Text="{Binding NewGameInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />

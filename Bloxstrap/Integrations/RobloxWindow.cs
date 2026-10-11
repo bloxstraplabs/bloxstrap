@@ -77,6 +77,11 @@ namespace Bloxstrap.Integrations
         [DllImport("user32.dll")]
         private static extern bool IsWindow(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
+
+        private const uint WM_SETICON = 0x0080;
+
         // Properties
 
         private readonly int _processId;
@@ -135,6 +140,15 @@ namespace Bloxstrap.Integrations
 
             if (current.ToString() != title)
                 SetWindowText(Handle, title);
+        }
+
+        public void ApplyIcon(IntPtr icon)
+        {
+            if (!IsValid || icon == IntPtr.Zero)
+                return;
+
+            SendMessage(Handle, WM_SETICON, IntPtr.Zero, icon);
+            SendMessage(Handle, WM_SETICON, new IntPtr(1), icon);
         }
 
         public void ApplyBorderless()

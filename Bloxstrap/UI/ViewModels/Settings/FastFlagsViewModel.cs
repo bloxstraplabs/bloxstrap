@@ -165,6 +165,67 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
         }
 
+        public bool PauseVoxelizer
+        {
+            get => App.FastFlags.GetPreset("Rendering.PauseVoxelizer") == "True";
+            set => App.FastFlags.SetPreset("Rendering.PauseVoxelizer", value ? "True" : null);
+        }
+
+        public bool GraySky
+        {
+            get => App.FastFlags.GetPreset("Rendering.GraySky") == "True";
+            set => App.FastFlags.SetPreset("Rendering.GraySky", value ? "True" : null);
+        }
+
+        public bool DisableGrass
+        {
+            get => App.FastFlags.GetPreset("Geometry.Grass.MaxDistance") == "0";
+            set => App.FastFlags.SetPreset("Geometry.Grass", value ? "0" : null);
+        }
+
+        public IReadOnlyList<RenderingMode> RenderingModes { get; } = Enum.GetValues<RenderingMode>();
+
+        public RenderingMode SelectedRenderingMode
+        {
+            get
+            {
+                foreach (var mode in new[] { RenderingMode.D3D11, RenderingMode.Vulkan, RenderingMode.OpenGL })
+                {
+                    if (App.FastFlags.GetPreset($"Rendering.Mode.{mode}") == "True")
+                        return mode;
+                }
+
+                return RenderingMode.Default;
+            }
+            set
+            {
+                if (value == RenderingMode.Default)
+                    App.FastFlags.SetPreset("Rendering.Mode", null);
+                else
+                    App.FastFlags.SetPresetEnum("Rendering.Mode", value.ToString(), "True");
+            }
+        }
+
+        public IReadOnlyList<string> QualityLevels { get; } = new[] { Strings.Common_Default }.Concat(Enumerable.Range(1, 21).Select(x => x.ToString())).ToList();
+
+        public string SelectedQualityLevel
+        {
+            get => App.FastFlags.GetPreset("Rendering.FRMQuality") ?? Strings.Common_Default;
+            set => App.FastFlags.SetPreset("Rendering.FRMQuality", int.TryParse(value, out _) ? value : null);
+        }
+
+        public int MeshDetail
+        {
+            get => int.TryParse(App.FastFlags.GetPreset("Geometry.MeshDetail.L0"), out int value) ? Array.IndexOf(MeshDetailDistances, value) is int i and >= 0 ? i : 5 : 5;
+            set
+            {
+                App.FastFlags.SetPreset("Geometry.MeshDetail", value >= 5 ? null : MeshDetailDistances[Math.Max(value, 0)].ToString());
+                OnPropertyChanged(nameof(MeshDetail));
+            }
+        }
+
+        private static readonly int[] MeshDetailDistances = { 0, 50, 100, 200, 500 };
+
         public IReadOnlyDictionary<TextureQuality, string?> TextureQualities => FastFlagManager.TextureQualityLevels;
 
         public TextureQuality SelectedTextureQuality

@@ -1,4 +1,7 @@
 using System.Windows;
+using System.Windows.Input;
+
+using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Models.SettingTasks;
 
@@ -82,6 +85,132 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => SetBool("CameraYInverted", value);
         }
 
+        private double GetPercent(string name, double fallback) =>
+            Double.TryParse(_task.Get(name), NumberStyles.Float, CultureInfo.InvariantCulture, out double value) ? Math.Round(value * 100) : fallback;
+
+        private void SetPercent(string name, double value) =>
+            _task.Set("float", name, (Math.Clamp(value, 0, 100) / 100).ToString("0.###", CultureInfo.InvariantCulture));
+
+        public double StudioVolume
+        {
+            get => GetPercent("MasterVolumeStudio", 100);
+            set
+            {
+                SetPercent("MasterVolumeStudio", value);
+                OnPropertyChanged(nameof(StudioVolume));
+            }
+        }
+
+        public double VoiceChatVolume
+        {
+            get => GetPercent("VoiceChatVolume", 100);
+            set
+            {
+                SetPercent("VoiceChatVolume", value);
+                OnPropertyChanged(nameof(VoiceChatVolume));
+            }
+        }
+
+        public double PartyVolume
+        {
+            get => GetPercent("PartyVoiceVolume", 100);
+            set
+            {
+                SetPercent("PartyVoiceVolume", value);
+                OnPropertyChanged(nameof(PartyVolume));
+            }
+        }
+
+        public double HapticStrength
+        {
+            get => GetPercent("HapticStrength", 100);
+            set
+            {
+                SetPercent("HapticStrength", value);
+                OnPropertyChanged(nameof(HapticStrength));
+            }
+        }
+
+        public double UiTransparency
+        {
+            get => GetPercent("PreferredTransparency", 100);
+            set
+            {
+                SetPercent("PreferredTransparency", value);
+                OnPropertyChanged(nameof(UiTransparency));
+            }
+        }
+
+        public bool Vignette
+        {
+            get => GetBool("VignetteEnabled");
+            set => SetBool("VignetteEnabled", value);
+        }
+
+        public bool PlayerListVisible
+        {
+            get => GetBool("PlayerListVisible");
+            set => SetBool("PlayerListVisible", value);
+        }
+
+        public bool ChatVisible
+        {
+            get => GetBool("ChatVisible");
+            set => SetBool("ChatVisible", value);
+        }
+
+        public bool VREnabled
+        {
+            get => GetBool("VREnabled");
+            set => SetBool("VREnabled", value);
+        }
+
+        public IReadOnlyList<string> TextSizes { get; } = new[] { "1", "2", "3", "4" };
+
+        public string TextSize
+        {
+            get => _task.Get("PreferredTextSize") is string value && TextSizes.Contains(value) ? value : "1";
+            set => _task.Set("token", "PreferredTextSize", value);
+        }
+
+        public ICommand OpenRobloxFolderCommand => new RelayCommand(() => Utilities.ShellExecute(Path.GetDirectoryName(RobloxSettingsTask.FileLocation)!));
+
+        public ICommand ExportRobloxSettingsCommand => new RelayCommand(() =>
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog { FileName = "GlobalBasicSettings_13.xml", Filter = "XML|*.xml" };
+
+            if (dialog.ShowDialog() == true && File.Exists(RobloxSettingsTask.FileLocation))
+                File.Copy(RobloxSettingsTask.FileLocation, dialog.FileName, true);
+        });
+
+        public ICommand ImportRobloxSettingsCommand => new RelayCommand(() =>
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog { Filter = "XML|*.xml" };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            try
+            {
+                System.Xml.Linq.XDocument.Load(dialog.FileName);
+
+                var attributes = File.Exists(RobloxSettingsTask.FileLocation) ? File.GetAttributes(RobloxSettingsTask.FileLocation) : FileAttributes.Normal;
+
+                if (File.Exists(RobloxSettingsTask.FileLocation))
+                    File.SetAttributes(RobloxSettingsTask.FileLocation, attributes & ~FileAttributes.ReadOnly);
+
+                File.Copy(dialog.FileName, RobloxSettingsTask.FileLocation, true);
+                File.SetAttributes(RobloxSettingsTask.FileLocation, attributes);
+
+                Frontend.ShowMessageBox(Strings.Menu_Roblox_Import_Done, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("RobloxSettingsViewModel::Import", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+        });
+
         public bool LockSettingsFile
         {
             get => _task.LockFile;
@@ -156,6 +285,85 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.Settings.Prop.CrosshairGap = value;
                 OnPropertyChanged(nameof(CrosshairGap));
             }
+        }
+
+        // SOCD
+
+        public bool SocdEnabled
+        {
+            get => App.Settings.Prop.SocdEnabled;
+            set => App.Settings.Prop.SocdEnabled = value;
+        }
+
+        public IEnumerable<SocdLayout> SocdLayouts { get; } = Enum.GetValues<SocdLayout>();
+
+        public SocdLayout SocdLayout
+        {
+            get => App.Settings.Prop.SocdLayout;
+            set => App.Settings.Prop.SocdLayout = value;
+        }
+
+        public IEnumerable<SocdMode> SocdModes { get; } = Enum.GetValues<SocdMode>();
+
+        public SocdMode SocdMode
+        {
+            get => App.Settings.Prop.SocdMode;
+            set => App.Settings.Prop.SocdMode = value;
+        }
+
+        // Window
+
+        public bool RobloxGameTitle
+        {
+            get => App.Settings.Prop.RobloxGameTitle;
+            set => App.Settings.Prop.RobloxGameTitle = value;
+        }
+
+        public bool RobloxGameTitlePlayerCount
+        {
+            get => App.Settings.Prop.RobloxGameTitlePlayerCount;
+            set => App.Settings.Prop.RobloxGameTitlePlayerCount = value;
+        }
+
+        public bool RobloxGameIcon
+        {
+            get => App.Settings.Prop.RobloxGameIcon;
+            set => App.Settings.Prop.RobloxGameIcon = value;
+        }
+
+        public string RobloxIconName => String.IsNullOrEmpty(App.Settings.Prop.RobloxIconPath) ? "" : Path.GetFileName(App.Settings.Prop.RobloxIconPath);
+
+        public ICommand BrowseRobloxIconCommand => new RelayCommand(() =>
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog { Filter = "Images|*.png;*.jpg;*.jpeg;*.ico;*.bmp" };
+
+            if (dialog.ShowDialog() != true)
+                return;
+
+            App.Settings.Prop.RobloxIconPath = dialog.FileName;
+            OnPropertyChanged(nameof(RobloxIconName));
+        });
+
+        public ICommand ClearRobloxIconCommand => new RelayCommand(() =>
+        {
+            App.Settings.Prop.RobloxIconPath = "";
+            OnPropertyChanged(nameof(RobloxIconName));
+        });
+
+        // Roblox app
+
+        public IEnumerable<RobloxAppTheme> RobloxAppThemes { get; } = Enum.GetValues<RobloxAppTheme>();
+
+        public RobloxAppTheme RobloxAppTheme
+        {
+            get => App.Settings.Prop.RobloxAppTheme;
+            set => App.Settings.Prop.RobloxAppTheme = value;
+        }
+
+        public bool RobloxBackgroundApp
+        {
+            get => App.Settings.Prop.RobloxBackgroundApp;
+            set => App.Settings.Prop.RobloxBackgroundApp = value;
         }
     }
 }

@@ -14,8 +14,6 @@
       Title="ModsPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
         <Grid Margin="0,16,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -48,7 +46,9 @@
             </ui:CardAction>
         </Grid>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Presets_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Mods_Presets_MouseCursor_Title}" 
@@ -86,7 +86,9 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CustomFiles_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CustomFiles_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CustomFiles_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Mods_CustomFiles_Cursor_Title}"
@@ -115,16 +117,18 @@
             </StackPanel>
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ModPack_Description}" Style="{StaticResource SectionDescription}" />
 
         <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
             <ui:Button Icon="ArrowExportRtl24" Content="{x:Static resources:Strings.Common_Export}" Command="{Binding ExportModPackCommand}" />
             <ui:Button Margin="8,0,0,0" Icon="ArrowImport24" Content="{x:Static resources:Strings.Common_Import}" Command="{Binding ImportModPackCommand}" />
         </StackPanel>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_CursorSets_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_CursorSets_Saved}">
             <StackPanel Orientation="Horizontal">
@@ -141,19 +145,27 @@
             </StackPanel>
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_ColorMods_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_Cursor}">
-            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding CursorColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ui:TextBox Width="220" Padding="10,5,10,5" PlaceholderText="#FFFFFF, #FF66CC" Text="{Binding CursorColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </controls:OptionControl>
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_ShiftLock}">
-            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding ShiftLockColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ui:TextBox Width="220" Padding="10,5,10,5" PlaceholderText="#FFFFFF, #FF66CC" Text="{Binding ShiftLockColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </controls:OptionControl>
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_EmoteWheel}">
-            <ui:TextBox Width="140" Padding="10,5,10,5" PlaceholderText="#FFFFFF" Text="{Binding EmoteWheelColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <ui:TextBox Width="220" Padding="10,5,10,5" PlaceholderText="#FFFFFF, #FF66CC" Text="{Binding EmoteWheelColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_ColorMods_Angle_Title}" Description="{x:Static resources:Strings.Menu_Mods_ColorMods_Angle_Description}">
+            <StackPanel Orientation="Horizontal">
+                <Slider Width="180" Minimum="0" Maximum="360" IsSnapToTickEnabled="True" TickFrequency="15" Value="{Binding GradientAngle, Mode=TwoWay}" />
+                <TextBlock Width="40" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding GradientAngle, Mode=OneWay, StringFormat={}{0:0}°}" />
+            </StackPanel>
         </controls:OptionControl>
 
         <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
@@ -161,7 +173,21 @@
             <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Content="{x:Static resources:Strings.Menu_Mods_ColorMods_Remove}" Command="{Binding RemoveColorModsCommand}" />
         </StackPanel>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Skybox_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Skybox_Description}" Style="{StaticResource SectionDescription}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Mods_Skybox_Current}" Description="{Binding SkyboxStatus}">
+            <StackPanel Orientation="Horizontal">
+                <ui:Button Icon="Folder24" Content="{x:Static resources:Strings.Menu_Mods_Skybox_Import}" Command="{Binding ImportSkyboxCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding RemoveSkyboxCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Misc_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Mods_ApplyToPlayer_Title}"

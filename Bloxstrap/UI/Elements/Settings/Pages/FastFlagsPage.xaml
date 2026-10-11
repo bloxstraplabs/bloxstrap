@@ -13,17 +13,17 @@
       Scrollable="True"
       Loaded="Page_Loaded">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
             Description="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Common_Presets}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Description}" Style="{StaticResource SectionDescription}" />
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" Style="{StaticResource SubsectionTitle}" />
         <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_FastFlags_Presets_D3DExclusiveFullscreenInfo}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://bloxstraplabs.com/wiki/features/engine-settings/#exclusive-fullscreen'}"  Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
@@ -55,8 +55,58 @@
             </ComboBox>
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding RenderingModes, Mode=OneTime}" SelectedItem="{Binding SelectedRenderingMode, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_QualityOverride_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_QualityOverride_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding QualityLevels, Mode=OneTime}" SelectedItem="{Binding SelectedQualityLevel, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_PauseVoxelizer_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_PauseVoxelizer_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding PauseVoxelizer, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_GraySky_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding GraySky, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Geometry}" Style="{StaticResource SubsectionTitle}" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableGrass_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_DisableGrass_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableGrass, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MeshDetail_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_MeshDetail_Description}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Menu_FastFlags_Presets_MeshDetail_Low}" />
+                <Slider Width="160" Minimum="0" Maximum="5" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="BottomRight" Value="{Binding MeshDetail, Mode=TwoWay}" />
+                <TextBlock VerticalAlignment="Center" Margin="8,0,0,0" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Common_Default}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Allowlist_Description}" Style="{StaticResource SectionDescription}" />
 
         <ItemsControl ItemsSource="{Binding AllowlistedFlags, Mode=OneTime}">
             <ItemsControl.ItemTemplate>
@@ -71,8 +121,9 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Profiles_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_FastFlags_Profiles_Saved}">
             <StackPanel Orientation="Horizontal">

@@ -12,8 +12,6 @@
       Title="AppearancePage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
-
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}">
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
@@ -72,16 +70,42 @@
             <Slider Width="200" Minimum="0.05" Maximum="1" SmallChange="0.05" LargeChange="0.1" Value="{Binding BackgroundOpacity, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <Grid Margin="0,8,0,0">
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_BackgroundStretch_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_BackgroundStretch_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding BackgroundStretchs, Mode=OneTime}" SelectedItem="{Binding BackgroundStretch, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_DisableAnimations_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_DisableAnimations_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding DisableAnimations, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Appearance_CycleThemes_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_CycleThemes_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding CycleCustomThemes, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="128" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Bottom">
-                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Title}" FontSize="20" FontWeight="Medium" VerticalAlignment="Bottom" />
-                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Title}" Style="{StaticResource SectionTitle}" />
+                <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Bootstrapper_Description}" Style="{StaticResource SectionDescription}" />
             </StackPanel>
-            <ui:Button Grid.Column="1" Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" Margin="0,16,0,0" Command="{Binding PreviewBootstrapperCommand}" />
+            <ui:Button Grid.Column="1" Content="{x:Static resources:Strings.Menu_Appearance_Preview}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Command="{Binding PreviewBootstrapperCommand}" />
         </Grid>
         
         <ui:CardExpander Margin="0,8,0,0" IsExpanded="{Binding Path=CustomThemesExpanded, Mode=OneWay}" Style="{StaticResource NoUserExpansionCardExpanderStyle}">

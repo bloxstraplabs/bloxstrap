@@ -24,6 +24,23 @@ namespace Bloxstrap
 
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
+
+            { "Rendering.PauseVoxelizer", "DFFlagDebugPauseVoxelizer" },
+            { "Rendering.GraySky", "FFlagDebugSkyGray" },
+            { "Rendering.FRMQuality", "DFIntDebugFRMQualityLevelOverride" },
+
+            { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
+            { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
+            { "Rendering.Mode.OpenGL", "FFlagDebugGraphicsPreferOpenGL" },
+
+            { "Geometry.Grass.MinDistance", "FIntFRMMinGrassDistance" },
+            { "Geometry.Grass.MaxDistance", "FIntFRMMaxGrassDistance" },
+            { "Geometry.Grass.Motion", "FIntGrassMovementReducedMotionFactor" },
+
+            { "Geometry.MeshDetail.L0", "DFIntCSGLevelOfDetailSwitchingDistance" },
+            { "Geometry.MeshDetail.L12", "DFIntCSGLevelOfDetailSwitchingDistanceL12" },
+            { "Geometry.MeshDetail.L23", "DFIntCSGLevelOfDetailSwitchingDistanceL23" },
+            { "Geometry.MeshDetail.L34", "DFIntCSGLevelOfDetailSwitchingDistanceL34" },
         };
 
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>

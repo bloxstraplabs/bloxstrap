@@ -2077,4 +2077,519 @@ Build: {2}</value>
   <data name="Menu.Bloxstrap.Backup.Invalid" xml:space="preserve">
     <value>This file is not a reistrap backup.</value>
   </data>
+  <data name="Menu.SaveAndLaunchPlayer" xml:space="preserve">
+    <value>Save and Launch Player</value>
+  </data>
+  <data name="Menu.SaveAndLaunchStudio" xml:space="preserve">
+    <value>Save and Launch Studio</value>
+  </data>
+  <data name="Menu.Restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="Menu.Search" xml:space="preserve">
+    <value>Search settings</value>
+  </data>
+  <data name="Menu.Integrations.ActivityTracking.Description" xml:space="preserve">
+    <value>Let reistrap read what you're doing in Roblox to power the features below.</value>
+  </data>
+  <data name="Menu.Integrations.Capture.Description" xml:space="preserve">
+    <value>Stop Roblox from saving screenshots and video recordings.</value>
+  </data>
+  <data name="Menu.Mods.CustomFiles.Description" xml:space="preserve">
+    <value>Replace Roblox's built-in sounds, cursors and other files with your own.</value>
+  </data>
+  <data name="Menu.Roblox.Window.Description" xml:space="preserve">
+    <value>Change how the Roblox window looks.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Description" xml:space="preserve">
+    <value>Common engine tweaks you can switch on without editing flags by hand.</value>
+  </data>
+  <data name="Menu.Mods.Presets.Description" xml:space="preserve">
+    <value>Quick mods that don't need any files of your own.</value>
+  </data>
+  <data name="Menu.Mods.Misc.Description" xml:space="preserve">
+    <value>Other mod options.</value>
+  </data>
+  <data name="ContextMenu.Socd" xml:space="preserve">
+    <value>SOCD resolution</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Title" xml:space="preserve">
+    <value>SOCD resolution</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Description" xml:space="preserve">
+    <value>Decide what happens when you hold two opposite movement keys at once, like A and D. Only works while Roblox is the active window.</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Enabled.Title" xml:space="preserve">
+    <value>Enable SOCD resolution</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Enabled.Description" xml:space="preserve">
+    <value>Also known as snap tap. You can switch it off for a session from the tray icon.</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Layout.Title" xml:space="preserve">
+    <value>Movement keys</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Layout.Description" xml:space="preserve">
+    <value>The keys you use to move.</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Mode.Title" xml:space="preserve">
+    <value>When both keys are held</value>
+  </data>
+  <data name="Menu.Roblox.Socd.Mode.Description" xml:space="preserve">
+    <value>Which key wins when opposite keys are pressed together.</value>
+  </data>
+  <data name="Enums.SocdLayout.WASD" xml:space="preserve">
+    <value>WASD</value>
+  </data>
+  <data name="Enums.SocdLayout.ZQSD" xml:space="preserve">
+    <value>ZQSD (AZERTY)</value>
+  </data>
+  <data name="Enums.SocdLayout.ESDF" xml:space="preserve">
+    <value>ESDF</value>
+  </data>
+  <data name="Enums.SocdLayout.ArrowKeys" xml:space="preserve">
+    <value>Arrow keys</value>
+  </data>
+  <data name="Enums.SocdMode.LastInput" xml:space="preserve">
+    <value>Last pressed wins</value>
+  </data>
+  <data name="Enums.SocdMode.FirstInput" xml:space="preserve">
+    <value>First pressed wins</value>
+  </data>
+  <data name="Enums.SocdMode.Neutral" xml:space="preserve">
+    <value>Neither (stop moving)</value>
+  </data>
+  <data name="Enums.TrayDoubleClickAction.None" xml:space="preserve">
+    <value>Do nothing</value>
+  </data>
+  <data name="Enums.TrayDoubleClickAction.ServerDetails" xml:space="preserve">
+    <value>Open server details</value>
+  </data>
+  <data name="Enums.TrayDoubleClickAction.GameHistory" xml:space="preserve">
+    <value>Open game history</value>
+  </data>
+  <data name="Menu.Integrations.TrayDoubleClick.Title" xml:space="preserve">
+    <value>Tray icon double-click</value>
+  </data>
+  <data name="Menu.Integrations.TrayDoubleClick.Description" xml:space="preserve">
+    <value>What happens when you double-click the tray icon while Roblox is running.</value>
+  </data>
+  <data name="Menu.Integrations.ServerUptime.Title" xml:space="preserve">
+    <value>Show server uptime</value>
+  </data>
+  <data name="Menu.Integrations.ServerUptime.Description" xml:space="preserve">
+    <value>Show how long the server you joined has been running in the server details.</value>
+  </data>
+  <data name="Menu.Integrations.UsingReistrap.Title" xml:space="preserve">
+    <value>Show that you're using reistrap</value>
+  </data>
+  <data name="Menu.Integrations.UsingReistrap.Description" xml:space="preserve">
+    <value>Shows "Using reistrap" when someone hovers over the small icon on your status.</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameName.Title" xml:space="preserve">
+    <value>Show what you're editing</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameName.Description" xml:space="preserve">
+    <value>Show the name of the game you have open in Studio.</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameIcon.Title" xml:space="preserve">
+    <value>Show game icon</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameIcon.Description" xml:space="preserve">
+    <value>Use the game's icon as the large image.</value>
+  </data>
+  <data name="Menu.Integrations.StudioTesting.Title" xml:space="preserve">
+    <value>Show play testing</value>
+  </data>
+  <data name="Menu.Integrations.StudioTesting.Description" xml:space="preserve">
+    <value>Change your status to Testing while a play test is running.</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameButton.Title" xml:space="preserve">
+    <value>Show game page button</value>
+  </data>
+  <data name="Menu.Integrations.StudioGameButton.Description" xml:space="preserve">
+    <value>Add a button that links to the game's page.</value>
+  </data>
+  <data name="Menu.Integrations.Custom.PlaceId" xml:space="preserve">
+    <value>Only run in a specific game</value>
+  </data>
+  <data name="Menu.Integrations.Custom.PlaceId.Placeholder" xml:space="preserve">
+    <value>Place ID or universe ID (optional)</value>
+  </data>
+  <data name="Menu.Integrations.Custom.CloseWithGame" xml:space="preserve">
+    <value>Close when you leave that game</value>
+  </data>
+  <data name="Menu.Behaviour.Affinity.Title" xml:space="preserve">
+    <value>Roblox CPU cores</value>
+  </data>
+  <data name="Menu.Behaviour.Affinity.Description" xml:space="preserve">
+    <value>Limit Roblox to certain CPU cores, for example 0-3 or 0,2,4. Leave empty to use all cores.</value>
+  </data>
+  <data name="Menu.Behaviour.CloseCrashHandler.Title" xml:space="preserve">
+    <value>Close Roblox's crash handler</value>
+  </data>
+  <data name="Menu.Behaviour.CloseCrashHandler.Description" xml:space="preserve">
+    <value>Closes RobloxCrashHandler shortly after Roblox starts, which frees up a little memory. Roblox won't send crash reports while it's closed.</value>
+  </data>
+  <data name="Menu.Behaviour.ForceLanguage.Title" xml:space="preserve">
+    <value>Allow unsupported Roblox languages</value>
+  </data>
+  <data name="Menu.Behaviour.ForceLanguage.Description" xml:space="preserve">
+    <value>Makes the Roblox interface use your game language even if Roblox doesn't officially support it yet.</value>
+  </data>
+  <data name="Menu.Roblox.GameTitle.Title" xml:space="preserve">
+    <value>Show game name in title</value>
+  </data>
+  <data name="Menu.Roblox.GameTitle.Description" xml:space="preserve">
+    <value>Changes the Roblox window title to the name of the game you're playing. A custom window title takes priority.</value>
+  </data>
+  <data name="Menu.Roblox.GameTitlePlayers.Title" xml:space="preserve">
+    <value>Show player count in title</value>
+  </data>
+  <data name="Menu.Roblox.GameTitlePlayers.Description" xml:space="preserve">
+    <value>Adds how many people are playing the game to the window title.</value>
+  </data>
+  <data name="Menu.Roblox.GameIcon.Title" xml:space="preserve">
+    <value>Show game icon</value>
+  </data>
+  <data name="Menu.Roblox.GameIcon.Description" xml:space="preserve">
+    <value>Changes the Roblox window and taskbar icon to the icon of the game you're playing.</value>
+  </data>
+  <data name="Menu.Roblox.CustomIcon.Title" xml:space="preserve">
+    <value>Custom window icon</value>
+  </data>
+  <data name="Menu.Roblox.CustomIcon.Description" xml:space="preserve">
+    <value>Use your own image as the Roblox window and taskbar icon.</value>
+  </data>
+  <data name="Menu.Roblox.App.Title" xml:space="preserve">
+    <value>Roblox app</value>
+  </data>
+  <data name="Menu.Roblox.App.Description" xml:space="preserve">
+    <value>Settings for the Roblox app itself. These are applied every time you launch Roblox.</value>
+  </data>
+  <data name="Menu.Roblox.AppTheme.Title" xml:space="preserve">
+    <value>Roblox theme</value>
+  </data>
+  <data name="Menu.Roblox.AppTheme.Description" xml:space="preserve">
+    <value>Force the Roblox app to use the light or dark theme.</value>
+  </data>
+  <data name="Menu.Roblox.BackgroundApp.Title" xml:space="preserve">
+    <value>Let Roblox run in the background</value>
+  </data>
+  <data name="Menu.Roblox.BackgroundApp.Description" xml:space="preserve">
+    <value>Lets Roblox start with Windows and stay in the tray after you close it.</value>
+  </data>
+  <data name="Enums.RobloxAppTheme.Default" xml:space="preserve">
+    <value>Don't change</value>
+  </data>
+  <data name="Enums.RobloxAppTheme.Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Enums.RobloxAppTheme.Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Bootstrapper.ChannelChange.Prompt" xml:space="preserve">
+    <value>Roblox wants to switch you to the {0} channel. You're currently on {1}.
+
+Switch channels?</value>
+  </data>
+  <data name="Menu.Behaviour.ChannelChange.Title" xml:space="preserve">
+    <value>When Roblox asks to change channel</value>
+  </data>
+  <data name="Menu.Behaviour.ChannelChange.Description" xml:space="preserve">
+    <value>What to do when a Roblox launch link asks for a different channel than the one you picked.</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Automatic" xml:space="preserve">
+    <value>Switch automatically</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Prompt" xml:space="preserve">
+    <value>Ask me</value>
+  </data>
+  <data name="Enums.ChannelChangeMode.Ignore" xml:space="preserve">
+    <value>Stay on my channel</value>
+  </data>
+  <data name="Menu.Behaviour.PlayerVersion.Title" xml:space="preserve">
+    <value>Pin Roblox Player version</value>
+  </data>
+  <data name="Menu.Behaviour.PlayerVersion.Description" xml:space="preserve">
+    <value>Always launch this exact Roblox version (a version hash like version-abc123). Leave empty to use the latest.</value>
+  </data>
+  <data name="Menu.Behaviour.StudioVersion.Title" xml:space="preserve">
+    <value>Pin Roblox Studio version</value>
+  </data>
+  <data name="Menu.Behaviour.StudioVersion.Description" xml:space="preserve">
+    <value>Always launch this exact Roblox Studio version. Leave empty to use the latest.</value>
+  </data>
+  <data name="Menu.Behaviour.DownloadThreads.Title" xml:space="preserve">
+    <value>Parallel downloads</value>
+  </data>
+  <data name="Menu.Behaviour.DownloadThreads.Description" xml:space="preserve">
+    <value>How many Roblox files to download at the same time when installing or updating.</value>
+  </data>
+  <data name="Menu.Bloxstrap.PreReleases.Title" xml:space="preserve">
+    <value>Update to pre-releases</value>
+  </data>
+  <data name="Menu.Bloxstrap.PreReleases.Description" xml:space="preserve">
+    <value>Get test versions of reistrap before they're fully released. They may have bugs.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Reset.Title" xml:space="preserve">
+    <value>Reset settings</value>
+  </data>
+  <data name="Menu.Bloxstrap.Reset.Description" xml:space="preserve">
+    <value>Put every reistrap setting back to its default. Your mods, Fast Flags and playtime are kept.</value>
+  </data>
+  <data name="Menu.Bloxstrap.Reset.Button" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Menu.Bloxstrap.Reset.Confirm" xml:space="preserve">
+    <value>This will reset all of your reistrap settings to their defaults. Continue?</value>
+  </data>
+  <data name="Menu.Bloxstrap.Reset.Done" xml:space="preserve">
+    <value>Your settings have been reset. Click Restart at the bottom to reload this window.</value>
+  </data>
+  <data name="Menu.Appearance.BackgroundStretch.Title" xml:space="preserve">
+    <value>Background image fit</value>
+  </data>
+  <data name="Menu.Appearance.BackgroundStretch.Description" xml:space="preserve">
+    <value>How the background image is sized to fit the window.</value>
+  </data>
+  <data name="Enums.BackgroundStretch.UniformToFill" xml:space="preserve">
+    <value>Fill and crop</value>
+  </data>
+  <data name="Enums.BackgroundStretch.Uniform" xml:space="preserve">
+    <value>Fit inside</value>
+  </data>
+  <data name="Enums.BackgroundStretch.Fill" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="Enums.BackgroundStretch.None" xml:space="preserve">
+    <value>Original size</value>
+  </data>
+  <data name="Menu.Appearance.DisableAnimations.Title" xml:space="preserve">
+    <value>Turn off animations</value>
+  </data>
+  <data name="Menu.Appearance.DisableAnimations.Description" xml:space="preserve">
+    <value>Switch pages instantly without the slide animation.</value>
+  </data>
+  <data name="Menu.Appearance.CycleThemes.Title" xml:space="preserve">
+    <value>Cycle custom themes</value>
+  </data>
+  <data name="Menu.Appearance.CycleThemes.Description" xml:space="preserve">
+    <value>Use the next custom bootstrapper theme each time you launch Roblox.</value>
+  </data>
+  <data name="Enums.RenderingMode.Default" xml:space="preserve">
+    <value>Automatic</value>
+  </data>
+  <data name="Enums.RenderingMode.D3D11" xml:space="preserve">
+    <value>Direct3D 11</value>
+  </data>
+  <data name="Enums.RenderingMode.Vulkan" xml:space="preserve">
+    <value>Vulkan</value>
+  </data>
+  <data name="Enums.RenderingMode.OpenGL" xml:space="preserve">
+    <value>OpenGL</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Title" xml:space="preserve">
+    <value>Rendering mode</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
+    <value>Which graphics API Roblox should use. Automatic lets Roblox decide.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.QualityOverride.Title" xml:space="preserve">
+    <value>Graphics quality override</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.QualityOverride.Description" xml:space="preserve">
+    <value>Force a graphics quality level from 1 to 21, beyond the 10 steps of the in-game slider.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.PauseVoxelizer.Title" xml:space="preserve">
+    <value>Pause voxelizer</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.PauseVoxelizer.Description" xml:space="preserve">
+    <value>Stops lighting from updating as the world changes. Can raise FPS but shadows may look wrong.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.GraySky.Title" xml:space="preserve">
+    <value>Gray sky</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.GraySky.Description" xml:space="preserve">
+    <value>Replaces the skybox with a plain gray sky.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.Categories.Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableGrass.Title" xml:space="preserve">
+    <value>Disable grass</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.DisableGrass.Description" xml:space="preserve">
+    <value>Removes the grass that grows on terrain.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MeshDetail.Title" xml:space="preserve">
+    <value>Mesh detail</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MeshDetail.Description" xml:space="preserve">
+    <value>Lower values switch to simpler meshes sooner, which can raise FPS. Very low values may make some meshes disappear.</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.MeshDetail.Low" xml:space="preserve">
+    <value>Lowest</value>
+  </data>
+  <data name="Menu.Roblox.StudioVolume" xml:space="preserve">
+    <value>Studio volume</value>
+  </data>
+  <data name="Menu.Roblox.VoiceVolume" xml:space="preserve">
+    <value>Voice chat volume</value>
+  </data>
+  <data name="Menu.Roblox.PartyVolume" xml:space="preserve">
+    <value>Party volume</value>
+  </data>
+  <data name="Menu.Roblox.Haptic" xml:space="preserve">
+    <value>Controller vibration</value>
+  </data>
+  <data name="Menu.Roblox.Transparency" xml:space="preserve">
+    <value>Menu background opacity</value>
+  </data>
+  <data name="Menu.Roblox.TextSize" xml:space="preserve">
+    <value>Text size</value>
+  </data>
+  <data name="Menu.Roblox.Vignette" xml:space="preserve">
+    <value>Vignette</value>
+  </data>
+  <data name="Menu.Roblox.PlayerList" xml:space="preserve">
+    <value>Show player list</value>
+  </data>
+  <data name="Menu.Roblox.Chat" xml:space="preserve">
+    <value>Show chat</value>
+  </data>
+  <data name="Menu.Roblox.VR" xml:space="preserve">
+    <value>VR mode</value>
+  </data>
+  <data name="Menu.Roblox.File.Title" xml:space="preserve">
+    <value>Settings file</value>
+  </data>
+  <data name="Menu.Roblox.File.Description" xml:space="preserve">
+    <value>Open, back up or load Roblox's settings file.</value>
+  </data>
+  <data name="Menu.Roblox.File.Open" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="Menu.Roblox.Import.Done" xml:space="preserve">
+    <value>Roblox settings imported. Reopen this window to see them.</value>
+  </data>
+  <data name="Menu.QuickPlay.Title" xml:space="preserve">
+    <value>Quick Play</value>
+  </data>
+  <data name="Menu.QuickPlay.Description" xml:space="preserve">
+    <value>Find a game, pick a server and jump straight in.</value>
+  </data>
+  <data name="Menu.QuickPlay.Search.Title" xml:space="preserve">
+    <value>Join a game</value>
+  </data>
+  <data name="Menu.QuickPlay.Search.Description" xml:space="preserve">
+    <value>Search by name, or paste a game link or place ID.</value>
+  </data>
+  <data name="Menu.QuickPlay.Search.Placeholder" xml:space="preserve">
+    <value>Game name, link or place ID</value>
+  </data>
+  <data name="Menu.QuickPlay.Search.Button" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Menu.QuickPlay.Searching" xml:space="preserve">
+    <value>Searching...</value>
+  </data>
+  <data name="Menu.QuickPlay.NoResults" xml:space="preserve">
+    <value>No games found.</value>
+  </data>
+  <data name="Menu.QuickPlay.Error" xml:space="preserve">
+    <value>Couldn't search right now: {0}</value>
+  </data>
+  <data name="Menu.QuickPlay.Playing" xml:space="preserve">
+    <value>{0} playing, by {1}</value>
+  </data>
+  <data name="Menu.QuickPlay.LastPlayed" xml:space="preserve">
+    <value>Last played {0}</value>
+  </data>
+  <data name="Menu.QuickPlay.Details" xml:space="preserve">
+    <value>Servers</value>
+  </data>
+  <data name="Menu.QuickPlay.Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Menu.QuickPlay.Subplaces" xml:space="preserve">
+    <value>Places</value>
+  </data>
+  <data name="Menu.QuickPlay.StartPlace" xml:space="preserve">
+    <value>Start place</value>
+  </data>
+  <data name="Menu.QuickPlay.Servers" xml:space="preserve">
+    <value>Public servers</value>
+  </data>
+  <data name="Menu.QuickPlay.Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Menu.QuickPlay.Ping" xml:space="preserve">
+    <value>{0} ms ping</value>
+  </data>
+  <data name="Menu.QuickPlay.Rejoin.Title" xml:space="preserve">
+    <value>Rejoin</value>
+  </data>
+  <data name="Menu.QuickPlay.Rejoin.Description" xml:space="preserve">
+    <value>Go back to the last public server you were in.</value>
+  </data>
+  <data name="Menu.QuickPlay.Rejoin.Button" xml:space="preserve">
+    <value>Rejoin last server</value>
+  </data>
+  <data name="Menu.QuickPlay.Rejoin.None" xml:space="preserve">
+    <value>You haven't joined a server yet.</value>
+  </data>
+  <data name="Menu.QuickPlay.Rejoin.Details" xml:space="preserve">
+    <value>Joined {0}</value>
+  </data>
+  <data name="Menu.QuickPlay.Continue" xml:space="preserve">
+    <value>Continue playing</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Placeholder" xml:space="preserve">
+    <value>Game name, link or place ID</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.InvalidServer" xml:space="preserve">
+    <value>That server ID doesn't look right. It should look like 00000000-0000-0000-0000-000000000000.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Server.Title" xml:space="preserve">
+    <value>Specific server (optional)</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Server.Description" xml:space="preserve">
+    <value>Make the shortcut join this server instance ID. You can copy it from the server details window while you're in a game.</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Private.Title" xml:space="preserve">
+    <value>Private server (optional)</value>
+  </data>
+  <data name="Menu.Shortcuts.Game.Private.Description" xml:space="preserve">
+    <value>Paste a private server link to make the shortcut join that private server.</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Angle.Title" xml:space="preserve">
+    <value>Gradient angle</value>
+  </data>
+  <data name="Menu.Mods.ColorMods.Angle.Description" xml:space="preserve">
+    <value>Type two colors separated by a comma above to make a gradient. This sets its direction.</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Title" xml:space="preserve">
+    <value>Custom skybox</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Description" xml:space="preserve">
+    <value>Replace Roblox's default sky with a skybox pack. Only games that use the default sky are affected.</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Current" xml:space="preserve">
+    <value>Skybox</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Import" xml:space="preserve">
+    <value>Import pack</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Pick" xml:space="preserve">
+    <value>Choose the folder that contains the skybox's sky512 .tex files</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Invalid" xml:space="preserve">
+    <value>That folder doesn't contain any sky512 .tex files.</value>
+  </data>
+  <data name="Menu.Mods.Skybox.Applied" xml:space="preserve">
+    <value>A custom skybox is applied.</value>
+  </data>
+  <data name="Menu.Mods.Skybox.None" xml:space="preserve">
+    <value>Using Roblox's default sky.</value>
+  </data>
 </root>

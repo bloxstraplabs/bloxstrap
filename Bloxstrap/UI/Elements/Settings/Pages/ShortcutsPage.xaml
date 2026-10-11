@@ -15,8 +15,6 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_Shortcuts_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Shortcuts_ExtractIcons_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_Shortcuts_ExtractIcons_Description}, Converter={StaticResource StringFormatConverter},ConverterParameter='https://bloxstraplabs.com/wiki/info/using-roblox-icons-for-shortcuts/'}"
@@ -24,8 +22,9 @@
             <ui:ToggleSwitch IsChecked="{Binding ExtractIconsTask.NewState, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Title}" FontSize="20" FontWeight="Medium" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Description}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_General_Description}" Style="{StaticResource SectionDescription}" />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -42,8 +41,9 @@
             </controls:OptionControl>
         </Grid>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Description}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Function_Description}" Style="{StaticResource SectionDescription}" />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -77,14 +77,23 @@
             </controls:OptionControl>
         </Grid>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Shortcuts_Game_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Shortcuts_Game_Input}">
             <StackPanel Orientation="Horizontal">
-                <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="https://www.roblox.com/games/..." Text="{Binding GameShortcutInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="{x:Static resources:Strings.Menu_Shortcuts_Game_Placeholder}" Text="{Binding GameShortcutInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <ui:Button Margin="8,0,0,0" Icon="Add24" Content="{x:Static resources:Strings.Common_CreateNew}" Command="{Binding CreateGameShortcutCommand}" />
             </StackPanel>
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Shortcuts_Game_Server_Title}" Description="{x:Static resources:Strings.Menu_Shortcuts_Game_Server_Description}">
+            <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="00000000-0000-0000-0000-000000000000" Text="{Binding GameShortcutJobId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Shortcuts_Game_Private_Title}" Description="{x:Static resources:Strings.Menu_Shortcuts_Game_Private_Description}">
+            <ui:TextBox Width="260" Padding="10,5,10,5" PlaceholderText="privateServerLinkCode=..." Text="{Binding GameShortcutLinkCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </controls:OptionControl>
     </StackPanel>
 </ui:UiPage>

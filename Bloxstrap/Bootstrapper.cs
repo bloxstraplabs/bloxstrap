@@ -347,8 +347,37 @@ namespace Bloxstrap
 
             if (match.Groups.Count == 2)
             {
+                string uriChannel = match.Groups[1].Value.ToLowerInvariant();
+                string? savedChannel = null;
+
+                if (_launchMode != LaunchMode.Unknown)
+                {
+                    using RegistryKey channelKey = GetChannelRegistryKey();
+                    savedChannel = channelKey.GetValue("www.roblox.com") as string;
+                }
+
+                if (String.IsNullOrEmpty(savedChannel))
+                    savedChannel = Deployment.DefaultChannel;
+
+                if (uriChannel != savedChannel.ToLowerInvariant())
+                {
+                    var action = App.Settings.Prop.ChannelChangeMode;
+
+                    if (action == ChannelChangeMode.Prompt)
+                    {
+                        var result = Frontend.ShowMessageBox(String.Format(Strings.Bootstrapper_ChannelChange_Prompt, uriChannel, savedChannel), MessageBoxImage.Question, MessageBoxButton.YesNo);
+                        action = result == MessageBoxResult.Yes ? ChannelChangeMode.Automatic : ChannelChangeMode.Ignore;
+                    }
+
+                    if (action == ChannelChangeMode.Ignore)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Ignoring channel {uriChannel} from launch URI, keeping {savedChannel}");
+                        return savedChannel;
+                    }
+                }
+
                 App.Logger.WriteLine(LOG_IDENT, "Got from launch URI");
-                return match.Groups[1].Value.ToLowerInvariant();
+                return uriChannel;
             }
 
             if (_launchMode != LaunchMode.Unknown)
@@ -422,11 +451,18 @@ namespace Bloxstrap
             string? newVersionGuid = null;
             Version? newVersion = null;
 
+            string versionOverride = (IsStudioLaunch ? App.Settings.Prop.StudioVersionOverride : App.Settings.Prop.PlayerVersionOverride).Trim();
+
             if (IsBlockingRobloxUpdates())
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Roblox updates are blocked, staying on {AppData.DistributionState.VersionGuid}");
                 newVersionGuid = AppData.DistributionState.VersionGuid;
                 newVersion = Utilities.GetRobloxVersion(AppData);
+            }
+            else if (versionOverride.StartsWith("version-", StringComparison.OrdinalIgnoreCase) && (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data)))
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"Version pinned to {versionOverride} in settings");
+                newVersionGuid = versionOverride.ToLowerInvariant();
             }
             else if (!App.LaunchSettings.VersionFlag.Active || string.IsNullOrEmpty(App.LaunchSettings.VersionFlag.Data))
             {
@@ -596,6 +632,19 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
+            if (_launchMode == LaunchMode.Player)
+            {
+                RobloxAppStorage.Apply();
+
+                if (App.Settings.Prop.ForceRobloxLanguage)
+                {
+                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+
+                    if (match.Success)
+                        _launchCommandLine = Regex.Replace(_launchCommandLine, "robloxLocale:[a-z_]+", $"robloxLocale:{match.Groups[1].Value}", RegexOptions.IgnoreCase);
+                }
+            }
+
             var startInfo = new ProcessStartInfo()
             {
                 FileName = AppData.ExecutablePath,
@@ -695,7 +744,7 @@ namespace Bloxstrap
             var autoclosePids = new List<int>();
 
             // launch custom integrations now
-            foreach (var integration in App.Settings.Prop.CustomIntegrations)
+            foreach (var integration in App.Settings.Prop.CustomIntegrations.Where(x => !x.IsGameSpecific))
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
 
@@ -723,7 +772,7 @@ namespace Bloxstrap
                     autoclosePids.Add(pid);
             }
 
-            bool usesWindowFeatures = App.Settings.Prop.CrosshairEnabled || App.Settings.Prop.RobloxBorderless || App.Settings.Prop.ThrottleInBackground || App.Settings.Prop.BreakReminderMinutes > 0 || !String.IsNullOrEmpty(App.Settings.Prop.RobloxWindowTitle) || App.Settings.Prop.GameProfiles.Any(x => x.Crosshair == ProfileToggle.On);
+            bool usesWindowFeatures = App.Settings.Prop.CrosshairEnabled || App.Settings.Prop.RobloxBorderless || App.Settings.Prop.ThrottleInBackground || App.Settings.Prop.SocdEnabled || App.Settings.Prop.CloseCrashHandler || !String.IsNullOrWhiteSpace(App.Settings.Prop.RobloxCpuAffinity) || !String.IsNullOrEmpty(App.Settings.Prop.RobloxIconPath) || App.Settings.Prop.BreakReminderMinutes > 0 || !String.IsNullOrEmpty(App.Settings.Prop.RobloxWindowTitle) || App.Settings.Prop.GameProfiles.Any(x => x.Crosshair == ProfileToggle.On);
 
             if (App.Settings.Prop.EnableActivityTracking || App.LaunchSettings.TestModeFlag.Active || autoclosePids.Any() || usesWindowFeatures || _restoreRobloxSettings is not null)
             {
@@ -1173,21 +1222,33 @@ namespace Bloxstrap
 
             var extractionTasks = new List<Task>();
 
-            foreach (var package in _versionPackageManifest)
-            {
-                if (_cancelTokenSource.IsCancellationRequested)
-                    return;
+            using var downloadSlots = new SemaphoreSlim(Math.Clamp(App.Settings.Prop.DownloadThreads, 1, 8));
 
-                // download all the packages synchronously
-                await DownloadPackage(package);
+            var downloadTasks = _versionPackageManifest.Select(async package =>
+            {
+                await downloadSlots.WaitAsync();
+
+                try
+                {
+                    if (_cancelTokenSource.IsCancellationRequested)
+                        return;
+
+                    await DownloadPackage(package);
+                }
+                finally
+                {
+                    downloadSlots.Release();
+                }
 
                 // we'll extract the runtime installer later if we need to
                 if (package.Name == "WebView2RuntimeInstaller.zip")
-                    continue;
+                    return;
 
-                // extract the package async immediately after download
-                extractionTasks.Add(Task.Run(() => ExtractPackage(package), _cancelTokenSource.Token));
-            }
+                lock (extractionTasks)
+                    extractionTasks.Add(Task.Run(() => ExtractPackage(package), _cancelTokenSource.Token));
+            }).ToList();
+
+            await Task.WhenAll(downloadTasks);
 
             if (_cancelTokenSource.IsCancellationRequested)
                 return;
@@ -1572,7 +1633,7 @@ namespace Bloxstrap
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Package is already downloaded, skipping...");
 
-                    _totalDownloadedBytes += package.PackedSize;
+                    Interlocked.Add(ref _totalDownloadedBytes, package.PackedSize);
                     UpdateProgressBar();
 
                     return;
@@ -1586,7 +1647,7 @@ namespace Bloxstrap
                 App.Logger.WriteLine(LOG_IDENT, $"Found existing copy at '{robloxPackageLocation}'! Copying to Downloads folder...");
                 File.Copy(robloxPackageLocation, package.DownloadPath);
 
-                _totalDownloadedBytes += package.PackedSize;
+                Interlocked.Add(ref _totalDownloadedBytes, package.PackedSize);
                 UpdateProgressBar();
 
                 return;
@@ -1632,7 +1693,7 @@ namespace Bloxstrap
 
                         await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead), _cancelTokenSource.Token);
 
-                        _totalDownloadedBytes += bytesRead;
+                        Interlocked.Add(ref _totalDownloadedBytes, bytesRead);
                         UpdateProgressBar();
                     }
 
@@ -1668,7 +1729,7 @@ namespace Bloxstrap
                     if (File.Exists(package.DownloadPath))
                         File.Delete(package.DownloadPath);
 
-                    _totalDownloadedBytes -= totalBytesRead;
+                    Interlocked.Add(ref _totalDownloadedBytes, -totalBytesRead);
                     UpdateProgressBar();
 
                     // attempt download over HTTP

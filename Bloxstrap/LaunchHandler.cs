@@ -184,6 +184,14 @@ namespace Bloxstrap
 
                 // typically we'd use Show(), but we need to block to ensure IPL stays in scope
                 window.ShowDialog();
+
+                if (window.RestartRequested)
+                {
+                    App.Logger.WriteLine(LOG_IDENT, "Restarting menu");
+                    interlock.Dispose();
+                    Process.Start(Paths.Process, "-settings");
+                    App.Terminate();
+                }
             }
             else
             {

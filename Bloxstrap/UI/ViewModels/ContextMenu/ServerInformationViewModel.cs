@@ -17,7 +17,7 @@ namespace Bloxstrap.UI.ViewModels.ContextMenu
 
         public Visibility ServerLocationVisibility => App.Settings.Prop.ShowServerDetails ? Visibility.Visible : Visibility.Collapsed;
 
-        public Visibility ServerUptimeVisibility => _activityWatcher.Data.ServerStarted is null ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility ServerUptimeVisibility => _activityWatcher.Data.ServerStarted is null || !App.Settings.Prop.ShowServerUptime ? Visibility.Collapsed : Visibility.Visible;
 
         public string ServerUptime
         {

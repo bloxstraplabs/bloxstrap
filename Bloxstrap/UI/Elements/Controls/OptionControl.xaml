@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              x:Name="Control"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ui:Card Margin="0,8,0,0">
+    <ui:Card Margin="0,8,0,0" Padding="20,16" MinHeight="72">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -23,7 +23,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" FontSize="14" Text="{Binding Header, ElementName=Control}" />
+                    <TextBlock Grid.Column="0" FontSize="16" FontWeight="Medium" Text="{Binding Header, ElementName=Control}" TextWrapping="Wrap" />
                     <TextBlock Grid.Column="1" Margin="4,0,0,0">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
@@ -58,7 +58,7 @@
                         </Hyperlink>
                     </TextBlock>
                 </Grid>
-                <local:MarkdownTextBlock Margin="0,2,0,0" FontSize="12" MarkdownText="{Binding Description, ElementName=Control}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorTertiaryBrush}">
+                <local:MarkdownTextBlock Margin="0,4,0,0" FontSize="13" MarkdownText="{Binding Description, ElementName=Control}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}">
                     <local:MarkdownTextBlock.Style>
                         <Style TargetType="local:MarkdownTextBlock">
                             <Style.Triggers>

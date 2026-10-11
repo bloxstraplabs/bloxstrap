@@ -9,5 +9,7 @@
         public double Left { get; set; }
 
         public double Top { get; set; }
+
+        public int SizeVersion { get; set; }
     }
 }

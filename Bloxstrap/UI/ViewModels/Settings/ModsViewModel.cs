@@ -125,6 +125,68 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.ApplyModsToStudio = value;
         }
 
+        // Skybox
+
+        private static string SkyboxFolder => Path.Combine(Paths.Modifications, "PlatformContent", "pc", "textures", "sky");
+
+        private static IEnumerable<string> SkyboxFiles => Directory.Exists(SkyboxFolder)
+            ? Directory.EnumerateFiles(SkyboxFolder, "*.tex").Where(x => Path.GetFileName(x).StartsWith("sky512_", StringComparison.OrdinalIgnoreCase))
+            : Enumerable.Empty<string>();
+
+        public string SkyboxStatus => SkyboxFiles.Any() ? Strings.Menu_Mods_Skybox_Applied : Strings.Menu_Mods_Skybox_None;
+
+        public ICommand ImportSkyboxCommand => new RelayCommand(ImportSkybox);
+
+        public ICommand RemoveSkyboxCommand => new RelayCommand(RemoveSkybox);
+
+        private void ImportSkybox()
+        {
+            using var dialog = new System.Windows.Forms.FolderBrowserDialog { Description = Strings.Menu_Mods_Skybox_Pick, UseDescriptionForTitle = true };
+
+            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return;
+
+            var files = Directory.EnumerateFiles(dialog.SelectedPath, "*.tex", SearchOption.AllDirectories)
+                .Where(x => Path.GetFileName(x).StartsWith("sky512_", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (!files.Any())
+            {
+                Frontend.ShowMessageBox(Strings.Menu_Mods_Skybox_Invalid, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                Directory.CreateDirectory(SkyboxFolder);
+
+                foreach (string file in files)
+                {
+                    string target = Path.Combine(SkyboxFolder, Path.GetFileName(file).ToLowerInvariant());
+                    Filesystem.AssertReadOnly(target);
+                    File.Copy(file, target, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("ModsViewModel::ImportSkybox", ex);
+                Frontend.ShowMessageBox(ex.Message, MessageBoxImage.Error);
+            }
+
+            OnPropertyChanged(nameof(SkyboxStatus));
+        }
+
+        private void RemoveSkybox()
+        {
+            foreach (string file in SkyboxFiles.ToList())
+            {
+                Filesystem.AssertReadOnly(file);
+                File.Delete(file);
+            }
+
+            OnPropertyChanged(nameof(SkyboxStatus));
+        }
+
         // Color Mods
 
         public string CursorColor { get; set; } = "";
@@ -132,6 +194,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public string ShiftLockColor { get; set; } = "";
 
         public string EmoteWheelColor { get; set; } = "";
+
+        public double GradientAngle { get; set; } = 0;
 
         public ICommand GenerateColorModsCommand => new RelayCommand(GenerateColorMods);
 
@@ -155,7 +219,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             foreach (var job in jobs)
             {
-                if (!ModGenerator.TryParseColor(job.Hex, out var color))
+                if (!ModGenerator.TryParseGradient(job.Hex, out var color, out var endColor))
                 {
                     Frontend.ShowMessageBox(String.Format(Strings.Menu_Mods_ColorMods_InvalidColor, job.Hex), MessageBoxImage.Error);
                     return;
@@ -163,7 +227,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 try
                 {
-                    written += ModGenerator.Recolor(job.Files, color);
+                    written += ModGenerator.Recolor(job.Files, color, endColor, GradientAngle);
                 }
                 catch (Exception ex)
                 {

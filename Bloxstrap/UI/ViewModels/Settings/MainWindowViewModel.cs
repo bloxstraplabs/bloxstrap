@@ -13,6 +13,16 @@ namespace Bloxstrap.UI.ViewModels.Settings
         
         public ICommand CloseWindowCommand => new RelayCommand(CloseWindow);
 
+        public ICommand SaveAndLaunchCommand => new RelayCommand<LaunchMode>(SaveAndLaunch);
+
+        public ICommand RestartCommand => new RelayCommand(Restart);
+
+        public LaunchMode LaunchAfterClose { get; private set; } = LaunchMode.None;
+
+        public bool RestartRequested { get; private set; }
+
+        public string VersionText => $"v{App.Version}";
+
         public EventHandler? RequestSaveNoticeEvent;
         
         public EventHandler? RequestCloseWindowEvent;
@@ -38,7 +48,29 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void CloseWindow() => RequestCloseWindowEvent?.Invoke(this, EventArgs.Empty);
 
-        private void SaveSettings()
+        public void CancelPendingClose()
+        {
+            LaunchAfterClose = LaunchMode.None;
+            RestartRequested = false;
+        }
+
+        private void SaveAndLaunch(LaunchMode mode)
+        {
+            SaveSettings(false);
+            LaunchAfterClose = mode;
+            CloseWindow();
+        }
+
+        private void Restart()
+        {
+            SaveSettings(false);
+            RestartRequested = true;
+            CloseWindow();
+        }
+
+        private void SaveSettings() => SaveSettings(true);
+
+        private void SaveSettings(bool notify)
         {
             const string LOG_IDENT = "MainWindowViewModel::SaveSettings";
 
@@ -59,7 +91,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
             App.PendingSettingTasks.Clear();
 
-            RequestSaveNoticeEvent?.Invoke(this, EventArgs.Empty);
+            if (notify)
+                RequestSaveNoticeEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 }

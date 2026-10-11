@@ -53,6 +53,27 @@ namespace Bloxstrap
             }
         }
 
+        public static bool TryParseGradient(string input, out Color start, out Color? end)
+        {
+            start = default;
+            end = null;
+
+            string[] parts = input.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+
+            if (parts.Length is 0 or > 2 || !TryParseColor(parts[0], out start))
+                return false;
+
+            if (parts.Length == 2)
+            {
+                if (!TryParseColor(parts[1], out var second))
+                    return false;
+
+                end = second;
+            }
+
+            return true;
+        }
+
         private static string? GetOriginal(string relativePath)
         {
             string cached = Path.Combine(OriginalsFolder, relativePath);
@@ -72,7 +93,7 @@ namespace Bloxstrap
             return cached;
         }
 
-        public static int Recolor(IEnumerable<string> relativePaths, Color color)
+        public static int Recolor(IEnumerable<string> relativePaths, Color color, Color? endColor = null, double angle = 0)
         {
             const string LOG_IDENT = "ModGenerator::Recolor";
 
@@ -93,7 +114,7 @@ namespace Bloxstrap
                 Directory.CreateDirectory(Path.GetDirectoryName(target)!);
                 Filesystem.AssertReadOnly(target);
 
-                TintImage(source, target, color);
+                TintImage(source, target, color, endColor ?? color, angle);
                 written++;
 
                 App.Logger.WriteLine(LOG_IDENT, $"Wrote {relativePath}");
@@ -111,7 +132,7 @@ namespace Bloxstrap
             }
         }
 
-        private static void TintImage(string source, string target, Color color)
+        private static void TintImage(string source, string target, Color start, Color end, double angle)
         {
             BitmapSource bitmap;
 
@@ -125,13 +146,30 @@ namespace Bloxstrap
             byte[] pixels = new byte[stride * bitmap.PixelHeight];
             bitmap.CopyPixels(pixels, stride, 0);
 
-            for (int i = 0; i < pixels.Length; i += 4)
-            {
-                double luminance = (pixels[i] * 0.114 + pixels[i + 1] * 0.587 + pixels[i + 2] * 0.299) / 255;
+            double radians = angle * Math.PI / 180;
+            double dx = Math.Cos(radians);
+            double dy = Math.Sin(radians);
+            double extent = (Math.Abs(dx) + Math.Abs(dy)) / 2;
 
-                pixels[i]     = (byte)(color.B * luminance);
-                pixels[i + 1] = (byte)(color.G * luminance);
-                pixels[i + 2] = (byte)(color.R * luminance);
+            for (int y = 0; y < bitmap.PixelHeight; y++)
+            {
+                for (int x = 0; x < bitmap.PixelWidth; x++)
+                {
+                    int i = y * stride + x * 4;
+
+                    double position = ((x + 0.5) / bitmap.PixelWidth - 0.5) * dx + ((y + 0.5) / bitmap.PixelHeight - 0.5) * dy;
+                    double t = extent == 0 ? 0 : Math.Clamp(position / extent / 2 + 0.5, 0, 1);
+
+                    double r = start.R + (end.R - start.R) * t;
+                    double g = start.G + (end.G - start.G) * t;
+                    double b = start.B + (end.B - start.B) * t;
+
+                    double luminance = (pixels[i] * 0.114 + pixels[i + 1] * 0.587 + pixels[i + 2] * 0.299) / 255;
+
+                    pixels[i]     = (byte)(b * luminance);
+                    pixels[i + 1] = (byte)(g * luminance);
+                    pixels[i + 2] = (byte)(r * luminance);
+                }
             }
 
             var result = BitmapSource.Create(bitmap.PixelWidth, bitmap.PixelHeight, bitmap.DpiX, bitmap.DpiY, PixelFormats.Bgra32, null, pixels, stride);

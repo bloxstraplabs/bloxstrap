@@ -14,10 +14,8 @@
       Scrollable="True">
 
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Roblox_Description}" TextWrapping="Wrap" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
-        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Title}" FontSize="20" FontWeight="Medium" Margin="0,8,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Settings_Description}" Style="{StaticResource SectionDescription}" />
 
         <ui:InfoBar Margin="0,8,0,0" Padding="8" IsOpen="True" IsClosable="False" Severity="Informational" Message="{x:Static resources:Strings.Menu_Roblox_Settings_Missing}" Visibility="{Binding MissingVisibility, Mode=OneTime}" />
 
@@ -57,12 +55,78 @@
                 <ui:ToggleSwitch IsChecked="{Binding CameraYInverted, Mode=TwoWay}" />
             </controls:OptionControl>
 
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_StudioVolume}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding StudioVolume, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding StudioVolume, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_VoiceVolume}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding VoiceChatVolume, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding VoiceChatVolume, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_PartyVolume}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding PartyVolume, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding PartyVolume, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Haptic}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding HapticStrength, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding HapticStrength, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Transparency}">
+                <StackPanel Orientation="Horizontal">
+                    <Slider Width="180" Minimum="0" Maximum="100" SmallChange="1" LargeChange="10" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding UiTransparency, Mode=TwoWay}" />
+                    <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding UiTransparency, Mode=OneWay, StringFormat={}{0:0}%}" />
+                </StackPanel>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_TextSize}">
+                <ComboBox Width="160" Padding="10,5,10,5" ItemsSource="{Binding TextSizes, Mode=OneTime}" SelectedItem="{Binding TextSize, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Vignette}">
+                <ui:ToggleSwitch IsChecked="{Binding Vignette, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_PlayerList}">
+                <ui:ToggleSwitch IsChecked="{Binding PlayerListVisible, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Chat}">
+                <ui:ToggleSwitch IsChecked="{Binding ChatVisible, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_VR}">
+                <ui:ToggleSwitch IsChecked="{Binding VREnabled, Mode=TwoWay}" />
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_File_Title}" Description="{x:Static resources:Strings.Menu_Roblox_File_Description}">
+                <StackPanel Orientation="Horizontal">
+                    <ui:Button Icon="Folder24" Content="{x:Static resources:Strings.Menu_Roblox_File_Open}" Command="{Binding OpenRobloxFolderCommand}" />
+                    <ui:Button Margin="8,0,0,0" Icon="ArrowImport24" Content="{x:Static resources:Strings.Common_Import}" Command="{Binding ImportRobloxSettingsCommand}" />
+                    <ui:Button Margin="8,0,0,0" Icon="Share24" Content="{x:Static resources:Strings.Common_Export}" Command="{Binding ExportRobloxSettingsCommand}" />
+                </StackPanel>
+            </controls:OptionControl>
+
             <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Lock_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Lock_Description}">
                 <ui:ToggleSwitch IsChecked="{Binding LockSettingsFile, Mode=TwoWay}" />
             </controls:OptionControl>
         </StackPanel>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Window_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Window_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Window_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_WindowTitle_Title}" Description="{x:Static resources:Strings.Menu_Roblox_WindowTitle_Description}">
             <ui:TextBox Width="200" Padding="10,5,10,5" PlaceholderText="Roblox" Text="{Binding RobloxWindowTitle, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" />
@@ -72,8 +136,61 @@
             <ui:ToggleSwitch IsChecked="{Binding RobloxBorderless, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_GameTitle_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_GameTitle_Description}"
+            x:Name="GameTitleOption">
+            <ui:ToggleSwitch IsChecked="{Binding RobloxGameTitle, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_GameTitlePlayers_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_GameTitlePlayers_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=GameTitleOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding RobloxGameTitlePlayerCount, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_GameIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_GameIcon_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding RobloxGameIcon, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_CustomIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_CustomIcon_Description}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock MaxWidth="180" Margin="0,0,12,0" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding RobloxIconName, Mode=OneWay}" />
+                <ui:Button Icon="Image24" Content="{x:Static resources:Strings.Common_Browse}" Command="{Binding BrowseRobloxIconCommand}" />
+                <ui:Button Margin="8,0,0,0" Icon="Delete24" Appearance="Danger" Command="{Binding ClearRobloxIconCommand}" />
+            </StackPanel>
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_App_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_App_Description}" Style="{StaticResource SectionDescription}" />
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_AppTheme_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_AppTheme_Description}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding RobloxAppThemes, Mode=OneTime}" SelectedItem="{Binding RobloxAppTheme, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Roblox_BackgroundApp_Title}"
+            Description="{x:Static resources:Strings.Menu_Roblox_BackgroundApp_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding RobloxBackgroundApp, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Crosshair_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Crosshair_Enabled}" x:Name="CrosshairOption">
             <ui:ToggleSwitch IsChecked="{Binding CrosshairEnabled, Mode=TwoWay}" />
@@ -113,6 +230,36 @@
                     <Slider Width="180" Minimum="0" Maximum="20" IsSnapToTickEnabled="True" TickFrequency="1" Value="{Binding CrosshairGap, Mode=TwoWay}" />
                     <TextBlock Width="36" Margin="8,0,0,0" VerticalAlignment="Center" TextAlignment="Right" Text="{Binding CrosshairGap, Mode=OneWay, StringFormat={}{0:0}}" />
                 </StackPanel>
+            </controls:OptionControl>
+        </StackPanel>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Socd_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Roblox_Socd_Description}" Style="{StaticResource SectionDescription}" />
+
+        <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Socd_Enabled_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Socd_Enabled_Description}" x:Name="SocdOption">
+            <ui:ToggleSwitch IsChecked="{Binding SocdEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <StackPanel IsEnabled="{Binding InnerContent.IsChecked, ElementName=SocdOption, Mode=OneWay}">
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Socd_Layout_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Socd_Layout_Description}">
+                <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding SocdLayouts, Mode=OneTime}" SelectedItem="{Binding SocdLayout, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </controls:OptionControl>
+
+            <controls:OptionControl Header="{x:Static resources:Strings.Menu_Roblox_Socd_Mode_Title}" Description="{x:Static resources:Strings.Menu_Roblox_Socd_Mode_Description}">
+                <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding SocdModes, Mode=OneTime}" SelectedItem="{Binding SocdMode, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </controls:OptionControl>
         </StackPanel>
     </StackPanel>

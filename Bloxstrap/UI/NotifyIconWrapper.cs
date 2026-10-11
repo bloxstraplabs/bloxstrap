@@ -34,6 +34,7 @@ namespace Bloxstrap.UI
             };
 
             _notifyIcon.MouseClick += MouseClickEventHandler;
+            _notifyIcon.MouseDoubleClick += MouseDoubleClickEventHandler;
 
             if (_activityWatcher is not null && App.Settings.Prop.ShowServerDetails)
                 _activityWatcher.OnGameJoin += OnGameJoin;
@@ -50,6 +51,22 @@ namespace Bloxstrap.UI
 
             _menuContainer.Activate();
             _menuContainer.ContextMenu.IsOpen = true;
+        }
+        public void MouseDoubleClickEventHandler(object? sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button != System.Windows.Forms.MouseButtons.Left || _activityWatcher is null)
+                return;
+
+            switch (App.Settings.Prop.TrayDoubleClickAction)
+            {
+                case TrayDoubleClickAction.ServerDetails when _activityWatcher.InGame:
+                    _menuContainer.ShowServerInformationWindow();
+                    break;
+
+                case TrayDoubleClickAction.GameHistory:
+                    _menuContainer.ShowGameHistoryWindow();
+                    break;
+            }
         }
         #endregion
 

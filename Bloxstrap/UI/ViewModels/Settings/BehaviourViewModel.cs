@@ -147,5 +147,53 @@ namespace Bloxstrap.UI.ViewModels.Settings
             get => App.State.Prop.ForceReinstall || IsRobloxInstallationMissing;
             set => App.State.Prop.ForceReinstall = value;
         }
+
+        public string RobloxCpuAffinity
+        {
+            get => App.Settings.Prop.RobloxCpuAffinity;
+            set => App.Settings.Prop.RobloxCpuAffinity = value;
+        }
+
+        public bool CloseCrashHandler
+        {
+            get => App.Settings.Prop.CloseCrashHandler;
+            set => App.Settings.Prop.CloseCrashHandler = value;
+        }
+
+        public bool ForceRobloxLanguage
+        {
+            get => App.Settings.Prop.ForceRobloxLanguage;
+            set => App.Settings.Prop.ForceRobloxLanguage = value;
+        }
+
+        public IEnumerable<ChannelChangeMode> ChannelChangeModes { get; } = Enum.GetValues<ChannelChangeMode>();
+
+        public ChannelChangeMode ChannelChangeMode
+        {
+            get => App.Settings.Prop.ChannelChangeMode;
+            set => App.Settings.Prop.ChannelChangeMode = value;
+        }
+
+        public string PlayerVersionOverride
+        {
+            get => App.Settings.Prop.PlayerVersionOverride;
+            set => App.Settings.Prop.PlayerVersionOverride = value;
+        }
+
+        public string StudioVersionOverride
+        {
+            get => App.Settings.Prop.StudioVersionOverride;
+            set => App.Settings.Prop.StudioVersionOverride = value;
+        }
+
+        public int DownloadThreads
+        {
+            get => App.Settings.Prop.DownloadThreads;
+            set
+            {
+                App.Settings.Prop.DownloadThreads = value;
+                OnPropertyChanged(nameof(DownloadThreads));
+            }
+        }
     }
 }

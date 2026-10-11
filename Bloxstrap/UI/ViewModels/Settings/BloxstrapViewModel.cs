@@ -210,5 +210,24 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 }
             }
         }
+
+        public bool UpdateToPreReleases
+        {
+            get => App.Settings.Prop.UpdateToPreReleases;
+            set => App.Settings.Prop.UpdateToPreReleases = value;
+        }
+
+        public ICommand ResetSettingsCommand => new RelayCommand(() =>
+        {
+            var result = Frontend.ShowMessageBox(Strings.Menu_Bloxstrap_Reset_Confirm, MessageBoxImage.Warning, MessageBoxButton.YesNo);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            App.Settings.Prop = new();
+            App.Settings.Save();
+
+            Frontend.ShowMessageBox(Strings.Menu_Bloxstrap_Reset_Done, MessageBoxImage.Information);
+        });
     }
 }

@@ -67,7 +67,15 @@ namespace Bloxstrap.UI.Elements.Base
                     bitmap.UriSource = new Uri(image);
                     bitmap.EndInit();
 
-                    return new ImageBrush(bitmap) { Stretch = Stretch.UniformToFill, Opacity = App.Settings.Prop.BackgroundOpacity };
+                    var stretch = App.Settings.Prop.BackgroundStretch switch
+                    {
+                        BackgroundStretch.Fill => Stretch.Fill,
+                        BackgroundStretch.Uniform => Stretch.Uniform,
+                        BackgroundStretch.None => Stretch.None,
+                        _ => Stretch.UniformToFill
+                    };
+
+                    return new ImageBrush(bitmap) { Stretch = stretch, Opacity = App.Settings.Prop.BackgroundOpacity };
                 }
                 catch (Exception ex)
                 {

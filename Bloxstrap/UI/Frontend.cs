@@ -52,6 +52,23 @@ namespace Bloxstrap.UI
             });
         }
 
+        private static void CycleCustomTheme()
+        {
+            var themes = Directory.GetDirectories(Paths.CustomThemes)
+                .Where(x => File.Exists(Path.Combine(x, "Theme.xml")))
+                .Select(Path.GetFileName)
+                .OrderBy(x => x, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            if (themes.Count < 2)
+                return;
+
+            int index = themes.FindIndex(x => String.Equals(x, App.Settings.Prop.SelectedCustomTheme, StringComparison.OrdinalIgnoreCase));
+
+            App.Settings.Prop.SelectedCustomTheme = themes[(index + 1) % themes.Count];
+            App.Settings.Save();
+        }
+
         private static IBootstrapperDialog GetCustomBootstrapper()
         {
             const string LOG_IDENT = "Frontend::GetCustomBootstrapper";
@@ -62,6 +79,9 @@ namespace Bloxstrap.UI
             {
                 if (App.Settings.Prop.SelectedCustomTheme == null)
                     throw new CustomThemeException("CustomTheme.Errors.NoThemeSelected");
+
+                if (App.Settings.Prop.CycleCustomThemes)
+                    CycleCustomTheme();
 
                 CustomDialog dialog = new CustomDialog();
                 dialog.ApplyCustomTheme(App.Settings.Prop.SelectedCustomTheme);

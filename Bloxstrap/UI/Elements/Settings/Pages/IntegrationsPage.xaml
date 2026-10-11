@@ -13,9 +13,8 @@
       Title="IntegrationsPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
-
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" 
@@ -31,6 +30,13 @@
             HelpLink="https://bloxstraplabs.com/wiki/features/server-location-hints/"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
             <ui:ToggleSwitch IsChecked="{Binding ShowServerDetailsEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_ServerUptime_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_ServerUptime_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding ShowServerUptimeEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
@@ -55,7 +61,22 @@
             <ui:ToggleSwitch IsChecked="{Binding PlaytimeCounterEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Capture_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_TrayDoubleClick_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_TrayDoubleClick_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
+            <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding TrayDoubleClickActions, Mode=OneTime}" SelectedItem="{Binding TrayDoubleClickAction, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=., Converter={StaticResource EnumNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Capture_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Capture_Description}" Style="{StaticResource SectionDescription}" />
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Integrations_DisableScreenshots_Title}"
@@ -69,8 +90,9 @@
             <ui:ToggleSwitch IsChecked="{Binding DisableRobloxRecordings, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://bloxstraplabs.com/wiki/features/discord-rich-presence/'}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Common_DiscordRichPresence}" Style="{StaticResource SectionTitle}" />
+        <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://bloxstraplabs.com/wiki/features/discord-rich-presence/'}" TextWrapping="Wrap" FontSize="14" Margin="0,4,0,8" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
             Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
@@ -102,13 +124,50 @@
         </controls:OptionControl>
 
         <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_UsingReistrap_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_UsingReistrap_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding UsingReistrapEnabled, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Integrations_StudioRichPresence_Title}"
-            Description="{x:Static resources:Strings.Menu_Integrations_StudioRichPresence_Description}">
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioRichPresence_Description}"
+            x:Name="StudioRichPresenceOption">
             <ui:ToggleSwitch IsChecked="{Binding StudioRichPresenceEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioGameName_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioGameName_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=StudioRichPresenceOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioShowGameName, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioGameIcon_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioGameIcon_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=StudioRichPresenceOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioShowGameIcon, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioTesting_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioTesting_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=StudioRichPresenceOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioShowTesting, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <controls:OptionControl
+            Header="{x:Static resources:Strings.Menu_Integrations_StudioGameButton_Title}"
+            Description="{x:Static resources:Strings.Menu_Integrations_StudioGameButton_Description}"
+            IsEnabled="{Binding InnerContent.IsChecked, ElementName=StudioRichPresenceOption, Mode=OneWay}">
+            <ui:ToggleSwitch IsChecked="{Binding StudioShowGameButton, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <Border Style="{StaticResource SectionSeparator}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Title}" Style="{StaticResource SectionTitle}" />
+        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Custom_Description}" Style="{StaticResource SectionDescription}" />
         <Grid Margin="0,8,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -151,6 +210,9 @@
                 <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <ui:TextBox Margin="0,4,0,0" PlaceholderText="{Binding Source='/k echo {0}', Converter={StaticResource StringFormatConverter}, ConverterParameter={x:Static resources:Strings.Menu_Integrations_Custom_LaunchArgs_Placeholder}}" Text="{Binding SelectedCustomIntegration.LaunchArgs}" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" />
                 <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_AutoClose}" IsChecked="{Binding SelectedCustomIntegration.AutoClose}" />
+                <TextBlock Margin="0,12,0,0" Text="{x:Static resources:Strings.Menu_Integrations_Custom_PlaceId}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <ui:TextBox Margin="0,4,0,0" PlaceholderText="{x:Static resources:Strings.Menu_Integrations_Custom_PlaceId_Placeholder}" Text="{Binding SelectedCustomIntegration.PlaceId}" />
+                <CheckBox Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Integrations_Custom_CloseWithGame}" IsChecked="{Binding SelectedCustomIntegration.CloseWithGame}" />
             </StackPanel>
             <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{x:Static resources:Strings.Menu_Integrations_Custom_NoneSelected}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock.Style>

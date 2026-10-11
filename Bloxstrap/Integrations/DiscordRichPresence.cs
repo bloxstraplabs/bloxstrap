@@ -337,7 +337,7 @@ namespace Bloxstrap.Integrations
             }
 
             string icon = "roblox";
-            string smallImageText = "Roblox";
+            string smallImageText = App.Settings.Prop.ShowUsingReistrapInRichPresence ? $"Using {App.ProjectName}" : "Roblox";
             string smallImage = "roblox";
             
 

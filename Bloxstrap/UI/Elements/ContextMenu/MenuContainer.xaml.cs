@@ -59,6 +59,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             if (_watcher.RichPresence is not null)
                 RichPresenceMenuItem.Visibility = Visibility.Visible;
 
+            if (_watcher.Socd is not null)
+                SocdMenuItem.Visibility = Visibility.Visible;
+
             VersionTextBlock.Text = $"{App.ProjectName} v{App.Version}";
         }
 
@@ -146,6 +149,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.RichPresence?.SetVisibility(((MenuItem)sender).IsChecked);
 
+        private void SocdMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.Socd?.SetEnabled(((MenuItem)sender).IsChecked);
+
         private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject(_activityWatcher?.Data.GetInviteDeeplink());
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
@@ -172,10 +177,12 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             _watcher.KillRobloxProcess();
         }
 
-        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
+        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e) => ShowGameHistoryWindow();
+
+        public void ShowGameHistoryWindow()
         {
             if (_activityWatcher is null)
-                throw new ArgumentNullException(nameof(_activityWatcher));
+                return;
 
             if (_gameHistoryWindow is null)
             {

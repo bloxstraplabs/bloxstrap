@@ -186,4 +186,31 @@
         </Setter>
     </Style>
 
+    <Style x:Key="SectionSeparator" TargetType="Border">
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Margin" Value="0,28,0,20" />
+        <Setter Property="Background" Value="{DynamicResource DividerStrokeColorDefaultBrush}" />
+    </Style>
+
+    <Style x:Key="SectionTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+    </Style>
+
+    <Style x:Key="SectionDescription" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Margin" Value="0,4,0,8" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+    </Style>
+
+    <Style x:Key="SubsectionTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+    </Style>
+
 </ResourceDictionary>

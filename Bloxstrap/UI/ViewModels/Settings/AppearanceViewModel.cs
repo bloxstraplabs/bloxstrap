@@ -457,5 +457,25 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ObservableCollection<string> CustomThemes { get; set; } = new();
         public bool IsCustomThemeSelected => SelectedCustomTheme is not null;
+
+        public IEnumerable<BackgroundStretch> BackgroundStretchs { get; } = Enum.GetValues<BackgroundStretch>();
+
+        public BackgroundStretch BackgroundStretch
+        {
+            get => App.Settings.Prop.BackgroundStretch;
+            set => App.Settings.Prop.BackgroundStretch = value;
+        }
+
+        public bool DisableAnimations
+        {
+            get => App.Settings.Prop.DisableAnimations;
+            set => App.Settings.Prop.DisableAnimations = value;
+        }
+
+        public bool CycleCustomThemes
+        {
+            get => App.Settings.Prop.CycleCustomThemes;
+            set => App.Settings.Prop.CycleCustomThemes = value;
+        }
     }
 }
