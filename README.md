@@ -61,17 +61,6 @@ Once installed, **reistrap** is added to your Start Menu, where you can access t
 
 **reistrap** uses the [WPF UI](https://github.com/lepoco/wpfui) library for the user interface design.
 
-## Code signing policy
-
-Thanks to [SignPath.io](https://signpath.io/) for providing a free code signing service, and the [SignPath Foundation](https://signpath.org/) for providing the free code signing certificate.
-
-
 <p align="center">
     <img src="Images/reistrap-full-dark.png" width="380">
 </p>
-
-<div align="center">
-
-## Code signing policy
-
-Thanks to [SignPath.io](https://signpath.io/) for providing a free code signing service, and the [SignPath Foundation](https://signpath.org/) for providing the free code signing certificate.

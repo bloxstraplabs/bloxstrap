@@ -38,18 +38,15 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
 
+    permissions:
+      contents: write
+
     steps:
-      - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v2.0
+      - name: Download artifact
+        uses: actions/download-artifact@v8
         with:
-          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
-          organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
-          project-slug: 'bloxstrap'
-          signing-policy-slug: 'release-signing'
-          artifact-configuration-slug: 'github-ci'
-          github-artifact-id: '${{ needs.build.outputs.artifact-id }}'
-          wait-for-completion: true
-          output-artifact-directory: 'release'
+          name: reistrap (Release) (${{ github.sha }})
+          path: release
 
       - name: Rename binaries
         run: mv release/reistrap.exe reistrap-${{ github.ref_name }}.exe
@@ -66,18 +63,15 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/release-test')
 
+    permissions:
+      contents: write
+
     steps:
-      - name: Sign and download artifact
-        uses: signpath/github-action-submit-signing-request@v2.0
+      - name: Download artifact
+        uses: actions/download-artifact@v8
         with:
-          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
-          organization-id: '107b3de5-057b-42fc-a985-3546e4261775'
-          project-slug: 'bloxstrap'
-          signing-policy-slug: 'release-signing'
-          artifact-configuration-slug: 'github-ci'
-          github-artifact-id: '${{ needs.build.outputs.artifact-id }}'
-          wait-for-completion: true
-          output-artifact-directory: 'release'
+          name: reistrap (Release) (${{ github.sha }})
+          path: release
 
       - name: Rename binaries
         run: mv release/reistrap.exe reistrap-${{ github.ref_name }}.exe
