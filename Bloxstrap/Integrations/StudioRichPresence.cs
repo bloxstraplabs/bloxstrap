@@ -51,13 +51,13 @@ namespace Bloxstrap.Integrations
 
             string logMessage = entry[(logMessageIdx + 1)..];
 
-            if (_placeOpened is null && logMessage.StartsWith(PlaceOpenEntry))
+            if (_placeOpened is null && logMessage.StartsWith(PlaceOpenEntry, StringComparison.Ordinal))
             {
                 App.Logger.WriteLine("StudioRichPresence::ReadLogEntry", "Place opened");
                 _placeOpened = DateTime.UtcNow;
                 UpdatePresence();
             }
-            else if (_placeOpened is not null && logMessage.StartsWith(PlaceCloseEntry))
+            else if (_placeOpened is not null && logMessage.StartsWith(PlaceCloseEntry, StringComparison.Ordinal))
             {
                 App.Logger.WriteLine("StudioRichPresence::ReadLogEntry", "Place closed");
                 _placeOpened = null;
@@ -76,12 +76,12 @@ namespace Bloxstrap.Integrations
                 _universeId = long.Parse(universeMatch.Groups[1].Value);
                 Task.Run(LoadUniverseDetails);
             }
-            else if (_placeOpened is not null && _testStarted is null && logMessage.StartsWith(TestStartEntry))
+            else if (_placeOpened is not null && _testStarted is null && logMessage.StartsWith(TestStartEntry, StringComparison.Ordinal))
             {
                 _testStarted = DateTime.UtcNow;
                 UpdatePresence();
             }
-            else if (_testStarted is not null && logMessage.StartsWith(TestEndEntry))
+            else if (_testStarted is not null && logMessage.StartsWith(TestEndEntry, StringComparison.Ordinal))
             {
                 _testStarted = null;
                 UpdatePresence();

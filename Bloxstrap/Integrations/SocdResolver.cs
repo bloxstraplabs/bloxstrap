@@ -113,7 +113,16 @@ namespace Bloxstrap.Integrations
 
             lock (_lock)
             {
-                var axis = _axes.FirstOrDefault(x => x.Owns(data.vkCode));
+                Axis? axis = null;
+
+                foreach (var candidate in _axes)
+                {
+                    if (candidate.Owns(data.vkCode))
+                    {
+                        axis = candidate;
+                        break;
+                    }
+                }
 
                 if (!Enabled || axis is null || (!down && !up))
                     return CallNextHookEx(_hook, nCode, wParam, lParam);

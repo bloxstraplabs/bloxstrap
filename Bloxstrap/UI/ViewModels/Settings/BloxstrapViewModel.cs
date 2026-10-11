@@ -32,7 +32,13 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public Dictionary<string, string> ImportSources { get; } = SettingsImporter.FindInstalls();
 
-        public string? SelectedImportSource { get; set; } = SettingsImporter.FindInstalls().Keys.FirstOrDefault();
+        private string? _selectedImportSource;
+
+        public string? SelectedImportSource
+        {
+            get => _selectedImportSource ??= ImportSources.Keys.FirstOrDefault();
+            set => _selectedImportSource = value;
+        }
 
         public Visibility ImportVisibility => ImportSources.Any() ? Visibility.Visible : Visibility.Collapsed;
 

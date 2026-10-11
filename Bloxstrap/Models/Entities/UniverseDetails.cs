@@ -1,11 +1,15 @@
-﻿namespace Bloxstrap.Models.Entities
+﻿using System.Collections.Concurrent;
+
+namespace Bloxstrap.Models.Entities
 {
     /// <summary>
     /// Explicit loading. Load from cache before and after a fetch.
     /// </summary>
     public class UniverseDetails
     {
-        private static List<UniverseDetails> _cache { get; set; } = new();
+        private static readonly ConcurrentDictionary<long, UniverseDetails> _cache = new();
+
+        private static readonly ConcurrentDictionary<string, Task> _pending = new();
 
         public GameDetailResponse Data { get; set; } = null!;
 
@@ -14,39 +18,51 @@
         /// </summary>
         public ThumbnailResponse Thumbnail { get; set; } = null!;
 
-        public static UniverseDetails? LoadFromCache(long id)
-        {
-            var cacheQuery = _cache.Where(x => x.Data?.Id == id);
-
-            if (cacheQuery.Any())
-                return cacheQuery.First();
-
-            return null;
-        }
+        public static UniverseDetails? LoadFromCache(long id) => _cache.TryGetValue(id, out var details) ? details : null;
 
         public static Task FetchSingle(long id) => FetchBulk(id.ToString());
 
-        public static async Task FetchBulk(string ids)
+        public static Task FetchBulk(string ids)
         {
-            var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={ids}");
+            var missing = ids.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(long.Parse)
+                .Where(x => !_cache.ContainsKey(x))
+                .Distinct()
+                .ToList();
 
-            if (!gameDetailResponse.Data.Any())
-                return;
+            if (!missing.Any())
+                return Task.CompletedTask;
 
-            var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
+            string key = String.Join(',', missing);
 
-            if (!universeThumbnailResponse.Data.Any())
-                throw new InvalidHTTPResponseException("Roblox API for Game Thumbnails returned invalid data");
+            return _pending.GetOrAdd(key, _ => Fetch(key));
+        }
 
-            foreach (string strId in ids.Split(','))
+        private static async Task Fetch(string ids)
+        {
+            try
             {
-                long id = long.Parse(strId);
+                var gameDetailResponse = await Http.GetJson<ApiArrayResponse<GameDetailResponse>>($"https://games.roblox.com/v1/games?universeIds={ids}");
 
-                _cache.Add(new UniverseDetails
+                if (!gameDetailResponse.Data.Any())
+                    return;
+
+                var universeThumbnailResponse = await Http.GetJson<ApiArrayResponse<ThumbnailResponse>>($"https://thumbnails.roblox.com/v1/games/icons?universeIds={ids}&returnPolicy=PlaceHolder&size=128x128&format=Png&isCircular=false");
+
+                if (!universeThumbnailResponse.Data.Any())
+                    throw new InvalidHTTPResponseException("Roblox API for Game Thumbnails returned invalid data");
+
+                foreach (var data in gameDetailResponse.Data)
                 {
-                    Data = gameDetailResponse.Data.Where(x => x.Id == id).First(),
-                    Thumbnail = universeThumbnailResponse.Data.Where(x => x.TargetId == id).First(),
-                });
+                    var thumbnail = universeThumbnailResponse.Data.FirstOrDefault(x => x.TargetId == data.Id);
+
+                    if (thumbnail is not null)
+                        _cache[data.Id] = new UniverseDetails { Data = data, Thumbnail = thumbnail };
+                }
+            }
+            finally
+            {
+                _pending.TryRemove(ids, out _);
             }
         }
     }

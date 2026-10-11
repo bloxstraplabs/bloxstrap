@@ -42,11 +42,27 @@ namespace Bloxstrap.Integrations
             TimeSpan? lastCpu = null;
             DateTime lastTime = DateTime.Now;
 
+            Process process;
+
+            try
+            {
+                process = Process.GetProcessById(_processId);
+            }
+            catch (ArgumentException)
+            {
+                return;
+            }
+
+            using var _ = process;
+
             while (!_cancel.IsCancellationRequested)
             {
                 try
                 {
-                    using var process = Process.GetProcessById(_processId);
+                    process.Refresh();
+
+                    if (process.HasExited)
+                        return;
 
                     var cpuTime = process.TotalProcessorTime;
                     var now = DateTime.Now;

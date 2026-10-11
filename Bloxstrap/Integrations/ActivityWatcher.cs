@@ -164,7 +164,7 @@
 
             string logMessage = entry[(logMessageIdx + 1)..];
 
-            if (logMessage.StartsWith(GameLeavingEntry))
+            if (logMessage.StartsWith(GameLeavingEntry, StringComparison.Ordinal))
             {
                 App.Logger.WriteLine(LOG_IDENT, "User is back into the desktop app");
                 
@@ -179,9 +179,9 @@
                 return;
             }
 
-            if (logMessage.StartsWith(GameDisconnectReasonEntry) || logMessage.StartsWith(GameDisconnectedReasonEntry))
+            if (logMessage.StartsWith(GameDisconnectReasonEntry, StringComparison.Ordinal) || logMessage.StartsWith(GameDisconnectedReasonEntry, StringComparison.Ordinal))
             {
-                var match = Regex.Match(logMessage, logMessage.StartsWith(GameDisconnectReasonEntry) ? GameDisconnectReasonPattern : GameDisconnectedReasonPattern);
+                var match = Regex.Match(logMessage, logMessage.StartsWith(GameDisconnectReasonEntry, StringComparison.Ordinal) ? GameDisconnectReasonPattern : GameDisconnectedReasonPattern);
 
                 if (match.Groups.Count == 2 && int.TryParse(match.Groups[1].Value, out int reason) && LastDisconnectReason == 0)
                 {
@@ -192,7 +192,7 @@
                 return;
             }
 
-            if (logMessage.StartsWith(GameServerPrefixEntry) && Data.PlaceId != 0)
+            if (logMessage.StartsWith(GameServerPrefixEntry, StringComparison.Ordinal) && Data.PlaceId != 0)
             {
                 var match = Regex.Match(logMessage, GameServerPrefixPattern, RegexOptions.IgnoreCase);
 
@@ -206,7 +206,7 @@
             {
                 // We are not in a game, nor are in the process of joining one
                 
-                if (logMessage.StartsWith(GameJoiningPrivateServerEntry))
+                if (logMessage.StartsWith(GameJoiningPrivateServerEntry, StringComparison.Ordinal))
                 {
                     // we only expect to be joining a private server if we're not already in a game
                 
@@ -223,7 +223,7 @@
 
                     Data.AccessCode = match.Groups[1].Value;
                 }
-                else if (logMessage.StartsWith(GameJoiningEntry))
+                else if (logMessage.StartsWith(GameJoiningEntry, StringComparison.Ordinal))
                 {
                     Match match = Regex.Match(logMessage, GameJoiningEntryPattern);
 
@@ -261,7 +261,7 @@
             {
                 // We are not confirmed to be in a game, but we are in the process of joining one
 
-                if (logMessage.StartsWith(GameJoiningUniverseEntry))
+                if (logMessage.StartsWith(GameJoiningUniverseEntry, StringComparison.Ordinal))
                 {
                     var match = Regex.Match(logMessage, GameJoiningUniversePattern);
 
@@ -283,7 +283,7 @@
                             Data.RootActivity = lastActivity.RootActivity ?? lastActivity;
                     }
                 }
-                else if (logMessage.StartsWith(GameJoiningUDMUXEntry))
+                else if (logMessage.StartsWith(GameJoiningUDMUXEntry, StringComparison.Ordinal))
                 {
                     var match = Regex.Match(logMessage, GameJoiningUDMUXPattern);
 
@@ -301,7 +301,7 @@
 
                     App.Logger.WriteLine(LOG_IDENT, $"Server is UDMUX protected ({Data})");
                 }
-                else if (logMessage.StartsWith(GameJoinedEntry))
+                else if (logMessage.StartsWith(GameJoinedEntry, StringComparison.Ordinal))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Joined Game ({Data})");
 
@@ -316,7 +316,7 @@
             {
                 // We are confirmed to be in a game
 
-                if (logMessage.StartsWith(GameDisconnectedEntry))
+                if (logMessage.StartsWith(GameDisconnectedEntry, StringComparison.Ordinal))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({Data})");
 
@@ -328,17 +328,17 @@
 
                     OnGameLeave?.Invoke(this, EventArgs.Empty);
                 }
-                else if (logMessage.StartsWith(GameTeleportingEntry))
+                else if (logMessage.StartsWith(GameTeleportingEntry, StringComparison.Ordinal))
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Initiating teleport to server ({Data})");
                     _teleportMarker = true;
                 }
-                else if (logMessage.StartsWith(GameJoiningReservedServerEntry))
+                else if (logMessage.StartsWith(GameJoiningReservedServerEntry, StringComparison.Ordinal))
                 {
                     _teleportMarker = true;
                     _reservedTeleportMarker = true;
                 }
-                else if (logMessage.StartsWith(GameMessageEntry))
+                else if (logMessage.StartsWith(GameMessageEntry, StringComparison.Ordinal))
                 {
                     var match = Regex.Match(logMessage, GameMessageEntryPattern);
 

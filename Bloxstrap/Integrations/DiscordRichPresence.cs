@@ -368,7 +368,11 @@ namespace Bloxstrap.Integrations
                 activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
             }
 
-            var universeDetails = activity.UniverseDetails!;
+            if (activity.UniverseDetails is not UniverseDetails universeDetails)
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"No details found for universe {activity.UniverseId}");
+                return false;
+            }
 
             icon = universeDetails.Thumbnail.ImageUrl!;
 
