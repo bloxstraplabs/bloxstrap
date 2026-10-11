@@ -16,10 +16,12 @@ using System.Data;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Shell;
+using System.Web;
 
 using Microsoft.Win32;
 
 using Bloxstrap.AppData;
+using Bloxstrap.Integrations;
 using Bloxstrap.RobloxInterfaces;
 using Bloxstrap.UI.Elements.Bootstrapper.Base;
 
@@ -626,6 +628,70 @@ namespace Bloxstrap
             }
         }
 
+        private void ApplyMatchmaking()
+        {
+            const string LOG_IDENT = "Bootstrapper::ApplyMatchmaking";
+
+            string args = _launchCommandLine;
+            long placeId = 0;
+            string? placeLauncherUrl = null;
+
+            if (args.StartsWith("roblox-player:"))
+            {
+                var urlMatch = Regex.Match(args, @"placelauncherurl:([^+]+)");
+
+                if (!urlMatch.Success)
+                    return;
+
+                placeLauncherUrl = HttpUtility.UrlDecode(urlMatch.Groups[1].Value);
+
+                if (!placeLauncherUrl.Contains("request=RequestGame&") || placeLauncherUrl.Contains("friend", StringComparison.OrdinalIgnoreCase))
+                    return;
+
+                if (Regex.Match(placeLauncherUrl, @"placeId=(\d+)") is { Success: true } placeMatch)
+                    placeId = long.Parse(placeMatch.Groups[1].Value);
+            }
+            else if (args.StartsWith("roblox://experiences/start") && !Regex.IsMatch(args, "gameInstanceId=|accessCode=|linkCode=|userId=", RegexOptions.IgnoreCase))
+            {
+                if (Regex.Match(args, @"placeId=(\d+)") is { Success: true } placeMatch)
+                    placeId = long.Parse(placeMatch.Groups[1].Value);
+            }
+
+            if (placeId == 0)
+                return;
+
+            SetStatus(Strings.Bootstrapper_Status_FindingServer);
+
+            string? serverId = null;
+
+            try
+            {
+                serverId = Task.Run(() => ServerRegions.FindServer(placeId)).GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Failed to find a server, joining normally");
+                App.Logger.WriteException(LOG_IDENT, ex);
+            }
+
+            SetStatus(Strings.Bootstrapper_Status_Starting);
+
+            if (String.IsNullOrEmpty(serverId))
+                return;
+
+            if (placeLauncherUrl is not null)
+            {
+                string newUrl = placeLauncherUrl.Replace("request=RequestGame&", "request=RequestGameJob&") + $"&gameId={serverId}";
+                _launchCommandLine = Regex.Replace(args, @"placelauncherurl:[^+]+", "placelauncherurl:" + HttpUtility.UrlEncode(newUrl));
+            }
+            else
+            {
+                _launchCommandLine = args + $"&gameInstanceId={serverId}";
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, $"Joining server {serverId}");
+        }
+
         private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
@@ -635,6 +701,9 @@ namespace Bloxstrap
             if (_launchMode == LaunchMode.Player)
             {
                 RobloxAppStorage.Apply();
+
+                if (App.Settings.Prop.BetterMatchmaking)
+                    ApplyMatchmaking();
 
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {

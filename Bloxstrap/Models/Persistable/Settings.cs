@@ -48,6 +48,9 @@ namespace Bloxstrap.Models.Persistable
         public RobloxAppTheme RobloxAppTheme { get; set; } = RobloxAppTheme.Default;
         public bool RobloxBackgroundApp { get; set; } = false;
         public bool ForceRobloxLanguage { get; set; } = false;
+        public bool BetterMatchmaking { get; set; } = false;
+        public string PreferredRegion { get; set; } = "";
+        public bool RandomizeMatchmaking { get; set; } = false;
         public bool CrosshairEnabled { get; set; } = false;
         public CrosshairStyle CrosshairStyle { get; set; } = CrosshairStyle.Cross;
         public string CrosshairColor { get; set; } = "#00FF00";

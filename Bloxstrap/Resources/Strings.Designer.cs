@@ -7201,5 +7201,167 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Mods.Skybox.None", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finding a server near you....
+        /// </summary>
+        public static string Bootstrapper_Status_FindingServer {
+            get {
+                return ResourceManager.GetString("Bootstrapper.Status.FindingServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region Selector.
+        /// </summary>
+        public static string Menu_RegionSelector_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick which part of the world your Roblox servers are in..
+        /// </summary>
+        public static string Menu_RegionSelector_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Better matchmaking.
+        /// </summary>
+        public static string Menu_RegionSelector_Matchmaking_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Matchmaking.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server locations come from RoValra. Joining a friend or a private server isn't affected..
+        /// </summary>
+        public static string Menu_RegionSelector_Matchmaking_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Matchmaking.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join servers near me.
+        /// </summary>
+        public static string Menu_RegionSelector_BetterMatchmaking_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.BetterMatchmaking.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When you press Play on a game, join a server in your preferred region, or the closest one to you, instead of a random one..
+        /// </summary>
+        public static string Menu_RegionSelector_BetterMatchmaking_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.BetterMatchmaking.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preferred region.
+        /// </summary>
+        public static string Menu_RegionSelector_Preferred_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Preferred.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try this region first. Automatic picks the one closest to you. If it has no servers, the next closest region is used..
+        /// </summary>
+        public static string Menu_RegionSelector_Preferred_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Preferred.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a random server.
+        /// </summary>
+        public static string Menu_RegionSelector_Randomize_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Randomize.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a random server in the region instead of the newest one, so you don't always end up in the same server..
+        /// </summary>
+        public static string Menu_RegionSelector_Randomize_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Randomize.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Browse servers.
+        /// </summary>
+        public static string Menu_RegionSelector_Browse_Title {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Browse.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search a game and pick a region to see its servers there..
+        /// </summary>
+        public static string Menu_RegionSelector_Browse_Description {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Browse.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Looking for servers....
+        /// </summary>
+        public static string Menu_RegionSelector_Searching {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Searching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No servers found in this region. Try another one..
+        /// </summary>
+        public static string Menu_RegionSelector_NoServers {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.NoServers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Couldn't load the list of regions: {0}.
+        /// </summary>
+        public static string Menu_RegionSelector_RegionsFailed {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.RegionsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up for {0}.
+        /// </summary>
+        public static string Menu_RegionSelector_Uptime {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.Uptime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load more.
+        /// </summary>
+        public static string Menu_RegionSelector_LoadMore {
+            get {
+                return ResourceManager.GetString("Menu.RegionSelector.LoadMore", resourceCulture);
+            }
+        }
     }
 }

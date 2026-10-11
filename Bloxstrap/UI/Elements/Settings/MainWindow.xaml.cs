@@ -34,6 +34,7 @@ namespace Bloxstrap.UI.Elements.Settings
             ["bootstrapper"] = Strings.Menu_Behaviour_Description,
             ["playtime"] = Strings.Menu_Playtime_Description,
             ["quickplay"] = Strings.Menu_QuickPlay_Description,
+            ["regionselector"] = Strings.Menu_RegionSelector_Description,
             ["mods"] = Strings.Menu_Mods_Description,
             ["appearance"] = Strings.Menu_Appearance_Description,
             ["fastflags"] = Strings.Menu_FastFlags_Description,

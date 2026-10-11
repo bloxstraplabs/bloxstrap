@@ -2592,4 +2592,58 @@ Switch channels?</value>
   <data name="Menu.Mods.Skybox.None" xml:space="preserve">
     <value>Using Roblox's default sky.</value>
   </data>
+  <data name="Bootstrapper.Status.FindingServer" xml:space="preserve">
+    <value>Finding a server near you...</value>
+  </data>
+  <data name="Menu.RegionSelector.Title" xml:space="preserve">
+    <value>Region Selector</value>
+  </data>
+  <data name="Menu.RegionSelector.Description" xml:space="preserve">
+    <value>Pick which part of the world your Roblox servers are in.</value>
+  </data>
+  <data name="Menu.RegionSelector.Matchmaking.Title" xml:space="preserve">
+    <value>Better matchmaking</value>
+  </data>
+  <data name="Menu.RegionSelector.Matchmaking.Description" xml:space="preserve">
+    <value>Server locations come from RoValra. Joining a friend or a private server isn't affected.</value>
+  </data>
+  <data name="Menu.RegionSelector.BetterMatchmaking.Title" xml:space="preserve">
+    <value>Join servers near me</value>
+  </data>
+  <data name="Menu.RegionSelector.BetterMatchmaking.Description" xml:space="preserve">
+    <value>When you press Play on a game, join a server in your preferred region, or the closest one to you, instead of a random one.</value>
+  </data>
+  <data name="Menu.RegionSelector.Preferred.Title" xml:space="preserve">
+    <value>Preferred region</value>
+  </data>
+  <data name="Menu.RegionSelector.Preferred.Description" xml:space="preserve">
+    <value>Try this region first. Automatic picks the one closest to you. If it has no servers, the next closest region is used.</value>
+  </data>
+  <data name="Menu.RegionSelector.Randomize.Title" xml:space="preserve">
+    <value>Pick a random server</value>
+  </data>
+  <data name="Menu.RegionSelector.Randomize.Description" xml:space="preserve">
+    <value>Pick a random server in the region instead of the newest one, so you don't always end up in the same server.</value>
+  </data>
+  <data name="Menu.RegionSelector.Browse.Title" xml:space="preserve">
+    <value>Browse servers</value>
+  </data>
+  <data name="Menu.RegionSelector.Browse.Description" xml:space="preserve">
+    <value>Search a game and pick a region to see its servers there.</value>
+  </data>
+  <data name="Menu.RegionSelector.Searching" xml:space="preserve">
+    <value>Looking for servers...</value>
+  </data>
+  <data name="Menu.RegionSelector.NoServers" xml:space="preserve">
+    <value>No servers found in this region. Try another one.</value>
+  </data>
+  <data name="Menu.RegionSelector.RegionsFailed" xml:space="preserve">
+    <value>Couldn't load the list of regions: {0}</value>
+  </data>
+  <data name="Menu.RegionSelector.Uptime" xml:space="preserve">
+    <value>Up for {0}</value>
+  </data>
+  <data name="Menu.RegionSelector.LoadMore" xml:space="preserve">
+    <value>Load more</value>
+  </data>
 </root>

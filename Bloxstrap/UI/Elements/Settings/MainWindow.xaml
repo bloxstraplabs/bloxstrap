@@ -68,6 +68,7 @@
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="Play24" PageTag="bootstrapper" />
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Playtime_Title}" PageType="{x:Type pages:PlaytimePage}" Icon="Timer24" PageTag="playtime" />
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_QuickPlay_Title}" PageType="{x:Type pages:QuickPlayPage}" Icon="Rocket24" PageTag="quickplay" />
+                        <ui:NavigationItem Content="{x:Static resources:Strings.Menu_RegionSelector_Title}" PageType="{x:Type pages:RegionSelectorPage}" Icon="Globe24" PageTag="regionselector" />
                         <ui:NavigationSeparator />
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver24" PageTag="mods" />
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="Color24" PageTag="appearance" />
