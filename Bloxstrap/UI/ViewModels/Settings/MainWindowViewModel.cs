@@ -8,6 +8,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class MainWindowViewModel : NotifyPropertyChangedViewModel
     {
         public ICommand OpenAboutCommand => new RelayCommand(OpenAbout);
+
+        public ICommand OpenCreditsCommand => new RelayCommand(() => new CreditsWindow().ShowDialog());
         
         public ICommand SaveSettingsCommand => new RelayCommand(SaveSettings);
         

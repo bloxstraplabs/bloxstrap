@@ -83,6 +83,7 @@
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Icon="Flag24" PageTag="fastflageditor" Visibility="Collapsed" />
                     </ui:NavigationCompact.Items>
                     <ui:NavigationCompact.Footer>
+                        <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Credits_Title}" Icon="Heart24" Command="{Binding OpenCreditsCommand, Mode=OneTime}" />
                         <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="Info24" Margin="0,0,0,8" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                     </ui:NavigationCompact.Footer>
                 </ui:NavigationCompact>

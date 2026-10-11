@@ -2922,4 +2922,112 @@ Switch channels?</value>
   <data name="Menu.Behaviour.MemoryInterval.Description" xml:space="preserve">
     <value>How often to check Roblox's memory use.</value>
   </data>
+  <data name="Menu.Credits.Title" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Credits.Title" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Credits.Description" xml:space="preserve">
+    <value>reistrap wouldn't exist without these projects and the people who made them. Click any of them to visit their page.</value>
+  </data>
+  <data name="Credits.BuiltOn.Title" xml:space="preserve">
+    <value>Built on</value>
+  </data>
+  <data name="Credits.BuiltOn.Description" xml:space="preserve">
+    <value>reistrap started as a copy of this project.</value>
+  </data>
+  <data name="Credits.Bloxstrap" xml:space="preserve">
+    <value>The original bootstrapper by pizzaboxer and contributors. Most of reistrap's foundation is their work.</value>
+  </data>
+  <data name="Credits.Bootstrappers.Title" xml:space="preserve">
+    <value>Other bootstrappers</value>
+  </data>
+  <data name="Credits.Bootstrappers.Description" xml:space="preserve">
+    <value>Features and ideas that came from other Bloxstrap forks.</value>
+  </data>
+  <data name="Credits.Fishstrap" xml:space="preserve">
+    <value>Ideas for the Roblox app theme, background app, unsupported languages, version pinning and better matchmaking.</value>
+  </data>
+  <data name="Credits.Froststrap" xml:space="preserve">
+    <value>The settings window design and many feature ideas, including SOCD, Quick Play, the region selector and game window titles.</value>
+  </data>
+  <data name="Credits.Funkstrap" xml:space="preserve">
+    <value>By Dawndreamer Studios. Game window control for Project: Afternight, adapted from their code.</value>
+  </data>
+  <data name="Credits.Bubblestrap" xml:space="preserve">
+    <value>By ItzBloxxy. The idea for the memory trimmer and classic window icons.</value>
+  </data>
+  <data name="Credits.Voidstrap" xml:space="preserve">
+    <value>Ideas for the custom skybox, CPU core selection and game history.</value>
+  </data>
+  <data name="Credits.Services.Title" xml:space="preserve">
+    <value>Online services</value>
+  </data>
+  <data name="Credits.Services.Description" xml:space="preserve">
+    <value>Free services reistrap talks to.</value>
+  </data>
+  <data name="Credits.RoValra" xml:space="preserve">
+    <value>Server locations, the list of Roblox regions and servers by city for the region selector and better matchmaking.</value>
+  </data>
+  <data name="Credits.IpInfo" xml:space="preserve">
+    <value>A fallback for server locations, and finding which region is closest to you.</value>
+  </data>
+  <data name="Credits.Roblox" xml:space="preserve">
+    <value>Game details, icons, search, server lists and Roblox updates.</value>
+  </data>
+  <data name="Credits.Cloudflare" xml:space="preserve">
+    <value>Hosts reistrap's anonymous usage statistics.</value>
+  </data>
+  <data name="Credits.Libraries.Title" xml:space="preserve">
+    <value>Libraries</value>
+  </data>
+  <data name="Credits.Libraries.Description" xml:space="preserve">
+    <value>Open source code reistrap is built with.</value>
+  </data>
+  <data name="Credits.WpfUi" xml:space="preserve">
+    <value>The look of every reistrap window.</value>
+  </data>
+  <data name="Credits.DiscordRpc" xml:space="preserve">
+    <value>Showing your game on Discord.</value>
+  </data>
+  <data name="Credits.Mvvm" xml:space="preserve">
+    <value>Connecting settings to the windows.</value>
+  </data>
+  <data name="Credits.CsWin32" xml:space="preserve">
+    <value>Talking to Windows.</value>
+  </data>
+  <data name="Credits.SharpZipLib" xml:space="preserve">
+    <value>Installing Roblox and handling mod packs and backups.</value>
+  </data>
+  <data name="Credits.AvalonEdit" xml:space="preserve">
+    <value>The Fast Flag editor.</value>
+  </data>
+  <data name="Credits.Markdig" xml:space="preserve">
+    <value>Formatted text in descriptions.</value>
+  </data>
+  <data name="Credits.XamlAnimatedGif" xml:space="preserve">
+    <value>Animated images in custom bootstrapper themes.</value>
+  </data>
+  <data name="Credits.ShellLink" xml:space="preserve">
+    <value>Creating desktop and Start Menu shortcuts.</value>
+  </data>
+  <data name="Credits.PerformanceCounter" xml:space="preserve">
+    <value>Reading Roblox's GPU use for the performance log.</value>
+  </data>
+  <data name="Credits.ModManager" xml:space="preserve">
+    <value>How Roblox's installation files are organised.</value>
+  </data>
+  <data name="Credits.Assets.Title" xml:space="preserve">
+    <value>Fonts and icons</value>
+  </data>
+  <data name="Credits.Assets.Description" xml:space="preserve">
+    <value>The artwork used in reistrap's windows.</value>
+  </data>
+  <data name="Credits.FluentIcons" xml:space="preserve">
+    <value>The icons in the sidebar and on buttons.</value>
+  </data>
+  <data name="Credits.Rubik" xml:space="preserve">
+    <value>The font used in some bootstrapper styles.</value>
+  </data>
 </root>

@@ -8191,5 +8191,329 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Behaviour.MemoryInterval.Description", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        public static string Menu_Credits_Title {
+            get {
+                return ResourceManager.GetString("Menu.Credits.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        public static string Credits_Title {
+            get {
+                return ResourceManager.GetString("Credits.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reistrap wouldn't exist without these projects and the people who made them. Click any of them to visit their page..
+        /// </summary>
+        public static string Credits_Description {
+            get {
+                return ResourceManager.GetString("Credits.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Built on.
+        /// </summary>
+        public static string Credits_BuiltOn_Title {
+            get {
+                return ResourceManager.GetString("Credits.BuiltOn.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to reistrap started as a copy of this project..
+        /// </summary>
+        public static string Credits_BuiltOn_Description {
+            get {
+                return ResourceManager.GetString("Credits.BuiltOn.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The original bootstrapper by pizzaboxer and contributors. Most of reistrap's foundation is their work..
+        /// </summary>
+        public static string Credits_Bloxstrap {
+            get {
+                return ResourceManager.GetString("Credits.Bloxstrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other bootstrappers.
+        /// </summary>
+        public static string Credits_Bootstrappers_Title {
+            get {
+                return ResourceManager.GetString("Credits.Bootstrappers.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features and ideas that came from other Bloxstrap forks..
+        /// </summary>
+        public static string Credits_Bootstrappers_Description {
+            get {
+                return ResourceManager.GetString("Credits.Bootstrappers.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ideas for the Roblox app theme, background app, unsupported languages, version pinning and better matchmaking..
+        /// </summary>
+        public static string Credits_Fishstrap {
+            get {
+                return ResourceManager.GetString("Credits.Fishstrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The settings window design and many feature ideas, including SOCD, Quick Play, the region selector and game window titles..
+        /// </summary>
+        public static string Credits_Froststrap {
+            get {
+                return ResourceManager.GetString("Credits.Froststrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By Dawndreamer Studios. Game window control for Project: Afternight, adapted from their code..
+        /// </summary>
+        public static string Credits_Funkstrap {
+            get {
+                return ResourceManager.GetString("Credits.Funkstrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By ItzBloxxy. The idea for the memory trimmer and classic window icons..
+        /// </summary>
+        public static string Credits_Bubblestrap {
+            get {
+                return ResourceManager.GetString("Credits.Bubblestrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ideas for the custom skybox, CPU core selection and game history..
+        /// </summary>
+        public static string Credits_Voidstrap {
+            get {
+                return ResourceManager.GetString("Credits.Voidstrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online services.
+        /// </summary>
+        public static string Credits_Services_Title {
+            get {
+                return ResourceManager.GetString("Credits.Services.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Free services reistrap talks to..
+        /// </summary>
+        public static string Credits_Services_Description {
+            get {
+                return ResourceManager.GetString("Credits.Services.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server locations, the list of Roblox regions and servers by city for the region selector and better matchmaking..
+        /// </summary>
+        public static string Credits_RoValra {
+            get {
+                return ResourceManager.GetString("Credits.RoValra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A fallback for server locations, and finding which region is closest to you..
+        /// </summary>
+        public static string Credits_IpInfo {
+            get {
+                return ResourceManager.GetString("Credits.IpInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game details, icons, search, server lists and Roblox updates..
+        /// </summary>
+        public static string Credits_Roblox {
+            get {
+                return ResourceManager.GetString("Credits.Roblox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hosts reistrap's anonymous usage statistics..
+        /// </summary>
+        public static string Credits_Cloudflare {
+            get {
+                return ResourceManager.GetString("Credits.Cloudflare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Libraries.
+        /// </summary>
+        public static string Credits_Libraries_Title {
+            get {
+                return ResourceManager.GetString("Credits.Libraries.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open source code reistrap is built with..
+        /// </summary>
+        public static string Credits_Libraries_Description {
+            get {
+                return ResourceManager.GetString("Credits.Libraries.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The look of every reistrap window..
+        /// </summary>
+        public static string Credits_WpfUi {
+            get {
+                return ResourceManager.GetString("Credits.WpfUi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Showing your game on Discord..
+        /// </summary>
+        public static string Credits_DiscordRpc {
+            get {
+                return ResourceManager.GetString("Credits.DiscordRpc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting settings to the windows..
+        /// </summary>
+        public static string Credits_Mvvm {
+            get {
+                return ResourceManager.GetString("Credits.Mvvm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Talking to Windows..
+        /// </summary>
+        public static string Credits_CsWin32 {
+            get {
+                return ResourceManager.GetString("Credits.CsWin32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installing Roblox and handling mod packs and backups..
+        /// </summary>
+        public static string Credits_SharpZipLib {
+            get {
+                return ResourceManager.GetString("Credits.SharpZipLib", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Fast Flag editor..
+        /// </summary>
+        public static string Credits_AvalonEdit {
+            get {
+                return ResourceManager.GetString("Credits.AvalonEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formatted text in descriptions..
+        /// </summary>
+        public static string Credits_Markdig {
+            get {
+                return ResourceManager.GetString("Credits.Markdig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animated images in custom bootstrapper themes..
+        /// </summary>
+        public static string Credits_XamlAnimatedGif {
+            get {
+                return ResourceManager.GetString("Credits.XamlAnimatedGif", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating desktop and Start Menu shortcuts..
+        /// </summary>
+        public static string Credits_ShellLink {
+            get {
+                return ResourceManager.GetString("Credits.ShellLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reading Roblox's GPU use for the performance log..
+        /// </summary>
+        public static string Credits_PerformanceCounter {
+            get {
+                return ResourceManager.GetString("Credits.PerformanceCounter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How Roblox's installation files are organised..
+        /// </summary>
+        public static string Credits_ModManager {
+            get {
+                return ResourceManager.GetString("Credits.ModManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fonts and icons.
+        /// </summary>
+        public static string Credits_Assets_Title {
+            get {
+                return ResourceManager.GetString("Credits.Assets.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The artwork used in reistrap's windows..
+        /// </summary>
+        public static string Credits_Assets_Description {
+            get {
+                return ResourceManager.GetString("Credits.Assets.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The icons in the sidebar and on buttons..
+        /// </summary>
+        public static string Credits_FluentIcons {
+            get {
+                return ResourceManager.GetString("Credits.FluentIcons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The font used in some bootstrapper styles..
+        /// </summary>
+        public static string Credits_Rubik {
+            get {
+                return ResourceManager.GetString("Credits.Rubik", resourceCulture);
+            }
+        }
     }
 }

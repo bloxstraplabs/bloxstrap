@@ -1,0 +1,66 @@
+<base:WpfUiWindow
+    x:Class="Bloxstrap.UI.Elements.About.CreditsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+    xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+    xmlns:resources="clr-namespace:Bloxstrap.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Strings.Credits_Title}"
+    Width="760"
+    Height="720"
+    MinWidth="520"
+    MinHeight="420"
+    Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+    ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Padding="8" Title="{x:Static resources:Strings.Credits_Title}" Icon="pack://application:,,,/reistrap.ico" />
+
+        <StackPanel Grid.Row="1" Margin="24,8,24,12">
+            <TextBlock FontSize="28" FontWeight="SemiBold" Text="{x:Static resources:Strings.Credits_Title}" />
+            <TextBlock Margin="0,6,0,0" FontSize="14" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{x:Static resources:Strings.Credits_Description}" />
+        </StackPanel>
+
+        <ui:DynamicScrollViewer Grid.Row="2" Padding="24,0,16,24" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Groups, Mode=OneTime}" Margin="0,0,8,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,24">
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource SectionTitle}" FontSize="20" />
+                            <TextBlock Text="{Binding Description}" Style="{StaticResource SectionDescription}" />
+                            <ItemsControl ItemsSource="{Binding Entries}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <ui:CardAction Margin="0,6,0,0" Padding="16,12" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="{Binding Link}" ToolTip="{Binding Link}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <StackPanel Grid.Column="0">
+                                                    <TextBlock FontSize="15" FontWeight="Medium" Text="{Binding Name}" TextWrapping="Wrap" />
+                                                    <TextBlock Margin="0,2,0,0" FontSize="13" Text="{Binding Description}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                                </StackPanel>
+                                                <Border Grid.Column="1" Margin="12,0,8,0" Padding="8,2" VerticalAlignment="Center" CornerRadius="4" Visibility="{Binding LicenseVisibility}" Background="{DynamicResource ControlFillColorSecondaryBrush}">
+                                                    <TextBlock FontSize="12" Text="{Binding License}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                                </Border>
+                                            </Grid>
+                                        </ui:CardAction>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ui:DynamicScrollViewer>
+    </Grid>
+</base:WpfUiWindow>
