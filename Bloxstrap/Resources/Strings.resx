@@ -3030,4 +3030,82 @@ Switch channels?</value>
   <data name="Credits.Rubik" xml:space="preserve">
     <value>The font used in some bootstrapper styles.</value>
   </data>
+  <data name="Setup.Start" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="Setup.Rail.Import" xml:space="preserve">
+    <value>Your old settings</value>
+  </data>
+  <data name="Setup.Rail.Look" xml:space="preserve">
+    <value>Look</value>
+  </data>
+  <data name="Setup.Rail.Features" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="Setup.Rail.Performance" xml:space="preserve">
+    <value>Performance</value>
+  </data>
+  <data name="Setup.Rail.Done" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Setup.Import.Heading" xml:space="preserve">
+    <value>Bring your setup with you</value>
+  </data>
+  <data name="Setup.Import.Subheading" xml:space="preserve">
+    <value>We found another bootstrapper on this PC. reistrap can copy everything over so you don't start from zero.</value>
+  </data>
+  <data name="Setup.Import.From" xml:space="preserve">
+    <value>Import from {0}</value>
+  </data>
+  <data name="Setup.Import.From.Description" xml:space="preserve">
+    <value>Settings, Fast Flags and mods.</value>
+  </data>
+  <data name="Setup.Import.Fresh.Title" xml:space="preserve">
+    <value>Start fresh</value>
+  </data>
+  <data name="Setup.Import.Fresh.Description" xml:space="preserve">
+    <value>Use reistrap's defaults instead.</value>
+  </data>
+  <data name="Setup.Theme.Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Setup.Theme.Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Setup.Feature.Discord.Title" xml:space="preserve">
+    <value>Discord status</value>
+  </data>
+  <data name="Setup.Feature.Discord.Description" xml:space="preserve">
+    <value>Show the game you're playing on your profile.</value>
+  </data>
+  <data name="Setup.Feature.Location.Title" xml:space="preserve">
+    <value>Server location</value>
+  </data>
+  <data name="Setup.Feature.Location.Description" xml:space="preserve">
+    <value>See which city your server is in.</value>
+  </data>
+  <data name="Setup.Feature.MultiInstance.Title" xml:space="preserve">
+    <value>Multiple Roblox windows</value>
+  </data>
+  <data name="Setup.Feature.MultiInstance.Description" xml:space="preserve">
+    <value>Run more than one Roblox at the same time.</value>
+  </data>
+  <data name="Setup.Feature.Playtime.Title" xml:space="preserve">
+    <value>Playtime tracking</value>
+  </data>
+  <data name="Setup.Feature.Playtime.Description" xml:space="preserve">
+    <value>Keep track of how long you play each game.</value>
+  </data>
+  <data name="Setup.Feature.Rejoin.Title" xml:space="preserve">
+    <value>Auto-rejoin</value>
+  </data>
+  <data name="Setup.Feature.Rejoin.Description" xml:space="preserve">
+    <value>Get back in after idle kicks and lost connections.</value>
+  </data>
+  <data name="Setup.Feature.Socd.Title" xml:space="preserve">
+    <value>Snap tap (SOCD)</value>
+  </data>
+  <data name="Setup.Feature.Socd.Description" xml:space="preserve">
+    <value>The last movement key you press always wins.</value>
+  </data>
 </root>

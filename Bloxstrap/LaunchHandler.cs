@@ -125,6 +125,9 @@ namespace Bloxstrap
 
                 interlock.Dispose();
 
+                if (installer.Finished && App.State.Prop.ShowWelcome)
+                    new UI.Elements.Dialogs.SetupDialog().ShowDialog();
+
                 ProcessNextAction(installer.CloseAction, !installer.Finished);
             }
 
@@ -180,7 +183,7 @@ namespace Bloxstrap
             {
                 bool showAlreadyRunningWarning = Process.GetProcessesByName(App.ProjectName).Length > 1;
 
-                if (!App.State.Prop.SetupCompleted)
+                if (App.State.Prop.ShowWelcome)
                     new UI.Elements.Dialogs.SetupDialog().ShowDialog();
 
                 var window = new UI.Elements.Settings.MainWindow(showAlreadyRunningWarning);

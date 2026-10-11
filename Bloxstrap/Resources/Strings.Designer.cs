@@ -8515,5 +8515,239 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Credits.Rubik", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get started.
+        /// </summary>
+        public static string Setup_Start {
+            get {
+                return ResourceManager.GetString("Setup.Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your old settings.
+        /// </summary>
+        public static string Setup_Rail_Import {
+            get {
+                return ResourceManager.GetString("Setup.Rail.Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Look.
+        /// </summary>
+        public static string Setup_Rail_Look {
+            get {
+                return ResourceManager.GetString("Setup.Rail.Look", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features.
+        /// </summary>
+        public static string Setup_Rail_Features {
+            get {
+                return ResourceManager.GetString("Setup.Rail.Features", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performance.
+        /// </summary>
+        public static string Setup_Rail_Performance {
+            get {
+                return ResourceManager.GetString("Setup.Rail.Performance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finish.
+        /// </summary>
+        public static string Setup_Rail_Done {
+            get {
+                return ResourceManager.GetString("Setup.Rail.Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bring your setup with you.
+        /// </summary>
+        public static string Setup_Import_Heading {
+            get {
+                return ResourceManager.GetString("Setup.Import.Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We found another bootstrapper on this PC. reistrap can copy everything over so you don't start from zero..
+        /// </summary>
+        public static string Setup_Import_Subheading {
+            get {
+                return ResourceManager.GetString("Setup.Import.Subheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import from {0}.
+        /// </summary>
+        public static string Setup_Import_From {
+            get {
+                return ResourceManager.GetString("Setup.Import.From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings, Fast Flags and mods..
+        /// </summary>
+        public static string Setup_Import_From_Description {
+            get {
+                return ResourceManager.GetString("Setup.Import.From.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start fresh.
+        /// </summary>
+        public static string Setup_Import_Fresh_Title {
+            get {
+                return ResourceManager.GetString("Setup.Import.Fresh.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use reistrap's defaults instead..
+        /// </summary>
+        public static string Setup_Import_Fresh_Description {
+            get {
+                return ResourceManager.GetString("Setup.Import.Fresh.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string Setup_Theme_Light {
+            get {
+                return ResourceManager.GetString("Setup.Theme.Light", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string Setup_Theme_Dark {
+            get {
+                return ResourceManager.GetString("Setup.Theme.Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discord status.
+        /// </summary>
+        public static string Setup_Feature_Discord_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Discord.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the game you're playing on your profile..
+        /// </summary>
+        public static string Setup_Feature_Discord_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Discord.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server location.
+        /// </summary>
+        public static string Setup_Feature_Location_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Location.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See which city your server is in..
+        /// </summary>
+        public static string Setup_Feature_Location_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Location.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple Roblox windows.
+        /// </summary>
+        public static string Setup_Feature_MultiInstance_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.MultiInstance.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run more than one Roblox at the same time..
+        /// </summary>
+        public static string Setup_Feature_MultiInstance_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.MultiInstance.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Playtime tracking.
+        /// </summary>
+        public static string Setup_Feature_Playtime_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Playtime.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep track of how long you play each game..
+        /// </summary>
+        public static string Setup_Feature_Playtime_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Playtime.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto-rejoin.
+        /// </summary>
+        public static string Setup_Feature_Rejoin_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Rejoin.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get back in after idle kicks and lost connections..
+        /// </summary>
+        public static string Setup_Feature_Rejoin_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Rejoin.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Snap tap (SOCD).
+        /// </summary>
+        public static string Setup_Feature_Socd_Title {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Socd.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The last movement key you press always wins..
+        /// </summary>
+        public static string Setup_Feature_Socd_Description {
+            get {
+                return ResourceManager.GetString("Setup.Feature.Socd.Description", resourceCulture);
+            }
+        }
     }
 }

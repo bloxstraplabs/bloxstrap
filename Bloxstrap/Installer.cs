@@ -97,6 +97,8 @@ namespace Bloxstrap
             if (CreateStartMenuShortcuts)
                 Shortcut.Create(Paths.Application, "", StartMenuShortcut);
 
+            bool freshInstall = !App.Settings.IsSaved;
+
             // existing configuration persisting from an earlier install
             App.Settings.Load(false);
             App.State.Load(false);
@@ -105,6 +107,12 @@ namespace Bloxstrap
             App.Settings.Prop.EnableAnalytics = EnableAnalytics;
 
             App.Settings.Save();
+
+            if (freshInstall && !IsImplicitInstall)
+            {
+                App.State.Prop.ShowWelcome = true;
+                App.State.Save();
+            }
 
             App.Logger.WriteLine(LOG_IDENT, "Installation finished");
 
