@@ -260,6 +260,10 @@ namespace Bloxstrap
             if (!App.LaunchSettings.QuietFlag.Active)
             {
                 App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper dialog");
+
+                if (App.Settings.Prop.BootstrapperStyle == BootstrapperStyle.CustomDialog && App.Settings.Prop.CycleCustomThemes)
+                    Frontend.CycleCustomTheme();
+
                 dialog = App.Settings.Prop.BootstrapperStyle.GetNew();
                 App.Bootstrapper.Dialog = dialog;
                 dialog.Bootstrapper = App.Bootstrapper;

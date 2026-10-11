@@ -52,8 +52,11 @@ namespace Bloxstrap.UI
             });
         }
 
-        private static void CycleCustomTheme()
+        public static void CycleCustomTheme()
         {
+            if (!Directory.Exists(Paths.CustomThemes))
+                return;
+
             var themes = Directory.GetDirectories(Paths.CustomThemes)
                 .Where(x => File.Exists(Path.Combine(x, "Theme.xml")))
                 .Select(Path.GetFileName)
@@ -79,9 +82,6 @@ namespace Bloxstrap.UI
             {
                 if (App.Settings.Prop.SelectedCustomTheme == null)
                     throw new CustomThemeException("CustomTheme.Errors.NoThemeSelected");
-
-                if (App.Settings.Prop.CycleCustomThemes)
-                    CycleCustomTheme();
 
                 CustomDialog dialog = new CustomDialog();
                 dialog.ApplyCustomTheme(App.Settings.Prop.SelectedCustomTheme);

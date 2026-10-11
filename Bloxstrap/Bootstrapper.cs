@@ -707,6 +707,8 @@ namespace Bloxstrap
 
                 if (App.Settings.Prop.WindowControlEnabled && App.Settings.Prop.EnableActivityTracking)
                     WindowControl.WriteEnabledMarker(AppData.Directory);
+                else
+                    RemoveWindowControlMarker();
 
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {
@@ -859,6 +861,18 @@ namespace Bloxstrap
 
             // allow for window to show, since the log is created pretty far beforehand
             Thread.Sleep(1000);
+        }
+
+        private void RemoveWindowControlMarker()
+        {
+            try
+            {
+                WindowControl.RemoveMarker(AppData.Directory);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("Bootstrapper::RemoveWindowControlMarker", ex);
+            }
         }
 
         private static void SetRobloxPriority(Process process)

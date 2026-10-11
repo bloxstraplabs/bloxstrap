@@ -167,6 +167,16 @@ namespace Bloxstrap.Integrations
             }
         }
 
+        public static void RemoveMarker(string robloxDirectory)
+        {
+            string folder = GetPermissionsPath(robloxDirectory);
+
+            if (!Directory.Exists(folder) || Process.GetProcessesByName(App.RobloxPlayerAppName).Any())
+                return;
+
+            Directory.Delete(folder, true);
+        }
+
         private bool IsAllowed(long universeId) => App.Settings.Prop.WindowControlAllGames || _permissions.Prop.Allowed.Contains(universeId);
 
         public void UpdateExposedPermissions()
@@ -696,10 +706,7 @@ namespace Bloxstrap.Integrations
 
             try
             {
-                string folder = GetPermissionsPath(_robloxDirectory);
-
-                if (Directory.Exists(folder))
-                    Directory.Delete(folder, true);
+                RemoveMarker(_robloxDirectory);
             }
             catch (Exception ex)
             {
