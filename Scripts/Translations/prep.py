@@ -1,18 +1,16 @@
-import glob, shutil, re
+from pathlib import Path
+import shutil
 
-exports = input("Path of folder of exported Crowdin files: ")
-dest = input("Destination resources folder: ")
+exports = Path(input("Path of folder of exported Crowdin files: "))
+dest = Path(input("Destination resources folder: "))
 
 icu_codes = {
-	"zh-CN": "zh-Hans-CN",
-	"zh-HK": "zh-Hant-HK",
-	"zh-TW": "zh-Hant-TW"
+    "zh-CN": "zh-Hans-CN",
+    "zh-HK": "zh-Hant-HK",
+    "zh-TW": "zh-Hant-TW",
 }
 
-for filename in glob.glob(f"{exports}\\**\\*.*", recursive=True):
-	print(f"Copying {filename}")
-
-	localeCode = re.search("\\\\([a-zA-Z\\-]+)\\\\Strings.", filename).group(1)
-	localeCode = icu_codes.get(localeCode, localeCode)
-
-	shutil.copy(filename, dest + f"\\Strings.{localeCode}.resx")
+for file in exports.rglob("Strings.*"):
+    locale = icu_codes.get(file.parent.name, file.parent.name)
+    print(f"Copying {file}")
+    shutil.copy(file, dest / f"Strings.{locale}.resx")
