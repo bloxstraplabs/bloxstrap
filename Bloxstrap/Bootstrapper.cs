@@ -1353,6 +1353,9 @@ namespace Bloxstrap
                 if (relativeFile.EndsWith(".lock"))
                     continue;
 
+                if (_launchMode == LaunchMode.Player && relativeFile.EndsWith(".mesh"))
+                    continue;
+
                 modFolderFiles.Add(relativeFile);
 
                 string fileModFolder = Path.Combine(Paths.Modifications, relativeFile);
