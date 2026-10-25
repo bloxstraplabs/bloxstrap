@@ -237,7 +237,7 @@ namespace Bloxstrap
                 }
             }
 
-            string robloxFolder = Path.Combine(Paths.LocalAppData, "Roblox");
+            string robloxFolder = Paths.RobloxAppData;
             bool playerStillInstalled = true;
             bool studioStillInstalled = true;
 
