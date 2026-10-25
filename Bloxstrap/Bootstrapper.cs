@@ -1350,10 +1350,10 @@ namespace Bloxstrap
                 if (!App.Settings.Prop.UseFastFlagManager && String.Equals(relativeFile, "ClientSettings\\ClientAppSettings.json", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (relativeFile.EndsWith(".lock"))
+                if (relativeFile.EndsWith(".lock", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (_launchMode == LaunchMode.Player && relativeFile.EndsWith(".mesh"))
+                if (_launchMode == LaunchMode.Player && relativeFile.EndsWith(".mesh", StringComparison.OrdinalIgnoreCase))
                     continue;
 
                 modFolderFiles.Add(relativeFile);
