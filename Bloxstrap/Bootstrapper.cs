@@ -560,6 +560,8 @@ namespace Bloxstrap
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
+            RobloxAppStoragePatcher.Patch();
+
             var startInfo = new ProcessStartInfo()
             {
                 FileName = AppData.ExecutablePath,
@@ -580,7 +582,7 @@ namespace Bloxstrap
 
             string? logFileName = null;
 
-            string rbxDir = Path.Combine(Paths.LocalAppData, "Roblox");
+            string rbxDir = Paths.RobloxAppData;
             if (!Directory.Exists(rbxDir))
                 Directory.CreateDirectory(rbxDir);
 
@@ -1462,7 +1464,7 @@ namespace Bloxstrap
             Directory.CreateDirectory(Paths.Downloads);
 
             string packageUrl = Deployment.GetLocation($"/{_latestVersionGuid}-{package.Name}");
-            string robloxPackageLocation = Path.Combine(Paths.LocalAppData, "Roblox", "Downloads", package.Signature);
+            string robloxPackageLocation = Path.Combine(Paths.RobloxAppData, "Downloads", package.Signature);
 
             if (File.Exists(package.DownloadPath))
             {
