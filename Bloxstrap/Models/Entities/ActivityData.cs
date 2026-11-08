@@ -1,4 +1,4 @@
-﻿using System.Web;
+using System.Web;
 using System.Windows;
 using System.Windows.Input;
 using Bloxstrap.AppData;
@@ -23,7 +23,7 @@ namespace Bloxstrap.Models.Entities
             set
             {
                 _universeId = value;
-                UniverseDetails.LoadFromCache(value);
+                UniverseDetails ??= UniverseDetails.LoadFromCache(value);
             }
         }
 
