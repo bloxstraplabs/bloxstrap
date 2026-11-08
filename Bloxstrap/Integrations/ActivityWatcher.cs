@@ -5,7 +5,8 @@ namespace Bloxstrap.Integrations
         private const string GameMessageEntry                = "[FLog::CreatorOutput] [BloxstrapRPC]";
         private const string GameJoiningEntry                = "[FLog::Output] ! Joining game";
 
-        private const string GameTeleportingEntry            = "[FLog::UgcExperienceController] UgcExperienceController: doTeleport: joinScriptUrl";
+        private const string GameTeleportingEntry            = "doTeleport";
+        private const string GameTeleportJoinUtilEntry        = "initiateTeleport";
         private const string GameJoiningUniverseEntry        = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
         private const string GameJoiningUDMUXEntry           = "[FLog::Network] UDMUX Address = ";
         private const string GameJoinedEntry                 = "[FLog::Network] Replicator created: ";
@@ -148,7 +149,7 @@ namespace Bloxstrap.Integrations
             {
                 if (logMessage.StartsWith(GameDisconnectedEntry))
                     HandleGameDisconnected();
-                else if (logMessage.StartsWith(GameTeleportingEntry))
+                else if (logMessage.Contains(GameTeleportingEntry) || logMessage.Contains(GameTeleportJoinUtilEntry))
                     HandleGameTeleporting(logMessage);
                 else if (logMessage.StartsWith(GameMessageEntry))
                     HandleRPCMessage(logMessage);
@@ -245,11 +246,10 @@ namespace Bloxstrap.Integrations
                 }
             }
 
-            if (History.Any())
+            if (History.Any() && Data.IsTeleport)
             {
                 var lastActivity = History.First();
-                if (Data.UniverseId == lastActivity.UniverseId && Data.IsTeleport)
-                    Data.RootActivity = lastActivity.RootActivity ?? lastActivity;
+                Data.RootActivity = lastActivity.RootActivity ?? lastActivity;
             }
 
             if (Data.RootActivity?.UniverseDetails is not null && Data.UniverseDetails is null)
@@ -292,41 +292,25 @@ namespace Bloxstrap.Integrations
         private void HandleGameDisconnected()
         {
             const string LOG_IDENT = "ActivityWatcher::HandleGameDisconnected";
-
-            if (InTeleport || _teleportMarker)
-            {
-                App.Logger.WriteLine(LOG_IDENT, $"Disconnected for teleport, preserving session ({Data})");
-
-                Data.TimeLeft = DateTime.Now;
-                History.Insert(0, Data);
-
-                var rootActivity = Data.RootActivity ?? Data;
-                var universeDetails = Data.UniverseDetails ?? rootActivity.UniverseDetails;
-                long universeId = Data.UniverseId != 0 ? Data.UniverseId : rootActivity.UniverseId;
-
-                InGame = false;
-                InTeleport = true;
-
-                Data = new ActivityData
-                {
-                    UniverseId = universeId,
-                    UniverseDetails = universeDetails,
-                    RootActivity = rootActivity,
-                    IsTeleport = true
-                };
-                return;
-            }
-
-            App.Logger.WriteLine(LOG_IDENT, $"Disconnected from Game ({Data})");
+            App.Logger.WriteLine(LOG_IDENT, $"Disconnected from replication ({Data})");
 
             Data.TimeLeft = DateTime.Now;
             History.Insert(0, Data);
 
-            InGame = false;
-            InTeleport = false;
-            Data = new();
+            var rootActivity = Data.RootActivity ?? Data;
+            var universeDetails = Data.UniverseDetails ?? rootActivity.UniverseDetails;
+            long universeId = Data.UniverseId != 0 ? Data.UniverseId : rootActivity.UniverseId;
 
-            OnGameLeave?.Invoke(this, EventArgs.Empty);
+            InGame = false;
+            InTeleport = true;
+
+            Data = new ActivityData
+            {
+                UniverseId = universeId,
+                UniverseDetails = universeDetails,
+                RootActivity = rootActivity,
+                IsTeleport = true
+            };
         }
 
         private void HandleGameTeleporting(string logMessage)

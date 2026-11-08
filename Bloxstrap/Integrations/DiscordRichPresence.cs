@@ -321,7 +321,28 @@ namespace Bloxstrap.Integrations
                 _rpcClient.ClearPresence();
         }
 
-        private async Task<UniverseDetails?> ResolveUniverseDetailsAsync(ActivityData activity)
+        private UniverseDetails GetFallbackUniverseDetails(ActivityData activity)
+        {
+            if (activity.RootActivity?.UniverseDetails is not null)
+                return activity.RootActivity.UniverseDetails;
+
+            var historyEntry = _activityWatcher.History.FirstOrDefault(x => x.UniverseDetails is not null);
+            if (historyEntry?.UniverseDetails is not null)
+                return historyEntry.UniverseDetails;
+
+            return new UniverseDetails
+            {
+                Data = new GameDetailResponse
+                {
+                    Id = activity.UniverseId,
+                    Name = "Roblox Experience",
+                    Creator = new GameCreator { Name = "Roblox" }
+                },
+                Thumbnail = new ThumbnailResponse { TargetId = activity.UniverseId, ImageUrl = "roblox" }
+            };
+        }
+
+        private async Task<UniverseDetails> ResolveUniverseDetailsAsync(ActivityData activity)
         {
             const string LOG_IDENT = "DiscordRichPresence::ResolveUniverseDetails";
 
@@ -341,12 +362,7 @@ namespace Bloxstrap.Integrations
                 }
             }
 
-            if (activity.UniverseDetails is null && activity.RootActivity?.UniverseDetails is not null)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Reusing root activity UniverseDetails as fallback");
-                activity.UniverseDetails = activity.RootActivity.UniverseDetails;
-            }
-
+            activity.UniverseDetails ??= GetFallbackUniverseDetails(activity);
             return activity.UniverseDetails;
         }
 
@@ -440,7 +456,7 @@ namespace Bloxstrap.Integrations
             App.Logger.WriteLine(LOG_IDENT, $"Setting presence for Place ID {placeId}");
 
             var universeDetails = await ResolveUniverseDetailsAsync(activity);
-            if (universeDetails is null || !_activityWatcher.InGame || placeId != activity.PlaceId)
+            if (!_activityWatcher.InGame || placeId != activity.PlaceId)
                 return false;
 
             var timeStarted = activity.RootActivity?.TimeJoined ?? activity.TimeJoined;
