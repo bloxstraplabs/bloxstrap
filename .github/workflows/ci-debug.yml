@@ -1,5 +1,14 @@
 name: CI (Debug)
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:

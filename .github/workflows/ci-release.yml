@@ -1,6 +1,7 @@
 name: CI (Release)
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -52,8 +53,8 @@ jobs:
           prerelease: false
           generate_release_notes: true
 
-      - name: Release on Push to Main
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Release on Push to Main or Manual Dispatch
+        if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: continuous
