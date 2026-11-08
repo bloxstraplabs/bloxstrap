@@ -321,99 +321,148 @@ namespace Bloxstrap.Integrations
                 _rpcClient.ClearPresence();
         }
 
-        public async Task<bool> SetCurrentGame()
+        private UniverseDetails GetFallbackUniverseDetails(ActivityData activity)
         {
-            const string LOG_IDENT = "DiscordRichPresence::SetCurrentGame";
-            
-            if (!_activityWatcher.InGame)
+            if (activity.RootActivity?.UniverseDetails is not null)
+                return activity.RootActivity.UniverseDetails;
+
+            var historyEntry = _activityWatcher.History.FirstOrDefault(x => x.UniverseDetails is not null);
+            if (historyEntry?.UniverseDetails is not null)
+                return historyEntry.UniverseDetails;
+
+            return new UniverseDetails
             {
-                App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
+                Data = new GameDetailResponse
+                {
+                    Id = activity.UniverseId,
+                    Name = "Roblox Experience",
+                    Creator = new GameCreator { Name = "Roblox" }
+                },
+                Thumbnail = new ThumbnailResponse { TargetId = activity.UniverseId, ImageUrl = "roblox" }
+            };
+        }
 
-                _currentPresence = _originalPresence =  null;
-                _messageQueue.Clear();
+        private async Task<UniverseDetails> ResolveUniverseDetailsAsync(ActivityData activity)
+        {
+            const string LOG_IDENT = "DiscordRichPresence::ResolveUniverseDetails";
 
-                UpdatePresence();
-                return true;
-            }
+            if (activity.UniverseDetails is not null)
+                return activity.UniverseDetails;
 
-            string icon = "roblox";
-            string smallImageText = "Roblox";
-            string smallImage = "roblox";
-            
-
-            var activity = _activityWatcher.Data;
-            long placeId = activity.PlaceId;
-
-            App.Logger.WriteLine(LOG_IDENT, $"Setting presence for Place ID {placeId}");
-
-            // preserve time spent playing if we're teleporting between places in the same universe
-            var timeStarted = activity.TimeJoined;
-
-            if (activity.RootActivity is not null)
-                timeStarted = activity.RootActivity.TimeJoined;
-
-            if (activity.UniverseDetails is null)
+            if (activity.UniverseId != 0)
             {
                 try
                 {
                     await UniverseDetails.FetchSingle(activity.UniverseId);
+                    activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteException(LOG_IDENT, ex);
-                    Frontend.ShowMessageBox($"{Strings.ActivityWatcher_RichPresenceLoadFailed}\n\n{ex.Message}", MessageBoxImage.Warning);
-                    return false;
                 }
-
-                activity.UniverseDetails = UniverseDetails.LoadFromCache(activity.UniverseId);
             }
 
-            var universeDetails = activity.UniverseDetails!;
+            activity.UniverseDetails ??= GetFallbackUniverseDetails(activity);
+            return activity.UniverseDetails;
+        }
 
-            icon = universeDetails.Thumbnail.ImageUrl!;
+        private async Task<(string icon, string smallImage, string smallImageText)> BuildPresenceAssetsAsync(ActivityData activity, UniverseDetails universeDetails)
+        {
+            string icon = !string.IsNullOrEmpty(universeDetails.Thumbnail?.ImageUrl)
+                ? universeDetails.Thumbnail.ImageUrl
+                : "roblox";
+
+            string smallImage = "roblox";
+            string smallImageText = "Roblox";
 
             if (App.Settings.Prop.ShowAccountOnRichPresence)
             {
                 var userDetails = await UserDetails.Fetch(activity.UserId);
-
-                smallImage = userDetails.Thumbnail.ImageUrl!;
-                smallImageText = $"Playing on {userDetails.Data.DisplayName} (@{userDetails.Data.Name})"; // i.e. "axell (@Axelan_se)"
+                if (userDetails?.Thumbnail?.ImageUrl is not null)
+                {
+                    smallImage = userDetails.Thumbnail.ImageUrl;
+                    smallImageText = $"Playing on {userDetails.Data.DisplayName} (@{userDetails.Data.Name})";
+                }
             }
 
-            if (!_activityWatcher.InGame || placeId != activity.PlaceId)
-            {
-                App.Logger.WriteLine(LOG_IDENT, "Aborting presence set because game activity has changed");
-                return false;
-            }
+            return (icon, smallImage, smallImageText);
+        }
 
-            string status = _activityWatcher.Data.ServerType switch
+        private static string FormatPresenceStatus(ActivityData activity, UniverseDetails universeDetails)
+        {
+            string creatorName = universeDetails.Data?.Creator?.Name ?? "Roblox";
+            bool isVerified = universeDetails.Data?.Creator?.HasVerifiedBadge == true;
+
+            return activity.ServerType switch
             {
                 ServerType.Private => "In a private server",
                 ServerType.Reserved => "In a reserved server",
-                _ => $"by {universeDetails.Data.Creator.Name}" + (universeDetails.Data.Creator.HasVerifiedBadge ? " ☑️" : ""),
+                _ => $"by {creatorName}" + (isVerified ? " ☑️" : "")
             };
+        }
 
-            string universeName = universeDetails.Data.Name;
+        private bool HandleNotInGame()
+        {
+            const string LOG_IDENT = "DiscordRichPresence::HandleNotInGame";
 
+            if (_activityWatcher.InTeleport)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "Player is teleporting between dimensions, preserving presence");
+                return true;
+            }
+
+            App.Logger.WriteLine(LOG_IDENT, "Not in game, clearing presence");
+            _currentPresence = _originalPresence = null;
+            _messageQueue.Clear();
+            UpdatePresence();
+            return true;
+        }
+
+        private DiscordRPC.RichPresence CreateRichPresence(
+            ActivityData activity,
+            UniverseDetails universeDetails,
+            DateTime timeStarted,
+            (string icon, string smallImage, string smallImageText) assets)
+        {
+            string universeName = universeDetails.Data?.Name ?? "Roblox Experience";
             if (universeName.Length < 2)
                 universeName = $"{universeName}\x2800\x2800\x2800";
 
-            _currentPresence = new DiscordRPC.RichPresence
+            return new DiscordRPC.RichPresence
             {
                 Details = universeName,
-                State = status,
+                State = FormatPresenceStatus(activity, universeDetails),
                 Timestamps = new Timestamps { Start = timeStarted.ToUniversalTime() },
                 Buttons = GetButtons(),
                 Assets = new Assets
                 {
-                    LargeImageKey = icon,
-                    LargeImageText = universeDetails.Data.Name,
-                    SmallImageKey = smallImage,
-                    SmallImageText = smallImageText
+                    LargeImageKey = assets.icon,
+                    LargeImageText = universeDetails.Data?.Name ?? "Roblox",
+                    SmallImageKey = assets.smallImage,
+                    SmallImageText = assets.smallImageText
                 }
             };
+        }
 
-            // this is used for configuration from BloxstrapRPC
+        public async Task<bool> SetCurrentGame()
+        {
+            const string LOG_IDENT = "DiscordRichPresence::SetCurrentGame";
+
+            if (!_activityWatcher.InGame)
+                return HandleNotInGame();
+
+            var activity = _activityWatcher.Data;
+            long placeId = activity.PlaceId;
+            App.Logger.WriteLine(LOG_IDENT, $"Setting presence for Place ID {placeId}");
+
+            var universeDetails = await ResolveUniverseDetailsAsync(activity);
+            if (!_activityWatcher.InGame || placeId != activity.PlaceId)
+                return false;
+
+            var timeStarted = activity.RootActivity?.TimeJoined ?? activity.TimeJoined;
+            var assets = await BuildPresenceAssetsAsync(activity, universeDetails);
+
+            _currentPresence = CreateRichPresence(activity, universeDetails, timeStarted, assets);
             _originalPresence = _currentPresence.Clone();
 
             if (_messageQueue.Any())
@@ -421,9 +470,8 @@ namespace Bloxstrap.Integrations
                 App.Logger.WriteLine(LOG_IDENT, "Processing queued messages");
                 ProcessRPCMessage(_messageQueue.Dequeue(), false);
             }
-            
-            UpdatePresence();
 
+            UpdatePresence();
             return true;
         }
 
