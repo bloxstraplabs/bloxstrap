@@ -42,7 +42,7 @@ namespace Bloxstrap.Models.Entities
             CacheUniverseEntries(ids, gameDetailResponse.Data, universeThumbnailResponse?.Data);
         }
 
-        private static void CacheUniverseEntries(string ids, IReadOnlyCollection<GameDetailResponse> details, IReadOnlyCollection<ThumbnailResponse>? thumbnails)
+        private static void CacheUniverseEntries(string ids, IEnumerable<GameDetailResponse> details, IEnumerable<ThumbnailResponse>? thumbnails)
         {
             foreach (string strId in ids.Split(','))
             {
