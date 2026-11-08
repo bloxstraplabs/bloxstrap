@@ -59,6 +59,7 @@ jobs:
         with:
           tag_name: continuous
           name: Bloxstrap (Continuous Release)
+          body: "Continuous build from commit ${{ github.sha }}"
           files: .\Bloxstrap\bin\Release\net6.0-windows\win-x64\publish\Bloxstrap.exe
           prerelease: true
           make_latest: false
