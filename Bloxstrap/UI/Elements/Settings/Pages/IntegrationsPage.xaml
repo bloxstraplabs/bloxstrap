@@ -13,7 +13,8 @@
       Title="IntegrationsPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:LumiPageHeader PageTitle="{x:Static resources:Strings.Menu_Integrations_Title}"
+                                 Description="{x:Static resources:Strings.Menu_Integrations_Description}" />
 
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 

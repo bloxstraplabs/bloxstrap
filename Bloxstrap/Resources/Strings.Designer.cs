@@ -3644,6 +3644,12 @@ namespace Bloxstrap.Resources {
         public static string Menu_Profiles_Description {
             get { return ResourceManager.GetString("Menu.Profiles.Description", resourceCulture); }
         }
+        public static string Menu_Profiles_TransferTitle {
+            get { return ResourceManager.GetString("Menu.Profiles.TransferTitle", resourceCulture); }
+        }
+        public static string Menu_Profiles_TransferDescription {
+            get { return ResourceManager.GetString("Menu.Profiles.TransferDescription", resourceCulture); }
+        }
         public static string Menu_Profiles_Name {
             get { return ResourceManager.GetString("Menu.Profiles.Name", resourceCulture); }
         }
@@ -3658,6 +3664,36 @@ namespace Bloxstrap.Resources {
         }
         public static string Menu_Profiles_Delete {
             get { return ResourceManager.GetString("Menu.Profiles.Delete", resourceCulture); }
+        }
+        public static string Menu_Profiles_Import {
+            get { return ResourceManager.GetString("Menu.Profiles.Import", resourceCulture); }
+        }
+        public static string Menu_Profiles_Export {
+            get { return ResourceManager.GetString("Menu.Profiles.Export", resourceCulture); }
+        }
+        public static string Menu_Profiles_ImportFilter {
+            get { return ResourceManager.GetString("Menu.Profiles.ImportFilter", resourceCulture); }
+        }
+        public static string Menu_Profiles_ExportFilter {
+            get { return ResourceManager.GetString("Menu.Profiles.ExportFilter", resourceCulture); }
+        }
+        public static string Menu_Profiles_ImportPreview {
+            get { return ResourceManager.GetString("Menu.Profiles.ImportPreview", resourceCulture); }
+        }
+        public static string Menu_Profiles_Imported {
+            get { return ResourceManager.GetString("Menu.Profiles.Imported", resourceCulture); }
+        }
+        public static string Menu_Profiles_ImportFailed {
+            get { return ResourceManager.GetString("Menu.Profiles.ImportFailed", resourceCulture); }
+        }
+        public static string Menu_Profiles_Exported {
+            get { return ResourceManager.GetString("Menu.Profiles.Exported", resourceCulture); }
+        }
+        public static string Menu_Profiles_ExportFailed {
+            get { return ResourceManager.GetString("Menu.Profiles.ExportFailed", resourceCulture); }
+        }
+        public static string Menu_Profiles_ApplyPreview {
+            get { return ResourceManager.GetString("Menu.Profiles.ApplyPreview", resourceCulture); }
         }
         public static string Menu_Profiles_NameRequired {
             get { return ResourceManager.GetString("Menu.Profiles.NameRequired", resourceCulture); }
@@ -3703,6 +3739,9 @@ namespace Bloxstrap.Resources {
         }
         public static string Menu_Home_QuickAccess {
             get { return ResourceManager.GetString("Menu.Home.QuickAccess", resourceCulture); }
+        }
+        public static string Menu_Home_QuickAccessDescription {
+            get { return ResourceManager.GetString("Menu.Home.QuickAccessDescription", resourceCulture); }
         }
         public static string Menu_Search_Placeholder {
             get { return ResourceManager.GetString("Menu.Search.Placeholder", resourceCulture); }

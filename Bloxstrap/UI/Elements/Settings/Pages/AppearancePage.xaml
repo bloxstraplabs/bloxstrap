@@ -12,7 +12,8 @@
       Title="AppearancePage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
+        <controls:LumiPageHeader PageTitle="{x:Static resources:Strings.Menu_Appearance_Title}"
+                                 Description="{x:Static resources:Strings.Menu_Appearance_Description}" />
 
         <controls:OptionControl
             Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}"

@@ -769,7 +769,13 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>Perfiles</value>
   </data>
   <data name="Menu.Profiles.Description" xml:space="preserve">
-    <value>Guarda copias con nombre de los ajustes de LumiStrap y las FastFlags. Aquí también aparecen las copias automáticas previas a actualizaciones, para que puedas restaurarlas como cualquier perfil.</value>
+    <value>Guarda, aplica, importa o exporta copias de tus ajustes de LumiStrap y FastFlags personalizadas. Aquí también aparecen las copias automáticas previas a las actualizaciones.</value>
+  </data>
+  <data name="Menu.Profiles.TransferTitle" xml:space="preserve">
+    <value>Transfiere un perfil</value>
+  </data>
+  <data name="Menu.Profiles.TransferDescription" xml:space="preserve">
+    <value>Importa un perfil desde un archivo. Para exportar, selecciona uno de la lista y pulsa Exportar.</value>
   </data>
   <data name="Menu.Profiles.Name" xml:space="preserve">
     <value>Nombre del perfil</value>
@@ -785,6 +791,45 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
   </data>
   <data name="Menu.Profiles.Delete" xml:space="preserve">
     <value>Eliminar seleccionado</value>
+  </data>
+  <data name="Menu.Profiles.Import" xml:space="preserve">
+    <value>Importar perfil</value>
+  </data>
+  <data name="Menu.Profiles.Export" xml:space="preserve">
+    <value>Exportar seleccionado</value>
+  </data>
+  <data name="Menu.Profiles.ImportFilter" xml:space="preserve">
+    <value>Perfiles de LumiStrap (*.lumiprofile)|*.lumiprofile|Archivos JSON (*.json)|*.json</value>
+  </data>
+  <data name="Menu.Profiles.ExportFilter" xml:space="preserve">
+    <value>Perfil de LumiStrap (*.lumiprofile)|*.lumiprofile|Archivo JSON (*.json)|*.json</value>
+  </data>
+  <data name="Menu.Profiles.ImportPreview" xml:space="preserve">
+    <value>¿Importar "{0}" con {1} FastFlags personalizadas?
+
+Se añadirá a tus perfiles guardados y no cambiará los ajustes que usas ahora. Si ya existe un perfil con ese nombre, se añadirá un número a su nombre.</value>
+  </data>
+  <data name="Menu.Profiles.Imported" xml:space="preserve">
+    <value>Se importó el perfil "{0}". Tus ajustes actuales no cambiaron.</value>
+  </data>
+  <data name="Menu.Profiles.ImportFailed" xml:space="preserve">
+    <value>No se pudo importar el perfil: {0}</value>
+  </data>
+  <data name="Menu.Profiles.Exported" xml:space="preserve">
+    <value>Se exportó el perfil "{0}".</value>
+  </data>
+  <data name="Menu.Profiles.ExportFailed" xml:space="preserve">
+    <value>No se pudo exportar el perfil: {0}</value>
+  </data>
+  <data name="Menu.Profiles.ApplyPreview" xml:space="preserve">
+    <value>¿Aplicar "{0}"?
+
+Ajustes diferentes: {1}
+FastFlags por añadir: {2}
+FastFlags por actualizar: {3}
+FastFlags por quitar: {4}
+
+Esto reemplazará tu configuración actual. Se perderán los cambios sin guardar.</value>
   </data>
   <data name="Menu.Profiles.NameRequired" xml:space="preserve">
     <value>Escribe un nombre para el perfil.</value>
@@ -1478,6 +1523,9 @@ Revirtiendo al tema {1}.</value>
   </data>
   <data name="Menu.Home.QuickAccess" xml:space="preserve">
     <value>Accesos rápidos</value>
+  </data>
+  <data name="Menu.Home.QuickAccessDescription" xml:space="preserve">
+    <value>Tus herramientas más usadas de LumiStrap, a un clic.</value>
   </data>
   <data name="Menu.Search.Placeholder" xml:space="preserve">
     <value>Buscar ajustes: tema, idioma, Discord…</value>

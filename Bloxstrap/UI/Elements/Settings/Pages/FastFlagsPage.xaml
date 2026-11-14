@@ -13,7 +13,8 @@
       Scrollable="True"
       Loaded="Page_Loaded">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Margin="0,0,0,16" Text="{x:Static resources:Strings.Menu_FastFlags_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:LumiPageHeader PageTitle="{x:Static resources:Strings.Menu_FastFlags_Title}"
+                                 Description="{x:Static resources:Strings.Menu_FastFlags_Description}" />
 
         <ui:InfoBar Margin="0,0,0,8" Padding="8" Title="{x:Static resources:Strings.Common_Warning}"
                     Message="{x:Static resources:Strings.Menu_FastFlags_AllowlistWarning}"

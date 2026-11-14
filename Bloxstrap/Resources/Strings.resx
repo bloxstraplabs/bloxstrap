@@ -751,7 +751,13 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Profiles</value>
   </data>
   <data name="Menu.Profiles.Description" xml:space="preserve">
-    <value>Save named snapshots of LumiStrap preferences and custom Fast Flags. Automatic pre-update copies are kept here too, so you can restore them like any other profile.</value>
+    <value>Save, apply, import, or export snapshots of your LumiStrap preferences and custom Fast Flags. Automatic pre-update copies are kept here too.</value>
+  </data>
+  <data name="Menu.Profiles.TransferTitle" xml:space="preserve">
+    <value>Move a profile</value>
+  </data>
+  <data name="Menu.Profiles.TransferDescription" xml:space="preserve">
+    <value>Import a profile from a file. To export one, select it from the list and choose Export.</value>
   </data>
   <data name="Menu.Profiles.Name" xml:space="preserve">
     <value>Profile name</value>
@@ -767,6 +773,45 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Profiles.Delete" xml:space="preserve">
     <value>Delete selected</value>
+  </data>
+  <data name="Menu.Profiles.Import" xml:space="preserve">
+    <value>Import profile</value>
+  </data>
+  <data name="Menu.Profiles.Export" xml:space="preserve">
+    <value>Export selected</value>
+  </data>
+  <data name="Menu.Profiles.ImportFilter" xml:space="preserve">
+    <value>LumiStrap profiles (*.lumiprofile)|*.lumiprofile|JSON files (*.json)|*.json</value>
+  </data>
+  <data name="Menu.Profiles.ExportFilter" xml:space="preserve">
+    <value>LumiStrap profile (*.lumiprofile)|*.lumiprofile|JSON file (*.json)|*.json</value>
+  </data>
+  <data name="Menu.Profiles.ImportPreview" xml:space="preserve">
+    <value>Import "{0}" with {1} custom Fast Flags?
+
+It will be added to your saved profiles without changing the settings you are using now. If a profile with the same name already exists, a number will be added to its name.</value>
+  </data>
+  <data name="Menu.Profiles.Imported" xml:space="preserve">
+    <value>Profile "{0}" imported. Your current settings were not changed.</value>
+  </data>
+  <data name="Menu.Profiles.ImportFailed" xml:space="preserve">
+    <value>Could not import the profile: {0}</value>
+  </data>
+  <data name="Menu.Profiles.Exported" xml:space="preserve">
+    <value>Profile "{0}" exported.</value>
+  </data>
+  <data name="Menu.Profiles.ExportFailed" xml:space="preserve">
+    <value>Could not export the profile: {0}</value>
+  </data>
+  <data name="Menu.Profiles.ApplyPreview" xml:space="preserve">
+    <value>Apply "{0}"?
+
+Settings that differ: {1}
+Fast Flags to add: {2}
+Fast Flags to update: {3}
+Fast Flags to remove: {4}
+
+This replaces your current setup. Unsaved changes will be discarded.</value>
   </data>
   <data name="Menu.Profiles.NameRequired" xml:space="preserve">
     <value>Enter a name for the profile.</value>
@@ -1460,6 +1505,9 @@ Defaulting to {1}.</value>
   </data>
   <data name="Menu.Home.QuickAccess" xml:space="preserve">
     <value>Quick access</value>
+  </data>
+  <data name="Menu.Home.QuickAccessDescription" xml:space="preserve">
+    <value>Your most-used LumiStrap tools, one click away.</value>
   </data>
   <data name="Menu.Search.Placeholder" xml:space="preserve">
     <value>Find settings: theme, language, Discord…</value>

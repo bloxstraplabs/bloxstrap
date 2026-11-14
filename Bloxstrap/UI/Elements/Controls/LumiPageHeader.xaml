@@ -1,0 +1,47 @@
+<UserControl x:Class="Bloxstrap.UI.Elements.Controls.LumiPageHeader"
+             x:Name="Root"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    <Border Margin="0,0,0,18" Padding="20,16" CornerRadius="16">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#287CEB" Offset="0" />
+                <GradientStop Color="#6259DC" Offset="0.58" />
+                <GradientStop Color="#A54ED0" Offset="1" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid ClipToBounds="True">
+            <Ellipse Width="150" Height="150" Margin="0,-82,-48,0"
+                     HorizontalAlignment="Right" VerticalAlignment="Top"
+                     Fill="#45FFFFFF" Opacity="0.16" />
+            <Ellipse Width="92" Height="92" Margin="0,0,112,-68"
+                     HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                     Fill="#30C6F4FF" Opacity="0.15" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="62" Height="62" Margin="0,0,16,0"
+                        Padding="5" CornerRadius="15" Background="#28FFFFFF"
+                        BorderBrush="#55FFFFFF" BorderThickness="1" VerticalAlignment="Center">
+                    <Image Source="pack://application:,,,/Resources/LumiStrapAppLogo.png"
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                           SnapsToDevicePixels="True" UseLayoutRounding="True"
+                           AutomationProperties.Name="LumiStrap" />
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="LUMISTRAP  ·  ROBLOX"
+                               FontSize="10" FontWeight="Bold" Foreground="#E4E5FF" />
+                    <TextBlock Text="{Binding PageTitle, ElementName=Root}"
+                               Margin="0,3,0,0" FontSize="23" FontWeight="SemiBold"
+                               Foreground="White" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding Description, ElementName=Root}"
+                               Margin="0,4,0,0" FontSize="12" Foreground="#F1ECFF"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

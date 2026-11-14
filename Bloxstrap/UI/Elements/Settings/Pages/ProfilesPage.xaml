@@ -11,92 +11,196 @@
       d:DesignHeight="800" d:DesignWidth="800"
       Title="ProfilesPage"
       Scrollable="True">
-    <StackPanel Margin="0,0,14,14">
-        <Border Margin="0,0,0,16" Padding="18" CornerRadius="12">
+    <StackPanel Margin="0,0,14,16">
+        <Border Margin="0,0,0,18" Padding="22,20" CornerRadius="16">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#3384EE" Offset="0" />
-                    <GradientStop Color="#715EE2" Offset="0.58" />
-                    <GradientStop Color="#AE5BDA" Offset="1" />
+                    <GradientStop Color="#287CEB" Offset="0" />
+                    <GradientStop Color="#6259DC" Offset="0.58" />
+                    <GradientStop Color="#A54ED0" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Image Width="56" Height="56" Margin="0,0,14,0"
-                       Source="pack://application:,,,/Resources/LumiStrapAppLogo.png"
-                       RenderOptions.BitmapScalingMode="HighQuality"
-                       SnapsToDevicePixels="True"
-                       UseLayoutRounding="True" />
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="LumiStrap" FontSize="24" FontWeight="SemiBold" Foreground="White" />
-                    <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Title}" FontSize="13" Foreground="#F1ECFF" />
-                </StackPanel>
-            </StackPanel>
+            <Grid ClipToBounds="True">
+                <Ellipse Width="150" Height="150" Margin="0,-82,-45,0"
+                         HorizontalAlignment="Right" VerticalAlignment="Top"
+                         Fill="#45FFFFFF" Opacity="0.16" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Width="64" Height="64" Margin="0,0,16,0"
+                            Padding="5" CornerRadius="15" Background="#28FFFFFF"
+                            BorderBrush="#55FFFFFF" BorderThickness="1" VerticalAlignment="Center">
+                        <Image Source="pack://application:,,,/Resources/LumiStrapAppLogo.png"
+                               RenderOptions.BitmapScalingMode="HighQuality"
+                               SnapsToDevicePixels="True" UseLayoutRounding="True"
+                               AutomationProperties.Name="LumiStrap" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="LUMISTRAP  ·  PERFILES"
+                                   FontSize="11" FontWeight="Bold" Foreground="#E4E5FF" />
+                        <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Title}"
+                                   Margin="0,3,0,0" FontSize="25" FontWeight="SemiBold" Foreground="White" />
+                        <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Description}"
+                                   Margin="0,4,0,0" FontSize="13" Foreground="#F1ECFF"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
 
-        <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Description}"
-                   FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                   TextWrapping="Wrap" Margin="0,0,0,14" />
+        <Grid Margin="0,0,0,18">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ui:Card Grid.Column="0" Margin="0,0,7,0" Padding="15"
+                     AutomationProperties.Name="{x:Static resources:Strings.Menu_Profiles_Save}">
+                <StackPanel>
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Save}"
+                               FontSize="15" FontWeight="SemiBold" />
+                    <Grid Margin="0,11,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ui:TextBox Grid.Column="0" Height="38" VerticalContentAlignment="Center"
+                                    PlaceholderText="{x:Static resources:Strings.Menu_Profiles_Name}"
+                                    Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}"
+                                    ToolTip="{x:Static resources:Strings.Menu_Profiles_Name}"
+                                    AutomationProperties.Name="{x:Static resources:Strings.Menu_Profiles_Name}" />
+                        <ui:Button Grid.Column="1" Margin="8,0,0,0" MinWidth="108" Appearance="Primary"
+                                   Content="{x:Static resources:Strings.Menu_Profiles_Save}"
+                                   Command="{Binding SaveProfileCommand}" />
+                    </Grid>
+                </StackPanel>
+            </ui:Card>
 
-        <ui:Card Margin="0,0,0,16" Padding="16"
-                 AutomationProperties.Name="{x:Static resources:Strings.Menu_Profiles_Save}">
-            <StackPanel>
-                <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Save}" FontSize="16" FontWeight="Medium" />
-                <Grid Margin="0,10,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ui:TextBox Grid.Column="0" Height="38" VerticalContentAlignment="Center"
-                                PlaceholderText="{x:Static resources:Strings.Menu_Profiles_Name}"
-                                Text="{Binding ProfileName, UpdateSourceTrigger=PropertyChanged}"
-                                ToolTip="{x:Static resources:Strings.Menu_Profiles_Name}"
-                                AutomationProperties.Name="{x:Static resources:Strings.Menu_Profiles_Name}" />
-                    <ui:Button Grid.Column="1" Margin="8,0,0,0" MinWidth="120" Appearance="Primary"
-                               Content="{x:Static resources:Strings.Menu_Profiles_Save}"
-                               Command="{Binding SaveProfileCommand}" />
-                </Grid>
-            </StackPanel>
-        </ui:Card>
+            <ui:Card Grid.Column="1" Margin="7,0,0,0" Padding="15">
+                <StackPanel>
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_TransferTitle}"
+                               FontSize="15" FontWeight="SemiBold" />
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_TransferDescription}"
+                               Margin="0,4,0,8" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="{x:Static resources:Strings.Menu_Profiles_Import}"
+                                   Icon="ArrowImport20" Margin="0,0,8,0"
+                                   Command="{Binding ImportProfileCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </ui:Card>
+        </Grid>
 
-        <Grid Margin="0,0,0,8">
-            <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_SavedProfiles}" FontSize="18"
-                       FontWeight="Medium" VerticalAlignment="Center" />
+        <Grid Margin="0,0,0,9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border Width="4" Height="22" Margin="0,0,10,0" CornerRadius="2" VerticalAlignment="Center">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#49A9FF" Offset="0" />
+                        <GradientStop Color="#A15DE2" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <TextBlock Grid.Column="1" Text="{x:Static resources:Strings.Menu_Profiles_SavedProfiles}"
+                       FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" />
+            <Border Grid.Column="2" Padding="9,3" CornerRadius="9"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                <TextBlock Text="{Binding Profiles.Count}" FontSize="12" FontWeight="SemiBold"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            </Border>
         </Grid>
 
         <ui:Card Padding="12">
-            <Grid MinHeight="230">
+            <Grid MinHeight="242">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <ListBox Grid.Column="0" ItemsSource="{Binding Profiles}"
                          SelectedItem="{Binding SelectedProfile, Mode=TwoWay}"
-                         MinHeight="230"
+                         MinHeight="242" BorderThickness="0" Background="Transparent"
                          AutomationProperties.Name="{x:Static resources:Strings.Menu_Profiles_SavedProfiles}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Border Padding="10,8" CornerRadius="6">
-                                <TextBlock Text="{Binding Name}" FontSize="14" VerticalAlignment="Center" />
+                            <Border Padding="11,9" Margin="0,2" CornerRadius="8">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
+                                                <Setter Property="Background" Value="#244A8DE8" />
+                                                <Setter Property="BorderBrush" Value="#596C9DE8" />
+                                                <Setter Property="BorderThickness" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Width="34" Height="34" Margin="0,0,11,0"
+                                            CornerRadius="10" Background="#203F91E8" VerticalAlignment="Center">
+                                        <ui:SymbolIcon Symbol="Folder24" Foreground="#80B9FF"
+                                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold"
+                                                   TextTrimming="CharacterEllipsis" />
+                                        <TextBlock Text="{Binding CreatedAtUtc, StringFormat='{}{0:g}'}"
+                                                   Margin="0,2,0,0" FontSize="11"
+                                                   Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                                    </StackPanel>
+                                    <ui:SymbolIcon Grid.Column="2" Symbol="CheckmarkCircle20" Foreground="#7FDDB9"
+                                                   Margin="10,0,2,0" VerticalAlignment="Center">
+                                        <ui:SymbolIcon.Style>
+                                            <Style TargetType="ui:SymbolIcon">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ui:SymbolIcon.Style>
+                                    </ui:SymbolIcon>
+                                </Grid>
                             </Border>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Top">
-                    <ui:Button MinWidth="140" Content="{x:Static resources:Strings.Menu_Profiles_Apply}"
+
+                <StackPanel Grid.Column="1" Margin="13,0,0,0" VerticalAlignment="Top">
+                    <ui:Button MinWidth="132" Appearance="Primary"
+                               Content="{x:Static resources:Strings.Menu_Profiles_Apply}"
                                IsEnabled="{Binding IsProfileSelected}"
                                Command="{Binding ApplyProfileCommand}"
                                ToolTip="{x:Static resources:Strings.Menu_Profiles_Apply}" />
-                    <ui:Button MinWidth="140" Margin="0,8,0,0" Content="{x:Static resources:Strings.Menu_Profiles_Delete}"
+                    <ui:Button MinWidth="132" Margin="0,8,0,0"
+                               Content="{x:Static resources:Strings.Menu_Profiles_Export}"
+                               IsEnabled="{Binding IsProfileSelected}"
+                               Command="{Binding ExportProfileCommand}"
+                               ToolTip="{x:Static resources:Strings.Menu_Profiles_Export}" />
+                    <ui:Button MinWidth="132" Margin="0,8,0,0"
+                               Content="{x:Static resources:Strings.Menu_Profiles_Delete}"
                                IsEnabled="{Binding IsProfileSelected}"
                                Command="{Binding DeleteProfileCommand}"
                                ToolTip="{x:Static resources:Strings.Menu_Profiles_Delete}" />
                 </StackPanel>
-                <TextBlock Grid.Column="0" Text="{x:Static resources:Strings.Menu_Profiles_Empty}"
-                           HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300"
-                           TextAlignment="Center" TextWrapping="Wrap"
-                           Foreground="{DynamicResource TextFillColorTertiaryBrush}">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            MaxWidth="320" IsHitTestVisible="False">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
                             <Setter Property="Visibility" Value="Collapsed" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Profiles.Count}" Value="0">
@@ -104,8 +208,13 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </TextBlock.Style>
-                </TextBlock>
+                    </StackPanel.Style>
+                    <ui:SymbolIcon Symbol="FolderOpen24" Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                                   HorizontalAlignment="Center" FontSize="26" />
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Profiles_Empty}"
+                               Margin="0,8,0,0" TextAlignment="Center" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                </StackPanel>
             </Grid>
         </ui:Card>
     </StackPanel>

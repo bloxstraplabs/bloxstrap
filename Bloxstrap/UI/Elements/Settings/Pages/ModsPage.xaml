@@ -14,7 +14,8 @@
       Title="ModsPage"
       Scrollable="True">
     <StackPanel Margin="0,0,14,14">
-        <TextBlock Text="{x:Static resources:Strings.Menu_Mods_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+        <controls:LumiPageHeader PageTitle="{x:Static resources:Strings.Menu_Mods_Title}"
+                                 Description="{x:Static resources:Strings.Menu_Mods_Description}" />
 
         <Grid Margin="0,16,0,0">
             <Grid.RowDefinitions>

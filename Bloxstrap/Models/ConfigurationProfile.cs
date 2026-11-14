@@ -2,6 +2,8 @@ namespace Bloxstrap.Models
 {
     public sealed class ConfigurationProfile
     {
+        public int FormatVersion { get; set; } = 1;
+
         public string Name { get; set; } = String.Empty;
 
         public DateTime CreatedAtUtc { get; set; }

@@ -8,8 +8,8 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>LumiStrap.ico</ApplicationIcon>
-    <Version>0.1.3</Version>
-    <FileVersion>0.1.3</FileVersion>
+    <Version>0.1.4</Version>
+    <FileVersion>0.1.4</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
