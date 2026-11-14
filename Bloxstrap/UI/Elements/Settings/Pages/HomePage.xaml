@@ -1,0 +1,111 @@
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      mc:Ignorable="d"
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="HomePage"
+      Scrollable="True">
+    <StackPanel Margin="0,0,14,16">
+        <Border Margin="0,0,0,20" Padding="24" CornerRadius="14">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#287CEB" Offset="0" />
+                    <GradientStop Color="#6759D9" Offset="0.58" />
+                    <GradientStop Color="#A54ED0" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Width="76" Height="76" Margin="0,0,20,0"
+                       Source="pack://application:,,,/Resources/LumiStrapAppLogo.png"
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       SnapsToDevicePixels="True" UseLayoutRounding="True"
+                       AutomationProperties.Name="LumiStrap" />
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Home_Title}"
+                               FontSize="25" FontWeight="SemiBold" Foreground="White"
+                               TextWrapping="Wrap" />
+                    <TextBlock Text="{x:Static resources:Strings.Menu_Home_Description}"
+                               Margin="0,5,0,0" FontSize="14" Foreground="#F1ECFF"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TextBlock Text="{x:Static resources:Strings.Menu_Home_QuickAccess}"
+                   FontSize="20" FontWeight="Medium" Margin="0,0,0,10" />
+
+        <UniformGrid Columns="2">
+            <ui:CardAction Margin="0,0,8,8" Icon="Add28" Tag="integrations"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="0">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_Integrations_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_Integrations_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="8,0,0,8" Icon="PlaySettings20" Tag="bootstrapper"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="1">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_Behaviour_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_Behaviour_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="0,0,8,8" Icon="Flag24" Tag="fastflags"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="2">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_FastFlags_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_FastFlags_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="8,0,0,8" Icon="PaintBrush24" Tag="appearance"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="3">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_Appearance_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_Appearance_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="0,0,8,8" Icon="Folder24" Tag="profiles"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="4">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_Profiles_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_Profiles_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="8,0,0,8" Icon="Apps28" Tag="shortcuts"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="5">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Common_Shortcuts}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_Shortcuts_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+            <ui:CardAction Margin="0,0,8,8" Icon="WrenchScrewdriver20" Tag="lumistrap"
+                           Click="NavigateToSection" KeyboardNavigation.TabIndex="6">
+                <StackPanel>
+                    <TextBlock FontSize="14" FontWeight="Medium" Text="{x:Static resources:Strings.Menu_LumiFix_Title}" />
+                    <TextBlock Margin="0,4,0,0" FontSize="12" TextWrapping="Wrap"
+                               Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                               Text="{x:Static resources:Strings.Menu_LumiFix_Description}" />
+                </StackPanel>
+            </ui:CardAction>
+        </UniformGrid>
+    </StackPanel>
+</ui:UiPage>

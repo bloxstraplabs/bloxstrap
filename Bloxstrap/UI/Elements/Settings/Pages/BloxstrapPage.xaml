@@ -17,13 +17,36 @@
     <StackPanel Margin="0,0,14,14">
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_Bloxstrap_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
+        <ui:Card Margin="0,0,0,12" Padding="16">
+            <StackPanel>
+                <TextBlock Text="{x:Static resources:Strings.Menu_LumiFix_Title}" FontSize="18" FontWeight="Medium" />
+                <TextBlock Margin="0,5,0,12" Text="{x:Static resources:Strings.Menu_LumiFix_Description}"
+                           FontSize="13" Foreground="{DynamicResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                <TextBlock Text="{Binding LumiFixStatus}" FontSize="13" TextWrapping="Wrap"
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" AutomationProperties.LiveSetting="Polite" />
+                <WrapPanel Margin="0,12,0,0">
+                    <ui:Button Content="{x:Static resources:Strings.Menu_LumiFix_Check}"
+                               Command="{Binding CheckPlayerInstallationCommand}"
+                               IsEnabled="{Binding IsMaintenanceActionEnabled}" />
+                    <ui:Button Margin="8,0,0,0" Content="{x:Static resources:Strings.Menu_LumiFix_Repair}"
+                               Command="{Binding RepairPlayerInstallationCommand}"
+                               IsEnabled="{Binding IsMaintenanceActionEnabled}" />
+                    <ui:Button Margin="8,0,0,0" Content="{x:Static resources:Strings.Menu_LumiFix_ClearCache}"
+                               Command="{Binding ClearDownloadCacheCommand}"
+                               IsEnabled="{Binding IsMaintenanceActionEnabled}" />
+                </WrapPanel>
+            </StackPanel>
+        </ui:Card>
+
         <controls:OptionControl 
+            Visibility="{Binding UpdateCheckingVisibility}"
             Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Visibility="{Binding AnalyticsVisibility}"
             Header="{x:Static resources:Strings.Menu_Bloxstrap_Analytics_Title}"
             Description="{Binding Source={x:Static resources:Strings.Menu_Bloxstrap_Analytics_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://bloxstraplabs.com/wiki/info/privacy-policy/'}">
             <ui:ToggleSwitch IsChecked="{Binding AnalyticsEnabled, Mode=TwoWay}" />

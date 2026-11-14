@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap no ha podido actualizarse automáticamente a la versión {0}. Por favor, actualícelo manualmente descargándolo y ejecutándolo desde el sitio web.</value>
+    <value>LumiStrap no ha podido actualizarse automáticamente a la versión {0}. Por favor, actualícelo manualmente descargándolo y ejecutándolo desde el sitio web.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox está en ejecución, e iniciar otra instancia lo cerrará. ¿Estás seguro qué deseas continuar?</value>
@@ -127,13 +127,13 @@
     <value>Roblox puede estar caído en este momento. Consulta {0} para obtener más información.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>No se pudo establecer la conexión, lo que probablemente indica una mala conexión a internet o un bloqueo de cortafuegos. Si tu conexión está bien, por favor asegúrate de que tu antivirus no esté bloqueando a Bloxstrap.</value>
+    <value>No se pudo establecer la conexión, lo que probablemente indica una mala conexión a internet o un bloqueo de cortafuegos. Si tu conexión está bien, por favor asegúrate de que tu antivirus no esté bloqueando a LumiStrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Debes instalar Bloxstrap primero antes de desinstalarlo.</value>
+    <value>Debes instalar LumiStrap primero antes de desinstalarlo.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap no tiene espacio suficiente para descargar e instalar Roblox. Por favor, libera algo de espacio en el disco e intenta de nuevo.</value>
+    <value>LumiStrap no tiene espacio suficiente para descargar e instalar Roblox. Por favor, libera algo de espacio en el disco e intenta de nuevo.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Aplicando las modificaciones de Roblox...</value>
@@ -158,7 +158,7 @@
     <value>Actualizando {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Obteniendo la versión más reciente de Bloxstrap...</value>
+    <value>Obteniendo la versión más reciente de LumiStrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Esperando a otras instancias...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap se ha desinstalado exitosamente</value>
+    <value>LumiStrap se ha desinstalado exitosamente</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox se está ejecutando, pero debe ser cerrado antes de desinstalar Bloxstrap. ¿Quieres cerrar Roblox?</value>
+    <value>Roblox se está ejecutando, pero debe ser cerrado antes de desinstalar LumiStrap. ¿Quieres cerrar Roblox?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requiere el uso de los componentes Windows Media Foundation. Parece que no los tienes, probablemente porque estás usando una edición N de Windows. Por favor, instálalos primero, y entonces inicia Roblox.</value>
@@ -201,11 +201,17 @@
   <data name="Common.Help" xml:space="preserve">
     <value>Ayuda</value>
   </data>
+  <data name="Common.HighestQuality" xml:space="preserve">
+    <value>Máxima</value>
+  </data>
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Importar JSON</value>
   </data>
   <data name="Common.OpenLogFile" xml:space="preserve">
     <value>Abrir archivo de registro</value>
+  </data>
+  <data name="Common.LowestQuality" xml:space="preserve">
+    <value>Mínima</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Misceláneos</value>
@@ -279,7 +285,7 @@ Haga clic para más información</value>
     <value>Error de conexión</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap es incapaz de conectarse a {0}</value>
+    <value>LumiStrap es incapaz de conectarse a {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +300,7 @@ Haga clic para más información</value>
 Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub]({1}) junto con tu archivo de registro.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Excepción de Bloxstrap</value>
+    <value>Excepción de LumiStrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Personalizado</value>
@@ -309,10 +315,10 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Byfron Falso (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Clásico)</value>
+    <value>LumiStrap (Clásico)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Cristal)</value>
+    <value>LumiStrap (Cristal)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Clásico (2008 - 2011)</value>
@@ -378,10 +384,10 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Claro</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap ha actualizado a la versión {0}</value>
+    <value>LumiStrap ha actualizado a la versión {0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>La versión de Bloxstrap que has iniciado es diferente a la versión que tienes instalada.
+    <value>La versión de LumiStrap que has iniciado es diferente a la versión que tienes instalada.
 ¿Quieres actualizar tu versión instalada?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -437,7 +443,7 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Por favor, ten en cuenta que no todos tus cambios se aplicaran inmediatamente hasta que cierres todas las instancias de Roblox abiertas.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap ya está en ejecución</value>
+    <value>LumiStrap ya está en ejecución</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Puedes hacer que se vea diferente, retro, o incluso tal cual como Roblox.</value>
@@ -464,7 +470,7 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Título</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configura como Bloxstrap debería verse.</value>
+    <value>Configura como LumiStrap debería verse.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Tema global</value>
@@ -488,10 +494,10 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Apariencia</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap se comprobará y actualizará automáticamente al iniciar Roblox.</value>
+    <value>LumiStrap se comprobará y actualizará automáticamente al iniciar Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Actualizar Bloxstrap automáticamente</value>
+    <value>Actualizar LumiStrap automáticamente</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Previene que tu juego se cierre por lanzar uno nuevo.</value>
@@ -500,7 +506,7 @@ Si no lo está, por favor reporte esta excepción mediante un [issue en GitHub](
     <value>Confirmar nueva instancia</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configura lo que Bloxstrap debe hacer al iniciar Roblox.</value>
+    <value>Configura lo que LumiStrap debe hacer al iniciar Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox se instalará limpiamente en la siguiente ejecución.</value>
@@ -602,10 +608,10 @@ Más Información:
     <value>Archivos de icono</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap no se puede instalar aquí. Elija una ubicación diferente o recurra a la ubicación predeterminada haciendo clic en el botón Restablecer.</value>
+    <value>LumiStrap no se puede instalar aquí. Elija una ubicación diferente o recurra a la ubicación predeterminada haciendo clic en el botón Restablecer.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>La carpeta que elegiste para instalar Bloxstrap ya existe y NO esta vacía. Es muy recomendable instalar Bloxstrap en una carpeta independiente.
+    <value>La carpeta que elegiste para instalar LumiStrap ya existe y NO esta vacía. Es muy recomendable instalar LumiStrap en una carpeta independiente.
 
 Se te sugiera cambiar a la siguiente ubicación:
 {0}
@@ -618,7 +624,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>Debes elegir una ubicación de instalación</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap no tiene permisos de escritura en la ubicación que seleccionaste. Por favor elija una ubicación diferente.</value>
+    <value>LumiStrap no tiene permisos de escritura en la ubicación que seleccionaste. Por favor elija una ubicación diferente.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Seguimiento de actividad</value>
@@ -669,7 +675,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>No salir a la aplicación de escritorio</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Permite a Bloxstrap detectar que juegos de Roblox estás jugando. Algunas características requieren esto.</value>
+    <value>Permite a LumiStrap detectar que juegos de Roblox estás jugando. Algunas características requieren esto.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Habilitar seguimiento de actividad</value>
@@ -757,7 +763,61 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>¡Ajustes guardados!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Ajustes de Bloxstrap</value>
+    <value>Ajustes de LumiStrap</value>
+  </data>
+  <data name="Menu.Profiles.Title" xml:space="preserve">
+    <value>Perfiles</value>
+  </data>
+  <data name="Menu.Profiles.Description" xml:space="preserve">
+    <value>Guarda copias con nombre de los ajustes de LumiStrap y las FastFlags. Aquí también aparecen las copias automáticas previas a actualizaciones, para que puedas restaurarlas como cualquier perfil.</value>
+  </data>
+  <data name="Menu.Profiles.Name" xml:space="preserve">
+    <value>Nombre del perfil</value>
+  </data>
+  <data name="Menu.Profiles.Save" xml:space="preserve">
+    <value>Guardar ajustes actuales</value>
+  </data>
+  <data name="Menu.Profiles.SavedProfiles" xml:space="preserve">
+    <value>Perfiles guardados</value>
+  </data>
+  <data name="Menu.Profiles.Apply" xml:space="preserve">
+    <value>Aplicar seleccionado</value>
+  </data>
+  <data name="Menu.Profiles.Delete" xml:space="preserve">
+    <value>Eliminar seleccionado</value>
+  </data>
+  <data name="Menu.Profiles.NameRequired" xml:space="preserve">
+    <value>Escribe un nombre para el perfil.</value>
+  </data>
+  <data name="Menu.Profiles.DuplicateName" xml:space="preserve">
+    <value>Ya existe un perfil con ese nombre.</value>
+  </data>
+  <data name="Menu.Profiles.Saved" xml:space="preserve">
+    <value>Se guardó el perfil "{0}".</value>
+  </data>
+  <data name="Menu.Profiles.SaveFailed" xml:space="preserve">
+    <value>No se pudo guardar el perfil: {0}</value>
+  </data>
+  <data name="Menu.Profiles.ApplyPrompt" xml:space="preserve">
+    <value>Aplicar "{0}" reemplazará los ajustes actuales de LumiStrap y las Fast Flags. Se perderán los cambios sin guardar. ¿Continuar?</value>
+  </data>
+  <data name="Menu.Profiles.Applied" xml:space="preserve">
+    <value>Se aplicó el perfil "{0}". Vuelve a abrir la ventana de ajustes para actualizar todos los controles.</value>
+  </data>
+  <data name="Menu.Profiles.ApplyFailed" xml:space="preserve">
+    <value>No se pudo aplicar el perfil: {0}</value>
+  </data>
+  <data name="Menu.Profiles.DeletePrompt" xml:space="preserve">
+    <value>¿Eliminar el perfil "{0}"? Solo se borrará el perfil guardado; tus ajustes aplicados no cambiarán. Esta acción no se puede deshacer.</value>
+  </data>
+  <data name="Menu.Profiles.DeleteFailed" xml:space="preserve">
+    <value>No se pudo eliminar el perfil: {0}</value>
+  </data>
+  <data name="Dialog.Exception.Info.2.LumiStrap" xml:space="preserve">
+    <value>LumiStrap sigue en preparación. Guarda este registro y compártelo con quien mantenga el proyecto cuando haya una página de soporte.</value>
+  </data>
+  <data name="Installer.Welcome.LumiStrap" xml:space="preserve">
+    <value>Gracias por elegir LumiStrap, un fork comunitario basado en Bloxstrap. La instalación será rápida y sencilla. Después podrás configurar LumiStrap. Sus ajustes y archivos se guardan por separado de Bloxstrap.</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Elija su idioma preferido</value>
@@ -778,7 +838,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>Renderizado y gráficos</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Permitir que Bloxstrap gestione las Fast Flags</value>
+    <value>Permitir que LumiStrap gestione las Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Deshabilitar esto evitará que cualquier cosa configurada aquí se aplique a Roblox.</value>
@@ -802,7 +862,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>Nivel 3 (El más alto)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap no es capaz de descargar Roblox</value>
+    <value>LumiStrap no es capaz de descargar Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox no puede descargarse en este momento. Por favor, lee la siguiente página de ayuda para más información: {0}</value>
@@ -823,7 +883,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>La entrada para «{0}» no es válida, ya que el valor debe ser un número entero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>No se escribirá ningún archivo de registro para este lanzamiento porque Bloxstrap no puede escribir en la carpeta '{0}'</value>
+    <value>No se escribirá ningún archivo de registro para este lanzamiento porque LumiStrap no puede escribir en la carpeta '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Por defecto</value>
@@ -838,7 +898,7 @@ Seleccionar "No" va a ignorar esta advertencia y continuara con la instalación.
     <value>La entrada para '{0}' no es válida, ya que el filtro de lugar no está formateado correctamente.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Instalador de Bloxstrap</value>
+    <value>Instalador de LumiStrap</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Bienvenido</value>
@@ -868,7 +928,7 @@ Este proceso de instalación será simple y rápido, y podrá configurar los aju
     <value>Haga clic en "Siguiente" para continuar.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Está intentando instalar la versión {0} de Bloxstrap, pero la última versión disponible es {1}. ¿Desea descargarla?</value>
+    <value>Está intentando instalar la versión {0} de LumiStrap, pero la última versión disponible es {1}. ¿Desea descargarla?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Elija a dónde instalar</value>
@@ -889,16 +949,16 @@ Este proceso de instalación será simple y rápido, y podrá configurar los aju
     <value>Icono del menú de inicio</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap se ha instalado correctamente.
+    <value>LumiStrap se ha instalado correctamente.
 
-Roblox aún no se ha instalado, eso ocurrirá cuando lo inicies con Bloxstrap por primera vez. Sin embargo, antes de hacer eso, es posible que desees configurar primero los ajustes de Bloxstrap.
+Roblox aún no se ha instalado, eso ocurrirá cuando lo inicies con LumiStrap por primera vez. Sin embargo, antes de hacer eso, es posible que desees configurar primero los ajustes de LumiStrap.
 
-Además, evita utilizar el acceso directo «Roblox Player» para iniciar Roblox, ya que Bloxstrap no se iniciará con Roblox. Si no ves Bloxstrap al iniciar desde el sitio web, simplemente inicia Roblox con Bloxstrap una vez desde el escritorio para solucionarlo.
+Además, evita utilizar el acceso directo «Roblox Player» para iniciar Roblox, ya que LumiStrap no se iniciará con Roblox. Si no ves LumiStrap al iniciar desde el sitio web, simplemente inicia Roblox con LumiStrap una vez desde el escritorio para solucionarlo.
 
 ¿Qué te gustaría hacer?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configurar los ajustes de Bloxstrap</value>
+    <value>Configurar los ajustes de LumiStrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Ajústelo con todas las características que tiene para ofrecer</value>
@@ -910,20 +970,20 @@ Además, evita utilizar el acceso directo «Roblox Player» para iniciar Roblox,
     <value>Te dejará en la aplicación de escritorio una vez que todo esté hecho</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Desinstalar Bloxstrap</value>
+    <value>Desinstalar LumiStrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>La desinstalación eliminará Bloxstrap de tu sistema y reconfigurará automáticamente el lanzador predeterminado de Roblox si aún está instalado.
+    <value>La desinstalación eliminará LumiStrap de tu sistema y reconfigurará automáticamente el lanzador predeterminado de Roblox si aún está instalado.
 
-El proceso de desinstalación puede dejar algunos restos, por lo que quizá debas limpiar manualmente los archivos que permanezcan en la ubicación donde se instaló Bloxstrap.
+El proceso de desinstalación puede dejar algunos restos, por lo que quizá debas limpiar manualmente los archivos que permanezcan en la ubicación donde se instaló LumiStrap.
 
-Bloxstrap se instaló en «{1}».</value>
+LumiStrap se instaló en «{1}».</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Mantener mis ajustes y mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Se guardarán donde se instaló Bloxstrap, y se restaurarán automáticamente en una reinstalación.</value>
+    <value>Se guardarán donde se instaló LumiStrap, y se restaurarán automáticamente en una reinstalación.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Desinstalar</value>
@@ -944,7 +1004,7 @@ Bloxstrap se instaló en «{1}».</value>
     <value>Actualmente no tienes instalado el runtime WebView2. Algunas funciones de Roblox no funcionarán correctamente sin él, como la aplicación de escritorio. ¿Te gustaría descargarlo ahora?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap no ha podido crear accesos directos para el Escritorio y el menú de Inicio. Intente crearlos más tarde a través de la configuración.</value>
+    <value>LumiStrap no ha podido crear accesos directos para el Escritorio y el menú de Inicio. Intente crearlos más tarde a través de la configuración.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Comprueba primero la [wiki de Bloxstrap]({0}) para ver si este problema ya ha sido tratado y tiene una solución.
@@ -956,7 +1016,7 @@ Si no es así, informa de esta excepción a los mantenedores de este fork. No lo
     <value>Estos son accesos directos generales que abren un menú de inicio con varias opciones. Los accesos directos para funciones específicas pueden crearse posteriormente en los ajustes.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configurar cómo Bloxstrap puede ser lanzado fácilmente.</value>
+    <value>Configurar cómo LumiStrap puede ser lanzado fácilmente.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>General</value>
@@ -986,7 +1046,7 @@ Si no es así, informa de esta excepción a los mantenedores de este fork. No lo
     <value>Por favor, espere a que la desinstalación termine.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Acerca de Bloxstrap</value>
+    <value>Acerca de LumiStrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licencias</value>
@@ -999,14 +1059,14 @@ Si no es así, informa de esta excepción a los mantenedores de este fork. No lo
     <value>Tiene cambios sin guardar ¿Estás seguro de que quieres cerrar sin guardar?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>La versión de Bloxstrap que has lanzado es anterior a la versión que tienes instalada actualmente.
+    <value>La versión de LumiStrap que has lanzado es anterior a la versión que tienes instalada actualmente.
 Pueden producirse problemas y su configuración puede verse alterada. Se recomienda una reinstalación.
 ¿Está seguro de que desea continuar?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox falló al iniciar.
 
-Esto puede o no ser un problema de Bloxstrap. Para averiguarlo, consulta [esta página de ayuda]({0}).</value>
+Esto puede o no ser un problema de LumiStrap. Para averiguarlo, consulta [esta página de ayuda]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>No se pudieron cargar los datos debido a un error de red.</value>
@@ -1049,12 +1109,12 @@ Cada persona aquí está clasificada por su aportación general.</value>
     <value>Para este lanzamiento, no se comprobarán las actualizaciones de Roblox ni se aplicarán los cambios a los mods.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Debido a que Roblox necesita ser instalado o actualizado, Bloxstrap no puede continuar.</value>
+    <value>Debido a que Roblox necesita ser instalado o actualizado, LumiStrap no puede continuar.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap ha sido instalado en esta ubicación anteriormente y todavía está presente, sin embargo el instalador no puede sobrescribir el antiguo ejecutable. 
+    <value>LumiStrap ha sido instalado en esta ubicación anteriormente y todavía está presente, sin embargo el instalador no puede sobrescribir el antiguo ejecutable.
 
-Elimine manualmente Bloxstrap.exe de la ubicación de instalación o reinicie el sistema y vuelva a intentar la instalación.</value>
+Elimine manualmente LumiStrap.exe de la ubicación de instalación o reinicie el sistema y vuelva a intentar la instalación.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>No disponible</value>
@@ -1066,7 +1126,7 @@ Elimine manualmente Bloxstrap.exe de la ubicación de instalación o reinicie el
     <value>Configurar parámetros de la aplicación como el comportamiento de escalado DPI o las [optimizaciones a pantalla completa]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox aún no ha sido instalado. Por favor inicia Roblox utilizando Bloxstrap al menos una vez antes de intentar utilizar esta opción.</value>
+    <value>Roblox aún no ha sido instalado. Por favor inicia Roblox utilizando LumiStrap al menos una vez antes de intentar utilizar esta opción.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>¿Está seguro de que desea cancelar la instalación?</value>
@@ -1084,10 +1144,10 @@ Elimine manualmente Bloxstrap.exe de la ubicación de instalación o reinicie el
     <value>Extraer los iconos de Roblox a una carpeta</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Te permite usar una variedad de iconos de Roblox que te proporciona Bloxstrap. [Ver cómo.]({0})</value>
+    <value>Te permite usar una variedad de iconos de Roblox que te proporciona LumiStrap. [Ver cómo.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap no puede escribir en el registro de Windows. Es probable que un antivirus esté interfiriendo y causando problemas. Por favor, compruebe que no hay nada que pueda restringir el funcionamiento de Bloxstrap.</value>
+    <value>LumiStrap no puede escribir en el registro de Windows. Es probable que un antivirus esté interfiriendo y causando problemas. Por favor, compruebe que no hay nada que pueda restringir el funcionamiento de LumiStrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mensualmente</value>
@@ -1096,7 +1156,7 @@ Elimine manualmente Bloxstrap.exe de la ubicación de instalación o reinicie el
     <value>Una sola vez</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configurar opciones relacionadas con el propio comportamiento de Bloxstrap.</value>
+    <value>Configurar opciones relacionadas con el propio comportamiento de LumiStrap.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Habilitar el envío de analíticas</value>
@@ -1145,7 +1205,7 @@ Mientras esté activado, se iniciará automáticamente Roblox después de cerrar
     <value>Personalizado</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap ha intentado actualizar Roblox pero no pudo porque los archivos de Roblox están en uso.
+    <value>LumiStrap ha intentado actualizar Roblox pero no pudo porque los archivos de Roblox están en uso.
 
 Por favor cierre las aplicaciones que estén usando los archivos de Roblox, y vuelve a iniciar.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1165,11 +1225,11 @@ Por favor cierre las aplicaciones que estén usando los archivos de Roblox, y vu
     <value>Reúne información que pueda ser subida a internet para arreglar el problema que tengas.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Configuración de Bloxstrap</value>
+    <value>Configuración de LumiStrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Todos los registros de Bloxstrap</value>
+    <value>Todos los registros de LumiStrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
@@ -1406,5 +1466,248 @@ Revirtiendo al tema {1}.</value>
   </data>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
     <value>Debido a la [actualización de la lista de Fast Flags permitidos]({0}), la mayoría de las Fast Flags personalizadas no tendrán efecto en el cliente de Roblox.</value>
+  </data>
+  <data name="Menu.Home.Title" xml:space="preserve">
+    <value>Bienvenido a LumiStrap</value>
+  </data>
+  <data name="Menu.Home.NavTitle" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Menu.Home.Description" xml:space="preserve">
+    <value>Elige una sección para personalizar tu experiencia de Roblox.</value>
+  </data>
+  <data name="Menu.Home.QuickAccess" xml:space="preserve">
+    <value>Accesos rápidos</value>
+  </data>
+  <data name="Menu.Search.Placeholder" xml:space="preserve">
+    <value>Buscar ajustes: tema, idioma, Discord…</value>
+  </data>
+  <data name="Menu.Search.Home" xml:space="preserve">
+    <value>Inicio — accesos rápidos y resumen</value>
+  </data>
+  <data name="Menu.Search.Integrations" xml:space="preserve">
+    <value>Integraciones — Discord, actividad e invitaciones</value>
+  </data>
+  <data name="Menu.Search.Behaviour" xml:space="preserve">
+    <value>Iniciador — apertura, actualizaciones y canal de Roblox</value>
+  </data>
+  <data name="Menu.Search.FastFlags" xml:space="preserve">
+    <value>Configuración del cliente — gráficos y opciones avanzadas</value>
+  </data>
+  <data name="Menu.Search.Appearance" xml:space="preserve">
+    <value>Apariencia — tema, colores, idioma e icono</value>
+  </data>
+  <data name="Menu.Search.Profiles" xml:space="preserve">
+    <value>Perfiles — guardar y aplicar ajustes</value>
+  </data>
+  <data name="Menu.Search.Shortcuts" xml:space="preserve">
+    <value>Atajos — escritorio y menú Inicio</value>
+  </data>
+  <data name="Menu.Search.LumiStrap" xml:space="preserve">
+    <value>LumiStrap — ajustes e información del iniciador</value>
+  </data>
+  <data name="Menu.Profiles.Empty" xml:space="preserve">
+    <value>Aún no hay perfiles. Guarda tus ajustes actuales para crear uno.</value>
+  </data>
+  <data name="Menu.Search.LumiFix" xml:space="preserve">
+    <value>LumiFix — revisar, reparar Roblox y limpiar la caché de descargas</value>
+  </data>
+  <data name="Menu.LumiFix.Title" xml:space="preserve">
+    <value>LumiFix</value>
+  </data>
+  <data name="Menu.LumiFix.Description" xml:space="preserve">
+    <value>Revisa los archivos de Roblox, repara el cliente actual o limpia la caché de descargas de LumiStrap.</value>
+  </data>
+  <data name="Menu.LumiFix.Check" xml:space="preserve">
+    <value>Revisar instalación</value>
+  </data>
+  <data name="Menu.LumiFix.Repair" xml:space="preserve">
+    <value>Reparar archivos de Roblox</value>
+  </data>
+  <data name="Menu.LumiFix.ClearCache" xml:space="preserve">
+    <value>Limpiar caché de descargas</value>
+  </data>
+  <data name="Menu.LumiFix.Status.Idle" xml:space="preserve">
+    <value>Revisa la instalación de Roblox o elige una acción de mantenimiento.</value>
+  </data>
+  <data name="Menu.LumiFix.Status.Checking" xml:space="preserve">
+    <value>Revisando la instalación de Roblox...</value>
+  </data>
+  <data name="Menu.LumiFix.Status.DownloadingManifest" xml:space="preserve">
+    <value>Obteniendo la lista oficial de archivos...</value>
+  </data>
+  <data name="Menu.LumiFix.Status.Progress" xml:space="preserve">
+    <value>Revisando archivos: {0}/{1}</value>
+  </data>
+  <data name="Menu.LumiFix.Status.NotInstalled" xml:space="preserve">
+    <value>Roblox Player no está instalado mediante LumiStrap.</value>
+  </data>
+  <data name="Menu.LumiFix.Status.Healthy" xml:space="preserve">
+    <value>{0} archivos de Roblox coinciden con la lista oficial.</value>
+  </data>
+  <data name="Menu.LumiFix.Status.Issues" xml:space="preserve">
+    <value>LumiFix encontró {0} archivos faltantes, {1} modificados y {2} que no pudo leer. Repara Roblox para descargar una copia limpia del cliente actual.</value>
+  </data>
+  <data name="Menu.LumiFix.CheckFailed" xml:space="preserve">
+    <value>No se pudo completar la revisión: {0}</value>
+  </data>
+  <data name="Menu.LumiFix.RepairPrompt" xml:space="preserve">
+    <value>LumiFix cerrará esta ventana y volverá a descargar los archivos actuales de Roblox Player, reemplazando la carpeta de esa versión. Se conservarán los ajustes y modificaciones personalizados de LumiStrap. Roblox no se abrirá automáticamente. ¿Continuar?</value>
+  </data>
+  <data name="Menu.LumiFix.Repair.RobloxRunning" xml:space="preserve">
+    <value>Cierra Roblox Player antes de reparar sus archivos.</value>
+  </data>
+  <data name="Menu.LumiFix.OtherInstanceRunning" xml:space="preserve">
+    <value>Hay otro proceso de LumiStrap abierto. Ciérralo antes de usar LumiFix para evitar que ambas instancias usen los mismos archivos.</value>
+  </data>
+  <data name="Menu.LumiFix.RepairFailed" xml:space="preserve">
+    <value>LumiFix no pudo iniciar la reparación: {0}</value>
+  </data>
+  <data name="Menu.LumiFix.Cache.Empty" xml:space="preserve">
+    <value>La caché de descargas ya está vacía.</value>
+  </data>
+  <data name="Menu.LumiFix.Cache.Prompt" xml:space="preserve">
+    <value>Se eliminarán únicamente {0} archivos de descarga en caché ({1:F1} MB) de LumiStrap. Se volverán a descargar cuando se necesiten. ¿Continuar?</value>
+  </data>
+  <data name="Menu.LumiFix.Cache.Cleared" xml:space="preserve">
+    <value>Se eliminaron {0} archivos de caché; no se pudieron eliminar {1}.</value>
+  </data>
+  <data name="Menu.LumiFix.Cache.Failed" xml:space="preserve">
+    <value>LumiFix no pudo leer la caché de descargas: {0}</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Experience" xml:space="preserve">
+    <value>Experiencia</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.Creator" xml:space="preserve">
+    <value>Creador</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.PlaceId" xml:space="preserve">
+    <value>ID del lugar</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.CopyDetails" xml:space="preserve">
+    <value>Copiar sesión</value>
+  </data>
+  <data name="ContextMenu.ServerInformation.DetailsNotAvailable" xml:space="preserve">
+    <value>No disponible</value>
+  </data>
+  <data name="Bootstrapper.Status.DownloadingPackages" xml:space="preserve">
+    <value>Descargando archivos de Roblox…</value>
+  </data>
+  <data name="Bootstrapper.Status.DownloadSpeed" xml:space="preserve">
+    <value>Velocidad de descarga: {0:F1} MB/s</value>
+  </data>
+  <data name="Bootstrapper.Download.ChecksumRetry" xml:space="preserve">
+    <value>El paquete de Roblox {0} no coincidió con la verificación oficial tras varios intentos. ¿Quieres que LumiStrap intente descargarlo de nuevo?</value>
+  </data>
+  <data name="Dialog.Exception.TechnicalDetails" xml:space="preserve">
+    <value>Detalles técnicos</value>
+  </data>
+  <data name="Dialog.Exception.LogCopied" xml:space="preserve">
+    <value>Se copió el registro. Inclúyelo cuando pidas ayuda.</value>
+  </data>
+  <data name="Dialog.Exception.CopyLogFailed" xml:space="preserve">
+    <value>No se pudo copiar el registro al portapapeles.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.Checksum" xml:space="preserve">
+    <value>Una descarga de Roblox no coincidió con la firma esperada. LumiStrap se detuvo para evitar usar un archivo dañado. Puedes volver a intentarlo; si sigue pasando, cierra otras ventanas de LumiStrap y revisa tu conexión.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.Network" xml:space="preserve">
+    <value>LumiStrap no pudo conectarse a un servicio necesario o recibió una respuesta inválida. Revisa tu conexión e inténtalo de nuevo.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.Permission" xml:space="preserve">
+    <value>Windows denegó el acceso a un archivo o carpeta. Cierra Roblox y cualquier ventana adicional de LumiStrap; después revisa los permisos de la carpeta.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.File" xml:space="preserve">
+    <value>No se pudo leer o escribir un archivo. Revisa el espacio libre, cierra Roblox e inténtalo de nuevo.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.Canceled" xml:space="preserve">
+    <value>La operación se canceló. Puedes iniciarla de nuevo desde LumiStrap.</value>
+  </data>
+  <data name="Dialog.Exception.Explain.General" xml:space="preserve">
+    <value>LumiStrap encontró un problema inesperado. Copia el registro e inclúyelo cuando pidas ayuda.</value>
+  </data>
+  <data name="ContextMenu.SessionDock.Title" xml:space="preserve">
+    <value>Panel de sesión de LumiStrap</value>
+  </data>
+  <data name="ContextMenu.SessionDock.Open" xml:space="preserve">
+    <value>Abrir panel de sesión</value>
+  </data>
+  <data name="ContextMenu.SessionDock.Experience" xml:space="preserve">
+    <value>Experiencia actual</value>
+  </data>
+  <data name="ContextMenu.SessionDock.ServerInfo" xml:space="preserve">
+    <value>Detalles de la sesión</value>
+  </data>
+  <data name="ContextMenu.SessionDock.History" xml:space="preserve">
+    <value>Historial de juegos</value>
+  </data>
+  <data name="ContextMenu.SessionDock.Profiles" xml:space="preserve">
+    <value>Perfiles</value>
+  </data>
+  <data name="ContextMenu.SessionDock.Help" xml:space="preserve">
+    <value>Ayuda y soporte</value>
+  </data>
+  <data name="Menu.Profiles.UpdateBackupName" xml:space="preserve">
+    <value>Copia {0} - {1}</value>
+  </data>
+  <data name="Menu.FastFlags.MeshDetail.Title" xml:space="preserve">
+    <value>Detalle de las mallas</value>
+  </data>
+  <data name="Menu.FastFlags.AllowlistWarning" xml:space="preserve">
+    <value>Roblox solo aplica en el cliente las FastFlags incluidas en su lista permitida. Su disponibilidad y comportamiento pueden cambiar con las actualizaciones de Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.MeshDetail.Description" xml:space="preserve">
+    <value>Elige a qué distancia se mantienen visibles los modelos 3D detallados.</value>
+  </data>
+  <data name="Menu.FastFlags.MeshDetail.Enable" xml:space="preserve">
+    <value>Personalizar detalle de mallas</value>
+  </data>
+  <data name="Menu.FastFlags.Presets.RenderingMode.Description" xml:space="preserve">
+    <value>Elige la API gráfica. Al cambiar de Vulkan también se desactiva la opción de pantalla completa sin bordes que depende de Vulkan.</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Title" xml:space="preserve">
+    <value>Forzar calidad FRM</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Description" xml:space="preserve">
+    <value>Establece el nivel de calidad que usa el sistema de renderizado de Roblox.</value>
+  </data>
+  <data name="Menu.FastFlags.FRMQualityOverride.Warning" xml:space="preserve">
+    <value>Roblox cambió recientemente este ajuste. Su efecto podría ser limitado o ignorarse, y puede volver a cambiar en una actualización futura.</value>
+  </data>
+  <data name="Dialog.UpdateReview.Title" xml:space="preserve">
+    <value>Actualización de LumiStrap</value>
+  </data>
+  <data name="Dialog.UpdateReview.Header" xml:space="preserve">
+    <value>Hay una nueva versión de LumiStrap</value>
+  </data>
+  <data name="Dialog.UpdateReview.CurrentVersion" xml:space="preserve">
+    <value>Versión instalada: {0}</value>
+  </data>
+  <data name="Dialog.UpdateReview.NewVersion" xml:space="preserve">
+    <value>Versión disponible: {0}</value>
+  </data>
+  <data name="Dialog.UpdateReview.ActionSummary" xml:space="preserve">
+    <value>Si continúas, LumiStrap guardará un perfil restaurable con tus ajustes y FastFlags, descargará la nueva versión de la aplicación y después reanudará el inicio solicitado de Roblox.</value>
+  </data>
+  <data name="Dialog.UpdateReview.ReleaseNotes" xml:space="preserve">
+    <value>Novedades</value>
+  </data>
+  <data name="Dialog.UpdateReview.NoReleaseNotes" xml:space="preserve">
+    <value>Esta versión no incluye notas de cambios.</value>
+  </data>
+  <data name="Dialog.UpdateReview.BackupTitle" xml:space="preserve">
+    <value>Copia de configuración</value>
+  </data>
+  <data name="Dialog.UpdateReview.BackupNotice" xml:space="preserve">
+    <value>Antes de actualizar, LumiStrap guardará tus ajustes y FastFlags como un perfil automático. Puedes restaurarlo desde Perfiles si lo necesitas. Se conservan las cinco copias automáticas más recientes.</value>
+  </data>
+  <data name="Dialog.UpdateReview.Later" xml:space="preserve">
+    <value>Más tarde</value>
+  </data>
+  <data name="Dialog.UpdateReview.UpdateNow" xml:space="preserve">
+    <value>Guardar copia y actualizar</value>
+  </data>
+  <data name="Dialog.UpdateReview.BackupFailed" xml:space="preserve">
+    <value>LumiStrap no pudo guardar la copia de configuración, así que no inició la actualización. Detalles: {0}</value>
   </data>
 </root>

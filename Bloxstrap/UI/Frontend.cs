@@ -41,6 +41,19 @@ namespace Bloxstrap.UI
             });
         }
 
+        public static bool ShowUpdateReviewDialog(string currentVersion, string newVersion, string? releaseName, string? releaseNotes)
+        {
+            if (App.LaunchSettings.QuietFlag.Active)
+                return true;
+
+            return Application.Current.Dispatcher.Invoke(() =>
+            {
+                var dialog = new UpdateReviewDialog(currentVersion, newVersion, releaseName, releaseNotes);
+                dialog.ShowDialog();
+                return dialog.UpdateNowSelected;
+            });
+        }
+
         public static void ShowConnectivityDialog(string title, string description, MessageBoxImage image, Exception exception)
         {
             if (App.LaunchSettings.QuietFlag.Active)
@@ -72,7 +85,7 @@ namespace Bloxstrap.UI
                 App.Logger.WriteException(LOG_IDENT, ex);
 
                 if (!App.LaunchSettings.QuietFlag.Active)
-                    ShowMessageBox(string.Format(Strings.CustomTheme_Errors_SetupFailed, ex.Message, "Bloxstrap"), MessageBoxImage.Error); // NOTE: Bloxstrap is the theme name
+                    ShowMessageBox(string.Format(Strings.CustomTheme_Errors_SetupFailed, ex.Message, App.ProjectName), MessageBoxImage.Error);
 
                 return GetBootstrapperDialog(BootstrapperStyle.FluentDialog);
             }

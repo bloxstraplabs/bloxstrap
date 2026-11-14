@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 using Wpf.Ui.Controls.Interfaces;
 using Wpf.Ui.Mvvm.Contracts;
@@ -16,8 +17,11 @@ namespace Bloxstrap.UI.Elements.Settings
     {
         private Models.Persistable.WindowState _state => App.State.Prop.SettingsWindow;
 
-        public MainWindow(bool showAlreadyRunningWarning)
+        private readonly bool _keepProcessAlive;
+
+        public MainWindow(bool showAlreadyRunningWarning, bool keepProcessAlive = false)
         {
+            _keepProcessAlive = keepProcessAlive;
             var viewModel = new MainWindowViewModel();
 
             viewModel.RequestSaveNoticeEvent += (_, _) => SettingsSavedSnackbar.Show();
@@ -79,6 +83,49 @@ namespace Bloxstrap.UI.Elements.Settings
 
         #endregion INavigationWindow methods
 
+        private void SettingsSearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+                return;
+
+            string query = SettingsSearchBox.Text.Trim();
+            if (query.Length == 0)
+                return;
+
+            (string Name, Type PageType)[] pages =
+            {
+                (Strings.Menu_Search_Home, typeof(Pages.HomePage)),
+                (Strings.Menu_Search_Integrations, typeof(Pages.IntegrationsPage)),
+                (Strings.Menu_Search_Behaviour, typeof(Pages.BehaviourPage)),
+                (Strings.Menu_Search_FastFlags, typeof(Pages.FastFlagsPage)),
+                (Strings.Menu_Search_Appearance, typeof(Pages.AppearancePage)),
+                (Strings.Menu_Search_Profiles, typeof(Pages.ProfilesPage)),
+                (Strings.Menu_Search_Shortcuts, typeof(Pages.ShortcutsPage)),
+                (Strings.Menu_Search_LumiStrap, typeof(Pages.BloxstrapPage)),
+                (Strings.Menu_Search_LumiFix, typeof(Pages.BloxstrapPage))
+            };
+
+            foreach ((string name, Type pageType) in pages)
+            {
+                if (!name.Contains(query, StringComparison.CurrentCultureIgnoreCase))
+                    continue;
+
+                Navigate(pageType);
+                SettingsSearchBox.Clear();
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void WpfUiWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.K && Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
+            {
+                SettingsSearchBox.Focus();
+                e.Handled = true;
+            }
+        }
+
         private void WpfUiWindow_Closing(object sender, CancelEventArgs e)
         {
             if (App.FastFlags.Changed || App.PendingSettingTasks.Any())
@@ -100,6 +147,9 @@ namespace Bloxstrap.UI.Elements.Settings
 
         private void WpfUiWindow_Closed(object sender, EventArgs e)
         {
+            if (_keepProcessAlive)
+                return;
+
             if (App.LaunchSettings.TestModeFlag.Active)
                 LaunchHandler.LaunchRoblox(LaunchMode.Player);
             else

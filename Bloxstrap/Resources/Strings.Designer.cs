@@ -521,6 +521,15 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Common.Help", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Highest.
+        /// </summary>
+        public static string Common_HighestQuality {
+            get {
+                return ResourceManager.GetString("Common.HighestQuality", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Import.
@@ -654,6 +663,15 @@ namespace Bloxstrap.Resources {
         public static string Common_OpenLogFile {
             get {
                 return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Lowest.
+        /// </summary>
+        public static string Common_LowestQuality {
+            get {
+                return ResourceManager.GetString("Common.LowestQuality", resourceCulture);
             }
         }
         
@@ -2939,6 +2957,15 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.TextureQuality.Title", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Rendering engine.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RenderingMode_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RenderingMode.Title", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Reset everything to defaults.
@@ -3609,6 +3636,304 @@ namespace Bloxstrap.Resources {
             get {
                 return ResourceManager.GetString("Uninstaller.Uninstall", resourceCulture);
             }
+        }
+
+        public static string Menu_Profiles_Title {
+            get { return ResourceManager.GetString("Menu.Profiles.Title", resourceCulture); }
+        }
+        public static string Menu_Profiles_Description {
+            get { return ResourceManager.GetString("Menu.Profiles.Description", resourceCulture); }
+        }
+        public static string Menu_Profiles_Name {
+            get { return ResourceManager.GetString("Menu.Profiles.Name", resourceCulture); }
+        }
+        public static string Menu_Profiles_Save {
+            get { return ResourceManager.GetString("Menu.Profiles.Save", resourceCulture); }
+        }
+        public static string Menu_Profiles_SavedProfiles {
+            get { return ResourceManager.GetString("Menu.Profiles.SavedProfiles", resourceCulture); }
+        }
+        public static string Menu_Profiles_Apply {
+            get { return ResourceManager.GetString("Menu.Profiles.Apply", resourceCulture); }
+        }
+        public static string Menu_Profiles_Delete {
+            get { return ResourceManager.GetString("Menu.Profiles.Delete", resourceCulture); }
+        }
+        public static string Menu_Profiles_NameRequired {
+            get { return ResourceManager.GetString("Menu.Profiles.NameRequired", resourceCulture); }
+        }
+        public static string Menu_Profiles_DuplicateName {
+            get { return ResourceManager.GetString("Menu.Profiles.DuplicateName", resourceCulture); }
+        }
+        public static string Menu_Profiles_Saved {
+            get { return ResourceManager.GetString("Menu.Profiles.Saved", resourceCulture); }
+        }
+        public static string Menu_Profiles_SaveFailed {
+            get { return ResourceManager.GetString("Menu.Profiles.SaveFailed", resourceCulture); }
+        }
+        public static string Menu_Profiles_ApplyPrompt {
+            get { return ResourceManager.GetString("Menu.Profiles.ApplyPrompt", resourceCulture); }
+        }
+        public static string Menu_Profiles_Applied {
+            get { return ResourceManager.GetString("Menu.Profiles.Applied", resourceCulture); }
+        }
+        public static string Menu_Profiles_ApplyFailed {
+            get { return ResourceManager.GetString("Menu.Profiles.ApplyFailed", resourceCulture); }
+        }
+        public static string Menu_Profiles_DeletePrompt {
+            get { return ResourceManager.GetString("Menu.Profiles.DeletePrompt", resourceCulture); }
+        }
+        public static string Menu_Profiles_DeleteFailed {
+            get { return ResourceManager.GetString("Menu.Profiles.DeleteFailed", resourceCulture); }
+        }
+        public static string Dialog_Exception_Info_2_LumiStrap {
+            get { return ResourceManager.GetString("Dialog.Exception.Info.2.LumiStrap", resourceCulture); }
+        }
+        public static string Installer_Welcome_LumiStrap {
+            get { return ResourceManager.GetString("Installer.Welcome.LumiStrap", resourceCulture); }
+        }
+        public static string Menu_Home_Title {
+            get { return ResourceManager.GetString("Menu.Home.Title", resourceCulture); }
+        }
+        public static string Menu_Home_NavTitle {
+            get { return ResourceManager.GetString("Menu.Home.NavTitle", resourceCulture); }
+        }
+        public static string Menu_Home_Description {
+            get { return ResourceManager.GetString("Menu.Home.Description", resourceCulture); }
+        }
+        public static string Menu_Home_QuickAccess {
+            get { return ResourceManager.GetString("Menu.Home.QuickAccess", resourceCulture); }
+        }
+        public static string Menu_Search_Placeholder {
+            get { return ResourceManager.GetString("Menu.Search.Placeholder", resourceCulture); }
+        }
+        public static string Menu_Search_Home {
+            get { return ResourceManager.GetString("Menu.Search.Home", resourceCulture); }
+        }
+        public static string Menu_Search_Integrations {
+            get { return ResourceManager.GetString("Menu.Search.Integrations", resourceCulture); }
+        }
+        public static string Menu_Search_Behaviour {
+            get { return ResourceManager.GetString("Menu.Search.Behaviour", resourceCulture); }
+        }
+        public static string Menu_Search_FastFlags {
+            get { return ResourceManager.GetString("Menu.Search.FastFlags", resourceCulture); }
+        }
+        public static string Menu_Search_Appearance {
+            get { return ResourceManager.GetString("Menu.Search.Appearance", resourceCulture); }
+        }
+        public static string Menu_Search_Profiles {
+            get { return ResourceManager.GetString("Menu.Search.Profiles", resourceCulture); }
+        }
+        public static string Menu_Search_Shortcuts {
+            get { return ResourceManager.GetString("Menu.Search.Shortcuts", resourceCulture); }
+        }
+        public static string Menu_Search_LumiStrap {
+            get { return ResourceManager.GetString("Menu.Search.LumiStrap", resourceCulture); }
+        }
+        public static string Menu_Profiles_Empty {
+            get { return ResourceManager.GetString("Menu.Profiles.Empty", resourceCulture); }
+        }
+        public static string Menu_Search_LumiFix {
+            get { return ResourceManager.GetString("Menu.Search.LumiFix", resourceCulture); }
+        }
+        public static string Menu_LumiFix_Title {
+            get { return ResourceManager.GetString("Menu.LumiFix.Title", resourceCulture); }
+        }
+        public static string Menu_LumiFix_Description {
+            get { return ResourceManager.GetString("Menu.LumiFix.Description", resourceCulture); }
+        }
+        public static string Menu_LumiFix_Check {
+            get { return ResourceManager.GetString("Menu.LumiFix.Check", resourceCulture); }
+        }
+        public static string Menu_LumiFix_Repair {
+            get { return ResourceManager.GetString("Menu.LumiFix.Repair", resourceCulture); }
+        }
+        public static string Menu_LumiFix_ClearCache {
+            get { return ResourceManager.GetString("Menu.LumiFix.ClearCache", resourceCulture); }
+        }
+        public static string Menu_LumiFix_StatusIdle {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.Idle", resourceCulture); }
+        }
+        public static string Menu_LumiFix_StatusChecking {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.Checking", resourceCulture); }
+        }
+        public static string Menu_LumiFix_DownloadingManifest {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.DownloadingManifest", resourceCulture); }
+        }
+        public static string Menu_LumiFix_Progress {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.Progress", resourceCulture); }
+        }
+        public static string Menu_LumiFix_StatusNotInstalled {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.NotInstalled", resourceCulture); }
+        }
+        public static string Menu_LumiFix_StatusHealthy {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.Healthy", resourceCulture); }
+        }
+        public static string Menu_LumiFix_StatusIssues {
+            get { return ResourceManager.GetString("Menu.LumiFix.Status.Issues", resourceCulture); }
+        }
+        public static string Menu_LumiFix_CheckFailed {
+            get { return ResourceManager.GetString("Menu.LumiFix.CheckFailed", resourceCulture); }
+        }
+        public static string Menu_LumiFix_RepairPrompt {
+            get { return ResourceManager.GetString("Menu.LumiFix.RepairPrompt", resourceCulture); }
+        }
+        public static string Menu_LumiFix_RobloxRunning {
+            get { return ResourceManager.GetString("Menu.LumiFix.Repair.RobloxRunning", resourceCulture); }
+        }
+        public static string Menu_LumiFix_OtherInstanceRunning {
+            get { return ResourceManager.GetString("Menu.LumiFix.OtherInstanceRunning", resourceCulture); }
+        }
+        public static string Menu_LumiFix_RepairFailed {
+            get { return ResourceManager.GetString("Menu.LumiFix.RepairFailed", resourceCulture); }
+        }
+        public static string Menu_LumiFix_CacheEmpty {
+            get { return ResourceManager.GetString("Menu.LumiFix.Cache.Empty", resourceCulture); }
+        }
+        public static string Menu_LumiFix_CachePrompt {
+            get { return ResourceManager.GetString("Menu.LumiFix.Cache.Prompt", resourceCulture); }
+        }
+        public static string Menu_LumiFix_CacheCleared {
+            get { return ResourceManager.GetString("Menu.LumiFix.Cache.Cleared", resourceCulture); }
+        }
+        public static string Menu_LumiFix_CacheFailed {
+            get { return ResourceManager.GetString("Menu.LumiFix.Cache.Failed", resourceCulture); }
+        }
+        public static string ContextMenu_ServerInformation_Experience {
+            get { return ResourceManager.GetString("ContextMenu.ServerInformation.Experience", resourceCulture); }
+        }
+        public static string ContextMenu_ServerInformation_Creator {
+            get { return ResourceManager.GetString("ContextMenu.ServerInformation.Creator", resourceCulture); }
+        }
+        public static string ContextMenu_ServerInformation_PlaceId {
+            get { return ResourceManager.GetString("ContextMenu.ServerInformation.PlaceId", resourceCulture); }
+        }
+        public static string ContextMenu_ServerInformation_CopyDetails {
+            get { return ResourceManager.GetString("ContextMenu.ServerInformation.CopyDetails", resourceCulture); }
+        }
+        public static string ContextMenu_ServerInformation_DetailsNotAvailable {
+            get { return ResourceManager.GetString("ContextMenu.ServerInformation.DetailsNotAvailable", resourceCulture); }
+        }
+        public static string Bootstrapper_Status_DownloadingPackages {
+            get { return ResourceManager.GetString("Bootstrapper.Status.DownloadingPackages", resourceCulture); }
+        }
+        public static string Bootstrapper_Status_DownloadSpeed {
+            get { return ResourceManager.GetString("Bootstrapper.Status.DownloadSpeed", resourceCulture); }
+        }
+        public static string Bootstrapper_Download_ChecksumRetry {
+            get { return ResourceManager.GetString("Bootstrapper.Download.ChecksumRetry", resourceCulture); }
+        }
+        public static string Dialog_Exception_TechnicalDetails {
+            get { return ResourceManager.GetString("Dialog.Exception.TechnicalDetails", resourceCulture); }
+        }
+        public static string Dialog_Exception_LogCopied {
+            get { return ResourceManager.GetString("Dialog.Exception.LogCopied", resourceCulture); }
+        }
+        public static string Dialog_Exception_CopyLogFailed {
+            get { return ResourceManager.GetString("Dialog.Exception.CopyLogFailed", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainChecksum {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.Checksum", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainNetwork {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.Network", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainPermission {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.Permission", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainFile {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.File", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainCanceled {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.Canceled", resourceCulture); }
+        }
+        public static string Dialog_Exception_ExplainGeneral {
+            get { return ResourceManager.GetString("Dialog.Exception.Explain.General", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_Title {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.Title", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_Open {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.Open", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_Experience {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.Experience", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_ServerInfo {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.ServerInfo", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_History {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.History", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_Profiles {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.Profiles", resourceCulture); }
+        }
+        public static string ContextMenu_SessionDock_Help {
+            get { return ResourceManager.GetString("ContextMenu.SessionDock.Help", resourceCulture); }
+        }
+        public static string Menu_Profiles_UpdateBackupName {
+            get { return ResourceManager.GetString("Menu.Profiles.UpdateBackupName", resourceCulture); }
+        }
+        public static string Menu_FastFlags_MeshDetail_Title {
+            get { return ResourceManager.GetString("Menu.FastFlags.MeshDetail.Title", resourceCulture); }
+        }
+        public static string Menu_FastFlags_AllowlistWarning {
+            get { return ResourceManager.GetString("Menu.FastFlags.AllowlistWarning", resourceCulture); }
+        }
+        public static string Menu_FastFlags_MeshDetail_Description {
+            get { return ResourceManager.GetString("Menu.FastFlags.MeshDetail.Description", resourceCulture); }
+        }
+        public static string Menu_FastFlags_MeshDetail_Enable {
+            get { return ResourceManager.GetString("Menu.FastFlags.MeshDetail.Enable", resourceCulture); }
+        }
+        public static string Menu_FastFlags_Presets_RenderingMode_Description {
+            get { return ResourceManager.GetString("Menu.FastFlags.Presets.RenderingMode.Description", resourceCulture); }
+        }
+        public static string Menu_FastFlags_FRMQualityOverride_Title {
+            get { return ResourceManager.GetString("Menu.FastFlags.FRMQualityOverride.Title", resourceCulture); }
+        }
+        public static string Menu_FastFlags_FRMQualityOverride_Description {
+            get { return ResourceManager.GetString("Menu.FastFlags.FRMQualityOverride.Description", resourceCulture); }
+        }
+        public static string Menu_FastFlags_FRMQualityOverride_Warning {
+            get { return ResourceManager.GetString("Menu.FastFlags.FRMQualityOverride.Warning", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_Title {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.Title", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_Header {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.Header", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_CurrentVersion {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.CurrentVersion", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_NewVersion {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.NewVersion", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_ActionSummary {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.ActionSummary", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_ReleaseNotes {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.ReleaseNotes", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_NoReleaseNotes {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.NoReleaseNotes", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_BackupTitle {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.BackupTitle", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_BackupNotice {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.BackupNotice", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_Later {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.Later", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_UpdateNow {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.UpdateNow", resourceCulture); }
+        }
+        public static string Dialog_UpdateReview_BackupFailed {
+            get { return ResourceManager.GetString("Dialog.UpdateReview.BackupFailed", resourceCulture); }
         }
     }
 }

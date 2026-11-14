@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap {0}への自動更新に失敗しました。公式ウェブサイトから手動でインストールしてください。</value>
+    <value>LumiStrap {0}への自動更新に失敗しました。公式ウェブサイトから手動でインストールしてください。</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Robloxは現在実行中です。新しくゲームを起動する場合、もとのゲームは終了します。本当に起動しますか？</value>
@@ -309,10 +309,10 @@
     <value>ﾆｾByfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (クラシック)</value>
+    <value>LumiStrap (クラシック)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (透明)</value>
+    <value>LumiStrap (透明)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>レガシー (2008 ~ 2011)</value>

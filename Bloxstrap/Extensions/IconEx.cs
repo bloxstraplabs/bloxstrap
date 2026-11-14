@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
 
@@ -12,14 +13,16 @@ namespace Bloxstrap.Extensions
         public static ImageSource GetImageSource(this Icon icon, bool handleException = true)
         {
             using MemoryStream stream = new();
-            icon.Save(stream);
+            using Icon highResolutionIcon = icon.GetSized(256, 256);
+            highResolutionIcon.Save(stream);
             stream.Seek(0, SeekOrigin.Begin);
 
             if (handleException)
             {
                 try
                 {
-                    return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                    IconBitmapDecoder decoder = new(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
+                    return decoder.Frames.OrderByDescending(frame => (long)frame.PixelWidth * frame.PixelHeight).First();
                 }
                 catch (Exception ex)
                 {
@@ -30,7 +33,8 @@ namespace Bloxstrap.Extensions
             }
             else
             {
-                return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                IconBitmapDecoder decoder = new(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
+                return decoder.Frames.OrderByDescending(frame => (long)frame.PixelWidth * frame.PixelHeight).First();
             }
         }
     }

@@ -15,7 +15,8 @@
         <TextBlock Text="{x:Static resources:Strings.Menu_Appearance_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
 
         <controls:OptionControl
-            Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}">
+            Header="{x:Static resources:Strings.Menu_Appearance_Global_Theme_Title}"
+            Description="{x:Static resources:Strings.Menu_Appearance_Description}">
             <ComboBox Width="200" Padding="10,5,10,5" ItemsSource="{Binding Themes, Mode=OneTime}" Text="{Binding Theme, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

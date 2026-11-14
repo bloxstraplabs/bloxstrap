@@ -12,12 +12,12 @@ namespace Bloxstrap.Models.Persistable
         public Theme Theme { get; set; } = Theme.Default;
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool DeveloperMode { get; set; } = false;
-        public bool CheckForUpdates { get; set; } = true;
+        public bool CheckForUpdates { get; set; } = false;
         public bool ConfirmLaunches { get; set; } = false;
         public string Locale { get; set; } = "nil";
         public bool UseFastFlagManager { get; set; } = true;
         public bool WPFSoftwareRender { get; set; } = false;
-        public bool EnableAnalytics { get; set; } = true;
+        public bool EnableAnalytics { get; set; } = false;
         public bool BackgroundUpdatesEnabled { get; set; } = false;
         public bool DebugDisableVersionPackageCleanup { get; set; } = false;
         public string? SelectedCustomTheme { get; set; } = null;

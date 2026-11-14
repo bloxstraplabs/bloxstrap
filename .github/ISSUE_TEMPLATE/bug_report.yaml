@@ -1,56 +1,39 @@
-name: Bug Report
-description: Report a problem you're having
+name: LumiStrap bug report
+description: Report a problem with LumiStrap
 body:
   - type: markdown
     attributes:
       value: |
-        > [!IMPORTANT]
-        > Bloxstrap isn't actively maintained anymore. We might not get to your report unless it may be important (like if it's about a feature breaking). Sorry about that.
-        > If your problem keeps happening, it can typically be fixed by [reinstalling](https://bloxstraplabs.com/wiki/help/uninstalling-bloxstrap/).
-        ### **Instructions**
-        - Before you open this report, please [check the Wiki first](https://bloxstraplabs.com/wiki/help). Most common problems will be addressed here.
-        - Also, don't open a report if it's in the [currently known issues](https://github.com/bloxstraplabs/bloxstrap/issues/5779). Common problems will be mentioned here too.
-        - Make sure you are using the [latest version of Bloxstrap](https://github.com/bloxstraplabs/bloxstrap/releases/latest). Your report won't be valid if you aren't.
-        - If you're finding that some feature is missing, it's probably because of a recent update. Check the [latest version's release notes](https://github.com/bloxstraplabs/bloxstrap/releases/latest).
-        - Your report will be closed if it's lazily made and has too little detail.
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: I have...
-      options:
-        - label: I have read the instructions, and I didn't find a solution in any of the links above.
-          required: true
-        - label: I am using the latest version of Bloxstrap.
-          required: true
+        Include the LumiStrap version, what you expected to happen, and the steps that reproduce the problem.
+        Remove private information from logs before sharing them.
   - type: input
     id: version
     attributes:
-      label: Bloxstrap Version
-      description: "What version of Bloxstrap are you using? Find it in the 'About' section of the Settings"
-      placeholder: "v1.0.0 (for example)"
+      label: LumiStrap version
+      description: Find the version in the About page.
+      placeholder: 0.1.0
     validations:
       required: true
   - type: textarea
     id: what-happened
     attributes:
-      label: What problem did you encounter?
-      description: Provide a good description of the problem you're having. Screenshots too please.
+      label: What happened?
+      description: Describe the problem and what you expected to happen.
     validations:
       required: true
   - type: textarea
     id: repro-steps
     attributes:
-      label: How do you reproduce the problem?
-      description: Write down steps to cause the problem, from start to finish, if you can.
+      label: Steps to reproduce
+      description: List the steps from start to finish, if you can reproduce it.
       placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
+        1. Open LumiStrap
+        2. Select ...
+        3. See the problem
   - type: textarea
     id: log
     attributes:
-      label: Bloxstrap Log
-      description: If you're getting a 'Bloxstrap Exception' error, upload your log file here. Open it, then select all (Ctrl+A), then copy and paste here. Otherwise, leave it empty.
-      value: "N/A"
+      label: Log
+      description: Paste a relevant LumiStrap log here after removing private information.
+      value: N/A
       render: text

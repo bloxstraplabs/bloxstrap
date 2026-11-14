@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap ei pystynyt automaattisesti päivittämään versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla ja suorittamalla sen verkkosivulta.</value>
+    <value>LumiStrap ei pystynyt automaattisesti päivittämään versioon {0}. Ole hyvä ja päivitä se manuaalisesti lataamalla ja suorittamalla sen verkkosivulta.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox on tällä hetkellä käynnissä, ja toisen instanssin käynnistäminen tulee sulkemaan aiemman. Oletko varma, että haluat jatkaa?</value>
@@ -130,7 +130,7 @@
     <value>Yhteyttä ei voitu luoda, mikä todennäköisesti merkitsee huonoa internetyhteyttä tai palomuurin estoon. Jos yhteytesi on kunnossa, varmista, ettei virustentorjuntasi estä Bloxstrapia.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Sinun pitää asentaa Bloxstrap ennen poistamista.</value>
+    <value>Sinun pitää asentaa LumiStrap ennen poistamista.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
     <value>Bloxstrapilla ei ole tarpeeksi levytilaa ladatakseen ja asentaakseen Robloxin. Vapauta levytilaa ja yritä uudelleen.</value>
@@ -158,7 +158,7 @@
     <value>Päivitetään {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Haetaan uusinta Bloxstrap-versiota...</value>
+    <value>Haetaan uusinta LumiStrap-versiota...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Odotetaan muita instansseja...</value>
@@ -172,7 +172,7 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap poistettiin onnistuneesti</value>
+    <value>LumiStrap poistettiin onnistuneesti</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
     <value>Roblox on tällä hetkellä käynnissä, mutta se pitää sulkea ennen Bloxstrapin poistamista. Haluatko sulkea Robloxin nyt?</value>
@@ -279,7 +279,7 @@ Klikkaa saadaksesi lisätietoja</value>
     <value>Yhteysvirhe</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap ei voi yhdistää kohteeseen {0}</value>
+    <value>LumiStrap ei voi yhdistää kohteeseen {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Klikkaa saadaksesi lisätietoja</value>
 Jos se ei ole, ilmoita tästä poikkeuksesta [GitHub issue]({1}) yhdessä lokitiedoston kanssa.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap-poikkeus</value>
+    <value>LumiStrap-poikkeus</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Mukautettu</value>
@@ -309,10 +309,10 @@ Jos se ei ole, ilmoita tästä poikkeuksesta [GitHub issue]({1}) yhdessä lokiti
     <value>Feikki Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klassinen)</value>
+    <value>LumiStrap (Klassinen)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Lasi)</value>
+    <value>LumiStrap (Lasi)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Vanha (2008 - 2011)</value>
@@ -378,7 +378,7 @@ Jos se ei ole, ilmoita tästä poikkeuksesta [GitHub issue]({1}) yhdessä lokiti
     <value>Vaalea</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap on päivitetty versioon v{0}</value>
+    <value>LumiStrap on päivitetty versioon v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
     <value>Bloxstrapin versio, jonka käynnistit, eroaa asennetusta versiosta.
@@ -437,7 +437,7 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Huomioi, etteivät kaikki muutoksesi astu voimaan, kunnes suljet kaikki käynnissä olevat Roblox-instanssit.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap on jo käynnissä</value>
+    <value>LumiStrap on jo käynnissä</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Voit saada sen näyttämään erilaiselta, retrolta, tai jopa juuri kuin Robloxilta.</value>
@@ -488,10 +488,10 @@ Haluatko päivittää tällä hetkellä asennetun version?</value>
     <value>Ulkonäkö</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap automaattisesti tarkistaa ja päivittää itsensä, kun Roblox avataan.</value>
+    <value>LumiStrap automaattisesti tarkistaa ja päivittää itsensä, kun Roblox avataan.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Päivitä Bloxstrap automaattisesti</value>
+    <value>Päivitä LumiStrap automaattisesti</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Estä valmiiksi käynnissä olevan pelin sulkemisen sen takia, että vahingossa käynnistit toisen.</value>
@@ -802,7 +802,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Taso 3 (Korkein)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap ei voi ladata Robloxia</value>
+    <value>LumiStrap ei voi ladata Robloxia</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Robloxia ei voi ladata tällä hetkellä. Ole hyvä ja lue seuraava ohjesivu saadaksesi lisätietoja: {0}</value>
@@ -823,7 +823,7 @@ Vastaus 'Ei' ohittaa tämän varoituksen ja jatkaa asentamista.</value>
     <value>Merkintä flagille '{0}' ei kelpaa, koska arvon pitää olla numero</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Lokitiedostoa ei tulla kirjoittamaan tälle käynnistykselle, koska Bloxstrap ei voi kirjoittaa kansioon '{0}'</value>
+    <value>Lokitiedostoa ei tulla kirjoittamaan tälle käynnistykselle, koska LumiStrap ei voi kirjoittaa kansioon '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Oletus</value>
@@ -889,11 +889,11 @@ Tämä asennusprosessi tulee olemaan nopea ja yksinkertainen, ja voit konfiguroi
     <value>Käynnistysvalikon kuvake</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap asennettiin onnistuneesti.
+    <value>LumiStrap asennettiin onnistuneesti.
 
 Roblox ei ole vielä asennettu, se tapahtuu vasta, kun käynnistät sen Bloxstrapin avulla ensimmäisen kerran. Kuitenkin ennen kuin teet näin, saattaisit tahtoa määrittää Bloxstrapin asetukset ensin.
 
-Muuten, vältä käyttämästä "Roblox Player" -pikakuvaketta käynnistääksesi Robloxin, koska Bloxstrap ei silloin käynnisty Robloxin mukana. Jos et näe Bloxstrapin ilmestyvän käynnistäessä pelin verkkosivustolta, käynnistä Roblox Bloxstrapin avulla työpöydältä kerran korjataksesi sen.
+Muuten, vältä käyttämästä "Roblox Player" -pikakuvaketta käynnistääksesi Robloxin, koska LumiStrap ei silloin käynnisty Robloxin mukana. Jos et näe Bloxstrapin ilmestyvän käynnistäessä pelin verkkosivustolta, käynnistä Roblox Bloxstrapin avulla työpöydältä kerran korjataksesi sen.
 
 Mitä tahtoisit tehdä?</value>
   </data>
@@ -915,15 +915,15 @@ Mitä tahtoisit tehdä?</value>
   <data name="Uninstaller.Text" xml:space="preserve">
     <value>Poistaminen poistaa Bloxstrapin järjestelmästäsi ja määrittää automaattisesti Robloxin oletusasetukset, jos se on vielä asennettu.
 
-Poistoprosessi saattaa jättää joitain asioita jäljelle, joten voit joutua manuaalisesti siivoamaan jääneitä tiedostoja sieltä mistä Bloxstrap oli asennettu.
+Poistoprosessi saattaa jättää joitain asioita jäljelle, joten voit joutua manuaalisesti siivoamaan jääneitä tiedostoja sieltä mistä LumiStrap oli asennettu.
 
-Bloxstrap asennettiin osoitteeseen "{1}".</value>
+LumiStrap asennettiin osoitteeseen "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Säilytä asetukseni ja modini</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Ne pidetään siellä, missä Bloxstrap asennettiin ja palautetaan uudelleenasennuksen yhteydessä.</value>
+    <value>Ne pidetään siellä, missä LumiStrap asennettiin ja palautetaan uudelleenasennuksen yhteydessä.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Poista asennus</value>
@@ -944,7 +944,7 @@ Bloxstrap asennettiin osoitteeseen "{1}".</value>
     <value>Sinulla ei tällä hetkellä ole WebView2-ajoympäristöä asennettuna. Jotkin Robloxin ominaisuudet, kuten työpöytäohjelma, eivät toimi ilman sitä. Haluaisitko ladata sen nyt?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap ei pystynyt luomaan pikakuvakkeita työpöydälle ja aloitusvalikkoon. Yritä luoda ne myöhemmin asetuksista.</value>
+    <value>LumiStrap ei pystynyt luomaan pikakuvakkeita työpöydälle ja aloitusvalikkoon. Yritä luoda ne myöhemmin asetuksista.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Tarkista [Bloxstrapin wiki]({0}) ensin nähdäksesi, onko tämä ongelma jo korjattu.
@@ -956,7 +956,7 @@ Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. Ä
     <value>Nämä ovat yleisiä pikakuvakkeita, jotka tuovat esiin monivalintaisen käynnistysvalikon. Pikakuvakkeet tietyille toiminnoille voidaan luoda myöhemmin asetuksista.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Määritä, miten Bloxstrap voidaan käynnistää helposti.</value>
+    <value>Määritä, miten LumiStrap voidaan käynnistää helposti.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Yleinen</value>
@@ -999,14 +999,14 @@ Jos ei, ole hyvä ja raportoi tämä poikkeus tämän forkin ylläpitäjille. Ä
     <value>Sinulla on tallentamattomia muutoksia. Oletko varma, että tahdot sulkea tallentamatta?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Käynnistämäsi Bloxstrap-versio on vanhempi kuin versio, joka sinulla on tällä hetkenä asennettuna.
+    <value>Käynnistämäsi LumiStrap-versio on vanhempi kuin versio, joka sinulla on tällä hetkenä asennettuna.
 Ongelmia voi esiintyä ja asetuksesi saattavat muuttua. Uudelleenasennus on suositeltavaa.
 Oletko varma, että tahdot jatkaa?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Robloxin käynnistys epäonnistui.
 
-Tämä saattaa olla Bloxstrap-ongelma. Selvittääksesi, katso [tämä ohjesivu]({0}).</value>
+Tämä saattaa olla LumiStrap-ongelma. Selvittääksesi, katso [tämä ohjesivu]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Dataa ei voitu ladata verkkovirheen vuoksi.</value>
@@ -1049,12 +1049,12 @@ Jokainen henkilö tässä on sijoitettu kokonaislahjoituksensa mukaisesti.</valu
     <value>Tänä käynnistyksenä Robloxin päivityksiä ei tarkisteta, eivätkä muutokset modeihin astu voimaan.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Koska Roblox on asennettava tai päivitettävä, Bloxstrap ei voi jatkaa.</value>
+    <value>Koska Roblox on asennettava tai päivitettävä, LumiStrap ei voi jatkaa.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap on asennettu tähän sijaintiin ennen ja on edelleen läsnä, mutta asennusohjelma ei voi korvata vanhaa ohjelmaa.
+    <value>LumiStrap on asennettu tähän sijaintiin ennen ja on edelleen läsnä, mutta asennusohjelma ei voi korvata vanhaa ohjelmaa.
 
-Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnistä järjestelmäsi uudelleen ja yritä sitten asentaa uudelleen.</value>
+Ole hyvä ja poista LumiStrap.exe manuaalisesti asennussijainnista tai käynnistä järjestelmäsi uudelleen ja yritä sitten asentaa uudelleen.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Ei saatavilla</value>
@@ -1087,7 +1087,7 @@ Ole hyvä ja poista Bloxstrap.exe manuaalisesti asennussijainnista tai käynnist
     <value>Antaa sinun käyttää Bloxstrapin Roblox-ikonien valikoimaa pikakuvakkeissasi. [Katso, miten.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap ei pysty kirjoittamaan Windowsin rekisteriin. Antivirusohjelma todennäköisesti häiritsee ja aiheuttaa ongelmia. Ole hyvä ja tarkista, ettei ole mitään, joka rajoittaisi Bloxstrapin toimintaa.</value>
+    <value>LumiStrap ei pysty kirjoittamaan Windowsin rekisteriin. Antivirusohjelma todennäköisesti häiritsee ja aiheuttaa ongelmia. Ole hyvä ja tarkista, ettei ole mitään, joka rajoittaisi Bloxstrapin toimintaa.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Kuukausittainen</value>
@@ -1145,9 +1145,9 @@ Haluaisitko ottaa testaustilan käyttöön?</value>
     <value>Mukautettu</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap yritti päivittää Robloxin, mutta ei voi, koska Robloxin tiedostot ovat vielä käytössä.
+    <value>LumiStrap yritti päivittää Robloxin, mutta ei voi, koska Robloxin tiedostot ovat vielä käytössä.
 
-Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja käynnistä Bloxstrap sitten uudelleen.</value>
+Sulje kaikki sovellukset, jotka saattavat käyttää Robloxin tiedostoja, ja käynnistä LumiStrap sitten uudelleen.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
   </data>
   <data name="FileTypes.ZipArchive" xml:space="preserve">

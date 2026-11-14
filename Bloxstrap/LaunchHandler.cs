@@ -115,7 +115,7 @@ namespace Bloxstrap
             else
             {
 #if QA_BUILD
-                Frontend.ShowMessageBox("You are about to install a QA build of Bloxstrap. The red window border indicates that this is a QA build.\n\nQA builds are handled completely separately of your standard installation, like a virtual environment.", MessageBoxImage.Information);
+                Frontend.ShowMessageBox("You are about to install a QA build of LumiStrap. The red window border indicates that this is a QA build.\n\nQA builds are handled completely separately of your standard installation, like a virtual environment.", MessageBoxImage.Information);
 #endif
 
                 new LanguageSelectorDialog().ShowDialog();
@@ -319,7 +319,7 @@ namespace Bloxstrap
             App.Logger.WriteLine(LOG_IDENT, "Initializing bootstrapper");
             App.Bootstrapper = new Bootstrapper(launchMode)
             {
-                MutexNamePrefix = "Bloxstrap-BackgroundUpdater",
+                MutexNamePrefix = "LumiStrap-BackgroundUpdater",
                 QuitIfMutexExists = true
             };
 
@@ -328,7 +328,7 @@ namespace Bloxstrap
             Task.Run(() =>
             {
                 App.Logger.WriteLine(LOG_IDENT, "Started event waiter");
-                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent"))
+                using (EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "LumiStrap-BackgroundUpdaterKillEvent"))
                     handle.WaitOne();
 
                 App.Logger.WriteLine(LOG_IDENT, "Received close event, killing it all!");

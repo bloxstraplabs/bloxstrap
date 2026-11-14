@@ -1,0 +1,39 @@
+<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.ContextMenu.SessionDock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        Title="{x:Static resources:Strings.ContextMenu_SessionDock_Title}"
+        Width="340"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        Topmost="True"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Padding="8" x:Name="RootTitleBar" Title="{x:Static resources:Strings.ContextMenu_SessionDock_Title}" ShowMinimize="False" ShowMaximize="False" CanMaximize="False" KeyboardNavigation.TabNavigation="None" Icon="pack://application:,,,/Resources/LumiStrapAppLogo.png" />
+
+        <ui:Card Grid.Row="1" Margin="16,8,16,12" Padding="14">
+            <StackPanel>
+                <TextBlock Text="{x:Static resources:Strings.ContextMenu_SessionDock_Experience}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="12" />
+                <TextBlock Text="{Binding ExperienceName, Mode=OneWay}" Margin="0,3,0,0" FontSize="16" FontWeight="Medium" TextWrapping="Wrap" />
+                <TextBlock Text="{Binding ServerType, Mode=OneWay}" Margin="0,4,0,0" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+        </ui:Card>
+
+        <StackPanel Grid.Row="2" Margin="16,0,16,16">
+            <ui:Button Content="{x:Static resources:Strings.ContextMenu_SessionDock_ServerInfo}" Icon="Info28" HorizontalContentAlignment="Left" Click="ServerInfoButton_Click" />
+            <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_SessionDock_History}" Icon="History24" HorizontalContentAlignment="Left" Click="HistoryButton_Click" />
+            <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_SessionDock_Profiles}" Icon="Folder24" HorizontalContentAlignment="Left" Click="ProfilesButton_Click" />
+            <ui:Button Margin="0,8,0,0" Content="{x:Static resources:Strings.ContextMenu_SessionDock_Help}" Icon="QuestionCircle24" HorizontalContentAlignment="Left" Click="HelpButton_Click" />
+        </StackPanel>
+    </Grid>
+</base:WpfUiWindow>

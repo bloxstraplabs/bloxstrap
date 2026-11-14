@@ -1,0 +1,84 @@
+<base:WpfUiWindow x:Class="Bloxstrap.UI.Elements.Dialogs.UpdateReviewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
+        xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        mc:Ignorable="d"
+        Title="{x:Static resources:Strings.Dialog_UpdateReview_Title}"
+        Width="640"
+        Height="560"
+        MinWidth="520"
+        MinHeight="440"
+        MaxWidth="800"
+        MaxHeight="760"
+        ResizeMode="CanResize"
+        Background="{ui:ThemeResource ApplicationBackgroundBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Padding="8" x:Name="RootTitleBar"
+                     Title="{x:Static resources:Strings.Dialog_UpdateReview_Title}"
+                     ShowMinimize="False" ShowMaximize="False" CanMaximize="False"
+                     KeyboardNavigation.TabNavigation="None"
+                     Icon="pack://application:,,,/Resources/LumiStrapAppLogo.png" />
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{x:Static resources:Strings.Dialog_UpdateReview_Header}"
+                       FontSize="21" FontWeight="SemiBold" TextWrapping="Wrap" />
+
+            <StackPanel Grid.Row="1" Margin="0,10,0,14">
+                <TextBlock x:Name="CurrentVersionText" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock x:Name="NewVersionText" Margin="0,3,0,0" FontWeight="Medium" />
+                <TextBlock x:Name="ReleaseNameText" Margin="0,6,0,0" FontSize="14"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="2" Margin="0,0,0,12" Text="{x:Static resources:Strings.Dialog_UpdateReview_ActionSummary}"
+                       FontSize="13" Foreground="{DynamicResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+
+            <TextBlock Grid.Row="3" Margin="0,0,0,6" Text="{x:Static resources:Strings.Dialog_UpdateReview_ReleaseNotes}"
+                       FontSize="15" FontWeight="Medium" />
+
+            <Border Grid.Row="4" Padding="10" CornerRadius="6"
+                    Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+                <TextBox x:Name="ReleaseNotesTextBox" IsReadOnly="True" BorderThickness="0"
+                         Background="Transparent" Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+                         FontSize="13" TextWrapping="Wrap" AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" />
+            </Border>
+
+            <ui:InfoBar Grid.Row="5" Margin="0,12,0,0" Padding="8"
+                        Title="{x:Static resources:Strings.Dialog_UpdateReview_BackupTitle}"
+                        Message="{x:Static resources:Strings.Dialog_UpdateReview_BackupNotice}"
+                        Severity="Information" IsOpen="True" IsClosable="False" />
+        </Grid>
+
+        <Border Grid.Row="2" Padding="14" Background="{ui:ThemeResource SolidBackgroundFillColorSecondaryBrush}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <ui:Button x:Name="LaterButton" MinWidth="112" Content="{x:Static resources:Strings.Dialog_UpdateReview_Later}"
+                           IsCancel="True" IsDefault="True" />
+                <ui:Button x:Name="UpdateNowButton" Margin="10,0,0,0" MinWidth="172"
+                           Content="{x:Static resources:Strings.Dialog_UpdateReview_UpdateNow}"
+                           Appearance="Primary" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</base:WpfUiWindow>

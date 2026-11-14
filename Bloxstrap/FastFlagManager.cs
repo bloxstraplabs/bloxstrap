@@ -21,9 +21,26 @@ namespace Bloxstrap
             { "Rendering.ManualFullscreen", "FFlagHandleAltEnterFullscreenManually" },
             { "Rendering.DisableScaling", "DFFlagDisableDPIScale" },
             { "Rendering.MSAA", "FIntDebugForceMSAASamples" },
+            { "Rendering.FRMQualityOverride", "DFIntDebugFRMQualityLevelOverride" },
+
+            { "Rendering.Mode.D3D11", "FFlagDebugGraphicsPreferD3D11" },
+            { "Rendering.Mode.Vulkan", "FFlagDebugGraphicsPreferVulkan" },
+
+            { "Geometry.MeshLOD.Static", "DFIntCSGLevelOfDetailSwitchingDistanceStatic" },
+            { "Geometry.MeshLOD.L0", "DFIntCSGLevelOfDetailSwitchingDistance" },
+            { "Geometry.MeshLOD.L12", "DFIntCSGLevelOfDetailSwitchingDistanceL12" },
+            { "Geometry.MeshLOD.L23", "DFIntCSGLevelOfDetailSwitchingDistanceL23" },
+            { "Geometry.MeshLOD.L34", "DFIntCSGLevelOfDetailSwitchingDistanceL34" },
 
             { "Rendering.TextureQuality.OverrideEnabled", "DFFlagTextureQualityOverrideEnabled" },
             { "Rendering.TextureQuality.Level", "DFIntTextureQualityOverride" },
+        };
+
+        public static IReadOnlyDictionary<RenderingMode, string> RenderingModes => new Dictionary<RenderingMode, string>
+        {
+            { RenderingMode.Default, "None" },
+            { RenderingMode.Vulkan, "Vulkan" },
+            { RenderingMode.D3D11, "D3D11" },
         };
 
         public static IReadOnlyDictionary<MSAAMode, string?> MSAAModes => new Dictionary<MSAAMode, string?>

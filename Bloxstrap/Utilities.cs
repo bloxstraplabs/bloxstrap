@@ -150,7 +150,7 @@ namespace Bloxstrap
 
         public static void KillBackgroundUpdater()
         {
-            using EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "Bloxstrap-BackgroundUpdaterKillEvent");
+            using EventWaitHandle handle = new EventWaitHandle(false, EventResetMode.AutoReset, "LumiStrap-BackgroundUpdaterKillEvent");
             handle.Set();
         }
     }

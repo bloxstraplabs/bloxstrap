@@ -22,6 +22,9 @@ namespace Bloxstrap.UI.Elements.Base
 
             _themeService.SetTheme(App.Settings.Prop.Theme.GetFinal() == Enums.Theme.Dark ? ThemeType.Dark : ThemeType.Light);
             _themeService.SetSystemAccent();
+            Application.Current.Resources["SystemAccentColorPrimary"] = System.Windows.Media.Color.FromRgb(55, 132, 238);
+            Application.Current.Resources["SystemAccentColorSecondary"] = System.Windows.Media.Color.FromRgb(113, 94, 226);
+            Application.Current.Resources["SystemAccentColorTertiary"] = System.Windows.Media.Color.FromRgb(174, 91, 218);
 
             // there doesn't seem to be a way to query the name for merged dictionaries
             var dict = new ResourceDictionary { Source = new Uri($"pack://application:,,,/UI/Style/{Enum.GetName(App.Settings.Prop.Theme.GetFinal())}.xaml") };

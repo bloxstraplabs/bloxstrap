@@ -27,7 +27,7 @@ namespace Bloxstrap
 
         public bool CreateStartMenuShortcuts = true;
 
-        public bool EnableAnalytics = true;
+        public bool EnableAnalytics = false;
 
         public bool IsImplicitInstall = false;
 
@@ -50,11 +50,11 @@ namespace Bloxstrap
 
                 try
                 {
-                    File.Copy(Paths.Process, Paths.Application, true);
+                    CopyApplicationFiles();
                 }
                 catch (Exception ex)
                 {
-                    App.Logger.WriteLine(LOG_IDENT, "Could not overwrite executable");
+                    App.Logger.WriteLine(LOG_IDENT, "Could not copy application files");
                     App.Logger.WriteException(LOG_IDENT, ex);
 
                     Frontend.ShowMessageBox(Strings.Installer_Install_CannotOverwrite, MessageBoxImage.Error);
@@ -110,6 +110,56 @@ namespace Bloxstrap
 
             if (!IsImplicitInstall)
                 App.SendStat("installAction", "install");
+        }
+
+        private static void CopyApplicationFiles()
+        {
+            string sourceDirectory = Path.GetDirectoryName(Paths.Process)
+                ?? throw new InvalidOperationException("Could not locate the installer files.");
+
+            if (!String.Equals(Path.GetFullPath(Paths.Process), Path.GetFullPath(Paths.Application), StringComparison.OrdinalIgnoreCase))
+                File.Copy(Paths.Process, Paths.Application, true);
+
+            foreach (string sourceFile in Directory.EnumerateFiles(sourceDirectory, "*", SearchOption.TopDirectoryOnly))
+            {
+                string fileName = Path.GetFileName(sourceFile);
+                string extension = Path.GetExtension(sourceFile);
+
+                bool isDependency = extension.Equals(".dll", StringComparison.OrdinalIgnoreCase)
+                    || fileName.EndsWith(".deps.json", StringComparison.OrdinalIgnoreCase)
+                    || fileName.EndsWith(".runtimeconfig.json", StringComparison.OrdinalIgnoreCase);
+
+                if (!isDependency)
+                    continue;
+
+                string destinationFile = Path.Combine(Paths.Base, fileName);
+
+                if (String.Equals(Path.GetFullPath(sourceFile), Path.GetFullPath(destinationFile), StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                File.Copy(sourceFile, destinationFile, true);
+            }
+
+            foreach (string sourceDirectoryPath in Directory.EnumerateDirectories(sourceDirectory, "*", SearchOption.TopDirectoryOnly))
+            {
+                string[] satelliteAssemblies = Directory.GetFiles(sourceDirectoryPath, "*.resources.dll", SearchOption.TopDirectoryOnly);
+
+                if (satelliteAssemblies.Length == 0)
+                    continue;
+
+                string destinationDirectory = Path.Combine(Paths.Base, Path.GetFileName(sourceDirectoryPath));
+                Directory.CreateDirectory(destinationDirectory);
+
+                foreach (string sourceFile in satelliteAssemblies)
+                {
+                    string destinationFile = Path.Combine(destinationDirectory, Path.GetFileName(sourceFile));
+
+                    if (String.Equals(Path.GetFullPath(sourceFile), Path.GetFullPath(destinationFile), StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    File.Copy(sourceFile, destinationFile, true);
+                }
+            }
         }
 
         private bool ValidateLocation()
@@ -314,11 +364,6 @@ namespace Bloxstrap
                 });
             }
 
-            bool deleteFolder = Directory.GetFiles(Paths.Base).Length <= 3;
-
-            if (deleteFolder)
-                cleanupSequence.Add(() => Directory.Delete(Paths.Base, true));
-
             if (!playerStillInstalled && !studioStillInstalled && Directory.Exists(robloxFolder))
                 cleanupSequence.Add(() => Directory.Delete(robloxFolder, true));
 
@@ -339,14 +384,18 @@ namespace Bloxstrap
 
             if (Directory.Exists(Paths.Base))
             {
-                // this is definitely one of the workaround hacks of all time
+                // The executable cannot delete itself while it is running, so remove program files after exit.
+                string deleteCommand = $"if exist \"{Paths.Base}\\{App.ProjectName}.exe\" del /Q \"{Paths.Base}\\{App.ProjectName}.exe\""
+                    + $" & if exist \"{Paths.Base}\\*.dll\" del /Q \"{Paths.Base}\\*.dll\""
+                    + $" & if exist \"{Paths.Base}\\{App.ProjectName}*.json\" del /Q \"{Paths.Base}\\{App.ProjectName}*.json\"";
 
-                string deleteCommand;
+                foreach (string resourceDirectory in Directory.GetDirectories(Paths.Base)
+                    .Where(directory => Directory.EnumerateFiles(directory, "*.resources.dll", SearchOption.TopDirectoryOnly).Any()))
+                {
+                    deleteCommand += $" & if exist \"{resourceDirectory}\" rmdir /S /Q \"{resourceDirectory}\"";
+                }
 
-                if (deleteFolder)
-                    deleteCommand = $"del /Q \"{Paths.Base}\\*\" && rmdir \"{Paths.Base}\"";
-                else
-                    deleteCommand = $"del /Q \"{Paths.Application}\"";
+                deleteCommand += $" & rmdir \"{Paths.Base}\"";
 
                 Process.Start(new ProcessStartInfo()
                 {
@@ -455,7 +504,7 @@ namespace Bloxstrap
 
             // update migrations
 
-            if (existingVer is not null)
+            if (existingVer is not null && App.ProjectName.StartsWith("Bloxstrap", StringComparison.Ordinal))
             {
                 if (Utilities.CompareVersions(existingVer, "2.2.0") == VersionComparison.LessThan)
                 {
@@ -630,7 +679,8 @@ namespace Bloxstrap
                         releaseNoteVersion = currentVer;
                     }
 
-                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Bloxstrap-v{releaseNoteVersion}");
+                    if (!String.IsNullOrWhiteSpace(App.ProjectRepository))
+                        Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-LumiStrap-v{releaseNoteVersion}");
                 }
 #pragma warning restore CS0162 // Unreachable code detected
             }

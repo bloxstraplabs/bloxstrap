@@ -10,7 +10,10 @@
              mc:Ignorable="d" 
              x:Name="Control"
              d:DesignHeight="450" d:DesignWidth="800">
-    <ui:Card Margin="0,8,0,0">
+    <ui:Card Margin="0,8,0,0"
+             ToolTip="{Binding Description, ElementName=Control}"
+             AutomationProperties.Name="{Binding Header, ElementName=Control}"
+             AutomationProperties.HelpText="{Binding Description, ElementName=Control}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

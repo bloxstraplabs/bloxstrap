@@ -14,15 +14,15 @@ namespace Bloxstrap
     public partial class App : Application
     {
 #if QA_BUILD
-        public const string ProjectName = "Bloxstrap-QA";
+        public const string ProjectName = "LumiStrap-QA";
 #else
-        public const string ProjectName = "Bloxstrap";
+        public const string ProjectName = "LumiStrap";
 #endif
-        public const string ProjectOwner = "Bloxstrap";
-        public const string ProjectRepository = "bloxstraplabs/bloxstrap";
-        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
-        public const string ProjectHelpLink = "https://bloxstraplabs.com/wiki/help/";
-        public const string ProjectSupportLink = "https://github.com/bloxstraplabs/bloxstrap/issues/new";
+        public const string ProjectOwner = "LumiStrap";
+        public const string ProjectRepository = "gggds2/LumiStrap";
+        public const string ProjectDownloadLink = "https://github.com/gggds2/LumiStrap/releases";
+        public const string ProjectHelpLink = "https://github.com/gggds2/LumiStrap#readme";
+        public const string ProjectSupportLink = "https://github.com/gggds2/LumiStrap/issues";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
@@ -156,6 +156,9 @@ namespace Bloxstrap
 
         public static bool CanSendLogs()
         {
+            if (String.IsNullOrWhiteSpace(ProjectRepository))
+                return false;
+
             // non developer mode always uses production
             if (!Settings.Prop.DeveloperMode || Settings.Prop.WebEnvironment == WebEnvironment.Production)
                 return IsProductionBuild;
@@ -166,6 +169,9 @@ namespace Bloxstrap
         public static async Task<GithubRelease?> GetLatestRelease()
         {
             const string LOG_IDENT = "App::GetLatestRelease";
+
+            if (String.IsNullOrWhiteSpace(ProjectRepository))
+                return null;
 
             try
             {
@@ -189,7 +195,7 @@ namespace Bloxstrap
 
         public static async void SendStat(string key, string value)
         {
-            if (!Settings.Prop.EnableAnalytics)
+            if (!Settings.Prop.EnableAnalytics || String.IsNullOrWhiteSpace(ProjectRepository))
                 return;
 
             try

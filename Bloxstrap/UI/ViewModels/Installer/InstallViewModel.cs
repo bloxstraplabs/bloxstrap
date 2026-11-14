@@ -52,6 +52,8 @@ namespace Bloxstrap.UI.ViewModels.Installer
             set => installer.EnableAnalytics = value;
         }
 
+        public Visibility AnalyticsVisibility => String.IsNullOrWhiteSpace(App.ProjectRepository) ? Visibility.Collapsed : Visibility.Visible;
+
         public ICommand BrowseInstallLocationCommand => new RelayCommand(BrowseInstallLocation);
 
         public ICommand ResetInstallLocationCommand => new RelayCommand(ResetInstallLocation);

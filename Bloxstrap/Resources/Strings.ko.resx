@@ -294,7 +294,7 @@
 만약 아니라면, [GitHub issue]({1})를 통해 이 예외 오류를 로그 파일과 함께 신고해주세요.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap 예외 오류</value>
+    <value>LumiStrap 예외 오류</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>사용자 지정</value>
@@ -309,10 +309,10 @@
     <value>가짜 Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (클래식)</value>
+    <value>LumiStrap (클래식)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (투명)</value>
+    <value>LumiStrap (투명)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -381,7 +381,7 @@
     <value>Bloxstrap이 v{0}(으)로 업그레이드되었습니다</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>실행한 Bloxstrap 버전이 현재 설치된 버전과 다릅니다.
+    <value>실행한 LumiStrap 버전이 현재 설치된 버전과 다릅니다.
 현재 설치된 버전을 업그레이드하시겠습니까?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -491,7 +491,7 @@
     <value>Bloxstrap이 Roblox가 실행될 때 자동으로 확인하고 업데이트합니다.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Bloxstrap 자동으로 업데이트하기</value>
+    <value>LumiStrap 자동으로 업데이트하기</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>게임을 하던 도중 실수로 다른 게임을 실행해서 꺼지는 것을 방지합니다.</value>
@@ -604,7 +604,7 @@
     <value>Bloxstrap을 여기에 설치할 수 없습니다. 다른 위치를 선택하거나 초기화 버튼을 클릭하여 기본 경로를 사용하세요.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>선택한 Bloxstrap 설치 폴더가 이미 존재하며 비어 있지 않습니다. Bloxstrap은 독립된 폴더에 설치하는 것을 권장합니다.
+    <value>선택한 LumiStrap 설치 폴더가 이미 존재하며 비어 있지 않습니다. Bloxstrap은 독립된 폴더에 설치하는 것을 권장합니다.
 
 다음 위치로 변경하는 것이 좋습니다:
 {0}
@@ -757,7 +757,7 @@
     <value>설정 저장 완료!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+    <value>LumiStrap 설정</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>언어를 선택하세요</value>
@@ -838,7 +838,7 @@
     <value>입력된 값 '{0}'은 플레이스 필터 값의 형식이 올바르지 않으므로 유효하지 않습니다.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap 설치 프로그램</value>
+    <value>LumiStrap 설치 프로그램</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>환영합니다</value>
@@ -898,7 +898,7 @@ Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때
 무엇을 하시겠습니까?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Bloxstrap 설정하기</value>
+    <value>LumiStrap 설정하기</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>제공되는 모든 기능으로 조정하기</value>
@@ -910,12 +910,12 @@ Roblox는 아직 설치되지 않았습니다. Bloxstrap을 처음 실행할 때
     <value>모든 작업이 완료되면 프로그램을 실행합니다</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Bloxstrap 제거하기</value>
+    <value>LumiStrap 제거하기</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
     <value>제거하면 시스템에서 Bloxstrap이 삭제되며, 기본 Roblox 런처가 설치되어 있을 경우 자동으로 사용하도록 재구성됩니다.
 
-제거 과정에서 일부가 남겨질 수 있으므로, Bloxstrap 설치 경로에서 수동으로 남은 파일들을 삭제해야 할 수도 있습니다.
+제거 과정에서 일부가 남겨질 수 있으므로, LumiStrap 설치 경로에서 수동으로 남은 파일들을 삭제해야 할 수도 있습니다.
 
 Bloxstrap은 "{1}"에 설치되어 있습니다.</value>
   </data>
@@ -986,7 +986,7 @@ Bloxstrap은 "{1}"에 설치되어 있습니다.</value>
     <value>제거가 완료될 때까지 기다려주세요.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>Bloxstrap 정보</value>
+    <value>LumiStrap 정보</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>라이선스</value>
@@ -1054,7 +1054,7 @@ Bloxstrap은 "{1}"에 설치되어 있습니다.</value>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>Bloxstrap이 이전에 이 위치에 설치되었으며 여전히 존재하지만, 설치 관리자가 이전 실행 파일을 덮어쓸 수 없습니다. 
 
-설치 위치에서 Bloxstrap.exe를 수동으로 삭제하거나 시스템을 다시 시작한 다음 설치를 다시 시도해 보세요.</value>
+설치 위치에서 LumiStrap.exe를 수동으로 삭제하거나 시스템을 다시 시작한 다음 설치를 다시 시도해 보세요.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>사용할 수 없음</value>
@@ -1165,11 +1165,11 @@ Roblox의 파일을 사용 중인 프로그램을 모두 종료하고, 다시 �
     <value>온라인으로 업로드가 가능한 정보를 수집하여 겪고 계신 문제를 해결하세요.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap 설정</value>
+    <value>LumiStrap 설정</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>모든 Bloxstrap 로그</value>
+    <value>모든 LumiStrap 로그</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

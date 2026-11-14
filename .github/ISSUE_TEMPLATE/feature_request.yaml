@@ -1,25 +1,15 @@
-name: Feature Request
-title: "[REQ] "
-description: Suggest a feature that should be added
+name: LumiStrap feature request
+title: "[Feature] "
+description: Suggest an improvement for LumiStrap
 body:
   - type: markdown
     attributes:
       value: |
-        ### **Preliminary instructions**
-        - Please first check to see if your idea has already been suggested. You can check by [searching all previous issues](https://github.com/pizzaboxer/bloxstrap/issues?q=is%3Aissue).
-        - If your feature suggestion is to do with Roblox itself, please consider that what's possible is heavily constrained by what [FastFlags](https://github.com/pizzaboxer/bloxstrap/wiki/A-guide-to-FastFlags) are available.
-        - Don't ask for support on Linux or Mac. That's not happening anytime soon, sorry.
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Acknowledgement of preliminary instructions
-      options:
-        - label: I have read and acknowledged the preliminary instructions.
-          required: true
+        Describe the problem you want to solve and how the feature would help.
   - type: textarea
-    id: what-happened
+    id: idea
     attributes:
-      label: What idea do you have?
-      description: Provide a comprehensive description of what you think can be improved!
+      label: What would you like to see?
+      description: Include examples or a sketch if they help explain the idea.
     validations:
       required: true

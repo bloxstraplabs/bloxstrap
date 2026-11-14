@@ -7,6 +7,7 @@ using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
 
 using Bloxstrap.Integrations;
+using Bloxstrap.Utility;
 
 namespace Bloxstrap.UI.Elements.ContextMenu
 {
@@ -24,6 +25,12 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         private ServerInformation? _serverInformationWindow;
 
         private ServerHistory? _gameHistoryWindow;
+
+        private SessionDock? _sessionDockWindow;
+
+        private Bloxstrap.UI.Elements.Settings.MainWindow? _settingsWindow;
+
+        private InterProcessLock? _settingsLock;
 
         public MenuContainer(Watcher watcher)
         {
@@ -70,6 +77,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             Dispatcher.Invoke(() => {
+                SessionDockMenuItem.Visibility = Visibility.Visible;
+
                 if (_activityWatcher.Data.ServerType == ServerType.Public)
                     InviteDeeplinkMenuItem.Visibility = Visibility.Visible;
 
@@ -82,8 +91,10 @@ namespace Bloxstrap.UI.Elements.ContextMenu
             Dispatcher.Invoke(() => {
                 InviteDeeplinkMenuItem.Visibility = Visibility.Collapsed;
                 ServerDetailsMenuItem.Visibility = Visibility.Collapsed;
+                SessionDockMenuItem.Visibility = Visibility.Collapsed;
 
                 _serverInformationWindow?.Close();
+                _sessionDockWindow?.Close();
             });
         }
 
@@ -108,6 +119,22 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 
+        private void SessionDockMenuItem_Click(object sender, RoutedEventArgs e) => ShowSessionDock();
+
+        private void ShowSessionDock()
+        {
+            if (_sessionDockWindow is null)
+            {
+                _sessionDockWindow = new SessionDock(_watcher, ShowServerInformationWindow, ShowGameHistoryWindow, OpenProfiles);
+                _sessionDockWindow.Closed += (_, _) => _sessionDockWindow = null;
+            }
+
+            if (!_sessionDockWindow.IsVisible)
+                _sessionDockWindow.Show();
+
+            _sessionDockWindow.Activate();
+        }
+
         private void LogTracerMenuItem_Click(object sender, RoutedEventArgs e)
         {
             string? location = _activityWatcher?.LogLocation;
@@ -131,6 +158,9 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         }
 
         private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
+            => ShowGameHistoryWindow();
+
+        private void ShowGameHistoryWindow()
         {
             if (_activityWatcher is null)
                 throw new ArgumentNullException(nameof(_activityWatcher));
@@ -145,6 +175,40 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 _gameHistoryWindow.ShowDialog();
             else
                 _gameHistoryWindow.Activate();
+        }
+
+        private void OpenProfiles()
+        {
+            if (_settingsWindow is not null)
+            {
+                _settingsWindow.Navigate(typeof(Bloxstrap.UI.Elements.Settings.Pages.ProfilesPage));
+                _settingsWindow.Activate();
+                return;
+            }
+
+            _settingsLock = new InterProcessLock("Settings");
+
+            if (!_settingsLock.IsAcquired)
+            {
+                _settingsLock.Dispose();
+                _settingsLock = null;
+
+                var process = Utilities.GetProcessesSafe().FirstOrDefault(x => x.MainWindowTitle == Strings.Menu_Title);
+                if (process is not null)
+                    PInvoke.SetForegroundWindow((HWND)process.MainWindowHandle);
+
+                return;
+            }
+
+            _settingsWindow = new Bloxstrap.UI.Elements.Settings.MainWindow(showAlreadyRunningWarning: false, keepProcessAlive: true);
+            _settingsWindow.Navigate(typeof(Bloxstrap.UI.Elements.Settings.Pages.ProfilesPage));
+            _settingsWindow.Closed += (_, _) =>
+            {
+                _settingsWindow = null;
+                _settingsLock?.Dispose();
+                _settingsLock = null;
+            };
+            _settingsWindow.Show();
         }
     }
 }

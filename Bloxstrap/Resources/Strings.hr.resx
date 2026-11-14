@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap se nije uspio automatski ažurirati na verziju {0}. Molimo ažurirajte ju ručno tako da je preuzmete i pokrenete sa web-stranice.</value>
+    <value>LumiStrap se nije uspio automatski ažurirati na verziju {0}. Molimo ažurirajte ju ručno tako da je preuzmete i pokrenete sa web-stranice.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox je trenutno pokrenut, pokretanje nove instance ćete ga ugasiti. Jeste li sigurni da želite nastaviti sa pokretanjem?</value>
@@ -127,13 +127,13 @@
     <value>Roblox trenutno možda ne radi. Pogledajte {0} za više informacija.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Veza se nije mogla uspostaviti, što vjerojatno ukazuje na nestabilnu internetsku vezu ili blokadu vatrozida. Ako je Vaša veza u redu, molimo provjerite blokira li Vaš antivirus Bloxstrap.</value>
+    <value>Veza se nije mogla uspostaviti, što vjerojatno ukazuje na nestabilnu internetsku vezu ili blokadu vatrozida. Ako je Vaša veza u redu, molimo provjerite blokira li Vaš antivirus LumiStrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Morate prvo instalirati Bloxstrap prije deinstaliranja.</value>
+    <value>Morate prvo instalirati LumiStrap prije deinstaliranja.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap nema dovoljno prostora na disku kako bi preuzeo i instalirao Roblox. Molimo, oslobodite dio prostora na disku te pokušajte ponovno.</value>
+    <value>LumiStrap nema dovoljno prostora na disku kako bi preuzeo i instalirao Roblox. Molimo, oslobodite dio prostora na disku te pokušajte ponovno.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Primjenjuju se modifikacije za Roblox...</value>
@@ -158,7 +158,7 @@
     <value>Nadograđuje se {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Dohvaća se najnoviji Bloxstrap...</value>
+    <value>Dohvaća se najnoviji LumiStrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Čekanje ostalih instanca...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap je uspješno deinstaliran</value>
+    <value>LumiStrap je uspješno deinstaliran</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox je trenutno pokrenut, ali mora biti zatvoren prije nego što se Bloxstrap deinstalira. Želite li ugasiti Roblox sada?</value>
+    <value>Roblox je trenutno pokrenut, ali mora biti zatvoren prije nego što se LumiStrap deinstalira. Želite li ugasiti Roblox sada?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox zahtijeva upotrebu Windows Media Foundation komponenta. Izgleda da Vam nedostaju, vjerojatno zato što koristite N izadnje Windows-a. Molimo, prvo ih instalirajte, a zatim pokrenite Roblox.</value>
@@ -279,7 +279,7 @@ Kliknite za više informacija</value>
     <value>Greška sa povezivanjem</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap se ne može povezati na {0}</value>
+    <value>LumiStrap se ne može povezati na {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Kliknite za više informacija</value>
 Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zajedno sa log datotekom.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Izuzetak</value>
+    <value>LumiStrap Izuzetak</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Prilagođeno</value>
@@ -309,10 +309,10 @@ Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zaj
     <value>Lažni Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Klasično)</value>
+    <value>LumiStrap (Klasično)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Stakleno)</value>
+    <value>LumiStrap (Stakleno)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Nasledje (2008-2011)</value>
@@ -378,7 +378,7 @@ Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zaj
     <value>Svjetlo</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap je nadograđen na v{0}</value>
+    <value>LumiStrap je nadograđen na v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
     <value>Verzija Bloxstrapa koju ste pokrenuli drukčija je od verzije koju imate instaliranu. Želite li nadograditi svoju trenutno instaliranu verziju?</value>
@@ -436,7 +436,7 @@ Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zaj
     <value>Imajte na umu da se sve vaše promjene neće odmah primijeniti dok ne zatvorite sve trenutno otvorene instance Robloxa.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap je već pokrenut</value>
+    <value>LumiStrap je već pokrenut</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Možete ga prilagoditi da izgleda drugačije, retro ili čak samo kao Roblox.</value>
@@ -487,10 +487,10 @@ Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zaj
     <value>Izgled</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap će se automatski provjeravati i ažurirati prilikom pokretanja Robloxa.</value>
+    <value>LumiStrap će se automatski provjeravati i ažurirati prilikom pokretanja Robloxa.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatski ažuriraj Bloxstrap</value>
+    <value>Automatski ažuriraj LumiStrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Spriječite zatvaranje postojeće igre zbog slučajnog pokretanja druge.</value>
@@ -499,7 +499,7 @@ Ako ne postoji, molimo da prijavite ovu iznimku preko [GitHub problema]({1}) zaj
     <value>Zatraži potvrdu prilikom pokretanja druge Roblox instance</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Konfigurirajte što Bloxstrap treba učiniti kad pokreće Roblox.</value>
+    <value>Konfigurirajte što LumiStrap treba učiniti kad pokreće Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox će biti svježe instaliran pri sljedećem pokretanju.</value>
@@ -602,10 +602,10 @@ Jeste li sigurni da želite nastaviti?</value>
     <value>Datoteke ikona</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap ne može biti instaliran ovdje. Molimo, odaberite drugu lokaciju, ili koristite zadanu lokaciju tako da kliknete gumb za resetiranje.</value>
+    <value>LumiStrap ne može biti instaliran ovdje. Molimo, odaberite drugu lokaciju, ili koristite zadanu lokaciju tako da kliknete gumb za resetiranje.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Mapa koju ste odabrali za instalaciju Bloxstrapa već postoji i NIJE prazna. Toplo se preporučuje da se Bloxstrap instalira u nezavisnoj mapi.
+    <value>Mapa koju ste odabrali za instalaciju Bloxstrapa već postoji i NIJE prazna. Toplo se preporučuje da se LumiStrap instalira u nezavisnoj mapi.
 
 Promjena na iduću lokaciju je preporučena: {0}
 
@@ -616,7 +616,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Morate postaviti lokaciju instalacije</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap nema write pristup lokaciji koju ste odabrali. Molimo odaberite drugu lokaciju.</value>
+    <value>LumiStrap nema write pristup lokaciji koju ste odabrali. Molimo odaberite drugu lokaciju.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Praćenje aktivnosti</value>
@@ -755,7 +755,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Postavke spremljenje!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap postavke</value>
+    <value>LumiStrap postavke</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Odaberi preferirani jezik</value>
@@ -776,7 +776,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Renderiranje i Grafika</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Dozvoli Bloxstrap-u da upravlja s Fast Flags</value>
+    <value>Dozvoli LumiStrap-u da upravlja s Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Onemogućavanje će spriječiti da se bilo što ovdje konfigurirano primjeni na Roblox.</value>
@@ -800,7 +800,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Nivo 3 (Najviše)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap ne može preuzeti Roblox</value>
+    <value>LumiStrap ne može preuzeti Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox se trenutno ne može preuzeti. Molimo pročitajte sljedeću stranicu za pomoć za više informacija: {0}</value>
@@ -821,7 +821,7 @@ Promjena na iduću lokaciju je preporučena: {0}
     <value>Unos za '{0}' nije valjan jer vrijednost mora biti cijeli broj</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Log datoteka neće biti napisana za ovaj pokret jer Bloxstrap ne može pisati u folderu na '{0}'</value>
+    <value>Log datoteka neće biti napisana za ovaj pokret jer LumiStrap ne može pisati u folderu na '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Zadano</value>
@@ -887,16 +887,16 @@ Proces instalacije će biti brz i jednostavan, i moći ćete konfigurirati bilo 
     <value>Start Meni ikona</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap se je uspješno instalirao.
+    <value>LumiStrap se je uspješno instalirao.
 
-Roblox još nije bio instaliran, to će se dogoditi kada ga pokrenete s Bloxstrapom prvi put. Ali, prije nego li to napravite, možda biste htjeli prvo konfigurirati Bloxstrap postavke.
+Roblox još nije bio instaliran, to će se dogoditi kada ga pokrenete s Bloxstrapom prvi put. Ali, prije nego li to napravite, možda biste htjeli prvo konfigurirati LumiStrap postavke.
 
-Isto tako, izbjegnite koristiti "Roblox Player" prečac za pokretanje Roblox-a, jer se Bloxstrap neće pokrenuti s Roblox-om. Ako ne vidite Bloxstrap kako se pojavljuje kada pokrećete s web-stranice, samo pokrenite Roblox sa Bloxstrapom jedan put s desktopa da biste to popravili.
+Isto tako, izbjegnite koristiti "Roblox Player" prečac za pokretanje Roblox-a, jer se LumiStrap neće pokrenuti s Roblox-om. Ako ne vidite LumiStrap kako se pojavljuje kada pokrećete s web-stranice, samo pokrenite Roblox sa Bloxstrapom jedan put s desktopa da biste to popravili.
 
 Što biste htjeli napraviti?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Konfigurirajte Bloxstrap postavke</value>
+    <value>Konfigurirajte LumiStrap postavke</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Igrajte se sa svim značajkama koje Vam nudi</value>
@@ -908,20 +908,20 @@ Isto tako, izbjegnite koristiti "Roblox Player" prečac za pokretanje Roblox-a, 
     <value>Prebacit će Vas u desktop aplikaciju kad je sve gotovo</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Deinstaliraj Bloxstrap</value>
+    <value>Deinstaliraj LumiStrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Deinstaliranje će ukloniti Bloxstrap s Vašeg sustava i automatski rekonfigurirati zadani Roblox pokretač ako je još i dalje instaliran.
+    <value>Deinstaliranje će ukloniti LumiStrap s Vašeg sustava i automatski rekonfigurirati zadani Roblox pokretač ako je još i dalje instaliran.
 
-Moguće je da će proces deinstalacije ostaviti neke stvari, pa ćete možda morati ručno počistiti preostale datoteke gdje je Bloxstrap bio instaliran.
+Moguće je da će proces deinstalacije ostaviti neke stvari, pa ćete možda morati ručno počistiti preostale datoteke gdje je LumiStrap bio instaliran.
 
-Bloxstrap je bio instaliran kod "{1}".</value>
+LumiStrap je bio instaliran kod "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Zadrži moje postavke i modifikacije</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Biti će zadržani na mjestu gdje je Bloxstrap bio instaliran, i bit će automatski vraćeni na reinstalaciji.</value>
+    <value>Biti će zadržani na mjestu gdje je LumiStrap bio instaliran, i bit će automatski vraćeni na reinstalaciji.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Deinstaliraj</value>
@@ -942,7 +942,7 @@ Bloxstrap je bio instaliran kod "{1}".</value>
     <value>Trenutno nemate WebView2 runtime instaliran. Neke Roblox-ove značajke neće raditi ispravno bez toga, poput desktop aplikacije. Želite li to sada preuzeti?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap nije mogao kreirati prečace za Desktop i Start Meni. Pokušajte ih kreirati kasnije preko postavki.</value>
+    <value>LumiStrap nije mogao kreirati prečace za Desktop i Start Meni. Pokušajte ih kreirati kasnije preko postavki.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Prvo provjerite [Bloxstrap Wiki]({0}) kako biste vidjeli je li ovaj problem već bio rješen.
@@ -954,7 +954,7 @@ Ako nije, onda molimo da prijavite ovu iznimku održavateljima ovog fork-a. Nemo
     <value>Ovo su opći prečaci koji pokažu izbornik za pokretanje s više izbora. Prečaci za specifične funkcije mogu biti kreirane kasnije u postavkama.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Konfigurirajte kako Bloxstrap može biti spremno pokrenut.</value>
+    <value>Konfigurirajte kako LumiStrap može biti spremno pokrenut.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Općenito</value>
@@ -1047,12 +1047,12 @@ Svaka osoba ovdje je rangirana svojim sveukupnim zalogom.</value>
     <value>Za ovaj pokret, Roblox se neće provjeriti za nadogradnje i promjene modifikacijama se neće primijeniti.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Bloxstrap ne može nastaviti zato što Roblox treba biti instaliran ili nadograđen.</value>
+    <value>LumiStrap ne može nastaviti zato što Roblox treba biti instaliran ili nadograđen.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap se je prije instalirao na ovu lokaciju i još dalje je prisutan, ali instalator ne može prebrisati staru izvršnu datoteku.
+    <value>LumiStrap se je prije instalirao na ovu lokaciju i još dalje je prisutan, ali instalator ne može prebrisati staru izvršnu datoteku.
 
-Molimo ručno izbrišite Bloxstrap.exe iz lokacije instalacije ili pokušajte ponovno pokrenuti Vaš sustav, i onda ponovno probajte instalirati nakon.</value>
+Molimo ručno izbrišite LumiStrap.exe iz lokacije instalacije ili pokušajte ponovno pokrenuti Vaš sustav, i onda ponovno probajte instalirati nakon.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Nije dostupno</value>
@@ -1064,7 +1064,7 @@ Molimo ručno izbrišite Bloxstrap.exe iz lokacije instalacije ili pokušajte po
     <value>Konfigurirajte parametre aplikacije kao što je ponašanje DPI skaliranja i [optimizacije cijelog zaslona]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox još nije bio instaliran. Molimo pokrenite Roblox koristeći Bloxstrap barem jednom prije pokušavanja korištenja ove opcije.</value>
+    <value>Roblox još nije bio instaliran. Molimo pokrenite Roblox koristeći LumiStrap barem jednom prije pokušavanja korištenja ove opcije.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Jeste li sigurni da želite prekinuti instalaciju?</value>
@@ -1085,7 +1085,7 @@ Molimo ručno izbrišite Bloxstrap.exe iz lokacije instalacije ili pokušajte po
     <value>Dopušta Vam da koristite Bloxstrapov raspon Roblox ikona za Vaše prečace. [Pogledajte kako.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap ne može pisati u Windows Registar. Antivirus se vjerojatno miješa i proizvodi poteškoće. Molimo provjerite postoji li išta što bi moglo ograničiti Bloxstrapove operacije.</value>
+    <value>LumiStrap ne može pisati u Windows Registar. Antivirus se vjerojatno miješa i proizvodi poteškoće. Molimo provjerite postoji li išta što bi moglo ograničiti Bloxstrapove operacije.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Mjesečno</value>
@@ -1143,7 +1143,7 @@ Kada uključen, automatski će pokrenuti Roblox nakon zatvaranja postavki, i pon
     <value>Prilagođeno</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap je pokušao ažurirati Roblox, ali ne može jer se Robloxove datoteke još dalje koriste.
+    <value>LumiStrap je pokušao ažurirati Roblox, ali ne može jer se Robloxove datoteke još dalje koriste.
 
 Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke, i ponovno pokrenite.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1163,11 +1163,11 @@ Molimo zatvorite bilo koju aplikaciju koja bi mogla koristiti Robloxove datoteke
     <value>Skupi imformacije koje se mogu prenesti online kako bi se mogao riješiti problem koji imate.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap konfiguracija</value>
+    <value>LumiStrap konfiguracija</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Svi Bloxstrap zapisi</value>
+    <value>Svi LumiStrap zapisi</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">

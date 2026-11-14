@@ -16,7 +16,7 @@ namespace Bloxstrap.Utility
 
         public InterProcessLock(string name, TimeSpan timeout)
         {
-            Mutex = new Mutex(false, "Bloxstrap-" + name);
+            Mutex = new Mutex(false, $"{App.ProjectName}-{name}");
 
             try
             {

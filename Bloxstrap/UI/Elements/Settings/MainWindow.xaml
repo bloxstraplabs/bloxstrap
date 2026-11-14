@@ -18,6 +18,7 @@
              ExtendsContentIntoTitleBar="True"
              WindowBackdropType="Mica"
              WindowStartupLocation="CenterScreen"
+             PreviewKeyDown="WpfUiWindow_PreviewKeyDown"
              Closing="WpfUiWindow_Closing"
              Closed="WpfUiWindow_Closed">
     <Grid>
@@ -39,7 +40,7 @@
             Message="{x:Static resources:Strings.Menu_SettingsSaved_Message}"
             Appearance="Success" Icon="CheckmarkCircle32" Timeout="3000" Margin="200,0,200,20" Grid.RowSpan="10" Panel.ZIndex="9" />
 
-        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Bloxstrap.ico" />
+        <ui:TitleBar Padding="8" x:Name="RootTitleBar" Grid.Row="0" ForceShutdown="False" MinimizeToTray="False" UseSnapLayout="True" Title="{x:Static resources:Strings.Menu_Title}" Icon="pack://application:,,,/Resources/LumiStrapAppLogo.png" />
 
         <Grid x:Name="RootGrid" Grid.Row="1" Margin="12,12,0,0" Visibility="Visible">
             <Grid.RowDefinitions>
@@ -53,17 +54,19 @@
 
             <ui:NavigationFluent x:Name="RootNavigation" Grid.Row="1" Grid.Column="0" Margin="0,0,12,0" Frame="{Binding ElementName=RootFrame}" SelectedPageIndex="0">
                 <ui:NavigationFluent.Items>
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" Tag="integrations" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" Tag="bootstrapper" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" Tag="mods" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" Tag="fastflags" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Home_NavTitle}" PageType="{x:Type pages:HomePage}" Icon="Home24" PageTag="home" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" PageTag="integrations" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" PageTag="bootstrapper" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" PageTag="mods" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" PageTag="fastflags" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" PageTag="appearance" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Profiles_Title}" PageType="{x:Type pages:ProfilesPage}" Icon="Folder24" PageTag="profiles" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" PageTag="shortcuts" />
 
-                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
+                    <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" PageTag="fastflageditor" Visibility="Collapsed" />
                 </ui:NavigationFluent.Items>
                 <ui:NavigationFluent.Footer>
-                    <ui:NavigationItem Content="Bloxstrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" Tag="shortcuts" />
+                    <ui:NavigationItem Content="LumiStrap" PageType="{x:Type pages:BloxstrapPage}" Icon="Settings24" PageTag="lumistrap" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_About_Title}" Icon="QuestionCircle48" Margin="0,0,0,12" Command="{Binding OpenAboutCommand, Mode=OneTime}" />
                 </ui:NavigationFluent.Footer>
             </ui:NavigationFluent>
@@ -71,10 +74,17 @@
             <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ui:Breadcrumb Grid.Row="0" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
-                <Frame x:Name="RootFrame" Grid.Row="1" />
+                <ui:TextBox x:Name="SettingsSearchBox" Grid.Row="0" Width="380" Height="36"
+                            Margin="0,0,0,8" HorizontalAlignment="Right"
+                            PlaceholderText="{x:Static resources:Strings.Menu_Search_Placeholder}"
+                            ToolTip="{x:Static resources:Strings.Menu_Search_Placeholder}"
+                            AutomationProperties.Name="{x:Static resources:Strings.Menu_Search_Placeholder}"
+                            KeyDown="SettingsSearchBox_KeyDown" />
+                <ui:Breadcrumb Grid.Row="1" Margin="0,0,0,5" Navigation="{Binding ElementName=RootNavigation}" />
+                <Frame x:Name="RootFrame" Grid.Row="2" />
             </Grid>
         </Grid>
 

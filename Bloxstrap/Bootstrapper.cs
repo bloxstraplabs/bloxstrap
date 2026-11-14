@@ -12,6 +12,7 @@
 #endif
 
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Data;
 using System.Windows;
 using System.Windows.Forms;
@@ -74,9 +75,9 @@ namespace Bloxstrap
         public bool IsStudioLaunch => _launchMode != LaunchMode.Player;
 
         public string MutexName => $"{MutexNamePrefix}-{_launchMode}";
-        public string BackgroundUpdaterMutexName => $"Bloxstrap-BackgroundUpdater-{_launchMode}";
+        public string BackgroundUpdaterMutexName => $"LumiStrap-BackgroundUpdater-{_launchMode}";
 
-        public string MutexNamePrefix { get; set; } = "Bloxstrap-Bootstrapper";
+        public string MutexNamePrefix { get; set; } = "LumiStrap-Bootstrapper";
         public bool QuitIfMutexExists { get; set; } = false;
         #endregion
 
@@ -770,17 +771,25 @@ namespace Bloxstrap
             // i don't like this, but there isn't much better way of doing it /shrug
             if (Process.GetProcessesByName(App.ProjectName).Length > 1)
             {
-                App.Logger.WriteLine(LOG_IDENT, $"More than one Bloxstrap instance running, aborting update check");
+                App.Logger.WriteLine(LOG_IDENT, $"More than one LumiStrap instance running, aborting update check");
                 return false;
             }
 
             App.Logger.WriteLine(LOG_IDENT, "Checking for updates...");
+
+            string version = App.Version;
 
 #if !DEBUG_UPDATER
             var releaseInfo = await App.GetLatestRelease();
 
             if (releaseInfo is null)
                 return false;
+
+            if (releaseInfo.Assets is null || releaseInfo.Assets.Count == 0)
+            {
+                App.Logger.WriteLine(LOG_IDENT, "The latest release did not include a downloadable asset");
+                return false;
+            }
 
             var versionComparison = Utilities.CompareVersions(App.Version, releaseInfo.TagName);
 
@@ -791,12 +800,31 @@ namespace Bloxstrap
                 return false;
             }
 
+            version = releaseInfo.TagName;
+
+            if (!Frontend.ShowUpdateReviewDialog(App.Version, version, releaseInfo.Name, releaseInfo.Body))
+            {
+                App.Logger.WriteLine(LOG_IDENT, $"User postponed update {version}");
+                return false;
+            }
+
+            try
+            {
+                ConfigurationProfile backup = ConfigurationProfileManager.SaveUpdateBackup(version);
+                App.Logger.WriteLine(LOG_IDENT, $"Saved pre-update configuration profile '{backup.Name}'");
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException(LOG_IDENT, ex);
+                Frontend.ShowMessageBox(
+                    String.Format(Strings.Dialog_UpdateReview_BackupFailed, ex.Message),
+                    MessageBoxImage.Error
+                );
+                return false;
+            }
+
             if (Dialog is not null)
                 Dialog.CancelEnabled = false;
-
-            string version = releaseInfo.TagName;
-#else
-            string version = App.Version;
 #endif
 
             SetStatus(Strings.Bootstrapper_Status_UpgradingBloxstrap);
@@ -804,7 +832,7 @@ namespace Bloxstrap
             try
             {
 #if DEBUG_UPDATER
-                string downloadLocation = Path.Combine(Paths.TempUpdates, "Bloxstrap.exe");
+                string downloadLocation = Path.Combine(Paths.TempUpdates, "LumiStrap.exe");
 
                 Directory.CreateDirectory(Paths.TempUpdates);
 
@@ -862,7 +890,8 @@ namespace Bloxstrap
                     MessageBoxImage.Information
                 );
 
-                Utilities.ShellExecute(App.ProjectDownloadLink);
+                if (!String.IsNullOrWhiteSpace(App.ProjectDownloadLink))
+                    Utilities.ShellExecute(App.ProjectDownloadLink);
             }
 
             return false;
@@ -1505,6 +1534,8 @@ namespace Bloxstrap
             const int maxTries = 5;
 
             App.Logger.WriteLine(LOG_IDENT, "Downloading...");
+            if (Dialog is not null)
+                Dialog.Message = Strings.Bootstrapper_Status_DownloadingPackages;
 
             var buffer = new byte[4096];
 
@@ -1514,6 +1545,8 @@ namespace Bloxstrap
                     return;
 
                 int totalBytesRead = 0;
+                long lastSpeedSampleBytes = 0;
+                var speedTimer = Stopwatch.StartNew();
 
                 try
                 {
@@ -1541,6 +1574,16 @@ namespace Bloxstrap
 
                         _totalDownloadedBytes += bytesRead;
                         UpdateProgressBar();
+
+                        if (speedTimer.ElapsedMilliseconds >= 1000)
+                        {
+                            double megabytesPerSecond = (totalBytesRead - lastSpeedSampleBytes) / speedTimer.Elapsed.TotalSeconds / (1024d * 1024d);
+                            if (Dialog is not null)
+                                Dialog.Message = String.Format(Strings.Bootstrapper_Status_DownloadSpeed, megabytesPerSecond);
+
+                            lastSpeedSampleBytes = totalBytesRead;
+                            speedTimer.Restart();
+                        }
                     }
 
                     string hash = MD5Hash.FromStream(fileStream);
@@ -1558,16 +1601,35 @@ namespace Bloxstrap
 
                     if (ex.GetType() == typeof(ChecksumFailedException))
                     {
-                        App.SendStat("packageDownloadState", "httpFail");
+                        if (i >= maxTries)
+                        {
+                            var result = Frontend.ShowMessageBox(
+                                String.Format(Strings.Bootstrapper_Download_ChecksumRetry, package.Name),
+                                MessageBoxImage.Warning,
+                                MessageBoxButton.YesNo,
+                                MessageBoxResult.No
+                            );
 
-                        Frontend.ShowConnectivityDialog(
-                            Strings.Dialog_Connectivity_UnableToDownload,
-                            String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, "[https://bloxstraplabs.com/wiki/help/bloxstrap-cannot-download-roblox/](https://bloxstraplabs.com/wiki/help/bloxstrap-cannot-download-roblox/)"),
-                            MessageBoxImage.Error,
-                            ex
-                        );
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                App.Logger.WriteLine(LOG_IDENT, "User requested another download attempt after checksum verification failed");
+                                i = 0;
+                            }
+                            else
+                            {
+                                App.SendStat("packageDownloadState", "httpFail");
 
-                        App.Terminate(ErrorCode.ERROR_CANCELLED);
+                                Frontend.ShowConnectivityDialog(
+                                    Strings.Dialog_Connectivity_UnableToDownload,
+                                    String.Format(Strings.Dialog_Connectivity_UnableToDownloadReason, "[https://bloxstraplabs.com/wiki/help/bloxstrap-cannot-download-roblox/](https://bloxstraplabs.com/wiki/help/bloxstrap-cannot-download-roblox/)"),
+                                    MessageBoxImage.Error,
+                                    ex
+                                );
+
+                                App.Terminate(ErrorCode.ERROR_CANCELLED);
+                                return;
+                            }
+                        }
                     }
                     else if (i >= maxTries)
                         throw;

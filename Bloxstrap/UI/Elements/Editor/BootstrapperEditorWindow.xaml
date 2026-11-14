@@ -1,4 +1,4 @@
-﻿<base:WpfUiWindow
+<base:WpfUiWindow
     x:Class="Bloxstrap.UI.Elements.Editor.BootstrapperEditorWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -33,7 +33,7 @@
             Grid.Row="0"
             Padding="8"
             ForceShutdown="False"
-            Icon="pack://application:,,,/Bloxstrap.ico"
+            Icon="pack://application:,,,/Resources/LumiStrapAppLogo.png"
             MinimizeToTray="False"
             UseSnapLayout="True" />
 
