@@ -16,8 +16,10 @@ namespace Bloxstrap.UI.ViewModels.Settings
         private readonly Page _page;
         private string _profileName = String.Empty;
         private ConfigurationProfile? _selectedProfile;
+        private ConfigurationProfile? _selectedHistoryProfile;
 
         public ObservableCollection<ConfigurationProfile> Profiles { get; } = new();
+        public ObservableCollection<ConfigurationProfile> HistoryProfiles { get; } = new();
 
         public string ProfileName
         {
@@ -48,11 +50,26 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool IsProfileSelected => SelectedProfile is not null;
 
+        public ConfigurationProfile? SelectedHistoryProfile
+        {
+            get => _selectedHistoryProfile;
+            set
+            {
+                if (_selectedHistoryProfile == value) return;
+                _selectedHistoryProfile = value;
+                OnPropertyChanged(nameof(SelectedHistoryProfile));
+                OnPropertyChanged(nameof(IsHistoryProfileSelected));
+            }
+        }
+
+        public bool IsHistoryProfileSelected => SelectedHistoryProfile is not null;
+
         public ICommand SaveProfileCommand => new RelayCommand(SaveProfile);
         public ICommand ImportProfileCommand => new RelayCommand(ImportProfile);
         public ICommand ExportProfileCommand => new RelayCommand(ExportProfile);
         public ICommand ApplyProfileCommand => new RelayCommand(ApplyProfile);
         public ICommand DeleteProfileCommand => new RelayCommand(DeleteProfile);
+        public ICommand RestoreHistoryCommand => new RelayCommand(RestoreHistory);
 
         public ProfilesViewModel(Page page)
         {
@@ -62,10 +79,18 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void RefreshProfiles()
         {
+            SelectedProfile = null;
+            SelectedHistoryProfile = null;
             Profiles.Clear();
+            HistoryProfiles.Clear();
 
             foreach (var profile in ConfigurationProfileManager.LoadAll())
-                Profiles.Add(profile);
+            {
+                if (profile.IsHistorySnapshot)
+                    HistoryProfiles.Add(profile);
+                else
+                    Profiles.Add(profile);
+            }
         }
 
         private void SaveProfile()
@@ -121,6 +146,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     return;
 
                 ConfigurationProfileManager.Apply(SelectedProfile);
+                RefreshProfiles();
 
                 if (Window.GetWindow(_page) is MainWindow mainWindow)
                     mainWindow.ApplyTheme();
@@ -133,6 +159,41 @@ namespace Bloxstrap.UI.ViewModels.Settings
             catch (Exception ex)
             {
                 App.Logger.WriteException("ProfilesViewModel::ApplyProfile", ex);
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_Profiles_ApplyFailed, ex.Message), MessageBoxImage.Error);
+            }
+        }
+
+        private void RestoreHistory()
+        {
+            if (SelectedHistoryProfile is null)
+                return;
+
+            ConfigurationProfile profile = SelectedHistoryProfile;
+            try
+            {
+                var preview = ConfigurationProfileManager.GetApplyPreview(profile);
+                string message = String.Format(
+                    LumiFeatureStrings.Menu_Profiles_HistoryRestorePrompt,
+                    profile.Name,
+                    preview.SettingsChanged,
+                    preview.FlagsAdded,
+                    preview.FlagsUpdated,
+                    preview.FlagsRemoved);
+
+                if (Frontend.ShowMessageBox(message, MessageBoxImage.Warning, MessageBoxButton.YesNo, MessageBoxResult.No) != MessageBoxResult.Yes)
+                    return;
+
+                ConfigurationProfileManager.Apply(profile);
+                RefreshProfiles();
+
+                if (Window.GetWindow(_page) is MainWindow mainWindow)
+                    mainWindow.ApplyTheme();
+
+                Frontend.ShowMessageBox(String.Format(Strings.Menu_Profiles_Applied, profile.Name), MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("ProfilesViewModel::RestoreHistory", ex);
                 Frontend.ShowMessageBox(String.Format(Strings.Menu_Profiles_ApplyFailed, ex.Message), MessageBoxImage.Error);
             }
         }
@@ -245,4 +306,5 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
     }
+
 }

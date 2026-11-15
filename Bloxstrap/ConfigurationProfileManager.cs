@@ -8,6 +8,7 @@ namespace Bloxstrap
         private const int PortableProfileFormatVersion = 1;
         private const int MaximumPortableProfileSize = 5 * 1024 * 1024;
         private const int MaximumPortableFastFlags = 5000;
+        private const int MaximumHistorySnapshots = 20;
 
         private static string ProfilesDirectory => Path.Combine(Paths.Base, "Profiles");
 
@@ -133,6 +134,7 @@ namespace Bloxstrap
             profile.Name = GetAvailableProfileName(profile.Name.Trim());
             profile.CreatedAtUtc = DateTime.UtcNow;
             profile.IsAutomaticUpdateBackup = false;
+            profile.IsHistorySnapshot = false;
             profile.FilePath = Path.Combine(ProfilesDirectory, $"{Guid.NewGuid():N}.json");
 
             Directory.CreateDirectory(ProfilesDirectory);
@@ -221,12 +223,123 @@ namespace Bloxstrap
             if (savedProfile is null || savedProfile.Settings is null || savedProfile.FastFlags is null)
                 throw new InvalidDataException("This profile could not be read.");
 
+            SaveCurrentHistorySnapshot();
             App.PendingSettingTasks.Clear();
             App.Settings.Prop = savedProfile.Settings;
             App.FastFlags.Prop = savedProfile.FastFlags.ToDictionary(x => x.Key, x => (object)x.Value);
             App.Settings.Save();
             App.FastFlags.Save();
         }
+
+        public static void SaveBeforeSettingsSave()
+        {
+            try
+            {
+                Settings previousSettings = File.Exists(App.Settings.FileLocation)
+                    ? JsonSerializer.Deserialize<Settings>(File.ReadAllText(App.Settings.FileLocation)) ?? new Settings()
+                    : new Settings();
+
+                Dictionary<string, string> previousFlags = File.Exists(App.FastFlags.FileLocation)
+                    ? JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(File.ReadAllText(App.FastFlags.FileLocation))?.ToDictionary(pair => pair.Key, pair => pair.Value.ToString()) ?? new()
+                    : new();
+
+                var currentFlags = App.FastFlags.Prop.ToDictionary(pair => pair.Key, pair => pair.Value?.ToString() ?? String.Empty);
+                if (AreConfigurationsEqual(previousSettings, previousFlags, App.Settings.Prop, currentFlags))
+                    return;
+
+                SaveHistorySnapshot(previousSettings, previousFlags);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("ConfigurationProfileManager::SaveBeforeSettingsSave", "Could not preserve the previous configuration in history");
+                App.Logger.WriteException("ConfigurationProfileManager::SaveBeforeSettingsSave", ex);
+            }
+        }
+
+        public static void SaveCurrentHistorySnapshot()
+        {
+            var settings = CloneSettings(App.Settings.Prop);
+            var flags = App.FastFlags.Prop.ToDictionary(pair => pair.Key, pair => pair.Value?.ToString() ?? String.Empty);
+
+            ConfigurationProfile? latest = LoadAll()
+                .Where(profile => profile.IsHistorySnapshot)
+                .OrderByDescending(profile => profile.CreatedAtUtc)
+                .FirstOrDefault();
+
+            if (latest is not null && AreConfigurationsEqual(latest.Settings, latest.FastFlags, settings, flags))
+                return;
+
+            SaveHistorySnapshot(settings, flags);
+        }
+
+        public static string GetClientPreset()
+        {
+            var currentFlags = App.FastFlags.Prop.ToDictionary(
+                pair => pair.Key,
+                pair => pair.Value?.ToString() ?? String.Empty,
+                StringComparer.Ordinal);
+
+            if (FastFlagsEqual(currentFlags, CreateClientPresetFlags("performance")))
+                return "performance";
+
+            if (FastFlagsEqual(currentFlags, CreateClientPresetFlags("quality")))
+                return "quality";
+
+            return "custom";
+        }
+
+        public static void ApplyClientPreset(string presetName)
+        {
+            Dictionary<string, string> flags = CreateClientPresetFlags(presetName);
+            var currentFlags = App.FastFlags.Prop.ToDictionary(
+                pair => pair.Key,
+                pair => pair.Value?.ToString() ?? String.Empty,
+                StringComparer.Ordinal);
+
+            if (FastFlagsEqual(currentFlags, flags))
+                return;
+
+            SaveCurrentHistorySnapshot();
+            App.PendingSettingTasks.Clear();
+            App.FastFlags.Prop = flags.ToDictionary(pair => pair.Key, pair => (object)pair.Value);
+            App.FastFlags.Save();
+            App.Logger.WriteLine("ConfigurationProfileManager::ApplyClientPreset", $"Applied client preset '{presetName}'");
+        }
+
+        private static Dictionary<string, string> CreateClientPresetFlags(string presetName)
+        {
+            bool isPerformance = String.Equals(presetName, "performance", StringComparison.OrdinalIgnoreCase);
+            bool isQuality = String.Equals(presetName, "quality", StringComparison.OrdinalIgnoreCase);
+
+            if (!isPerformance && !isQuality)
+                throw new ArgumentException("The selected client preset is not supported.", nameof(presetName));
+
+            int meshLevel = isPerformance ? 0 : 3;
+            var flags = new Dictionary<string, string>(StringComparer.Ordinal)
+            {
+                [FastFlagManager.PresetFlags["Rendering.ManualFullscreen"]] = "False",
+                [FastFlagManager.PresetFlags["Rendering.MSAA"]] = isPerformance ? "1" : "4",
+                [FastFlagManager.PresetFlags["Rendering.FRMQualityOverride"]] = isPerformance ? "1" : "21",
+                [FastFlagManager.PresetFlags["Geometry.MeshLOD.Static"]] = meshLevel.ToString(),
+                [FastFlagManager.PresetFlags["Rendering.TextureQuality.OverrideEnabled"]] = "True",
+                [FastFlagManager.PresetFlags["Rendering.TextureQuality.Level"]] = isPerformance ? "0" : "3"
+            };
+
+            string[] meshLevels = { "L0", "L12", "L23", "L34" };
+            for (int index = 0; index < meshLevels.Length; index++)
+            {
+                int distance = (Math.Clamp(meshLevel - index, 0, 3) + 1) * 250;
+                string key = FastFlagManager.PresetFlags[$"Geometry.MeshLOD.{meshLevels[index]}"];
+                flags[key] = distance.ToString();
+            }
+
+            return flags;
+        }
+
+        private static bool FastFlagsEqual(Dictionary<string, string> left, Dictionary<string, string> right)
+            => left.Count == right.Count
+                && left.All(pair => right.TryGetValue(pair.Key, out string? value)
+                    && String.Equals(pair.Value, value, StringComparison.Ordinal));
 
         public static void Delete(ConfigurationProfile profile)
         {
@@ -264,6 +377,47 @@ namespace Bloxstrap
                     return candidate;
             }
         }
+
+        private static void SaveHistorySnapshot(Settings settings, Dictionary<string, string> flags)
+        {
+            if (!Paths.Initialized)
+                return;
+
+            Directory.CreateDirectory(ProfilesDirectory);
+            string name = String.Format(LumiFeatureStrings.Menu_Profiles_HistoryEntry, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            var snapshot = new ConfigurationProfile
+            {
+                Name = name,
+                CreatedAtUtc = DateTime.UtcNow,
+                IsHistorySnapshot = true,
+                Settings = CloneSettings(settings),
+                FastFlags = new(flags, StringComparer.Ordinal),
+                FilePath = Path.Combine(ProfilesDirectory, $"{Guid.NewGuid():N}.json")
+            };
+
+            WriteProfile(snapshot, snapshot.FilePath);
+
+            foreach (ConfigurationProfile oldSnapshot in LoadAll()
+                .Where(profile => profile.IsHistorySnapshot)
+                .OrderByDescending(profile => profile.CreatedAtUtc)
+                .Skip(MaximumHistorySnapshots))
+            {
+                try { Delete(oldSnapshot); }
+                catch (Exception ex) { App.Logger.WriteException("ConfigurationProfileManager::PruneHistory", ex); }
+            }
+        }
+
+        private static bool AreConfigurationsEqual(Settings leftSettings, Dictionary<string, string> leftFlags, Settings rightSettings, Dictionary<string, string> rightFlags)
+        {
+            string leftJson = JsonSerializer.Serialize(leftSettings);
+            string rightJson = JsonSerializer.Serialize(rightSettings);
+            return String.Equals(leftJson, rightJson, StringComparison.Ordinal)
+                && leftFlags.Count == rightFlags.Count
+                && leftFlags.All(pair => rightFlags.TryGetValue(pair.Key, out string? value) && String.Equals(pair.Value, value, StringComparison.Ordinal));
+        }
+
+        private static Settings CloneSettings(Settings settings)
+            => JsonSerializer.Deserialize<Settings>(JsonSerializer.Serialize(settings)) ?? new Settings();
 
         private static void ValidatePortableProfile(ConfigurationProfile? profile)
         {

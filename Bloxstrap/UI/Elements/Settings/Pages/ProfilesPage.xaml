@@ -217,5 +217,64 @@
                 </StackPanel>
             </Grid>
         </ui:Card>
+
+        <Grid Margin="0,18,0,9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border Width="4" Height="22" Margin="0,0,10,0" CornerRadius="2" VerticalAlignment="Center" Background="#8065E7" />
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{x:Static resources:LumiFeatureStrings.Menu_Profiles_HistoryTitle}" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <TextBlock Text="{x:Static resources:LumiFeatureStrings.Menu_Profiles_HistoryDescription}" Margin="0,2,0,0" FontSize="12"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+            </StackPanel>
+            <Border Grid.Column="2" Padding="9,3" CornerRadius="9" Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                <TextBlock Text="{Binding HistoryProfiles.Count}" FontSize="12" FontWeight="SemiBold" />
+            </Border>
+        </Grid>
+
+        <ui:Card Padding="10">
+            <Grid MinHeight="180">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0" ItemsSource="{Binding HistoryProfiles}"
+                         SelectedItem="{Binding SelectedHistoryProfile, Mode=TwoWay}" MinHeight="180"
+                         BorderThickness="0" Background="Transparent">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="10,8" Margin="0,2" CornerRadius="8">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" FontSize="13" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding CreatedAtUtc, StringFormat='{}{0:g}'}" Margin="0,2,0,0" FontSize="11"
+                                               Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ui:Button Grid.Column="1" MinWidth="145" Content="{x:Static resources:LumiFeatureStrings.Menu_Profiles_RestoreHistory}"
+                           IsEnabled="{Binding IsHistoryProfileSelected}" Command="{Binding RestoreHistoryCommand}"
+                           VerticalAlignment="Top" />
+                <TextBlock Grid.Column="0" Text="{x:Static resources:LumiFeatureStrings.Menu_Profiles_HistoryEmpty}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" IsHitTestVisible="False">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HistoryProfiles.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </ui:Card>
     </StackPanel>
 </ui:UiPage>

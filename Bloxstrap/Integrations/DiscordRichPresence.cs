@@ -20,12 +20,28 @@ namespace Bloxstrap.Integrations
         private CancellationTokenSource? _fetchThumbnailsToken;
 
         private bool _visible = true;
+        private bool _privacyModeEnabled;
+        private readonly FileSystemWatcher? _settingsWatcher;
+        private int _settingsReloadQueued;
 
         public DiscordRichPresence(ActivityWatcher activityWatcher)
         {
             const string LOG_IDENT = "DiscordRichPresence";
 
             _activityWatcher = activityWatcher;
+            _privacyModeEnabled = App.Settings.Prop.DiscordPrivacyModeEnabled;
+
+            if (Paths.Initialized && Directory.Exists(Paths.Base))
+            {
+                _settingsWatcher = new FileSystemWatcher(Paths.Base, Path.GetFileName(App.Settings.FileLocation))
+                {
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName,
+                    EnableRaisingEvents = true
+                };
+                _settingsWatcher.Changed += OnSettingsFileChanged;
+                _settingsWatcher.Created += OnSettingsFileChanged;
+                _settingsWatcher.Renamed += OnSettingsFileChanged;
+            }
 
             _activityWatcher.OnGameJoin += (_, _) => Task.Run(() => SetCurrentGame());
             _activityWatcher.OnGameLeave += (_, _) => Task.Run(() => SetCurrentGame());
@@ -58,6 +74,9 @@ namespace Bloxstrap.Integrations
             const string LOG_IDENT = "DiscordRichPresence::ProcessRPCMessage";
 
             if (message.Command != "SetRichPresence" && message.Command != "SetLaunchData")
+                return;
+
+            if (_privacyModeEnabled)
                 return;
 
             if (_currentPresence is null || _originalPresence is null)
@@ -321,9 +340,63 @@ namespace Bloxstrap.Integrations
                 _rpcClient.ClearPresence();
         }
 
+        private void OnSettingsFileChanged(object sender, FileSystemEventArgs e)
+        {
+            if (Interlocked.Exchange(ref _settingsReloadQueued, 1) != 0)
+                return;
+
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(350);
+                try
+                {
+                    if (!File.Exists(App.Settings.FileLocation))
+                        return;
+
+                    var settings = JsonSerializer.Deserialize<Bloxstrap.Models.Persistable.Settings>(File.ReadAllText(App.Settings.FileLocation));
+                    if (settings is not null && settings.DiscordPrivacyModeEnabled != _privacyModeEnabled)
+                        SetPrivacyMode(settings.DiscordPrivacyModeEnabled);
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.WriteLine("DiscordRichPresence::OnSettingsFileChanged", "Could not reload the Discord privacy setting");
+                    App.Logger.WriteException("DiscordRichPresence::OnSettingsFileChanged", ex);
+                }
+                finally
+                {
+                    Interlocked.Exchange(ref _settingsReloadQueued, 0);
+                }
+            });
+        }
+
+        private void SetPrivacyMode(bool enabled)
+        {
+            _privacyModeEnabled = enabled;
+            App.Logger.WriteLine("DiscordRichPresence::SetPrivacyMode", $"Discord privacy mode changed ({enabled})");
+
+            if (enabled)
+            {
+                _currentPresence = _originalPresence = null;
+                _messageQueue.Clear();
+                _rpcClient.ClearPresence();
+            }
+            else
+            {
+                _ = Task.Run(() => SetCurrentGame());
+            }
+        }
+
         public async Task<bool> SetCurrentGame()
         {
             const string LOG_IDENT = "DiscordRichPresence::SetCurrentGame";
+
+            if (_privacyModeEnabled)
+            {
+                _currentPresence = _originalPresence = null;
+                _messageQueue.Clear();
+                UpdatePresence();
+                return true;
+            }
             
             if (!_activityWatcher.InGame)
             {
@@ -431,6 +504,9 @@ namespace Bloxstrap.Integrations
         {
             var buttons = new List<Button>();
 
+            if (_privacyModeEnabled)
+                return buttons.ToArray();
+
             var data = _activityWatcher.Data;
 
             if (!App.Settings.Prop.HideRPCButtons)
@@ -482,6 +558,7 @@ namespace Bloxstrap.Integrations
         {
             App.Logger.WriteLine("DiscordRichPresence::Dispose", "Cleaning up Discord RPC and Presence");
             _rpcClient.ClearPresence();
+            _settingsWatcher?.Dispose();
             _rpcClient.Dispose();
             GC.SuppressFinalize(this);
         }

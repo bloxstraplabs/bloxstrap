@@ -1758,4 +1758,86 @@ Revirtiendo al tema {1}.</value>
   <data name="Dialog.UpdateReview.BackupFailed" xml:space="preserve">
     <value>LumiStrap no pudo guardar la copia de configuración, así que no inició la actualización. Detalles: {0}</value>
   </data>
+  <data name="Menu.Profiles.TemplatesTitle" xml:space="preserve"><value>Plantillas rápidas</value></data>
+  <data name="Menu.Profiles.TemplatesDescription" xml:space="preserve"><value>Aplica una configuración inicial de texturas y suavizado de bordes. Debes tener activado el administrador de FastFlags y Roblox podría ignorar las flags que ya no permita. Después puedes guardarla como perfil.</value></data>
+  <data name="Menu.Profiles.ApplyTemplate" xml:space="preserve"><value>Aplicar plantilla</value></data>
+  <data name="Menu.Profiles.TemplateBalanced" xml:space="preserve"><value>Valores predeterminados de Roblox</value></data>
+  <data name="Menu.Profiles.TemplateBalancedDescription" xml:space="preserve"><value>Quita las modificaciones de LumiStrap para la calidad de texturas y el suavizado de bordes.</value></data>
+  <data name="Menu.Profiles.TemplatePerformance" xml:space="preserve"><value>Texturas ligeras</value></data>
+  <data name="Menu.Profiles.TemplatePerformanceDescription" xml:space="preserve"><value>Establece la calidad de texturas mínima y antialiasing 1x. Roblox podría ignorar FastFlags que ya no estén permitidas.</value></data>
+  <data name="Menu.Profiles.TemplateQuality" xml:space="preserve"><value>Mayor calidad visual</value></data>
+  <data name="Menu.Profiles.TemplateQualityDescription" xml:space="preserve"><value>Establece la calidad de texturas máxima y antialiasing 4x. Roblox podría ignorar FastFlags que ya no estén permitidas.</value></data>
+  <data name="Menu.Profiles.TemplatePrompt" xml:space="preserve"><value>¿Aplicar la plantilla «{0}»? LumiStrap guardará primero los ajustes actuales en el historial.</value></data>
+  <data name="Menu.Profiles.TemplateApplied" xml:space="preserve"><value>Se aplicó la plantilla «{0}».</value></data>
+  <data name="Menu.Profiles.HistoryTitle" xml:space="preserve"><value>Historial de ajustes</value></data>
+  <data name="Menu.Profiles.HistoryDescription" xml:space="preserve"><value>Aquí se guardan copias de tus ajustes anteriores para que puedas restaurarlas. Se conservan las 20 más recientes.</value></data>
+  <data name="Menu.Profiles.HistoryEntry" xml:space="preserve"><value>Antes de los cambios · {0}</value></data>
+  <data name="Menu.Profiles.HistoryEmpty" xml:space="preserve"><value>Aún no hay ajustes anteriores. LumiStrap guardará una copia al guardar o aplicar cambios.</value></data>
+  <data name="Menu.Profiles.RestoreHistory" xml:space="preserve"><value>Restaurar seleccionado</value></data>
+  <data name="Menu.Profiles.HistoryRestorePrompt" xml:space="preserve"><value>¿Restaurar «{0}»?
+
+Ajustes que cambiarán: {1}
+FastFlags añadidas: {2}
+FastFlags modificadas: {3}
+FastFlags eliminadas: {4}
+
+LumiStrap guardará primero los ajustes actuales en el historial.</value></data>
+  <data name="Menu.Integrations.PrivacyMode.Title" xml:space="preserve"><value>Modo de privacidad de Discord</value></data>
+  <data name="Menu.Integrations.PrivacyMode.Description" xml:space="preserve"><value>Quita de Discord la actividad de Roblox de LumiStrap y oculta los botones para unirse. Tus otras opciones de Discord se conservan y vuelven al desactivarlo.</value></data>
+  <data name="Menu.LumiFix.PreflightTitle" xml:space="preserve"><value>Antes de iniciar Roblox</value></data>
+  <data name="Menu.LumiFix.PreflightDescription" xml:space="preserve"><value>Busca otro proceso de LumiStrap, una instancia de Roblox abierta y archivos de instalación dañados o faltantes. No cierra programas ni modifica archivos.</value></data>
+  <data name="Menu.LumiFix.PreflightRun" xml:space="preserve"><value>Revisar inicio</value></data>
+  <data name="Menu.LumiFix.PreflightChecking" xml:space="preserve"><value>Revisando la instalación de Roblox…</value></data>
+  <data name="Menu.LumiFix.PreflightReady" xml:space="preserve"><value>Roblox está listo. No se encontraron procesos en conflicto ni problemas de instalación.</value></data>
+  <data name="Menu.LumiFix.PreflightOtherInstance" xml:space="preserve"><value>Hay otro proceso de LumiStrap abierto. Cierra la copia extra si está bloqueada o impide iniciar Roblox.</value></data>
+  <data name="Menu.LumiFix.PreflightRobloxRunning" xml:space="preserve"><value>Roblox ya está abierto. Esto podría afectar el inicio de otra sesión.</value></data>
+  <data name="Menu.LumiFix.PreflightNotInstalled" xml:space="preserve"><value>No se encontró la instalación de Roblox Player.</value></data>
+  <data name="Menu.LumiFix.PreflightExecutableMissing" xml:space="preserve"><value>Falta el ejecutable de Roblox Player. Usa la reparación de LumiFix para reinstalar el cliente.</value></data>
+  <data name="Menu.LumiFix.PreflightFileIssues" xml:space="preserve"><value>La revisión encontró {0} archivos faltantes, {1} modificados y {2} ilegibles. Usa la reparación de LumiFix para restaurar el cliente.</value></data>
+  <data name="Menu.LumiFix.PreflightFailed" xml:space="preserve"><value>No se pudo completar la revisión de inicio: {0}</value></data>
+  <data name="Menu.Experiences.Title" xml:space="preserve"><value>Experiencias</value></data>
+  <data name="Menu.Experiences.Description" xml:space="preserve"><value>Ten a mano tus experiencias favoritas de Roblox. LumiStrap agrega aquí los juegos que abras.</value></data>
+  <data name="Menu.Experiences.AddTitle" xml:space="preserve"><value>Agregar una experiencia</value></data>
+  <data name="Menu.Experiences.AddDescription" xml:space="preserve"><value>Pega un enlace de Roblox o un ID de lugar. Los juegos recientes se agregan automáticamente si el seguimiento de actividad está activado.</value></data>
+  <data name="Menu.Experiences.UrlPlaceholder" xml:space="preserve"><value>Enlace de Roblox o ID del lugar</value></data>
+  <data name="Menu.Experiences.NamePlaceholder" xml:space="preserve"><value>Nombre (opcional)</value></data>
+  <data name="Menu.Experiences.Add" xml:space="preserve"><value>Agregar</value></data>
+  <data name="Menu.Experiences.Added" xml:space="preserve"><value>Se agregó la experiencia a tu biblioteca.</value></data>
+  <data name="Menu.Experiences.InvalidUrl" xml:space="preserve"><value>Escribe un ID de lugar o un enlace de Roblox con el formato roblox.com/games/12345.</value></data>
+  <data name="Menu.Experiences.SaveFailed" xml:space="preserve"><value>No se pudo guardar la lista de experiencias: {0}</value></data>
+  <data name="Menu.Experiences.OpenFailed" xml:space="preserve"><value>No se pudo abrir la página de la experiencia: {0}</value></data>
+  <data name="Menu.Experiences.RemovePrompt" xml:space="preserve"><value>¿Quitar «{0}» de tu biblioteca?</value></data>
+  <data name="Menu.Experiences.Open" xml:space="preserve"><value>Abrir experiencia</value></data>
+  <data name="Menu.Experiences.ToggleFavorite" xml:space="preserve"><value>Marcar / quitar favorito</value></data>
+  <data name="Menu.Experiences.Remove" xml:space="preserve"><value>Quitar</value></data>
+  <data name="Menu.Experiences.ListTitle" xml:space="preserve"><value>Favoritos y juegos recientes</value></data>
+  <data name="Menu.Experiences.Empty" xml:space="preserve"><value>Tu biblioteca está vacía. Agrega un enlace de Roblox o juega una experiencia para verla aquí.</value></data>
+  <data name="Menu.Experiences.DefaultName" xml:space="preserve"><value>Experiencia de Roblox {0}</value></data>
+  <data name="Menu.Experiences.LastPlayed" xml:space="preserve"><value>Última vez jugado: {0}</value></data>
+  <data name="Menu.Experiences.MarkFavorite" xml:space="preserve"><value>Agregar a favoritos</value></data>
+  <data name="Menu.Experiences.UnmarkFavorite" xml:space="preserve"><value>Quitar de favoritos</value></data>
+  <data name="Menu.Studio.Title" xml:space="preserve"><value>Roblox Studio</value></data>
+  <data name="Menu.Studio.Description" xml:space="preserve"><value>Acceso rápido a Studio y a sus archivos locales.</value></data>
+  <data name="Menu.Studio.StatusTitle" xml:space="preserve"><value>Estado de la instalación</value></data>
+  <data name="Menu.Studio.Installed" xml:space="preserve"><value>Roblox Studio está instalado.</value></data>
+  <data name="Menu.Studio.NotInstalled" xml:space="preserve"><value>Roblox Studio no está instalado.</value></data>
+  <data name="Menu.Studio.Launch" xml:space="preserve"><value>Abrir Studio</value></data>
+  <data name="Menu.Studio.LaunchFailed" xml:space="preserve"><value>No se pudo abrir Roblox Studio: {0}</value></data>
+  <data name="Menu.Studio.FolderMissing" xml:space="preserve"><value>No se encontró la carpeta de instalación de Studio.</value></data>
+  <data name="Menu.Studio.OpenFolder" xml:space="preserve"><value>Abrir carpeta de Studio</value></data>
+  <data name="Menu.Studio.FlagEditor" xml:space="preserve"><value>Abrir editor de FastFlags</value></data>
+  <data name="Menu.Studio.FlagNotice" xml:space="preserve"><value>Roblox decide qué FastFlags acepta el cliente normal. Studio puede admitir opciones adicionales; las flags pueden cambiar o dejar de funcionar tras una actualización.</value></data>
+  <data name="Menu.Studio.ToolsTitle" xml:space="preserve"><value>Herramientas de Studio</value></data>
+  <data name="Menu.Studio.ToolsDescription" xml:space="preserve"><value>Abre la carpeta de instalación local o continúa al editor de FastFlags de LumiStrap.</value></data>
+  <data name="Menu.Search.Experiences" xml:space="preserve"><value>Experiencias, favoritos, juegos recientes</value></data>
+  <data name="Menu.Search.Studio" xml:space="preserve"><value>Roblox Studio, herramientas de creación</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Title" xml:space="preserve"><value>Perfiles gráficos</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Description" xml:space="preserve"><value>Elige una configuración inicial para los gráficos de Roblox. Si cambias cualquier FastFlag fuera de estos perfiles, aparecerá como Personalizado. Al aplicar un perfil, se reemplazan las FastFlags actuales después de guardarlas en el historial.</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Performance" xml:space="preserve"><value>Rendimiento</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Quality" xml:space="preserve"><value>Calidad</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Current" xml:space="preserve"><value>Configuración actual</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Custom" xml:space="preserve"><value>Personalizado</value></data>
+  <data name="Menu.FastFlags.ClientPreset.ApplyPrompt" xml:space="preserve"><value>¿Aplicar el perfil «{0}»? Esto reemplazará todas las FastFlags actuales del cliente. LumiStrap guardará primero la configuración actual en el historial de perfiles.</value></data>
+  <data name="Menu.FastFlags.ClientPreset.Applied" xml:space="preserve"><value>Se aplicó el perfil «{0}».</value></data>
+  <data name="Menu.FastFlags.ClientPreset.ApplyFailed" xml:space="preserve"><value>No se pudo aplicar el perfil: {0}</value></data>
 </root>

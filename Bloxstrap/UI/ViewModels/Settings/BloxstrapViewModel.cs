@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using ICSharpCode.SharpZipLib.Zip;
@@ -44,6 +44,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand CheckPlayerInstallationCommand => new RelayCommand(async () => await CheckPlayerInstallation());
 
+        public ICommand PreLaunchDiagnosticCommand => new RelayCommand(async () => await RunPreLaunchDiagnostic());
+
         public ICommand RepairPlayerInstallationCommand => new RelayCommand(RepairPlayerInstallation);
 
         public ICommand ClearDownloadCacheCommand => new RelayCommand(ClearDownloadCache);
@@ -59,6 +61,19 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 _lumiFixStatus = value;
                 OnPropertyChanged(nameof(LumiFixStatus));
+            }
+        }
+
+        private string _preLaunchDiagnosticStatus = String.Empty;
+        public string PreLaunchDiagnosticStatus
+        {
+            get => _preLaunchDiagnosticStatus;
+            private set
+            {
+                if (_preLaunchDiagnosticStatus == value)
+                    return;
+                _preLaunchDiagnosticStatus = value;
+                OnPropertyChanged(nameof(PreLaunchDiagnosticStatus));
             }
         }
 
@@ -117,6 +132,66 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.Logger.WriteLine("BloxstrapViewModel::CheckPlayerInstallation", "LumiFix could not complete the installation check");
                 App.Logger.WriteException("BloxstrapViewModel::CheckPlayerInstallation", ex);
                 LumiFixStatus = String.Format(Strings.Menu_LumiFix_CheckFailed, ex.Message);
+            }
+            finally
+            {
+                IsChecking = false;
+            }
+        }
+
+        private async Task RunPreLaunchDiagnostic()
+        {
+            if (IsChecking)
+                return;
+
+            IsChecking = true;
+            PreLaunchDiagnosticStatus = LumiFeatureStrings.Menu_LumiFix_PreflightChecking;
+
+            try
+            {
+                var findings = new List<string>();
+
+                if (HasOtherLumiStrapInstance())
+                    findings.Add(LumiFeatureStrings.Menu_LumiFix_PreflightOtherInstance);
+
+                if (HasProcessByName(App.RobloxPlayerAppName))
+                    findings.Add(LumiFeatureStrings.Menu_LumiFix_PreflightRobloxRunning);
+
+                if (!App.IsPlayerInstalled)
+                {
+                    findings.Add(LumiFeatureStrings.Menu_LumiFix_PreflightNotInstalled);
+                }
+                else
+                {
+                    var playerData = new Bloxstrap.AppData.RobloxPlayerData();
+                    if (!File.Exists(playerData.ExecutablePath))
+                    {
+                        findings.Add(LumiFeatureStrings.Menu_LumiFix_PreflightExecutableMissing);
+                    }
+                    else
+                    {
+                        var progress = new Progress<string>(message => PreLaunchDiagnosticStatus = message);
+                        LumiFixResult result = await LumiFix.CheckPlayerInstallationAsync(progress);
+                        if (!result.IsInstalled)
+                            findings.Add(LumiFeatureStrings.Menu_LumiFix_PreflightNotInstalled);
+                        else if (result.ProblemCount > 0)
+                            findings.Add(String.Format(
+                                LumiFeatureStrings.Menu_LumiFix_PreflightFileIssues,
+                                result.MissingFiles,
+                                result.ChangedFiles,
+                                result.UnreadableFiles));
+                    }
+                }
+
+                PreLaunchDiagnosticStatus = findings.Count == 0
+                    ? LumiFeatureStrings.Menu_LumiFix_PreflightReady
+                    : String.Join(Environment.NewLine, findings);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("BloxstrapViewModel::RunPreLaunchDiagnostic", "The pre-launch diagnostic could not complete");
+                App.Logger.WriteException("BloxstrapViewModel::RunPreLaunchDiagnostic", ex);
+                PreLaunchDiagnosticStatus = String.Format(LumiFeatureStrings.Menu_LumiFix_PreflightFailed, ex.Message);
             }
             finally
             {
@@ -287,6 +362,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             const string LOG_IDENT = "BloxstrapViewModel::SaveCurrentSettings";
 
+            ConfigurationProfileManager.SaveBeforeSettingsSave();
             App.Settings.Save();
             App.State.Save();
             App.FastFlags.Save();

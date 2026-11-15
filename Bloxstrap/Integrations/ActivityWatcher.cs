@@ -266,6 +266,7 @@ namespace Bloxstrap.Integrations
                     InGame = true;
                     Data.TimeJoined = DateTime.Now;
 
+                    ExperienceLibraryManager.RecordRecent(Data.PlaceId);
                     OnGameJoin?.Invoke(this, EventArgs.Empty);
                 }
             }

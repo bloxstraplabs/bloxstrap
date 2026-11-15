@@ -96,6 +96,8 @@ namespace Bloxstrap.UI.Elements.Settings
             {
                 (Strings.Menu_Search_Home, typeof(Pages.HomePage)),
                 (Strings.Menu_Search_Integrations, typeof(Pages.IntegrationsPage)),
+                (LumiFeatureStrings.Menu_Search_Experiences, typeof(Pages.ExperienceLibraryPage)),
+                (LumiFeatureStrings.Menu_Search_Studio, typeof(Pages.StudioPage)),
                 (Strings.Menu_Search_Behaviour, typeof(Pages.BehaviourPage)),
                 (Strings.Menu_Search_FastFlags, typeof(Pages.FastFlagsPage)),
                 (Strings.Menu_Search_Appearance, typeof(Pages.AppearancePage)),

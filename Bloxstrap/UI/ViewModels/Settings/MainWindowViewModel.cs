@@ -42,6 +42,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
         {
             const string LOG_IDENT = "MainWindowViewModel::SaveSettings";
 
+            ConfigurationProfileManager.SaveBeforeSettingsSave();
             App.Settings.Save();
             App.State.Save();
             App.FastFlags.Save();

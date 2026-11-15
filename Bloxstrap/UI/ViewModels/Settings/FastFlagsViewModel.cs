@@ -4,6 +4,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.Enums.FlagPresets;
+using Bloxstrap.Resources;
 
 namespace Bloxstrap.UI.ViewModels.Settings
 {
@@ -18,6 +19,55 @@ namespace Bloxstrap.UI.ViewModels.Settings
         private void OpenFastFlagEditor() => OpenFlagEditorEvent?.Invoke(this, EventArgs.Empty);
 
         public ICommand OpenFastFlagEditorCommand => new RelayCommand(OpenFastFlagEditor);
+        public ICommand ApplyPerformancePresetCommand => new RelayCommand(() => ApplyClientPreset("performance"));
+        public ICommand ApplyQualityPresetCommand => new RelayCommand(() => ApplyClientPreset("quality"));
+
+        public string ClientPresetLabel => ConfigurationProfileManager.GetClientPreset() switch
+        {
+            "performance" => LumiFeatureStrings.Menu_FastFlags_ClientPreset_Performance,
+            "quality" => LumiFeatureStrings.Menu_FastFlags_ClientPreset_Quality,
+            _ => LumiFeatureStrings.Menu_FastFlags_ClientPreset_Custom
+        };
+
+        public void RefreshPresetState()
+        {
+            OnPropertyChanged(nameof(ClientPresetLabel));
+            OnPropertyChanged(nameof(SelectedMSAALevel));
+            OnPropertyChanged(nameof(SelectedRenderingMode));
+            OnPropertyChanged(nameof(FixDisplayScaling));
+            OnPropertyChanged(nameof(MeshDetailEnabled));
+            OnPropertyChanged(nameof(MeshDetail));
+            OnPropertyChanged(nameof(FRMQualityOverrideEnabled));
+            OnPropertyChanged(nameof(FRMQualityOverride));
+            OnPropertyChanged(nameof(SelectedTextureQuality));
+        }
+
+        private void ApplyClientPreset(string presetName)
+        {
+            string presetLabel = presetName == "performance"
+                ? LumiFeatureStrings.Menu_FastFlags_ClientPreset_Performance
+                : LumiFeatureStrings.Menu_FastFlags_ClientPreset_Quality;
+            string prompt = String.Format(LumiFeatureStrings.Menu_FastFlags_ClientPreset_ApplyPrompt, presetLabel);
+
+            if (Frontend.ShowMessageBox(prompt, MessageBoxImage.Warning, MessageBoxButton.YesNo, MessageBoxResult.No) != MessageBoxResult.Yes)
+                return;
+
+            try
+            {
+                ConfigurationProfileManager.ApplyClientPreset(presetName);
+                RefreshPresetState();
+                Frontend.ShowMessageBox(
+                    String.Format(LumiFeatureStrings.Menu_FastFlags_ClientPreset_Applied, presetLabel),
+                    MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteException("FastFlagsViewModel::ApplyClientPreset", ex);
+                Frontend.ShowMessageBox(
+                    String.Format(LumiFeatureStrings.Menu_FastFlags_ClientPreset_ApplyFailed, ex.Message),
+                    MessageBoxImage.Error);
+            }
+        }
 
         public Visibility CanShowFastFlagEditor => App.IsStudioInstalled ? Visibility.Visible : Visibility.Collapsed;
 
@@ -32,7 +82,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public MSAAMode SelectedMSAALevel
         {
             get => MSAALevels.FirstOrDefault(x => x.Value == App.FastFlags.GetPreset("Rendering.MSAA")).Key;
-            set => App.FastFlags.SetPreset("Rendering.MSAA", MSAALevels[value]);
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.MSAA", MSAALevels[value]);
+                RefreshPresetState();
+            }
         }
 
         public IReadOnlyDictionary<RenderingMode, string> RenderingModes => FastFlagManager.RenderingModes;
@@ -40,13 +94,21 @@ namespace Bloxstrap.UI.ViewModels.Settings
         public RenderingMode SelectedRenderingMode
         {
             get => App.FastFlags.GetPresetEnum(RenderingModes, "Rendering.Mode", "True");
-            set => App.FastFlags.SetPresetEnum("Rendering.Mode", value.ToString(), "True");
+            set
+            {
+                App.FastFlags.SetPresetEnum("Rendering.Mode", value.ToString(), "True");
+                RefreshPresetState();
+            }
         }
 
         public bool FixDisplayScaling
         {
             get => App.FastFlags.GetPreset("Rendering.DisableScaling") == "True";
-            set => App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.DisableScaling", value ? "True" : null);
+                RefreshPresetState();
+            }
         }
 
         private static readonly string[] MeshDetailLevels = { "L0", "L12", "L23", "L34" };
@@ -69,6 +131,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 }
 
                 OnPropertyChanged(nameof(MeshDetailEnabled));
+                RefreshPresetState();
             }
         }
 
@@ -88,6 +151,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Geometry.MeshLOD.Static", selectedLevel);
                 OnPropertyChanged(nameof(MeshDetail));
                 OnPropertyChanged(nameof(MeshDetailEnabled));
+                RefreshPresetState();
             }
         }
 
@@ -103,6 +167,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
                 OnPropertyChanged(nameof(FRMQualityOverrideEnabled));
                 OnPropertyChanged(nameof(FRMQualityOverride));
+                RefreshPresetState();
             }
         }
 
@@ -113,6 +178,7 @@ namespace Bloxstrap.UI.ViewModels.Settings
             {
                 App.FastFlags.SetPreset("Rendering.FRMQualityOverride", Math.Clamp(value, 1, 21));
                 OnPropertyChanged(nameof(FRMQualityOverride));
+                RefreshPresetState();
             }
         }
 
@@ -132,6 +198,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     App.FastFlags.SetPreset("Rendering.TextureQuality.OverrideEnabled", "True");
                     App.FastFlags.SetPreset("Rendering.TextureQuality.Level", TextureQualities[value]);
                 }
+
+                RefreshPresetState();
             }
         }
         public bool ResetConfiguration

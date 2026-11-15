@@ -26,6 +26,37 @@
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
+        <ui:Card Margin="0,8,0,0" Padding="12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,12,0" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Static resources:LumiFeatureStrings.Menu_FastFlags_ClientPreset_Title}"
+                               FontSize="14" FontWeight="Medium" />
+                    <TextBlock Margin="0,3,0,0"
+                               Text="{x:Static resources:LumiFeatureStrings.Menu_FastFlags_ClientPreset_Description}"
+                               FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}"
+                               TextWrapping="Wrap" />
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
+                        <TextBlock Text="{x:Static resources:LumiFeatureStrings.Menu_FastFlags_ClientPreset_Current}"
+                                   VerticalAlignment="Center" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                        <Border Margin="8,0,0,0" Padding="8,3" CornerRadius="5"
+                                Background="#6957E8">
+                            <TextBlock Text="{Binding ClientPresetLabel}" FontWeight="SemiBold" Foreground="White" />
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <ui:Button Content="{x:Static resources:LumiFeatureStrings.Menu_FastFlags_ClientPreset_Performance}"
+                               Command="{Binding ApplyPerformancePresetCommand}" Margin="0,0,8,0" />
+                    <ui:Button Content="{x:Static resources:LumiFeatureStrings.Menu_FastFlags_ClientPreset_Quality}"
+                               Command="{Binding ApplyQualityPresetCommand}" Appearance="Primary" />
+                </StackPanel>
+            </Grid>
+        </ui:Card>
+
         <TextBlock Text="{x:Static resources:Strings.Common_Presets}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />

@@ -10,6 +10,8 @@ namespace Bloxstrap.Models
 
         public bool IsAutomaticUpdateBackup { get; set; }
 
+        public bool IsHistorySnapshot { get; set; }
+
         public Persistable.Settings Settings { get; set; } = new();
 
         public Dictionary<string, string> FastFlags { get; set; } = new();

@@ -107,6 +107,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool DiscordPrivacyModeEnabled
+        {
+            get => App.Settings.Prop.DiscordPrivacyModeEnabled;
+            set => App.Settings.Prop.DiscordPrivacyModeEnabled = value;
+        }
+
         public bool DiscordActivityJoinEnabled
         {
             get => !App.Settings.Prop.HideRPCButtons;

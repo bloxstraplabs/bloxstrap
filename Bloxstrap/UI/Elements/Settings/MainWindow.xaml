@@ -56,6 +56,8 @@
                 <ui:NavigationFluent.Items>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Home_NavTitle}" PageType="{x:Type pages:HomePage}" Icon="Home24" PageTag="home" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Integrations_Title}" PageType="{x:Type pages:IntegrationsPage}" Icon="Add28" PageTag="integrations" />
+                    <ui:NavigationItem Content="{x:Static resources:LumiFeatureStrings.Menu_Experiences_Title}" PageType="{x:Type pages:ExperienceLibraryPage}" Icon="Star24" PageTag="experiences" />
+                    <ui:NavigationItem Content="{x:Static resources:LumiFeatureStrings.Menu_Studio_Title}" PageType="{x:Type pages:StudioPage}" Icon="WrenchScrewdriver20" PageTag="studio" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Behaviour_Title}" PageType="{x:Type pages:BehaviourPage}" Icon="PlaySettings20" PageTag="bootstrapper" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Mods_Title}" PageType="{x:Type pages:ModsPage}" Icon="WrenchScrewdriver20" PageTag="mods" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlags_Title}" PageType="{x:Type pages:FastFlagsPage}" Icon="Flag24" PageTag="fastflags" />
