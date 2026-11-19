@@ -130,8 +130,19 @@ namespace Bloxstrap.UI.Elements.Dialogs
         {
             const string LOG_IDENT = "AddCustomThemeDialog::ValidateImport";
 
-            if (!_viewModel.FilePath.EndsWith(".zip"))
+            string filename = Path.GetFileName(_viewModel.FilePath);
+
+            if (!filename.EndsWith(".zip"))
             {
+                _viewModel.FileError = Strings.CustomTheme_Add_Errors_FileNotZip;
+                return false;
+            }
+
+            if (filename.StartsWith("."))
+            {
+                // i'm lazy and this probably doesn't warrant a whole
+                // new error message with 20 different translations for
+                // attempted abuse
                 _viewModel.FileError = Strings.CustomTheme_Add_Errors_FileNotZip;
                 return false;
             }
