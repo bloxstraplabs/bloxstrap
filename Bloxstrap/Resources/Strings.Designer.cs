@@ -19,7 +19,7 @@ namespace Bloxstrap.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -66,43 +66,6 @@ namespace Bloxstrap.Resources {
         public static string About_Licenses_Title {
             get {
                 return ResourceManager.GetString("About.Licenses.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
-        ///Every person here is ranked by their overall pledge..
-        /// </summary>
-        public static string About_Supporters_Description {
-            get {
-                return ResourceManager.GetString("About.Supporters.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monthly.
-        /// </summary>
-        public static string About_Supporters_Monthly {
-            get {
-                return ResourceManager.GetString("About.Supporters.Monthly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to One-off.
-        /// </summary>
-        public static string About_Supporters_OneOff {
-            get {
-                return ResourceManager.GetString("About.Supporters.OneOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Supporters.
-        /// </summary>
-        public static string About_Supporters_Title {
-            get {
-                return ResourceManager.GetString("About.Supporters.Title", resourceCulture);
             }
         }
         

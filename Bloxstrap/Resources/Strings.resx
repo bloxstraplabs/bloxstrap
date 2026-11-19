@@ -993,13 +993,6 @@ This may or may not be a Bloxstrap issue. To find out, see [this help page]({0})
   <data name="Common.Loading" xml:space="preserve">
     <value>Loading, please wait...</value>
   </data>
-  <data name="About.Supporters.Title" xml:space="preserve">
-    <value>Supporters</value>
-  </data>
-  <data name="About.Supporters.Description" xml:space="preserve">
-    <value>These are the people who've supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
-Every person here is ranked by their overall pledge.</value>
-  </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
     <value>Your Settings could not be loaded. They have been reset to the default configuration.</value>
   </data>
@@ -1067,12 +1060,6 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
     <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
-  </data>
-  <data name="About.Supporters.Monthly" xml:space="preserve">
-    <value>Monthly</value>
-  </data>
-  <data name="About.Supporters.OneOff" xml:space="preserve">
-    <value>One-off</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
     <value>Configure options related to Bloxstrap's behaviour itself.</value>
