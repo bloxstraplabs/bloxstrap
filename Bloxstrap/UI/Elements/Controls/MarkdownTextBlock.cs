@@ -72,16 +72,18 @@ namespace Bloxstrap.UI.Elements.Controls
                 string? url = linkInline.Url;
                 var textInline = linkInline.FirstChild;
 
-                if (string.IsNullOrEmpty(url))
-                    return GetWpfInlineFromMarkdownInline(textInline);
-
                 var childInline = GetWpfInlineFromMarkdownInline(textInline);
 
-                return new Hyperlink(childInline)
+                if (!string.IsNullOrEmpty(url) && (url.StartsWith("http://") || url.StartsWith("https://")))
                 {
-                    Command = GlobalViewModel.OpenWebpageCommand,
-                    CommandParameter = url
-                };
+                    return new Hyperlink(childInline)
+                    {
+                        Command = GlobalViewModel.OpenWebpageCommand,
+                        CommandParameter = url
+                    };
+                }
+
+                return childInline;
             }
             else if (inline is LineBreakInline)
             {
