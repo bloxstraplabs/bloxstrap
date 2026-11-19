@@ -28,6 +28,7 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             ["ProgressBar"] = HandleXmlElement_ProgressBar,
             ["ProgressRing"] = HandleXmlElement_ProgressRing,
             ["TextBlock"] = HandleXmlElement_TextBlock,
+            ["MarkdownTextBlock"] = HandleXmlElement_TextBlock,
             ["Image"] = HandleXmlElement_Image,
             ["Grid"] = HandleXmlElement_Grid,
             ["StackPanel"] = HandleXmlElement_StackPanel,
