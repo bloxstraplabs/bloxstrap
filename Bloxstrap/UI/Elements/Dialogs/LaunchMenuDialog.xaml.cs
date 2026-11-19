@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Bloxstrap.UI.ViewModels.Dialogs;
+using Bloxstrap.UI.ViewModels.Installer;
+using SimpleFeedReader;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Bloxstrap.UI.ViewModels.Dialogs;
-using Bloxstrap.UI.ViewModels.Installer;
 using Wpf.Ui.Mvvm.Interfaces;
 
 namespace Bloxstrap.UI.Elements.Dialogs
@@ -24,18 +25,43 @@ namespace Bloxstrap.UI.Elements.Dialogs
     {
         public NextAction CloseAction = NextAction.Terminate;
 
+        private LaunchMenuViewModel ViewModel = new();
+
         public LaunchMenuDialog()
         {
-            var viewModel = new LaunchMenuViewModel();
-            viewModel.CloseWindowRequest += (_, closeAction) =>
+            ViewModel.CloseWindowRequest += (_, closeAction) =>
             {
                 CloseAction = closeAction;
                 Close();
             };
 
-            DataContext = viewModel;
+            LoadNews();
+
+            DataContext = ViewModel;
 
             InitializeComponent();
         }
+
+        public async void LoadNews()
+        {
+            try
+            {
+                var reader = new FeedReader();
+                var rssItems = await reader.RetrieveFeedAsync(StaticContent.NewsfeedURL);
+                var items = rssItems.Select(x => new NewsItem(x)).ToList();
+
+                if (items.Any())
+                    items[0].ThumbnailExpanded = true;
+
+                ViewModel.Newsfeed = items;
+                ViewModel.RaiseNewsLoaded();
+            }
+            catch (Exception ex)
+            {
+                App.Logger.WriteLine("LaunchMenuDialog::LoadNews", "Failed to fetch news");
+                App.Logger.WriteException("LaunchMenuDialog::LoadNews", ex);
+            }
+        }
     }
 }
+

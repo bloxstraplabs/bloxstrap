@@ -8,12 +8,14 @@
         xmlns:base="clr-namespace:Bloxstrap.UI.Elements.Base"
         xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
+        xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
         mc:Ignorable="d"
         Title="Bloxstrap"
         MinWidth="0"
         MinHeight="0"
-        Width="580"
-        SizeToContent="Height"
+        Width="740"
+        Height="420"
+        SizeToContent="Manual"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
@@ -28,64 +30,157 @@
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280" />
+                <ColumnDefinition Width="480" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid Margin="16 16 16 16">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
-                <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,32">
+
+                <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0 0 0 32">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="0" Width="64" Height="64" Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
-                    <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                        <TextBlock Text="Bloxstrap" FontSize="24" />
-                        <TextBlock Text="{Binding Version, Mode=OneTime}" VerticalAlignment="Bottom" FontSize="12" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
+                    <!-- TODO: replace with wordmark -->
+                    <Image Margin="4 0" Grid.Column="0" Width="64" Height="64"
+                           Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <TextBlock Margin="4 0" Text="Bloxstrap" Grid.Column="1" FontSize="26" VerticalAlignment="Center" />
                 </Grid>
 
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-                    <ui:Hyperlink Icon="QuestionCircle48" Content="{x:Static resources:Strings.About_Title}" Command="{Binding LaunchAboutCommand, Mode=OneTime}" HorizontalAlignment="Center" />
-                    <ui:Hyperlink Icon="Book24" Content="{x:Static resources:Strings.LaunchMenu_BloxstrapWiki}" NavigateUri="https://bloxstraplabs.com/wiki/" HorizontalAlignment="Center" />
-                    <ui:Hyperlink Icon="PeopleCommunity28" Content="{x:Static resources:Strings.LaunchMenu_RobloxCommunity}" NavigateUri="https://www.roblox.com/communities/32380007/Bloxstrap" HorizontalAlignment="Center" />
+                <StackPanel Grid.Row="1" MaxWidth="360" Margin="0 0 0 32">
+                    <ui:Card>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="pack://application:,,,/Resources/RobloxPlayer.png" Width="36" RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Grid.Column="1" Margin="12 0 0 0" FontSize="17" VerticalAlignment="Center" Text="{x:Static resources:Strings.Common_RobloxPlayer}" />
+                            <ui:Button Grid.Column="2" Icon="Play28" IconFilled="True" Appearance="Primary" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">Launch</ui:Button>
+                        </Grid>
+                    </ui:Card>
+
+                    <ui:Card Margin="0,16,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="pack://application:,,,/Resources/RobloxStudio.png" Width="36" RenderOptions.BitmapScalingMode="HighQuality" />
+                            <TextBlock Grid.Column="1" Margin="12 0 0 0" FontSize="17" VerticalAlignment="Center" Text="{x:Static resources:Strings.Common_RobloxStudio}" />
+                            <ui:Button Grid.Column="2" Icon="Play28" IconFilled="True" Appearance="Primary" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">Launch</ui:Button>
+                        </Grid>
+                    </ui:Card>
+
+                    <ui:Hyperlink Margin="0,16,0,0" Icon="Settings28" Content="{x:Static resources:Strings.Common_Settings}" Command="{Binding LaunchSettingsCommand, Mode=OneTime}" HorizontalAlignment="Center" />
                 </StackPanel>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock VerticalAlignment="Center" FontSize="12">
+                            <TextBlock Text="{Binding Version, Mode=OneTime}" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                            <Span xml:space="preserve">   </Span>
+                            <Hyperlink Command="{Binding LaunchAboutCommand, Mode=OneTime}">
+                                <TextBlock Text="{x:Static resources:Strings.Menu_About_Title}" />
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12">
+                            <Hyperlink Command="{Binding LaunchGroupCommand, Mode=OneTime}">
+                                <TextBlock Text="{x:Static resources:Strings.LaunchMenu_RobloxCommunity}" />
+                            </Hyperlink>
+                            <Span xml:space="preserve">   </Span>
+                            <Hyperlink Command="{Binding LaunchHelpCommand, Mode=OneTime}">
+                                <TextBlock Text="{x:Static resources:Strings.Common_Help}" />
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="16">
-                <ui:CardAction Icon="ArrowRight12" TabIndex="0" Command="{Binding LaunchRobloxCommand, Mode=OneTime}">
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRoblox}" />
-                    </StackPanel>
-                </ui:CardAction>
-
-                <ui:CardAction Margin="0,8,0,0" Icon="Wrench24" Command="{Binding LaunchRobloxStudioCommand, Mode=OneTime}">
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_LaunchRobloxStudio}" />
-                    </StackPanel>
-                </ui:CardAction>
-
-                <ui:CardAction Margin="0,8,0,0" TabIndex="1" Icon="Settings28" Command="{Binding LaunchSettingsCommand, Mode=OneTime}">
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_ConfigureSettings}" />
-                    </StackPanel>
-                </ui:CardAction>
-
-                <Border Margin="16" />
-
-                <ui:CardAction Margin="0,8,0,0" TabIndex="2" Icon="BookQuestionMark24" Command="models:GlobalViewModel.OpenWebpageCommand" CommandParameter="https://bloxstraplabs.com/wiki/help/">
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Title}" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Text="{x:Static resources:Strings.LaunchMenu_Wiki_Description}" Padding="0,0,16,0"  Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
-                    </StackPanel>
-                </ui:CardAction>
+            <StackPanel Grid.Column="1" Margin="16 0 16 16">
+                <TextBlock Text="{x:Static resources:Strings.LaunchMenu_News_WhatsNew}" FontSize="24" Margin="0 0 0 12" />
+                <WrapPanel Visibility="{Binding NewsVisible, Mode=OneWay}">
+                    <!-- fade in animation -->
+                    <WrapPanel.Style>
+                        <Style TargetType="WrapPanel">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                            <Style.Triggers>
+                                <Trigger Property="Visibility" Value="Visible">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                 From="0.0" To="1.0" Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </WrapPanel.Style>
+                    <ItemsControl ItemsSource="{Binding Newsfeed, Mode=OneWay}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <WrapPanel Name="container">
+                                        <!-- the image border radius. truly such a strange UI framework -->
+                                        <WrapPanel.OpacityMask>
+                                            <VisualBrush >
+                                                <VisualBrush.Visual>
+                                                    <Border Height="{Binding ElementName=container, Path=ActualHeight}"
+                                                            Width="{Binding ElementName=container, Path=ActualWidth}"
+                                                            Background="White" CornerRadius="6" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </WrapPanel.OpacityMask>
+                                        <Image Source="{Binding ThumbnailURL, Mode=OneWay, IsAsync=True}"
+                                               Margin="0 0 0 8" RenderOptions.BitmapScalingMode="HighQuality">
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ThumbnailExpanded, Mode=OneWay}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                    </WrapPanel>
+                                    <TextBlock>
+                                        <Hyperlink NavigateUri="{Binding PostURL, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">
+                                            <TextBlock Text="{Binding Title, Mode=OneWay}" TextTrimming="CharacterEllipsis" FontSize="16" />
+                                        </Hyperlink>
+                                        <LineBreak />
+                                        <TextBlock Text="{Binding DateString, Mode=OneWay}" FontSize="12" />
+                                    </TextBlock>
+                                    <Separator Margin="0,5" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock FontSize="12">
+                        <Hyperlink Command="{Binding LaunchNewsCommand, Mode=OneTime}">
+                            <TextBlock Text="{x:Static resources:Strings.LaunchMenu_News_More}" />
+                        </Hyperlink>
+                    </TextBlock>
+                </WrapPanel>
             </StackPanel>
         </Grid>
     </Grid>
 </base:WpfUiWindow>
+

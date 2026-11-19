@@ -19,7 +19,7 @@ namespace Bloxstrap.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -690,6 +690,33 @@ namespace Bloxstrap.Resources {
         public static string Common_RobloxNotInstalled {
             get {
                 return ResourceManager.GetString("Common.RobloxNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Player.
+        /// </summary>
+        public static string Common_RobloxPlayer {
+            get {
+                return ResourceManager.GetString("Common.RobloxPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox Studio.
+        /// </summary>
+        public static string Common_RobloxStudio {
+            get {
+                return ResourceManager.GetString("Common.RobloxStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Common_Settings {
+            get {
+                return ResourceManager.GetString("Common.Settings", resourceCulture);
             }
         }
         
@@ -2069,24 +2096,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap Wiki.
-        /// </summary>
-        public static string LaunchMenu_BloxstrapWiki {
-            get {
-                return ResourceManager.GetString("LaunchMenu.BloxstrapWiki", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure settings.
-        /// </summary>
-        public static string LaunchMenu_ConfigureSettings {
-            get {
-                return ResourceManager.GetString("LaunchMenu.ConfigureSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Launch Roblox.
         /// </summary>
         public static string LaunchMenu_LaunchRoblox {
@@ -2105,29 +2114,29 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to More News.
+        /// </summary>
+        public static string LaunchMenu_News_More {
+            get {
+                return ResourceManager.GetString("LaunchMenu.News.More", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What&apos;s New.
+        /// </summary>
+        public static string LaunchMenu_News_WhatsNew {
+            get {
+                return ResourceManager.GetString("LaunchMenu.News.WhatsNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roblox Community.
         /// </summary>
         public static string LaunchMenu_RobloxCommunity {
             get {
                 return ResourceManager.GetString("LaunchMenu.RobloxCommunity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See the Wiki for help.
-        /// </summary>
-        public static string LaunchMenu_Wiki_Description {
-            get {
-                return ResourceManager.GetString("LaunchMenu.Wiki.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Having an issue?.
-        /// </summary>
-        public static string LaunchMenu_Wiki_Title {
-            get {
-                return ResourceManager.GetString("LaunchMenu.Wiki.Title", resourceCulture);
             }
         }
         

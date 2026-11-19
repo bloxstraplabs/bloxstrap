@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Navigation;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using Wpf.Ui.Mvvm.Contracts;
@@ -42,6 +43,11 @@ namespace Bloxstrap.UI.Elements.Base
             }
 
             base.OnSourceInitialized(e);
+        }
+
+        protected void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Utilities.ShellExecute(e.Uri.AbsoluteUri);
         }
     }
 }

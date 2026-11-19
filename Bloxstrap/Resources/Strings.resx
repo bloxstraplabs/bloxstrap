@@ -907,18 +907,6 @@ Bloxstrap was installed at "{1}".</value>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
   </data>
-  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
-    <value>Launch Roblox</value>
-  </data>
-  <data name="LaunchMenu.ConfigureSettings" xml:space="preserve">
-    <value>Configure settings</value>
-  </data>
-  <data name="LaunchMenu.Wiki.Title" xml:space="preserve">
-    <value>Having an issue?</value>
-  </data>
-  <data name="LaunchMenu.Wiki.Description" xml:space="preserve">
-    <value>See the Wiki for help</value>
-  </data>
   <data name="Bootstrapper.WebView2NotFound" xml:space="preserve">
     <value>You currently do not have the WebView2 runtime installed. Some Roblox features will not work properly without it, such as the desktop app. Would you like to download it now?</value>
   </data>
@@ -1113,9 +1101,6 @@ Would you like to enable test mode?</value>
   <data name="Paths.Icons" xml:space="preserve">
     <value>Icons</value>
     <comment>Name of the folder that gets created according to the "create shortcut icons" option. Ensure that it is a valid folder name.</comment>
-  </data>
-  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
-    <value>Launch Roblox Studio</value>
   </data>
   <data name="Dialog.Exception.Version" xml:space="preserve">
     <value>Version {0}</value>
@@ -1377,13 +1362,31 @@ Defaulting to {1}.</value>
   <data name="Bootstrapper.Status.ShuttingDown" xml:space="preserve">
     <value>Shutting down {product}</value>
   </data>
-  <data name="LaunchMenu.BloxstrapWiki" xml:space="preserve">
-    <value>Bloxstrap Wiki</value>
-  </data>
   <data name="LaunchMenu.RobloxCommunity" xml:space="preserve">
     <value>Roblox Community</value>
   </data>
   <data name="Menu.FastFlagEditor.AllowlistInformation" xml:space="preserve">
     <value>Due to the [Fast Flag allowlist update]({0}), most custom Fast Flags will have no effect on the Roblox player.</value>
+  </data>
+  <data name="LaunchMenu.LaunchRoblox" xml:space="preserve">
+    <value>Launch Roblox</value>
+  </data>
+  <data name="LaunchMenu.LaunchRobloxStudio" xml:space="preserve">
+    <value>Launch Roblox Studio</value>
+  </data>
+  <data name="Common.RobloxPlayer" xml:space="preserve">
+    <value>Roblox Player</value>
+  </data>
+  <data name="Common.RobloxStudio" xml:space="preserve">
+    <value>Roblox Studio</value>
+  </data>
+  <data name="Common.Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LaunchMenu.News.WhatsNew" xml:space="preserve">
+    <value>What's New</value>
+  </data>
+  <data name="LaunchMenu.News.More" xml:space="preserve">
+    <value>More News</value>
   </data>
 </root>

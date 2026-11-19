@@ -13,6 +13,11 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\RobloxPlayer.png" />
+    <None Remove="Resources\RobloxStudio.png" />
+  </ItemGroup>
     
   <ItemGroup>
     <Resource Include="Bloxstrap.ico" />
@@ -25,6 +30,8 @@
     <Resource Include="Resources\MessageBox\Information.png" />
     <Resource Include="Resources\MessageBox\Question.png" />
     <Resource Include="Resources\MessageBox\Warning.png" />
+    <Resource Include="Resources\RobloxPlayer.png" />
+    <Resource Include="Resources\RobloxStudio.png" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Dark.xshd" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Light.xshd" />
   </ItemGroup>
@@ -63,6 +70,7 @@
     </PackageReference>
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
+    <PackageReference Include="SimpleFeedReader" Version="2.0.4" />
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     <PackageReference Include="XamlAnimatedGif" Version="2.3.0" />
   </ItemGroup>
