@@ -2663,6 +2663,15 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Newsfeed.
+        /// </summary>
+        public static string Menu_Bloxstrap_Newsfeed_Title {
+            get {
+                return ResourceManager.GetString("Menu.Bloxstrap.Newsfeed.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new.
         /// </summary>
         public static string Menu_FastFlagEditor_AddNew {

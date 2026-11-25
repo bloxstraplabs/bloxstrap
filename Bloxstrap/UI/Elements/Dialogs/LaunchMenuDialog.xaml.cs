@@ -25,7 +25,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
     {
         public NextAction CloseAction = NextAction.Terminate;
 
-        private LaunchMenuViewModel ViewModel = new();
+        private LaunchMenuViewModel ViewModel = new(App.Settings.Prop.ShowNewsfeed);
 
         public LaunchMenuDialog()
         {
@@ -35,7 +35,8 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 Close();
             };
 
-            LoadNews();
+            if (App.Settings.Prop.ShowNewsfeed)
+                LoadNews();
 
             DataContext = ViewModel;
 

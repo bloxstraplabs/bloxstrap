@@ -1389,4 +1389,7 @@ Defaulting to {1}.</value>
   <data name="LaunchMenu.News.More" xml:space="preserve">
     <value>More News</value>
   </data>
+  <data name="Menu.Bloxstrap.Newsfeed.Title" xml:space="preserve">
+    <value>Show Newsfeed</value>
+  </data>
 </root>

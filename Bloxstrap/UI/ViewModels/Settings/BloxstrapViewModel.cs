@@ -28,6 +28,12 @@ namespace Bloxstrap.UI.ViewModels.Settings
             set => App.Settings.Prop.WebEnvironment = value;
         }
 
+        public bool NewsfeedEnabled
+        {
+            get => App.Settings.Prop.ShowNewsfeed;
+            set => App.Settings.Prop.ShowNewsfeed = value;
+        }
+
         public Visibility WebEnvironmentVisibility => App.Settings.Prop.DeveloperMode ? Visibility.Visible : Visibility.Collapsed;
 
         public bool ShouldExportConfig { get; set; } = true;

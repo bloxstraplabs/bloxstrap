@@ -2,15 +2,15 @@
 using CommunityToolkit.Mvvm.Input;
 
 using Bloxstrap.UI.Elements.About;
-using System.Windows.Navigation;
 using System.Windows;
-using System.Security.RightsManagement;
 
 namespace Bloxstrap.UI.ViewModels.Installer
 {
     internal class LaunchMenuViewModel : NotifyPropertyChangedViewModel
     {
         public int MaxNews => 2;
+
+        public Visibility NewsPanelVisible { get; set; }
 
         public Visibility NewsVisible { get; set; } = Visibility.Hidden;
 
@@ -22,15 +22,13 @@ namespace Bloxstrap.UI.ViewModels.Installer
 
         public List<NewsItem> Newsfeed
         {
-            get
-            {
-                return _newsfeed;
-            }
+            get => _newsfeed;
+            set => _newsfeed = value.Take(MaxNews).ToList();
+        }
 
-            set
-            {
-                _newsfeed = value.Take(MaxNews).ToList();
-            }
+        public LaunchMenuViewModel(bool newsfeedVisible)
+        {
+            NewsPanelVisible = newsfeedVisible ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public void RaiseNewsLoaded()

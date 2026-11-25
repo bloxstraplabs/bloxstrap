@@ -13,9 +13,8 @@
         Title="Bloxstrap"
         MinWidth="0"
         MinHeight="0"
-        Width="740"
         Height="420"
-        SizeToContent="Manual"
+        SizeToContent="Width"
         ResizeMode="NoResize"
         Background="{ui:ThemeResource ApplicationBackgroundBrush}"
         ExtendsContentIntoTitleBar="True"
@@ -28,13 +27,8 @@
 
         <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" Title="Bloxstrap" Icon="pack://application:,,,/Bloxstrap.ico" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="480" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid Margin="16 16 16 16">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Grid Margin="16 16 16 16" Width="480">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -111,7 +105,7 @@
                 </Grid>
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="16 0 16 16">
+            <StackPanel Margin="16 0 16 16" Visibility="{Binding NewsPanelVisible, Mode=OneTime}" Width="260">
                 <TextBlock Text="{x:Static resources:Strings.LaunchMenu_News_WhatsNew}" FontSize="24" Margin="0 0 0 12" />
                 <WrapPanel Visibility="{Binding NewsVisible, Mode=OneWay}">
                     <!-- fade in animation -->
@@ -180,7 +174,7 @@
                     </TextBlock>
                 </WrapPanel>
             </StackPanel>
-        </Grid>
+        </StackPanel>
     </Grid>
 </base:WpfUiWindow>
 
