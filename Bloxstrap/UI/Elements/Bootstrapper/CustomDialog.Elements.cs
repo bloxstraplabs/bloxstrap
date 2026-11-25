@@ -579,18 +579,6 @@ namespace Bloxstrap.UI.Elements.Bootstrapper
             return textBlock;
         }
 
-        private static UIElement HandleXmlElement_MarkdownTextBlock(CustomDialog dialog, XElement xmlElement)
-        {
-            var textBlock = new MarkdownTextBlock();
-            HandleXmlElement_TextBlock_Base(dialog, textBlock, xmlElement);
-
-            string? text = GetTranslatedText(xmlElement.Attribute("Text")?.Value);
-            if (text != null)
-                textBlock.MarkdownText = text;
-
-            return textBlock;
-        }
-
         private static UIElement HandleXmlElement_Image(CustomDialog dialog, XElement xmlElement)
         {
             var image = new Image();

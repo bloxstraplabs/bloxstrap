@@ -111,11 +111,6 @@
 				"Padding": "Thickness"
 			}
 		},
-		"MarkdownTextBlock": {
-			"SuperClass": "TextBlock",
-			"IsCreatable": true,
-			"Attributes": {}
-		},
 		"Image": {
 			"SuperClass": "FrameworkElement",
 			"IsCreatable": true,
