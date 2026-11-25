@@ -70,43 +70,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These are the people who&apos;ve supported Bloxstrap through Ko-fi. A massive thank you to everyone here!
-        ///Every person here is ranked by their overall pledge..
-        /// </summary>
-        public static string About_Supporters_Description {
-            get {
-                return ResourceManager.GetString("About.Supporters.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monthly.
-        /// </summary>
-        public static string About_Supporters_Monthly {
-            get {
-                return ResourceManager.GetString("About.Supporters.Monthly", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to One-off.
-        /// </summary>
-        public static string About_Supporters_OneOff {
-            get {
-                return ResourceManager.GetString("About.Supporters.OneOff", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Supporters.
-        /// </summary>
-        public static string About_Supporters_Title {
-            get {
-                return ResourceManager.GetString("About.Supporters.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to About Bloxstrap.
         /// </summary>
         public static string About_Title {
