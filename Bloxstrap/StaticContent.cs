@@ -13,6 +13,8 @@ namespace Bloxstrap
 
         public const string RobloxGroupURL = "https://www.roblox.com/communities/32380007/Bloxstrap";
 
+        public const string DownloadURL = WebsiteBase;
+
         public const string HelpURL = $"{WebsiteBase}/wiki/help/";
 
         public const string NewsfeedURL = $"{WebsiteBase}/newsletter/rss.xml";

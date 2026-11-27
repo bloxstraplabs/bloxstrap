@@ -862,7 +862,7 @@ namespace Bloxstrap
                     MessageBoxImage.Information
                 );
 
-                Utilities.ShellExecute(App.ProjectDownloadLink);
+                Utilities.ShellExecute(StaticContent.DownloadURL);
             }
 
             return false;

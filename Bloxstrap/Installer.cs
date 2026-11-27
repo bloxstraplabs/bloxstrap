@@ -78,9 +78,6 @@ namespace Bloxstrap
                 uninstallKey.SetValueSafe("ModifyPath", $"\"{Paths.Application}\" -settings");
                 uninstallKey.SetValueSafe("QuietUninstallString", $"\"{Paths.Application}\" -uninstall -quiet");
                 uninstallKey.SetValueSafe("UninstallString", $"\"{Paths.Application}\" -uninstall");
-                uninstallKey.SetValueSafe("HelpLink", App.ProjectHelpLink);
-                uninstallKey.SetValueSafe("URLInfoAbout", App.ProjectSupportLink);
-                uninstallKey.SetValueSafe("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // only register player, for the scenario where the user installs bloxstrap, closes it,
@@ -446,11 +443,7 @@ namespace Bloxstrap
             using (var uninstallKey = Registry.CurrentUser.CreateSubKey(App.UninstallKey))
             {
                 uninstallKey.SetValueSafe("DisplayVersion", App.Version);
-
                 uninstallKey.SetValueSafe("Publisher", App.ProjectOwner);
-                uninstallKey.SetValueSafe("HelpLink", App.ProjectHelpLink);
-                uninstallKey.SetValueSafe("URLInfoAbout", App.ProjectSupportLink);
-                uninstallKey.SetValueSafe("URLUpdateInfo", App.ProjectDownloadLink);
             }
 
             // update migrations
