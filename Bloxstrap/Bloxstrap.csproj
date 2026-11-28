@@ -16,13 +16,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\RobloxPlayer.png" />
-    <None Remove="Resources\RobloxStudio.png" />
-    <None Remove="Resources\WordmarkDark.png" />
-    <None Remove="Resources\WordmarkLight.png" />
-  </ItemGroup>
-    
-  <ItemGroup>
     <Resource Include="App.ico" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
