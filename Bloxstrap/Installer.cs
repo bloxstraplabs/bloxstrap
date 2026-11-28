@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using System.Windows;
+using System.Windows.Markup;
 
 namespace Bloxstrap
 {
@@ -594,6 +595,9 @@ namespace Bloxstrap
                     installer.IsImplicitInstall = true;
                     installer.DoInstall();
 
+                    if (App.Settings.Prop.BootstrapperTitle == "Bloxstrap")
+                        App.Settings.Prop.BootstrapperTitle = App.ProjectName;
+
                     // clean up old version remnants that'll get left behind with the old name
                     var paths = new List<string>()
                     {
@@ -618,6 +622,7 @@ namespace Bloxstrap
                         }
                     }
 
+                    // TODO: translation?
                     Frontend.ShowMessageBox(
                         $"As of November 28th 2026, Bloxstrap has been renamed to Corestrap. Read [the news]({StaticContent.WebsiteBase}/newsletter/2026-11-28-bloxstrap-is-now-corestrap) to learn more about the change.",
                         MessageBoxImage.Information);
@@ -663,7 +668,8 @@ namespace Bloxstrap
                         releaseNoteVersion = currentVer;
                     }
 
-                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Bloxstrap-v{releaseNoteVersion}");
+                    // TODO: this is obsolete now
+                    Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Release-notes-for-Corestrap-v{releaseNoteVersion}");
                 }
 #pragma warning restore CS0162 // Unreachable code detected
             }

@@ -19,7 +19,13 @@ namespace Bloxstrap.UI.Elements.About.Pages
         public AboutPage()
         {
             DataContext = new AboutViewModel();
+
             InitializeComponent();
+
+            GithubLink.NavigateUri = $"https://github.com/{App.ProjectRepository}";
+            WikiLink.NavigateUri = StaticContent.HelpURL;
+            IssuesLink.NavigateUri = $"https://github.com/{App.ProjectRepository}/issues";
+            DiscordLink.NavigateUri = StaticContent.DiscordURL;
         }
 
         private void UiPage_KeyDown(object sender, KeyEventArgs e)

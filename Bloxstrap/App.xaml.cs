@@ -15,7 +15,7 @@ namespace Bloxstrap
     {
         // TODO: move the rest of these to StaticContent.cs at some point
 #if QA_BUILD
-        public const string ProjectName = "Bloxstrap-QA";
+        public const string ProjectName = "Corestrap-QA";
 #else
         public const string ProjectName = "Corestrap";
 #endif
@@ -147,10 +147,10 @@ namespace Bloxstrap
         {
             // dont let user switch web environment if debug mode is not on
             if (Settings.Prop.WebEnvironment == WebEnvironment.Production || !Settings.Prop.DeveloperMode)
-                return "services.bloxstraplabs.com";
+                return "services.corestrap.app";
 
             string? sub = Settings.Prop.WebEnvironment.GetDescription();
-            return $"services-{sub}.bloxstraplabs.com";
+            return $"services-{sub}.corestrap.app";
         }
 
         public static bool CanSendLogs()

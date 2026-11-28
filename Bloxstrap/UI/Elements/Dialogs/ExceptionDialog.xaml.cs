@@ -27,7 +27,6 @@ namespace Bloxstrap.UI.Elements.Dialogs
                 LocateLogFileButton.Content = Strings.Dialog_Exception_CopyLogContents;
 
             string repoUrl = $"https://github.com/{App.ProjectRepository}";
-            string wikiUrl = $"https://bloxstraplabs.com/wiki/help/";
 
             string title = HttpUtility.UrlEncode($"[BUG] {exception.GetType()}: {exception.Message}");
             string log = HttpUtility.UrlEncode(App.Logger.AsDocument);
@@ -43,7 +42,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
                     issueUrl = $"{repoUrl}/issues/new?template=bug_report.yaml"; // bruh
             }
 
-            string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, wikiUrl, issueUrl);
+            string helpMessage = String.Format(Strings.Dialog_Exception_Info_2, StaticContent.HelpURL, issueUrl);
 
             //if (!App.IsActionBuild && !App.BuildMetadata.Machine.Contains("pizzaboxer", StringComparison.Ordinal))
                 //helpMessage = String.Format(Strings.Dialog_Exception_Info_2_Alt, wikiUrl);

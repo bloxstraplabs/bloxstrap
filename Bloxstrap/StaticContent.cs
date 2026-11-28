@@ -13,6 +13,8 @@ namespace Bloxstrap
 
         public const string RobloxGroupURL = "https://www.roblox.com/communities/32380007/Corestrap";
 
+        public const string DiscordURL = "https://discord.gg/nKjV3mGq6R";
+
         public const string DownloadURL = WebsiteBase;
 
         public const string HelpURL = $"{WebsiteBase}/wiki/help/";
