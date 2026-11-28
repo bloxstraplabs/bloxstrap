@@ -17,16 +17,17 @@ namespace Bloxstrap
 #if QA_BUILD
         public const string ProjectName = "Bloxstrap-QA";
 #else
-        public const string ProjectName = "Bloxstrap";
+        public const string ProjectName = "Corestrap";
 #endif
-        public const string ProjectOwner = "Bloxstrap";
-        public const string ProjectRepository = "bloxstraplabs/bloxstrap";
+        public const string ProjectOwner = "Selvoxel Software";
+        public const string ProjectRepository = "selvoxel/corestrap";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
 
         // simple shorthand for extremely frequently used and long string - this goes under HKCU
-        public const string UninstallKey = $@"Software\Microsoft\Windows\CurrentVersion\Uninstall\{ProjectName}";
+        // old subkey name is kept for compatibility purposes
+        public const string UninstallKey = $@"Software\Microsoft\Windows\CurrentVersion\Uninstall\Bloxstrap";
 
         public static LaunchSettings LaunchSettings { get; private set; } = null!;
 
@@ -355,6 +356,13 @@ namespace Bloxstrap
                 Paths.Initialize(installLocation);
 
                 Logger.WriteLine(LOG_IDENT, "Entering main logic");
+                
+                // v2.12.0 --- this is immensely dumb and i'm sorry
+                // the auto updater will expect the old version to already be present at the path
+                // but the old version is at Bloxstrap.exe and the new version will look for Corestrap.exe
+                // so we need to trick it by coping the old version over
+                if (File.Exists(Paths.ApplicationOld) && !File.Exists(Paths.Application))
+                    File.Copy(Paths.ApplicationOld, Paths.Application);
 
                 // ensure executable is in the install directory
                 if (Paths.Process != Paths.Application && !File.Exists(Paths.Application))

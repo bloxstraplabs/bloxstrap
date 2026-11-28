@@ -25,6 +25,7 @@
         public static string CustomThemes { get; private set; } = "";
 
         public static string Application { get; private set; } = "";
+        public static string ApplicationOld { get; private set; } = "";
 
         public static string CustomFont => Path.Combine(Modifications, "content\\fonts\\CustomFont.ttf");
 
@@ -41,6 +42,7 @@
             CustomThemes = Path.Combine(Base, "CustomThemes");
 
             Application = Path.Combine(Base, $"{App.ProjectName}.exe");
+            ApplicationOld = Path.Combine(Base, $"Bloxstrap.exe");
         }
     }
 }

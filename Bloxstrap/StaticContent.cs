@@ -8,10 +8,10 @@ namespace Bloxstrap
 {
     internal class StaticContent
     {
-        public const string WebsiteBase = "https://bloxstraplabs.com";
+        public const string WebsiteBase = "https://corestrap.app";
         // public const string WebsiteBase = "http://localhost:4321";
 
-        public const string RobloxGroupURL = "https://www.roblox.com/communities/32380007/Bloxstrap";
+        public const string RobloxGroupURL = "https://www.roblox.com/communities/32380007/Corestrap";
 
         public const string DownloadURL = WebsiteBase;
 

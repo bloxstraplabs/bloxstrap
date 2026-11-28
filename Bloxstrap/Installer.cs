@@ -8,7 +8,7 @@ namespace Bloxstrap
         /// <summary>
         /// Should the release notes open when updating to this version?
         /// </summary>
-        private const bool OpenReleaseNotes = true;
+        private const bool OpenReleaseNotes = false;
         /// <summary>
         /// Which version's release notes to open
         /// Leave blank to use the current version
@@ -584,6 +584,45 @@ namespace Bloxstrap
                     App.FastFlags.SetValue("FFlagDebugGraphicsPreferD3D11FL10", null);
                 }
 
+                if (Utilities.CompareVersions(existingVer, "2.12.0") == VersionComparison.LessThan)
+                {
+                    // v2.12.0 --- the rename from Bloxstrap to Corestrap (oh man)
+
+                    // do an effective re-install; create new shortcuts and update the reg key
+                    var installer = new Installer();
+                    installer.InstallLocation = Paths.Base;
+                    installer.IsImplicitInstall = true;
+                    installer.DoInstall();
+
+                    // clean up old version remnants that'll get left behind with the old name
+                    var paths = new List<string>()
+                    {
+                        Paths.Application,
+                        DesktopShortcut,
+                        StartMenuShortcut
+                    };
+
+                    foreach (string path in paths)
+                    {
+                        string filename = Path.GetFileName(path);
+                        string oldFilename = filename.Replace(App.ProjectName, "Bloxstrap");
+
+                        string oldPath = path.Replace(filename, oldFilename);
+
+                        try
+                        {
+                            File.Delete(oldPath);
+                        }
+                        catch
+                        {
+                        }
+                    }
+
+                    Frontend.ShowMessageBox(
+                        $"As of November 28th 2026, Bloxstrap has been renamed to Corestrap. Read [the news]({StaticContent.WebsiteBase}/newsletter/2026-11-28-bloxstrap-is-now-corestrap) to learn more about the change.",
+                        MessageBoxImage.Information);
+                }
+
                 App.Settings.Save();
                 App.FastFlags.Save();
                 App.State.Save();
@@ -595,6 +634,7 @@ namespace Bloxstrap
                     App.StudioState.Save();
             }
 
+            // the hell is this for? when would it ever be null?
             if (currentVer is null)
                 return;
 
