@@ -41,6 +41,13 @@ namespace Bloxstrap.UI.Elements.Dialogs
             DataContext = ViewModel;
 
             InitializeComponent();
+
+            string logoFilename = "WordmarkDark.png";
+
+            if (App.Settings.Prop.Theme.GetFinal() == Theme.Light)
+                logoFilename = "WordmarkLight.png";
+
+            Logo.Source = new BitmapImage(new Uri($"pack://application:,,,/Resources/{logoFilename}"));
         }
 
         public async void LoadNews()

@@ -25,7 +25,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" Title="Corestrap" Icon="pack://application:,,,/Bloxstrap.ico" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
+        <ui:TitleBar Grid.Row="0" Grid.ColumnSpan="2" Padding="8" ShowMinimize="False" ShowMaximize="False" Title="Corestrap" Icon="pack://application:,,,/App.ico" CanMaximize="False" KeyboardNavigation.TabNavigation="None" />
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Grid Margin="16 16 16 16" Width="480">
@@ -35,17 +35,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0 0 0 32">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <!-- TODO: replace with wordmark -->
-                    <Image Margin="4 0" Grid.Column="0" Width="64" Height="64"
-                           Source="pack://application:,,,/Bloxstrap.ico" RenderOptions.BitmapScalingMode="HighQuality" />
-                    <TextBlock Margin="4 0" Text="Corestrap" Grid.Column="1" FontSize="26" VerticalAlignment="Center" />
-                </Grid>
+                <Image x:Name="Logo" Grid.Row="0" MaxWidth="220" Margin="0 30" Source="pack://application:,,,/Resources/WordmarkDark.png" RenderOptions.BitmapScalingMode="HighQuality" />
 
                 <StackPanel Grid.Row="1" MaxWidth="360" Margin="0 0 0 32">
                     <ui:Card>

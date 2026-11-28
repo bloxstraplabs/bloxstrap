@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
-    <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
+    <ApplicationIcon>App.ico</ApplicationIcon>
     <Version>2.12.0</Version>
     <FileVersion>2.11.4</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -18,10 +18,12 @@
   <ItemGroup>
     <None Remove="Resources\RobloxPlayer.png" />
     <None Remove="Resources\RobloxStudio.png" />
+    <None Remove="Resources\WordmarkDark.png" />
+    <None Remove="Resources\WordmarkLight.png" />
   </ItemGroup>
     
   <ItemGroup>
-    <Resource Include="Bloxstrap.ico" />
+    <Resource Include="App.ico" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
     <Resource Include="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
     <Resource Include="Resources\BootstrapperStyles\ByfronDialog\ByfronLogoDark.jpg" />
@@ -33,6 +35,8 @@
     <Resource Include="Resources\MessageBox\Warning.png" />
     <Resource Include="Resources\RobloxPlayer.png" />
     <Resource Include="Resources\RobloxStudio.png" />
+    <Resource Include="Resources\WordmarkDark.png" />
+    <Resource Include="Resources\WordmarkLight.png" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Dark.xshd" />
     <EmbeddedResource Include="UI\Style\Editor-Theme-Light.xshd" />
   </ItemGroup>
