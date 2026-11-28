@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap не успя да се обнови до версия {0}. Моля, обновете го ръчно, като го изтеглите и стартирате от уебсайта.</value>
+    <value>Corestrap не успя да се обнови до версия {0}. Моля, обновете го ръчно, като го изтеглите и стартирате от уебсайта.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox в момента работи и стартирането на друга инстанция ще го затвори. Сигурни ли сте, че искате да продължите?</value>
@@ -127,13 +127,13 @@
     <value>Roblox може да не работи в момента. Посетете {0} за повече информация.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Не може да бъде установена връзка, което вероятно означава слаба интернет връзка или блокиране от защитна стена. Ако връзката ви е наред, моля, уверете се, че антивирусната ви програма не блокира Bloxstrap.</value>
+    <value>Не може да бъде установена връзка, което вероятно означава слаба интернет връзка или блокиране от защитна стена. Ако връзката ви е наред, моля, уверете се, че антивирусната ви програма не блокира Corestrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Трябва първо да инсталирате Bloxstrap, преди да го деинсталирате.</value>
+    <value>Трябва първо да инсталирате Corestrap, преди да го деинсталирате.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap няма достатъчно свободно място, за да изтегли и инсталира Roblox. Моля, освободете малко дисково пространство и опитайте отново.</value>
+    <value>Corestrap няма достатъчно свободно място, за да изтегли и инсталира Roblox. Моля, освободете малко дисково пространство и опитайте отново.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Прилагане на модификации...</value>
@@ -158,7 +158,7 @@
     <value>Надграждане на {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Вземане на най-новата версия на Bloxstrap...</value>
+    <value>Вземане на най-новата версия на Corestrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Изчакване на други инстанции...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap бе успешно деинсталиран</value>
+    <value>Corestrap бе успешно деинсталиран</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox е в момента стартиран, но трябва да бъде затворен, за да деинсталирате Bloxstrap. Искате ли да затворите Roblox сега?</value>
+    <value>Roblox е в момента стартиран, но трябва да бъде затворен, за да деинсталирате Corestrap. Искате ли да затворите Roblox сега?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox изисква използването на компоненти от Windows Media Foundation, които липсват на вашата машина, вероятно защото използвате издание N на Windows. Моля, инсталирайте ги първо и след това стартирайте Roblox.</value>
@@ -279,7 +279,7 @@
     <value>Проблем с връзката</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap не може да се свърже с {0}</value>
+    <value>Corestrap не може да се свърже с {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@
 Ако не е, моля, докладвайте за тази грешка чрез [GitHub]({1}) заедно с лог файла.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Грешка в Bloxstrap</value>
+    <value>Грешка в Corestrap</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Персонализиран</value>
@@ -309,10 +309,10 @@
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Класическо)</value>
+    <value>Corestrap (Класическо)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Прозрачно)</value>
+    <value>Corestrap (Прозрачно)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -363,10 +363,10 @@
     <value>Светла</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap е обновено на версия {0}</value>
+    <value>Corestrap е обновено на версия {0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Версията на Bloxstrap, която стартирахте, е различна от версията, която е вече инсталирана. Искате ли да надстроите текущо инсталираната версия?</value>
+    <value>Версията на Corestrap, която стартирахте, е различна от версията, която е вече инсталирана. Искате ли да надстроите текущо инсталираната версия?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
     <value>Сътрудници</value>
@@ -375,7 +375,7 @@
     <value>Програмиране</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Това са хората, които са направили забележителен принос за Bloxstrap, като са помогнали да стане това, което е.</value>
+    <value>Това са хората, които са направили забележителен принос за Corestrap, като са помогнали да стане това, което е.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Идеи за функции</value>
@@ -421,7 +421,7 @@
     <value>Моля, обърнете внимание, че не всички ваши промени ще се приложат незабавно, докато не затворите всички отворени в момента инстанции на Roblox.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap вече работи</value>
+    <value>Corestrap вече работи</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Персонализирайте външния му вид, може да го направите ретро, или дори като Roblox.</value>
@@ -448,7 +448,7 @@
     <value>Заглавие</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Конфигурирайте стила на Bloxstrap.</value>
+    <value>Конфигурирайте стила на Corestrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Цветова схема</value>
@@ -472,10 +472,10 @@
     <value>Вид</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap автоматично ще проверява за актуализации и ще се обновява при стартиране на Roblox.</value>
+    <value>Corestrap автоматично ще проверява за актуализации и ще се обновява при стартиране на Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Автоматично обнови Bloxstrap</value>
+    <value>Автоматично обнови Corestrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Предотвратете затварянето на вашата текуща игра от случайно стартиране на друга.</value>
@@ -484,7 +484,7 @@
     <value>Потвърдете преди стартиране на друга инстанция на Roblox</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Настройте какво трябва да прави Bloxstrap при стартиране на Roblox.</value>
+    <value>Настройте какво трябва да прави Corestrap при стартиране на Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox ще бъде инсталиран наново при следващото стартиране.</value>
@@ -583,10 +583,10 @@
     <value>Файлове с икони</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap не може да бъде инсталиран тук. Моля изберете друга локация или използвайте локацията зададена по подразбиране, като щракнете върху бутона за нулиране.</value>
+    <value>Corestrap не може да бъде инсталиран тук. Моля изберете друга локация или използвайте локацията зададена по подразбиране, като щракнете върху бутона за нулиране.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>Папката, където сте избрали да инсталирате Bloxstrap, вече съществува и НЕ Е празна. Силно се препоръчва Bloxstrap да се инсталира в отделна папка.
+    <value>Папката, където сте избрали да инсталирате Corestrap, вече съществува и НЕ Е празна. Силно се препоръчва Corestrap да се инсталира в отделна папка.
 
 Препоръчителна локация за инсталация:
 {0}
@@ -599,7 +599,7 @@
     <value>Трябва да изберете местоположение за инсталиране</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap няма права за запис в избраната от вас инсталационна локация. Моля, изберете друго местоположение.</value>
+    <value>Corestrap няма права за запис в избраната от вас инсталационна локация. Моля, изберете друго местоположение.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Статус на дейност</value>
@@ -650,7 +650,7 @@
     <value>Не излизайте към десктоп приложението</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Разрешава на Bloxstrap да засича коя Roblox игра играеш. Някои функции може да изискват това.</value>
+    <value>Разрешава на Corestrap да засича коя Roblox игра играеш. Някои функции може да изискват това.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Проследяване на активността</value>
@@ -756,7 +756,7 @@
     <value>Рендъринг и Графики</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Позволете на Bloxstrap да управлява Fast Flags</value>
+    <value>Позволете на Corestrap да управлява Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Изключването на това ще предотврати прилагането на всичко конфигурирано тук в Roblox.</value>
@@ -780,7 +780,7 @@
     <value>Ниво 3 (Най-високо)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap не може да изтегли Roblox</value>
+    <value>Corestrap не може да изтегли Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>В момента Roblox не може да бъде изтеглен. Моля, посетете следната страница за повече информация: {0}</value>
@@ -801,7 +801,7 @@
     <value>Въведената стойност за '{0}' не е валидна, тъй като трябва да е цяло число</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>Няма да бъде създаден log фаил за това стартиране, защото Bloxstrap не може да записва в папка {0}</value>
+    <value>Няма да бъде създаден log фаил за това стартиране, защото Corestrap не може да записва в папка {0}</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>По подразбиране</value>
@@ -835,18 +835,18 @@
     <value>Напред</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Благодарим ви, че изтеглихте Bloxstrap. 
+    <value>Благодарим ви, че изтеглихте Corestrap. 
 
-Единствените официални уебсайтове, от които можете да изтеглите Bloxstrap, са {0} и {1}, така че, моля, проверете дали сте го получили от официален източник.
+Единствените официални уебсайтове, от които можете да изтеглите Corestrap, са {0} и {1}, така че, моля, проверете дали сте го получили от официален източник.
 
-Този процес на инсталиране ще бъде бърз и лесен и ще можете да конфигурирате всяка от настройките на Bloxstrap след инсталирането.</value>
+Този процес на инсталиране ще бъде бърз и лесен и ще можете да конфигурирате всяка от настройките на Corestrap след инсталирането.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Моля, натиснете „Напред“, за да продължите.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>Опитвате се да инсталирате версия {0} на Bloxstrap, но последната налична версия е {1}. Искате ли да го изтеглите?</value>
+    <value>Опитвате се да инсталирате версия {0} на Corestrap, но последната налична версия е {1}. Искате ли да го изтеглите?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Изберете инсталационна локация</value>
@@ -867,16 +867,16 @@
     <value>Икона на началното меню</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap бе успешно инсталиран.
+    <value>Corestrap бе успешно инсталиран.
 
-Roblox все още не е инсталиран, това ще се случи, когато го стартирате с Bloxstrap за пръв път. Въпреки това, преди да направите това, може да искате първо да конфигурирате настройките на Bloxstrap.
+Roblox все още не е инсталиран, това ще се случи, когато го стартирате с Corestrap за пръв път. Въпреки това, преди да направите това, може да искате първо да конфигурирате настройките на Corestrap.
 
-Също така избягвайте да използвате прекия път „Roblox Player“, за да стартирате Roblox, тъй като Bloxstrap няма да се стартира с Roblox. Ако не виждате Bloxstrap да се показва при стартиране от уебсайта, просто стартирайте Roblox с Bloxstrap веднъж от работния плот, за да го поправите.
+Също така избягвайте да използвате прекия път „Roblox Player“, за да стартирате Roblox, тъй като Corestrap няма да се стартира с Roblox. Ако не виждате Corestrap да се показва при стартиране от уебсайта, просто стартирайте Roblox с Corestrap веднъж от работния плот, за да го поправите.
 
 Какво бихте искали да правите?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Конфигуриране на настройките на Bloxstrap</value>
+    <value>Конфигуриране на настройките на Corestrap</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Настройте всички налични функции</value>
@@ -888,20 +888,20 @@ Roblox все още не е инсталиран, това ще се случи
     <value>Ще ви пусне в приложението, след като всичко е готово</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Деинсталирайте Bloxstrap</value>
+    <value>Деинсталирайте Corestrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Деинсталирането ще премахне Bloxstrap от системата и автоматично ще преконфигурира Roblox по подразбиране, ако е инсталиран.
+    <value>Деинсталирането ще премахне Corestrap от системата и автоматично ще преконфигурира Roblox по подразбиране, ако е инсталиран.
 
-Възможно е да се наложи ръчно да почистите мястото, където е инсталиран Bloxstrap, в случай че процесът остави някои файлове.
+Възможно е да се наложи ръчно да почистите мястото, където е инсталиран Corestrap, в случай че процесът остави някои файлове.
 
-Bloxstrap е инсталиран в "{1}".</value>
+Corestrap е инсталиран в "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Запази моите настройки и добавки</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>Те ще се съхраняват там, където е инсталиран Bloxstrap, и ще бъдат автоматично възстановени при преинсталиране.</value>
+    <value>Те ще се съхраняват там, където е инсталиран Corestrap, и ще бъдат автоматично възстановени при преинсталиране.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Деинсталирай</value>
@@ -910,19 +910,19 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>WebView2 не е инсталиран. Някои функции на Roblox няма да работят правилно без него, като например десктоп приложението. Искате ли да го изтеглите сега?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap не успя да създаде преки пътища за работния плот и старт менюто. Опитайте да ги създадете по-късно чрез настройките.</value>
+    <value>Corestrap не успя да създаде преки пътища за работния плот и старт менюто. Опитайте да ги създадете по-късно чрез настройките.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
     <value>Първо проверете [нашата страница]({0}), за да видите дали този проблем вече е решен.
 
-Ако не, моля, съобщете за този проблем на поддръжниците на вашата версия. Не съобщавайте за това на GitHub страницата на Bloxstrap, тъй като това е неофициална версия.</value>
+Ако не, моля, съобщете за този проблем на поддръжниците на вашата версия. Не съобщавайте за това на GitHub страницата на Corestrap, тъй като това е неофициална версия.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>Това са общи преки пътища, които отварят меню за стартиране с няколко опции. Преки пътища за конкретни функции могат да бъдат създадени по-късно в настройките.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Конфигурирайте как Bloxstrap може да се стартира.</value>
+    <value>Конфигурирайте как Corestrap може да се стартира.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>Общи</value>
@@ -952,7 +952,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Моля, изчакайте деинсталирането да приключи.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>За Bloxstrap</value>
+    <value>За Corestrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Лицензи</value>
@@ -965,12 +965,12 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Имате незапазени промени. Сигурни ли сте, че искате да затворите без запазване?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>Версията на Bloxstrap, която сте стартирали, е по-стара от версията, която сте инсталирали в момента.
+    <value>Версията на Corestrap, която сте стартирали, е по-стара от версията, която сте инсталирали в момента.
 Възможно е да възникнат проблеми и вашите настройки може да бъдат променени. Препоръчва се преинсталиране.
 Сигурни ли сте, че искате да продължите?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
-    <value>Това може да е, а може и да не е проблем с Bloxstrap. За повече информация, вижте [тази страница]({0}).</value>
+    <value>Това може да е, а може и да не е проблем с Corestrap. За повече информация, вижте [тази страница]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Данните не можаха да бъдат заредени поради мрежова грешка.</value>
@@ -982,7 +982,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Поддръжници</value>
   </data>
   <data name="About.Supporters.Description" xml:space="preserve">
-    <value>Това са хората, които са подкрепили Bloxstrap чрез Ko-fi. Огромни благодарности на всички тук! 
+    <value>Това са хората, които са подкрепили Corestrap чрез Ko-fi. Огромни благодарности на всички тук! 
 Всеки тук е класиран според общия им принос.</value>
   </data>
   <data name="JsonManager.SettingsLoadFailed" xml:space="preserve">
@@ -1013,12 +1013,12 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>За това стартиране Roblox няма да бъде проверяван за актуализации, и промените в добавките няма да бъдат приложени.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Тъй като Roblox трябва да бъде инсталиран или надстроен, Bloxstrap не може да продължи.</value>
+    <value>Тъй като Roblox трябва да бъде инсталиран или надстроен, Corestrap не може да продължи.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap е бил инсталиран на това място преди и все още е наличен, но инсталаторът не може да презапише стария файл.
+    <value>Corestrap е бил инсталиран на това място преди и все още е наличен, но инсталаторът не може да презапише стария файл.
 
-Моля, ръчно изтрийте Bloxstrap.exe от инсталационната локация или рестартирате системата си и след това опитайте отново.</value>
+Моля, ръчно изтрийте Corestrap.exe от инсталационната локация или рестартирате системата си и след това опитайте отново.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Не е налично</value>
@@ -1030,7 +1030,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Конфигурирайте параметри, като поведение при мащабиране на DPI и [оптимизации на цял екран]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox все още не е инсталиран. Моля, стартирайте Roblox с Bloxstrap поне веднъж, преди да опитате да използвате тази опция.</value>
+    <value>Roblox все още не е инсталиран. Моля, стартирайте Roblox с Corestrap поне веднъж, преди да опитате да използвате тази опция.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Сигурни ли сте, че искате да отмените инсталацията?</value>
@@ -1048,10 +1048,10 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Извлечете иконите на Roblox в папка</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Позволява ви да използвате разнообразната колекция от икони на Bloxstrap за вашите преки пътища. [Вижте как.]({0})</value>
+    <value>Позволява ви да използвате разнообразната колекция от икони на Corestrap за вашите преки пътища. [Вижте как.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap не може да редактира регистъра на Windows. Най вероятно антивирусна програма пречи и причинява проблеми. Моля, проверете дали няма нещо, което би ограничило правата на Bloxstrap.</value>
+    <value>Corestrap не може да редактира регистъра на Windows. Най вероятно антивирусна програма пречи и причинява проблеми. Моля, проверете дали няма нещо, което би ограничило правата на Corestrap.</value>
   </data>
   <data name="About.Supporters.Monthly" xml:space="preserve">
     <value>Месечно</value>
@@ -1060,7 +1060,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>Еднократно</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Конфигурирайте опции, свързани с поведението на Bloxstrap.</value>
+    <value>Конфигурирайте опции, свързани с поведението на Corestrap.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Активирайте изпращането на аналитика</value>
@@ -1089,7 +1089,7 @@ Bloxstrap е инсталиран в "{1}".</value>
 Искате ли да активирате тестовия режим?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>Всички преводи на Bloxstrap са събрани от общността чрез [Crowdin]({0}). Всички, изброени тук, са хора, които щедро са отделили времето и усилията си, за да помогнат за локализирането на Bloxstrap. Огромно благодаря на всички тук!</value>
+    <value>Всички преводи на Corestrap са събрани от общността чрез [Crowdin]({0}). Всички, изброени тук, са хора, които щедро са отделили времето и усилията си, за да помогнат за локализирането на Corestrap. Огромно благодаря на всички тук!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Инсталирай</value>
@@ -1106,7 +1106,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <value>по избор</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap се опита да актуализира Roblox, но бе неуспешен, защото файловете на Roblox все още се използват.
+    <value>Corestrap се опита да актуализира Roblox, но бе неуспешен, защото файловете на Roblox все още се използват.
 
 Моля, затворете всички приложения, които може да ги ползват, и стартирайте отново.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1117,7 +1117,7 @@ Bloxstrap е инсталиран в "{1}".</value>
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Експортирай</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Corestrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
     <value>Експортиране на диагностични данни</value>
@@ -1130,7 +1130,7 @@ Bloxstrap е инсталиран в "{1}".</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>Всички log файлове на Bloxstrap</value>
+    <value>Всички log файлове на Corestrap</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
@@ -1313,7 +1313,7 @@ Bloxstrap е инсталиран в "{1}".</value>
   </data>
   <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
     <value>Неуспешно настройване на тема: {0}. Преминаване към {1}.</value>
-    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Corestrap (Classic))</comment>
   </data>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>Няма избрана тема.</value>

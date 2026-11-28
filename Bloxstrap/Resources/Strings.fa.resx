@@ -1020,7 +1020,7 @@
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
     <value>بلاکسترپ قبلا در این مسیر نصب شده و هنوز در این مسیر وجود دارد، اما نصب کننده نمیتواند فایل اجرایی قدیمی را بازنویسی کند.
 
-لطفا به طور دستی "Bloxstrap.exe" را از مسیر نصب پاک کنید و یا سیستم خود را راه‌اندازی مجدد کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
+لطفا به طور دستی "Corestrap.exe" را از مسیر نصب پاک کنید و یا سیستم خود را راه‌اندازی مجدد کنید، و بعد از آن دوباره نصب کننده را اجرا کنید.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>در دسترس نیست</value>
@@ -1119,7 +1119,7 @@
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>خروجی گرفتن</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Corestrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
     <value>صدور کردن داده های تشخیصی</value>
@@ -1316,7 +1316,7 @@
   <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
     <value>راه‌اندازی بوت‌ استرپرِ دلخواه انجام نشد: {0}.
 به‌طور پیش‌فرض تنظیم می‌شود برروی {1}.</value>
-    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Corestrap (Classic))</comment>
   </data>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>هیچ تم دلخواهی انتخاب نشده است.</value>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Bloxstrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
+    <value>Corestrap was unable to automatically update to version {0}. Please update it manually by downloading and running it from the website.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox is currently running, and launching another instance will close it. Are you sure you want to continue launching?</value>
@@ -127,13 +127,13 @@
     <value>Roblox may be down right now. See {0} for more information.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Bloxstrap.</value>
+    <value>A connection could not be made, which likely indicates a poor internet connection or a firewall block. If your connection is fine, please ensure that your antivirus isn't blocking Corestrap.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>You must first install Bloxstrap before uninstalling.</value>
+    <value>You must first install Corestrap before uninstalling.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Bloxstrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
+    <value>Corestrap does not have enough disk space to download and install Roblox. Please free up some disk space and try again.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Applying Roblox modifications...</value>
@@ -158,7 +158,7 @@
     <value>Upgrading {product}...</value>
   </data>
   <data name="Bootstrapper.Status.UpgradingBloxstrap" xml:space="preserve">
-    <value>Getting the latest Bloxstrap...</value>
+    <value>Getting the latest Corestrap...</value>
   </data>
   <data name="Bootstrapper.Status.WaitingOtherInstances" xml:space="preserve">
     <value>Waiting for other instances...</value>
@@ -172,10 +172,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Bloxstrap has successfully uninstalled</value>
+    <value>Corestrap has successfully uninstalled</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox is currently running, but must be closed before uninstalling Bloxstrap. Would you like to close Roblox now?</value>
+    <value>Roblox is currently running, but must be closed before uninstalling Corestrap. Would you like to close Roblox now?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox requires the use of Windows Media Foundation components. You appear to be missing them, likely because you are using an N edition of Windows. Please install them first, and then launch Roblox.</value>
@@ -279,7 +279,7 @@ Click for more information</value>
     <value>Connectivity error</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Bloxstrap is unable to connect to {0}</value>
+    <value>Corestrap is unable to connect to {0}</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
@@ -294,7 +294,7 @@ Click for more information</value>
 If it's not, then please report this exception through a [GitHub issue]({1}) along with the log file.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Bloxstrap Exception</value>
+    <value>Corestrap Exception</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Custom</value>
@@ -309,10 +309,10 @@ If it's not, then please report this exception through a [GitHub issue]({1}) alo
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Bloxstrap (Classic)</value>
+    <value>Corestrap (Classic)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Bloxstrap (Glass)</value>
+    <value>Corestrap (Glass)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008 - 2011)</value>
@@ -363,10 +363,10 @@ If it's not, then please report this exception through a [GitHub issue]({1}) alo
     <value>Light</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Bloxstrap has been upgraded to v{0}</value>
+    <value>Corestrap has been upgraded to v{0}</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is different to the version you currently have installed.
+    <value>The version of Corestrap you've launched is different to the version you currently have installed.
 Would you like to upgrade your currently installed version?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -376,7 +376,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>These are the people who have made notable contributions to Bloxstrap, helping make it what it is.</value>
+    <value>These are the people who have made notable contributions to Corestrap, helping make it what it is.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature Ideas</value>
@@ -422,7 +422,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Please note that not all your changes will immediately apply until you close all currently open Roblox instances.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Bloxstrap is already running</value>
+    <value>Corestrap is already running</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>You can make it look different, retro, or even just like Roblox.</value>
@@ -449,7 +449,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Title</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap should look.</value>
+    <value>Configure how Corestrap should look.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Global Theme</value>
@@ -473,10 +473,10 @@ Would you like to upgrade your currently installed version?</value>
     <value>Appearance</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Description" xml:space="preserve">
-    <value>Bloxstrap will automatically check and update itself when launching Roblox.</value>
+    <value>Corestrap will automatically check and update itself when launching Roblox.</value>
   </data>
   <data name="Menu.Behaviour.AutoUpdate.Title" xml:space="preserve">
-    <value>Automatically update Bloxstrap</value>
+    <value>Automatically update Corestrap</value>
   </data>
   <data name="Menu.Behaviour.ConfirmLaunches.Description" xml:space="preserve">
     <value>Prevent against closures of your existing game from accidentally launching another one.</value>
@@ -485,7 +485,7 @@ Would you like to upgrade your currently installed version?</value>
     <value>Prompt to confirm when launching another Roblox instance</value>
   </data>
   <data name="Menu.Behaviour.Description" xml:space="preserve">
-    <value>Configure what Bloxstrap should do when launching Roblox.</value>
+    <value>Configure what Corestrap should do when launching Roblox.</value>
   </data>
   <data name="Menu.Behaviour.ForceRobloxReinstall.Description" xml:space="preserve">
     <value>Roblox will be installed fresh on next launch.</value>
@@ -584,10 +584,10 @@ Are you sure you want to continue?</value>
     <value>Icon files</value>
   </data>
   <data name="Menu.InstallLocation.CantInstall" xml:space="preserve">
-    <value>Bloxstrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
+    <value>Corestrap cannot be installed here. Please choose a different location, or resort to using the default location by clicking the reset button.</value>
   </data>
   <data name="Menu.InstallLocation.NotEmpty" xml:space="preserve">
-    <value>The folder you've chosen to install Bloxstrap to already exists and is NOT empty. It is strongly recommended for Bloxstrap to be installed to its own independent folder.
+    <value>The folder you've chosen to install Corestrap to already exists and is NOT empty. It is strongly recommended for Corestrap to be installed to its own independent folder.
 
 Changing to the following location is suggested:
 {0}
@@ -600,7 +600,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>You must set an install location</value>
   </data>
   <data name="Menu.InstallLocation.NoWritePerms" xml:space="preserve">
-    <value>Bloxstrap does not have write access to the install location you've selected. Please choose another location.</value>
+    <value>Corestrap does not have write access to the install location you've selected. Please choose another location.</value>
   </data>
   <data name="Menu.Integrations.ActivityTracking" xml:space="preserve">
     <value>Activity tracking</value>
@@ -651,7 +651,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Don't exit to desktop app</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Description" xml:space="preserve">
-    <value>Allows for Bloxstrap to detect what Roblox game you're playing. Certain features may require this.</value>
+    <value>Allows for Corestrap to detect what Roblox game you're playing. Certain features may require this.</value>
   </data>
   <data name="Menu.Integrations.EnableActivityTracking.Title" xml:space="preserve">
     <value>Enable activity tracking</value>
@@ -739,7 +739,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Settings saved!</value>
   </data>
   <data name="Menu.Title" xml:space="preserve">
-    <value>Bloxstrap Settings</value>
+    <value>Corestrap Settings</value>
   </data>
   <data name="Dialog.LanguageSelector.Header" xml:space="preserve">
     <value>Choose preferred language</value>
@@ -757,7 +757,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Rendering and Graphics</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Title" xml:space="preserve">
-    <value>Allow Bloxstrap to manage Fast Flags</value>
+    <value>Allow Corestrap to manage Fast Flags</value>
   </data>
   <data name="Menu.FastFlags.ManagerEnabled.Description" xml:space="preserve">
     <value>Disabling this will prevent anything configured here from being applied to Roblox.</value>
@@ -781,7 +781,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Level 3 (Highest)</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownload" xml:space="preserve">
-    <value>Bloxstrap is unable to download Roblox</value>
+    <value>Corestrap is unable to download Roblox</value>
   </data>
   <data name="Dialog.Connectivity.UnableToDownloadReason" xml:space="preserve">
     <value>Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}</value>
@@ -802,7 +802,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>The entry for '{0}' is not valid as the value must be an integer</value>
   </data>
   <data name="Logger.NoWriteMode" xml:space="preserve">
-    <value>No log file will be written for this launch because Bloxstrap is unable to write to the folder at '{0}'</value>
+    <value>No log file will be written for this launch because Corestrap is unable to write to the folder at '{0}'</value>
   </data>
   <data name="Common.Default" xml:space="preserve">
     <value>Default</value>
@@ -817,7 +817,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>The entry for '{0}' is not valid as the place filter is not formatted correctly.</value>
   </data>
   <data name="Installer.Title" xml:space="preserve">
-    <value>Bloxstrap Installer</value>
+    <value>Corestrap Installer</value>
   </data>
   <data name="Installer.Welcome.Title" xml:space="preserve">
     <value>Welcome</value>
@@ -836,18 +836,18 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Next</value>
   </data>
   <data name="Installer.Welcome.MainText" xml:space="preserve">
-    <value>Thank you for downloading Bloxstrap. 
+    <value>Thank you for downloading Corestrap. 
 
-The only official websites to download Bloxstrap from are {0} and {1}, so please verify that you got it from an official source.
+The only official websites to download Corestrap from are {0} and {1}, so please verify that you got it from an official source.
 
-This installation process will be quick and simple, and you will be able to configure any of Bloxstrap's settings after installation.</value>
+This installation process will be quick and simple, and you will be able to configure any of Corestrap's settings after installation.</value>
     <comment>{0} and {1} are URLs</comment>
   </data>
   <data name="Installer.Welcome.NextToContinue" xml:space="preserve">
     <value>Please click 'Next' to continue.</value>
   </data>
   <data name="Installer.Welcome.UpdateNotice" xml:space="preserve">
-    <value>You are trying to install version {0} of Bloxstrap, but the latest version available is {1}. Would you like to download it?</value>
+    <value>You are trying to install version {0} of Corestrap, but the latest version available is {1}. Would you like to download it?</value>
   </data>
   <data name="Installer.Install.Location.Title" xml:space="preserve">
     <value>Choose where to install to</value>
@@ -868,16 +868,16 @@ This installation process will be quick and simple, and you will be able to conf
     <value>Start Menu icon</value>
   </data>
   <data name="Installer.Completion.Text" xml:space="preserve">
-    <value>Bloxstrap has successfully been installed.
+    <value>Corestrap has successfully been installed.
 
-Roblox has not yet been installed, that will happen when you launch it with Bloxstrap for the first time. However, before you do that, you may want to configure Bloxstrap's settings first.
+Roblox has not yet been installed, that will happen when you launch it with Corestrap for the first time. However, before you do that, you may want to configure Corestrap's settings first.
 
-Also, avoid using the "Roblox Player" shortcut to launch Roblox, as Bloxstrap won't launch with Roblox. If you don't see Bloxstrap show when launching from the website, simply launch Roblox with Bloxstrap once from the desktop to fix it.
+Also, avoid using the "Roblox Player" shortcut to launch Roblox, as Corestrap won't launch with Roblox. If you don't see Corestrap show when launching from the website, simply launch Roblox with Corestrap once from the desktop to fix it.
 
 What would you like to do?</value>
   </data>
   <data name="Installer.Completion.Settings.Title" xml:space="preserve">
-    <value>Configure Bloxstrap's settings</value>
+    <value>Configure Corestrap's settings</value>
   </data>
   <data name="Installer.Completion.Settings.Description" xml:space="preserve">
     <value>Tweak with all the features it has to offer</value>
@@ -889,20 +889,20 @@ What would you like to do?</value>
     <value>Will drop you into the desktop app once everything's done</value>
   </data>
   <data name="Uninstaller.Title" xml:space="preserve">
-    <value>Uninstall Bloxstrap</value>
+    <value>Uninstall Corestrap</value>
   </data>
   <data name="Uninstaller.Text" xml:space="preserve">
-    <value>Uninstalling will remove Bloxstrap from your system, and automatically reconfigure the default Roblox launcher if it's still installed.
+    <value>Uninstalling will remove Corestrap from your system, and automatically reconfigure the default Roblox launcher if it's still installed.
 
-The uninstall process might leave some things behind, so you may need to manually clean up the leftover files where Bloxstrap was installed.
+The uninstall process might leave some things behind, so you may need to manually clean up the leftover files where Corestrap was installed.
 
-Bloxstrap was installed at "{1}".</value>
+Corestrap was installed at "{1}".</value>
   </data>
   <data name="Uninstaller.KeepData.Label" xml:space="preserve">
     <value>Keep my settings and mods</value>
   </data>
   <data name="Uninstaller.KeepData.Description" xml:space="preserve">
-    <value>They'll be kept where Bloxstrap was installed, and will automatically be restored on a reinstall.</value>
+    <value>They'll be kept where Corestrap was installed, and will automatically be restored on a reinstall.</value>
   </data>
   <data name="Uninstaller.Uninstall" xml:space="preserve">
     <value>Uninstall</value>
@@ -911,19 +911,19 @@ Bloxstrap was installed at "{1}".</value>
     <value>You currently do not have the WebView2 runtime installed. Some Roblox features will not work properly without it, such as the desktop app. Would you like to download it now?</value>
   </data>
   <data name="Dialog.CannotCreateShortcuts" xml:space="preserve">
-    <value>Bloxstrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
+    <value>Corestrap was unable to create shortcuts for the Desktop and Start menu. Try creating them later through the settings.</value>
   </data>
   <data name="Dialog.Exception.Info.2.Alt" xml:space="preserve">
-    <value>Check the [Bloxstrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
+    <value>Check the [Corestrap Wiki]({0}) first to see if this problem has already been addressed with a fix.
 
-If not, then please report this exception to the maintainers of this fork. Do not report this to Bloxstrap's GitHub issues, as this is an unoffical build.</value>
+If not, then please report this exception to the maintainers of this fork. Do not report this to Corestrap's GitHub issues, as this is an unoffical build.</value>
     <comment>"fork" in general means "a variation of" or "a different version of". You can alternatively write the first sentence as "...to the maintainers of this version."</comment>
   </data>
   <data name="Installer.Install.Shortcuts.Description" xml:space="preserve">
     <value>These are general shortcuts that bring up a multi-choice launch menu. Shortcuts for specific functions can be created later in the settings.</value>
   </data>
   <data name="Menu.Shortcuts.Description" xml:space="preserve">
-    <value>Configure how Bloxstrap can be readily launched.</value>
+    <value>Configure how Corestrap can be readily launched.</value>
   </data>
   <data name="Menu.Shortcuts.General.Title" xml:space="preserve">
     <value>General</value>
@@ -953,7 +953,7 @@ If not, then please report this exception to the maintainers of this fork. Do no
     <value>Please wait for uninstallation to finish.</value>
   </data>
   <data name="About.Title" xml:space="preserve">
-    <value>About Bloxstrap</value>
+    <value>About Corestrap</value>
   </data>
   <data name="About.Licenses.Title" xml:space="preserve">
     <value>Licenses</value>
@@ -966,14 +966,14 @@ If not, then please report this exception to the maintainers of this fork. Do no
     <value>You have unsaved changes. Are you sure you want to close without saving?</value>
   </data>
   <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
-    <value>The version of Bloxstrap you've launched is older than the version you currently have installed.
+    <value>The version of Corestrap you've launched is older than the version you currently have installed.
 Issues may occur and your settings may be altered. A reinstall is recommended.
 Are you sure you want to continue?</value>
   </data>
   <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
     <value>Roblox failed to launch.
 
-This may or may not be a Bloxstrap issue. To find out, see [this help page]({0}).</value>
+This may or may not be a Corestrap issue. To find out, see [this help page]({0}).</value>
   </data>
   <data name="Common.NetworkError" xml:space="preserve">
     <value>Could not load data because of a network error.</value>
@@ -1009,12 +1009,12 @@ This may or may not be a Bloxstrap issue. To find out, see [this help page]({0})
     <value>For this launch, Roblox will not be checked for upgrades, and changes to mods will not be applied.</value>
   </data>
   <data name="Dialog.Connectivity.RobloxUpgradeNeeded" xml:space="preserve">
-    <value>Because Roblox needs to be installed or upgraded, Bloxstrap cannot continue.</value>
+    <value>Because Roblox needs to be installed or upgraded, Corestrap cannot continue.</value>
   </data>
   <data name="Installer.Install.CannotOverwrite" xml:space="preserve">
-    <value>Bloxstrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
+    <value>Corestrap has been installed to this location before and is still present, however the installer cannot overwrite the old executable. 
 
-Please manually delete Bloxstrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
+Please manually delete Corestrap.exe from the install location or try restarting your system, and then retry installation afterwards.</value>
   </data>
   <data name="Common.NotAvailable" xml:space="preserve">
     <value>Not available</value>
@@ -1026,7 +1026,7 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>Configure application parameters such as DPI scaling behaviour and [fullscreen optimizations]({0}).</value>
   </data>
   <data name="Common.RobloxNotInstalled" xml:space="preserve">
-    <value>Roblox has not yet been installed. Please launch Roblox using Bloxstrap at least once before trying to use this option.</value>
+    <value>Roblox has not yet been installed. Please launch Roblox using Corestrap at least once before trying to use this option.</value>
   </data>
   <data name="Installer.ShouldCancel" xml:space="preserve">
     <value>Are you sure you want to cancel the installation?</value>
@@ -1044,13 +1044,13 @@ Please manually delete Bloxstrap.exe from the install location or try restarting
     <value>Extract Roblox icons to folder</value>
   </data>
   <data name="Menu.Shortcuts.ExtractIcons.Description" xml:space="preserve">
-    <value>Allows you to use Bloxstrap's range of Roblox icons for your shortcuts. [See how.]({0})</value>
+    <value>Allows you to use Corestrap's range of Roblox icons for your shortcuts. [See how.]({0})</value>
   </data>
   <data name="Dialog.RegistryWriteError" xml:space="preserve">
-    <value>Bloxstrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Bloxstrap's operation.</value>
+    <value>Corestrap is unable to write to the Windows Registry. An antivirus is likely interfering and causing issues. Please check to make sure there isn't anything that would restrict Corestrap's operation.</value>
   </data>
   <data name="Menu.Bloxstrap.Description" xml:space="preserve">
-    <value>Configure options related to Bloxstrap's behaviour itself.</value>
+    <value>Configure options related to Corestrap's behaviour itself.</value>
   </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>Enable sending of analytics</value>
@@ -1079,7 +1079,7 @@ While enabled, it will automatically launch Roblox after closing Settings, and r
 Would you like to enable test mode?</value>
   </data>
   <data name="About.Translators.Description" xml:space="preserve">
-    <value>All of Bloxstrap's translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Bloxstrap. A massive thank you to everyone here!</value>
+    <value>All of Corestrap's translations are crowdsourced through [Crowdin]({0}). Everyone listed here are people who generously volunteered their time and effort to help localise Corestrap. A massive thank you to everyone here!</value>
   </data>
   <data name="Common.Navigation.Install" xml:space="preserve">
     <value>Install</value>
@@ -1096,7 +1096,7 @@ Would you like to enable test mode?</value>
     <value>Custom</value>
   </data>
   <data name="Bootstrapper.FilesInUse" xml:space="preserve">
-    <value>Bloxstrap tried to upgrade Roblox but can't because Roblox's files are still in use.
+    <value>Corestrap tried to upgrade Roblox but can't because Roblox's files are still in use.
 
 Please close any applications that may be using Roblox's files, and relaunch.</value>
     <comment>This is *not* for when Roblox is still running when trying to upgrade. This applies to files being open (i.e. image assets)</comment>
@@ -1107,7 +1107,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   </data>
   <data name="Common.Export" xml:space="preserve">
     <value>Export</value>
-    <comment>Currently used under the "Bloxstrap" settings tab for the button to export diagnostic data</comment>
+    <comment>Currently used under the "Corestrap" settings tab for the button to export diagnostic data</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.Title" xml:space="preserve">
     <value>Export diagnostic data</value>
@@ -1116,11 +1116,11 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
     <value>Gather information that can be uploaded online to troubleshoot a problem you're having.</value>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportConfig" xml:space="preserve">
-    <value>Bloxstrap configuration</value>
+    <value>Corestrap configuration</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
-    <value>All Bloxstrap logs</value>
+    <value>All Corestrap logs</value>
     <comment>Label that appears next to a checkbox</comment>
   </data>
   <data name="App.OSDeprecation.Win7_81" xml:space="preserve">
@@ -1304,7 +1304,7 @@ Please close any applications that may be using Roblox's files, and relaunch.</v
   <data name="CustomTheme.Errors.SetupFailed" xml:space="preserve">
     <value>Failed to setup custom bootstrapper: {0}.
 Defaulting to {1}.</value>
-    <comment>{0} is the error reason, {1} is the theme name (e.g. Bloxstrap (Classic))</comment>
+    <comment>{0} is the error reason, {1} is the theme name (e.g. Corestrap (Classic))</comment>
   </data>
   <data name="Menu.Appearance.CustomThemes.NoneSelected" xml:space="preserve">
     <value>No custom theme selected.</value>
